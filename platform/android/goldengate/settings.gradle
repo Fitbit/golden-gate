@@ -1,0 +1,10 @@
+rootProject.name='goldengatelib'
+
+include ':RxFitbitGatt'
+include ':GoldenGateBindings'
+include ':linkcontroller'
+include ':GoldenGateConnectionManager'
+include ':remoteapi'
+include ':app'
+
+apply from: new File(settingsDir, "RxFitbitGatt/buildLocal.gradle")

@@ -1,0 +1,16 @@
+#
+# @file
+# @brief SMO lib package file
+#
+# @copyright
+# Copyright 2017 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2017-11-13
+#
+
+pkg.name: libs/gg/external/smo
+pkg.description: Simple Message Object Model
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:

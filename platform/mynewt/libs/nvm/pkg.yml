@@ -1,0 +1,16 @@
+#
+# @file
+# @brief Non-Volatile Memory Access Package
+#
+# @copyright
+# Copyright 2018 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2018-03-07
+#
+
+pkg.name: libs/nvm
+pkg.description: Non-Volatile Memory Access
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:

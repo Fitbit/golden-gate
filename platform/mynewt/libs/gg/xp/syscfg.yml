@@ -1,0 +1,5 @@
+syscfg.defs:
+    # Golden Gate Remote Shell baud rate
+    GG_REMOTE_SHELL_BAUD:
+        description: "GG Remote Shell baud rate"
+        value: 115200

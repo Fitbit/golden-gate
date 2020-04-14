@@ -1,0 +1,13 @@
+[submodule "external/lwip"]
+	path = external/lwip
+	url = https://git.savannah.nongnu.org/git/lwip.git
+[submodule "external/mbedtls"]
+	path = external/mbedtls
+	url = https://github.com/ARMmbed/mbedtls.git
+	branch = mbedtls-2.18
+[submodule "external/xcconfigs"]
+	path = external/xcconfigs
+	url = https://github.com/jspahrsummers/xcconfigs.git
+[submodule "external/workflows"]
+	path = external/workflows
+	url = https://github.com/Carthage/workflows.git

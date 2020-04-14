@@ -1,0 +1,16 @@
+#
+# @file
+# @brief mbedTLS package file
+#
+# @copyright
+# Copyright 2017 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2018-01-16
+#
+
+pkg.name: libs/gg/external/mbedtls
+pkg.description: mbedTLS package
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:

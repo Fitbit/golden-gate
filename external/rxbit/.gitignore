@@ -1,0 +1,26 @@
+# Visual Studio
+.vs
+.vscode
+
+# Xcode
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.framework.zip
+
+# Node
+node_modules
+
+# Ruby
+.ruby-version
+settings.json
+install
+
+# Carthage
+Carthage
+
+# iOS
+.swift-version
+
+# Build dir
+.build/

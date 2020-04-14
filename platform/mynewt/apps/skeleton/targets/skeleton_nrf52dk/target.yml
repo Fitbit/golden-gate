@@ -1,0 +1,4 @@
+### Target: targets/skeleton_nrf52dk
+target.app: "apps/skeleton"
+target.bsp: "@apache-mynewt-core/hw/bsp/nrf52dk"
+target.build_profile: "debug"

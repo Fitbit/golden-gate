@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_step_half">4dp</dimen>
+    <dimen name="margin_step">8dp</dimen>
+    <dimen name="margin_step_2x">16dp</dimen>
+    <dimen name="margin_step_3x">24dp</dimen>
+    <dimen name="margin_step_4x">32dp</dimen>
+</resources>

@@ -1,0 +1,105 @@
+site_name: Golden Gate
+
+use_directory_urls: false
+
+nav:
+  - Home: index.md
+  - Introduction: introduction.md
+  - Getting Started: getting_started.md
+  - Developer Guide:
+    - Overview: guides/index.md
+    - Project Layout: guides/project_layout.md
+    - Build: guides/build.md
+    - Components:
+      - Core Concepts: guides/core_concepts.md
+      - Object-Oriented C: guides/object_oriented_c.md
+      - Portable Runtime: guides/portable_runtime.md
+      - Logging: guides/logging.md
+      - I/O Model: guides/io.md
+      - Loop: guides/loop.md
+      - Events: guides/events.md
+      - CoAP: guides/coap.md
+      - IP: guides/ip.md
+      - Sockets: guides/sockets.md
+      - TLS: guides/tls.md
+      - Stack: guides/stack.md
+      - Gattlink: guides/gattlink.md
+      - Utils: guides/utils.md
+    - Examples: guides/examples.md
+    - Porting: guides/porting.md
+    - Coding Styles:
+      - C: guides/code-styles/c.md
+      - Kotlin: guides/code-styles/kotlin.md
+      - Swift: guides/code-styles/swift.md
+
+    - Documentation: guides/documentation.md
+  - Tools & Apps:
+    - Tools: tools/index.md
+    - Apps: apps/index.md
+    - Stack Tool: tools/stack_tool.md
+    - CoAP Client: tools/coap_client.md
+    - CoAP Server: tools/coap_server.md
+    - Android Host App: apps/android/host_app.md
+    - iOS Host App: apps/ios/host_app.md
+    - MyNewt Apps: apps/mynewt/mynewt_apps.md
+  - Architecture:
+    - Overview: architecture/index.md
+    - Software Architecture: architecture/software_architecture.md
+    - Loop: architecture/loop.md
+    - Gattlink: architecture/gattlink.md
+    - Security: architecture/security.md
+  - API Reference:
+    - Overview: api/index.md
+    - C API Reference: api/c_api.md
+    - Kotlin API Reference: api/kotlin_api.md
+    - Swift API Reference: api/swift_api.md
+  - Platforms:
+    - Overview: platforms/index.md
+    - OS/RTOS Ports: platforms/ports.md
+    - Embedded:
+      - Generic: platforms/embedded.md
+      - MyNewt: platforms/mynewt.md
+      - NuttX: platforms/nuttx.md
+      - ESP32: platforms/esp32.md
+      - Zephyr: platforms/zephyr.md
+    - iOS: platforms/ios.md
+    - Android: platforms/android.md
+    - Linux: platforms/linux.md
+    - macOS: platforms/macos.md
+    - Windows: platforms/windows.md
+  - Transports:
+    - Overview: transports/index.md
+    - Bluetooth: transports/bluetooth.md
+    - Wifi: transports/wifi.md
+  - About:
+    - Glossary: glossary.md
+    - FAQ: faq.md
+    - License: license.md
+    - Release Notes: release_notes.md
+  #- Test: sample.md
+
+copyright: © 2020 Fitbit, Inc. All rights reserved.
+
+theme:
+  name: 'material'
+  icon:
+      logo: 'material/library'
+  custom_dir: 'theme'
+
+docs_dir: 'src'
+
+# Repo info
+repo_name: Fitbit/golden-gate
+repo_url: https://github.com/Fitbit/golden-gate
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true

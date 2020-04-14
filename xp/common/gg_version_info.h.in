@@ -1,0 +1,31 @@
+/**
+ * @file
+ * @brief Golden Gate Version Info
+ *
+ * @copyright
+ * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ *
+ * @author Michael Hoyt
+ *
+ * @date 2017-11-29
+ */
+
+#pragma once
+
+#include <stdint.h>
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
+#define GG_MAJOR_VERSION    0
+#define GG_MINOR_VERSION    1
+#define GG_PATCH_VERSION    0
+
+#define GG_GIT_COMMIT_HASH  "@GG_GIT_COMMIT_HASH@"
+#define GG_GIT_BRANCH       "@GG_GIT_BRANCH_NAME@"
+#define GG_GIT_COMMIT_COUNT @GG_GIT_COMMIT_COUNT@
+
+#if defined(__cplusplus)
+}
+#endif

@@ -1,0 +1,39 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = '0.8.3'
+}
+
+project.afterEvaluate {
+    task "testDebugCoverage" (type: JacocoReport, dependsOn: "testDebugUnitTest") {
+        group = "Reporting"
+        description = "Generate Jacoco coverage reports on testDebugUnitTest build"
+
+        def javaClassTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: [
+                '**/R.class',
+                '**/R$*.class',
+                '**/*$ViewInjector*.*',
+                '**/*$ViewBinder*.*',
+                '**/BuildConfig.*',
+                '**/Manifest*.*'
+        ] )
+
+        def kotlinClassTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug")
+
+        classDirectories = files([javaClassTree], [kotlinClassTree])
+
+        def coverageSourceDirs = [
+                "src/main/java",
+                "src/main/kotlin",
+                "src/main/cpp"
+        ]
+        additionalSourceDirs = files(coverageSourceDirs)
+        sourceDirectories = files(coverageSourceDirs)
+        executionData = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
+
+        reports {
+            xml.enabled = true
+            html.enabled = true
+        }
+    }
+}

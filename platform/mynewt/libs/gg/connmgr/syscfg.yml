@@ -1,0 +1,9 @@
+syscfg.defs:
+    # Golden Gate Connection Manager Type. Only one type can be enabled at a time.
+    GG_CONNMGR_CENTRAL:
+        description: "Enable the GG Central Connection Manager Type (0/1)."
+        value: 0
+
+    GG_CONNMGR_PERIPHERAL:
+        description: "Enable the GG Peripheral Connection Manager Type (0/1)."
+        value: 0

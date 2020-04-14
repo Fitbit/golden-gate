@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_step"
+        android:layout_marginRight="@dimen/margin_step"
+        android:text="@string/scan_item_name"
+        android:textStyle="bold"
+        android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <TextView
+        android:id="@+id/bluetooth_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_step"
+        android:layout_marginRight="@dimen/margin_step"
+        android:text="@string/scan_item_address"
+        android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <TextView
+        android:id="@+id/device_origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_step"
+        android:layout_marginRight="@dimen/margin_step"
+        android:text="@string/scan_item_origin"
+        android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <TextView
+        android:id="@+id/rssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_step"
+        android:layout_marginRight="@dimen/margin_step"
+        android:text="@string/scan_item_rssi"
+        android:textAppearance="?attr/textAppearanceListItem"/>
+
+</LinearLayout>

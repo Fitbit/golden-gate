@@ -1,0 +1,33 @@
+android {
+
+    compileSdkVersion 29
+    buildToolsVersion "$BUILD_TOOLS_VERSION"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            consumerProguardFile 'proguard-rules.pro'
+        }
+        library {
+            debuggable true
+            minifyEnabled false
+            testCoverageEnabled false
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+            test.java.srcDirs += 'src/test/kotlin'
+        }
+    }
+}

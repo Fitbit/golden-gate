@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+                android:padding="@dimen/margin_step_2x"
+        >
+
+    <TextView
+            android:id="@+id/peripheral_name"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/margin_step_half"/>
+
+    <TextView
+            android:id="@+id/peripheral_address"
+            android:layout_below="@+id/peripheral_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <Button
+            android:id="@+id/connect"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/connectCentralMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <ImageButton
+            android:id="@+id/favorite"
+            android:src="@mipmap/ic_favorite_selected"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/connect"
+            android:layout_marginStart="@dimen/margin_step"
+            android:layout_width="24dp"
+            android:layout_height="24dp"/>
+
+</RelativeLayout>

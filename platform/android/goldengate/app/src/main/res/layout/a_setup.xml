@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/start_button"
+            android:layout_alignParentTop="true"
+            android:scrollbarDefaultDelayBeforeFade="1500"
+            android:layout_margin="@dimen/margin_step">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/configLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stack Configuration"/>
+
+            <RadioGroup
+                    android:id="@+id/radioGroupConfiguration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/configLabel">
+
+                <RadioButton
+                        android:id="@+id/rb_gattlink"
+                        style="@style/LargerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_step_half"
+                        android:layout_marginTop="@dimen/margin_step_half"
+                        android:text="Gattlink Only"/>
+
+                <RadioButton
+                        android:id="@+id/rb_gl_udp"
+                        style="@style/LargerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_step_half"
+                        android:layout_marginTop="@dimen/margin_step_half"
+                        android:text="Gattlink + UDP"/>
+
+                <RadioButton
+                        android:id="@+id/rb_gl_udp_dtls"
+                        style="@style/LargerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_step_half"
+                        android:layout_marginTop="@dimen/margin_step_half"
+                        android:text="Gattlink + UDP w/ DTLS"
+                        android:checked="true"/>
+
+                <RadioButton
+                        android:id="@+id/rb_bsd_socket_coap"
+                        style="@style/LargerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_step_half"
+                        android:layout_marginTop="@dimen/margin_step_half"
+                        android:text="BSD Socket"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/labelService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stack Service"
+                android:layout_marginTop="14dp"
+                android:layout_below="@id/radioGroupConfiguration"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelService">
+
+                <RadioButton
+                    android:id="@+id/rb_coap"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step_half"
+                    android:layout_marginBottom="@dimen/margin_step_half"
+                    android:checked="true"
+                    android:text="Coap" />
+
+                <RadioButton
+                    android:id="@+id/rb_blaster"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step_half"
+                    android:layout_marginBottom="@dimen/margin_step_half"
+                    android:text="Blaster" />
+
+                <LinearLayout
+                    android:id="@+id/packet_size_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/packet_size_spinner_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="Packet Size" >
+                    </TextView>
+                    <Spinner
+                        android:id="@+id/packet_size_spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" >
+                    </Spinner>
+                </LinearLayout>
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:id="@+id/container_edit_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radioGroupService">
+
+                <TextView
+                    android:id="@+id/labelIpAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IP Address"
+                    android:layout_marginTop="14dp"/>
+
+                <TextView
+                    android:id="@+id/text_local_ip"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/labelIpAddress"
+                    android:labelFor="@+id/edit_local_ip"
+                    android:text="Local IP"/>
+
+                <EditText
+                    android:id="@+id/edit_local_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/text_local_ip"
+                    android:digits="0123456789."
+                    android:ems="12"
+                    android:inputType="number"/>
+
+                <TextView
+                    android:id="@+id/text_local_port"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/edit_local_port"
+                    android:layout_below="@id/labelIpAddress"
+                    android:labelFor="@+id/edit_local_port"
+                    android:text="Port"/>
+
+                <EditText
+                    android:id="@+id/edit_local_port"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/edit_local_ip"
+                    android:layout_marginStart="@dimen/margin_step_3x"
+                    android:layout_toEndOf="@id/edit_local_ip"
+                    android:digits="0123456789"
+                    android:ems="4"
+                    android:hint="@string/default_port"
+                    android:inputType="number"/>
+
+                <TextView
+                    android:id="@+id/text_remote_ip"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_local_ip"
+                    android:labelFor="@+id/edit_remote_ip"
+                    android:text="Remote IP"/>
+
+                <EditText
+                    android:id="@+id/edit_remote_ip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/text_remote_ip"
+                    android:digits="0123456789."
+                    android:ems="12"
+                    android:inputType="number"/>
+
+                <TextView
+                    android:id="@+id/text_remote_port"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/edit_remote_port"
+                    android:layout_below="@id/edit_local_port"
+                    android:labelFor="@+id/edit_remote_port"
+                    android:text="Port"/>
+
+                <EditText
+                    android:id="@+id/edit_remote_port"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/edit_remote_ip"
+                    android:layout_marginStart="@dimen/margin_step_3x"
+                    android:layout_toEndOf="@id/edit_remote_ip"
+                    android:digits="0123456789"
+                    android:ems="4"
+                    android:hint="@string/default_port"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+            android:id="@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:text="Start"
+            android:textColor="@android:color/white"/>
+
+</RelativeLayout>

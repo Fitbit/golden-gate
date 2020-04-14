@@ -1,0 +1,12 @@
+module Rxbit {
+    umbrella header "Rxbit.h"
+    
+    export *
+    module * { export * }
+}
+
+module Rxbit.Swift {
+    header "Rxbit-Swift.h"
+    requires objc
+}
+

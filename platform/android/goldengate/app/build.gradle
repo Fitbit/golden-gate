@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+def hostVersionCode = System.getenv("BUILD_NUMBER") != null ? System.getenv("BUILD_NUMBER").toInteger() : DEV_VERSION.toInteger()
+def hostVersionName = sprintf("$HOST_VERSION", hostVersionCode)
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('./keystore')
+            storePassword 'android'
+            keyAlias = 'fitbit'
+            keyPassword 'android'
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion "$BUILD_TOOLS_VERSION"
+    defaultConfig {
+        applicationId "com.fitbit.goldengatehost"
+        minSdkVersion 21
+        targetSdkVersion 28
+        ndkVersion "21.0.6113669"
+        ext.code = System.getenv("BUILD_NUMBER")
+        versionCode hostVersionCode
+        versionName hostVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            consumerProguardFile 'proguard-rules.pro'
+        }
+        library {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+    android {
+        compileOptions {
+            sourceCompatibility 1.8
+            targetCompatibility 1.8
+        }
+    }
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/kotlin'
+        }
+    }
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+        }
+    }
+}
+
+dependencies {
+    implementation project(':linkcontroller')
+    implementation project(':RxFitbitGatt')
+    implementation project(':GoldenGateBindings')
+    implementation project(':GoldenGateConnectionManager')
+    implementation project(':remoteapi')
+
+    implementation "com.fitbit.bluetooth.fbgatt:fitbitgatt:$BITGATT_VERSION:library@aar"
+    implementation "androidx.constraintlayout:constraintlayout:$ANDROIDX_CONSTRAINTLAYOUT_VERSION"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
+    implementation "androidx.legacy:legacy-support-v4:$ANDROIDX_LEGACY_SUPPORT_V4_VERSION"
+    implementation "androidx.recyclerview:recyclerview:$ANDROIDX_RECYCLEVIEW_VERSION"
+    testImplementation "junit:junit:$JUNIT_VERSION"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+    implementation "com.google.android.material:material:$ANDROID_MATERIAL_VERSION"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+}

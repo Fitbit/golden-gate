@@ -1,0 +1,1 @@
+../../../docs/src/tools/stack_tool.md

@@ -1,0 +1,19 @@
+pkg.name: apps/gg_central
+pkg.type: app
+
+pkg.deps:
+    - "@apache-mynewt-core/kernel/os"
+    - "@apache-mynewt-core/hw/hal"
+    - "@apache-mynewt-core/sys/console/full"
+    - "@apache-mynewt-core/sys/log/stub"
+    - "@apache-mynewt-core/sys/shell"
+    - "@apache-mynewt-core/sys/stats/stub"
+    - "@apache-mynewt-core/sys/sysinit"
+    - "@apache-mynewt-core/libc/baselibc"
+    - libs/gg/xp
+    - libs/gg/connmgr
+    - libs/nvm
+
+pkg.cflags:
+    - -DGG_CONFIG_ENABLE_LOGGING
+    - -DGG_CONFIG_PLATFORM=GG_PLATFORM_PYLON

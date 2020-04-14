@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'org.jetbrains.dokka-android'
+    id 'com.jfrog.artifactory'
+    id 'maven-publish'
+}
+
+apply from: '../jacoco.gradle'
+
+def packageName = 'com.fitbit.linkcontroller'
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+apply from: '../gg_lib_android_build.gradle'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':RxFitbitGatt')
+    implementation "com.fitbit.bluetooth.fbgatt:fitbitgatt:$BITGATT_VERSION:library@aar"
+    implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+    implementation "com.google.android.material:material:$ANDROID_MATERIAL_VERSION"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+}
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+    reportUndocumented = true
+
+    packageOptions {
+        prefix = "com.fitbit.goldengate.linkcontroller"
+        suppress = true
+    }
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId packageName
+            version = libraryVersionName
+            artifactId project.getName()
+
+            artifact sourceJar
+            artifact ("$buildDir/outputs/aar/linkcontroller-${publishVariant}.aar")
+        }
+    }
+}
+
+setupPublishDependency(artifactoryPublish)

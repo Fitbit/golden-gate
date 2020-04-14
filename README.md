@@ -3,7 +3,8 @@ Project Golden Gate
 
 ![Golden Gate bridge image - public domain photo via Good Free Photos](docs/src/golden_gate_bridge.jpg)
 
-> :warning: **Work In Progress**
+> :warning: **Work In Progress** 
+>
 > This documentation is not yet complete. As we migrate the project from
 > an internal project to one that can be shared with others, we are busy
 > migrating some of the documentation from internal Wiki pages, Google docs
@@ -43,7 +44,7 @@ The project consists of:
   * iPhones and iPads
   * Android phones and tablets
   * Desktops and laptops (macOS, Linux, Windows)
-  * Embedded development boards (nRF52840-DK, Espressif ESP32, ...)
+  * Embedded development boards (Nordic nRF52840-DK, Espressif ESP32, ...)
 
 By integrating the library in your own app or IoT device, leveraging some of 
 the examples included in the project, you will be able to start building your 

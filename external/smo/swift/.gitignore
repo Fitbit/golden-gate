@@ -1,0 +1,8 @@
+.DS_Store
+/.build
+/.spm-project
+/Packages
+
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint

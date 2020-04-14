@@ -1,0 +1,5 @@
+gg_add_test(test_gg_sockets.cpp "gg-sockets;gg-common;gg-loop")
+
+if (GG_PORTS_ENABLE_BSD_SOCKETS)
+    gg_add_test(test_gg_bsd_sockets.cpp "gg-sockets;gg-common;gg-loop")
+endif()

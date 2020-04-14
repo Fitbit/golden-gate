@@ -1,0 +1,25 @@
+/**
+ * This gradle file allows a local fitbitgatt repo to be used instead of the artifactory build for live editing
+ *
+ * To use this feature, add an entry in your local.properties file like so:
+ * fbgattlib.dir=/Users/<username>/work/git/fitbitgatt
+ *
+ * The path is absolute and should point directly to the fitbitgatt library project root
+ */
+def localProperties = file("../local.properties")
+if (localProperties.exists()) {
+    Properties properties = new Properties()
+    properties.load(localProperties.newDataInputStream())
+
+    def path = properties.getProperty('fbgattlib.dir', null)
+    if (path != null && file(path).exists()) {
+        println("Using local FitbitGatt Android library: " + path)
+        includeBuild(path) {
+            dependencySubstitution {
+                substitute module("com.fitbit.bluetooth.fbgatt:fitbitgatt") with project(':')
+            }
+        }
+    } else {
+        println("Using artifactory FitbitGatt Android library")
+    }
+}

@@ -1,0 +1,19 @@
+#
+# @file
+# @brief protobuf-debug-annotations package file
+#
+# @copyright
+# Copyright 2017-2018 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2018-07-09
+#
+
+pkg.name: libs/gg/external/protobuf-debug-annotations
+pkg.description: protobuf-debug-annotations package
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:
+
+pkg.ign_files:
+    - "(All)?.pb.c"

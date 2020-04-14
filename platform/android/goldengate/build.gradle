@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.8.1"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17"
+        classpath 'org.codehaus.groovy:groovy-all:2.4.15' //Something (jacoco?) depends on this but it doesn't get brought in until later, causing a conflict
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+if (rootProject.hasProperty("publish.buildType")) {
+    ext.publishVariant = rootProject.properties["publish.buildType"]
+} else {
+    ext.publishVariant = "library" //this is library and not debug because library removes jacoco to avoid conflicts when brought in as a library
+}
+
+ext.buildNumber = System.getenv("BUILD_NUMBER") != null ? System.getenv("BUILD_NUMBER").toInteger() : DEV_VERSION.toInteger()
+
+if (publishVariant.equals("release")) {
+    if (System.getenv("BUILD_NUMBER") == null) {
+        println "Please only publish release versions from Jenkins. The build with now FAIL"
+        throw new RuntimeException("Please only publish release versions from Jenkins")
+    }
+    ext.libraryVersionName = sprintf("$RELEASE_VERSION", buildNumber)
+} else {
+    ext.libraryVersionName = sprintf("$LIBRARY_VERSION", buildNumber)
+}
+
+ext.setupPublishDependency = { publishTask ->
+    switch(publishVariant) {
+        case "release":
+            publishTask.dependsOn('assembleRelease')
+            break
+        case "library":
+            publishTask.dependsOn ('assembleLibrary')
+            break
+        default:
+            println "Must set published build type to either 'library' or 'release'. '$publishVariant' is not valid. The build will now FAIL"
+            throw new RuntimeException("Must set published build type to either 'library' or 'release'. '$publishVariant' is not valid. ")
+    }
+}
+
+apply plugin: 'org.sonarqube'
+
+task testDebugCoverage
+project.tasks["sonarqube"].dependsOn "testDebugCoverage"
+sonarqube {
+    properties {
+        property 'sonar.projectKey', 'com.fitbit.goldengate.android'
+        property 'sonar.projectName', 'Golden Gate Android'
+        property 'sonar.sourceEncoding', 'UTF-8'
+        property 'sonar.java.coveragePlugin', 'jacoco'
+        property 'sonar.jacoco.reportPaths', './build/jacoco/testDebugUnitTest.exec'
+        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/testDebugCoverage/testDebugCoverage.xml'
+
+    }
+}
+project(":app") {
+    sonarqube {
+        skipProject = true
+    }
+}
+
+//TODO FC-1547 Figure out how to combine Jacoco reports from Bindings and Connection Manager

@@ -1,0 +1,4 @@
+### Target: targets/boot_feather
+target.app: "@apache-mynewt-core/apps/boot"
+target.bsp: "@apache-mynewt-core/hw/bsp/ada_feather_nrf52"
+target.build_profile: "optimized"

@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">GoldenGateHost</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connectCentralMode">Connect</string>
+    <string name="gg_devices">Golden Gate Devices</string>
+    <string name="select_device">Select device</string>
+    <string name="version"><u>Version</u></string>
+    <string name="version_number">Version: %1$d.%2$d.%3$d\nBranch Name: %4$s
+        \nCommit Hash: %5$s\nBuild Date: %6$s\nBuild Time: %7$s</string>
+    <string name="advertising_status">Advertising Status: %1$s</string>
+    <string name="connection_disconnected_with_error">Gatt Disconnected (error code = %1$d)</string>
+    <string name="connection_disconnected">Gatt Disconnected</string>
+    <string name="handshake_status">Handshake Status: %1$s</string>
+    <string name="gattlink_status">Gattlink Status: %1$s</string>
+    <string name="default_port">(default)</string>
+    <string name="label_response_time">Coap Response Time: %1$s ms</string>
+    <string name="label_log_coap">CoapMessage: %1$s</string>
+    <string name="title_activity_bsd_coap">CoAP</string>
+
+    <string name="link_controller_setup">Link Controller Setup</string>
+    <string name="title_activity_scan">Scan</string>
+    <string name="title_activity_coap">CoAP Client</string>
+    <string name="title_activity_blast">Blast</string>
+
+    <string name="scan_item_name">Name: %s</string>
+    <string name="scan_item_address">Address: %s</string>
+    <string name="scan_item_origin">Device Origin: %s</string>
+    <string name="scan_item_rssi">Rssi: %s</string>
+    <string name="helloworld">helloworld</string>
+    <string name="sync_dump">sync/dump</string>
+    <string name="enable_slow_logging">Enable Slow Logging</string>
+
+</resources>

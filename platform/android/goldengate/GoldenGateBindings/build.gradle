@@ -1,0 +1,162 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.jetbrains.dokka-android'
+    id 'com.jfrog.artifactory'
+    id 'maven-publish'
+}
+
+def packageName = 'com.fitbit.goldengate.bindings'
+
+apply from: '../gg_lib_android_build.gradle'
+
+android {
+
+    defaultConfig {
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
+        }
+        ndkVersion "21.0.6113669"
+        externalNativeBuild {
+            cmake {
+                def ndkDir = android.ndkDirectory
+                arguments "-DGG_ENABLE_UNIT_TESTS=FALSE", "-DANDROID_NDK=${ndkDir}"
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    sourceSets {
+        main {
+            /* src directory for the xp shared library. Allows navigation to XP source in Android Studio */
+            jni.srcDirs += '../../../../xp/'
+
+            // These two are necessary to point gradle at the .so / .dylib files needed to run the app / unit tests
+            jniLibs.srcDirs = ['../../../../xp/build/cmake/android/']
+            test.jniLibs.srcDirs = ['../../../../xp/build/cmake/native/']
+        }
+    }
+}
+
+def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/unix/'
+
+task buildNativeXpLibrary(type: Exec) {
+    workingDir projectDir.absolutePath + '../../../../..' //Root dir of golden-gate project
+    commandLine 'invoke'
+    args 'native.build'
+}
+
+task makeUnixBuildDir() {
+    def folder = new File(unixBuildDir)
+    if (!folder.exists()) {
+        folder.mkdirs()
+    }
+}
+
+task unixCMake(type: Exec) {
+    dependsOn buildNativeXpLibrary, makeUnixBuildDir
+    workingDir unixBuildDir
+    commandLine 'cmake' //just use native cmake; hopefully it's in everyone's PATH
+    def ndkDir = android.ndkDirectory
+    args "../../../../", //get back from unix build dir to GoldenGateBindings dir.
+            "-DGG_ENABLE_UNIT_TESTS=TRUE",
+            "-DGG_COVERAGE=TRUE",
+            "-DANDROID_NDK=${ndkDir}"
+}
+
+task unixMake(type: Exec) {
+    dependsOn unixCMake
+    workingDir unixBuildDir
+    commandLine 'make'
+}
+
+task unixClean(type: Delete) {
+    delete unixBuildDir
+}
+
+project.afterEvaluate {
+    if (org.gradle.internal.os.OperatingSystem.current().isUnix()) {
+        javaPreCompileDebugUnitTest.dependsOn unixMake
+        externalNativeBuildCleanDebug.dependsOn unixClean
+    }
+
+    //For reasons I don't understand, when this task is run via being included in the GoldenGateHost app,
+    //It doesn't execute because it's erroneously marked as up-to-date. Hardcoding this here until a better
+    //solution is found.
+    generateJsonModelDebug.outputs.upToDateWhen {false}
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "junit:junit:$JUNIT_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    implementation "androidx.annotation:annotation:$ANDROIDX_APPCOMPAT_VERSION"
+    implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+    ktlint "com.github.shyiko:ktlint:0.14.0"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
+}
+
+task ktlint (type: JavaExec, group: "verification") {
+    description "Check Kotlin code style"
+    classpath configurations.ktlint
+    main "com.github.shyiko.ktlint.Main"
+    args "src/**/*.kt"
+}
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.github.shyiko.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
+
+apply from: '../jacoco.gradle'
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+    reportUndocumented = true
+}
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.kotlin.srcDirs
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId packageName
+            version = libraryVersionName
+            artifactId project.getName()
+
+            artifact(sourceJar)
+            artifact ("$buildDir/outputs/aar/GoldenGateBindings-${publishVariant}.aar")
+        }
+    }
+}
+
+//For some reason the default clean task doesn't do this
+task externalNativeBuildClean(type: Delete) {
+    delete '.externalNativeBuild/cmake'
+}
+
+clean {
+    dependsOn {
+        externalNativeBuildClean
+    }
+}
+
+setupPublishDependency(artifactoryPublish)

@@ -1,0 +1,30 @@
+#
+# @file
+# @brief GG Connection Manager package file
+#
+# @copyright
+# Copyright 2017 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2017-12-14
+#
+
+pkg.name: libs/gg/connmgr
+pkg.description: Golden Gate Connection Manager code
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:
+
+pkg.deps:
+    - "@apache-mynewt-core/hw/hal"
+    - "@apache-mynewt-core/kernel/os"
+    - "@apache-mynewt-nimble/nimble/controller"
+    - "@apache-mynewt-nimble/nimble/host"
+    - "@apache-mynewt-nimble/nimble/host/services/gap"
+    - "@apache-mynewt-nimble/nimble/host/services/gatt"
+    - "@apache-mynewt-nimble/nimble/host/store/ram"
+    - "@apache-mynewt-nimble/nimble/transport/ram"
+    - libs/nvm
+
+pkg.cflags:
+    - -DGG_CONFIG_ENABLE_LOGGING

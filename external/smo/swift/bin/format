@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -euo pipefail
+
+FAILURE=""
+
+# Regenerate the XCTestManifest.swift
+swift test --generate-linuxmain
+
+# Fix lint issues where possible
+if type swiftlint &> /dev/null; then
+    swiftlint autocorrect
+else
+    echo "Command not found: swiftlint"
+    FAILURE=1
+fi
+
+# Generate the Xcode project
+if type xcodegen &> /dev/null; then
+    xcodegen
+else
+    echo "Command not found: xcodegen"
+    FAILURE=1
+fi
+
+if [ -n "$FAILURE" ]; then
+    echo "Please do not submit this pull-request!"
+    exit 1
+fi

@@ -1,0 +1,2 @@
+mock-maker-inline
+The line above configures mockito to allow it to mock final classes

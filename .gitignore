@@ -1,0 +1,84 @@
+*~
+*.swp
+*.swo
+*.a
+*.o
+.DS_Store
+.deps
+.phutil_module_cache
+.gdb_history
+.gdb_out
+.gdb_cmds
+cscope.out
+coverage
+
+# Brew
+Brewfile.lock.json
+
+# CMake
+CMakeScripts
+Makefile
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+xp/build/cmake
+
+# Visual Studio
+.vs
+.vscode
+
+# Xcode
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+*.framework.zip
+
+# Python
+.python-version
+*.pyc
+.eggs
+*.egg
+.pytest_cache
+*.egg-info
+.cache
+
+# Node
+node_modules
+
+# Ruby
+.ruby-version
+settings.json
+install
+
+# Apple
+platform/apple/build
+platform/apple/output
+
+# Mynewt
+platform/mynewt/apps/skeleton/bin
+platform/mynewt/apps/skeleton/obj
+platform/mynewt/apps/skeleton/repos
+platform/mynewt/apps/gg-tool/bin
+platform/mynewt/apps/gg-tool/obj
+platform/mynewt/apps/gg-tool/repos
+project.state
+.app.db
+.app
+
+# Carthage
+Carthage
+
+# iOS
+.swift-version
+
+# XCode/CMake generated files
+xp/build/generated/**
+!xp/build/generated/README.txt
+platform/apple/xp/generated/xp/**
+platform/esp32/gg_peripheral/build
+
+# Docs
+docs/src/api/doxygen
+docs/src/api/javadoc
+docs/doxygen
+docs/site

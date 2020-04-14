@@ -1,0 +1,33 @@
+#
+# @file
+# @brief GG XP lib package file
+#
+# @copyright
+# Copyright 2017 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2017-11-13
+#
+
+pkg.name: libs/gg/xp
+pkg.description: Golden Gate XP code
+pkg.author: "Bogdan Davidoaia <bdavidoaia@fitbit.com>"
+pkg.homepage:
+
+pkg.ign_files:
+    - "(All)?/CMakeFiles/(All)?"
+    - "(All)?.pb.c"
+
+pkg.src_dirs:
+    - "cmake_pylon/"
+    - "src/common/ports/mynewt/"
+
+pkg.deps:
+    - "@apache-mynewt-core/kernel/os"
+    - libs/gg/external/smo
+    - libs/gg/tls
+    - libs/nvm
+
+pkg.cflags:
+    - -DGG_CONFIG_ENABLE_LOGGING

@@ -1,0 +1,6 @@
+# External
+github "Polidea/RxBluetoothKit" == 5.3.0
+github "ReactiveX/RxSwift" ~> 5.0.1
+github "fpillet/NSLogger" == 1.9.7
+github "daltoniam/Starscream" "a2ed45c0b2f996cb8c335c4f270ecc68c3bd4c0f"
+#git "ssh://git@source.fitbit.com/ios/rxbit.git" "master"

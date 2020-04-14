@@ -1,0 +1,7 @@
+### Package: targets/gg_peripheral_nrf52840pdk
+pkg.name: "targets/gg_peripheral_nrf52840pdk"
+pkg.type: "target"
+pkg.description:
+pkg.author:
+pkg.homepage:
+pkg.cflags: --specs=nano.specs

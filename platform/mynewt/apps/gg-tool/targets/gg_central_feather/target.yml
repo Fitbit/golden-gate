@@ -1,0 +1,4 @@
+### Target: targets/gg_central_feather
+target.app: "apps/gg_central"
+target.bsp: "@apache-mynewt-core/hw/bsp/ada_feather_nrf52"
+target.build_profile: "optimized"

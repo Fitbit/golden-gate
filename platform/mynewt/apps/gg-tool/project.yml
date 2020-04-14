@@ -1,0 +1,25 @@
+#
+# @file
+# @brief GG Shell project yml file
+#
+# @copyright
+# Copyright 2017 by Fitbit, Inc., all rights reserved.
+#
+# @author Bogdan Davidoaia
+#
+# @date 2017-11-24
+#
+
+project.name: "gg_tool"
+
+project.repositories:
+    - apache-mynewt-core
+
+# Use github's distribution mechanism for core ASF libraries.
+# This provides mirroring automatically for us.
+#
+repository.apache-mynewt-core:
+    type: github
+    vers: 1.7.0
+    user: apache
+    repo: mynewt-core

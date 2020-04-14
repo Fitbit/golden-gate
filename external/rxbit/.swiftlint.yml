@@ -1,0 +1,109 @@
+opt_in_rules: # some rules are only opt-in
+  - closure_end_indentation
+  - closure_spacing
+  # - conditional_returns_on_newline
+  - empty_count
+  - explicit_init
+  - first_where
+  # - force_unwrapping
+  - operator_usage_whitespace
+  - sorted_imports
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - .build
+
+disabled_rules: # rule identifiers to exclude from running
+  - class_delegate_protocol
+  - todo
+  # The following rules are covered by arcanist's text linter
+  # which also supports auto-fixing of these issues.
+  - line_length
+  - trailing_newline
+  - trailing_whitespace
+
+custom_rules:
+  comments_space: # From https://github.com/brandenr/swiftlintconfig
+    name: "Space After Comment"
+    regex: '(^[ \t]*[/]{2,3}\w+)'
+    message: "There should be a space after // or ///"
+    severity: warning
+  no_print:
+    name: "Print Statement"
+    regex: '(\bprint\()'
+    message: "Print statements are not allowed, consider using logging mechanisms instead."
+    severity: warning
+    match_kinds: identifier
+  no_rx_debug:
+    name: "Rx Debug Statement"
+    regex: '(\.\bdebug\()'
+    message: "Rx debug statements are not allowed, consider using .logInfo, .logDebug or .logVerbose mechanisms instead."
+    severity: warning
+    match_kinds: identifier
+  disabled_quick_test:
+    name: "Disabled test"
+    regex: '(\b(xit|xdescribe|xcontext)\()'
+    message: "Tests should not be commited disabled. Consider silencing this warning with a comment why the test is disabled."
+    severity: warning
+    match_kinds: identifier
+  focused_quick_test:
+    name: "Focused test"
+    regex: '(\b(fit|fdescribe|fcontext)\()'
+    message: "Tests should not be commited focused."
+    severity: warning
+    match_kinds: identifier
+  no_throws_with_promise:
+    name: "No Throws on Promise-returning functions"
+    regex: 'throws\s*->\s*Promise<'
+    message: "Return a rejected Promise instead of throwing an error."
+    severity: warning
+  todo_needs_jira:
+    name: "Every TODO/FIXME must mention an associated JIRA ticket"
+    regex: '^[ \t]*[/]{2,3}\s*(TODO|FIXME)(?!.*[A-Z]+-[0-9]+.*)'
+    message: "Example: TODO: IPD-12345 Actually integrate with WebService"
+    severity: warning
+  only_todo:
+    name: "Use TODO/FIXME exclusively"
+    # Also add some exceptions to common abbreviations
+    # that might appear in comments (like MARK)
+    regex: '^[ \t]*[/]{2,3}\s*(?!TODO|FIXME|MARK|WTF|NOTE|WARNING|NOOP|XML|JSON|UTF)[A-Z!?]{3,}($|\s|\b)'
+    message: "This makes our code base easier to search."
+    severity: warning
+  no_empty_nslocalizedstring_comments:
+    name: "No empty comments in NSLocalizedString"
+    regex: 'comment: ""\)'
+    message: "Always provide a comment for translators to understand the source string context"
+    severity: warning
+
+# force_cast: warning
+
+cyclomatic_complexity:
+  ignores_case_statements: true
+  warning: 20
+
+file_length:
+  warning: 400
+  error: 1000
+
+identifier_name:
+  min_length: 3
+  max_length:
+    warning: 40
+    error: 60
+  excluded:
+    - gg
+    - id
+    - io
+
+large_tuple:
+  warning: 3
+  error: 4
+
+type_body_length:
+  warning: 300
+  error: 400
+
+trailing_comma:
+  mandatory_comma: false
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)

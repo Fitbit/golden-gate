@@ -1,0 +1,7 @@
+### Package: targets/boot_nrf52840pdk_dle
+pkg.name: "targets/boot_nrf52840pdk_dle"
+pkg.type: "target"
+pkg.description:
+pkg.author:
+pkg.homepage:
+

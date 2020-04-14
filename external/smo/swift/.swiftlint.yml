@@ -1,0 +1,27 @@
+excluded:
+  - .build
+  - Tests/FbSmoTests/XCTestManifests.swift
+  - Sources/FbSmo/FbSmoDecoder+Options.swift
+  - Sources/FbSmo/FbSmoEncoder+Options.swift
+
+included:
+  - Sources
+  - Tests
+  - Package.swift
+
+# SPM also prefers this
+trailing_comma:
+  mandatory_comma: true
+
+line_length:
+  warning: 160
+
+identifier_name:
+  excluded:
+    - __allTests
+    - x
+    - y
+
+type_name:
+  allowed_symbols:
+    - "_"

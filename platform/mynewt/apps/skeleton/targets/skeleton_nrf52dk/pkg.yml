@@ -1,0 +1,6 @@
+### Package: targets/skeleton_nrf52dk
+pkg.name: "targets/skeleton_nrf52dk"
+pkg.type: "target"
+pkg.description:
+pkg.author:
+pkg.homepage:

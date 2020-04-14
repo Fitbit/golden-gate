@@ -1,0 +1,1 @@
+../../docs/src/platforms/android.md

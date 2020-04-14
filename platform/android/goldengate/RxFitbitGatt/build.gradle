@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'org.jetbrains.dokka-android'
+    id 'com.jfrog.artifactory'
+    id 'maven-publish'
+    id "org.sonarqube"
+}
+
+def packageName = 'com.fitbit.bluetooth.fbgatt.rx'
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+apply from: '../gg_lib_android_build.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.fitbit.bluetooth.fbgatt:fitbitgatt:$BITGATT_VERSION:library@aar"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
+    implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+    implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+
+
+    testImplementation "junit:junit:$JUNIT_VERSION"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
+    testImplementation "org.robolectric:robolectric:$ROBOLECTRIC_VERSION"
+}
+
+sonarqube {
+    androidVariant 'debug'
+}
+
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+    reportUndocumented = true
+}
+
+apply from: '../jacoco.gradle'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId packageName
+            version = libraryVersionName
+            artifactId project.getName()
+
+            artifact sourceJar
+            artifact ("$buildDir/outputs/aar/RxFitbitGatt-${publishVariant}.aar")
+        }
+    }
+}
+
+setupPublishDependency(artifactoryPublish)

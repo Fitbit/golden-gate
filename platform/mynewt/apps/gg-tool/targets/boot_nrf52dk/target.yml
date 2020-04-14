@@ -1,0 +1,4 @@
+### Target: targets/boot_nrf52dk
+target.app: "@apache-mynewt-core/apps/boot"
+target.bsp: "@apache-mynewt-core/hw/bsp/nrf52dk"
+target.build_profile: "optimized"

@@ -1,0 +1,34 @@
+<resources>
+    <string name="link_controller_setup">Link Controller Setup</string>
+    <string name="link_status_service">Link Status Service</string>
+    <string name="connection_configuration">Current Connection Configuration</string>
+    <string name="connection_interval">Connection Interval: %1$.2f</string>
+    <string name="connection_latency">Slave Latency: %1$d</string>
+    <string name="connection_timeout">Supervision timeout: %1$d</string>
+    <string name="connection_mtu">MTU: %1$d</string>
+    <string name="connection_speed_mode">Speed Mode: %1$s</string>
+    <string name="connection_status">Current Connection Status</string>
+    <string name="bonded">Bonded: %1$s</string>
+    <string name="dle">DLE: %1$s</string>
+    <string name="dle_reboot">DLE requires reboot: %1$s</string>
+    <string name="encrypted">Encrypted: %1$s</string>
+    <string name="max_tx_payload">Maximum Tx payload: %1$d</string>
+    <string name="max_tx_time">Maximum Tx time: %1$d</string>
+    <string name="max_rx_payload">Maximum Rx payload: %1$d</string>
+    <string name="max_rx_time">Maximum Rx time: %1$d</string>
+
+    <string name="link_configuration_service">Link Configuration Service</string>
+    <string name="client_preferred_configuration">Preferred Connection Configuration</string>
+    <string name="fast_mode">Set Fast Mode</string>
+    <string name="slow_mode">Set Slow Mode</string>
+    <string name="connection_min_interval">Connection Min Interval:</string>
+    <string name="connection_max_interval">Connection Max Interval:</string>
+    <string name="connection_slave_latency">Slave Latency:</string>
+    <string name="connection_supervision_timeout">Supervision timeout:</string>
+    <string name="dle_pdu_size">Set max DLE pdu Size:</string>
+    <string name="dle_time">Set max DLE Time:</string>
+    <string name="request_disconnect">Request Disconnect</string>
+    <string name="mtu_label">Set MTU: </string>
+    <string name="set_connection_configuration">Set Connection Configuration</string>
+    <string name="client_preferred_connection_mode">Preferred Connection Mode</string>
+</resources>

@@ -1,0 +1,4 @@
+# External
+github "Quick/Quick" ~> 2.0.0
+github "Quick/Nimble" ~> 8.0.1
+github "RxSwiftCommunity/RxNimble" ~> 4.5.0

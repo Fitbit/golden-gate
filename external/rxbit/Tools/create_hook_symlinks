@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This script will create symlinks for all the client side git hooks. It links from
+# the hooks directory .git/hooks into the directory Tools/git-hooks in the repository.
+# Any hooks present in that directory will be executed at the appropriate time
+
+# If there are existing hooks in the .git/hooks directory, it moves them to
+# .git/hooks/<hook name>.local
+
+# This script should be run once for each clone of the repository
+
+HOOK_NAMES="pre-push"
+
+# find the root directory of the repository
+REPOSITORY_ROOT=`git rev-parse --show-toplevel`
+
+# construct the path to the hooks directory
+HOOK_DIR=$REPOSITORY_ROOT/.git/hooks
+
+# create the directory if it doesn't exist
+if [ ! -d $HOOK_DIR ]; then
+	mkdir -p -m 755 $HOOK_DIR
+fi
+
+# remove existing sample code from the hooks directory
+rm -f $HOOK_DIR/*.sample
+
+
+for hook in $HOOK_NAMES; do
+    # if the hook already exists, is executable, and is not a symlink
+    if [ ! -h $HOOK_DIR/$hook -a -x $HOOK_DIR/$hook ]; then
+        mv $HOOK_DIR/$hook $HOOK_DIR/$hook.local
+    fi
+    
+    # create the symlink, overwriting the file if it exists
+    # use relative file paths
+    ln -s -f $HOOK_DIR/Tools/git-hooks/$hook $HOOK_DIR/$hook
+    
+    # make sure symlink is executable
+    chmod 755 $HOOK_DIR/$hook
+done
+

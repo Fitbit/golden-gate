@@ -1,0 +1,4 @@
+### Target: targets/gg_central_nrf52dk
+target.app: "apps/gg_central"
+target.bsp: "@apache-mynewt-core/hw/bsp/nrf52dk"
+target.build_profile: "optimized"

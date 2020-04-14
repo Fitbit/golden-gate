@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".coap.BsdCoapActivity"
+    tools:showIn="@layout/activity_bsd_coap">
+
+    <TextView
+        android:id="@+id/coap_mode_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Coap Mode"/>
+
+    <TextView
+        android:id="@+id/coap_message_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/black"
+        android:lines="2"
+        android:maxLines="2"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/coap_mode_text_view"
+        tools:text="Coap message"
+        tools:visibility="visible"/>
+
+    <Button
+        android:id="@+id/get_hello_world_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GET - helloworld"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/coap_message_text_view"
+        tools:visibility="visible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

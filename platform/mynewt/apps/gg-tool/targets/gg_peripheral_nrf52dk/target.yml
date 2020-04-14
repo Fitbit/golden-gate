@@ -1,0 +1,4 @@
+### Target: targets/gg_peripheral_nrf52dk
+target.app: "apps/gg_peripheral"
+target.bsp: "@apache-mynewt-core/hw/bsp/nrf52dk"
+target.build_profile: "optimized"

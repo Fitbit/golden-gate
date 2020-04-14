@@ -1,0 +1,4 @@
+### Target: targets/gg_central_nrf52840pdk
+target.app: "apps/gg_central"
+target.bsp: "@apache-mynewt-core/hw/bsp/nordic_pca10056"
+target.build_profile: "optimized"

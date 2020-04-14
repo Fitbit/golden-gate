@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_step"
+        android:scrollbarDefaultDelayBeforeFade="1500">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/link_status_service"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step"
+                    android:text="@string/connection_configuration"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                    android:id="@+id/connection_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connection_interval" />
+
+            <TextView
+                    android:id="@+id/connection_latency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connection_latency" />
+
+            <TextView
+                    android:id="@+id/connection_timeout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connection_timeout" />
+
+            <TextView
+                    android:id="@+id/connection_mtu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connection_mtu" />
+
+            <TextView
+                    android:id="@+id/connection_speed_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/connection_speed_mode" />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step"
+                    android:text="@string/connection_status"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                    android:id="@+id/connection_bonded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bonded" />
+
+            <TextView
+                    android:id="@+id/connection_encrypted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/encrypted" />
+
+            <TextView
+                    android:id="@+id/connection_dle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dle" />
+
+            <TextView
+                    android:id="@+id/connection_dle_reboot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dle_reboot" />
+
+            <TextView
+                    android:id="@+id/max_tx_payload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_tx_payload" />
+
+            <TextView
+                    android:id="@+id/max_tx_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_tx_time" />
+
+            <TextView
+                    android:id="@+id/max_rx_payload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_rx_payload" />
+
+            <TextView
+                    android:id="@+id/max_rx_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_rx_time" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_step"
+                android:orientation="vertical">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/link_configuration_service"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connection_min_interval" />
+
+                <EditText
+                        android:id="@+id/connection_min_interval"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connection_max_interval" />
+
+                <EditText
+                        android:id="@+id/connection_max_interval"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connection_slave_latency" />
+
+                <EditText
+                        android:id="@+id/connection_slave_latency"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/connection_supervision_timeout" />
+
+                <EditText
+                        android:id="@+id/connection_supervision_timeout"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <Button
+                        android:id="@+id/set_fast_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fast_mode" />
+
+                <Button
+                        android:id="@+id/set_slow_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step_2x"
+                        android:text="@string/slow_mode" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dle_pdu_size" />
+
+                <EditText
+                        android:id="@+id/dle_pdu_size"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dle_time" />
+
+                <EditText
+                        android:id="@+id/dle_time"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mtu_label" />
+
+                <EditText
+                        android:id="@+id/mtu"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_step"
+                        android:inputType="number" />
+            </LinearLayout>
+
+            <CheckBox
+                    android:id="@+id/request_disconnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/request_disconnect" />
+
+            <Button
+                    android:id="@+id/apply_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_step"
+                    android:layout_marginTop="@dimen/margin_step"
+                    android:text="@string/set_connection_configuration" />
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_step"
+                android:text="Speed Mode" />
+
+        <RadioGroup
+                android:id="@+id/speedModeConfiguration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <RadioButton
+                    android:id="@+id/rb_fast_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fast mode" />
+
+            <RadioButton
+                    android:id="@+id/rb_slow_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slow mode" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
