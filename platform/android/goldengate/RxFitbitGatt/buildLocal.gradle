@@ -16,7 +16,7 @@ if (localProperties.exists()) {
         println("Using local FitbitGatt Android library: " + path)
         includeBuild(path) {
             dependencySubstitution {
-                substitute module("com.fitbit.bluetooth.fbgatt:fitbitgatt") with project(':')
+                substitute module("com.github.fitbit:bitgatt:") with project(':')
             }
         }
     } else {

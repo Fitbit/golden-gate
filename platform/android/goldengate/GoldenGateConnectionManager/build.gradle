@@ -21,7 +21,7 @@ dependencies {
     implementation project(':GoldenGateBindings')
     implementation project(':linkcontroller')
 
-    implementation "com.fitbit.bluetooth.fbgatt:fitbitgatt:$BITGATT_VERSION:library@aar"
+    implementation "com.github.fitbit:bitgatt:$BITGATT_VERSION"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
     implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
