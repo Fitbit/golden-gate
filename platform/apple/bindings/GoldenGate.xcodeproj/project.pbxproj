@@ -171,7 +171,6 @@
 		48A81089220E0D160067A593 /* Data+NetworkExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898BB99217AF4E100ADFEDF /* Data+NetworkExtensionsSpec.swift */; };
 		48A8108A220E0D1E0067A593 /* GoldenGatePrincipalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C92471FD82B60006E9551 /* GoldenGatePrincipalClass.swift */; };
 		48A8108B220E0D220067A593 /* GoldenGateVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */; };
-		48A81090220E488F0067A593 /* libFbSmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A8108F220E488F0067A593 /* libFbSmo.a */; };
 		48A81092220E488F0067A593 /* libSwiftCBOR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81091220E488F0067A593 /* libSwiftCBOR.a */; };
 		48A81094220E48A60067A593 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81093220E48A60067A593 /* RxSwift.framework */; };
 		48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81095220E48A60067A593 /* RxCocoa.framework */; };
@@ -202,6 +201,7 @@
 		75B1BF21232677A80062510D /* BluetoothRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF20232677A80062510D /* BluetoothRemoteApi.swift */; };
 		75BD2C452227706F0067C7E0 /* RetryingWriterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */; };
 		75F6F9782327E2C600F4C207 /* TransportReadiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6F9772327E2C600F4C207 /* TransportReadiness.swift */; };
+		AF8260E8244772A900EE499A /* libFbSmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260E5244772A300EE499A /* libFbSmo.a */; };
 		AF8F0940224281D300FF5604 /* GGCoapRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */; };
 		FD05DC6522AF9E70002AB750 /* NilComparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05DC6422AF9E6F002AB750 /* NilComparer.swift */; };
 		FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
@@ -218,6 +218,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 48A80FBA220E07680067A593;
 			remoteInfo = GoldenGate;
+		};
+		AF8260E2244772A300EE499A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0F4A93D86CBE9FEFB91237F5DBE3DD81;
+			remoteInfo = "FbSmo-Tests";
+		};
+		AF8260E4244772A300EE499A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6EB04D00A4E3BB0252037D1EC515E33C;
+			remoteInfo = FbSmo;
+		};
+		AF8260E6244772A300EE499A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0FAF981C3602DCC012F8E7F9CCB3BA60;
+			remoteInfo = SwiftCBOR;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -412,6 +433,7 @@
 		75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryingWriterSpec.swift; sourceTree = "<group>"; };
 		75F6F9772327E2C600F4C207 /* TransportReadiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportReadiness.swift; sourceTree = "<group>"; };
 		AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoldenGateXP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF8260DC244772A300EE499A /* FbSmo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FbSmo.xcodeproj; path = ../../../external/smo/swift/FbSmo.xcodeproj; sourceTree = "<group>"; };
 		AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCoapRequestParameters.swift; sourceTree = "<group>"; };
 		BF00AE8B207393A100B00C3E /* CoapMessageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapMessageBuilder.swift; sourceTree = "<group>"; };
 		BF0408F91FCEBA6600D875BA /* CoapCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapCode.swift; sourceTree = "<group>"; };
@@ -448,13 +470,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				48A810D9220E6C630067A593 /* GoldenGateXP.framework in Frameworks */,
-				48A81090220E488F0067A593 /* libFbSmo.a in Frameworks */,
 				48A81092220E488F0067A593 /* libSwiftCBOR.a in Frameworks */,
 				FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */,
 				48A81098220E48BD0067A593 /* RxBluetoothKit.framework in Frameworks */,
 				48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */,
 				48AE718022820EBF00DE90AD /* RxRelay.framework in Frameworks */,
 				48A81094220E48A60067A593 /* RxSwift.framework in Frameworks */,
+				AF8260E8244772A900EE499A /* libFbSmo.a in Frameworks */,
 				48A8109E220E48F80067A593 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +515,7 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF8260DC244772A300EE499A /* FbSmo.xcodeproj */,
 				AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */,
 				48A8108F220E488F0067A593 /* libFbSmo.a */,
 				48A81091220E488F0067A593 /* libSwiftCBOR.a */,
@@ -783,6 +806,16 @@
 			path = Spec;
 			sourceTree = "<group>";
 		};
+		AF8260DD244772A300EE499A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF8260E3244772A300EE499A /* FbSmo-Tests.xctest */,
+				AF8260E5244772A300EE499A /* libFbSmo.a */,
+				AF8260E7244772A300EE499A /* libSwiftCBOR.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BF0408F81FCEBA6600D875BA /* Coap */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,6 +1018,12 @@
 			mainGroup = BFCB98E51F7542B800F979B8;
 			productRefGroup = BFCB98EF1F7542B800F979B8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AF8260DD244772A300EE499A /* Products */;
+					ProjectRef = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				48A80FBA220E07680067A593 /* GoldenGate */,
@@ -992,6 +1031,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AF8260E3244772A300EE499A /* FbSmo-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "FbSmo-Tests.xctest";
+			remoteRef = AF8260E2244772A300EE499A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF8260E5244772A300EE499A /* libFbSmo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFbSmo.a;
+			remoteRef = AF8260E4244772A300EE499A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF8260E7244772A300EE499A /* libSwiftCBOR.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSwiftCBOR.a;
+			remoteRef = AF8260E6244772A300EE499A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		48A80FB9220E07680067A593 /* Resources */ = {
