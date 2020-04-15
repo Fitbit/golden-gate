@@ -74,6 +74,8 @@
 		751A7CBB2329306000087BFB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
 		75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */; };
 		91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
+		AF8260DA2447726C00EE499A /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; };
+		AF8260DB2447726C00EE499A /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553A1F78532D003EC08B /* AppDelegate.swift */; };
 		BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553C1F78532D003EC08B /* RootViewController.swift */; };
 		BF6A55401F78532D003EC08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A553E1F78532D003EC08B /* Main.storyboard */; };
@@ -82,13 +84,28 @@
 		BFCC5A751FE5474200D7347D /* ConnectionRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC5A711FE415C500D7347D /* ConnectionRemoteApi.swift */; };
 		BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
 		BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
-		FD2B6E46234F6F1400765D7B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E45234F6F1400765D7B /* Rxbit.framework */; };
-		FD2B6E47234F6F1400765D7B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E45234F6F1400765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD2B6E49234F6F2500765D7B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; };
 		FD2B6E4A234F6F2500765D7B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDC6457B236C352C00E9385B /* SystemRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC6457A236C352C00E9385B /* SystemRemoteApi.swift */; };
 		FDE9CA8B2227473300AC46C1 /* PairRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9CA8A2227473300AC46C1 /* PairRemoteApi.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF8260D62447726500EE499A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F159C2D11FB4DEC000E59A95;
+			remoteInfo = Rxbit;
+		};
+		AF8260D82447726500EE499A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F159C2D91FB4DEC000E59A95;
+			remoteInfo = RxbitTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4814FA2A22123FE600552D38 /* Embed Frameworks */ = {
@@ -99,9 +116,9 @@
 			files = (
 				4814FA2B2212405A00552D38 /* GoldenGate.framework in Embed Frameworks */,
 				4830DEEC224ACB4400FEA458 /* NSLogger.framework in Embed Frameworks */,
-				FD2B6E47234F6F1400765D7B /* Rxbit.framework in Embed Frameworks */,
 				4830DEEE224ACB4900FEA458 /* RxBluetoothKit.framework in Embed Frameworks */,
 				4830DEEF224ACB4D00FEA458 /* RxCocoa.framework in Embed Frameworks */,
+				AF8260DB2447726C00EE499A /* Rxbit.framework in Embed Frameworks */,
 				48AE718922820F6D00DE90AD /* RxRelay.framework in Embed Frameworks */,
 				4830DEF0224ACB5200FEA458 /* RxSwift.framework in Embed Frameworks */,
 				4830DEF1224ACB5600FEA458 /* Starscream.framework in Embed Frameworks */,
@@ -187,6 +204,7 @@
 		AC4ACFEC243D47830088C55C /* macOS-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
 		AF076410237DA4670036EE60 /* AppCenterDistribute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenterDistribute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF51C14D237DA2B40006A0C8 /* AppCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF8260D12447726500EE499A /* Rxbit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rxbit.xcodeproj; path = ../../../../external/rxbit/Rxbit.xcodeproj; sourceTree = "<group>"; };
 		BF6A55381F78532D003EC08B /* GGHost-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GGHost-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A553A1F78532D003EC08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF6A553C1F78532D003EC08B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -240,9 +258,9 @@
 			files = (
 				48A81103220E89920067A593 /* GoldenGate.framework in Frameworks */,
 				48492DE1220EDB9800C67916 /* NSLogger.framework in Frameworks */,
-				FD2B6E46234F6F1400765D7B /* Rxbit.framework in Frameworks */,
 				48A810FD220E894B0067A593 /* RxBluetoothKit.framework in Frameworks */,
 				48A810F3220E89190067A593 /* RxCocoa.framework in Frameworks */,
+				AF8260DA2447726C00EE499A /* Rxbit.framework in Frameworks */,
 				48AE718822820F6800DE90AD /* RxRelay.framework in Frameworks */,
 				48A810F1220E89190067A593 /* RxSwift.framework in Frameworks */,
 				48492DE4220EDCFB00C67916 /* Starscream.framework in Frameworks */,
@@ -284,6 +302,7 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF8260D12447726500EE499A /* Rxbit.xcodeproj */,
 				AF076410237DA4670036EE60 /* AppCenterDistribute.framework */,
 				AF51C14D237DA2B40006A0C8 /* AppCenter.framework */,
 				4828B704220E8BA2005377DA /* GoldenGate.framework */,
@@ -362,6 +381,15 @@
 			);
 			name = macOS;
 			path = ../../../../external/xcconfigs/macOS;
+			sourceTree = "<group>";
+		};
+		AF8260D22447726500EE499A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF8260D72447726500EE499A /* Rxbit.framework */,
+				AF8260D92447726500EE499A /* RxbitTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BF6A55391F78532D003EC08B /* GoldenGate-Host-iOS */ = {
@@ -564,6 +592,12 @@
 			mainGroup = BFCB98E51F7542B800F979B9;
 			productRefGroup = BFCB98EF1F7542B800F979B9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AF8260D22447726500EE499A /* Products */;
+					ProjectRef = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BF6A55371F78532D003EC08B /* GoldenGateHost-iOS */,
@@ -571,6 +605,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AF8260D72447726500EE499A /* Rxbit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Rxbit.framework;
+			remoteRef = AF8260D62447726500EE499A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF8260D92447726500EE499A /* RxbitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RxbitTests.xctest;
+			remoteRef = AF8260D82447726500EE499A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		48EB8C7D1F86039900B2ED7B /* Resources */ = {
