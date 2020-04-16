@@ -33,7 +33,7 @@ run all the examples, and can use the native Bluetooth support.
 On a mac running macOS 10.14 (Mojave) or higher, you will need to have at 
 a minimum:
 
-  * XCode 10 or higher, including the command-line tools
+  * XCode 11 or higher, including the command-line tools
   * Homebrew - see [Homebrew](https://brew.sh/) for installation instructions
   * Miniconda (or Conda) - see [Conda](https://docs.conda.io/en/latest/miniconda.html#macosx-installers) for macOS installation instructions
 

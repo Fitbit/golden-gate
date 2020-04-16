@@ -2,6 +2,17 @@
 Invoke configuration for Golden Gate
 """
 
+# First check that we are running in a Python >= 3.5 environment
+from __future__ import print_function
+import sys
+if not sys.version_info.major == 3 and sys.version_info.minor >= 5:
+    print(
+"""You are using 'invoke' in a Python 2.x environment, but Python >= 3.5 is required.
+You have probably not activated the 'gg' conda environment, please check the 'Getting Started'
+guide for more details on how to setup your environment""")
+    sys.exit(1)
+
+# Imports
 import os
 import subprocess
 
