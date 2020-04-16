@@ -59,10 +59,11 @@ On a Linux machine, you will need to have at a minimum:
 #### Docker
 
 If you have [docker](https://www.docker.com/) installed on your system, the 
-project includes a `Dockerfile` that you can use to build a docket image.
+project includes a `Dockerfile` that you can use to build a docker image.
 The resulting docker image contains the minimal set of tools needed to build the 
 core libraries, examples, tests and docs.
-The easiest way to build the docker image is to use the `invoke` task:
+The easiest way to build the docker image is to use the `invoke` task (if you
+have installed `invoke` on your host system):
 ``` bash
 $ inv docker.build
 ```
@@ -78,9 +79,15 @@ input.
 
 ### Setting Up a Conda Environment
 
+Now that you have `conda`, you can create a Conda environment.
+
 [Conda](https://docs.conda.io/en/latest/) is an open source package management 
 system and environment management system that runs on Windows, macOS and Linux. 
 Conda quickly installs, runs and updates packages and their dependencies.
+
+This project uses Conda to manage the installation and update of a number of
+tools and software components that are necessary for building and running the 
+software.
 
 Create your `conda` environment by running
 

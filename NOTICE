@@ -1,0 +1,47 @@
+This project depends in part on other open source projects.
+Depending on how you use the project, and which platforms/targets
+you are compiling for, some of the following components may be used.
+
+=== For the implementation in gg_crc32.c
+COPYRIGHT (C) 1986 Gary S. Brown.  You may use this program, or
+code or tables extracted from it, as desired without restriction.
+
+=== For the LwIP library
+See external/lwip/COPYING
+
+=== For the mbedTLS library
+See external/mbedtls/LICENSE
+
+=== When using the iOS bindings
+See the dependencies listed in Cartfile and external/rxbit/Cartfile
+For SwiftCBOR, see external/smo/swift/external/SwiftCBOR/UNLICENSE
+
+=== For the iOS Host App's UIApplication+BSMobileProvision.m/h
+Copyright (c) 2013, The Blindsight Corporation
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+=== When using the Android bindings
+See the dependencies listed in the build.gradle files under
+platform/android/goldengate and subdirectories.
+
+=== When building the MyNewt apps
+SPDX-License-Identifier: Apache-2.0

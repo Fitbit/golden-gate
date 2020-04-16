@@ -66,7 +66,7 @@ $ sdk/tools/bin/sdkmanager \
 ### Setup You Environment
 
 Set the `ANDROID_HOME` environment variable to point to the SDK directory (eg
-`export ANDROI_HOME=~/android-sdk` in your `~/.bashrc`)
+`export ANDROID_HOME=~/android-sdk` in your `~/.bashrc`)
 
 Build The Core Library And Host App
 -----------------------------------

@@ -62,7 +62,7 @@ def test(ctx, coverage=True, sonarqube=False):
 
         ctx.run("genhtml -o coverage/android/html -t \"Golden Gate test coverage\" " +
                 "--num-spaces 4 coverage/android/final.info")
-        ctx.run('scripts/lcov_cobertura.py coverage/android/final.info --base-dir {dir} '
+        ctx.run('scripts/lcov_cobertura/lcov_cobertura.py coverage/android/final.info --base-dir {dir} '
                 .format(dir=coverage_dir) + '--output coverage/android/cobertura.xml')
 
 @task

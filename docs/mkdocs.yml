@@ -78,7 +78,7 @@ nav:
     - Release Notes: release_notes.md
   #- Test: sample.md
 
-copyright: © 2020 Fitbit, Inc. All rights reserved.
+copyright: © 2017-2020 Fitbit, Inc. All rights reserved.
 
 theme:
   name: 'material'
