@@ -19,7 +19,7 @@ extern "C" {
 #endif
 
 //! @addtogroup Utils Utilities
-//! Utility classes and functions, typicaly used in examples and tests.
+//! Utility classes and functions, typically used in examples and tests.
 //! @{
 
 /*----------------------------------------------------------------------

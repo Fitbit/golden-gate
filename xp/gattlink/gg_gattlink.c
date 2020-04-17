@@ -691,7 +691,7 @@ GG_GattlinkProtocol_PrepareNextPacket(GG_GattlinkProtocol* self,
 
     // If retransmitting, we need to use the same fragmentation as the previous transmission.
     // The payload_sizes field will still contain the previously used size, unless it was zero'ed
-    // out because it got Ack'd.
+    // out because it got ack'd.
     size_t data_size = GG_GattlinkProtocol_GetPayloadSize(self, self->out.next_data_sn);
     if (data_size == 0) {
         GG_ASSERT(data_to_send >= offset);
@@ -742,7 +742,7 @@ GG_GattlinkProtocol_SendNextPackets(GG_GattlinkProtocol* self)
             break;
         }
 
-        // do some book keeping since things were succesfully sent
+        // do some book keeping since things were successfully sent
         if ((buf_to_send[0] & GG_GATTLINK_DATA_PACKET_TYPE_WITH_ACK) == GG_GATTLINK_DATA_PACKET_TYPE_WITH_ACK) {
             self->out.outstanding_unacked_packets = 0;
             self->out.ack_now = false;

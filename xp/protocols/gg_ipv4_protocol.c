@@ -90,7 +90,7 @@ struct GG_Ipv4FrameAssembler {
     bool                              enable_decompression;
     GG_Ipv4FrameSerializationIpConfig ip_config;
     bool                              enable_remapping;
-    GG_Ipv4FrameAssemnblerIpMap       ip_map;
+    GG_Ipv4FrameAssemblerIpMap        ip_map;
     size_t                            skip;
     size_t                            payload_size;
     size_t                            packet_size;
@@ -889,7 +889,7 @@ GG_IMPLEMENT_INTERFACE(GG_Ipv4FrameAssembler, GG_Inspectable) {
 GG_Result
 GG_Ipv4FrameAssembler_Create(uint16_t                                 max_packet_size,
                              const GG_Ipv4FrameSerializationIpConfig* ip_config,
-                             const GG_Ipv4FrameAssemnblerIpMap*       ip_map,
+                             const GG_Ipv4FrameAssemblerIpMap*        ip_map,
                              GG_Ipv4FrameAssembler**                  assembler)
 {
     if (max_packet_size < GG_IPV4_MIN_IP_HEADER_SIZE) {

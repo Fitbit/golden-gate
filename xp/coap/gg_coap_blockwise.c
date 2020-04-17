@@ -69,7 +69,7 @@ typedef struct {
     bool                              use_client_parameters; ///< True if this request should use custom parameters
     GG_CoapClientParameters           client_parameters;     ///< Custom client parameters
     uint8_t                           etag[GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE]; ///< ETag
-    size_t                            etag_size;                                  ///< ETag sixe
+    size_t                            etag_size;                                  ///< ETag size
     bool*                             destroy_monitor;       ///< Optional monitor to catch this is destroyed
 } GG_CoapBlockwiseRequestContext;
 

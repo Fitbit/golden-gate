@@ -127,7 +127,7 @@ main(int argc, char** argv)
     printf("------------ step 3 --------------\n");
     LogSomeStuff();
 
-    // force termination of the log manager (safe to do, since we know it has been auto-initiailzed before)
+    // force termination of the log manager (safe to do, since we know it has been auto-initialized before)
     GG_LogManager_Terminate();
 
     printf("------------ step 4 --------------\n");

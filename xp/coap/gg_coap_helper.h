@@ -1,7 +1,7 @@
 /**
  * @file
  * @brief Helper structs, macros, functions to help with GG CoAP implementation.
- * Not esential to the CoAP implementation or of limited scope.
+ * Not essential to the CoAP implementation or of limited scope.
  *
  * @copyright
  * Copyright 2017-2020 Fitbit, Inc
@@ -23,7 +23,7 @@
 /**
  * Registration and unregistration helper element for CoAP handlers.
  * Using this will cull some of the boilerplate code in the handler implementation files.
- * Handler pointer is accesed through .node->handler
+ * Handler pointer is accessed through .node->handler
  */
 typedef struct {
     GG_CoapRequestHandlerNode*   node;

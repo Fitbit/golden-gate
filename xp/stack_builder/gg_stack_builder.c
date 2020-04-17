@@ -285,7 +285,7 @@ GG_StackGattlinkElement_Create(const GG_StackElementGattlinkParameters* paramete
     // NOTE we always pass a compression config to the assembler, so that even if compression isn't enabled
     // in the outgoing direction, it is able to decompress packets in the incoming direction.
     GG_LOG_FINE("creating ipv4 frame assembler - ip_mtu=%d", (int)stack->ip_configuration.ip_mtu);
-    GG_Ipv4FrameAssemnblerIpMap assembler_ip_map = { 0 };
+    GG_Ipv4FrameAssemblerIpMap assembler_ip_map = { 0 };
     if (stack->ip_configuration.inbound_address_remapping.enabled) {
         assembler_ip_map.src_address =
             GG_IpAddress_AsInteger(&stack->ip_configuration.inbound_address_remapping.source_address);

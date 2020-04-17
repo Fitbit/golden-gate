@@ -39,7 +39,7 @@ extern "C" {
 typedef struct GG_ActivityDataMonitor GG_ActivityDataMonitor;
 
 /**
- * Change type for Activty monitor envet
+ * Change type for activity monitor event
  */
 typedef enum {
     GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_ACTIVE,

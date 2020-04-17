@@ -172,7 +172,7 @@ GG_EventDispatcher_OnEvent(GG_EventListener* _self, const GG_Event* event)
             }
             /* Only notify listeners that haven't been visited already
              * Using the sequence number we can ensure that we are only notifying
-             * new listenrs
+             * new listeners
             */
             if (curr_node->sequence_number > last_notified_node_sequence_number) {
                 // update the sequence number to account for gaps

@@ -150,7 +150,7 @@ GG_Result GG_SerialRemoteParser_GetFrameSeq(GG_SerialRemoteParser *parser,
         return GG_ERROR_INVALID_STATE;
     }
 
-    seq_start = GG_START_BTYE_LEN + parser->payload_len + GG_PAYLOAD_END_BTYE_LEN + GG_CRC_FRAMED_LEN;
+    seq_start = GG_START_BYTE_LEN + parser->payload_len + GG_PAYLOAD_END_BYTE_LEN + GG_CRC_FRAMED_LEN;
     memcpy(seq, parser->buffer + seq_start, GG_SEQ_FRAMED_LEN);
 
     return GG_SUCCESS;
@@ -201,6 +201,6 @@ GG_Result GG_SerialRemoteParser_Reset(GG_SerialRemoteParser *parser)
 
 //----------------------------------------------------------------------
 void GG_SerialRemoteParser_PrintState(GG_SerialRemoteParser* parser) {
-    // Debug printing can go here, but the print/logs are platform speicific
+    // Debug printing can go here, but the print/logs are platform specific
     GG_ASSERT(parser);
 }

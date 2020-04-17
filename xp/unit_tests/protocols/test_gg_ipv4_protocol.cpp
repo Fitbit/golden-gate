@@ -419,7 +419,7 @@ TEST(GG_IPV4_PROTOCOL, Test_IpRemapping) {
         .udp_src_ports = { 1007, 1008, 1009 },
         .udp_dst_ports = { 2001, 2002, 2003 }
     };
-    GG_Ipv4FrameAssemnblerIpMap ip_map = {
+    GG_Ipv4FrameAssemblerIpMap ip_map = {
         .src_address          = 0x01020304,
         .remapped_src_address = 0x02020304,
         .dst_address          = 0x03020304,

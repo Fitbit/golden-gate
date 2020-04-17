@@ -314,7 +314,7 @@ GG_DtlsProtocol_UserSide_TryToFlush(GG_DtlsProtocol* self)
 }
 
 //----------------------------------------------------------------------
-// Read any data thay may be available from the mbedtls object and
+// Read any data that may be available from the mbedtls object and
 // try to deliver it to the user side, or keep it buffered if not possible
 //----------------------------------------------------------------------
 static void
@@ -330,7 +330,7 @@ GG_DtlsProtocol_UserSide_PumpData(GG_DtlsProtocol* self)
         GG_DtlsProtocol_UserSide_TryToFlush(self);
     }
 
-    // read as much as we can from mbdetls and deliver it to the user side
+    // read as much as we can from mbedtls and deliver it to the user side
     while (self->user_side.pending_out == NULL) {
         // allocate a buffer to read into
         GG_DynamicBuffer* buffer = NULL;
@@ -674,7 +674,7 @@ GG_DtlsProtocol_Send(void* _self, const unsigned char* buffer, size_t buffer_siz
 }
 
 //----------------------------------------------------------------------
-// Callback invoked by mbdetls when it needs to read data from the transport
+// Callback invoked by mbedtls when it needs to read data from the transport
 //----------------------------------------------------------------------
 static int
 GG_DtlsProtocol_Receive(void* _self, unsigned char* buffer, size_t buffer_size)

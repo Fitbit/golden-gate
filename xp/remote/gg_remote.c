@@ -654,7 +654,7 @@ GG_RemoteShell_ProcessRequest(GG_RemoteShell* self, GG_Buffer* cbor_request, GG_
         Fb_Smo* response_error_code = Fb_Smo_CreateInteger(&GG_SmoHeapAllocator, rpc_error_code);
         if (response_error && response_error_code) {
             if (Fb_Smo_AddChild(response_error, "code", 0, response_error_code) == FB_SMO_SUCCESS) {
-                // ownsership transfered
+                // ownsership transferred
                 response_error_code = NULL;
             }
             if (response_result) {
@@ -664,7 +664,7 @@ GG_RemoteShell_ProcessRequest(GG_RemoteShell* self, GG_Buffer* cbor_request, GG_
                 }
             }
             if (Fb_Smo_AddChild(response, "error", 0, response_error) == FB_SMO_SUCCESS) {
-                // ownsership transfered
+                // ownsership transferred
                 response_error = NULL;
             }
         }

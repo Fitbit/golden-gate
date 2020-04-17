@@ -106,7 +106,7 @@ void GG_CoapTestService_PopulatePayloadSizeAndCRCOptions(GG_CoapTestServiceConte
  *
  * @param context Test Server Service context
  * @param endpoint CoAP endpoint for the response
- * @param request The CoAP request asociated with this response
+ * @param request The CoAP request associated with this response
  * @param payload Payload to be included in the response.
  *                If NULL and payload_size > 0 payload will be generated.
  * @param block1_info Block1 option to be included in response or NULL for excluding block1 option

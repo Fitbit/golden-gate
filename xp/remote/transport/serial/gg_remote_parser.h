@@ -24,19 +24,19 @@ extern "C" {
 #define GG_CRC_LEN              (4) // CRC 32
 #define GG_CRC_FRAMED_LEN       (2 * GG_CRC_LEN) // len of CRC as hexa chars
 
-#define GG_START_BTYE_LEN       (1)
-#define GG_PAYLOAD_END_BTYE_LEN (1)
+#define GG_START_BYTE_LEN       (1)
+#define GG_PAYLOAD_END_BYTE_LEN (1)
 #define GG_END_BYTE_LEN         (1)
-#define GG_MIN_FRAME_LEN        (GG_START_BTYE_LEN +\
-                                GG_PAYLOAD_END_BTYE_LEN +\
+#define GG_MIN_FRAME_LEN        (GG_START_BYTE_LEN +\
+                                GG_PAYLOAD_END_BYTE_LEN +\
                                 GG_CRC_FRAMED_LEN +\
                                 GG_SEQ_FRAMED_LEN +\
                                 GG_END_BYTE_LEN)
                                 // length for an empty frame
                                 // Start Byte + Payload End Byte +
                                 // CRC + Seq Num + End byte
-#define GG_ACK_START_BTYE_LEN   (1)
-#define GG_ACK_FRAME_LEN        (GG_ACK_START_BTYE_LEN + GG_SEQ_FRAMED_LEN) // ACK Start byte +
+#define GG_ACK_START_BYTE_LEN   (1)
+#define GG_ACK_FRAME_LEN        (GG_ACK_START_BYTE_LEN + GG_SEQ_FRAMED_LEN) // ACK Start byte +
                                                                    // Seq Num
 
 #define GG_FRAME_START_BYTE        '#'
@@ -51,7 +51,7 @@ extern "C" {
 |   macros
 +---------------------------------------------------------------------*/
 
-#define GG_CRC_OFFSET(payload_len) (GG_START_BTYE_LEN + payload_len + GG_PAYLOAD_END_BTYE_LEN)
+#define GG_CRC_OFFSET(payload_len) (GG_START_BYTE_LEN + payload_len + GG_PAYLOAD_END_BYTE_LEN)
 #define GG_SEQ_OFFSET(payload_len) (CRC_OFFSET(payload_len) + GG_CRC_FRAMED_LEN)
 #define GG_FRAME_END_BYTE_OFFSET(payload_len) (SEQ_OFFSET(payload) + GG_SEQ_FRAMED_LEN)
 

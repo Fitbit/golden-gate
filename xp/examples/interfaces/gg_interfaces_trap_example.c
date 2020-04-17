@@ -113,7 +113,7 @@ main(int argc, char** argv)
     GG_COMPILER_UNUSED(argc);
     GG_COMPILER_UNUSED(argv);
 
-    printf("Intercace Trap Example\n");
+    printf("Interface Trap Example\n");
 
     // Instantiate a new Foobar object
     Foobar* foobar = NULL;

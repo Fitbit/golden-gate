@@ -109,8 +109,8 @@ typedef struct {
     }            header_compression;        ///< Header compression configuration
     struct {
         bool         enabled;               ///< True when address remapping is enabled
-        GG_IpAddress source_address;        ///< Remap this source address to the remoate address
-        GG_IpAddress destination_address;   ///< Reamp this destination address to the local address
+        GG_IpAddress source_address;        ///< Remap this source address to the remote address
+        GG_IpAddress destination_address;   ///< Remap this destination address to the local address
     }            inbound_address_remapping; ///< Inbound address remapping
 } GG_StackIpConfiguration;
 
@@ -161,7 +161,7 @@ typedef struct {
  */
 typedef struct {
     GG_StackElementType element_type;       ///< Element type to which the parameters apply
-    const void*         element_parameters; ///< Pointer to a type-specific patameter struct,
+    const void*         element_parameters; ///< Pointer to a type-specific parameter struct,
                                             ///< or NULL for defaults
 } GG_StackBuilderParameters;
 

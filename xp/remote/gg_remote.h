@@ -167,7 +167,7 @@ typedef struct {
     GG_LinkedListNode         list_node;    ///< List node for linking multiple handlers
     const char*               name;         ///< Name of handler item
     bool                      auto_release; ///< Flag to indicate if memory allocated for this
-                                            ///< struct needs to be freed when it is unregisterd
+                                            ///< struct needs to be freed when it is unregistered
     union {
         GG_RemoteSmoHandler*  smo;          ///< Smo Handler
         GG_RemoteCborHandler* cbor;         ///< Cbor Handler

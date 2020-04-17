@@ -235,7 +235,7 @@ GG_CoapEventEmitter_OnError(GG_CoapResponseListener* _self, GG_Result error, con
     self->coap_request_handle    = 0;
     self->coap_request_timestamp = 0;
     if (error == GG_ERROR_TIMEOUT) {
-        // afer a timeout, we can retry immediately
+        // after a timeout, we can retry immediately
         GG_CoapEventEmitter_Update(self);
     } else {
         // after another error, wait before retrying

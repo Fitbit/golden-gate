@@ -223,7 +223,7 @@ SerialTransport_ReadFrame(GG_RemoteTransport* _self, GG_Buffer** buffer)
 
     GG_Result result;
 
-    // Frame read and valiation
+    // Frame read and validation
     for (; ;) {
         result = GG_SerialIO_ReadFrame(self->serial_link, &payload_buff);
         if (result == GG_ERROR_REMOTE_EXIT) {

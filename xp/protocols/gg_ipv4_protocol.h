@@ -109,7 +109,7 @@ typedef struct {
     uint32_t remapped_src_address; ///< Source address to remap to
     uint32_t dst_address;          ///< Destination address to remap
     uint32_t remapped_dst_address; ///< Destination address to remap to
-} GG_Ipv4FrameAssemnblerIpMap;
+} GG_Ipv4FrameAssemblerIpMap;
 
 /*----------------------------------------------------------------------
 |   functions
@@ -126,7 +126,7 @@ typedef struct {
  */
 GG_Result GG_Ipv4FrameAssembler_Create(uint16_t                                 max_packet_size,
                                        const GG_Ipv4FrameSerializationIpConfig* ip_config,
-                                       const GG_Ipv4FrameAssemnblerIpMap*       ip_map,
+                                       const GG_Ipv4FrameAssemblerIpMap*        ip_map,
                                        GG_Ipv4FrameAssembler**                  assembler);
 
 /**

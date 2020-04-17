@@ -40,7 +40,7 @@ typedef struct GG_EventDispatcher GG_EventDispatcher;
  */
 typedef struct {
     GG_LinkedListNode  list_node;        ///< Linked list node for storing listener context
-    GG_EventListener*  listener;         ///< Event listner for this entry
+    GG_EventListener*  listener;         ///< Event listener for this entry
     const uint32_t*    events;           ///< Array of events to listen to, NULL to listen to all events
     size_t             num_events;       ///< Size of events array
     bool               node_is_local;    ///< Flag indicating if this object should be freed

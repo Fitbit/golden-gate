@@ -149,7 +149,7 @@ StartMessage_Release(GG_LoopMessage* _self) {
 }
 
 //----------------------------------------------------------------------
-// Blast packets over a GatttLink session for which the transport is a UDP socket
+// Blast packets over a Gattlink session for which the transport is a UDP socket
 //
 // Launch this either in client mode (last command line argument is 'c') or
 // in server mode (last command line argument is 's').

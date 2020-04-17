@@ -1177,7 +1177,7 @@ GG_Result GG_Coap_SplitPathOrQuery(const char*                path_or_query,
 /**
  * Helper function to clone an array of GG_CoapMessageOptionParam, making
  * copies of any data it points to. The copy is made in a single block
- * of memory that can be free'd when no longer needed, by calling GG_FreeMemory
+ * of memory that can be freed when no longer needed, by calling GG_FreeMemory
  *
  * @param options Array of options to clone.
  * @param option_count Number of options in the options array.
