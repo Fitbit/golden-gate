@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # Those two options are independent, because on some platforms, we may need
 # to compile the LwIP netif, but not the LwIP library, when that library is
 # already part of the platform.

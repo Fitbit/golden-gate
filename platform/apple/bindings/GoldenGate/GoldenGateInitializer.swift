@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  GoldenGate.swift
 //  GoldenGate
 //
 //  Created by Sylvain Rebaud on 11/17/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import Foundation
@@ -26,7 +27,7 @@ public struct GoldenGateInitializer {
         if getenv("GG_LOG_CONFIG") == nil {
             setenv("GG_LOG_CONFIG", "plist:.level=INFO", 0)
         }
-        
+
         LogBindingsVerbose("Initializing GoldenGate \(GoldenGateVersion.shared)...")
 
         // Initialize GoldenGate sub system

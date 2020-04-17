@@ -1,5 +1,8 @@
 #! /usr/bin/env python
 
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 ####################################################
 # Simple script that walks the source tree and can analyze some
 # basic patterns to print our summaries of loggers and error codes

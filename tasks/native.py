@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 """Tasks to build Golden Gate for the current platform"""
 
 import os
@@ -138,7 +141,7 @@ def test(ctx, coverage=False, sonarqube=False, output_on_failure=True, verbose=F
         # Generate reports
         ctx.run("genhtml -o coverage/xp/html -t \"Golden Gate test coverage\" " +
                 "--num-spaces 4 coverage/xp/final.info")
-        ctx.run("scripts/lcov_cobertura.py coverage/xp/final.info --base-dir xp " +
+        ctx.run("scripts/lcov_cobertura/lcov_cobertura.py coverage/xp/final.info --base-dir xp " +
                 "--output coverage/xp/cobertura.xml")
 
         # Run Sonarqube analysis

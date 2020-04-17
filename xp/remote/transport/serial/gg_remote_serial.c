@@ -3,7 +3,8 @@
  * @file
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author
  *
@@ -104,7 +105,7 @@ GG_SerialTransport_FrameValidation(SerialTransport* self)
     if (result != GG_SUCCESS) {
         return result;
     }
-    
+
     // calculate crc32 within payload
     cal_crc = GG_Crc32(0, (const void *)&frame_ptr[1], frame_len - GG_MIN_FRAME_LEN);
 
@@ -123,14 +124,14 @@ SerialTransport_SendAck(GG_SerialIO* _self, uint8_t* seq)
     GG_DynamicBuffer_Create(GG_ACK_FRAME_LEN, &ack_frame_buff);
     GG_DynamicBuffer_SetData(ack_frame_buff, &ack_frame[0], GG_ACK_FRAME_LEN);
     GG_SerialIO_Write(_self, GG_DynamicBuffer_AsBuffer(ack_frame_buff));
-    
+
     GG_DynamicBuffer_Release(ack_frame_buff);
 
     return GG_SUCCESS;
 }
 
 //----------------------------------------------------------------------
-GG_Result 
+GG_Result
 GG_SerialTransport_EncodeDecodePayload(GG_Buffer* src, GG_Buffer** dst, bool encode) {
     GG_Result result;
     size_t dst_size = 0;
@@ -149,7 +150,7 @@ GG_SerialTransport_EncodeDecodePayload(GG_Buffer* src, GG_Buffer** dst, bool enc
                                 &dst_size,
                                 false);
     }
-    
+
     if (result != GG_ERROR_NOT_ENOUGH_SPACE) {
         return result;
     }
@@ -186,7 +187,7 @@ GG_SerialTransport_EncodeDecodePayload(GG_Buffer* src, GG_Buffer** dst, bool enc
 
 //----------------------------------------------------------------------
 GG_Result
-GG_SerialTransport_CreateFrame(GG_RemoteTransport* _self, GG_Buffer* payload_buff, GG_Buffer** frame_buff, 
+GG_SerialTransport_CreateFrame(GG_RemoteTransport* _self, GG_Buffer* payload_buff, GG_Buffer** frame_buff,
                             uint8_t* crc, uint8_t* seq)
 {
     GG_COMPILER_UNUSED(_self);
@@ -229,18 +230,18 @@ SerialTransport_ReadFrame(GG_RemoteTransport* _self, GG_Buffer** buffer)
             return result;
         }
 
-        if ((GG_SUCCESS == result) && 
+        if ((GG_SUCCESS == result) &&
             (GG_SUCCESS == GG_SerialTransport_FrameValidation(self))) {
             // Send Ack
             uint8_t frame_seq_number[GG_SEQ_FRAMED_LEN];
             GG_SerialTransport_GetFrameSeq(self->serial_link, &frame_seq_number[0]);
             SerialTransport_SendAck(self->serial_link, &frame_seq_number[0]);
-        
+
             // Get Received frame, details
             size_t payload_len = GG_Buffer_GetDataSize(payload_buff);
             uint8_t payload_buffer[GG_MAX_FRAME_LEN];
             memcpy(&payload_buffer[0], GG_Buffer_GetData(payload_buff), payload_len);
-        
+
             // Base64 Decoding
             GG_Buffer* cbor_buff = NULL;
             result = GG_SerialTransport_EncodeDecodePayload(payload_buff, &cbor_buff, false);
@@ -277,7 +278,7 @@ SerialTransport_WriteFrame(GG_RemoteTransport* _self, GG_Buffer* buffer)
     }
 
     uint32_t cal_crc = GG_Crc32(0, GG_Buffer_GetData(encoded_payload), GG_Buffer_GetDataSize(encoded_payload));
-    uint8_t crc[GG_CRC_FRAMED_LEN] = {0};    
+    uint8_t crc[GG_CRC_FRAMED_LEN] = {0};
     GG_SerialTransport_itoa_hex(cal_crc, &crc[0]);
     uint8_t canned_frame_counter[GG_SEQ_FRAMED_LEN] = DEFAULT_FRAME_SEQ_NUM_ARRAY;
 
@@ -326,7 +327,7 @@ GG_SerialTransport_GetFramePtr(GG_SerialIO* _self) {
 }
 
 //----------------------------------------------------------------------
-size_t 
+size_t
 GG_SerialTransport_GetFramePayloadSize(GG_SerialIO* _self) {
     SerialIO* self = GG_SELF(SerialIO, GG_SerialIO);
     return GG_SerialRemoteParser_GetFramePayloadLen(self->parser);
@@ -360,7 +361,7 @@ SerialTransport_Init(SerialTransport* transport, GG_SerialIO* serial_link)
 {
      // init all the fields to 0
     memset(transport, 0, sizeof(*transport));
-    
+
     transport->serial_link = serial_link;
 
     // setup interfaces

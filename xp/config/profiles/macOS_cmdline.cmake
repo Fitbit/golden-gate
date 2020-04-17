@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # This CMake initial cache is used when build the 'native' target on a mac
 # It is somewhat different from the initial cache for building the macOS runtime with XCode
 

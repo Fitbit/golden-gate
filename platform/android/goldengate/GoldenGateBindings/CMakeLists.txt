@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
 

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapRequest.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 5/29/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import Foundation
@@ -46,7 +47,7 @@ public struct CoapRequest: CustomStringConvertible {
         let parts = options
             .filter { $0.number == .uriPath }
             .compactMap { $0.value.string }
-        
+
         return "/" + parts.joined(separator: "/")
     }
 

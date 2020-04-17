@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  PeripheralManager.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 10/27/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import CoreBluetooth
@@ -80,7 +81,7 @@ public class PeripheralManager {
     private let stateSubject = BehaviorSubject(value: CBManagerState.unknown)
 
     let name: BehaviorRelay<String>
-    
+
     private let disposeBag = DisposeBag()
 
     // swiftlint:disable:next function_body_length

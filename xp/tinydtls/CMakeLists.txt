@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 set(TINYDTLS_ROOT ${PROJECT_SOURCE_DIR}/../../external/tinydtls)
 
 file(GLOB TINYDTLS_SRC_FILES ${TINYDTLS_ROOT}/*.c

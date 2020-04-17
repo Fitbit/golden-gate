@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CommonPeer.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 4/11/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import RxCocoa
@@ -84,7 +85,7 @@ open class CommonPeer {
 
     /// The peer's CoAP client service.
     private(set) public var coapClientService: CoapClientService?
-    
+
     /// The peer's CoAP test service.
     private(set) public var coapTestService: CoapTestService?
 
@@ -221,12 +222,12 @@ open class CommonPeer {
                 // swiftlint:disable:next force_try
                 try! CoapClientService(runLoop: runLoop, coapEndpoint: coapEndpoint)
             }
-            
+
             self.coapTestService = parameters.runLoop.sync { [coapEndpoint] in
                 // swiftlint:disable:next force_try
                 try! CoapTestService(coapEndpoint: coapEndpoint)
             }
-            
+
             // Register CoAP test service
             if let coapTestService = coapTestService {
                 remoteTestServer.register(module: coapTestService)

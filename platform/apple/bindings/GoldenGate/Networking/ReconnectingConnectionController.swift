@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ReconnectingConnectionController.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 12/8/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import Foundation
@@ -81,7 +82,7 @@ extension ReconnectingConnectionController: ConnectionControllerType {
     public var didForceDisconnect: Observable<Void> {
         return wrapped.didForceDisconnect
     }
-    
+
     public var state: Observable<ConnectionControllerState> {
         return wrapped.state
     }

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  UnsafeHeapAllocatedValue.swift
 //  GoldenGate
 //
 //  Created by Bogdan Vlad on 21/05/2018.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 /// Wrapper that gives access to a heap allocated pointer to a generic type T.

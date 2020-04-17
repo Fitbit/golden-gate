@@ -1,3 +1,6 @@
+// Copyright 2016-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 /// Used to avoid creating a hierarchy of encoding/decoding containers.
 ///
 /// A nested container will not reference it's parent container

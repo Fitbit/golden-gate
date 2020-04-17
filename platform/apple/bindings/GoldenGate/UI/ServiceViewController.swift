@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ServiceViewController.swift
 //  GoldenGate-iOS
 //
 //  Created by Marcel Jackwerth on 4/26/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)
@@ -148,7 +149,7 @@ private extension ServiceViewController {
 
             let aSwitch = UISwitch()
             let blasterService = viewModel.blasterService
-            
+
             cell.accessoryView = aSwitch
 
             // Switch is ON if blaster service is blasting

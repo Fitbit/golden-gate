@@ -3,7 +3,8 @@
 * @file: fb_smo_jerryscript.c
 *
 * @copyright
-* Copyright 2017 by Fitbit, Inc., all rights reserved.
+* Copyright 2016-2020 Fitbit, Inc
+* SPDX-License-Identifier: Apache-2.0
 *
 * @author Gilles Boccon-Gibod
 *
@@ -46,7 +47,7 @@ struct Fb_SmoJerryDataSource {
      * @return The numnber of bytes added to the buffer.
      */
     unsigned int (*get_more)(Fb_SmoJerryDataSource* self, const uint8_t** buffer, unsigned int* bytes_available);
-    
+
     /**
      * Notify the source that one or more bytes have been used and can therefore
      * be pruged/freed from any internal state/storage the source may have.
@@ -106,20 +107,20 @@ int Fb_Smo_Deserialize_CBOR_ToJerryFromSource(Fb_SmoAllocator*       parser_allo
  * @return true if the object was encoded, false otherwise
  */
 typedef bool (*Fb_Smo_Serialize_Cbor_Encoder)(void *context, jerry_value_t object, uint8_t** serialized, unsigned int* available, int* result);
-    
+
 /**
  * Serialize or measure the buffer size needed to serialize a JerryScript value to a CBOR buffer.
  *
  * @param[in]     value           JerryScript value that should be serialized
  * @param[in]     serialized      Buffer in which the serialized CBOR data will be written, or NULL to only get the serialized size
- * @param[in,out] serialized_size On input, the size in bytes of the buffer, or 0 if the buffer is NULL. On output, 
-                                  the number of bytes unused at the end of the buffer after serialization, 
+ * @param[in,out] serialized_size On input, the size in bytes of the buffer, or 0 if the buffer is NULL. On output,
+                                  the number of bytes unused at the end of the buffer after serialization,
                                   or the number of bytes required for serialization if the buffer is NULL.
  * @param[in]     max_depth       Maximum nesting depth.
  * @param[in]     encoder         Optional encoder that will be used instead of the normal one.
  * @param[in,out] encoder_context Optional context to pass to the encoder.
  *
- * @return FB_SMO_SUCCESS if the call succeeds, FB_SMO_ERROR_NOT_ENOUGH_SPACE if the buffer is too small, 
+ * @return FB_SMO_SUCCESS if the call succeeds, FB_SMO_ERROR_NOT_ENOUGH_SPACE if the buffer is too small,
            FB_SMO_ERROR_OVERLFOW if max_depth was exceeded or FB_SMO_ERROR_XXX for other error conditions.
  */
 int Fb_Smo_Serialize_CBOR_FromJerry(jerry_value_t                 value,

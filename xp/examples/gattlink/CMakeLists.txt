@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 CMAKE_DEPENDENT_OPTION(GG_APPS_ENABLE_GATTLINK_EXAMPLES "Enable gattlink examples" ON "GG_ENABLE_EXAMPLES" OFF)
 if(NOT GG_APPS_ENABLE_GATTLINK_EXAMPLES)
     return()

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  PerfDataSink.swift
 //  GoldenGate
 //
 //  Created by Bogdan Vlad on 1/15/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -85,10 +86,10 @@ public struct PerfDataSinkOption: OptionSet {
 
     /// When this flag is set in the options, the stats will be printed on the console
     public static let printStatsToConsole = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE))
-    
+
     /// When this flag is set in the options, the stats will be logged with level INFO
     public static let printStatsToLog = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG))
-    
+
     public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }

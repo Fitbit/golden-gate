@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 #include <string.h>
 #include <xp/loop/gg_loop.h>
 #include <xp/common/gg_port.h>

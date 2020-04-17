@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  BluetoothConfiguration.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 10/30/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import CoreBluetooth
@@ -36,7 +37,7 @@ public struct BluetoothConfiguration {
         let serviceUUID: CBUUID
         let rxUUID: CBUUID
         let txUUID: CBUUID
-        
+
         static let `default` = GattlinkServiceConfiguration(
             serviceUUID: CBUUID(string: "ABBAFF00-E56A-484C-B832-8B17CF6CBFE8"),
             rxUUID: CBUUID(string: "ABBAFF01-E56A-484C-B832-8B17CF6CBFE8"),
@@ -93,7 +94,7 @@ public struct BluetoothConfiguration {
     public struct ConfirmationServiceConfiguration {
         public let serviceUUID: CBUUID
         public let ephemeralCharacteristicPointerUUID: CBUUID
-        
+
         static let `default` = ConfirmationServiceConfiguration(
             serviceUUID: CBUUID(string: "AC2F0045-8182-4BE5-91E0-2992E6B40EBB"),
             ephemeralCharacteristicPointerUUID: CBUUID(string: "AC2F0145-8182-4BE5-91E0-2992E6B40EBB")

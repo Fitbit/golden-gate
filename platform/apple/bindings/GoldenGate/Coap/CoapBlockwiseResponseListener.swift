@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapBlockwiseResponseListener.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 5/30/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -129,7 +130,7 @@ final class CoapBlockwiseResponseListener: GGAdaptable {
                 state = .done
                 return
             }
-            
+
         case .done:
             LogBindingsWarning("Received a response, but not interested in it anymore.")
             return

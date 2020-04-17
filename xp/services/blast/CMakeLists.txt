@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_LIBS_ENABLE_BLAST_SERVICE "Enable blast service" TRUE)
 if(NOT GG_LIBS_ENABLE_BLAST_SERVICE)
     return()

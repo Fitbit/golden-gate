@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  GGErrorTypeSpec.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 12/6/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 @testable import GoldenGate
@@ -25,7 +26,7 @@ class GGErrorTypeSpec: QuickSpec {
                 expect(error.errorUserInfo).to(beEmpty())
             }
         }
-        
+
         describe("GG_Result") {
             describe("rethrow()") {
                 it("do nothing if result is GG_SUCCESS") {

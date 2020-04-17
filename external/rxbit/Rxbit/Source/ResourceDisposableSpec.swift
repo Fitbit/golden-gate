@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ResourceDisposableSpec.swift
 //  RxbitTests
 //
 //  Created by Bogdan Vlad on 12/12/2018.
-//  Copyright © 2018 Fitbit, Inc. All rights reserved.
 //
 
 import Nimble

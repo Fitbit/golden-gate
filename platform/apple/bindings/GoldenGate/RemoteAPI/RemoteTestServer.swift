@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  RemoteTestServer.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 6/26/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 // swiftlint:disable multiple_closures_with_trailing_closure

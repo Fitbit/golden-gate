@@ -1,8 +1,9 @@
+//  Copyright 2016-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  fb_smo_parse.c
 //
-//  Created by Gilles Boccon-Gibod on 11/4/16.
-//  Copyright © 2016 Fitbit. All rights reserved.
+//  Created by Gilles Boccon-Gibod
 //
 
 #include <stdio.h>
@@ -38,18 +39,18 @@ ParsePrinter_PushContext(ParsePrinter* self, char type, unsigned int entry_count
         fprintf(stderr, "ERROR: out of memory\n");
         exit(1);
     }
-    
+
     if (indent_offset > FB_SMO_PRINT_MAX_OFFSET) {
         indent_offset = FB_SMO_PRINT_MAX_OFFSET;
     }
     memset(self->prefix, ' ', 2*indent_offset);
     self->prefix[2*indent_offset] = '\0';
-    
+
     new_context->parent      = self->context;
     new_context->entry_count = entry_count;
     new_context->type        = type;
     new_context->have_name   = 0;
-    
+
     self->context            = new_context;
 }
 
@@ -58,16 +59,16 @@ ParsePrinter_PopContext(ParsePrinter* self)
 {
     char c = self->context->type;
     ParsePrinterContext* context = self->context;
-    
+
     self->context = self->context->parent;
     free(context);
-    
+
     if (self->indent_offset) {
         --self->indent_offset;
         memset(self->prefix, ' ', 2*self->indent_offset);
         self->prefix[2*self->indent_offset] = '\0';
     }
-    
+
     printf("%s%c\n", self->prefix, c);
 }
 
@@ -203,7 +204,7 @@ ParseAndPrint(const uint8_t* buffer, unsigned int buffer_size)
     printer.indent_offset = 0;
     printer.context = NULL;
     printer.prefix[0] = '\0';
-    
+
     while (bytes_left) {
         int result = Fb_Smo_Parse_CBOR(&printer.parser_listener, buffer+buffer_size-bytes_left, &bytes_left);
         if (result != FB_SMO_SUCCESS) {
@@ -218,7 +219,7 @@ main(int argc, const char * argv[]) {
     FILE* input = NULL;
     uint8_t* buffer = NULL;
     unsigned int buffer_size = 0;
-    
+
     if (argc != 2) {
         fprintf(stderr, "ERROR: input filename expected\n");
         return 1;
@@ -229,12 +230,12 @@ main(int argc, const char * argv[]) {
         fprintf(stderr, "ERROR: cannot open %s\n", argv[1]);
         return 1;
     }
-    
+
     if (fseek(input, 0, SEEK_END) == 0) {
         buffer_size = (unsigned int)ftell(input);
         fseek(input, 0, SEEK_SET);
     }
-    
+
     buffer = (uint8_t*)malloc(buffer_size);
     if (!buffer) {
         fprintf(stderr, "ERROR: out of memory\n");
@@ -245,10 +246,10 @@ main(int argc, const char * argv[]) {
         fprintf(stderr, "ERROR: failed to read input\n");
         return 1;
     }
-    
+
     ParseAndPrint(buffer, buffer_size);
-    
+
     if (buffer) free(buffer);
-    
+
     return 0;
 }

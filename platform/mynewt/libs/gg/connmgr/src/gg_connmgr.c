@@ -3,7 +3,8 @@
  * @brief Mynewt Connection Manager Implementation
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc. All Rights Reserved
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Bogdan Davidoaia
  *

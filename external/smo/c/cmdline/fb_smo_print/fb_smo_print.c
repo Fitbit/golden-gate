@@ -1,8 +1,9 @@
+//  Copyright 2016-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  fb_smo_print.c
 //
 //  Created by Gilles Boccon-Gibod on 11/4/16.
-//  Copyright © 2016 Fitbit. All rights reserved.
 //
 
 #include <stdio.h>

@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_BUILD_SHARED_LIBRARY "Enable shared library" FALSE)
 option(GG_BUILD_STATIC_LIBRARY "Enable fat static library" FALSE)
 option(GG_BUILD_DYNAMIC_FRAMEWORK "Enable dynamic framework" FALSE)

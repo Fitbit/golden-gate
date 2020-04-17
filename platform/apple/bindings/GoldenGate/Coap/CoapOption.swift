@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapOption.swift
 //  GoldenGate
 //
 //  Created by Bogdan Vlad on 11/22/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -57,15 +58,15 @@ extension CoapOptionValue {
 public struct CoapOption: Equatable {
     let number: Number
     let value: CoapOptionValue
-    
+
     public struct Number: RawRepresentable {
         public let rawValue: UInt32
-        
+
         public init(rawValue: UInt32) {
             self.rawValue = rawValue
         }
     }
-    
+
     public init(number: Number, value: CoapOptionValue) {
         self.number = number
         self.value = value
@@ -112,7 +113,7 @@ extension CoapOption: CustomStringConvertible {
 extension CoapOption {
     init?(option: GG_CoapMessageOption) {
         self.number = CoapOption.Number(rawValue: option.number)
-        
+
         switch option.type {
         case GG_COAP_MESSAGE_OPTION_TYPE_EMPTY:
             self.value = .empty

@@ -3,7 +3,8 @@
  * @file
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Gilles Boccon-Gibod
  *
@@ -13,7 +14,7 @@
  *
  * Standard C implementation of the system environment interface.
  */
- 
+
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
@@ -25,7 +26,7 @@
 /*----------------------------------------------------------------------
 |   GG_GetEnvironment
 +---------------------------------------------------------------------*/
-GG_Result 
+GG_Result
 GG_System_GetEnvironment(const char* name, GG_String* value)
 {
     char* env;

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapClientService.swift
 //  GoldenGate-iOS
 //
 //  Created by Vlad-Mihai Corneci on 24/10/2018.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP

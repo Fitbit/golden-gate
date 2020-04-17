@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # Platform specifics
 set(GG_PLATFORM GG_PLATFORM_PYLON CACHE STRING "Target Platform")
 

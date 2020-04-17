@@ -1,5 +1,8 @@
 #! /urs/bin/env python
 
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 #####################################################################
 # This script post-processes the XCode project generated
 # by CMake, so that it no longer contains absolute paths.

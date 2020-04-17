@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  Stack.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 3/22/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -61,7 +62,7 @@ public class StackBuilder: StackBuilderType {
             .observeOn(runLoop)
             .do(onNext: { [weak self] tuple in
                 LogBindingsVerbose("\(self ??? "StackBuilder").build: \(tuple)")
-            })	
+            })
             // Use scan so that we can destroy the previous stack
             // before allocating a new one
             .scan(nil as Stack?, accumulator: { [stackProvider, role] previous, element -> Stack? in

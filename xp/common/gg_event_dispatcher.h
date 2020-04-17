@@ -3,7 +3,8 @@
  * @brief Dispatcher that can have multiple listeners
  *
  * @copyright
- * Copyright 2019 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Kishore B. Rao
  *

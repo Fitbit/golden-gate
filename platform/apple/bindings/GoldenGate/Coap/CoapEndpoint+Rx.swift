@@ -1,15 +1,16 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapEndpoint+Rx.swift
 //  GoldenGate
 //
 //  Created by Bogdan Vlad on 12/15/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import RxSwift
 
 public extension ObservableConvertibleType where E == CoapEndpoint.Response {
-    
+
     /// An operator that skips the ACK from the CoAP Response.
     ///
     /// - Returns: An Observable that ignores the CoAP ack.

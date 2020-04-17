@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  BlasterService.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 11/28/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import Foundation
@@ -132,7 +133,7 @@ public final class BlasterService {
 
 extension BlasterService: RemoteApiModule {
     public var methods: Set<String> { [] } // Methods are defined in xp
-    
+
     public func publishHandlers(on remoteShell: RemoteShell) {
         GG_BlastService_Register(ref, remoteShell.ref)
     }

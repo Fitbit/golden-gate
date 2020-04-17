@@ -1,3 +1,6 @@
+// Copyright 2016-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 /// An implementation of CodingKey used throughout FbSmo.
 struct FbSmoCodingKey: CodingKey, Equatable {
     let stringValue: String

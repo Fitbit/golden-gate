@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_LIBS_ENABLE_SMO "Enable SMO library" TRUE)
 option(GG_LIBS_BUILD_SMO_ALLOCATOR_ONLY "Only build SMO allocator" FALSE)
 

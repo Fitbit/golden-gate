@@ -3,7 +3,8 @@
  * @brief General purpose lists
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Gilles Boccon-Gibod
  *

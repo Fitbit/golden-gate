@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 #include <jni_gg_loop.h>
 #include <xp/common/gg_common.h>
 #include <xp/services/coap_client/gg_coap_client_service.h>

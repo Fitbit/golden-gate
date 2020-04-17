@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 //----------------------------------------------------------------------------
 // Simple main that can be used as a test runner command line application
 //----------------------------------------------------------------------------

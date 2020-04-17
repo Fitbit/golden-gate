@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ManagedNode.swift
 //  GoldenGateHost
 //
 //  Created by Marcel Jackwerth on 11/20/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +17,7 @@ class ManagedNode: ManagedPeer {
 
     public let preferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>(value: .default)
     public let preferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>(value: .default)
-    
+
     init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, remoteTestServer: RemoteTestServerType?, linkConfigurationService: LinkConfigurationService) {
         super.init(
             record: record,

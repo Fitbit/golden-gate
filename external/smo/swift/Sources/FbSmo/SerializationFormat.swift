@@ -1,3 +1,6 @@
+// Copyright 2016-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 /// The serialization format to use.
 public enum SerializationFormat {
     /// Use Concise Binary Object Representation (CBOR)

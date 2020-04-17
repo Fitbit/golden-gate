@@ -3,7 +3,8 @@
  * @file
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author
  *
@@ -50,7 +51,7 @@ GG_Result SerialTransport_SendAck(GG_SerialIO* self, uint8_t* seq);
 |   functions
 +---------------------------------------------------------------------*/
 
-GG_Result GG_SerialTransport_CreateFrame(GG_RemoteTransport* self, GG_Buffer* payload_buff, 
+GG_Result GG_SerialTransport_CreateFrame(GG_RemoteTransport* self, GG_Buffer* payload_buff,
                                       GG_Buffer** frame_buff, uint8_t* crc, uint8_t* seq);
 GG_Result GG_SerialTransport_EncodeDecodePayload(GG_Buffer* src, GG_Buffer** dst, bool encode);
 size_t GG_SerialTransport_GetFrameSize(GG_SerialIO* self);

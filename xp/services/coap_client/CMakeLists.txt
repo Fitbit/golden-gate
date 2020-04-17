@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_LIBS_ENABLE_COAP_CLIENT_SERVICE "Enable coap client service" TRUE)
 if(NOT GG_LIBS_ENABLE_COAP_CLIENT_SERVICE)
     return()

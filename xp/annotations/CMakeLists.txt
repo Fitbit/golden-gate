@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_CONFIG_ANNOTATIONS_DISABLE_COMMS_ERRORS "Disable CommsError debug annotations" FALSE)
 if (NOT GG_CONFIG_ENABLE_ANNOTATIONS)
     add_library(gg-annotations INTERFACE)

@@ -3,7 +3,8 @@
 * @file: fb_smo_utils.c
 *
 * @copyright
-* Copyright 2016 by Fitbit, Inc., all rights reserved.
+* Copyright 2016-2020 Fitbit, Inc
+* SPDX-License-Identifier: Apache-2.0
 *
 * @author Gilles Boccon-Gibod
 *
@@ -29,7 +30,7 @@ static void*
 Fb_SmoSimpleBlockAllocator_AllocateMemory(Fb_SmoAllocator* _self, size_t size)
 {
     Fb_SmoSimpleBlockAllocator* self = (Fb_SmoSimpleBlockAllocator*)_self;
-    
+
     /* if this is the first block allocated, remember the block size */
     if (self->block_size == 0) {
         self->block_size = (unsigned int)size;
@@ -40,13 +41,13 @@ Fb_SmoSimpleBlockAllocator_AllocateMemory(Fb_SmoAllocator* _self, size_t size)
             return NULL;
         }
     }
-    
+
     /* check that we have enough memory */
     if (self->block_size * (self->blocks_used+1) > self->size) {
         /* out of memory */
         return NULL;
     }
-    
+
     /* return the next available block */
     return self->blocks + (self->block_size * self->blocks_used++);
 }
@@ -59,7 +60,7 @@ Fb_SmoSimpleBlockAllocator_FreeMemory(Fb_SmoAllocator* _self, void* memory)
 {
     Fb_SmoSimpleBlockAllocator* self = (Fb_SmoSimpleBlockAllocator*)_self;
     (void)memory; // unused
-    
+
     if (self->blocks_used) {
         --self->blocks_used;
     }
@@ -87,16 +88,16 @@ Fb_SmoGrowOnlyAllocator_AllocateMemory(Fb_SmoAllocator* _self, size_t size)
 {
     Fb_SmoGrowOnlyAllocator* self = (Fb_SmoGrowOnlyAllocator*)_self;
     void*                    memory;
-    
+
     /* check that we have enough memory */
     if (self->used + (unsigned int)size > self->size) {
         /* out of memory */
         return NULL;
     }
-    
+
     memory = self->heap+self->used;
     self->used += (unsigned int)size;
-    
+
     return memory;
 }
 

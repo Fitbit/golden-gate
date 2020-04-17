@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  UIApplication+RxSpec.swift
 //  Rxbit
 //
 //  Created by Ryan LaSante on 8/31/18.
-//  Copyright © 2018 Fitbit, Inc. All rights reserved.
 //
 
 #if os(iOS) || os(tvOS)

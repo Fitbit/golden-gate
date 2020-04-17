@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  PairRemoteApi.swift
 //  GoldenGateHost-iOS
 //
 //  Created by Vlad-Mihai Corneci on 27/02/2019.
-//  Copyright © 2019 Fitbit. All rights reserved.
 //
 
 import GoldenGate
@@ -110,7 +111,7 @@ class PairRemoteApi: RemoteApiModule {
             .map { $0.connectionController }
             .take(1)
     }
-    
+
     /// Discover a new tracker with the specified name.
     ///
     /// - Parameter name: The name of the desired peripheral.

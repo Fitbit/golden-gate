@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 package com.fitbit.goldengate.bindings.coap.data
 
 /**
@@ -9,13 +12,13 @@ package com.fitbit.goldengate.bindings.coap.data
  * @see <a href="https://tools.ietf.org/html/rfc7252#section-5.9">CoAP Response Code Definitions</a>
  */
 data class ResponseCode constructor(val responseClass: Byte, val detail: Byte) {
-    
+
     object Class {
         const val ok = 2.toByte()
         const val clientError = 4.toByte()
         const val serverError = 5.toByte()
     }
-    
+
     companion object {
         /** CoAP Response Code 201 */ val created                   = ResponseCode(Class.ok, 1)
         /** CoAP Response Code 202 */ val deleted                   = ResponseCode(Class.ok, 2)

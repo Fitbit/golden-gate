@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  PickerViewController.swift
 //  GoldenGate-iOS
 //
 //  Created by Sylvain Rebaud on 5/1/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)
@@ -48,7 +49,7 @@ class PickerViewController<Element: Equatable>: UIViewController {
             .do(onNext: { [unowned self] _ in self.pop() })
             .subscribe()
             .disposed(by: disposeBag)
-        
+
         // Set initial element
         viewModel.selectedElement
             .do(onNext: { [unowned self] in

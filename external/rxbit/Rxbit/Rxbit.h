@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  Rxbit.h
 //  Rxbit
 //
 //  Created by Sylvain Rebaud on 8/26/18.
-//  Copyright © 2017 Fitbit, Inc. All rights reserved.
 //
 
 @import Foundation;

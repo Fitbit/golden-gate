@@ -3,7 +3,8 @@
  * @file
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Gilles Boccon-Gibod
  *
@@ -13,7 +14,7 @@
  *
  * Usage examples for the interfaces macros.
  */
- 
+
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
@@ -48,7 +49,7 @@ struct GG_Accumulator {
     int value;
 };
 
-GG_Result 
+GG_Result
 GG_Accumulator_Create(int initial_value, GG_Accumulator** accumulator)
 {
     // allocate an instance (in this example we allocate from the heap)
@@ -61,7 +62,7 @@ GG_Accumulator_Create(int initial_value, GG_Accumulator** accumulator)
     return GG_SUCCESS;
 }
 
-void 
+void
 GG_Accumulator_Destroy(GG_Accumulator* self)
 {
     if (self) {
@@ -145,7 +146,7 @@ GG_Result GG_Circle_Create(unsigned int radius, GG_Circle** circle);
 //
 // start of implementation for Example 2
 //
-void 
+void
 GG_Shape_ToString(const GG_Shape* self, char* buffer, unsigned int buffer_size)
 {
     GG_INTERFACE(self)->ToString(self, buffer, buffer_size);
@@ -157,13 +158,13 @@ GG_Shape_GetArea(const GG_Shape* self)
     return GG_INTERFACE(self)->GetArea(self);
 }
 
-void 
+void
 GG_Shape_Destroy(GG_Shape* self)
 {
     GG_INTERFACE(self)->Destroy(self);
 }
 
-void 
+void
 GG_ShapeVisitor_Visit(GG_ShapeVisitor* self, const GG_Shape* shape)
 {
     GG_INTERFACE(self)->Visit(self, shape);
@@ -171,7 +172,7 @@ GG_ShapeVisitor_Visit(GG_ShapeVisitor* self, const GG_Shape* shape)
 
 struct GG_Rectangle {
     GG_IMPLEMENTS(GG_Shape);
-    
+
     unsigned int width;
     unsigned int height;
 };
@@ -180,7 +181,7 @@ static void
 GG_Rectangle_ToString(const GG_Shape* _self, char* buffer, unsigned int buffer_size)
 {
     GG_Rectangle* self = GG_SELF(GG_Rectangle, GG_Shape);
-    
+
     snprintf(buffer, buffer_size, "Rectangle, width=%d, height=%d", self->width, self->height);
 }
 
@@ -192,7 +193,7 @@ GG_Rectangle_GetArea(const GG_Shape* _self)
     return (double)self->width * (double)self->height;
 }
 
-static void 
+static void
 GG_Rectangle_Destroy(GG_Shape* self)
 {
     if (self) {
@@ -206,8 +207,8 @@ GG_IMPLEMENT_INTERFACE(GG_Rectangle, GG_Shape) {
     GG_Rectangle_Destroy
 };
 
-GG_Result 
-GG_Rectangle_Create(unsigned int width, unsigned int height, GG_Rectangle** rectangle) 
+GG_Result
+GG_Rectangle_Create(unsigned int width, unsigned int height, GG_Rectangle** rectangle)
 {
     // allocate an instance (in this example we allocate from the heap)
     *rectangle = (GG_Rectangle*)malloc(sizeof(GG_Rectangle));
@@ -224,7 +225,7 @@ GG_Rectangle_Create(unsigned int width, unsigned int height, GG_Rectangle** rect
 
 struct GG_Circle {
     GG_IMPLEMENTS(GG_Shape);
-    
+
     unsigned int radius;
 };
 
@@ -232,7 +233,7 @@ static void
 GG_Circle_ToString(const GG_Shape* _self, char* buffer, unsigned int buffer_size)
 {
     GG_Circle* self = GG_SELF(GG_Circle, GG_Shape);
-    
+
     snprintf(buffer, buffer_size, "Circle, radius=%d", self->radius);
 }
 
@@ -244,7 +245,7 @@ GG_Circle_GetArea(const GG_Shape* _self)
     return (double)self->radius * (double)self->radius * 3.14159265359;
 }
 
-static void 
+static void
 GG_Circle_Destroy(GG_Shape* self)
 {
     if (self) {
@@ -258,8 +259,8 @@ GG_IMPLEMENT_INTERFACE(GG_Circle, GG_Shape) {
     GG_Circle_Destroy
 };
 
-GG_Result 
-GG_Circle_Create(unsigned int radius, GG_Circle** circle) 
+GG_Result
+GG_Circle_Create(unsigned int radius, GG_Circle** circle)
 {
     // allocate an instance (in this example we allocate from the heap)
     *circle = (GG_Circle*)malloc(sizeof(GG_Circle));
@@ -310,7 +311,7 @@ static void
 SimpleVisitor_Visit(GG_ShapeVisitor* _self, const GG_Shape* shape)
 {
     SimpleVisitor* self = GG_SELF(SimpleVisitor, GG_ShapeVisitor);
-    
+
     ++self->visit_count;
     printf("shape %d - area = %f\n", self->visit_count, GG_Shape_GetArea(shape));
 }
@@ -323,11 +324,11 @@ static void
 Example2()
 {
     printf("* Example 2\n");
-    
+
     GG_Rectangle* rectangle = NULL;
     GG_Result result = GG_Rectangle_Create(3, 4, &rectangle);
     GG_ASSERT(GG_SUCCEEDED(result));
-        
+
     PrintShape(GG_CAST(rectangle, GG_Shape));
 
     GG_Circle* circle = NULL;
@@ -371,7 +372,7 @@ static void
 AreaVisitor_Visit(GG_ShapeVisitor* _self, const GG_Shape* shape)
 {
     MultiVisitor* self = GG_SELF_M(area_visitor, MultiVisitor, GG_ShapeVisitor);
-    
+
     printf("%s shape - area = %f\n", self->prefix, GG_Shape_GetArea(shape));
 }
 
@@ -383,7 +384,7 @@ static void
 ToStringVisitor_Visit(GG_ShapeVisitor* _self, const GG_Shape* shape)
 {
     MultiVisitor* self = GG_SELF_M(to_string_visitor, MultiVisitor, GG_ShapeVisitor);
-    
+
     char string[256];
     GG_Shape_ToString(shape, string, sizeof(string));
 
@@ -398,11 +399,11 @@ static void
 Example3()
 {
     printf("* Example 3\n");
-    
+
     GG_Rectangle* rectangle = NULL;
     GG_Result result = GG_Rectangle_Create(3, 4, &rectangle);
     GG_ASSERT(GG_SUCCEEDED(result));
-        
+
     GG_Circle* circle = NULL;
     result = GG_Circle_Create(5, &circle);
     GG_ASSERT(GG_SUCCEEDED(result));
@@ -417,7 +418,7 @@ Example3()
     const GG_Shape* shapes[2] = {GG_CAST(rectangle, GG_Shape), GG_CAST(circle, GG_Shape)};
     VisitShapes(shapes, 2, GG_CAST(&visitor.area_visitor, GG_ShapeVisitor));
     VisitShapes(shapes, 2, GG_CAST(&visitor.to_string_visitor, GG_ShapeVisitor));
-    
+
     // cleanup
     GG_Shape_Destroy(GG_CAST(rectangle, GG_Shape));
     GG_Shape_Destroy(GG_CAST(circle, GG_Shape));
@@ -564,7 +565,7 @@ Example6(void) {
 }
 
 //---------------------------------------------------------------------------------------
-int 
+int
 main(int argc, char** argv)
 {
     GG_COMPILER_UNUSED(argc);

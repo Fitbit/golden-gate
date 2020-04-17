@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ComponentBase.swift
 //  GoldenGateHost-iOS
 //
 //  Created by Marcel Jackwerth on 11/1/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import CoreBluetooth
@@ -222,7 +223,7 @@ class ComponentBase {
             elementConfigurationProvider: self
         )
     }
- 
+
     lazy var helloPsk: (identity: Data, key: Data) = {
         let identity = "hello".data(using: .utf8)!
 
@@ -233,15 +234,15 @@ class ComponentBase {
 
         return (identity, key)
     }()
-    
+
     lazy var bootstrapPsk: (identity: Data, key: Data) = {
         let identity = "BOOTSTRAP".data(using: .utf8)!
-        
+
         let key = Data([
             0x81, 0x06, 0x54, 0xE3, 0x36, 0xAD, 0xCA, 0xB0,
             0xA0, 0x3C, 0x60, 0xF7, 0x4A, 0xA0, 0xB6, 0xFB
             ])
-        
+
         return (identity, key)
     }()
 

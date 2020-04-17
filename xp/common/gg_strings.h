@@ -3,13 +3,14 @@
  * @brief String objects and functions
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Gilles Boccon-Gibod
  *
  * @date 2017-09-18
  */
- 
+
 #pragma once
 
 /*----------------------------------------------------------------------
@@ -83,52 +84,52 @@ typedef struct {
 /*----------------------------------------------------------------------
 |   GG_String functions
 +---------------------------------------------------------------------*/
-GG_String 
+GG_String
 GG_String_Create(const char* s);
 
-GG_String 
+GG_String
 GG_String_CreateFromSubString(const char* s, unsigned int first, size_t length);
 
-GG_String 
+GG_String
 GG_String_Clone(const GG_String* str);
 
 void
 GG_String_Copy(GG_String* str, const GG_String* other);
 
-GG_Result 
+GG_Result
 GG_String_SetLength(GG_String* str, size_t length);
 
-GG_Result 
+GG_Result
 GG_String_Assign(GG_String* str, const char* chars);
 
-GG_Result 
+GG_Result
 GG_String_AssignN(GG_String* str, const char* chars, size_t size);
 
-GG_Result 
+GG_Result
 GG_String_Append(GG_String* str, const char* other);
 
-GG_Result 
+GG_Result
 GG_String_AppendSubString(GG_String* str, const char* other, size_t size);
 
-GG_Result 
+GG_Result
 GG_String_AppendChar(GG_String* str, char c);
 
 GG_String
 GG_String_Add(const GG_String* str1, const char* str2);
 
-int 
+int
 GG_String_Compare(const GG_String* str, const char* s, bool ignore_case);
 
-bool 
+bool
 GG_String_Equals(const GG_String* str, const char* s, bool ignore_case);
 
-GG_String 
+GG_String
 GG_String_SubString(const GG_String* str, unsigned int first, size_t length);
 
-GG_String 
+GG_String
 GG_String_Left(const GG_String* str, size_t length);
 
-GG_String 
+GG_String
 GG_String_Right(const GG_String* str, size_t length);
 
 GG_Result
@@ -152,34 +153,34 @@ GG_String_MakeUppercase(GG_String* str);
 void
 GG_String_Replace(GG_String* str, char a, char b);
 
-int  
+int
 GG_String_FindChar(const GG_String* str, char c);
 
-int  
+int
 GG_String_FindCharFrom(const GG_String* str, char c, unsigned int start);
 
-int  
+int
 GG_String_FindString(const GG_String* str, const char* s);
 
-int  
+int
 GG_String_FindStringFrom(const GG_String* str, const char* s, unsigned int start);
 
-int  
+int
 GG_String_ReverseFindChar(const GG_String* str, char c);
 
-int  
+int
 GG_String_ReverseFindCharFrom(const GG_String* str, char c, unsigned int start);
 
-int  
+int
 GG_String_ReverseFindString(const GG_String* str, const char* s);
 
-int  
+int
 GG_String_ReverseFindStringFrom(const GG_String* str, const char* s, unsigned int start);
 
 bool
 GG_String_StartsWith(const GG_String* str, const char* s);
 
-bool 
+bool
 GG_String_EndsWith(const GG_String* str, const char* s);
 
 void

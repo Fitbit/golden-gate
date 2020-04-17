@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 project (gg-unit-tests VERSION 0.1 LANGUAGES C)
 
 # Our unit tests are written in CPP

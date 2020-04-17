@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  Peripheral_GG.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 10/30/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import CoreBluetooth
@@ -45,7 +46,7 @@ public extension ObservableType where Element == [Service] {
         return self.map { services -> Service in
             guard let service = services.first(where: { $0.uuid == serviceUUID })
             else { throw PeripheralError.serviceNotFound }
-            
+
             return service
         }
     }

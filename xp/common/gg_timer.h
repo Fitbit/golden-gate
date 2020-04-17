@@ -3,7 +3,8 @@
  * @brief Timers
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc. All Rights Reserved
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @date 2017-09-11
  *

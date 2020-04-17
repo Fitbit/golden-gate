@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  SocketAddress.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 11/30/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import CoreFoundation
@@ -15,7 +16,7 @@ import GoldenGateXP
 
 public struct SocketAddress {
     internal let gg: GG_SocketAddress
-    
+
     public init(_ gg: GG_SocketAddress) {
         self.gg = gg
     }

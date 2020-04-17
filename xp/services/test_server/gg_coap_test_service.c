@@ -1,7 +1,8 @@
 /**
  * @file
  * @copyright
- * Copyright 2018 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @brief
  * Fitbit GG CoAP test server implementation

@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 #include <xp/common/gg_common.h>
 #include "jni_gg_remote.h"
 #include <logging/jni_gg_logging.h>

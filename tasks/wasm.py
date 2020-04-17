@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 """Tasks to build Golden Gate for the Web Assembly platform"""
 import os
 from invoke import task, exceptions

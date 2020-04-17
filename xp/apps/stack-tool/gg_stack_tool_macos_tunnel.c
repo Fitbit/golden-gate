@@ -3,7 +3,8 @@
 * @file
 *
 * @copyright
-* Copyright 2017-2020 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
 *
 * @author Gilles Boccon-Gibod
 *
@@ -53,7 +54,7 @@ GG_SET_LOCAL_LOGGER("gg.xp.app.stack-tool.macos-tunnel")
 struct GG_StackToolMacosTunnel {
     GG_IMPLEMENTS(GG_DataSource);
     GG_IMPLEMENTS(GG_DataSink);
-    
+
     GG_LoopFileDescriptorEventHandler handler;  // to monitor the file descriptor
     bool                              trace;    // verbose trace or not
     GG_DataSinkListener*              listener; // listener that may be waiting

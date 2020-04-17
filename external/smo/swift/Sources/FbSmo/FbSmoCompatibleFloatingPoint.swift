@@ -1,3 +1,6 @@
+// Copyright 2016-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 /// Utility to deduplicate float casting logic in `SingleValueDecodingContainer`.
 protocol FbSmoCompatibleFloatingPoint: FloatingPoint {
     init?(exactly source: Int64)

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  RunLoop+Assert.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 3/22/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 /// Thread Dictionary key that is used to place and read a sentinel
@@ -58,7 +59,7 @@ private func runLoopPreconditionEpilog() -> String {
     if !isDebuggerAttached() {
         tail = "\n" + Thread.callStackSymbols.joined(separator: "\n")
     }
-    
+
     return "be called from a GoldenGate run loop, but was called from \(name)\(tail)"
 }
 

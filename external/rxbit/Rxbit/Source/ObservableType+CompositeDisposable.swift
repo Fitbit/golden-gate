@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ObservableType+CompositeDisposable.swift
 //  Rxbit
 //
 //  Created by Sylvain Rebaud on 10/25/18.
-//  Copyright © 2018 Fitbit, Inc. All rights reserved.
 //
 
 import RxSwift

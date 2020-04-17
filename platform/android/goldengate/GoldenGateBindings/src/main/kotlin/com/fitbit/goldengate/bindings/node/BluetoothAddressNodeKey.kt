@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 package com.fitbit.goldengate.bindings.node
 
 import com.fitbit.goldengate.bindings.util.checkBluetoothAddress

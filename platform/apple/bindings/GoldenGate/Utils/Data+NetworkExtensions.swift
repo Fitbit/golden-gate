@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  Data+NetworkExtensions.swift
 //  GoldenGate
 //
 //  Created by Sylvain Rebaud on 10/19/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 public extension Data {
@@ -11,7 +12,7 @@ public extension Data {
         var mutableValue = value.littleEndian
         append(UnsafeBufferPointer(start: &mutableValue, count: 1))
     }
-    
+
     mutating func append<T: FixedWidthInteger>(bigEndian value: T) {
         var mutableValue = value.bigEndian
         append(UnsafeBufferPointer(start: &mutableValue, count: 1))

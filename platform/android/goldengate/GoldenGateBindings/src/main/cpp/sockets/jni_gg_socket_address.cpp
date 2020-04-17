@@ -1,3 +1,6 @@
+// Copyright 2017-2020 Fitbit, Inc
+// SPDX-License-Identifier: Apache-2.0
+
 #include "jni_gg_socket_address.h"
 #include <string.h>
 #include <stdlib.h>

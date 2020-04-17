@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  LinkConfigurationViewController.swift
 //  GoldenGate-iOS
 //
 //  Created by Sylvain Rebaud on 10/21/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)
@@ -22,13 +23,13 @@ public class LinkConfigurationViewControllerViewModel {
     public let done = PublishSubject<Void>()
     // A PublishSubject which emits the "Cancel" button events.
     public let cancel = PublishSubject<Void>()
-    
+
     // Outputs
     // A BehaviorRelay which emits current connection configuration.
     public let currentConnectionConfiguration: BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>
     // A BehaviorRelay which emits current connection mode.
     public let currentConnectionMode: BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>
-    
+
     // Private
     private let disposeBag = DisposeBag()
 
@@ -62,7 +63,7 @@ public class LinkConfigurationViewControllerViewModel {
             })
             .disposed(by: disposeBag)
     }
-    
+
 }
 
 private enum ViewModelEntry {
@@ -236,7 +237,7 @@ extension LinkConfigurationViewControllerViewModel {
                 update: { [currentConnectionConfiguration] in
                     var currentConfiguration = currentConnectionConfiguration.value
                     currentConfiguration.MTU = UInt16($0)
-                    
+
                     currentConnectionConfiguration.accept(currentConfiguration)
                 }
             )
@@ -264,7 +265,7 @@ extension LinkConfigurationViewControllerViewModel {
                     default:
                     break
                     }
-                    
+
                     currentConnectionMode.accept(preferredMode)
                 }
             )
@@ -276,7 +277,7 @@ class LinkConfigurationViewController: UITableViewController {
     public typealias ViewModel = LinkConfigurationViewControllerViewModel
 
     public var viewModel: ViewModel!
-    
+
     private let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
     private let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: nil)
     private let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
@@ -335,7 +336,7 @@ class LinkConfigurationViewController: UITableViewController {
         let viewController = PickerViewController<Double>()
 
         let elements: [Double] = stride(from: Double(min), through: Double(max), by: step).map { $0 }
-        
+
         let selectedElement = value
             .map { (currentValue) -> Double in
                 guard let currentValue = currentValue else { return Double(min) }

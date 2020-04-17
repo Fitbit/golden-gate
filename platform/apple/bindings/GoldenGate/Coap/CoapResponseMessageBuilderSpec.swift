@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapResponseMessageBuilderSpec.swift
 //  GoldenGate-iOS
 //
 //  Created by Bogdan Vlad on 03/04/2018.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 // swiftlint:disable force_try
@@ -16,7 +17,7 @@ class CoapResponseMessageBuilderSpec: QuickSpec {
     func testX() {
         // This is here because otherwise Quick tests don't appear in Test Navigator
     }
-    
+
     // swiftlint:disable function_body_length
     override func spec() {
         var request: CoapMessage!
@@ -32,7 +33,7 @@ class CoapResponseMessageBuilderSpec: QuickSpec {
                 messageId: 0
             )
         }
-        
+
         it("has the same token and token length as the request") {
             let responseBuilder = CoapResponseBuilder(request: request)
                 .responseCode(CoapCode.successfulResponse(.changed))

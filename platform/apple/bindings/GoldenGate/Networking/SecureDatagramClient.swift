@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  SecureDatagramSocket.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 12/21/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -35,7 +36,7 @@ public class SecureDatagramClient {
             let pskIdentityRef = self.options.pskIdentity.bytes.assumingMemoryBound(to: UInt8.self)
             let pskRef = self.options.psk.bytes.assumingMemoryBound(to: UInt8.self)
             let ticket = self.options.ticket?.bytes.assumingMemoryBound(to: UInt8.self)
-    
+
             self.gg = UnsafeHeapAllocatedValue(
                 GG_TlsClientOptions(
                     base: self.options.base.gg,

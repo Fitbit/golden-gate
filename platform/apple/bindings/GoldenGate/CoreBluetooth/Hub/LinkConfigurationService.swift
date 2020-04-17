@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  LinkConfigurationService.swift
 //  GoldenGate
 //
 //  Created by Sylvain Rebaud on 10/19/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import CoreBluetooth
@@ -42,7 +43,7 @@ public class LinkConfigurationService: PeripheralManagerService {
     private let characteristicUpdater: CharacteristicUpdater
 
     private let disposeBag = DisposeBag()
-    
+
     public init(configuration: BluetoothConfiguration, peripheralManager: PeripheralManager) {
         preferredConnectionConfiguration = CBMutableCharacteristic(
             type: configuration.linkConfigurationService.preferredConnectionConfigurationUUID,

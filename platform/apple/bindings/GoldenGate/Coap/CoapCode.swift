@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CoapCode.swift
 //  GoldenGate
 //
 //  Created by Bogdan Vlad on 11/27/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import GoldenGateXP
@@ -24,7 +25,7 @@ public enum CoapCode: RawRepresentable, Equatable {
         case successfulResponse = 0b010_00000 // 2.xx
         case clientErrorResponse = 0b100_00000 // 4.xx
         case serverErrorResponse = 0b101_00000 // 5.xx
-        
+
         static let mask: RawValue = 0b111_00000
     }
 

@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # Enable/Disable groups
 set(GG_ENABLE_APPS FALSE CACHE BOOL "")
 set(GG_ENABLE_UNIT_TESTS FALSE CACHE BOOL "")

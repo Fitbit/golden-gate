@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 option(GG_PORTS_ENABLE_WINSOCK "Enable Winsock" FALSE)
 if(NOT GG_PORTS_ENABLE_WINSOCK)
     return()

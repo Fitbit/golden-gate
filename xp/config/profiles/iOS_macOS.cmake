@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 # Shared configuation options
 set(GG_CONFIG_ENABLE_LOGGING TRUE CACHE BOOL "")
 set(GG_CONFIG_ENABLE_ANNOTATIONS FALSE CACHE BOOL "")

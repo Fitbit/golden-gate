@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 """Tasks for building GG-Central and GG-Peripheral apps for Pylon"""
 from invoke import task
 

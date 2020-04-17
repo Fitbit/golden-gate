@@ -3,7 +3,8 @@
  * @file
  *
  * @copyright
- * Copyright 2017 by Fitbit, Inc., all rights reserved.
+ * Copyright 2017-2020 Fitbit, Inc
+ * SPDX-License-Identifier: Apache-2.0
  *
  * @author Gilles Boccon-Gibod
  *
@@ -13,7 +14,7 @@
  *
  * No-op implementation of the log config interface
  */
- 
+
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
@@ -23,7 +24,7 @@
 /*----------------------------------------------------------------------
 |   functions
 +---------------------------------------------------------------------*/
-GG_Result 
+GG_Result
 GG_System_GetLogConfig(GG_String* config)
 {
     GG_String_SetLength(config, 0);

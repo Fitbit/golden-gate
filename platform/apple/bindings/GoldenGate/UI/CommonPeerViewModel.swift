@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CommonPeerViewModel.swift
 //  GoldenGate-iOS
 //
 //  Created by Marcel Jackwerth on 7/6/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)
@@ -40,7 +41,7 @@ public class CommonPeerViewModel: CommonPeerViewControllerViewModel {
     public var userWantsToConnect: SharedSequence<DriverSharingStrategy, Bool> {
         return commonPeer.userWantsToConnect
     }
-    
+
     public var stackDescription: Driver<String> {
         return Observable
             .combineLatest(commonPeer.customPortUrl, commonPeer.stackDescriptor) { customPortUrl, stackDescriptor in

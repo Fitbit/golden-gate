@@ -1,3 +1,6 @@
+# Copyright 2017-2020 Fitbit, Inc
+# SPDX-License-Identifier: Apache-2.0
+
 CMAKE_DEPENDENT_OPTION(GG_APPS_ENABLE_COAP_SERVER "Enable Coap Server" ON "GG_ENABLE_APPS AND GG_LIBS_ENABLE_REMOTE" OFF)
 if(NOT GG_APPS_ENABLE_COAP_SERVER)
     return()

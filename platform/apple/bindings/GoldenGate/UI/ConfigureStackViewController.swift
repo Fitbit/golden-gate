@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ConfigureStackViewController.swift
 //  GoldenGate-iOS
 //
 //  Created by Marcel Jackwerth on 6/25/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)
