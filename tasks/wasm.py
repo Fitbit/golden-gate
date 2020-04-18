@@ -3,6 +3,7 @@
 
 """Tasks to build Golden Gate for the Web Assembly platform"""
 import os
+import sys
 from invoke import task, exceptions
 
 from . import cmake
@@ -12,7 +13,7 @@ def build(ctx):
     '''Build Golden Gate for the Web Assembly platform'''
     build_dir = os.path.join(ctx.C.BUILD_DIR, "wasm")
     cmake.build(ctx, build_dir, profile='wasm', cmake_wrapper='emcmake')
-    ctx.run("cmake --build {build}".format(build=build_dir), pty=True)
+    ctx.run("cmake --build {build}".format(build=build_dir), pty=(sys.platform != 'win32'))
 
 @task
 def clean(ctx):

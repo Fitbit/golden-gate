@@ -63,7 +63,7 @@ def provision(ctx, sn=None, board=None):  # pylint: disable=C0103
         file_path = file_path.format(app_dir=app_dir, board=board_name)
 
         if not os.path.isdir(os.path.join(app_dir, "repos")):
-            ctx.run("newt -v install")
+            ctx.run("newt -v upgrade")
         ctx.run("newt build boot_{}".format(board_name))
 
     jlink.flash(ctx, file_path, sn, 0)

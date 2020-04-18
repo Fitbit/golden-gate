@@ -9,7 +9,8 @@ def build(ctx, build_dir, profile, toolchain_file=None,
           docs=False,
           cmake_bin="cmake", cmake_verbose=None, cmake_wrapper=None, cmake_extras=None):
     '''Build Golden Gate using CMake'''
-    ctx.run("mkdir -p {}".format(build_dir))
+    if not os.path.exists(build_dir):
+        os.makedirs(build_dir)
 
     cmd = [cmake_bin]
     if cmake_wrapper:

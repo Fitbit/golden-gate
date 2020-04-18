@@ -27,12 +27,6 @@ def app_tasks(name, path):
 
     _install_project.__doc__ = "Install Mynewt project dependencies for {}".format(name)
 
-    @task(pre=upgrade_project.pre, name="upgrade_project")
-    def _upgrade_project(ctx):
-        upgrade_project(ctx, path)
-
-    _upgrade_project.__doc__ = "Upgrade Mynewt project dependencies for {}".format(name)
-
     @task(pre=build.pre, name="build")
     def _build(ctx, export_path=None, board=None):
         build(ctx, name, path, export_path, board)
@@ -51,20 +45,20 @@ def app_tasks(name, path):
 
     _debug.__doc__ = "Debug {} on Pylon".format(name)
 
-    return _install_project, _reset_project, _upgrade_project, _build, _run, _debug
+    return _install_project, _reset_project, _build, _run, _debug
 
 @task(newt.check_version)
 def install_project(ctx, path):
     """Install Mynewt project files"""
     with ctx.cd(path):
-        ctx.run("newt -v install")
+        ctx.run("newt -v upgrade")
 
 @task(newt.check_version)
 def reset_project(ctx, path):
     """Reset Mynewt project files in case they got in an invalid state"""
     with ctx.cd(path):
         ctx.run("rm -rf project.state repos")
-        ctx.run("newt -v install")
+        ctx.run("newt -v upgrade")
 
 @task(newt.check_version)
 def upgrade_project(ctx, path):
@@ -157,7 +151,7 @@ def build(ctx, name, path, export_path=None, board=None):
             # NOTE: here we continue even if there are errors, because of a bug
             # in newt 1.7 when performing a fresh install, which reports an error
             # even when it succeeds
-            ctx.run("newt -v install", warn=True)
+            ctx.run("newt -v upgrade", warn=True)
         ctx.run("newt build {app}_{board}".format(app=name, board=board_name))
         ctx.run("newt create-image {app}_{board} 1.0.0".format(app=name, board=board_name))
 
@@ -199,7 +193,7 @@ def run(ctx, name, path, sn=None, board=None):
 
     with ctx.cd(path):
         if not os.path.isdir(os.path.join(path, "repos")):
-            ctx.run("newt -v install")
+            ctx.run("newt -v upgrade")
         ctx.run("newt create-image {app}_{board} 1.0.0".format(app=name, board=board_name))
 
     img = "{path}/bin/targets/{app}_{board}/app/apps/{app}/{app}.img"

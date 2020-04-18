@@ -3,6 +3,7 @@
 
 """Tasks for building GoldenGate for Pylon"""
 import os
+import sys
 
 from invoke import task
 
@@ -23,4 +24,4 @@ def build(ctx, profile="pylon/pylon", board=None):
     cmake.build(ctx, build_dir, profile,
                 toolchain_file=os.path.join(ctx.C.ROOT_DIR,
                                             "xp/config/toolchains/mynewt.cmake"))
-    ctx.run("cmake --build {build}".format(build=build_dir), pty=True)
+    ctx.run("cmake --build {build}".format(build=build_dir), pty=(sys.platform != 'win32'))

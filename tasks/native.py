@@ -4,6 +4,7 @@
 """Tasks to build Golden Gate for the current platform"""
 
 import os
+import sys
 import getpass
 import time
 import platform
@@ -56,14 +57,14 @@ def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmak
 
         # Check that the wrapper binary is installed
         try:
-            ctx.run("{}true".format(build_wrapper), pty=True)
+            ctx.run("{}true".format(build_wrapper), pty=(sys.platform != 'win32'))
         except exceptions.UnexpectedExit as e:
             print(type(e))
             print("!!! Sonarqube wrapper not installed ({}), will not run analysis. See https://docs.sonarqube.org/latest/analysis/languages/cfamily".format(wrapper_bin))
             build_wrapper = ""
 
     # Run the build
-    ctx.run("{}cmake --build {}".format(build_wrapper, build_dir), pty=True)
+    ctx.run("{}cmake --build {}".format(build_wrapper, build_dir), pty=(sys.platform != 'win32'))
 
 @task
 def clean(ctx):
