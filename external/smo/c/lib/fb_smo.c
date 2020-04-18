@@ -156,9 +156,10 @@ Fb_Smo_ReplaceObject(Fb_Smo* old, Fb_Smo* new)
 
     if (new != NULL) {
         if (old->name != NULL) {
-            new->name = new->allocator->allocate_memory(new->allocator, strlen(old->name) + 1);
+            size_t buffer_size = strlen(old->name) + 1;
+            new->name = new->allocator->allocate_memory(new->allocator, buffer_size);
             if (new->name != NULL) {
-                strcpy(new->name, old->name);
+                strncpy(new->name, old->name, buffer_size);
             } else {
                 // Destroy new object
                 Fb_Smo_Destroy(new);

@@ -361,7 +361,7 @@ GG_DataProbe_AccumulateWithTime(GG_DataProbe* self, size_t byte_count, GG_Timest
     GG_DataProbeReport* report = &self->report;
 
     // Update total stats
-    self->total_bytes_count += byte_count;
+    self->total_bytes_count += (uint32_t)byte_count;
 
     GG_LOG_FINEST("Probe total bytes: %u", (int)self->total_bytes_count);
 
@@ -397,7 +397,7 @@ GG_DataProbe_AccumulateWithTime(GG_DataProbe* self, size_t byte_count, GG_Timest
             self->num_samples++;
         }
 
-        target_sample->byte_count = byte_count;
+        target_sample->byte_count = (double)byte_count;
         target_sample->time = time;
     }
 

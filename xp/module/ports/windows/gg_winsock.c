@@ -26,7 +26,7 @@
 
 //----------------------------------------------------------------------
 static void
-GG_WINSOCK_Cleanup(void)
+GG_WINSOCK_Cleanup(void* _ignored)
 {
     WSACleanup();
 }

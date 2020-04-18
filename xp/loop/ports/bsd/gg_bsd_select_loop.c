@@ -82,6 +82,7 @@ typedef ssize_t   GG_ssize_t;
 #if defined(GG_CONFIG_ENABLE_BSD_SOCKETPAIR_EMULATION)
 #if GG_CONFIG_PLATFORM == GG_PLATFORM_BISON
 #define INADDR_LOOPBACK 0x7f000001
+#elif GG_CONFIG_PLATFORM == GG_PLATFORM_WINDOWS
 #else
 #include <netinet/in.h>
 #include <arpa/inet.h>

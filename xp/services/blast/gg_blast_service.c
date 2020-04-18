@@ -152,7 +152,7 @@ GG_BlastService_HandleRequest(GG_RemoteSmoHandler* _self,
             return GG_FAILURE;
         }
 
-        rc = Fb_Smo_AddChild(result_smo, "throughput", strlen("throughput"), throughput_smo);
+        rc = Fb_Smo_AddChild(result_smo, "throughput", (unsigned int)strlen("throughput"), throughput_smo);
         if (rc != FB_SMO_SUCCESS) {
             Fb_Smo_Destroy(result_smo);
             Fb_Smo_Destroy(throughput_smo);

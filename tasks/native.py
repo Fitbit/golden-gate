@@ -17,7 +17,8 @@ def detect_profile():
     '''Automatically detect the profile based on the host platform'''
     profile = {
         'Darwin': 'macOS_cmdline',
-        'Linux': 'linux'
+        'Linux': 'linux',
+        'Windows': 'windows'
     }.get(platform.system())
     if not profile:
         raise exceptions.PlatformError("Host platform not supported for native build")
