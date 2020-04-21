@@ -786,7 +786,6 @@ main(int argc, char** argv)
     // setup a listener
     Client listener;
     memset(&listener, 0, sizeof(Client));
-    listener.output_file = output_file;
     GG_SET_INTERFACE(&listener, Client, GG_CoapResponseListener);
     GG_SET_INTERFACE(&listener, Client, GG_CoapBlockwiseResponseListener);
 
@@ -810,6 +809,7 @@ main(int argc, char** argv)
             return 1;
         }
     }
+    listener.output_file = output_file;
 
     // make the request
     result = SendRequest(endpoint,
