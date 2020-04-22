@@ -48,6 +48,10 @@ if (GG_PORTS_ENABLE_LWIP)
     add_library(gg-lwip ${LWIP_SRC_FILES}
                         ${LWIP_PORT_FILE})
 
+    if (GG_CONFIG_ENABLE_TCP)
+        target_compile_definitions(gg-lwip PRIVATE GG_CONFIG_ENABLE_TCP)
+    endif()
+
     if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_C_COMPILER_ID MATCHES "GNU")
         target_compile_options(gg-lwip PRIVATE -Wno-conversion -Wno-format-nonliteral -Wno-newline-eof -Wno-missing-variable-declarations -Wno-unused-macros -Wno-packed -Wno-covered-switch-default -Wno-gnu-empty-initializer -Wno-zero-length-array -Wno-unused-variable -Wno-type-limits -Wno-unused-parameter)
     endif()
