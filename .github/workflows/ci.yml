@@ -1,0 +1,38 @@
+# CI Workflow for Golden Gate
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-linux-macos:
+    name: GG-Build ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'macos-latest']
+
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE, so that the job can access it
+      - uses: actions/checkout@v2
+      # Needed for Conda
+      - uses: goanpeca/setup-miniconda@v1
+        with:
+           activate-environment: gg
+           environment-file: environment.yml
+           auto-activate-base: false
+                   
+      # Runs a single command using the runners shell (so that conda can be properyl activated)
+      - shell: bash -l {0}
+        name: Run a multi-line script
+        run: |
+          echo Hello, world!
+          echo Line two
+          conda info
+          conda list
+          inv -l
