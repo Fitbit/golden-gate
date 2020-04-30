@@ -12,7 +12,8 @@ Project Golden Gate
 
 Golden Gate is a portable cross-platform framework that offers reliable and
 secure network communication between different combinations of embedded
-devices, mobile applications and desktop applications.
+devices, mobile applications and desktop applications over Bluetooth Low Energy.
+
 The framework provides developers with a familiar model, allowing them to 
 implement their functionality the same way they would in other networked
 environments, leveraging familiar standards like CoAP, WebSockets, HTTP, MQTT,
