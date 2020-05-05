@@ -54,4 +54,4 @@ own communicating applications and services.
 Where To Start
 --------------
 
-Visit the online documentation (or build the doc from within the project).
+[Visit the online documentation](https://fitbit.github.io/golden-gate/) (or build the doc from within the project).
