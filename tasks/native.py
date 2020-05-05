@@ -27,7 +27,7 @@ def detect_profile():
 @task(help={
     "debug": "Build the Debug build instead of the Release build",
     "coverage": "Generate a code coverage report",
-    "sonarqube": "Enable Sonarqube",
+    "sonarqube": "Enable Sonarqube scanning",
     "sanitize": "Enable a sanitizer ('address', ...). You can use this option multiple times, one for each sanitizer.",
     "cmakegen": "Override CMake generator (e.g. 'Xcode', run `cmake --help` for a list of supported generators)"
 }, iterable=['sanitize'])
@@ -72,8 +72,8 @@ def clean(ctx):
     '''Blow away the build directory'''
     ctx.run("rm -rf {}".format(ctx.C.BUILD_DIR_NATIVE))
 
-@task
-def test(ctx, coverage=False, sonarqube=False, output_on_failure=True, verbose=False, file_name=None, skip_build=True):
+@task(help={"sonarqube": "Sonarqube host URL"})
+def test(ctx, coverage=False, sonarqube='', output_on_failure=True, verbose=False, file_name=None, skip_build=True):
     '''Run GoldenGate XP tests
     Note: please run "inv native.build" to build the unit tests first
 
@@ -92,7 +92,7 @@ def test(ctx, coverage=False, sonarqube=False, output_on_failure=True, verbose=F
           Note: Please build the unit tests with -c option. i.e. inv native.build -c
           For more information: https://gcovr.com
 
-        $ inv native.test -c -s
+        $ inv native.test -c -s <sonar-host-url>
 
           Same as above, plus a Sonarqube report.
     '''
@@ -163,4 +163,4 @@ def test(ctx, coverage=False, sonarqube=False, output_on_failure=True, verbose=F
                     ctx.run("gcov {}".format(c_file))
 
             # Run the scanner
-            ctx.run("sonar-scanner")
+            ctx.run(f'sonar-scanner -Dsonar.host.url={sonarqube}')
