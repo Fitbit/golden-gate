@@ -1,0 +1,440 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.bindings.coap.data - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.bindings.coap.data</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.bindings.coap.data</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-accept-option/index.html">AcceptOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AcceptOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>Can be used to indicate which Content-Format is acceptable to the client.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-outgoing-message-builder/index.html">BaseOutgoingMessageBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseOutgoingMessageBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-message/index.html"><span class="identifier">Message</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="-base-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Base class for <a href="#">MessageBuilder</a> providing common implementation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-request/index.html">BaseRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">BaseRequest</span></code>
+<p>Holds common data for <a href="-incoming-request.html">IncomingRequest</a> and <a href="-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-response/index.html">BaseResponse</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">BaseResponse</span></code>
+<p>Holds common data for <a href="-incoming-response/index.html">IncomingResponse</a> and <a href="-outgoing-response.html">OutgoingResponse</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-bytes-array-outgoing-body/index.html">BytesArrayOutgoingBody</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BytesArrayOutgoingBody</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-body.html"><span class="identifier">OutgoingBody</span></a></code>
+<p><a href="-outgoing-body.html">OutgoingBody</a> with body source from a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html">ByteArray</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-content-format-option/index.html">ContentFormatOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContentFormatOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The Content-Format Option indicates the representation format of the message payload.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-empty-option-value/index.html">EmptyOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EmptyOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>For option that does not have a value, like <a href="-option-number/-i-f_-n-o-n-e_-m-a-t-c-h.html">OptionNumber.IF_NONE_MATCH</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-empty-outgoing-body/index.html">EmptyOutgoingBody</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EmptyOutgoingBody</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-body.html"><span class="identifier">OutgoingBody</span></a></code>
+<p>Empty <a href="-outgoing-body.html">OutgoingBody</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-etag-option/index.html">EtagOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">EtagOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The request MAY include one or more ETag Options, identifying responses that the client has stored.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-extended-error/index.html">ExtendedError</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ExtendedError</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-format-option-value/index.html">FormatOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">FormatOptionValue</span></code>
+<p>The Content-Format Option indicates the representation format of the message payload.
+These are the supported value for <a href="-content-format-option/index.html">ContentFormatOption</a> and <a href="-accept-option/index.html">AcceptOption</a> coap options</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-if-match-option/index.html">IfMatchOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">IfMatchOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The If-Match Option MAY be used to make a request conditional on the current existence or
+value of an ETag for one or more representations of the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-if-none-match-option.html">IfNoneMatchOption</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">IfNoneMatchOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The If-None-Match Option MAY be used to make a request conditional on the nonexistence of
+the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-incoming-body/index.html">IncomingBody</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">IncomingBody</span></code>
+<p>Represents the body of a incoming coap message.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-incoming-message/index.html">IncomingMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">IncomingMessage</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-message/index.html"><span class="identifier">Message</span></a></code>
+<p>This interface represents incoming CoAP <a href="-message/index.html">Message</a> objects.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-incoming-request.html">IncomingRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">IncomingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-incoming-message/index.html"><span class="identifier">IncomingMessage</span></a><span class="symbol">, </span><a href="-base-request/index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Incoming coap request message.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-incoming-response/index.html">IncomingResponse</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">IncomingResponse</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-incoming-message/index.html"><span class="identifier">IncomingMessage</span></a><span class="symbol">, </span><a href="-base-response/index.html"><span class="identifier">BaseResponse</span></a></code>
+<p>Incoming coap response message.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-input-stream-outgoing-body/index.html">InputStreamOutgoingBody</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">InputStreamOutgoingBody</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-body.html"><span class="identifier">OutgoingBody</span></a></code>
+<p><a href="-outgoing-body.html">OutgoingBody</a> with body source from a <a href="https://developer.android.com/reference/java/io/InputStream.html">InputStream</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-int-option-value/index.html">IntOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">IntOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-location-path-option/index.html">LocationPathOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">LocationPathOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-location-query-option/index.html">LocationQueryOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">LocationQueryOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-max-age-option/index.html">MaxAgeOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MaxAgeOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>Caches can use the Max-Age Option to determine freshness and (if present) the <a href="-option-number/-e-t-a-g.html">ETAG</a> Option
+for validation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-message/index.html">Message</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Message</span></code>
+<p>This interface represents CoAP message objects.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-method/index.html">Method</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Method</span></code>
+<p>Supported Coap methods. These are analogous to HTTP methods of the same names.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-opaque-option-value/index.html">OpaqueOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OpaqueOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="-opaque.html">Opaque</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-option/index.html">Option</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Option</span></code>
+<p>Individual Coap option</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-option-number/index.html">OptionNumber</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">OptionNumber</span></code>
+<p>Supported options that can be added to a coap message options</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-option-value.html">OptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">OptionValue</span></code>
+<p>Supported value types for a coap option</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-body.html">OutgoingBody</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">OutgoingBody</span></code>
+<p>Represents body of outgoing coap message.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-message/index.html">OutgoingMessage</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingMessage</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-message/index.html"><span class="identifier">Message</span></a></code>
+<p>This interface represents outgoing CoAP <a href="-message/index.html">Message</a> objects.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-message-builder/index.html">OutgoingMessageBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingMessageBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-message/index.html"><span class="identifier">Message</span></a><span class="symbol">&gt;</span></code>
+<p>A MessageBuilder is used for constructing Message objects. This interface contains the shared components of
+<a href="-outgoing-request-builder/index.html">OutgoingRequestBuilder</a> and <a href="-outgoing-response-builder/index.html">OutgoingResponseBuilder</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-message/index.html"><span class="identifier">OutgoingMessage</span></a><span class="symbol">, </span><a href="-base-request/index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Represents outgoing request for a request in coap client mode.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-request-builder/index.html">OutgoingRequestBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OutgoingRequestBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-outgoing-message-builder/index.html"><span class="identifier">BaseOutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">&gt;</span></code>
+<p>Concrete class of MessageBuilder for building <a href="-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-response.html">OutgoingResponse</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingResponse</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-message/index.html"><span class="identifier">OutgoingMessage</span></a><span class="symbol">, </span><a href="-base-response/index.html"><span class="identifier">BaseResponse</span></a></code>
+<p>Implementations of this interface will be sent back to the CoAP Client in response to requests coming in to a CoAP Server</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-outgoing-response-builder/index.html">OutgoingResponseBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OutgoingResponseBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-outgoing-message-builder/index.html"><span class="identifier">BaseOutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Concrete class of MessageBuilder for building <a href="-outgoing-response.html">OutgoingResponse</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-response-code/index.html">ResponseCode</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ResponseCode</span></code>
+<p>This represents a CoAP response code (analogous to an HTTP response code (e.g. 201, 404, 500)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-start-offset/index.html">StartOffset</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StartOffset</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>Vendor(Fitbit) option for start offset in a file</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-string-option-value/index.html">StringOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StringOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-uri-query-option/index.html">UriQueryOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">UriQueryOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-option/index.html"><span class="identifier">Option</span></a></code>
+<p>Specifies one argument parameterizing the resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Type Aliases</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-data.html">Data</a></p>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">Data</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-opaque.html">Opaque</a></p>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">Opaque</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-options.html">Options</a></p>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">Options</span>&nbsp;<span class="symbol">=</span>&nbsp;<a href="https://developer.android.com/reference/java/util/LinkedList.html"><span class="identifier">LinkedList</span></a><span class="symbol">&lt;</span><a href="-option/index.html"><span class="identifier">Option</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="client-error.html">clientError</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-response-code/index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">clientError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is client error, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="error.html">error</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-response-code/index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">error</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is client or server error, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="ok.html">ok</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-response-code/index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">ok</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is ok, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="server-error.html">serverError</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-response-code/index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">serverError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is server error, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

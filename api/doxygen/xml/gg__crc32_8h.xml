@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__crc32_8h" kind="file" language="C++">
+    <compoundname>gg_crc32.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___utilities_1ga4efc119e07f22534b40a0807387c51c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Crc32</definition>
+        <argsstring>(uint32_t crc, const void *buf, size_t size)</argsstring>
+        <name>GG_Crc32</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>crc</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_crc32.h" line="32" column="10" declfile="xp/common/gg_crc32.h" declline="32" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CRC32 checksum computation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="12"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">|<sp/><sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">uint32_t<sp/>GG_Crc32(uint32_t<sp/>crc,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buf,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_crc32.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeMapper - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node</a>&nbsp;/&nbsp;<a href="./index.html">NodeMapper</a><br/>
+<br/>
+<h1>NodeMapper</h1>
+<code><span class="keyword">class </span><span class="identifier">NodeMapper</span></code>
+<p>Maps a <a href="#">NodeKey</a> to a <a href="../-node/index.html">Node</a>. Uses a <a href="../-node-builder/index.html">NodeBuilder</a> to make the node if it does not exist or if
+the existing <a href="../-node/index.html">Node</a> is different than expected</p>
+<h3>Parameters</h3>
+<p><a name="nodeMap"></a>
+<code>nodeMap</code> - a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html">MutableMap</a> mapping a <a href="#">NodeKey</a> to a <a href="../-node/index.html">Node</a></p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get.html">get</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.NodeMapper$get(com.fitbit.goldengate.node.NodeMapper.get.K, com.fitbit.goldengate.node.NodeBuilder((com.fitbit.goldengate.node.NodeMapper.get.T, com.fitbit.goldengate.node.NodeMapper.get.K)), kotlin.Boolean)/nodeKey">nodeKey</span><span class="symbol">:</span>&nbsp;<a href="get.html#K"><span class="identifier">K</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.NodeMapper$get(com.fitbit.goldengate.node.NodeMapper.get.K, com.fitbit.goldengate.node.NodeBuilder((com.fitbit.goldengate.node.NodeMapper.get.T, com.fitbit.goldengate.node.NodeMapper.get.K)), kotlin.Boolean)/nodeBuilder">nodeBuilder</span><span class="symbol">:</span>&nbsp;<a href="../-node-builder/index.html"><span class="identifier">NodeBuilder</span></a><span class="symbol">&lt;</span><a href="get.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<a href="get.html#K"><span class="identifier">K</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.NodeMapper$get(com.fitbit.goldengate.node.NodeMapper.get.K, com.fitbit.goldengate.node.NodeBuilder((com.fitbit.goldengate.node.NodeMapper.get.T, com.fitbit.goldengate.node.NodeMapper.get.K)), kotlin.Boolean)/forceRebuild">forceRebuild</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="../-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span></code>
+<p>Tries to retrieve an existing <a href="../-node/index.html">Node</a> with a <a href="#">NodeKey</a> or builds one with the given <a href="../-node-builder/index.html">NodeBuilder</a>
+if it does not exist or the <a href="../-node-builder/index.html">NodeBuilder</a> does not <a href="../-node-builder/does-build.html">build</a> it.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="remove-node.html">removeNode</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">removeNode</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.NodeMapper$removeNode(com.fitbit.goldengate.node.NodeMapper.removeNode.K)/nodeKey">nodeKey</span><span class="symbol">:</span>&nbsp;<a href="remove-node.html#K"><span class="identifier">K</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Removes a <a href="../-node/index.html">Node</a> from the map that has the specific <a href="#">NodeKey</a>,
+this needs to be called when we close a Node as the existing one will be unusable</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="instance.html">instance</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">instance</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">NodeMapper</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

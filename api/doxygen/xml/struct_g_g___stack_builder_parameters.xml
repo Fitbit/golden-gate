@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___stack_builder_parameters" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackBuilderParameters</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" prot="public" static="no" mutable="no">
+        <type><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref></type>
+        <definition>GG_StackElementType GG_StackBuilderParameters::element_type</definition>
+        <argsstring></argsstring>
+        <name>element_type</name>
+        <briefdescription>
+<para>Element type to which the parameters apply. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="163" column="25" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" prot="public" static="no" mutable="no">
+        <type>const void *</type>
+        <definition>const void* GG_StackBuilderParameters::element_parameters</definition>
+        <argsstring></argsstring>
+        <name>element_parameters</name>
+        <briefdescription>
+<para>Pointer to a type-specific parameter struct, or NULL for defaults. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="164" column="24" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Entry in a list of construction parameters pass when building a stack</para>
+<para>Depending on the element_type field, the element_parameters field points to a type-specific struct, as follows:<itemizedlist>
+<listitem><para>GG_STACK_ELEMENT_TYPE_ACTIVITY_MONITOR: <ref refid="struct_g_g___stack_element_activity_monitor_parameters" kindref="compound">GG_StackElementActivityMonitorParameters</ref></para>
+</listitem><listitem><para>GG_STACK_ELEMENT_TYPE_GATTLINK: <ref refid="struct_g_g___stack_element_gattlink_parameters" kindref="compound">GG_StackElementGattlinkParameters</ref></para>
+</listitem><listitem><para>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET: <ref refid="struct_g_g___stack_element_datagram_socket_parameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref></para>
+</listitem><listitem><para>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT: <ref refid="struct_g_g___tls_client_options" kindref="compound">GG_TlsClientOptions</ref></para>
+</listitem><listitem><para>GG_STACK_ELEMENT_TYPE_DTLS_SERVER: <ref refid="struct_g_g___tls_server_options" kindref="compound">GG_TlsServerOptions</ref> </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="162" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="162" bodyend="166"/>
+    <listofallmembers>
+      <member refid="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" prot="public" virt="non-virtual"><scope>GG_StackBuilderParameters</scope><name>element_parameters</name></member>
+      <member refid="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" prot="public" virt="non-virtual"><scope>GG_StackBuilderParameters</scope><name>element_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

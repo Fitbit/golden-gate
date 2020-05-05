@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__system_8h" kind="file" language="C++">
+    <compoundname>gg_system.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___system_1ga9ab254eb2433a6078025b976f90d966e" prot="public" static="no">
+        <name>GG_System_GetWallClockTimeMs</name>
+        <param></param>
+        <initializer>(<ref refid="group___system_1gac2cacbfb0b9379fe8b8ae92f1fcf1d9c" kindref="member">GG_System_GetWallClockTime</ref>() / <ref refid="group___utilities_1ga44ad25b0ac57044ee232ede68fed6f8d" kindref="member">GG_NANOSECONDS_PER_MILLISECOND</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current system wall clock time in milliseconds as an offset from the Epoch. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="83" column="9" bodyfile="xp/common/gg_system.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___system_1ga616a9f1e6f92cd8e2d570125385824b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_System_GetEnvironment</definition>
+        <argsstring>(const char *name, GG_String *value)</argsstring>
+        <name>GG_System_GetEnvironment</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___string" kindref="compound">GG_String</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a system environment variable.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the environment variable to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct_g_g___string" kindref="compound">GG_String</ref> object that will receive the value of the variable if found. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the environment variable was found, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="43" column="11" declfile="xp/common/gg_system.h" declline="43" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___system_1gaa09d9833820e3700fc4680a3e6304430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_System_GetLogConfig</definition>
+        <argsstring>(GG_String *config)</argsstring>
+        <name>GG_System_GetLogConfig</name>
+        <param>
+          <type><ref refid="struct_g_g___string" kindref="compound">GG_String</ref> *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the defaut system logging configuration.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct_g_g___string" kindref="compound">GG_String</ref> object that will receive the value if one exists. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if a default logging configuration exists, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="51" column="11" declfile="xp/common/gg_system.h" declline="51" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___system_1gac9f9786b0560dd8e63bf5979b18bc204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+        <definition>GG_Timestamp GG_System_GetCurrentTimestamp</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_System_GetCurrentTimestamp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current system timestamp.</para>
+<para>NOTE: timestamp values are relative to an unspecified time origin, thus should not be used to represent absolute time values.</para>
+<para><simplesect kind="return"><para>The current system timestamp. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="61" column="14" declfile="xp/common/gg_system.h" declline="61" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="group___system_1gac2cacbfb0b9379fe8b8ae92f1fcf1d9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+        <definition>GG_Timestamp GG_System_GetWallClockTime</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_System_GetWallClockTime</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current system wall clock time.</para>
+<para><simplesect kind="return"><para>GG_Timestamp in nanoseconds, as an offset from the Epoch. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="68" column="14" declfile="xp/common/gg_system.h" declline="68" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="group___system_1ga8d6079621946ebc44066643903a6579b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_System_ConsoleOutput</definition>
+        <argsstring>(const char *string)</argsstring>
+        <name>GG_System_ConsoleOutput</name>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Output a string to the default system console.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String to output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_system.h" line="75" column="6" declfile="xp/common/gg_system.h" declline="75" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstraction layer for system/platform specific functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__strings_8h" kindref="compound">xp/common/gg_strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___system_1ga616a9f1e6f92cd8e2d570125385824b9" kindref="member">GG_System_GetEnvironment</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="struct_g_g___string" kindref="compound">GG_String</ref>*<sp/>value);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___system_1gaa09d9833820e3700fc4680a3e6304430" kindref="member">GG_System_GetLogConfig</ref>(<ref refid="struct_g_g___string" kindref="compound">GG_String</ref>*<sp/>config);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><ref refid="group___system_1gac9f9786b0560dd8e63bf5979b18bc204" kindref="member">GG_System_GetCurrentTimestamp</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><ref refid="group___system_1gac2cacbfb0b9379fe8b8ae92f1fcf1d9c" kindref="member">GG_System_GetWallClockTime</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___system_1ga8d6079621946ebc44066643903a6579b" kindref="member">GG_System_ConsoleOutput</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="78"><highlight class="comment">|<sp/><sp/><sp/>macros</highlight></codeline>
+<codeline lineno="79"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="83" refid="group___system_1ga9ab254eb2433a6078025b976f90d966e" refkind="member"><highlight class="preprocessor">#define<sp/>GG_System_GetWallClockTimeMs()<sp/>\</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(GG_System_GetWallClockTime()<sp/>/<sp/>GG_NANOSECONDS_PER_MILLISECOND)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_system.h"/>
+  </compounddef>
+</doxygen>

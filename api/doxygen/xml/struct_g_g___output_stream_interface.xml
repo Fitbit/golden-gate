@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___output_stream_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_OutputStreamInterface</compoundname>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1aeb5ae47ed0e34d81a0d56fd798872e85" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *(*</type>
+        <definition>GG_OutputStream*(* GG_OutputStreamInterface::Retain) (GG_OutputStream *self)</definition>
+        <argsstring>)(GG_OutputStream *self)</argsstring>
+        <name>Retain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retain a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The retained object (which may or may not be the same pointer as the one on which this method is called). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="430" column="5" bodyfile="xp/common/gg_io.h" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1af964ab989a14182702bcf7a03247eebf" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_OutputStreamInterface::Release) (GG_OutputStream *self)</definition>
+        <argsstring>)(GG_OutputStream *self)</argsstring>
+        <name>Release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Release a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="437" column="5" bodyfile="xp/common/gg_io.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1a30e19cf0e867cb7445dff0a4fc82dfa6" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_OutputStreamInterface::Write) (GG_OutputStream *self, const void *buffer, size_t bytes_to_write, size_t *bytes_written)</definition>
+        <argsstring>)(GG_OutputStream *self, const void *buffer, size_t bytes_to_write, size_t *bytes_written)</argsstring>
+        <name>Write</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_to_write</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_written</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the number of bytes written is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if at least one byte could be written, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="448" column="5" bodyfile="xp/common/gg_io.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1a7cf27ec0f0962760f234207293671e7e" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_OutputStreamInterface::Seek) (GG_OutputStream *self, GG_Position offset)</definition>
+        <argsstring>)(GG_OutputStream *self, GG_Position offset)</argsstring>
+        <name>Seek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the current stream position, relative to the start of the stream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position to which to seek. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="460" column="5" bodyfile="xp/common/gg_io.h" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1a3694b72b9a62d4f9c62905a279f4024c" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_OutputStreamInterface::Tell) (GG_OutputStream *self, GG_Position *offset)</definition>
+        <argsstring>)(GG_OutputStream *self, GG_Position *offset)</argsstring>
+        <name>Tell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current stream position, relative to the start of the stream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the position will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="469" column="5" bodyfile="xp/common/gg_io.h" bodystart="469" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___output_stream_interface_1af32319f68fedd73e04f49921d2de80fd" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_OutputStreamInterface::Flush) (GG_OutputStream *self)</definition>
+        <argsstring>)(GG_OutputStream *self)</argsstring>
+        <name>Flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flush any pending/cached data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="477" column="5" bodyfile="xp/common/gg_io.h" bodystart="477" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interface </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_OutputStream</label>
+        <link refid="struct_g_g___output_stream"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_OutputStreamInterface</label>
+        <link refid="struct_g_g___output_stream_interface"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Retain</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_io.h" line="422" column="87" bodyfile="xp/common/gg_io.h" bodystart="422" bodyend="478"/>
+    <listofallmembers>
+      <member refid="struct_g_g___output_stream_interface_1af32319f68fedd73e04f49921d2de80fd" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Flush</name></member>
+      <member refid="struct_g_g___output_stream_interface_1af964ab989a14182702bcf7a03247eebf" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Release</name></member>
+      <member refid="struct_g_g___output_stream_interface_1aeb5ae47ed0e34d81a0d56fd798872e85" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Retain</name></member>
+      <member refid="struct_g_g___output_stream_interface_1a7cf27ec0f0962760f234207293671e7e" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Seek</name></member>
+      <member refid="struct_g_g___output_stream_interface_1a3694b72b9a62d4f9c62905a279f4024c" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Tell</name></member>
+      <member refid="struct_g_g___output_stream_interface_1a30e19cf0e867cb7445dff0a4fc82dfa6" prot="public" virt="non-virtual"><scope>GG_OutputStreamInterface</scope><name>Write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

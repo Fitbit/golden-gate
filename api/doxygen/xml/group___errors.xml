@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group___errors" kind="group">
+    <compoundname>Errors</compoundname>
+    <title>Error Codes</title>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int GG_Result</definition>
+        <argsstring></argsstring>
+        <name>GG_Result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Integer result value used by a wide number of functions and methods.</para>
+<para>Error values are always negative, so this type may be overloaded to return positive values that are not considered error results. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="29" column="13" bodyfile="xp/common/gg_results.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___errors_1ga79e9dc6dd8d9b6033255d9550dfdec2c" prot="public" static="no">
+        <name>GG_FAILED</name>
+        <param><defname>result</defname></param>
+        <initializer>((result) != <ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a GG_Result value represents a failure condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="37" column="9" bodyfile="xp/common/gg_results.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gae6d793d61a2b9a799175e5d40939e6a2" prot="public" static="no">
+        <name>GG_SUCCEEDED</name>
+        <param><defname>result</defname></param>
+        <initializer>((result) == <ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Test if a GG_Result value represents a success condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="42" column="9" bodyfile="xp/common/gg_results.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gaa79367b1c50b56ea0217f0caf5d41df9" prot="public" static="no">
+        <name>GG_CHECK</name>
+        <param><defname>_result</defname></param>
+        <initializer>do { \
+    <ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref> _x = (_result);  \
+    if (_x != <ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref>) {    \
+        return _x;             \
+    }                          \
+} while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if a GG_Result return value represents a failure, and return that value if it does </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="48" column="9" bodyfile="xp/common/gg_results.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga74ac21a451c08367bf69467eb4756490" prot="public" static="no">
+        <name>GG_SUCCESS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Result indicating that the operation or call succeeded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="59" column="9" bodyfile="xp/common/gg_results.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga6aab418a5c494c8d0813d57110cb61aa" prot="public" static="no">
+        <name>GG_FAILURE</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Result indicating an unspecified failure condition </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="62" column="9" bodyfile="xp/common/gg_results.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga3098960ba61ac7c17c181b3181e3abbe" prot="public" static="no">
+        <name>GG_ERROR_BASE</name>
+        <initializer>(-10000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="66" column="9" bodyfile="xp/common/gg_results.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gac3fcbbefda07435441c85e0f834363e3" prot="public" static="no">
+        <name>GG_ERROR_BASE_GENERAL</name>
+        <initializer>(GG_ERROR_BASE - 0)</initializer>
+        <briefdescription>
+<para>Base for general purpose error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="69" column="9" bodyfile="xp/common/gg_results.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gafcefca979a055733f7050b7ca0e4cf45" prot="public" static="no">
+        <name>GG_ERROR_OUT_OF_MEMORY</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  0)</initializer>
+        <briefdescription>
+<para>Out of memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="70" column="9" bodyfile="xp/common/gg_results.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gad1d5f9dd136a7ee5abbba8254ddaedc0" prot="public" static="no">
+        <name>GG_ERROR_OUT_OF_RESOURCES</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  1)</initializer>
+        <briefdescription>
+<para>Out of resources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="71" column="9" bodyfile="xp/common/gg_results.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga63a5a9ed90a1caf231d0b14177dec0f8" prot="public" static="no">
+        <name>GG_ERROR_INTERNAL</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  2)</initializer>
+        <briefdescription>
+<para>Internal error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="72" column="9" bodyfile="xp/common/gg_results.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga5e64b43f6a43a24b78c4c2a029bd0266" prot="public" static="no">
+        <name>GG_ERROR_INVALID_PARAMETERS</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  3)</initializer>
+        <briefdescription>
+<para>Invalid Parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="73" column="9" bodyfile="xp/common/gg_results.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga1281377387de5367f17ba044070f0576" prot="public" static="no">
+        <name>GG_ERROR_INVALID_STATE</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  4)</initializer>
+        <briefdescription>
+<para>Invalid State. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="74" column="9" bodyfile="xp/common/gg_results.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga7b06a4d3bf1d12758284f0574cc49874" prot="public" static="no">
+        <name>GG_ERROR_NOT_IMPLEMENTED</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  5)</initializer>
+        <briefdescription>
+<para>Not implemented. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="75" column="9" bodyfile="xp/common/gg_results.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga3b380a4e2a297c7f4817e0db7e8d1210" prot="public" static="no">
+        <name>GG_ERROR_OUT_OF_RANGE</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  6)</initializer>
+        <briefdescription>
+<para>Out of range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="76" column="9" bodyfile="xp/common/gg_results.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga7abb07389dae1792df11cb70dc45f4d0" prot="public" static="no">
+        <name>GG_ERROR_ACCESS_DENIED</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  7)</initializer>
+        <briefdescription>
+<para>Access denied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="77" column="9" bodyfile="xp/common/gg_results.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gab4bea0f2337deb76781eeb71bcb666a8" prot="public" static="no">
+        <name>GG_ERROR_INVALID_SYNTAX</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  8)</initializer>
+        <briefdescription>
+<para>Invalid Syntax. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="78" column="9" bodyfile="xp/common/gg_results.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga120727f19319e4d75bf3ada0aae26b2e" prot="public" static="no">
+        <name>GG_ERROR_NOT_SUPPORTED</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> -  9)</initializer>
+        <briefdescription>
+<para>Not supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="79" column="9" bodyfile="xp/common/gg_results.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga1048d0cb6aff279f64d99c7375d96888" prot="public" static="no">
+        <name>GG_ERROR_INVALID_FORMAT</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 10)</initializer>
+        <briefdescription>
+<para>Invalid format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="80" column="9" bodyfile="xp/common/gg_results.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gaa3254cc49863d837956aed4c38cf579d" prot="public" static="no">
+        <name>GG_ERROR_NOT_ENOUGH_SPACE</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 11)</initializer>
+        <briefdescription>
+<para>Not enough space. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="81" column="9" bodyfile="xp/common/gg_results.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga87892dc57e183abf7b9dd2574d5d5a34" prot="public" static="no">
+        <name>GG_ERROR_NO_SUCH_ITEM</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 12)</initializer>
+        <briefdescription>
+<para>No such item (item not found) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="82" column="9" bodyfile="xp/common/gg_results.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gae83159eab7f8730c038c3b81016eefb1" prot="public" static="no">
+        <name>GG_ERROR_OVERFLOW</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 13)</initializer>
+        <briefdescription>
+<para>Overflow. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="83" column="9" bodyfile="xp/common/gg_results.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga9671274df6309ec48be9c90023856619" prot="public" static="no">
+        <name>GG_ERROR_TIMEOUT</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 14)</initializer>
+        <briefdescription>
+<para>A timeout occurred. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="84" column="9" bodyfile="xp/common/gg_results.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga2fce56428f10fb9106698ceb49b60ca9" prot="public" static="no">
+        <name>GG_ERROR_WOULD_BLOCK</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 15)</initializer>
+        <briefdescription>
+<para>The operation would block / try again later. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="85" column="9" bodyfile="xp/common/gg_results.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga023de9ef71aa552e4dd029763c3d56d3" prot="public" static="no">
+        <name>GG_ERROR_PERMISSION_DENIED</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 16)</initializer>
+        <briefdescription>
+<para>Permission denied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="86" column="9" bodyfile="xp/common/gg_results.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga8d7d943ec70fc2f6b2a486d062615122" prot="public" static="no">
+        <name>GG_ERROR_INTERRUPTED</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 17)</initializer>
+        <briefdescription>
+<para>Operation interrupted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="87" column="9" bodyfile="xp/common/gg_results.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga542e2d0dcc11a0e3964cfc64f61eef11" prot="public" static="no">
+        <name>GG_ERROR_IN_USE</name>
+        <initializer>(<ref refid="group___errors_1gac3fcbbefda07435441c85e0f834363e3" kindref="member">GG_ERROR_BASE_GENERAL</ref> - 18)</initializer>
+        <briefdescription>
+<para>Resource already in use. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="88" column="9" bodyfile="xp/common/gg_results.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1gaece26aab8fba5241bec75750f339634c" prot="public" static="no">
+        <name>GG_ERROR_BASE_IO</name>
+        <initializer>(GG_ERROR_BASE - 100)</initializer>
+        <briefdescription>
+<para>Base for I/O error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="91" column="9" bodyfile="xp/common/gg_results.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga408956a37e7e708630aae2606f72a9bf" prot="public" static="no">
+        <name>GG_ERROR_BASE_SOCKET</name>
+        <initializer>(GG_ERROR_BASE - 200)</initializer>
+        <briefdescription>
+<para>Base for Socket error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="92" column="9" bodyfile="xp/common/gg_results.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga802c71bd9ead8b8af2dd638a62e99bf5" prot="public" static="no">
+        <name>GG_ERROR_BASE_COAP</name>
+        <initializer>(GG_ERROR_BASE - 300)</initializer>
+        <briefdescription>
+<para>Base for CoAP error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="93" column="9" bodyfile="xp/common/gg_results.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga11c7ec5a558a69cafd34e1144d05d40c" prot="public" static="no">
+        <name>GG_ERROR_BASE_REMOTE</name>
+        <initializer>(GG_ERROR_BASE - 400)</initializer>
+        <briefdescription>
+<para>Base for Remote API error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="94" column="9" bodyfile="xp/common/gg_results.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga0b7519766b03078fd7f37216c6ee9c3e" prot="public" static="no">
+        <name>GG_ERROR_BASE_GATTLINK</name>
+        <initializer>(GG_ERROR_BASE - 500)</initializer>
+        <briefdescription>
+<para>Base for Gattlink error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="95" column="9" bodyfile="xp/common/gg_results.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga5e7bf8252bd1e4c965d8583881f9b462" prot="public" static="no">
+        <name>GG_ERROR_BASE_TLS</name>
+        <initializer>(GG_ERROR_BASE - 600)</initializer>
+        <briefdescription>
+<para>Base for TLS error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="96" column="9" bodyfile="xp/common/gg_results.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga0a3daeaaebe412e41a994a8f0e80aba2" prot="public" static="no">
+        <name>GG_ERROR_BASE_ERRNO</name>
+        <initializer>(GG_ERROR_BASE-2000)</initializer>
+        <briefdescription>
+<para>Base for <computeroutput>errno</computeroutput> error codes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="101" column="9" bodyfile="xp/common/gg_results.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___errors_1ga1eae806988a46bf604ecb8f2faf0a7ff" prot="public" static="no">
+        <name>GG_ERROR_ERRNO</name>
+        <param><defname>e</defname></param>
+        <initializer>(<ref refid="group___errors_1ga0a3daeaaebe412e41a994a8f0e80aba2" kindref="member">GG_ERROR_BASE_ERRNO</ref> - (e))</initializer>
+        <briefdescription>
+<para>Wrapper for an <computeroutput>errno</computeroutput> error code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_results.h" line="102" column="9" bodyfile="xp/common/gg_results.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Error codes. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

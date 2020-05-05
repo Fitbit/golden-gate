@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapResponseListenerInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapResponseListenerInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapResponseListenerInterface_1a9ae4aabc6691e1ec4f6026f0b4e32c03" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_CoapResponseListenerInterface::OnAck) (GG_CoapResponseListener *self)</definition>
+        <argsstring>)(GG_CoapResponseListener *self)</argsstring>
+        <name>OnAck</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method called when an ACK is received</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="188" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapResponseListenerInterface_1aff53f72ed274e9175229776c825511df" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_CoapResponseListenerInterface::OnError) (GG_CoapResponseListener *self, GG_Result error, const char *message)</definition>
+        <argsstring>)(GG_CoapResponseListener *self, GG_Result error, const char *message)</argsstring>
+        <name>OnError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method called when an error has occurred.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error message text (may be NULL). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="196" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapResponseListenerInterface_1aa7cc48b0e6f8ccf0506783267cf787c4" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_CoapResponseListenerInterface::OnResponse) (GG_CoapResponseListener *self, GG_CoapMessage *response)</definition>
+        <argsstring>)(GG_CoapResponseListener *self, GG_CoapMessage *response)</argsstring>
+        <name>OnResponse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method called when a response is received.</para>
+<para><blockquote><para>NOTE: the response object may not be used after this method returns, so </para>
+</blockquote>any data that must persist longer <emphasis>must</emphasis> be copied.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response that has been received. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="207" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface implemented by listeners that want to be notified of CoAP responses.</para>
+<para>An <computeroutput>OnAck</computeroutput> always arrives before <computeroutput>OnResponse</computeroutput>. If <computeroutput>OnError</computeroutput> is called, no other method will be called subsequently. </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap.h" line="182" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="182" bodyend="208"/>
+    <listofallmembers>
+      <member refid="structGG__CoapResponseListenerInterface_1a9ae4aabc6691e1ec4f6026f0b4e32c03" prot="public" virt="non-virtual"><scope>GG_CoapResponseListenerInterface</scope><name>OnAck</name></member>
+      <member refid="structGG__CoapResponseListenerInterface_1aff53f72ed274e9175229776c825511df" prot="public" virt="non-virtual"><scope>GG_CoapResponseListenerInterface</scope><name>OnError</name></member>
+      <member refid="structGG__CoapResponseListenerInterface_1aa7cc48b0e6f8ccf0506783267cf787c4" prot="public" virt="non-virtual"><scope>GG_CoapResponseListenerInterface</scope><name>OnResponse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

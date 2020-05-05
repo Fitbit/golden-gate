@@ -1,0 +1,626 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__nip_8h" kind="file" language="C++">
+    <compoundname>gg_nip.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__io_8h" local="yes">xp/common/gg_io.h</includes>
+    <includes refid="gg__lists_8h" local="yes">xp/common/gg_lists.h</includes>
+    <includes refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>assert.h</label>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___nip_udp_endpoint" prot="public">GG_NipUdpEndpoint</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gg__nip_8h_1aa864c0b5afaad27dda4f1ebd1338fddc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Nip_Initialize</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_Nip_Initialize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the stack. NOTE: it isn&apos;t necessary to call this function directly, since calling GG_Nip_Configure will perform lazy initialization. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="75" column="11" declfile="xp/nip/gg_nip.h" declline="75" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1a5534b5b1fdc281b5545beae3811b00fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Nip_Terminate</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_Nip_Terminate</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Terminate the stack. All sockets must have been removed prior to calling this function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="81" column="6" declfile="xp/nip/gg_nip.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1a6e298e6a7cc02dbf89276048d0ae9fbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Nip_Configure</definition>
+        <argsstring>(const GG_IpAddress *netif_address)</argsstring>
+        <name>GG_Nip_Configure</name>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>netif_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Configure the stack.</para>
+<para>NOTE: the transport source <emphasis>must</emphasis> deliver buffers in exact increments of complete IP packets, as the network will not accept partial packets or more than one packet per buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>netif_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP Address to assign to the network interface.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeds, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="94" column="11" declfile="xp/nip/gg_nip.h" declline="94" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1a3df8c8655570c52aeea94b3d93c0ead7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_Nip_AsDataSink</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_Nip_AsDataSink</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface for the network interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="99" column="13" declfile="xp/nip/gg_nip.h" declline="99" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1ad5a05f3bb639c3957a78fb38cf903356" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_Nip_AsDataSource</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_Nip_AsDataSource</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> interface for the network interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="104" column="15" declfile="xp/nip/gg_nip.h" declline="104" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1a69a1068cf718fbc9ca972fb5212b9fc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Nip_AddUdpEndpoint</definition>
+        <argsstring>(GG_NipUdpEndpoint *udp_endpoint)</argsstring>
+        <name>GG_Nip_AddUdpEndpoint</name>
+        <param>
+          <type><ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref> *</type>
+          <declname>udp_endpoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a UDP endpoint to the stack. UDP endpoints that are added to the stack may send and receive datagrams. The same endpoint may only be added once. Endpoints that have a local port set to 0 will automatically be assigned a dynamic port number by the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>udp_endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint to add to the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the endpoint could be added, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="117" column="11" declfile="xp/nip/gg_nip.h" declline="117" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1ad3b3db98fe9b019469da288c994f991c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Nip_RemoveEndpoint</definition>
+        <argsstring>(GG_NipUdpEndpoint *udp_endpoint)</argsstring>
+        <name>GG_Nip_RemoveEndpoint</name>
+        <param>
+          <type><ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref> *</type>
+          <declname>udp_endpoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove a UDP endpoint from the stack. After removal, the endpoint will not longer be able to send or receive datagrams.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>udp_endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint to remove from the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the endpoint could be removed, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="128" column="11" declfile="xp/nip/gg_nip.h" declline="128" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__nip_8h_1ab68a689395cf6368231e83f597b47799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_NipUdpEndpoint_Init</definition>
+        <argsstring>(GG_NipUdpEndpoint *self, const GG_SocketAddress *local_address, const GG_SocketAddress *remote_address, bool connect_to_remote)</argsstring>
+        <name>GG_NipUdpEndpoint_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>local_address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>remote_address</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>connect_to_remote</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a GG_NipUdpPoint structure. This function must be just called once for each GG_NipUdpPoint structure before it can be added to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The structure to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>local_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The local address for the endpoint. The IP address should be set to &quot;any&quot; (GG_IpAddress_Any). The port number maybe be either a non-zero value to only receive packets sent to that port, or 0 to receive all packets. If more than one endpoint has an unbound port (port == 0), only the first one added to the stack will receive data. This parameter may be NULL, which is the same as port == 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>remote_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The remote address for the endpoint. If NULL, calling GG_DataSink_PutData for the endpoint MUST have a non-null metadata pointer to indicate the destination address and port. If non-NULL, this specifies the IP address and port to send to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>connect_to_remote</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pass <computeroutput>true</computeroutput> to indicate that only packets with a source address and port matching the remote address should be received. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="149" column="6" declfile="xp/nip/gg_nip.h" declline="149" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2018-02-03</para>
+</simplesect>
+NIP - Golden Gate Nano IP Stack</para>
+<para>NIP stands for &quot;Nano IP&quot;. It is a simplistic, almost trivial IP stack that serves a very limited purpose: send and receive UDP packets via a single network interface. As such, it shouldn&apos;t be used as general purpose IP stack, but rather as an ad-hoc library for environments where simple UDP packet exchange over a single network interface is sufficient. For more advanced use cases, or for other protocols than UDP (TCP for example) use something like LWIP.</para>
+<para>This library is not re-entrant, so it must only be called from a single thread. This library uses an internal singleton, so only one instance of the stack may exist in a process (this could easily be changed if needed). </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="30"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__io_8h" kindref="compound">xp/common/gg_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__lists_8h" kindref="compound">xp/common/gg_lists.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__sockets_8h" kindref="compound">xp/sockets/gg_sockets.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="43"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="struct_g_g___nip_udp_endpoint" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>);<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="struct_g_g___nip_udp_endpoint_1a826f9f3c8525df6724b358d6388ba9da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1a826f9f3c8525df6724b358d6388ba9da" kindref="member">list_node</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55" refid="struct_g_g___nip_udp_endpoint_1aca21fb0896300950ef7c84b18f50ecca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1aca21fb0896300950ef7c84b18f50ecca" kindref="member">data_sink</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56" refid="struct_g_g___nip_udp_endpoint_1a7243a69673462e826b4f12ce3ec2f1a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/><ref refid="struct_g_g___nip_udp_endpoint_1a7243a69673462e826b4f12ce3ec2f1a7" kindref="member">data_sink_listener</ref>;<sp/></highlight></codeline>
+<codeline lineno="57" refid="struct_g_g___nip_udp_endpoint_1a4830319b2e2b64707459c0cab93d58c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1a4830319b2e2b64707459c0cab93d58c3" kindref="member">local_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58" refid="struct_g_g___nip_udp_endpoint_1aeec12570edebff69d5f58a176c00b0ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1aeec12570edebff69d5f58a176c00b0ea" kindref="member">remote_address</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59" refid="struct_g_g___nip_udp_endpoint_1a1d6f5c67a420f021c832f83693a514db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1a1d6f5c67a420f021c832f83693a514db" kindref="member">local_port_bound</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="struct_g_g___nip_udp_endpoint_1a1f7e33d0a7d38fe7708a7c3314e09086" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___nip_udp_endpoint_1a1f7e33d0a7d38fe7708a7c3314e09086" kindref="member">connected</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="64"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="65"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__nip_8h_1aa864c0b5afaad27dda4f1ebd1338fddc" kindref="member">GG_Nip_Initialize</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__nip_8h_1a5534b5b1fdc281b5545beae3811b00fb" kindref="member">GG_Nip_Terminate</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__nip_8h_1a6e298e6a7cc02dbf89276048d0ae9fbb" kindref="member">GG_Nip_Configure</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>netif_address);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="gg__nip_8h_1a3df8c8655570c52aeea94b3d93c0ead7" kindref="member">GG_Nip_AsDataSink</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="gg__nip_8h_1ad5a05f3bb639c3957a78fb38cf903356" kindref="member">GG_Nip_AsDataSource</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__nip_8h_1a69a1068cf718fbc9ca972fb5212b9fc4" kindref="member">GG_Nip_AddUdpEndpoint</ref>(<ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref>*<sp/>udp_endpoint);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__nip_8h_1ad3b3db98fe9b019469da288c994f991c" kindref="member">GG_Nip_RemoveEndpoint</ref>(<ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref>*<sp/>udp_endpoint);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__nip_8h_1ab68a689395cf6368231e83f597b47799" kindref="member">GG_NipUdpEndpoint_Init</ref>(<ref refid="struct_g_g___nip_udp_endpoint" kindref="compound">GG_NipUdpEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>*<sp/>local_address,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>*<sp/>remote_address,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect_to_remote);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/nip/gg_nip.h"/>
+  </compounddef>
+</doxygen>

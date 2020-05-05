@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.bindings.dtls - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.bindings.dtls</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.bindings.dtls</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-dtls-protocol-status/index.html">DtlsProtocolStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">DtlsProtocolStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-in-memory-mode-tls-key-resolver/index.html">InMemoryModeTlsKeyResolver</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">InMemoryModeTlsKeyResolver</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-tls-key-resolver/index.html"><span class="identifier">TlsKeyResolver</span></a></code>
+<p>Creates a Tls key resolver with given key id and key data, mainly for test mode</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-tls-key-resolver/index.html">TlsKeyResolver</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">TlsKeyResolver</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-tls-key-resolver-registry/index.html">TlsKeyResolverRegistry</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">TlsKeyResolverRegistry</span></code>
+<p>Registry for all <a href="-tls-key-resolver/index.html">TlsKeyResolver</a>, when resolving a keyId default <a href="-tls-key-resolver/index.html">TlsKeyResolver</a> will be
+applied fist followed by any registered <a href="-tls-key-resolver/index.html">TlsKeyResolver</a> in order they are registered</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

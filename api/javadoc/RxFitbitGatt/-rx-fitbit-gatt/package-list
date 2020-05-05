@@ -1,0 +1,16 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$getGattCharacteristic(android.bluetooth.BluetoothGattService, java.util.UUID)com.fitbit.bluetooth.fbgatt.rx/android.bluetooth.-bluetooth-gatt-service/get-gatt-characteristic.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$getGattConnection(com.fitbit.bluetooth.fbgatt.FitbitGatt, kotlin.String)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-fitbit-gatt/get-gatt-connection.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$getGattService(com.fitbit.bluetooth.fbgatt.GattServerConnection, java.util.UUID)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-server-connection/get-gatt-service.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceMaybe(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-connection/get-remote-gatt-service-maybe.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceSingle(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-connection/get-remote-gatt-service-single.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$resetGattStateIfNecessary(com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Throwable, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-connection/reset-gatt-state-if-necessary.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$runTxReactive(com.fitbit.bluetooth.fbgatt.GattTransaction, com.fitbit.bluetooth.fbgatt.GattConnection)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-transaction/run-tx-reactive.html
+$dokka.location:com.fitbit.bluetooth.fbgatt.rx$runTxReactive(com.fitbit.bluetooth.fbgatt.GattTransaction, com.fitbit.bluetooth.fbgatt.GattServerConnection)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-transaction/run-tx-reactive.html
+com.fitbit.bluetooth.fbgatt.rx
+com.fitbit.bluetooth.fbgatt.rx.client
+com.fitbit.bluetooth.fbgatt.rx.client.listeners
+com.fitbit.bluetooth.fbgatt.rx.scanner
+com.fitbit.bluetooth.fbgatt.rx.server
+com.fitbit.bluetooth.fbgatt.rx.server.listeners

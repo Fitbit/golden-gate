@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LoopInvokeSyncMessage" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopInvokeSyncMessage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LoopInvokeSyncMessage_1a9e5e0cb7f29c82787c3966d1716b5ef3" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref></type>
+        <definition>GG_LoopSyncFunction GG_LoopInvokeSyncMessage::function</definition>
+        <argsstring></argsstring>
+        <name>function</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="51" column="25" bodyfile="xp/loop/gg_loop_base.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopInvokeSyncMessage_1afb543a4fdae9d989f7ea6271b8372efb" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* GG_LoopInvokeSyncMessage::function_argument</definition>
+        <argsstring></argsstring>
+        <name>function_argument</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="52" column="24" bodyfile="xp/loop/gg_loop_base.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopInvokeSyncMessage_1af0006e7502a25b8a54813a4f6610502c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GG_LoopInvokeSyncMessage::function_result</definition>
+        <argsstring></argsstring>
+        <name>function_result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="53" column="25" bodyfile="xp/loop/gg_loop_base.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopInvokeSyncMessage_1a9012da73471d6b7d03f30fdd47b90e45" prot="public" static="no" mutable="no">
+        <type><ref refid="classGG__Semaphore" kindref="compound">GG_Semaphore</ref> *</type>
+        <definition>GG_Semaphore* GG_LoopInvokeSyncMessage::result_semaphore</definition>
+        <argsstring></argsstring>
+        <name>result_semaphore</name>
+        <briefdescription>
+<para>used to wait-for/signal the result of the invoked function </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="54" column="24" bodyfile="xp/loop/gg_loop_base.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structGG__LoopInvokeSyncMessage_1a7026d1ca677c2cddd44709422b3f8bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_LoopInvokeSyncMessage::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_LoopMessage)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="structGG__LoopMessage" kindref="compound">GG_LoopMessage</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="50" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_LoopInvokeSyncMessage</label>
+        <link refid="structGG__LoopInvokeSyncMessage"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>result_semaphore</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_Semaphore</label>
+        <link refid="classGG__Semaphore"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop_base.h" line="49" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="49" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structGG__LoopInvokeSyncMessage_1a9e5e0cb7f29c82787c3966d1716b5ef3" prot="public" virt="non-virtual"><scope>GG_LoopInvokeSyncMessage</scope><name>function</name></member>
+      <member refid="structGG__LoopInvokeSyncMessage_1afb543a4fdae9d989f7ea6271b8372efb" prot="public" virt="non-virtual"><scope>GG_LoopInvokeSyncMessage</scope><name>function_argument</name></member>
+      <member refid="structGG__LoopInvokeSyncMessage_1af0006e7502a25b8a54813a4f6610502c" prot="public" virt="non-virtual"><scope>GG_LoopInvokeSyncMessage</scope><name>function_result</name></member>
+      <member refid="structGG__LoopInvokeSyncMessage_1a7026d1ca677c2cddd44709422b3f8bec" prot="public" virt="non-virtual"><scope>GG_LoopInvokeSyncMessage</scope><name>GG_IMPLEMENTS</name></member>
+      <member refid="structGG__LoopInvokeSyncMessage_1a9012da73471d6b7d03f30fdd47b90e45" prot="public" virt="non-virtual"><scope>GG_LoopInvokeSyncMessage</scope><name>result_semaphore</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

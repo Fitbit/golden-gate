@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Option - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">Option</a><br/>
+<br/>
+<h1>Option</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Option</span></code>
+<p>Individual Coap option</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="number.html">number</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">number</span><span class="symbol">: </span><a href="../-option-number/index.html"><span class="identifier">OptionNumber</span></a></code>
+<p><a href="../-option-number/index.html">OptionNumber</a> for this option</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="value.html">value</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="../-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p><a href="../-option-value.html">OptionValue</a> for this option</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-accept-option/index.html">AcceptOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">AcceptOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>Can be used to indicate which Content-Format is acceptable to the client.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-content-format-option/index.html">ContentFormatOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ContentFormatOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The Content-Format Option indicates the representation format of the message payload.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-etag-option/index.html">EtagOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">EtagOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The request MAY include one or more ETag Options, identifying responses that the client has stored.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-if-match-option/index.html">IfMatchOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">IfMatchOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The If-Match Option MAY be used to make a request conditional on the current existence or
+value of an ETag for one or more representations of the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-if-none-match-option.html">IfNoneMatchOption</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">IfNoneMatchOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The If-None-Match Option MAY be used to make a request conditional on the nonexistence of
+the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-location-path-option/index.html">LocationPathOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">LocationPathOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-location-query-option/index.html">LocationQueryOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">LocationQueryOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-max-age-option/index.html">MaxAgeOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">MaxAgeOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>Caches can use the Max-Age Option to determine freshness and (if present) the <a href="../-option-number/-e-t-a-g.html">ETAG</a> Option
+for validation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-start-offset/index.html">StartOffset</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StartOffset</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>Vendor(Fitbit) option for start offset in a file</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-uri-query-option/index.html">UriQueryOption</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">UriQueryOption</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Option</span></a></code>
+<p>Specifies one argument parameterizing the resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

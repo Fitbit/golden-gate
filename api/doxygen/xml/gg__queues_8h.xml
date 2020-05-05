@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__queues_8h" kind="file" language="C++">
+    <compoundname>gg_queues.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__lists_8h" local="yes">xp/common/gg_lists.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" prot="public" static="no">
+        <type>struct <ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref></type>
+        <definition>typedef struct GG_SharedQueue GG_SharedQueue</definition>
+        <argsstring></argsstring>
+        <name>GG_SharedQueue</name>
+        <briefdescription>
+<para>Queue that may be used concurrently in multiple threads. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="110" column="1" bodyfile="xp/common/gg_queues.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___queues_1gabf4eb83c84aa0773a714fe1242b6b8f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_SharedQueue_Create</definition>
+        <argsstring>(unsigned int max_items, GG_SharedQueue **queue)</argsstring>
+        <name>GG_SharedQueue_Create</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_items</declname>
+        </param>
+        <param>
+          <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> **</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new GG_SharedQueue object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>max_items</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of items the queue can hold, or 0 to indicate that an unlimited number of items may be queued. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable where the created object will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="54" column="11" declfile="xp/common/gg_queues.h" declline="54" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___queues_1ga70e501b64e39b687e3427f8a21a9ba82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_SharedQueue_Destroy</definition>
+        <argsstring>(GG_SharedQueue *self)</argsstring>
+        <name>GG_SharedQueue_Destroy</name>
+        <param>
+          <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>THe object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="61" column="6" declfile="xp/common/gg_queues.h" declline="61" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___queues_1ga89202c81b4ace1dbe3f8cc9b2da934a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_SharedQueue_Stuff</definition>
+        <argsstring>(GG_SharedQueue *self, GG_LinkedListNode *item)</argsstring>
+        <name>GG_SharedQueue_Stuff</name>
+        <param>
+          <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add an item to the queue.</para>
+<para>This method is <emphasis>not</emphasis> thread-safe, so it must not be called concurrently with other methods. This is typically used at initialization time to fill a queue with initial items just after creating it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item to add to the queue. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the item could be added, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="74" column="11" declfile="xp/common/gg_queues.h" declline="74" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___queues_1ga339768a7a9df5a91834ad5d791a535bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_SharedQueue_Enqueue</definition>
+        <argsstring>(GG_SharedQueue *self, GG_LinkedListNode *item, GG_Timeout timeout)</argsstring>
+        <name>GG_SharedQueue_Enqueue</name>
+        <param>
+          <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enqueue an item.</para>
+<para>This function may be called from any thread. It may block until there is space in the queue or a specified timeout expires.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item to enqueue. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum time the caller is willing to wait, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the item was enqueued, <ref refid="group___errors_1ga9671274df6309ec48be9c90023856619" kindref="member">GG_ERROR_TIMEOUT</ref> if the specified timeout expired, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="88" column="11" declfile="xp/common/gg_queues.h" declline="88" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___queues_1gae05391f89b0f760bd90df1b6c2cb4466" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_SharedQueue_Dequeue</definition>
+        <argsstring>(GG_SharedQueue *self, GG_LinkedListNode **item, GG_Timeout timeout)</argsstring>
+        <name>GG_SharedQueue_Dequeue</name>
+        <param>
+          <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref> **</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dequeue an item.</para>
+<para>This function may be called from any thread. It may block until there is at least one item available in the queue, or a specified timeout expires.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the dequeued item will be returned, if any. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum time the caller is willing to wait, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if an item was dequeued, <ref refid="group___errors_1ga9671274df6309ec48be9c90023856619" kindref="member">GG_ERROR_TIMEOUT</ref> if the specified timeout expired, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_queues.h" line="102" column="11" declfile="xp/common/gg_queues.h" declline="102" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose queues. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-10-02 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__lists_8h" kindref="compound">xp/common/gg_lists.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="40" refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref><sp/><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="43"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___queues_1gabf4eb83c84aa0773a714fe1242b6b8f4" kindref="member">GG_SharedQueue_Create</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_items,<sp/><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>**<sp/>queue);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___queues_1ga70e501b64e39b687e3427f8a21a9ba82" kindref="member">GG_SharedQueue_Destroy</ref>(<ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___queues_1ga89202c81b4ace1dbe3f8cc9b2da934a3" kindref="member">GG_SharedQueue_Stuff</ref>(<ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref>*<sp/>item);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___queues_1ga339768a7a9df5a91834ad5d791a535bb" kindref="member">GG_SharedQueue_Enqueue</ref>(<ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref>*<sp/>item,<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___queues_1gae05391f89b0f760bd90df1b6c2cb4466" kindref="member">GG_SharedQueue_Dequeue</ref>(<ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref>**<sp/>item,<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_queues.h"/>
+  </compounddef>
+</doxygen>

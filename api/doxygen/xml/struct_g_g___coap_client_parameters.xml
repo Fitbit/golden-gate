@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_client_parameters" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapClientParameters</compoundname>
+    <includes refid="gg__coap_8h" local="no">xp/coap/gg_coap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_client_parameters_1afe0150ba6928cc8365c22be79cc5bb89" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_CoapClientParameters::ack_timeout</definition>
+        <argsstring></argsstring>
+        <name>ack_timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="350" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_client_parameters_1a432be8f67438601a26935c3b949fafea" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapClientParameters::max_resend_count</definition>
+        <argsstring></argsstring>
+        <name>max_resend_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="358" column="12" bodyfile="xp/coap/gg_coap.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Parameters for custom CoAP client behavior/policy </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap.h" line="344" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="344" bodyend="359"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_client_parameters_1afe0150ba6928cc8365c22be79cc5bb89" prot="public" virt="non-virtual"><scope>GG_CoapClientParameters</scope><name>ack_timeout</name></member>
+      <member refid="struct_g_g___coap_client_parameters_1a432be8f67438601a26935c3b949fafea" prot="public" virt="non-virtual"><scope>GG_CoapClientParameters</scope><name>max_resend_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

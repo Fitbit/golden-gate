@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__coap__filters_8h" kind="file" language="C++">
+    <compoundname>gg_coap_filters.h</compoundname>
+    <includes refid="gg__lists_8h" local="yes">xp/common/gg_lists.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__buffer_8h" local="yes">xp/common/gg_buffer.h</includes>
+    <includes refid="gg__threads_8h" local="yes">xp/common/gg_threads.h</includes>
+    <includes refid="gg__coap_8h" local="yes">xp/coap/gg_coap.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="12">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>assert.h</label>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___co_a_p_1ga05a57fd005e2c4a442197fe5265ec240" prot="public" static="no">
+        <name>GG_COAP_GROUP_REQUEST_FILTER_MAX_GROUP</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="41" column="9" bodyfile="xp/coap/gg_coap_filters.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" prot="public" static="no">
+        <type>struct <ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref></type>
+        <definition>typedef struct GG_CoapGroupRequestFilter GG_CoapGroupRequestFilter</definition>
+        <argsstring></argsstring>
+        <name>GG_CoapGroupRequestFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request filter that filters out requests based on the <emphasis>group</emphasis> memberships of the handler that is selected to handle a request. Group memberships of a handler are specified at the time the handler is registered, using membership flags as part of the handler flags. There are 4 flag bits reserved for group membership (hence 4 possible groups that a handler can be a member of, in addition to group 0): GG_COAP_REQUEST_HANDLER_FLAG_GROUP_{1,2,3,4}</para>
+<para>At any point in time, the filter has a <emphasis>current group</emphasis> property. When a request is received, the filter will let it pass through if the handler for that request is in the current group, otherwise a GG_COAP_MESSAGE_CODE_FORBIDDEN response is returned.</para>
+<para>Note that all handlers are automatically implicitly part of group 0, and the default value for the current group is 0 when the filter is first created. This means that by default, all requests will pass through the filter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="212" column="5" bodyfile="xp/coap/gg_coap_filters.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___co_a_p_1gac467396b044e24d43620815c3ddba065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapGroupRequestFilter_Create</definition>
+        <argsstring>(GG_CoapGroupRequestFilter **filter)</argsstring>
+        <name>GG_CoapGroupRequestFilter_Create</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref> **</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new GG_CoapGroupRequestFilter object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable where the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="74" column="11" declfile="xp/coap/gg_coap_filters.h" declline="74" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gab4eeedb212ec534ab9c93f024faf0426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapGroupRequestFilter_Destroy</definition>
+        <argsstring>(GG_CoapGroupRequestFilter *self)</argsstring>
+        <name>GG_CoapGroupRequestFilter_Destroy</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="79" column="6" declfile="xp/coap/gg_coap_filters.h" declline="79" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga21c20607c32c8c17930b1255ab509544" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref> *</type>
+        <definition>GG_CoapRequestFilter* GG_CoapGroupRequestFilter_AsCoapRequestFilter</definition>
+        <argsstring>(GG_CoapGroupRequestFilter *self)</argsstring>
+        <name>GG_CoapGroupRequestFilter_AsCoapRequestFilter</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref> interface for a GG_CoapGroupRequestFilter object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The object&apos;s <ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref> interface </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="88" column="22" declfile="xp/coap/gg_coap_filters.h" declline="88" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga17e2686526b5bfc7df86ba9459d03c1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapGroupRequestFilter_SetGroup</definition>
+        <argsstring>(GG_CoapGroupRequestFilter *self, uint8_t group)</argsstring>
+        <name>GG_CoapGroupRequestFilter_SetGroup</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>group</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the current group for the filter.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>group</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Group number, between 0 and GG_COAP_GROUP_REQUEST_FILTER_MAX_GROUP</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the group number was set, or GG_ERROR_OUT_OF_RANGE if the group number is &gt; GG_COAP_GROUP_REQUEST_FILTER_MAX_GROUP. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="99" column="11" declfile="xp/coap/gg_coap_filters.h" declline="99" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga8f513f83d6cb345d8b19dadd7d85579e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_CoapGroupRequestFilter_GetGroup</definition>
+        <argsstring>(GG_CoapGroupRequestFilter *self)</argsstring>
+        <name>GG_CoapGroupRequestFilter_GetGroup</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current group for the filter.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The filter&apos;s current group property. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_filters.h" line="108" column="9" declfile="xp/coap/gg_coap_filters.h" declline="108" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2018-08-08</para>
+</simplesect>
+CoAP library - general purpose filters </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__lists_8h" kindref="compound">xp/common/gg_lists.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__buffer_8h" kindref="compound">xp/common/gg_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__threads_8h" kindref="compound">xp/common/gg_threads.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__coap_8h" kindref="compound">xp/coap/gg_coap.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_COAP_GROUP_REQUEST_FILTER_MAX_GROUP<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref><sp/><ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1gac467396b044e24d43620815c3ddba065" kindref="member">GG_CoapGroupRequestFilter_Create</ref>(<ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>**<sp/>filter);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1gab4eeedb212ec534ab9c93f024faf0426" kindref="member">GG_CoapGroupRequestFilter_Destroy</ref>(<ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref>*<sp/><ref refid="group___co_a_p_1ga21c20607c32c8c17930b1255ab509544" kindref="member">GG_CoapGroupRequestFilter_AsCoapRequestFilter</ref>(<ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga17e2686526b5bfc7df86ba9459d03c1e" kindref="member">GG_CoapGroupRequestFilter_SetGroup</ref>(<ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t<sp/>group);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">uint8_t<sp/><ref refid="group___co_a_p_1ga8f513f83d6cb345d8b19dadd7d85579e" kindref="member">GG_CoapGroupRequestFilter_GetGroup</ref>(<ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/coap/gg_coap_filters.h"/>
+  </compounddef>
+</doxygen>

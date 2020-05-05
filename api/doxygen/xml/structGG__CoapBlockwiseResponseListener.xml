@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapBlockwiseResponseListener" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapBlockwiseResponseListener</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapBlockwiseResponseListener_1a7a4e89ceb84f2ac7043d8918c08bb4a1" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__CoapBlockwiseResponseListenerInterface" kindref="compound">GG_CoapBlockwiseResponseListenerInterface</ref> *</type>
+        <definition>const GG_CoapBlockwiseResponseListenerInterface* GG_CoapBlockwiseResponseListener::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="195" column="121" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__CoAP_1ga87cd2d6df6d03535c36aa9061a70d8bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapBlockwiseResponseListener_OnResponseBlock</definition>
+        <argsstring>(GG_CoapBlockwiseResponseListener *self, GG_CoapMessageBlockInfo *block_info, GG_CoapMessage *block_message)</argsstring>
+        <name>GG_CoapBlockwiseResponseListener_OnResponseBlock</name>
+        <param>
+          <type><ref refid="structGG__CoapBlockwiseResponseListener" kindref="compound">GG_CoapBlockwiseResponseListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__CoapMessageBlockInfo" kindref="compound">GG_CoapMessageBlockInfo</ref> *</type>
+          <declname>block_info</declname>
+        </param>
+        <param>
+          <type><ref refid="group__CoAP_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>block_message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="216" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="216" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__CoAP_1ga51a9cd769bc2633dbdea87dbac3e5081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapBlockwiseResponseListener_OnError</definition>
+        <argsstring>(GG_CoapBlockwiseResponseListener *self, GG_Result error, const char *message)</argsstring>
+        <name>GG_CoapBlockwiseResponseListener_OnError</name>
+        <param>
+          <type><ref refid="structGG__CoapBlockwiseResponseListener" kindref="compound">GG_CoapBlockwiseResponseListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+          <declname>error</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="222" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="222" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_CoapBlockwiseResponseListenerInterface</label>
+        <link refid="structGG__CoapBlockwiseResponseListenerInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_CoapBlockwiseResponseListener</label>
+        <link refid="structGG__CoapBlockwiseResponseListener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap_blockwise.h" line="195" column="72" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="195" bodyend="195"/>
+    <listofallmembers>
+      <member refid="group__CoAP_1ga51a9cd769bc2633dbdea87dbac3e5081" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseResponseListener</scope><name>GG_CoapBlockwiseResponseListener_OnError</name></member>
+      <member refid="group__CoAP_1ga87cd2d6df6d03535c36aa9061a70d8bf" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseResponseListener</scope><name>GG_CoapBlockwiseResponseListener_OnResponseBlock</name></member>
+      <member refid="structGG__CoapBlockwiseResponseListener_1a7a4e89ceb84f2ac7043d8918c08bb4a1" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseResponseListener</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

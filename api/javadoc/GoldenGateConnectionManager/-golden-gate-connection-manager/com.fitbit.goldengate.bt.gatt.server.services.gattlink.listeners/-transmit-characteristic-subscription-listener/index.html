@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TransmitCharacteristicSubscriptionListener - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners</a>&nbsp;/&nbsp;<a href="./index.html">TransmitCharacteristicSubscriptionListener</a><br/>
+<br/>
+<h1>TransmitCharacteristicSubscriptionListener</h1>
+<code><span class="keyword">class </span><span class="identifier">TransmitCharacteristicSubscriptionListener</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseServerConnectionEventListener</span></code>
+<p>GATT service listener that listens to subscription changes to Gattlink service Tx characteristic.
+Subscription changes are available per remote connected device</p>
+<p>Note: This Singleton listener must be registered at the time Gattlink service is added</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-data-observable.html">getDataObservable</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDataObservable</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener$getDataObservable(android.bluetooth.BluetoothDevice)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">GattCharacteristicSubscriptionStatus</span><span class="symbol">&gt;</span></code>
+<p>Observable on which changes to Gattlink service subscription is available</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-server-descriptor-write-request.html">onServerDescriptorWriteRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onServerDescriptorWriteRequest</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="instance.html">instance</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">instance</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">TransmitCharacteristicSubscriptionListener</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

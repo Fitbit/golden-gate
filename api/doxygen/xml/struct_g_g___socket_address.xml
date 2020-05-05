@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___socket_address" kind="struct" language="C++" prot="public">
+    <compoundname>GG_SocketAddress</compoundname>
+    <includes refid="gg__sockets_8h" local="no">xp/sockets/gg_sockets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___socket_address_1a9fb805332146a4be215a6d7ab6a73b3e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_SocketAddress::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="53" column="18" bodyfile="xp/sockets/gg_sockets.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___socket_address_1adf8fd09dd83c87f86d01d4d4767b22ce" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_SocketAddress::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="54" column="18" bodyfile="xp/sockets/gg_sockets.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Socket address consisting of an IP address and a port number. (used for UDP and TCP sockets) </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_SocketAddress</label>
+        <link refid="struct_g_g___socket_address"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>address</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_IpAddress</label>
+        <link refid="struct_g_g___ip_address"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/sockets/gg_sockets.h" line="52" column="15" bodyfile="xp/sockets/gg_sockets.h" bodystart="52" bodyend="55"/>
+    <listofallmembers>
+      <member refid="struct_g_g___socket_address_1a9fb805332146a4be215a6d7ab6a73b3e" prot="public" virt="non-virtual"><scope>GG_SocketAddress</scope><name>address</name></member>
+      <member refid="struct_g_g___socket_address_1adf8fd09dd83c87f86d01d4d4767b22ce" prot="public" virt="non-virtual"><scope>GG_SocketAddress</scope><name>port</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

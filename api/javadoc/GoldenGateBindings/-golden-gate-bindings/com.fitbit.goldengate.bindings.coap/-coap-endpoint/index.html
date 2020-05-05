@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoapEndpoint - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="./index.html">CoapEndpoint</a><br/>
+<br/>
+<h1>CoapEndpoint</h1>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpoint</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a><span class="symbol">, </span><a href="../-endpoint/index.html"><span class="identifier">Endpoint</span></a><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a></code>
+<p>Coap Client/Server API.</p>
+<p>Use <a href="../-coap-endpoint-provider/index.html">CoapEndpointProvider</a> for creating an instance</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-add-resource-handler-result/index.html">AddResourceHandlerResult</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">AddResourceHandlerResult</span></code>
+<p>Result for <a href="add-resource-handler.html">CoapEndpoint.addResourceHandler</a> native call</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-response-for-result/index.html">ResponseForResult</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ResponseForResult</span></code>
+<p>Result for <a href="response-for.html">CoapEndpoint.responseFor</a> and <a href="#">CoapEndpoint.responseForBlockwise</a> native call</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CoapEndpoint</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Coap Client/Server API.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="request-filter.html">requestFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">requestFilter</span><span class="symbol">: </span><a href="../-coap-group-request-filter/index.html"><span class="identifier">CoapGroupRequestFilter</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="this-pointer.html">thisPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">thisPointer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Pointer to native jni reference for this object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-resource-handler.html">addResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addResourceHandler</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/handler">handler</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.handler/-resource-handler/index.html"><span class="identifier">ResourceHandler</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/configuration">configuration</span><span class="symbol">:</span>&nbsp;<a href="../-coap-endpoint-handler-configuration/index.html"><span class="identifier">CoapEndpointHandlerConfiguration</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Registers a coap handler for a certain path.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$attach(com.fitbit.goldengate.bindings.DataSinkDataSource)/dataSinkDataSource">dataSinkDataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach the source and sink</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="detach.html">detach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detach</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSinkPointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSourcePointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="remove-resource-handler.html">removeResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeResourceHandler</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$removeResourceHandler(kotlin.String)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Unregisters the coap handler for a certain path</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="response-for.html">responseFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">responseFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-response/index.html"><span class="identifier">IncomingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Call this to send a request and get a response (i.e. be a client).</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-filter-group.html">setFilterGroup</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setFilterGroup</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/group">group</span><span class="symbol">:</span>&nbsp;<a href="../-coap-group-request-filter-mode/index.html"><span class="identifier">CoapGroupRequestFilterMode</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/key">key</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the current filter group used by the CoAP request filter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-endpoint/resource.html">resource</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">resource</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))/parser">parser</span><span class="symbol">:</span>&nbsp;<a href="../-byte-array-parser.html"><span class="identifier">ByteArrayParser</span></a><span class="symbol">&lt;</span><a href="../-endpoint/resource.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../-endpoint/resource.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Convenience method for making a GET request to path and parsing it into a T</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-endpoint/response-for.html">responseFor</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">responseFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.responseFor.T)))/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.responseFor.T)))/parser">parser</span><span class="symbol">:</span>&nbsp;<a href="../-byte-array-parser.html"><span class="identifier">ByteArrayParser</span></a><span class="symbol">&lt;</span><a href="../-endpoint/response-for.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../-endpoint/response-for.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Convenience method for parsing a Response into a T</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

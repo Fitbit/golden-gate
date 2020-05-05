@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__buffer_8h" kind="file" language="C++">
+    <compoundname>gg_buffer.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__io_8h" local="yes">xp/common/gg_io.h</includedby>
+    <includedby refid="gg__coap__endpoint_8h" local="yes">xp/coap/gg_coap_endpoint.h</includedby>
+    <includedby refid="gg__coap__filters_8h" local="yes">xp/coap/gg_coap_filters.h</includedby>
+    <includedby refid="gg__memory__data__source_8h" local="yes">xp/utils/gg_memory_data_source.h</includedby>
+    <includedby refid="gg__blaster__data__source_8h" local="yes">xp/utils/gg_blaster_data_source.h</includedby>
+    <includedby refid="gg__perf__data__sink_8h" local="yes">xp/utils/gg_perf_data_sink.h</includedby>
+    <includedby refid="gg__print__data__sink_8h" local="yes">xp/utils/gg_print_data_sink.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="30">
+        <label>xp/utils/gg_print_data_sink.h</label>
+        <link refid="gg__print__data__sink_8h"/>
+      </node>
+      <node id="25">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/utils/gg_memory_data_source.h</label>
+        <link refid="gg__memory__data__source_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="28">
+        <label>xp/utils/gg_blaster_data_source.h</label>
+        <link refid="gg__blaster__data__source_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="31">
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="27">
+        <label>xp/utils/gg_memory_data_sink.h</label>
+        <link refid="gg__memory__data__sink_8h"/>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="29">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___static_buffer" prot="public">GG_StaticBuffer</innerclass>
+    <innerclass refid="struct_g_g___static_buffer_source" prot="public">GG_StaticBufferSource</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___buffers_1ga18d56db632d183597ccb9a2d63f77d7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_DECLARE_INTERFACE</definition>
+        <argsstring>(GG_Buffer)</argsstring>
+        <name>GG_DECLARE_INTERFACE</name>
+        <param>
+          <type><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Retain a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The retained object (which may or may not be the same pointer as the one on which this method is called).</para>
+</simplesect>
+Release a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Obtain a read-only pointer to the data represented by a buffer object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Const pointer to the data.</para>
+</simplesect>
+Obtain a read-write pointer to the data represented by a buffer object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the data, or NULL if the object&apos;s data is read-only.</para>
+</simplesect>
+Get the size of the data represented by a buffer object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The size of the data.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="40" column="1" bodyfile="xp/common/gg_buffer.h" bodystart="40" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gada7806eee2f0835dbc99c5a307f82f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_DECLARE_INTERFACE</definition>
+        <argsstring>(GG_BufferSource)</argsstring>
+        <name>GG_DECLARE_INTERFACE</name>
+        <param>
+          <type><ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Get the buffer data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to which to write the data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Get the size of the data represented by the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The size of the data.</para>
+</simplesect>
+</para>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="318" column="1" bodyfile="xp/common/gg_buffer.h" bodystart="318" bodyend="334"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Data buffers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="group___buffers_1ga18d56db632d183597ccb9a2d63f77d7d" refkind="member"><highlight class="normal"><ref refid="group___buffers_1ga18d56db632d183597ccb9a2d63f77d7d" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/>(*Retain)(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Release)(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>(*GetData)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t*<sp/>(*UseData)(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>size_t<sp/>(*GetDataSize)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"></codeline>
+<codeline lineno="87"></codeline>
+<codeline lineno="90"><highlight class="normal"><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/><ref refid="group___buffers_1ga6af313cb369183f7ef343cd73691282d" kindref="member">GG_Buffer_Retain</ref>(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga852cf21610f14b8a8312eed8a78d5342" kindref="member">GG_Buffer_Release</ref>(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="group___buffers_1ga095e75a71654105904cb903e0e198ba8" kindref="member">GG_Buffer_GetData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">uint8_t*<sp/><ref refid="group___buffers_1ga8d0ad1fea98d61c8948a93ca962b2999" kindref="member">GG_Buffer_UseData</ref>(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gab240731784936a8c86d9089635801225" kindref="member">GG_Buffer_GetDataSize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="struct_g_g___static_buffer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>);<sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="struct_g_g___static_buffer_1a3dbba0d7d728215ddc0c754d6d5bcc11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="struct_g_g___static_buffer_1a3dbba0d7d728215ddc0c754d6d5bcc11" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119" refid="struct_g_g___static_buffer_1a454eabcef142653b4e9216a3bae8ab20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___static_buffer_1a454eabcef142653b4e9216a3bae8ab20" kindref="member">data_size</ref>;<sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}<sp/><ref refid="struct_g_g___static_buffer" kindref="compound">GG_StaticBuffer</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="group___buffers_1ga3efda6a3b6f4e8e3f7b3f1a60328032e" refkind="member"><highlight class="preprocessor">#define<sp/>GG_StaticBuffer_AsBuffer(buffer)<sp/>GG_CAST(buffer,<sp/>GG_Buffer)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga6cff9b55a03158d197c330c9cf43a57e" kindref="member">GG_StaticBuffer_Init</ref>(<ref refid="struct_g_g___static_buffer" kindref="compound">GG_StaticBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___buffers_1gadd8eaf129a1656211adf8c6f6d91ba52" kindref="member">GG_DynamicBuffer_Create</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>**<sp/>buffer);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/><ref refid="group___buffers_1ga4b3113c0006afb17ee911784e1865364" kindref="member">GG_DynamicBuffer_AsBuffer</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/><ref refid="group___buffers_1ga2a321b9e73381f3241292053f7023708" kindref="member">GG_DynamicBuffer_Retain</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga2a70c1b62a0b694d2cd9c920b730e91c" kindref="member">GG_DynamicBuffer_Release</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="group___buffers_1ga62a6ade588b86c3b0e9220a5cf623c93" kindref="member">GG_DynamicBuffer_GetData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">uint8_t*<sp/><ref refid="group___buffers_1ga3f3da89dcb7c6be6767c2a22c0255244" kindref="member">GG_DynamicBuffer_UseData</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gac854d762405a66e0a74f01b944b8c164" kindref="member">GG_DynamicBuffer_GetDataSize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___buffers_1gaf1ad074a3a266e03520df1fd62d0a9a1" kindref="member">GG_DynamicBuffer_Clone</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>**<sp/>clone);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><sp/><ref refid="group___buffers_1ga09dcfa04a1ff966cdcc8e6821716de95" kindref="member">GG_DynamicBuffer_SetBuffer</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><sp/><ref refid="group___buffers_1ga70524fff84267e724b668a9e70b849e2" kindref="member">GG_DynamicBuffer_SetBufferSize</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga1fbc7deae3762cbff829528142cbf211" kindref="member">GG_DynamicBuffer_GetBufferSize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___buffers_1gaca8a8cceeb6297be19733001c6b44446" kindref="member">GG_DynamicBuffer_Reserve</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><sp/><ref refid="group___buffers_1ga2f2a62458d9d6da26deafe69149d503a" kindref="member">GG_DynamicBuffer_SetData</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><sp/><ref refid="group___buffers_1gaea4950020ab099218ac1fc6e31be391e" kindref="member">GG_DynamicBuffer_SetDataSize</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga4b48d2271ab405de393c71eb17e0fb18" kindref="member">GG_DynamicBuffer_Equals</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/>other);</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___buffers_1ga474a89e2ca026a0bd77bd8fbb5819cfe" kindref="member">GG_DynamicBuffer_AppendData</ref>(<ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="296"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___sub_buffer" kindref="compound">GG_SubBuffer</ref><sp/><ref refid="class_g_g___sub_buffer" kindref="compound">GG_SubBuffer</ref>;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___buffers_1ga0f631b0e31dbd9355607e3ff46f54669" kindref="member">GG_SubBuffer_Create</ref>(<ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>**<sp/>buffer);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="317"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="318" refid="group___buffers_1gada7806eee2f0835dbc99c5a307f82f77" refkind="member"><highlight class="normal"><ref refid="group___buffers_1ga18d56db632d183597ccb9a2d63f77d7d" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*GetData)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>size_t<sp/>(*GetDataSize)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"></codeline>
+<codeline lineno="341"></codeline>
+<codeline lineno="344"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gab5e4267a0c04ae9e54b22ea6d140eb94" kindref="member">GG_BufferSource_GetData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gadf756efc0146207a8dfa30531d9d88f8" kindref="member">GG_BufferSource_GetDataSize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="353"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="356"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357" refid="struct_g_g___static_buffer_source" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="interface_g_g___buffer_source" kindref="compound">GG_BufferSource</ref>);<sp/></highlight></codeline>
+<codeline lineno="359"><highlight class="normal"></highlight></codeline>
+<codeline lineno="360" refid="struct_g_g___static_buffer_source_1ab8bbedbb34355050e451dbc00def55d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><ref refid="struct_g_g___static_buffer_source_1ab8bbedbb34355050e451dbc00def55d2" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="361" refid="struct_g_g___static_buffer_source_1a6f52aca5530157f5f9020aef5df5a964" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___static_buffer_source_1a6f52aca5530157f5f9020aef5df5a964" kindref="member">data_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="362"><highlight class="normal">}<sp/><ref refid="struct_g_g___static_buffer_source" kindref="compound">GG_StaticBufferSource</ref>;</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366" refid="group___buffers_1ga7b87588650523cb1c0aa75504952c925" refkind="member"><highlight class="preprocessor">#define<sp/>GG_StaticBufferSource_AsBufferSource(buffer)<sp/>GG_CAST(buffer,<sp/>GG_BufferSource)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gaf9a62315fb306d56ff86ada607daefa3" kindref="member">GG_StaticBufferSource_Init</ref>(<ref refid="struct_g_g___static_buffer_source" kindref="compound">GG_StaticBufferSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_buffer.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__data__probe_8h" kind="file" language="C++">
+    <compoundname>gg_data_probe.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="1">
+        <label>xp/utils/gg_data_probe.h</label>
+        <link refid="gg__data__probe_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___data_probe_report" prot="public">GG_DataProbeReport</innerclass>
+    <innerclass refid="struct_g_g___data_probe_listener" prot="public">GG_DataProbeListener</innerclass>
+    <innerclass refid="struct_g_g___data_probe_listener_interface" prot="public">GG_DataProbeListenerInterface</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="gg__data__probe_8h_1a085af04309bfb75f19d1799d0973f4f6" prot="public" static="no">
+        <name>GG_DATA_PROBE_OPTION_TOTAL_THROUGHPUT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>The different report types. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will include total throughput calcultion </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="56" column="9" bodyfile="xp/utils/gg_data_probe.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gg__data__probe_8h_1a5d2d03793e1f1ba5d86be50b1f61170c" prot="public" static="no">
+        <name>GG_DATA_PROBE_OPTION_WINDOW_THROUGHPUT</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will include windowed throughput calcultion </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="61" column="9" bodyfile="xp/utils/gg_data_probe.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gg__data__probe_8h_1a4bb1a161aa7cfac9c0aca6be735a08fa" prot="public" static="no">
+        <name>GG_DATA_PROBE_OPTION_WINDOW_INTEGRAL</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will include window integral calcultion </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="66" column="9" bodyfile="xp/utils/gg_data_probe.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" prot="public" static="no">
+        <type>struct <ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref></type>
+        <definition>typedef struct GG_DataProbe GG_DataProbe</definition>
+        <argsstring></argsstring>
+        <name>GG_DataProbe</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data Probe object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="82" column="13" bodyfile="xp/utils/gg_data_probe.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gg__data__probe_8h_1afd9bb43d2de196614554faa90fabb71a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DataProbe_Create</definition>
+        <argsstring>(uint32_t options, uint32_t buffer_sample_count, uint32_t window_size_ms, uint32_t report_interval_ms, GG_DataProbeListener *listener, GG_DataProbe **probe)</argsstring>
+        <name>GG_DataProbe_Create</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>buffer_sample_count</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>window_size_ms</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>report_interval_ms</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_probe_listener" kindref="compound">GG_DataProbeListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> **</type>
+          <declname>probe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a Data Probe.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Or&apos;ed combination of option flags. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_sample_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amount of samples that are going to get stored. When buffer_sample_count is too small, samples will be squashed. Must be at least 2 to support windowing mode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>window_size_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sliding window size in milliseconds. 0 to disable windowing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>report_interval_ms</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reporting interval in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data probe report listener. NULL for no reports. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>probe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the created object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="109" column="11" declfile="xp/utils/gg_data_probe.h" declline="109" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a6edabbb771887044a7fbacaf2aa2f700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_Destroy</definition>
+        <argsstring>(GG_DataProbe *self)</argsstring>
+        <name>GG_DataProbe_Destroy</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a Data Probe.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="121" column="6" declfile="xp/utils/gg_data_probe.h" declline="121" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1abbb98c19782113a1f39b18ad0c809023" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbe_GetWindowSize</definition>
+        <argsstring>(GG_DataProbe *self)</argsstring>
+        <name>GG_DataProbe_GetWindowSize</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the window size of the probe in milliseconds.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="128" column="10" declfile="xp/utils/gg_data_probe.h" declline="128" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1ae97cb6e888802f2997bc38b156515f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_ResetWithTime</definition>
+        <argsstring>(GG_DataProbe *self, GG_Timestamp time)</argsstring>
+        <name>GG_DataProbe_ResetWithTime</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset accumulated stats and initialize the reference time, for data calculation, to the provided time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>reference time to begin calculating against. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="137" column="6" declfile="xp/utils/gg_data_probe.h" declline="137" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a14ad226e3d0eb8ffbf7a1b8e7dbd3188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_Reset</definition>
+        <argsstring>(GG_DataProbe *self)</argsstring>
+        <name>GG_DataProbe_Reset</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset accumulated stats in a Data Probe and initialize the reference time, for calculation, to the current system time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="145" column="6" declfile="xp/utils/gg_data_probe.h" declline="145" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a98fb38ef3818fcfe217490f8578adec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_ForceReport</definition>
+        <argsstring>(GG_DataProbe *self)</argsstring>
+        <name>GG_DataProbe_ForceReport</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Force the probe to invoke the listener that a report could be generated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="152" column="6" declfile="xp/utils/gg_data_probe.h" declline="152" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a3d74659240f07b1738104cb33cf96ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref> *</type>
+        <definition>const GG_DataProbeReport* GG_DataProbe_GetReport</definition>
+        <argsstring>(GG_DataProbe *self)</argsstring>
+        <name>GG_DataProbe_GetReport</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve a report using current time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The report. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="161" column="26" declfile="xp/utils/gg_data_probe.h" declline="161" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a9350c0866391e60852d5a434d0836875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref> *</type>
+        <definition>const GG_DataProbeReport* GG_DataProbe_GetReportWithTime</definition>
+        <argsstring>(GG_DataProbe *self, GG_Timestamp time)</argsstring>
+        <name>GG_DataProbe_GetReportWithTime</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve a report using specified time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time to use for window calculations.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The report. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="171" column="26" declfile="xp/utils/gg_data_probe.h" declline="171" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1a3484a79e8f42880c232906642ce0ea1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_Accumulate</definition>
+        <argsstring>(GG_DataProbe *self, size_t byte_count)</argsstring>
+        <name>GG_DataProbe_Accumulate</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>byte_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Accumulate bytes for calculations using current time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>byte_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to accumulate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="179" column="6" declfile="xp/utils/gg_data_probe.h" declline="179" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__data__probe_8h_1adc0679c98097bb8f4d6ccf48db457144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_AccumulateWithTime</definition>
+        <argsstring>(GG_DataProbe *self, size_t byte_count, GG_Timestamp time)</argsstring>
+        <name>GG_DataProbe_AccumulateWithTime</name>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>byte_count</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Accumulate bytes for calculations using specified time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>byte_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to accumulate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time bytes were captured. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="188" column="6" declfile="xp/utils/gg_data_probe.h" declline="188" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose Data probe interfaces. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Michael Hoyt</para>
+</simplesect>
+<simplesect kind="date"><para>2018-10-01 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__strings_8h" kindref="compound">xp/common/gg_strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref><sp/><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="struct_g_g___data_probe_report" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total_bytes;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/>total_throughput;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="struct_g_g___data_probe_report_1ab0c74f58db4dc0b92c971ca49a056e41" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_report_1ab0c74f58db4dc0b92c971ca49a056e41" kindref="member">total_throughput_peak</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45" refid="struct_g_g___data_probe_report_1a34d4e6bed8fe342fa2852beb2c2e8135" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_report_1a34d4e6bed8fe342fa2852beb2c2e8135" kindref="member">window_throughput</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="struct_g_g___data_probe_report_1a91025bb55c5dc9f3531c9d4dbb8cdd68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_report_1a91025bb55c5dc9f3531c9d4dbb8cdd68" kindref="member">window_throughput_peak</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="struct_g_g___data_probe_report_1a6901b778fdff3377b3ce3722526fbf79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_report_1a6901b778fdff3377b3ce3722526fbf79" kindref="member">window_bytes_second</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="struct_g_g___data_probe_report_1a03a0cfb5a8852abf0a0f30f01f393549" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_report_1a03a0cfb5a8852abf0a0f30f01f393549" kindref="member">window_bytes_second_peak</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="49" refid="struct_g_g___data_probe_report_1a305168997e7033210f505d2efce8e91e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><ref refid="struct_g_g___data_probe_report_1a305168997e7033210f505d2efce8e91e" kindref="member">time</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}<sp/><ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"></codeline>
+<codeline lineno="56" refid="gg__data__probe_8h_1a085af04309bfb75f19d1799d0973f4f6" refkind="member"><highlight class="preprocessor">#define<sp/>GG_DATA_PROBE_OPTION_TOTAL_THROUGHPUT<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="gg__data__probe_8h_1a5d2d03793e1f1ba5d86be50b1f61170c" refkind="member"><highlight class="preprocessor">#define<sp/>GG_DATA_PROBE_OPTION_WINDOW_THROUGHPUT<sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="gg__data__probe_8h_1a4bb1a161aa7cfac9c0aca6be735a08fa" refkind="member"><highlight class="preprocessor">#define<sp/>GG_DATA_PROBE_OPTION_WINDOW_INTEGRAL<sp/><sp/><sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="struct_g_g___data_probe_listener_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___data_probe_listener" kindref="compound">GG_DataProbeListener</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="79" refid="struct_g_g___data_probe_listener_interface_1a503b479fffabce58fbf04537f7c58b63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnReportReady)(<ref refid="struct_g_g___data_probe_listener" kindref="compound">GG_DataProbeListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/>probe);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"></codeline>
+<codeline lineno="87"></codeline>
+<codeline lineno="90"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___data_probe_listener_1ac6803a9304c20df0d149973bda9d5b05" kindref="member">GG_DataProbe_OnReportReady</ref>(<ref refid="struct_g_g___data_probe_listener" kindref="compound">GG_DataProbeListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/>probe);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="93"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="94"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__data__probe_8h_1afd9bb43d2de196614554faa90fabb71a" kindref="member">GG_DataProbe_Create</ref>(uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_sample_count,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>window_size_ms,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>report_interval_ms,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_probe_listener" kindref="compound">GG_DataProbeListener</ref>*<sp/>listener,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>probe);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1a6edabbb771887044a7fbacaf2aa2f700" kindref="member">GG_DataProbe_Destroy</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">uint32_t<sp/><ref refid="gg__data__probe_8h_1abbb98c19782113a1f39b18ad0c809023" kindref="member">GG_DataProbe_GetWindowSize</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1ae97cb6e888802f2997bc38b156515f74" kindref="member">GG_DataProbe_ResetWithTime</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/>time);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1a14ad226e3d0eb8ffbf7a1b8e7dbd3188" kindref="member">GG_DataProbe_Reset</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1a98fb38ef3818fcfe217490f8578adec2" kindref="member">GG_DataProbe_ForceReport</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref>*<sp/><ref refid="gg__data__probe_8h_1a3d74659240f07b1738104cb33cf96ddf" kindref="member">GG_DataProbe_GetReport</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___data_probe_report" kindref="compound">GG_DataProbeReport</ref>*<sp/><ref refid="gg__data__probe_8h_1a9350c0866391e60852d5a434d0836875" kindref="member">GG_DataProbe_GetReportWithTime</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/>time);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1a3484a79e8f42880c232906642ce0ea1b" kindref="member">GG_DataProbe_Accumulate</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>byte_count);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__data__probe_8h_1adc0679c98097bb8f4d6ccf48db457144" kindref="member">GG_DataProbe_AccumulateWithTime</ref>(<ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>byte_count,<sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/>time);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/utils/gg_data_probe.h"/>
+  </compounddef>
+</doxygen>

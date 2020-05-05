@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_22bb40deb5a056d45b581a34c033dcab" kind="dir">
+    <compoundname>xp/common</compoundname>
+    <innerfile refid="gg__bitstream_8h">gg_bitstream.h</innerfile>
+    <innerfile refid="gg__buffer_8h">gg_buffer.h</innerfile>
+    <innerfile refid="gg__common_8h">gg_common.h</innerfile>
+    <innerfile refid="gg__crc32_8h">gg_crc32.h</innerfile>
+    <innerfile refid="gg__event__dispatcher_8h">gg_event_dispatcher.h</innerfile>
+    <innerfile refid="gg__events_8h">gg_events.h</innerfile>
+    <innerfile refid="gg__inspect_8h">gg_inspect.h</innerfile>
+    <innerfile refid="gg__io_8h">gg_io.h</innerfile>
+    <innerfile refid="gg__lists_8h">gg_lists.h</innerfile>
+    <innerfile refid="gg__logging_8h">gg_logging.h</innerfile>
+    <innerfile refid="gg__memory_8h">gg_memory.h</innerfile>
+    <innerfile refid="gg__port_8h">gg_port.h</innerfile>
+    <innerfile refid="gg__queues_8h">gg_queues.h</innerfile>
+    <innerfile refid="gg__results_8h">gg_results.h</innerfile>
+    <innerfile refid="gg__ring__buffer_8h">gg_ring_buffer.h</innerfile>
+    <innerfile refid="gg__strings_8h">gg_strings.h</innerfile>
+    <innerfile refid="gg__system_8h">gg_system.h</innerfile>
+    <innerfile refid="gg__threads_8h">gg_threads.h</innerfile>
+    <innerfile refid="gg__timer_8h">gg_timer.h</innerfile>
+    <innerfile refid="gg__types_8h">gg_types.h</innerfile>
+    <innerfile refid="gg__utils_8h">gg_utils.h</innerfile>
+    <innerfile refid="gg__version_8h">gg_version.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_request_handler" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapRequestHandler</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_1aa13f0e5147eea1927cef673034cf1fb2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___coap_request_handler_interface" kindref="compound">GG_CoapRequestHandlerInterface</ref> *</type>
+        <definition>const GG_CoapRequestHandlerInterface* GG_CoapRequestHandler::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="220" column="99" bodyfile="xp/coap/gg_coap.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_CoapRequestHandlerInterface</label>
+        <link refid="struct_g_g___coap_request_handler_interface"/>
+      </node>
+      <node id="1">
+        <label>GG_CoapRequestHandler</label>
+        <link refid="struct_g_g___coap_request_handler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="220" column="61" bodyfile="xp/coap/gg_coap.h" bodystart="220" bodyend="220"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_request_handler_1aa13f0e5147eea1927cef673034cf1fb2" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandler</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

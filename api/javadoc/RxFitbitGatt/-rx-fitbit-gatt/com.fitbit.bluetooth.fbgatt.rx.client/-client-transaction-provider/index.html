@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ClientTransactionProvider - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="./index.html">ClientTransactionProvider</a><br/>
+<br/>
+<h1>ClientTransactionProvider</h1>
+<code><span class="keyword">class </span><span class="identifier">ClientTransactionProvider</span></code>
+<p>Implementers of this interface can provide alternative implementations of the bitgatt transactions, like mocking in tests.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ClientTransactionProvider</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Implementers of this interface can provide alternative implementations of the bitgatt transactions, like mocking in tests.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-connect-transaction-for.html">getConnectTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getConnectTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getConnectTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt connect transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-disconnect-transaction-for.html">getDisconnectTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDisconnectTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getDisconnectTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt disconnect transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-discover-services-transaction-for.html">getDiscoverServicesTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDiscoverServicesTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getDiscoverServicesTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt discover services transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-read-descriptor-transaction-for.html">getReadDescriptorTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getReadDescriptorTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getReadDescriptorTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattDescriptor)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getReadDescriptorTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattDescriptor)/descriptor">descriptor</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html"><span class="identifier">BluetoothGattDescriptor</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt read descriptor transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-request-connection-interval-transaction-for.html">getRequestConnectionIntervalTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getRequestConnectionIntervalTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getRequestConnectionIntervalTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.tx.RequestGattConnectionIntervalTransaction.Speed)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getRequestConnectionIntervalTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.tx.RequestGattConnectionIntervalTransaction.Speed)/speed">speed</span><span class="symbol">:</span>&nbsp;<span class="identifier">Speed</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt request connection interval transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-request-mtu-transaction-for.html">getRequestMtuTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getRequestMtuTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getRequestMtuTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Int)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getRequestMtuTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Int)/mtu">mtu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a bitgatt request mtu transaction</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-subscribe-to-gatt-characteristic-transaction-for.html">getSubscribeToGattCharacteristicTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getSubscribeToGattCharacteristicTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getSubscribeToGattCharacteristicTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattCharacteristic)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getSubscribeToGattCharacteristicTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattCharacteristic)/bluetoothGattCharacteristic">bluetoothGattCharacteristic</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a subscribe to gatt characteristic bitgatt transaction. This operation does not run any bluetooth specific operation,
+instead just tells the system our app is interested in notifications from this characteristic.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-unsubscribe-from-gatt-characteristic-transaction-for.html">getUnsubscribeFromGattCharacteristicTransactionFor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getUnsubscribeFromGattCharacteristicTransactionFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getUnsubscribeFromGattCharacteristicTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattCharacteristic)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getUnsubscribeFromGattCharacteristicTransactionFor(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattCharacteristic)/bluetoothGattCharacteristic">bluetoothGattCharacteristic</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides an unsubscribe to gatt characteristic bitgatt transaction. This operation does not run any bluetooth specific operation,
+instead just tells the system our app is not interested in notifications from this characteristic anymore.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-write-descriptor-transaction.html">getWriteDescriptorTransaction</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getWriteDescriptorTransaction</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getWriteDescriptorTransaction(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattDescriptor)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider$getWriteDescriptorTransaction(com.fitbit.bluetooth.fbgatt.GattConnection, android.bluetooth.BluetoothGattDescriptor)/descriptor">descriptor</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html"><span class="identifier">BluetoothGattDescriptor</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GattTransaction</span></code>
+<p>Provides a write descriptor bitgatt transaction.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

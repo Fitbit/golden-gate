@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__TimerListener" kind="interface" language="C++" prot="public">
+    <compoundname>GG_TimerListener</compoundname>
+    <includes refid="gg__timer_8h" local="no">xp/common/gg_timer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__TimerListener_1aad407c49cf79822ca5915fe48dca94d6" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__TimerListenerInterface" kindref="compound">GG_TimerListenerInterface</ref> *</type>
+        <definition>const GG_TimerListenerInterface* GG_TimerListener::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="53" column="89" bodyfile="xp/common/gg_timer.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__Timers_1ga6a413ab719f64759ee01e74e3847fa72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_TimerListener_OnTimerFired</definition>
+        <argsstring>(GG_TimerListener *self, GG_Timer *timer, uint32_t actual_ms_elapsed)</argsstring>
+        <name>GG_TimerListener_OnTimerFired</name>
+        <param>
+          <type><ref refid="structGG__TimerListener" kindref="compound">GG_TimerListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>actual_ms_elapsed</declname>
+        </param>
+        <briefdescription>
+<para>Called whenever a scheduled timer has fired. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Listener being invoked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer object being acted on </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time_elapsed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The actual number of milliseconds that have elapsed since the timer was scheduled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="71" column="6" declfile="xp/common/gg_timer.h" declline="71" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that can be called when a timer fires. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group__Timers_1ga38391141dd750b67e17a9196b53ce9d6" kindref="member">GG_Timer_Schedule</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_TimerListenerInterface</label>
+        <link refid="structGG__TimerListenerInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_TimerListener</label>
+        <link refid="structGG__TimerListener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_timer.h" line="53" column="56" bodyfile="xp/common/gg_timer.h" bodystart="53" bodyend="53"/>
+    <listofallmembers>
+      <member refid="group__Timers_1ga6a413ab719f64759ee01e74e3847fa72" prot="public" virt="non-virtual"><scope>GG_TimerListener</scope><name>GG_TimerListener_OnTimerFired</name></member>
+      <member refid="structGG__TimerListener_1aad407c49cf79822ca5915fe48dca94d6" prot="public" virt="non-virtual"><scope>GG_TimerListener</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

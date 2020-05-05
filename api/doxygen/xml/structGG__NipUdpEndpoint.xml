@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__NipUdpEndpoint" kind="struct" language="C++" prot="public">
+    <compoundname>GG_NipUdpEndpoint</compoundname>
+    <includes refid="gg__nip_8h" local="no">xp/nip/gg_nip.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1a826f9f3c8525df6724b358d6388ba9da" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LinkedListNode" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_NipUdpEndpoint::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+<para>to allow putting this struct in a list </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="53" column="26" bodyfile="xp/nip/gg_nip.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1aca21fb0896300950ef7c84b18f50ecca" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_NipUdpEndpoint::data_sink</definition>
+        <argsstring></argsstring>
+        <name>data_sink</name>
+        <briefdescription>
+<para>the sink to which data will be sent </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="54" column="25" bodyfile="xp/nip/gg_nip.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1a7243a69673462e826b4f12ce3ec2f1a7" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__DataSinkListener" kindref="compound">GG_DataSinkListener</ref> *</type>
+        <definition>GG_DataSinkListener* GG_NipUdpEndpoint::data_sink_listener</definition>
+        <argsstring></argsstring>
+        <name>data_sink_listener</name>
+        <briefdescription>
+<para>the listener interested in our data events </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="55" column="25" bodyfile="xp/nip/gg_nip.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1a4830319b2e2b64707459c0cab93d58c3" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__SocketAddress" kindref="compound">GG_SocketAddress</ref></type>
+        <definition>GG_SocketAddress GG_NipUdpEndpoint::local_address</definition>
+        <argsstring></argsstring>
+        <name>local_address</name>
+        <briefdescription>
+<para>local address/port of the socket </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="56" column="26" bodyfile="xp/nip/gg_nip.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1aeec12570edebff69d5f58a176c00b0ea" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__SocketAddress" kindref="compound">GG_SocketAddress</ref></type>
+        <definition>GG_SocketAddress GG_NipUdpEndpoint::remote_address</definition>
+        <argsstring></argsstring>
+        <name>remote_address</name>
+        <briefdescription>
+<para>remote address/port of the socket </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="57" column="26" bodyfile="xp/nip/gg_nip.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1a1d6f5c67a420f021c832f83693a514db" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_NipUdpEndpoint::local_port_bound</definition>
+        <argsstring></argsstring>
+        <name>local_port_bound</name>
+        <briefdescription>
+<para>set to true when the socket is bound to a local port </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="58" column="26" bodyfile="xp/nip/gg_nip.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__NipUdpEndpoint_1a1f7e33d0a7d38fe7708a7c3314e09086" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_NipUdpEndpoint::connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <briefdescription>
+<para>set to true when the socket is bound to a remote port </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="59" column="26" bodyfile="xp/nip/gg_nip.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structGG__NipUdpEndpoint_1aaf2ed81caba03195bae5b20ff4940e6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_NipUdpEndpoint::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_DataSink)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref></type>
+        </param>
+        <briefdescription>
+<para>to receive UDP packets </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="49" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structGG__NipUdpEndpoint_1a2c3c3368699a1a05a83c831fc68f8918" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_NipUdpEndpoint::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_DataSource)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref></type>
+        </param>
+        <briefdescription>
+<para>to send UDP packets </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="50" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structGG__NipUdpEndpoint_1a1cd9d02e76cfb0a9221add0c9ecd9654" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_NipUdpEndpoint::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_DataSinkListener)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="structGG__DataSinkListener" kindref="compound">GG_DataSinkListener</ref></type>
+        </param>
+        <briefdescription>
+<para>to receive notifications from the sink </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/nip/gg_nip.h" line="51" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Object that can send and receive UDP datagrams </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_SocketAddress</label>
+        <link refid="structGG__SocketAddress"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>address</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GG_DataSinkListenerInterface</label>
+        <link refid="structGG__DataSinkListenerInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_NipUdpEndpoint</label>
+        <link refid="structGG__NipUdpEndpoint"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>local_address</edgelabel>
+          <edgelabel>remote_address</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>data_sink_listener</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>data_sink</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GG_DataSinkListener</label>
+        <link refid="structGG__DataSinkListener"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_IpAddress</label>
+        <link refid="structGG__IpAddress"/>
+      </node>
+      <node id="4">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>GG_DataSink</label>
+        <link refid="structGG__DataSink"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>GG_DataSinkInterface</label>
+        <link refid="structGG__DataSinkInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/nip/gg_nip.h" line="48" column="15" bodyfile="xp/nip/gg_nip.h" bodystart="48" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structGG__NipUdpEndpoint_1a1f7e33d0a7d38fe7708a7c3314e09086" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>connected</name></member>
+      <member refid="structGG__NipUdpEndpoint_1aca21fb0896300950ef7c84b18f50ecca" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>data_sink</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a7243a69673462e826b4f12ce3ec2f1a7" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>data_sink_listener</name></member>
+      <member refid="structGG__NipUdpEndpoint_1aaf2ed81caba03195bae5b20ff4940e6d" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>GG_IMPLEMENTS</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a2c3c3368699a1a05a83c831fc68f8918" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>GG_IMPLEMENTS</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a1cd9d02e76cfb0a9221add0c9ecd9654" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>GG_IMPLEMENTS</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a826f9f3c8525df6724b358d6388ba9da" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>list_node</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a4830319b2e2b64707459c0cab93d58c3" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>local_address</name></member>
+      <member refid="structGG__NipUdpEndpoint_1a1d6f5c67a420f021c832f83693a514db" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>local_port_bound</name></member>
+      <member refid="structGG__NipUdpEndpoint_1aeec12570edebff69d5f58a176c00b0ea" prot="public" virt="non-virtual"><scope>GG_NipUdpEndpoint</scope><name>remote_address</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

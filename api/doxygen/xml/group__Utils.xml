@@ -1,0 +1,1715 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Utils" kind="group">
+    <compoundname>Utils</compoundname>
+    <title>Utilities</title>
+    <innerclass refid="structGG__PerfDataSinkStats" prot="public">GG_PerfDataSinkStats</innerclass>
+    <innerclass refid="structGG__ActivityMonitorChangeEvent" prot="public">GG_ActivityMonitorChangeEvent</innerclass>
+    <innerclass refid="classGG__AsyncPipe" prot="public">GG_AsyncPipe</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__Utils_1gaece6307b684ef6dd281ca55c6f2be567" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_BlasterDataSourcePacketFormat</name>
+        <enumvalue id="group__Utils_1ggaece6307b684ef6dd281ca55c6f2be567a879016f02b0095fd7db50ab2ac7ba072" prot="public">
+          <name>GG_BLASTER_BASIC_COUNTER_PACKET_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>4 byte header that contains a packet counter in big-endian byte order. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Utils_1ggaece6307b684ef6dd281ca55c6f2be567a096cc1fd86b2084c942eb9e94cfb8dcc" prot="public">
+          <name>GG_BLASTER_IP_COUNTER_PACKET_FORMAT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>20 byte IP packet header, including a counter as part of one of the IP header fields. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="40" column="14" bodyfile="xp/utils/gg_blaster_data_source.h" bodystart="40" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__Utils_1ga980e61e5ab99285e4301484afae7be7f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_PerfDataSinkMode</name>
+        <enumvalue id="group__Utils_1gga980e61e5ab99285e4301484afae7be7fa83f3aedb38ecc2cb50c9ca8a013a65fa" prot="public">
+          <name>GG_PERF_DATA_SINK_MODE_RAW</name>
+          <briefdescription>
+<para>Can receive any packets with any payload,. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Utils_1gga980e61e5ab99285e4301484afae7be7fa7c5a7fcfcb963e286cecd20477c12dca" prot="public">
+          <name>GG_PERF_DATA_SINK_MODE_BASIC_OR_IP_COUNTER</name>
+          <briefdescription>
+<para>Can receive packets from a GG_BlasterDataSource. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Type of packets expected by the sink. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="59" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__Utils_1ga2c99dca0535371bead118a8bfbf3d837" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_ActivityMonitorChangeType</name>
+        <enumvalue id="group__Utils_1gga2c99dca0535371bead118a8bfbf3d837ae4fef35ab61734cec3a29a9ec498e176" prot="public">
+          <name>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_ACTIVE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Utils_1gga2c99dca0535371bead118a8bfbf3d837ab4481f895076a2c8b7722802a3ab077a" prot="public">
+          <name>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_INACTIVE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Utils_1gga2c99dca0535371bead118a8bfbf3d837a092072529db6af70aaf7ca565784e1d6" prot="public">
+          <name>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_ACTIVE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Utils_1gga2c99dca0535371bead118a8bfbf3d837a03e43d2ce6514beff7ce33b40e9ff469" prot="public">
+          <name>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_INACTIVE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change type for Activty monitor envet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="43" column="14" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="43" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__Utils_1gadc720232df75ec9e3cb329aae38c296e" prot="public" static="no">
+        <type>struct GG_MemoryDataSource</type>
+        <definition>typedef struct GG_MemoryDataSource GG_MemoryDataSource</definition>
+        <argsstring></argsstring>
+        <name>GG_MemoryDataSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="107" column="13" bodyfile="xp/utils/gg_memory_data_source.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1ga15a826a3a9150f4206282a49a3f55944" prot="public" static="no">
+        <type>struct GG_MemoryDataSink</type>
+        <definition>typedef struct GG_MemoryDataSink GG_MemoryDataSink</definition>
+        <argsstring></argsstring>
+        <name>GG_MemoryDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="48" column="6" bodyfile="xp/utils/gg_memory_data_sink.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1gaf44570a8e0e2b44ea42eab4f582b868e" prot="public" static="no">
+        <type>struct GG_BlasterDataSource</type>
+        <definition>typedef struct GG_BlasterDataSource GG_BlasterDataSource</definition>
+        <argsstring></argsstring>
+        <name>GG_BlasterDataSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="51" column="6" bodyfile="xp/utils/gg_blaster_data_source.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" prot="public" static="no">
+        <type>struct <ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref></type>
+        <definition>typedef struct GG_PerfDataSink GG_PerfDataSink</definition>
+        <argsstring></argsstring>
+        <name>GG_PerfDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performance-measuring sink object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="115" column="11" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1ga1405b11c83e0849a58dc1f74f2991f0b" prot="public" static="no">
+        <type>struct <ref refid="group__Utils_1ga1405b11c83e0849a58dc1f74f2991f0b" kindref="member">GG_PrintDataSink</ref></type>
+        <definition>typedef struct GG_PrintDataSink GG_PrintDataSink</definition>
+        <argsstring></argsstring>
+        <name>GG_PrintDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Printing sink object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_print_data_sink.h" line="53" column="14" bodyfile="xp/utils/gg_print_data_sink.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1ga85156766332cf55c7c5732731a9f94b1" prot="public" static="no">
+        <type>struct GG_ActivityDataMonitor</type>
+        <definition>typedef struct GG_ActivityDataMonitor GG_ActivityDataMonitor</definition>
+        <argsstring></argsstring>
+        <name>GG_ActivityDataMonitor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="78" column="5" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" prot="public" static="no">
+        <type>struct <ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref></type>
+        <definition>typedef struct GG_CoapEventEmitter GG_CoapEventEmitter</definition>
+        <argsstring></argsstring>
+        <name>GG_CoapEventEmitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A CoAP Event Emitter is a service object that is responsible for notifying a remote entity of events, over CoAP. Events have a type ID. At any point in time, an event can be set or not set. The Event Emitter keeps a current set of events that are set. This is a set, not a list or queue, so the Event Emitter only keeps track, for each event type, of whether the event is set or not. The Event Emitter guarantees the delivery of the list of currently set events to the remote CoAP endpoint. This means that it will continuously attempt to deliver a CoAP request to the remote endpoint until a response is received. Retry attempts are a combination of CoAP-level retransmissions (automatic retransmission with exponential back-off) and service-level resends (i.e if the CoAP-level retransmissions time out, the service will send a new request). The only exception to that rule is when the CoAP server returns a response that indicates that there is a programming error or a misconfiguration (a 4.XX response), in which case the request is not retried. When a response from the remote is received, all events that where in the &quot;in-flight&quot; set are no longer set (until a call to GG_CoapEventEmitter_SetEvent for that event type). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="59" column="21" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Utils_1ga0cd4f3749521ae2153785d1e9960948d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_AsyncPipe_Create</definition>
+        <argsstring>(GG_TimerScheduler *timer_scheduler, unsigned int max_items, GG_AsyncPipe **pipe)</argsstring>
+        <name>GG_AsyncPipe_Create</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>timer_scheduler</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_items</declname>
+        </param>
+        <param>
+          <type><ref refid="classGG__AsyncPipe" kindref="compound">GG_AsyncPipe</ref> **</type>
+          <declname>pipe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timer_scheduler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer scheduler used to create a tick timer for pumping the data between the endpoints. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the created object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="82" column="11" declfile="xp/utils/gg_async_pipe.h" declline="82" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga0255c24a6e8ccaf3615a638fa96bbcc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_AsyncPipe_Destroy</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_Destroy</name>
+        <param>
+          <type><ref refid="classGG__AsyncPipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="89" column="6" declfile="xp/utils/gg_async_pipe.h" declline="89" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga1de22a904337308a24051dceff17823a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_AsyncPipe_AsDataSource</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_AsDataSource</name>
+        <param>
+          <type><ref refid="classGG__AsyncPipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="98" column="15" declfile="xp/utils/gg_async_pipe.h" declline="98" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gadb1c6ee16cd9a0c67b207710e8419a93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_AsyncPipe_AsDataSink</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_AsDataSink</name>
+        <param>
+          <type><ref refid="classGG__AsyncPipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="107" column="13" declfile="xp/utils/gg_async_pipe.h" declline="107" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gad59734254bff538025f5731db9faba6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryDataSource_Create</definition>
+        <argsstring>(GG_Buffer *data, size_t chunk_size, GG_MemoryDataSource **source)</argsstring>
+        <name>GG_MemoryDataSource_Create</name>
+        <param>
+          <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>chunk_size</declname>
+        </param>
+        <param>
+          <type>GG_MemoryDataSource **</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="42" column="11" declfile="xp/utils/gg_memory_data_source.h" declline="42" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga6832d5e22d4e1f73f5aad3544d2749f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_MemoryDataSource_Destroy</definition>
+        <argsstring>(GG_MemoryDataSource *self)</argsstring>
+        <name>GG_MemoryDataSource_Destroy</name>
+        <param>
+          <type>GG_MemoryDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="43" column="6" declfile="xp/utils/gg_memory_data_source.h" declline="43" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga8545b6f4ff1366d9ceeb41e77734e7c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_MemoryDataSource_AsDataSource</definition>
+        <argsstring>(GG_MemoryDataSource *self)</argsstring>
+        <name>GG_MemoryDataSource_AsDataSource</name>
+        <param>
+          <type>GG_MemoryDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="45" column="15" declfile="xp/utils/gg_memory_data_source.h" declline="45" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga1bb52577e2ceb399b48a10cb7e268b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryDataSource_Start</definition>
+        <argsstring>(GG_MemoryDataSource *self)</argsstring>
+        <name>GG_MemoryDataSource_Start</name>
+        <param>
+          <type>GG_MemoryDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="46" column="11" declfile="xp/utils/gg_memory_data_source.h" declline="46" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga8c280c0a6a0fa4ad53a326462cb28882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_MemoryDataSource_GetBytesLeft</definition>
+        <argsstring>(GG_MemoryDataSource *self)</argsstring>
+        <name>GG_MemoryDataSource_GetBytesLeft</name>
+        <param>
+          <type>GG_MemoryDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="47" column="8" declfile="xp/utils/gg_memory_data_source.h" declline="47" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaa50eeccf92b1bf0c82afb5e9874a1a0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_MemoryDataSource_Rewind</definition>
+        <argsstring>(GG_MemoryDataSource *self)</argsstring>
+        <name>GG_MemoryDataSource_Rewind</name>
+        <param>
+          <type>GG_MemoryDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_source.h" line="48" column="6" declfile="xp/utils/gg_memory_data_source.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaa213b3b23d279d105932032b592ec6cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryDataSink_Create</definition>
+        <argsstring>(GG_MemoryDataSink **sink)</argsstring>
+        <name>GG_MemoryDataSink_Create</name>
+        <param>
+          <type>GG_MemoryDataSink **</type>
+          <declname>sink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="41" column="11" declfile="xp/utils/gg_memory_data_sink.h" declline="41" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga77e27f89134a06ff6af824c1923b61b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_MemoryDataSink_Destroy</definition>
+        <argsstring>(GG_MemoryDataSink *self)</argsstring>
+        <name>GG_MemoryDataSink_Destroy</name>
+        <param>
+          <type>GG_MemoryDataSink *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="42" column="6" declfile="xp/utils/gg_memory_data_sink.h" declline="42" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga4bc34db2ab2572955d9272c5996bc93d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_MemoryDataSink_AsDataSink</definition>
+        <argsstring>(GG_MemoryDataSink *self)</argsstring>
+        <name>GG_MemoryDataSink_AsDataSink</name>
+        <param>
+          <type>GG_MemoryDataSink *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="44" column="13" declfile="xp/utils/gg_memory_data_sink.h" declline="44" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaad3fa12efc45fe3f5c6ed7ef92007ba5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+        <definition>GG_Buffer* GG_MemoryDataSink_GetBuffer</definition>
+        <argsstring>(GG_MemoryDataSink *self)</argsstring>
+        <name>GG_MemoryDataSink_GetBuffer</name>
+        <param>
+          <type>GG_MemoryDataSink *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="45" column="11" declfile="xp/utils/gg_memory_data_sink.h" declline="45" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga086e5d48e5744b953a41a3b74210d336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_MemoryDataSink_Reset</definition>
+        <argsstring>(GG_MemoryDataSink *self)</argsstring>
+        <name>GG_MemoryDataSink_Reset</name>
+        <param>
+          <type>GG_MemoryDataSink *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the state of the object. This clears the internal buffer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_memory_data_sink.h" line="51" column="6" declfile="xp/utils/gg_memory_data_sink.h" declline="51" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga87072aa387d3c467eab4867c231073e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_BlasterDataSource_Create</definition>
+        <argsstring>(size_t packet_size, GG_BlasterDataSourcePacketFormat packet_format, size_t max_packet_count, GG_TimerScheduler *timer_scheduler, unsigned int send_interval, GG_BlasterDataSource **source)</argsstring>
+        <name>GG_BlasterDataSource_Create</name>
+        <param>
+          <type>size_t</type>
+          <declname>packet_size</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Utils_1gaece6307b684ef6dd281ca55c6f2be567" kindref="member">GG_BlasterDataSourcePacketFormat</ref></type>
+          <declname>packet_format</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_packet_count</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>timer_scheduler</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>send_interval</declname>
+        </param>
+        <param>
+          <type>GG_BlasterDataSource **</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a Blaster data source.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of each packet to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>packet_format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Format for the payload of each packet. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_packet_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of packets to send, or 0 for unlimited. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timer_scheduler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer scheduler used for timing when sending at fixed intervals. or NULL when send_interval is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>send_interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time interval between packets, in milliseconds, or 0 for max speed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that will receive the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="76" column="11" declfile="xp/utils/gg_blaster_data_source.h" declline="76" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga6c28834493bea7060c756d112bca4fc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BlasterDataSource_Destroy</definition>
+        <argsstring>(GG_BlasterDataSource *self)</argsstring>
+        <name>GG_BlasterDataSource_Destroy</name>
+        <param>
+          <type>GG_BlasterDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a Blaster data source.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="88" column="6" declfile="xp/utils/gg_blaster_data_source.h" declline="88" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga45ce4ad78f5c766633fbf7b032e9ba4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_BlasterDataSource_AsDataSource</definition>
+        <argsstring>(GG_BlasterDataSource *self)</argsstring>
+        <name>GG_BlasterDataSource_AsDataSource</name>
+        <param>
+          <type>GG_BlasterDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="97" column="15" declfile="xp/utils/gg_blaster_data_source.h" declline="97" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gab4fd3b9fc5cd25b238402d47834d27c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_BlasterDataSource_Start</definition>
+        <argsstring>(GG_BlasterDataSource *self)</argsstring>
+        <name>GG_BlasterDataSource_Start</name>
+        <param>
+          <type>GG_BlasterDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start blasting.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="106" column="11" declfile="xp/utils/gg_blaster_data_source.h" declline="106" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaf3e8f0b4e53734a649e1a00226c8282e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_BlasterDataSource_Stop</definition>
+        <argsstring>(GG_BlasterDataSource *self)</argsstring>
+        <name>GG_BlasterDataSource_Stop</name>
+        <param>
+          <type>GG_BlasterDataSource *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop blasting.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="115" column="11" declfile="xp/utils/gg_blaster_data_source.h" declline="115" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga9281ded14cd92a8da066c7b4e3619382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_PerfDataSink_Create</definition>
+        <argsstring>(GG_PerfDataSinkMode mode, uint32_t options, unsigned int stats_print_time_interval, GG_PerfDataSink **sink)</argsstring>
+        <name>GG_PerfDataSink_Create</name>
+        <param>
+          <type><ref refid="group__Utils_1ga980e61e5ab99285e4301484afae7be7f" kindref="member">GG_PerfDataSinkMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stats_print_time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> **</type>
+          <declname>sink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a Perf data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>What type of packets to expect. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Or&apos;ed combination of option flags. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stats_print_time_interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How frequently to print the stats, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable in which the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="97" column="11" declfile="xp/utils/gg_perf_data_sink.h" declline="97" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga2cadfcd36d86b53ba51db0a4af944fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_PerfDataSink_Destroy</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_Destroy</name>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a Perf data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="107" column="6" declfile="xp/utils/gg_perf_data_sink.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga2bb3a7cd472821cd9ce3c1f674f88ba5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_PerfDataSink_SetPassthroughTarget</definition>
+        <argsstring>(GG_PerfDataSink *self, GG_DataSink *target)</argsstring>
+        <name>GG_PerfDataSink_SetPassthroughTarget</name>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Specify that the sink should pass buffers through to a <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> target</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sink to which buffers should be passed through.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="117" column="11" declfile="xp/utils/gg_perf_data_sink.h" declline="117" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga1e7744c8cd9954630791c08ad2e16f5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_PerfDataSink_AsDataSink</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_AsDataSink</name>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="127" column="13" declfile="xp/utils/gg_perf_data_sink.h" declline="127" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga89286173a2a1cf8d1818ea4fb4ca200e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_PerfDataSink_ResetStats</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_ResetStats</name>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the statistics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="134" column="6" declfile="xp/utils/gg_perf_data_sink.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga07c9a5d97f30c0bf3161bbc38a5a2ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structGG__PerfDataSinkStats" kindref="compound">GG_PerfDataSinkStats</ref> *</type>
+        <definition>const GG_PerfDataSinkStats* GG_PerfDataSink_GetStats</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_GetStats</name>
+        <param>
+          <type><ref refid="group__Utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current statistics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current statistics. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="143" column="28" declfile="xp/utils/gg_perf_data_sink.h" declline="143" declcolumn="28"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gac1098520339167bfdf7425c0c69fad36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_PrintDataSink_Create</definition>
+        <argsstring>(uint32_t options, size_t max_payload_print, GG_PrintDataSink **sink)</argsstring>
+        <name>GG_PrintDataSink_Create</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_payload_print</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Utils_1ga1405b11c83e0849a58dc1f74f2991f0b" kindref="member">GG_PrintDataSink</ref> **</type>
+          <declname>sink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a Printing data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Or&apos;ed combination of option flags. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_payload_print</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of bytes from each packet to print. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable in which the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_print_data_sink.h" line="63" column="11" declfile="xp/utils/gg_print_data_sink.h" declline="63" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaa2ad7a97905fe8f33bc38aaa195f64a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_PrintDataSink_Destroy</definition>
+        <argsstring>(GG_PrintDataSink *self)</argsstring>
+        <name>GG_PrintDataSink_Destroy</name>
+        <param>
+          <type><ref refid="group__Utils_1ga1405b11c83e0849a58dc1f74f2991f0b" kindref="member">GG_PrintDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a Printing data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_print_data_sink.h" line="72" column="6" declfile="xp/utils/gg_print_data_sink.h" declline="72" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga52b20681ab175b9ecbf0e877fe2ef29f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_PrintDataSink_AsDataSink</definition>
+        <argsstring>(GG_PrintDataSink *self)</argsstring>
+        <name>GG_PrintDataSink_AsDataSink</name>
+        <param>
+          <type><ref refid="group__Utils_1ga1405b11c83e0849a58dc1f74f2991f0b" kindref="member">GG_PrintDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_print_data_sink.h" line="81" column="13" declfile="xp/utils/gg_print_data_sink.h" declline="81" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gab3629d3e1125ae7a059d91f54d4877ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_ActivityDataMonitor_Create</definition>
+        <argsstring>(GG_TimerScheduler *scheduler, uint32_t direction, uint32_t inactivity_timeout, GG_ActivityDataMonitor **source)</argsstring>
+        <name>GG_ActivityDataMonitor_Create</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>scheduler</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>inactivity_timeout</declname>
+        </param>
+        <param>
+          <type>GG_ActivityDataMonitor **</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a activity data monitor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scheduler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer Scheduler to use for scheduling internal timer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The direction of the activity being monitored to use in a <ref refid="structGG__ActivityMonitorChangeEvent" kindref="compound">GG_ActivityMonitorChangeEvent</ref> (GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP or GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inactivity_timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of time in ms to wait before considering the source has become inactive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable that will receive the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="94" column="11" declfile="xp/utils/gg_activity_data_monitor.h" declline="94" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaaec5f987e1bc3e4c8597ef79e2cd64c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_ActivityDataMonitor_Destroy</definition>
+        <argsstring>(GG_ActivityDataMonitor *self)</argsstring>
+        <name>GG_ActivityDataMonitor_Destroy</name>
+        <param>
+          <type>GG_ActivityDataMonitor *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a activity data monitor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="104" column="6" declfile="xp/utils/gg_activity_data_monitor.h" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga9ebdaa3d3e59687ea60638f614bbb0c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_ActivityDataMonitor_AsDataSource</definition>
+        <argsstring>(GG_ActivityDataMonitor *self)</argsstring>
+        <name>GG_ActivityDataMonitor_AsDataSource</name>
+        <param>
+          <type>GG_ActivityDataMonitor *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="113" column="15" declfile="xp/utils/gg_activity_data_monitor.h" declline="113" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gabe7f9254cc374c8e07c6e3ef541df7fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_ActivityDataMonitor_AsDataSink</definition>
+        <argsstring>(GG_ActivityDataMonitor *self)</argsstring>
+        <name>GG_ActivityDataMonitor_AsDataSink</name>
+        <param>
+          <type>GG_ActivityDataMonitor *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="122" column="13" declfile="xp/utils/gg_activity_data_monitor.h" declline="122" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gad98f5695a33590f39c597c0ba6214e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> *</type>
+        <definition>GG_EventEmitter* GG_ActivityDataMonitor_AsEventEmitter</definition>
+        <argsstring>(GG_ActivityDataMonitor *self)</argsstring>
+        <name>GG_ActivityDataMonitor_AsEventEmitter</name>
+        <param>
+          <type>GG_ActivityDataMonitor *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="132" column="17" declfile="xp/utils/gg_activity_data_monitor.h" declline="132" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga6a6a5afe6e0228909bf99b86b8fc80d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__Inspectable" kindref="compound">GG_Inspectable</ref> *</type>
+        <definition>GG_Inspectable* GG_ActivityDataMonitor_AsInspectable</definition>
+        <argsstring>(GG_ActivityDataMonitor *self)</argsstring>
+        <name>GG_ActivityDataMonitor_AsInspectable</name>
+        <param>
+          <type>GG_ActivityDataMonitor *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="structGG__Inspectable" kindref="compound">GG_Inspectable</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__Inspectable" kindref="compound">GG_Inspectable</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="141" column="16" declfile="xp/utils/gg_activity_data_monitor.h" declline="141" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga33f3ee3b77130278eace73ca140591e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEventEmitter_Create</definition>
+        <argsstring>(GG_CoapEndpoint *coap_endpoint, const char *coap_path, GG_TimerScheduler *timer_scheduler, size_t max_events, uint32_t retry_delay, uint32_t min_request_age, GG_CoapEventEmitter **emitter)</argsstring>
+        <name>GG_CoapEventEmitter_Create</name>
+        <param>
+          <type><ref refid="group__CoAP_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>coap_endpoint</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>coap_path</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>timer_scheduler</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>max_events</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>retry_delay</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>min_request_age</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref> **</type>
+          <declname>emitter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a CoAP event emitter.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>coap_endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CoAP endpoint through which to POST the events. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>coap_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CoAP resource path to POST to (at most GG_COAP_EVENT_EMITTER_MAX_PATH_SEGMENTS segments). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timer_scheduler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer scheduler used to create and schedule internal timers. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_events</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of pending events. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>retry_delay</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How long to wait before retrying a request after a failure (in millisecond). Pass 0 to use the default value (GG_COAP_EVENT_EMITTER_DEFAULT_RETRY_DELAY). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min_request_age</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum age of a request below which the event emitter won&apos;t cancel an in-flight request (in milliseconds). Pass 0 to use the default value (GG_COAP_EVENT_EMITTER_DEFAULT_MIN_REQUEST_AGE). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">emitter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the created object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="87" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="87" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga44e1ddeed1be00070bc1e725380ddb7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapEventEmitter_Destroy</definition>
+        <argsstring>(GG_CoapEventEmitter *self)</argsstring>
+        <name>GG_CoapEventEmitter_Destroy</name>
+        <param>
+          <type><ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="100" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="100" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gaab5117676706da99c6d22fe7f5b20f2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEventEmitter_SetEvent</definition>
+        <argsstring>(GG_CoapEventEmitter *self, uint32_t event_type, uint32_t max_latency)</argsstring>
+        <name>GG_CoapEventEmitter_SetEvent</name>
+        <param>
+          <type><ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_type</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>max_latency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set an event.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event to set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_latency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum time, in milliseconds, that the emitter may wait before sending a update to the server (this allows coalescing multiple events together).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the event could be set, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="112" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="112" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1gadf42b5a127000be18c5704d8f0a27ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEventEmitter_UnsetEvent</definition>
+        <argsstring>(GG_CoapEventEmitter *self, uint32_t event_type)</argsstring>
+        <name>GG_CoapEventEmitter_UnsetEvent</name>
+        <param>
+          <type><ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unset an event.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event to unset.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the event could be unset, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="124" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="124" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Utils_1ga5ac962fae54b6968f24dda7bb1dc1a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_CoapEventEmitter_EventIsSet</definition>
+        <argsstring>(GG_CoapEventEmitter *self, uint32_t event_type)</argsstring>
+        <name>GG_CoapEventEmitter_EventIsSet</name>
+        <param>
+          <type><ref refid="group__Utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>event_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether an event is set or not.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>event_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event to query.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the event is set, or <computeroutput>false</computeroutput> if it isn&apos;t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="134" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Utils_1gaf7f96f4fae1a1d0e206076d9d8e90cd5" prot="public" static="no">
+        <name>GG_BLASTER_BASIC_COUNTER_PACKET_MIN_SIZE</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="56" column="9" bodyfile="xp/utils/gg_blaster_data_source.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga1a3df6e51bb945f43f550c2dcd51fe8a" prot="public" static="no">
+        <name>GG_BLASTER_IP_COUNTER_PACKET_MIN_SIZE</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_blaster_data_source.h" line="57" column="9" bodyfile="xp/utils/gg_blaster_data_source.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga11dc5c1882d9ef09d2e94701f37c975f" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be printed on the console </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="70" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga23df7c8b920bb1105df1b4f6d32d4218" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be logged with level INFO </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="75" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga36740103cf1ba1451a323f17444ac620" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_AUTO_RESET_STATS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be automatically reset every time the stats are output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="81" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga34ce1f9fa6ef68d11dea3d7f9ce84faa" prot="public" static="no">
+        <name>GG_PRINT_DATA_SINK_OPTION_PRINT_METADATA</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the buffer metadata will be printed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_print_data_sink.h" line="48" column="9" bodyfile="xp/utils/gg_print_data_sink.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga722daf97e317ba894d0eb680fab00f11" prot="public" static="no">
+        <name>GG_EVENT_TYPE_ACTIVITY_MONITOR_CHANGE</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;a&apos;, &apos;m&apos;, &apos;o&apos;, &apos;c&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Event type emitted by an Activity Monitor when a change in activity is detected.</para>
+<para>The event struct is a <ref refid="structGG__ActivityMonitorChangeEvent" kindref="compound">GG_ActivityMonitorChangeEvent</ref>. The event source is the GG_ActivityMonitor object that emits the event. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="72" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1gac3a6a2e61368de7660793a87d2a5f57c" prot="public" static="no">
+        <name>GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Activity Monitor for bottom to top direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="74" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga2149055dcf69821bdfda8b493f73a211" prot="public" static="no">
+        <name>GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Activity Monitor for top to bottom direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="75" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1gad60f0d7a77645ed308ee676eb7328265" prot="public" static="no">
+        <name>GG_COAP_EVENT_EMITTER_MAX_PATH_SEGMENTS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="61" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1gaf8c46018bbe62d28eb1ef3fc3c99d6f9" prot="public" static="no">
+        <name>GG_COAP_EVENT_EMITTER_DEFAULT_RETRY_DELAY</name>
+        <initializer>(30 * <ref refid="group__Utilities_1ga7239e78cd3b6fb34ae687c00d9353133" kindref="member">GG_MILLISECONDS_PER_SECOND</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="64" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Utils_1ga03cbe415afc38bda88c542b7693c993a" prot="public" static="no">
+        <name>GG_COAP_EVENT_EMITTER_DEFAULT_MIN_REQUEST_AGE</name>
+        <initializer>(5 * <ref refid="group__Utilities_1ga7239e78cd3b6fb34ae687c00d9353133" kindref="member">GG_MILLISECONDS_PER_SECOND</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="67" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Asynchronous data pipe</para>
+<para>Memory data source</para>
+<para>Utility classes and functions, typicaly used in examples and tests.</para>
+<para>Blaster data source</para>
+<para>Data sink that can be used for performance measurements</para>
+<para>Data sink that prints metadata about what it receives</para>
+<para>Monitor data source</para>
+<para>CoAP event emitter </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

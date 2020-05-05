@@ -1,0 +1,1844 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+    
+    
+      
+        <title>Stack Tool - Golden Gate</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c3000690.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#stack-tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Golden Gate" class="md-header-nav__button md-logo" aria-label="Golden Gate">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Golden Gate
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Stack Tool
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Fitbit/golden-gate/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fitbit/golden-gate
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Golden Gate" class="md-nav__button md-logo" aria-label="Golden Gate">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Golden Gate
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Fitbit/golden-gate/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fitbit/golden-gate
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../introduction.html" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../getting_started.html" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Developer Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Developer Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Developer Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/project_layout.html" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/build.html" title="Build" class="md-nav__link">
+      Build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Components
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Components" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Components
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/core_concepts.html" title="Core Concepts" class="md-nav__link">
+      Core Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/object_oriented_c.html" title="Object-Oriented C" class="md-nav__link">
+      Object-Oriented C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/portable_runtime.html" title="Portable Runtime" class="md-nav__link">
+      Portable Runtime
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/logging.html" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/io.html" title="I/O Model" class="md-nav__link">
+      I/O Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/loop.html" title="Loop" class="md-nav__link">
+      Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/events.html" title="Events" class="md-nav__link">
+      Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/coap.html" title="CoAP" class="md-nav__link">
+      CoAP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/ip.html" title="IP" class="md-nav__link">
+      IP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/sockets.html" title="Sockets" class="md-nav__link">
+      Sockets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/tls.html" title="TLS" class="md-nav__link">
+      TLS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/stack.html" title="Stack" class="md-nav__link">
+      Stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/gattlink.html" title="Gattlink" class="md-nav__link">
+      Gattlink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/utils.html" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/examples.html" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/porting.html" title="Porting" class="md-nav__link">
+      Porting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-7" type="checkbox" id="nav-4-7">
+    
+    <label class="md-nav__link" for="nav-4-7">
+      Coding Styles
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Coding Styles" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Coding Styles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/code-styles/c.html" title="C" class="md-nav__link">
+      C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/code-styles/kotlin.html" title="Kotlin" class="md-nav__link">
+      Kotlin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/code-styles/swift.html" title="Swift" class="md-nav__link">
+      Swift
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../guides/documentation.html" title="Documentation" class="md-nav__link">
+      Documentation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Tools & Apps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools & Apps" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools & Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps/index.html" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Stack Tool
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="stack_tool.html" title="Stack Tool" class="md-nav__link md-nav__link--active">
+      Stack Tool
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth" class="md-nav__link">
+    Bluetooth
+  </a>
+  
+    <nav class="md-nav" aria-label="Bluetooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-as-a-hub" class="md-nav__link">
+    Bluetooth as a Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-as-a-node" class="md-nav__link">
+    Bluetooth as a Node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coap-client-and-server-through-a-stack" class="md-nav__link">
+    CoAP Client And Server Through A Stack
+  </a>
+  
+    <nav class="md-nav" aria-label="CoAP Client And Server Through A Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-1" class="md-nav__link">
+    Configuration 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-2" class="md-nav__link">
+    Configuration 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-examples" class="md-nav__link">
+    Bluetooth Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Bluetooth Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanning" class="md-nav__link">
+    Scanning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-hub-example" class="md-nav__link">
+    Bluetooth Hub Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-node-example" class="md-nav__link">
+    Bluetooth Node Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="coap_client.html" title="CoAP Client" class="md-nav__link">
+      CoAP Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="coap_server.html" title="CoAP Server" class="md-nav__link">
+      CoAP Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps/android/host_app.html" title="Android Host App" class="md-nav__link">
+      Android Host App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps/ios/host_app.html" title="iOS Host App" class="md-nav__link">
+      iOS Host App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apps/mynewt/mynewt_apps.html" title="MyNewt Apps" class="md-nav__link">
+      MyNewt Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Architecture
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Architecture" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/software_architecture.html" title="Software Architecture" class="md-nav__link">
+      Software Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/loop.html" title="Loop" class="md-nav__link">
+      Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/gattlink.html" title="Gattlink" class="md-nav__link">
+      Gattlink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../architecture/security.html" title="Security" class="md-nav__link">
+      Security
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      API Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/c_api.html" title="C API Reference" class="md-nav__link">
+      C API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/kotlin_api.html" title="Kotlin API Reference" class="md-nav__link">
+      Kotlin API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/swift_api.html" title="Swift API Reference" class="md-nav__link">
+      Swift API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Platforms
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Platforms" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Platforms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/ports.html" title="OS/RTOS Ports" class="md-nav__link">
+      OS/RTOS Ports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Embedded
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Embedded" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Embedded
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/embedded.html" title="Generic" class="md-nav__link">
+      Generic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/mynewt.html" title="MyNewt" class="md-nav__link">
+      MyNewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/nuttx.html" title="NuttX" class="md-nav__link">
+      NuttX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/esp32.html" title="ESP32" class="md-nav__link">
+      ESP32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/zephyr.html" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/ios.html" title="iOS" class="md-nav__link">
+      iOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/android.html" title="Android" class="md-nav__link">
+      Android
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/linux.html" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/macos.html" title="macOS" class="md-nav__link">
+      macOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../platforms/windows.html" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Transports
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Transports" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Transports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../transports/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../transports/bluetooth.html" title="Bluetooth" class="md-nav__link">
+      Bluetooth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../transports/wifi.html" title="Wifi" class="md-nav__link">
+      Wifi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../glossary.html" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../license.html" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../release_notes.html" title="Release Notes" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth" class="md-nav__link">
+    Bluetooth
+  </a>
+  
+    <nav class="md-nav" aria-label="Bluetooth">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-as-a-hub" class="md-nav__link">
+    Bluetooth as a Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bluetooth-as-a-node" class="md-nav__link">
+    Bluetooth as a Node
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coap-client-and-server-through-a-stack" class="md-nav__link">
+    CoAP Client And Server Through A Stack
+  </a>
+  
+    <nav class="md-nav" aria-label="CoAP Client And Server Through A Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-1" class="md-nav__link">
+    Configuration 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-2" class="md-nav__link">
+    Configuration 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-examples" class="md-nav__link">
+    Bluetooth Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Bluetooth Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanning" class="md-nav__link">
+    Scanning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-hub-example" class="md-nav__link">
+    Bluetooth Hub Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bluetooth-node-example" class="md-nav__link">
+    Bluetooth Node Example
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Fitbit/golden-gate/edit/master/docs/tools/stack_tool.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="stack-tool">Stack Tool<a class="headerlink" href="#stack-tool" title="Permanent link">&para;</a></h1>
+<p>The Stack Tool is a general purpose command-line tool that can be used to run a
+Golden Gate stack in a process, and connect the stack's top and bottom ports to
+UDP sockets so that the stack can communicate with other stacks and/or
+applications, running on the same host or another host on the network.
+On macOS, the bottom of the stack can alternatively be connected directly to
+Bluetooth.<br />
+The stacks may be full stacks (ex: DTLS &lt;-&gt; UDP &lt;-&gt; IP &lt;-&gt; Gattlink) or
+subsets, even single element stacks. This makes it possible to split an entire
+end-to-end communication chain into separate partial stacks that are assembled
+into a complete stack by connecting the partial stacks over UDP.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>usage:
+  gg-stack-tool [options] hub|node &lt;stack-descriptor-or-command&gt;
+
+where &lt;stack-descriptor-or-command&gt; is either a stack descriptor or a command
+string starting with a @ character
+
+options:
+  --top [coap] &lt;send_host_ip&gt; &lt;send_port&gt; &lt;receive_port&gt;
+    Specify the IP address and port number to connect to the top of the stack (user).
+    If the &#39;coap&#39; option is used, packets sent and received through the top of the stack
+    are assumed to be CoAP datagrams.
+    (default: 127.0.0.1 9002 9003 as a hub and 127.0.0.1 9003 9002 as a node)
+
+  --top blast &lt;packet-count&gt; &lt;packet-size&gt;
+    If &lt;packet-count&gt; is not 0, attach a packet blaster to the top of the stack, with the
+    given paket count and packet size, and start blasting, as well as printing stats for
+    packets received from a remote blastera. If &lt;packet-count&gt; or &lt;packet-size&gt; is 0,
+    don&#39;t start blasting, only print stats.
+
+  --top tunnel
+    Connect the top of the stack on an IP tunnel (typically only useful for stacks where the
+    top of the stack produces/consumes IP packets).
+
+  --bottom &lt;send_host_ip&gt; &lt;send_port&gt; &lt;receive_port&gt;
+    Specify the IP address and port number to connect to the bottom of the stack (transport).
+    (default: 127.0.0.1 9000 9001 as a hub and 127.0.0.1 9001 9000 as a node)
+
+  --bottom bluetooth &lt;bluetooth-device-id&gt;|scan|node:&lt;advertised-name&gt;
+    In the &#39;hub&#39; role, connect the bottom of the stack directly to a Bluetooth peripheral,
+    connecting to the device with ID &lt;bluetooth-device-id&gt; (obtained by scanning).
+    Use &#39;scan&#39; to only scan and display device IDs.
+    In the &#39;node&#39; role, accept connections from a Bluetooth central
+    (this is mutually exclusive with the --bottom option above).
+
+  --force-start
+    Don&#39;t wait for a link up event from the transport before starting the stack (only
+    valid when the bottom of the stack is bluetooth).
+
+  --gattlink &lt;max-fragment-size&gt; &lt;rx-window&gt; &lt;tx-window&gt;
+    Specify the Gattlink parameters.
+
+  --dtls-key &lt;key-identity&gt;:&lt;key&gt;
+    Where &lt;key-identity&gt; is an ASCII string, and &lt;key&gt; is 16 bytes in hex (32 characters)
+    For the `hub` role, multiple --dtls-key options can be used to specify a list of
+    keys. For the `node` role, only one key can be specified.
+
+  --enable-header-compression
+    Enable header compression
+
+  --trace
+    Show packets as they are received or sent from the top and bottom sockets.
+
+  --command-port &lt;command_port&gt;
+    Receive commands on port &lt;command_port&gt; (default: 7000 for hub, 7001 for node).
+
+  --event-port &lt;event_port&gt;
+    Send events on port &lt;event_port&gt; (default: 7100 for hub, 7101 for node).
+
+commands:
+    @reset                             : reset the stack
+    @dtls-add-key:&lt;key-identity&gt;:&lt;key&gt; : add a DTLS key
+    @bt-connect:&lt;uuid&gt;|scan   : connect to a bluetooth device or scan
+    @bt-lc-set-mode:slow|fast : set the preferred link controller connection mode
+
+NOTES:
+  * Specify a port number of 0 for the send port of the top or bottom to indicate
+    that the socket should send to the IP address and port number of the latest received
+    packet instead of a fixed address and port.
+  * Specify a port number as 0/X, with X non-zero, for the send port of the top, to
+    indicate that CoAP requests going to through the top should be sent to port X, but CoAP
+    responses should be sent to the port number from which they were received.
+  * Specify a port number of 0 for the receive port of the top or bottom to indicate
+    that the network stack should pick any available port number.
+</code></pre></div>
+
+<h2 id="bluetooth">Bluetooth<a class="headerlink" href="#bluetooth" title="Permanent link">&para;</a></h2>
+<p>On macOS, the tool can interface directly with the operating system's Bluetooth stack.</p>
+<h3 id="bluetooth-as-a-hub">Bluetooth as a Hub<a class="headerlink" href="#bluetooth-as-a-hub" title="Permanent link">&para;</a></h3>
+<p>The <code>--bottom bluetooth &lt;bluetooth-device-id&gt;</code> option may be used to connect to a
+bluetooth device running a compatible stack. <code>&lt;bluetooth-device-id&gt;</code> is a macOS-assigned
+peripheral UUID. To obtain the bluetooth device ID for a specific device, first run the
+tool with the option <code>--bottom bluetooth scan</code> and look for the device IDs printed on
+the console. Once you have found the device you are looking for, re-run the tool with the
+actual bluetooth device ID you want to connect to.</p>
+<h3 id="bluetooth-as-a-node">Bluetooth as a Node<a class="headerlink" href="#bluetooth-as-a-node" title="Permanent link">&para;</a></h3>
+<p>The <code>--bottom bluetooth node:&lt;bluetooth-device-name&gt;</code> option may be used to advertise
+bluetooth services as a Node.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In order to keep the console output reasonably quiet, it is recommended to limit the
+logging level to INFO, which can be done this way:
+<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="s2">&quot;GG_LOG_CONFIG=plist:.level=INFO&quot;</span>
+</code></pre></div></p>
+<p>or to trace the operations of the bluetooth transport:
+<div class="highlight"><pre><span></span><code>$ <span class="nb">export</span> <span class="s2">&quot;GG_LOG_CONFIG=plist:gg.xp.app.stack-tool.core-bluetooth.level=ALL;.ConsoleHandler.filter=4;.level=INFO&quot;</span>
+</code></pre></div></p>
+</div>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>In the following examples, we setup stacks or partial stacks connected together
+so that UDP packets sent to port 5680 are sent through the stacks and come out
+at the end as a UDP packet sent to localhost (127.0.0.1) on port 5683.
+This way, we can use a regular CoAP server listening on port 5683, and a
+regular CoAP client that sends request to the localhost (127.0.0.1) on port
+5680, which will be forwarded through the stacks to the sever.</p>
+<div class="admonition note">
+<p class="admonition-title">Adding the tools to your <code>PATH</code></p>
+<p>In the following examples, we assume that the directories where the command
+line tools are build have been added your <code>PATH</code>. Alternatively, you can
+use the full path to the tool's executable instead of just the executable
+name.</p>
+</div>
+<h3 id="coap-client-and-server-through-a-stack">CoAP Client And Server Through A Stack<a class="headerlink" href="#coap-client-and-server-through-a-stack" title="Permanent link">&para;</a></h3>
+<p>In these examples, we run two or more stack tool instances (in
+separate shell processes), configured such that one of the stacks receives 
+packets at its top, on port 5680, from a CoAP client, and communicates with 
+another stack, itself possibly connected to another stack, and so on, until a 
+last stack that sends packets to a CoAP server on port 5683.</p>
+<p>Network topology:
+<div class="highlight"><pre><span></span><code> +--------+            +------------+   |            |            +--------+
+ | CoAP   |---[5680]--&gt;|            |--&gt;| any number |---[5683]--&gt;| CoAP   |
+ | Client |            | Stack Tool |   | of Stack   |..          | Server |
+ |        |&lt;--[any ]---|            |&lt;--| Tool       |&lt;--[any ]---|        |
+ +--------+            +------------+   | processes  |            +--------+
+</code></pre></div></p>
+<p>In each case, once the stacks are running, run the Python CoAP server from <a href="https://github.com/Tanganelli/CoAPthon">CoAPthon</a>
+<div class="highlight"><pre><span></span><code>$ coapserver.py
+</code></pre></div></p>
+<p>And then run the CoAP client using the <code>coap</code> NodeJS tool from <a href="https://github.com/mcollina/coap-cli">coap-cli</a>
+<div class="highlight"><pre><span></span><code>$ coap coap://127.0.0.1:5680/big
+</code></pre></div></p>
+<p>You should see the CoAP response printed on the console.
+<div class="highlight"><pre><span></span><code>$ coap coap://127.0.0.1:5680/big
+<span class="o">(</span><span class="m">2</span>.05<span class="o">)</span>  Lorem ipsum dolor sit amet, ...
+</code></pre></div></p>
+<h4 id="configuration-1">Configuration 1<a class="headerlink" href="#configuration-1" title="Permanent link">&para;</a></h4>
+<p>Simple pair of complete stacks connect to each other on the bottom side.
+   (run each of the following commands in a separate shell):
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top coap <span class="m">127</span>.0.0.1 <span class="m">5683</span> <span class="m">0</span> hub DSNG
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top coap <span class="m">127</span>.0.0.1 <span class="m">0</span> <span class="m">5680</span> node DSNG
+</code></pre></div></p>
+<h4 id="configuration-2">Configuration 2<a class="headerlink" href="#configuration-2" title="Permanent link">&para;</a></h4>
+<p>Completely deconstructed stacks (each stack runs a single layer of a complete
+stack, so it is like having a stack where each layer runs in a separate process).</p>
+<div class="admonition note">
+<p class="admonition-title">Advanced example</p>
+<p>This is an advanced example, intended to illustrate that you can combine
+multiple stacks together, but in practice you will typically use just one
+stack on each machine.</p>
+</div>
+<p>Run each of the following commands in a separate shell):
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top coap <span class="m">127</span>.0.0.1 <span class="m">5683</span> <span class="m">0</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9009</span> <span class="m">9008</span> --trace hub D
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top <span class="m">127</span>.0.0.1 <span class="m">9008</span> <span class="m">9009</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9007</span> <span class="m">9006</span> --trace --command-port <span class="m">7001</span> hub SN
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top <span class="m">127</span>.0.0.1 <span class="m">9006</span> <span class="m">9007</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9004</span> <span class="m">9005</span> --trace --command-port <span class="m">7002</span> hub G
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top <span class="m">127</span>.0.0.1 <span class="m">9002</span> <span class="m">9003</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9005</span> <span class="m">9004</span> --trace --command-port <span class="m">7003</span> node G
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top <span class="m">127</span>.0.0.1 <span class="m">9000</span> <span class="m">9001</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9003</span> <span class="m">9002</span> --trace --command-port <span class="m">7004</span> node SN
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top coap <span class="m">127</span>.0.0.1 <span class="m">0</span> <span class="m">5680</span> --bottom <span class="m">127</span>.0.0.1 <span class="m">9001</span> <span class="m">9000</span> --command-port <span class="m">7005</span> --trace node D
+</code></pre></div></p>
+<h2 id="bluetooth-examples">Bluetooth Examples<a class="headerlink" href="#bluetooth-examples" title="Permanent link">&para;</a></h2>
+<p>These examples are only available on the mac, not Linux, because the stack tool
+doesn't yet have native Bluetooth support on Linux desktops.
+On the mac, the OS assigns a unique device ID to each Bluetooth device it can
+connect to (instead of exposing the device's Bluetooth address). So the first
+step is to use the stack tool to scan for devices, which will print on the 
+console a list of compatible Bluetooth devices, along with their OS-assigned
+device ID. Those device IDs can then be used to connect.</p>
+<h3 id="scanning">Scanning<a class="headerlink" href="#scanning" title="Permanent link">&para;</a></h3>
+<p>Run
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --bottom bluetooth connect hub DSNG
+</code></pre></div></p>
+<p>If there is a compatible device advertising, you should see on the console 
+something like (see the tip above about setting your <code>GG_LOG_CONFIG</code> environment
+variable to avoid having too many log lines clutter the console output):
+<div class="highlight"><pre><span></span><code>Bluetooth Scan: gg-peripheral - ID = DB147848-D227-43A8-A7A7-3AF2530BABC5 RSSI = -34
+</code></pre></div></p>
+<p>In this example, we see a device advertising as <code>gg-peripheral</code> for which the
+OS has assigned ID <code>DB147848-D227-43A8-A7A7-3AF2530BABC5</code>.</p>
+<h2 id="bluetooth-hub-example">Bluetooth Hub Example<a class="headerlink" href="#bluetooth-hub-example" title="Permanent link">&para;</a></h2>
+<p>In this example, we connect to a specific device over Bluetooth (device ID
+DB147848-D227-43A8-A7A7-3AF2530BABC5 in this example) and we start a stack. 
+The top of the stack is configured to proxy packets on port 5683,
+so any CoAP client targeting the macOS host will end up being proxy'ed to the 
+device.</p>
+<div class="highlight"><pre><span></span><code> +--------+            +------------+   |           |      +-----------+
+ | CoAP   |---[5683]--&gt;|            |--&gt;|           |-----&gt;| GG Device |
+ | Client |            | Stack Tool |   | Bluetooth |      | with CoAP |
+ |        |&lt;--[any ]---|            |&lt;--|           |&lt;-----| server    |
+ +--------+            +------------+   |           |      +-----------+
+</code></pre></div>
+
+<p>Run:
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --trace --top coap <span class="m">127</span>.0.0.1 <span class="m">0</span> <span class="m">5683</span> --bottom bluetooth DB147848-D227-43A8-A7A7-3AF2530BABC5 hub DSNG
+</code></pre></div></p>
+<p>If the device you are connecting to hosts a CoAP server with a <code>/helloworld</code> 
+resource (as would be the case for the Pylon <code>gg-peripheral</code> app running on a
+Nordic board), you can try a CoAP request like:
+<div class="highlight"><pre><span></span><code>$ gg-coap-client get coap://127.0.0.1/helloworld
+</code></pre></div></p>
+<p>You should see:
+<div class="highlight"><pre><span></span><code>=== Received response block, offset=0:
+  code = 2.05
+  token = 41A73AF1
+  option 12 [Content-Format] (uint): 0
+  payload size = 18
+  payload:
+  0000: Hello CoAP clien    48656C6C6F20436F415020636C69656E
+  0016: t!                  7421                            
+### Last block, we&#39;re done!
+Hello CoAP client!
+</code></pre></div></p>
+<h2 id="bluetooth-node-example">Bluetooth Node Example<a class="headerlink" href="#bluetooth-node-example" title="Permanent link">&para;</a></h2>
+<p>In this example, we start the stack and advertise bluetooth services under the name
+'Jiji'. The stack is configured with DTLS, but no key other than the default 
+bootstrap key. The top port is also configured to send CoAP requests out to a 
+local CoAP server that is listening on port 6683.</p>
+<div class="highlight"><pre><span></span><code> +--------+
+ | CoAP   |
+ | Server |&lt;--+
+ |        |   |
+ +--------+   |
+              |
+ +--------+   +-[6683]---&gt;+------------+   |           |      +-----------+
+ | CoAP   |-----[5683]---&gt;|            |--&gt;|           |-----&gt;| GG Device |
+ | Client |               | Stack Tool |   | Bluetooth |      | with CoAP |
+ |        |&lt;----[any ]----|            |&lt;--|           |&lt;-----| server    |
+ +--------+               +------------+   |           |      +-----------+
+</code></pre></div>
+
+<p>Run:
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --trace --bottom bluetooth node:Jiji --top <span class="m">127</span>.0.0.1 <span class="m">0</span>/6683 <span class="m">5683</span> node DSNG
+</code></pre></div></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../apps/index.html" title="Apps" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Apps
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="coap_client.html" title="CoAP Client" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                CoAP Client
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2017-2020 Fitbit, Inc. All rights reserved.
+          </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.f45d2d8d.min.js"></script>
+      <script src="../assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

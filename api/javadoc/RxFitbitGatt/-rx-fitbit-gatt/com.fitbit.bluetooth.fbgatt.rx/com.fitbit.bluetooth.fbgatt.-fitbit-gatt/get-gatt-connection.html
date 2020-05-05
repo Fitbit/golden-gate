@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>getGattConnection - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.bluetooth.fbgatt.FitbitGatt</a>&nbsp;/&nbsp;<a href="./get-gatt-connection.html">getGattConnection</a><br/>
+<br/>
+<h1>getGattConnection</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx$getGattConnection(com.fitbit.bluetooth.fbgatt.FitbitGatt, kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">FitbitGatt</span><span class="symbol">.</span><span class="identifier">getGattConnection</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$getGattConnection(com.fitbit.bluetooth.fbgatt.FitbitGatt, kotlin.String)/bluetoothAddress">bluetoothAddress</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Maybe</span><span class="symbol">&lt;</span><span class="identifier">GattConnection</span><span class="symbol">&gt;</span></code>
+<p>Reactive extension to get <a href="#">GattConnection</a> for given <a href="get-gatt-connection.html#com.fitbit.bluetooth.fbgatt.rx$getGattConnection(com.fitbit.bluetooth.fbgatt.FitbitGatt, kotlin.String)/bluetoothAddress">bluetoothAddress</a>.</p>
+<p>If BT is off this method will return NULL, else it will return a known connection. If there is no
+known connection bitgatt will create a new <a href="#">GattConnection</a> instance for this peripheral</p>
+<p>This method <em>could</em> return <a href="#">GattConnection</a> even if it has been previously discovered or not,
+so no assumption should be made about connection state. to check connection state refer <a href="#">GattConnection.state</a></p>
+</BODY>
+</HTML>

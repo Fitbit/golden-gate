@@ -1,0 +1,656 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__timer_8h" kind="file" language="C++">
+    <compoundname>gg_timer.h</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__gattlink_8h" local="yes">xp/gattlink/gg_gattlink.h</includedby>
+    <includedby refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includedby>
+    <includedby refid="gg__async__pipe_8h" local="yes">xp/utils/gg_async_pipe.h</includedby>
+    <includedby refid="gg__blaster__data__source_8h" local="yes">xp/utils/gg_blaster_data_source.h</includedby>
+    <includedby refid="gg__perf__data__sink_8h" local="yes">xp/utils/gg_perf_data_sink.h</includedby>
+    <includedby refid="gg__activity__data__monitor_8h" local="yes">xp/utils/gg_activity_data_monitor.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="5">
+        <label>stddef.h</label>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="25">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="24">
+        <label>xp/gattlink/gg_gattlink.h</label>
+        <link refid="gg__gattlink_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="26">
+        <label>xp/utils/gg_blaster_data_source.h</label>
+        <link refid="gg__blaster__data__source_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="28">
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="27">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___timer_listener" prot="public">GG_TimerListener</innerclass>
+    <innerclass refid="struct_g_g___timer_listener_interface" prot="public">GG_TimerListenerInterface</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___timers_1gae66dcdc10879fe83724cab77e8683446" prot="public" static="no">
+        <name>GG_TIMER_NEVER</name>
+        <initializer>((uint32_t)-1)</initializer>
+        <briefdescription>
+<para>Value used to represent an infinite time in the future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="36" column="9" bodyfile="xp/common/gg_timer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" prot="public" static="no">
+        <type>struct <ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref></type>
+        <definition>typedef struct GG_Timer GG_Timer</definition>
+        <argsstring></argsstring>
+        <name>GG_Timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer object that can be scheduled to fire at a specific time. When a timer fires, a <ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref> listener is called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="260" column="1" bodyfile="xp/common/gg_timer.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" prot="public" static="no">
+        <type>struct <ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref></type>
+        <definition>typedef struct GG_TimerScheduler GG_TimerScheduler</definition>
+        <argsstring></argsstring>
+        <name>GG_TimerScheduler</name>
+        <briefdescription>
+<para>A timer scheduler is an object that creates and manages timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="72" column="6" bodyfile="xp/common/gg_timer.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___timers_1ga0c7acc094d9e92169bf2cf6c96c49be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Timer_Destroy</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_Destroy</name>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Deletes a created timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frees up any memory associated with the timer. The timer can no longer be used after this call is complete </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="81" column="6" declfile="xp/common/gg_timer.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga38391141dd750b67e17a9196b53ce9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Timer_Schedule</definition>
+        <argsstring>(GG_Timer *self, GG_TimerListener *listener, uint32_t ms_from_now)</argsstring>
+        <name>GG_Timer_Schedule</name>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ms_from_now</declname>
+        </param>
+        <briefdescription>
+<para>Schedules a timer to execute in the future. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Calling this while the timer is already scheduled will simply reschedule the timer </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to schedule </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An implementation of the interface that will be used to notify consumer about timer events </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ms_from_now</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time in ms for the timer to fire </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the timer was scheduled or an error code on failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="91" column="11" declfile="xp/common/gg_timer.h" declline="91" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga32f5378503e5c86c8123cfb79b2658e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_Timer_IsScheduled</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_IsScheduled</name>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Checks to see if the requested timer is scheduled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to run the check on </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the timer is scheduled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="97" column="6" declfile="xp/common/gg_timer.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga7f23a2180b2d2456aaad88fba9b2a530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Timer_Unschedule</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_Unschedule</name>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Unschedules a timer. If the timer is not actually scheduled, this is a no-op. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to unschedule </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="102" column="6" declfile="xp/common/gg_timer.h" declline="102" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga334c3eb852096eca564b0bfabcf141b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Timer_GetRemainingTime</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_GetRemainingTime</name>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get the remaining time before the timeout fires. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to get the remaining time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the remaining time in milliseconds or 0 if the timer is not active or has already expired </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="108" column="10" declfile="xp/common/gg_timer.h" declline="108" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga7e5e111e5853798633783327aa07cad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_Create</definition>
+        <argsstring>(GG_TimerScheduler **scheduler)</argsstring>
+        <name>GG_TimerScheduler_Create</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> **</type>
+          <declname>scheduler</declname>
+        </param>
+        <briefdescription>
+<para>Create a new timer scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="111" column="11" declfile="xp/common/gg_timer.h" declline="111" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga4ccb4a2a268ba289ee37a31c75fe5e49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_TimerScheduler_Destroy</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_Destroy</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a timer scheduler. (all timers that have been created by this scheduler and have not yet been destroyed will be destroyed) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="116" column="6" declfile="xp/common/gg_timer.h" declline="116" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1gac3238e543b612f5bfeb7fa393edf6b37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_CreateTimer</definition>
+        <argsstring>(GG_TimerScheduler *self, GG_Timer **timer)</argsstring>
+        <name>GG_TimerScheduler_CreateTimer</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> **</type>
+          <declname>timer</declname>
+        </param>
+        <briefdescription>
+<para>Create a timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="119" column="11" declfile="xp/common/gg_timer.h" declline="119" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1ga8a7151787537bcedebd057ad370dfbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_SetTime</definition>
+        <argsstring>(GG_TimerScheduler *self, uint32_t now)</argsstring>
+        <name>GG_TimerScheduler_SetTime</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>now</declname>
+        </param>
+        <briefdescription>
+<para>Set the current time of the scheduler. This causes all timers that are scheduled for a time prior or equal to that time to fire. NOTE: upon creation, the timer scheduler&apos;s time is 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="124" column="11" declfile="xp/common/gg_timer.h" declline="124" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1gada692dadad93d8d1700805bb3a641cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_TimerScheduler_GetTime</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_GetTime</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get the current time of the scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="127" column="10" declfile="xp/common/gg_timer.h" declline="127" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___timers_1gad666dfeb0d0c4a6ff88f98bd4bfb0748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_TimerScheduler_GetNextScheduledTime</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_GetNextScheduledTime</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of milliseconds after which the next scheduled timer is set to fire, or <ref refid="group___timers_1gae66dcdc10879fe83724cab77e8683446" kindref="member">GG_TIMER_NEVER</ref> if no timer is scheduled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="131" column="10" declfile="xp/common/gg_timer.h" declline="131" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Timers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-11</para>
+</simplesect>
+An API for scheduling future work at a certain time in the future </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="group___timers_1gae66dcdc10879fe83724cab77e8683446" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_TIMER_NEVER<sp/>((uint32_t)-1)<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="45" refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref><sp/><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="struct_g_g___timer_listener_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="61" refid="struct_g_g___timer_listener_interface_1a05a4f281cf6bb25592301b5260022bef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnTimerFired)(<ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/>timer,<sp/>uint32_t<sp/>time_elapsed);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"></codeline>
+<codeline lineno="69"></codeline>
+<codeline lineno="72"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___timers_1ga6a413ab719f64759ee01e74e3847fa72" kindref="member">GG_TimerListener_OnTimerFired</ref>(<ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/>timer,<sp/>uint32_t<sp/>actual_ms_elapsed);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref><sp/><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___timers_1ga0c7acc094d9e92169bf2cf6c96c49be9" kindref="member">GG_Timer_Destroy</ref>(<ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___timers_1ga38391141dd750b67e17a9196b53ce9d6" kindref="member">GG_Timer_Schedule</ref>(<ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___timer_listener" kindref="compound">GG_TimerListener</ref>*<sp/>listener,<sp/>uint32_t<sp/>ms_from_now);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___timers_1ga32f5378503e5c86c8123cfb79b2658e2" kindref="member">GG_Timer_IsScheduled</ref>(<ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___timers_1ga7f23a2180b2d2456aaad88fba9b2a530" kindref="member">GG_Timer_Unschedule</ref>(<ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">uint32_t<sp/><ref refid="group___timers_1ga334c3eb852096eca564b0bfabcf141b0" kindref="member">GG_Timer_GetRemainingTime</ref>(<ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref><sp/>*</highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___timers_1ga7e5e111e5853798633783327aa07cad8" kindref="member">GG_TimerScheduler_Create</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>**<sp/>scheduler);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___timers_1ga4ccb4a2a268ba289ee37a31c75fe5e49" kindref="member">GG_TimerScheduler_Destroy</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___timers_1gac3238e543b612f5bfeb7fa393edf6b37" kindref="member">GG_TimerScheduler_CreateTimer</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref>**<sp/>timer);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___timers_1ga8a7151787537bcedebd057ad370dfbd6" kindref="member">GG_TimerScheduler_SetTime</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t<sp/>now);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">uint32_t<sp/><ref refid="group___timers_1gada692dadad93d8d1700805bb3a641cb2" kindref="member">GG_TimerScheduler_GetTime</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">uint32_t<sp/><ref refid="group___timers_1gad666dfeb0d0c4a6ff88f98bd4bfb0748" kindref="member">GG_TimerScheduler_GetNextScheduledTime</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_timer.h"/>
+  </compounddef>
+</doxygen>

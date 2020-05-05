@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_a886a0728fba3f5309fd88d2f7ff9815" kind="dir">
+    <compoundname>xp/sockets/ports/bsd</compoundname>
+    <innerfile refid="gg__bsd__sockets_8h">gg_bsd_sockets.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/sockets/ports/bsd/"/>
+  </compounddef>
+</doxygen>

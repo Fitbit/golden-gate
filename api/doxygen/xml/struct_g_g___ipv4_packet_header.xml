@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___ipv4_packet_header" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Ipv4PacketHeader</compoundname>
+    <includes refid="gg__ipv4__protocol_8h" local="no">xp/protocols/gg_ipv4_protocol.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a7704108dbcc1b5043c0c3e68f4fb8147" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="64" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a7e56911fe6de626453b907490fbe928b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::ihl</definition>
+        <argsstring></argsstring>
+        <name>ihl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="65" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a60489920a3bb5bb262d484318381c65d" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::dscp</definition>
+        <argsstring></argsstring>
+        <name>dscp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="66" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a360365e4b0d1f383308c226c0cacc4f5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::ecn</definition>
+        <argsstring></argsstring>
+        <name>ecn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="67" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1af9deff1451140c08d331931a89ef2e88" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4PacketHeader::total_length</definition>
+        <argsstring></argsstring>
+        <name>total_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="68" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1ad2fb428d1b42fc3f5028ee7f3c824862" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4PacketHeader::identification</definition>
+        <argsstring></argsstring>
+        <name>identification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="69" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1abf02d7543b800947e8a97a8923351cec" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="70" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a16fb8ec60e5a9d7964ec979f198c52ff" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4PacketHeader::fragment_offset</definition>
+        <argsstring></argsstring>
+        <name>fragment_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="71" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a0b6b198f04ea6fc66a5079965dd9358a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::ttl</definition>
+        <argsstring></argsstring>
+        <name>ttl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="72" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a5154f7aa0d990c207e85118e69ede43c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::protocol</definition>
+        <argsstring></argsstring>
+        <name>protocol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="73" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1a484204d481c1740df3dd18e4841b6842" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4PacketHeader::checksum</definition>
+        <argsstring></argsstring>
+        <name>checksum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="74" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1aefa9c9b6b9f16672c429ea160d512695" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4PacketHeader::src_address</definition>
+        <argsstring></argsstring>
+        <name>src_address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="75" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1af6958a4ca95f4ab597a5ec090abaf1cc" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4PacketHeader::dst_address</definition>
+        <argsstring></argsstring>
+        <name>dst_address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="76" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ipv4_packet_header_1ae4d87a23506ee8fdbcf9afc48515137b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_Ipv4PacketHeader::options[40]</definition>
+        <argsstring>[40]</argsstring>
+        <name>options</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="77" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>IPv4 IP Packet Header </para>
+    </detaileddescription>
+    <location file="xp/protocols/gg_ipv4_protocol.h" line="63" column="15" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="63" bodyend="78"/>
+    <listofallmembers>
+      <member refid="struct_g_g___ipv4_packet_header_1a484204d481c1740df3dd18e4841b6842" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>checksum</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a60489920a3bb5bb262d484318381c65d" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>dscp</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1af6958a4ca95f4ab597a5ec090abaf1cc" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>dst_address</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a360365e4b0d1f383308c226c0cacc4f5" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>ecn</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1abf02d7543b800947e8a97a8923351cec" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>flags</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a16fb8ec60e5a9d7964ec979f198c52ff" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>fragment_offset</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1ad2fb428d1b42fc3f5028ee7f3c824862" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>identification</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a7e56911fe6de626453b907490fbe928b" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>ihl</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1ae4d87a23506ee8fdbcf9afc48515137b" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>options</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a5154f7aa0d990c207e85118e69ede43c" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>protocol</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1aefa9c9b6b9f16672c429ea160d512695" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>src_address</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1af9deff1451140c08d331931a89ef2e88" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>total_length</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a0b6b198f04ea6fc66a5079965dd9358a" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>ttl</name></member>
+      <member refid="struct_g_g___ipv4_packet_header_1a7704108dbcc1b5043c0c3e68f4fb8147" prot="public" virt="non-virtual"><scope>GG_Ipv4PacketHeader</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

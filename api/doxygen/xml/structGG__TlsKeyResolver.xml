@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__TlsKeyResolver" kind="interface" language="C++" prot="public">
+    <compoundname>GG_TlsKeyResolver</compoundname>
+    <includes refid="gg__tls_8h" local="no">xp/tls/gg_tls.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__TlsKeyResolver_1a640dadb78cedcdab589ec1c98db82e7a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__TlsKeyResolverInterface" kindref="compound">GG_TlsKeyResolverInterface</ref> *</type>
+        <definition>const GG_TlsKeyResolverInterface* GG_TlsKeyResolver::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="94" column="91" bodyfile="xp/tls/gg_tls.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__TLS_1gad93673136f2d0f30c1c0c883c13d2fb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TlsKeyResolver_ResolveKey</definition>
+        <argsstring>(GG_TlsKeyResolver *self, const uint8_t *key_identity, size_t key_identity_size, uint8_t *key, size_t *key_size)</argsstring>
+        <name>GG_TlsKeyResolver_ResolveKey</name>
+        <param>
+          <type><ref refid="structGG__TlsKeyResolver" kindref="compound">GG_TlsKeyResolver</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>key_identity</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>key_identity_size</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>key_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resolve a key (for example a pre-shared key) given a key identity.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key_identity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identity of the key to resolve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key_identity_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the key identity. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer in which the resolved key will be returned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">key_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>On input, the size of the key buffer. On output, the size of the key returned, or the size needed for the key buffer if the call returns GG_ERROR_NOT_ENOUGH_SPACE.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the key was found, GG_ERROR_NO_SUCH_ITEM if the key was not found, GG_ERROR_NOT_ENOUGH_SPACE if the key was too large for the supplied buffer, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="125" column="11" declfile="xp/tls/gg_tls.h" declline="125" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that can resolve keys given a key identity. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_TlsKeyResolverInterface</label>
+        <link refid="structGG__TlsKeyResolverInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_TlsKeyResolver</label>
+        <link refid="structGG__TlsKeyResolver"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/tls/gg_tls.h" line="94" column="57" bodyfile="xp/tls/gg_tls.h" bodystart="94" bodyend="94"/>
+    <listofallmembers>
+      <member refid="group__TLS_1gad93673136f2d0f30c1c0c883c13d2fb7" prot="public" virt="non-virtual"><scope>GG_TlsKeyResolver</scope><name>GG_TlsKeyResolver_ResolveKey</name></member>
+      <member refid="structGG__TlsKeyResolver_1a640dadb78cedcdab589ec1c98db82e7a" prot="public" virt="non-virtual"><scope>GG_TlsKeyResolver</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

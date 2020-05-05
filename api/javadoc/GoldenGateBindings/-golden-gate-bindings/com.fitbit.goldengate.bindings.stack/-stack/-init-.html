@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Stack.<init> - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.stack</a>&nbsp;/&nbsp;<a href="index.html">Stack</a>&nbsp;/&nbsp;<a href="./-init-.html">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="com.fitbit.goldengate.bindings.stack.Stack$&lt;init&gt;(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)"></a>
+<code><span class="identifier">Stack</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/nodeKey">nodeKey</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/transportSinkPtr">transportSinkPtr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/transportSourcePtr">transportSourcePtr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/stackConfig">stackConfig</span><span class="symbol">:</span>&nbsp;<a href="../-stack-config/index.html"><span class="identifier">StackConfig</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DtlsSocketNetifGattlink()<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/isNode">isNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code>
+<p>A Kotlin representation of a Golden Gate stack. The data sink and data source exposed through
+<a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a> and <a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a> are the data sink/source on the "top" of the stack.</p>
+<p>Appropriate things to attach to those are <a href="../-stack-service/index.html">StackService</a> like <a href="#">CoapEndpoint</a> and <a href="#">Blaster</a></p>
+<h3>Parameters</h3>
+<p><a name="nodeKey"></a>
+<code>nodeKey</code> - node identifier this stack is attached to</p>
+<p><a name="transportSinkPtr"></a>
+<code>transportSinkPtr</code> - Bottom of stack sink (data will be transmitted on this sink reference)</p>
+<p><a name="transportSourcePtr"></a>
+<code>transportSourcePtr</code> - Bottom of stack (data will be received from this source reference)</p>
+<p><a name="stackConfig"></a>
+<code>stackConfig</code> - configuration in which this stack should be created (Default is <a href="../-dtls-socket-netif-gattlink/index.html">DtlsSocketNetifGattlink</a>)</p>
+<p><a name="isNode"></a>
+<code>isNode</code> - if stack should be configured as Node or Hub (default is false)</p>
+</BODY>
+</HTML>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LoopFileDescriptorEventHandler" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopFileDescriptorEventHandler</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LoopFileDescriptorEventHandler_1a1b28c8d25f1014a98182a524ca6a37d2" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LoopEventHandlerItem" kindref="compound">GG_LoopEventHandlerItem</ref></type>
+        <definition>GG_LoopEventHandlerItem GG_LoopFileDescriptorEventHandler::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/extensions/gg_loop_fd.h" line="30" column="29" bodyfile="xp/loop/extensions/gg_loop_fd.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopFileDescriptorEventHandler_1a2eefb25624cfaedeaa3d217386f8932e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GG_LoopFileDescriptorEventHandler::fd</definition>
+        <argsstring></argsstring>
+        <name>fd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/extensions/gg_loop_fd.h" line="31" column="29" bodyfile="xp/loop/extensions/gg_loop_fd.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopFileDescriptorEventHandler_1a33f6a70821cc546394821c554dae7e57" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_LoopFileDescriptorEventHandler::event_mask</definition>
+        <argsstring></argsstring>
+        <name>event_mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/extensions/gg_loop_fd.h" line="32" column="29" bodyfile="xp/loop/extensions/gg_loop_fd.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopFileDescriptorEventHandler_1a19926351f6cd65631772c4edaf89eff5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_LoopFileDescriptorEventHandler::event_flags</definition>
+        <argsstring></argsstring>
+        <name>event_flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/extensions/gg_loop_fd.h" line="33" column="29" bodyfile="xp/loop/extensions/gg_loop_fd.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_LoopFileDescriptorEventHandler</label>
+        <link refid="structGG__LoopFileDescriptorEventHandler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LoopEventHandlerItem</label>
+        <link refid="structGG__LoopEventHandlerItem"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/extensions/gg_loop_fd.h" line="29" column="15" bodyfile="xp/loop/extensions/gg_loop_fd.h" bodystart="29" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structGG__LoopFileDescriptorEventHandler_1a1b28c8d25f1014a98182a524ca6a37d2" prot="public" virt="non-virtual"><scope>GG_LoopFileDescriptorEventHandler</scope><name>base</name></member>
+      <member refid="structGG__LoopFileDescriptorEventHandler_1a19926351f6cd65631772c4edaf89eff5" prot="public" virt="non-virtual"><scope>GG_LoopFileDescriptorEventHandler</scope><name>event_flags</name></member>
+      <member refid="structGG__LoopFileDescriptorEventHandler_1a33f6a70821cc546394821c554dae7e57" prot="public" virt="non-virtual"><scope>GG_LoopFileDescriptorEventHandler</scope><name>event_mask</name></member>
+      <member refid="structGG__LoopFileDescriptorEventHandler_1a2eefb25624cfaedeaa3d217386f8932e" prot="public" virt="non-virtual"><scope>GG_LoopFileDescriptorEventHandler</scope><name>fd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

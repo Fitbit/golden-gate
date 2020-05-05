@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___loop_base" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopBase</compoundname>
+    <includes refid="gg__loop__base_8h" local="no">xp/loop/gg_loop_base.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___loop_base_1ae1de8edd56701e6faab1f2e2861ea156" prot="public" static="no" mutable="no">
+        <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+        <definition>GG_Timestamp GG_LoopBase::start_time</definition>
+        <argsstring></argsstring>
+        <name>start_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="70" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1a4884410e0f27daf407cd0a7fd436b2b0" prot="public" static="no" mutable="no">
+        <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+        <definition>GG_TimerScheduler* GG_LoopBase::timer_scheduler</definition>
+        <argsstring></argsstring>
+        <name>timer_scheduler</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="71" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1a3fe92dbe99bc8eee096f062c4ee7eb80" prot="public" static="no" mutable="no">
+        <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+        <definition>GG_SharedQueue* GG_LoopBase::message_queue</definition>
+        <argsstring></argsstring>
+        <name>message_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="72" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1aaeaa8645624ef9ac1b6bab571ca56855" prot="public" static="no" mutable="no">
+        <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
+        <definition>GG_SharedQueue* GG_LoopBase::message_item_pool</definition>
+        <argsstring></argsstring>
+        <name>message_item_pool</name>
+        <briefdescription>
+<para>blank messages in a pool, ready to be posted </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="73" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1a529ee37945a4981e3c2122246c01e7df" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___loop_message_item" kindref="compound">GG_LoopMessageItem</ref></type>
+        <definition>GG_LoopMessageItem GG_LoopBase::message_items[GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH]</definition>
+        <argsstring>[GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH]</argsstring>
+        <name>message_items</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="74" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" prot="public" static="no" mutable="no">
+        <type><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref> *</type>
+        <definition>GG_Mutex* GG_LoopBase::invoke_mutex</definition>
+        <argsstring></argsstring>
+        <name>invoke_mutex</name>
+        <briefdescription>
+<para>used to serialize access to the sync invocation function </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="75" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___loop_invoke_sync_message" kindref="compound">GG_LoopInvokeSyncMessage</ref></type>
+        <definition>GG_LoopInvokeSyncMessage GG_LoopBase::invoke_message</definition>
+        <argsstring></argsstring>
+        <name>invoke_message</name>
+        <briefdescription>
+<para>used to post a sync invocation message </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="76" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1ac836a0ab7bf3e32b9dfcbb6643b280d5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_LoopBase::termination_requested</definition>
+        <argsstring></argsstring>
+        <name>termination_requested</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="77" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___loop_base_1adeeccf3a529fbe0f214c119a20ee1b92" prot="public" static="no" mutable="no">
+        <type>struct GG_LoopBase::@6</type>
+        <definition>struct GG_LoopBase::@6                         GG_LoopBase::termination_message</definition>
+        <argsstring></argsstring>
+        <name>termination_message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="80" column="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base class that may be used by concrete loop implementations/ports. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>GG_LoopMessageItem</label>
+        <link refid="struct_g_g___loop_message_item"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>message</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LoopInvokeSyncMessage</label>
+        <link refid="struct_g_g___loop_invoke_sync_message"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>result_semaphore</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GG_LoopMessage</label>
+        <link refid="struct_g_g___loop_message"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>GG_Mutex</label>
+        <link refid="class_g_g___mutex"/>
+      </node>
+      <node id="1">
+        <label>GG_LoopBase</label>
+        <link refid="struct_g_g___loop_base"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>invoke_message</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>message_items</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>invoke_mutex</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_Semaphore</label>
+        <link refid="class_g_g___semaphore"/>
+      </node>
+      <node id="5">
+        <label>GG_LinkedListNode</label>
+        <link refid="struct_g_g___linked_list_node"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>GG_LoopMessageInterface</label>
+        <link refid="struct_g_g___loop_message_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop_base.h" line="67" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="67" bodyend="83"/>
+    <listofallmembers>
+      <member refid="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>invoke_message</name></member>
+      <member refid="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>invoke_mutex</name></member>
+      <member refid="struct_g_g___loop_base_1aaeaa8645624ef9ac1b6bab571ca56855" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>message_item_pool</name></member>
+      <member refid="struct_g_g___loop_base_1a529ee37945a4981e3c2122246c01e7df" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>message_items</name></member>
+      <member refid="struct_g_g___loop_base_1a3fe92dbe99bc8eee096f062c4ee7eb80" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>message_queue</name></member>
+      <member refid="struct_g_g___loop_base_1ae1de8edd56701e6faab1f2e2861ea156" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>start_time</name></member>
+      <member refid="struct_g_g___loop_base_1adeeccf3a529fbe0f214c119a20ee1b92" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>termination_message</name></member>
+      <member refid="struct_g_g___loop_base_1ac836a0ab7bf3e32b9dfcbb6643b280d5" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>termination_requested</name></member>
+      <member refid="struct_g_g___loop_base_1a4884410e0f27daf407cd0a7fd436b2b0" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>timer_scheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

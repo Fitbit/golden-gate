@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DataSinkListener" kind="interface" language="C++" prot="public">
+    <compoundname>GG_DataSinkListener</compoundname>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DataSinkListener_1a111f53bbf7f29662f2f54d5ebc6cbcce" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__DataSinkListenerInterface" kindref="compound">GG_DataSinkListenerInterface</ref> *</type>
+        <definition>const GG_DataSinkListenerInterface* GG_DataSinkListener::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="93" column="95" bodyfile="xp/common/gg_io.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__InputOutput_1gacdc03d1cfb3d68203eb1c32ccaf0ac12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataSinkListener_OnCanPut</definition>
+        <argsstring>(GG_DataSinkListener *self)</argsstring>
+        <name>GG_DataSinkListener_OnCanPut</name>
+        <param>
+          <type><ref refid="structGG__DataSinkListener" kindref="compound">GG_DataSinkListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Notify the object that it can/should call its sink&apos;s GG_DataSink_PutData method again.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="111" column="6" declfile="xp/common/gg_io.h" declline="111" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that need to be called when they can call GG_DataSink_PutData. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Typically used to be notified after calling GG_DataSink_PutData and getting a result equal to <ref refid="group__Errors_1ga2fce56428f10fb9106698ceb49b60ca9" kindref="member">GG_ERROR_WOULD_BLOCK</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_DataSinkListenerInterface</label>
+        <link refid="structGG__DataSinkListenerInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_DataSinkListener</label>
+        <link refid="structGG__DataSinkListener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_io.h" line="93" column="59" bodyfile="xp/common/gg_io.h" bodystart="93" bodyend="93"/>
+    <listofallmembers>
+      <member refid="group__InputOutput_1gacdc03d1cfb3d68203eb1c32ccaf0ac12" prot="public" virt="non-virtual"><scope>GG_DataSinkListener</scope><name>GG_DataSinkListener_OnCanPut</name></member>
+      <member refid="structGG__DataSinkListener_1a111f53bbf7f29662f2f54d5ebc6cbcce" prot="public" virt="non-virtual"><scope>GG_DataSinkListener</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

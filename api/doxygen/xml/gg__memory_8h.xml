@@ -1,0 +1,614 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__memory_8h" kind="file" language="C++">
+    <compoundname>gg_memory.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes refid="gg__port_8h" local="yes">xp/common/gg_port.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includedby refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includedby>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="9">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="31">
+        <label>xp/utils/gg_print_data_sink.h</label>
+        <link refid="gg__print__data__sink_8h"/>
+      </node>
+      <node id="26">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/utils/gg_memory_data_source.h</label>
+        <link refid="gg__memory__data__source_8h"/>
+      </node>
+      <node id="8">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="38">
+        <label>xp/utils/gg_data_probe.h</label>
+        <link refid="gg__data__probe_8h"/>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>xp/utils/gg_blaster_data_source.h</label>
+        <link refid="gg__blaster__data__source_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="37">
+        <label>xp/module/gg_module.h</label>
+        <link refid="gg__module_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="36">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="24">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="32">
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
+      </node>
+      <node id="34">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="28">
+        <label>xp/utils/gg_memory_data_sink.h</label>
+        <link refid="gg__memory__data__sink_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="30">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___memory_1ga102d2dcf825c80ac3931b7479c08f86f" prot="public" static="no">
+        <name>GG_ClearAndFreeObject</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_trap_count</defname></param>
+        <initializer><ref refid="group___memory_1ga87711c7f72de6c852d1c4b2f14d7e420" kindref="member">GG_ClearAndFreeMemory</ref>((_object), sizeof(*(_object)), (_trap_count))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience macro to call GG_ClearAndFreeMemory with the memory size set to the size of the object being free&apos;d. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="86" column="9" bodyfile="xp/common/gg_memory.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="gg__memory_8h_1a34b5b910720d93709b444f105d6c0360" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* GG_AllocateMemoryFailureCallback) (size_t size)</definition>
+        <argsstring>)(size_t size)</argsstring>
+        <name>GG_AllocateMemoryFailureCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="33" column="9" bodyfile="xp/common/gg_memory.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___memory_1ga00e11f36180828b2ed314d7e84fd9bf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* GG_AllocateMemory</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>GG_AllocateMemory</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memory from the default application heap. The memory is not initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to allocate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated memory, or NULL when out of memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="53" column="6" declfile="xp/common/gg_memory.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga070be3a1513247a0667d152c0dba9a87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* GG_AllocateZeroMemory</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>GG_AllocateZeroMemory</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memory from the default application heap and initialize it to zeros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to allocate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated memory, or NULL when out of memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="61" column="6" declfile="xp/common/gg_memory.h" declline="61" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae915ba2c56af78faf745ba1e99a5d7e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_FreeMemory</definition>
+        <argsstring>(void *memory)</argsstring>
+        <name>GG_FreeMemory</name>
+        <param>
+          <type>void *</type>
+          <declname>memory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Free a block of memory that was allocated from the default application heap.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>memory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory to free. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="68" column="6" declfile="xp/common/gg_memory.h" declline="68" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga87711c7f72de6c852d1c4b2f14d7e420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_ClearAndFreeMemory</definition>
+        <argsstring>(void *memory, size_t memory_size, size_t trap_count)</argsstring>
+        <name>GG_ClearAndFreeMemory</name>
+        <param>
+          <type>void *</type>
+          <declname>memory</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>memory_size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>trap_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear a block of memory that was allocated from the default application heap, then free it. Clearing fills the memory with 0s. Optionally, this function can also set one or more vtable &quot;traps&quot; at the start of the memory block, which allows catching invalid calls to virtual functions on objects that have been free&apos;d.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>memory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory to clear and free. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memory_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the memory block to clear. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trap_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of vtable pointers to set a trap for at the start of the block. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="80" column="6" declfile="xp/common/gg_memory.h" declline="80" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga6c5eedb2ede7d9c3d74803be5638ab12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_AutoreleaseWrap</definition>
+        <argsstring>(GG_Result(*function)(void *arg), void *arg)</argsstring>
+        <name>GG_AutoreleaseWrap</name>
+        <param>
+          <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*)(void *arg)</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap a function invocation inside an autorelease context. (Needed by some platforms to avoid long term retention of objects)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the function that should be invoked from within the wrapping context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The result returned by the wrapped function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="97" column="11" declfile="xp/common/gg_memory.h" declline="97" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga963e7b98879b5b8874f445add8cf2cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RegisterAllocateMemoryFailureCallback</definition>
+        <argsstring>(GG_AllocateMemoryFailureCallback callback)</argsstring>
+        <name>GG_RegisterAllocateMemoryFailureCallback</name>
+        <param>
+          <type>GG_AllocateMemoryFailureCallback</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register callback to be called when an GG allocate memory call fails</para>
+<para>The callback can be register to call platform specific code when a memory allocation fails within the GG lib.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to function to be called on memory allocation failure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="107" column="6" declfile="xp/common/gg_memory.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose memory allocation and management functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__port_8h" kindref="compound">xp/common/gg_port.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>Callback<sp/>function<sp/>for<sp/>reporting<sp/>memory<sp/>allocation<sp/>failures</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>@param<sp/>size<sp/>Size<sp/>for<sp/>which<sp/>memory<sp/>allocation<sp/>failed</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*GG_AllocateMemoryFailureCallback)(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">|<sp/><sp/><sp/>heap<sp/>allocation</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="53"><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="group___memory_1ga00e11f36180828b2ed314d7e84fd9bf1" kindref="member">GG_AllocateMemory</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="group___memory_1ga070be3a1513247a0667d152c0dba9a87" kindref="member">GG_AllocateZeroMemory</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___memory_1gae915ba2c56af78faf745ba1e99a5d7e1" kindref="member">GG_FreeMemory</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>memory);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___memory_1ga87711c7f72de6c852d1c4b2f14d7e420" kindref="member">GG_ClearAndFreeMemory</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>memory,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>memory_size,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>trap_count);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="group___memory_1ga102d2dcf825c80ac3931b7479c08f86f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_ClearAndFreeObject(_object,<sp/>_trap_count)<sp/>GG_ClearAndFreeMemory((_object),<sp/>sizeof(*(_object)),<sp/>(_trap_count))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___memory_1ga6c5eedb2ede7d9c3d74803be5638ab12" kindref="member">GG_AutoreleaseWrap</ref>(<ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*</highlight><highlight class="keyword">function</highlight><highlight class="normal">)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg),<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___memory_1ga963e7b98879b5b8874f445add8cf2cc6" kindref="member">GG_RegisterAllocateMemoryFailureCallback</ref>(GG_AllocateMemoryFailureCallback<sp/>callback);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_memory.h"/>
+  </compounddef>
+</doxygen>

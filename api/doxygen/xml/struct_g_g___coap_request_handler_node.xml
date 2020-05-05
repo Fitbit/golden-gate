@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_request_handler_node" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapRequestHandlerNode</compoundname>
+    <includes refid="gg__coap_8h" local="no">xp/coap/gg_coap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1a302e1f193850e57bd551a3b5aa6a788d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_CoapRequestHandlerNode::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+<para>Linked list node for storing handler node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="273" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ad09c768bf8fc30daa925a91d068940f8" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_CoapRequestHandlerNode::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <briefdescription>
+<para>Path to register the under under. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="274" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1abdf0a4f903f1530fc37a3a41bc87f001" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_CoapRequestHandlerNode::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <briefdescription>
+<para>OR&apos;ed combination of zero or mode CoAP flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="275" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ad98a2b6c751e8e5b4e7b71a88175e7bf" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_CoapRequestHandlerNode::auto_release</definition>
+        <argsstring></argsstring>
+        <name>auto_release</name>
+        <briefdescription>
+<para>Flag indicating if this object should be freed when handler is unregistered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="276" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ac7694a6bb8327b9c34b449a2ede623cc" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___coap_request_handler" kindref="compound">GG_CoapRequestHandler</ref> *</type>
+        <definition>GG_CoapRequestHandler* GG_CoapRequestHandlerNode::handler</definition>
+        <argsstring></argsstring>
+        <name>handler</name>
+        <briefdescription>
+<para>CoAP request handler to be registered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="278" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Entry in a list of handlers maintained by an endpoint. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_CoapRequestHandlerNode</label>
+        <link refid="struct_g_g___coap_request_handler_node"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>handler</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_CoapRequestHandlerInterface</label>
+        <link refid="struct_g_g___coap_request_handler_interface"/>
+      </node>
+      <node id="2">
+        <label>GG_CoapRequestHandler</label>
+        <link refid="struct_g_g___coap_request_handler"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_LinkedListNode</label>
+        <link refid="struct_g_g___linked_list_node"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="272" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="272" bodyend="279"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_request_handler_node_1ad98a2b6c751e8e5b4e7b71a88175e7bf" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>auto_release</name></member>
+      <member refid="struct_g_g___coap_request_handler_node_1abdf0a4f903f1530fc37a3a41bc87f001" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>flags</name></member>
+      <member refid="struct_g_g___coap_request_handler_node_1ac7694a6bb8327b9c34b449a2ede623cc" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>handler</name></member>
+      <member refid="struct_g_g___coap_request_handler_node_1a302e1f193850e57bd551a3b5aa6a788d" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>list_node</name></member>
+      <member refid="struct_g_g___coap_request_handler_node_1ad09c768bf8fc30daa925a91d068940f8" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>path</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

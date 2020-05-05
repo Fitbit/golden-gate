@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__InspectionOptions" kind="struct" language="C++" prot="public">
+    <compoundname>GG_InspectionOptions</compoundname>
+    <includes refid="gg__inspect_8h" local="no">xp/common/gg_inspect.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__InspectionOptions_1a68a155dafdc1b712eec5576035bf68a1" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int GG_InspectionOptions::verbosity</definition>
+        <argsstring></argsstring>
+        <name>verbosity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Level of detail requested by the inspector. The higher the level, the more details may be included. There is no object-wide convention for what each level means, each object must define that for itself. Most objects don&apos;t offer variable-verbosity inspection. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="59" column="18" bodyfile="xp/common/gg_inspect.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Options that may be passed when inspecting an object. </para>
+    </detaileddescription>
+    <location file="xp/common/gg_inspect.h" line="53" column="15" bodyfile="xp/common/gg_inspect.h" bodystart="53" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structGG__InspectionOptions_1a68a155dafdc1b712eec5576035bf68a1" prot="public" virt="non-virtual"><scope>GG_InspectionOptions</scope><name>verbosity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

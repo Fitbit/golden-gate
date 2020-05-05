@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoapEndpoint.responseFor - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="index.html">CoapEndpoint</a>&nbsp;/&nbsp;<a href="./response-for.html">responseFor</a><br/>
+<br/>
+<h1>responseFor</h1>
+<a name="com.fitbit.goldengate.bindings.coap.CoapEndpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest)"></a>
+<code><span class="keyword">fun </span><span class="identifier">responseFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-response/index.html"><span class="identifier">IncomingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Overrides <a href="../-endpoint/response-for.html">Endpoint.responseFor</a></p>
+<p>Call this to send a request and get a response (i.e. be a client).</p>
+<h3>Parameters</h3>
+<p><a name="request"></a>
+<code>request</code> - The request that should be sent to the CoAP server. Use <a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request-builder/index.html">OutgoingRequestBuilder</a> to construct requests.</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> that will emit either an <a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-response/index.html">IncomingResponse</a> returned from the CoAP server or an error</p>
+</BODY>
+</HTML>

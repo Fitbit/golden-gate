@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="classGG__DtlsProtocol" kind="class" language="C++" prot="public">
+    <compoundname>GG_DtlsProtocol</compoundname>
+    <briefdescription>
+<para>DTLS processor that performans the DTLS handshake and encrypts/decrypts buffers once the handshake has succeeded. The object exposes a &quot;user side&quot; data source and data sink to communicate &quot;user data&quot; (typically an application or a library like CoAP), and a &quot;transport side&quot; data source and data sink to connect to a &quot;transport&quot; (typically a <ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref>) that will transmit and receive the DTLS records. The object uses a GG_TimerScheduler to create retransmission timers when needed. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><programlisting><codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>^</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>User<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>Side<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+---v----+----+----+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/>sink<sp/><sp/>|<sp/>source<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+--------+---------+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>+-----------------+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>DTLS<sp/>state<sp/><sp/><sp/><sp/>|&lt;--&gt;|<sp/>Timer<sp/>Scheduler<sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>+-----------------+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+--------+---------+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>source<sp/>|<sp/><sp/>sink<sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+---+----+----^----+</highlight></codeline>
+<codeline><highlight class="normal">Transport<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>Side<sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="xp/tls/gg_tls.h" line="39" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

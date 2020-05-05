@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LogObject" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LogObject</compoundname>
+    <includes refid="gg__logging_8h" local="no">xp/common/gg_logging.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LogObject_1a3b41011c1aca008a6910c611a410e1ab" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_LogObject::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Object type ID (usually a constant constructed with <ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="70" column="14" bodyfile="xp/common/gg_logging.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Generic top-level superclass for all loggable objects. This class is supposed to be sub-classed by other modules that can define concrete objects with loggable fields. Each sub-class is identified by a unique 32-bit type ID, typically a 4-character code. Type IDs must be unique, but the uniqueness isn&apos;t managed by this header file.</para>
+<para>Sub-classes must start with this type as their first field, and that field must be named <computeroutput>base</computeroutput> in order for the macros to work. Ex: typedef struct { <ref refid="structGG__LogObject" kindref="compound">GG_LogObject</ref> base; int field1; int field2; } MyLogObjectSubclass; </para>
+    </detaileddescription>
+    <location file="xp/common/gg_logging.h" line="69" column="15" bodyfile="xp/common/gg_logging.h" bodystart="69" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structGG__LogObject_1a3b41011c1aca008a6910c611a410e1ab" prot="public" virt="non-virtual"><scope>GG_LogObject</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

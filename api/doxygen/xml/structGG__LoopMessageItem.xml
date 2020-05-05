@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LoopMessageItem" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopMessageItem</compoundname>
+    <includes refid="gg__loop__base_8h" local="no">xp/loop/gg_loop_base.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LoopMessageItem_1abef0046b2bd0533ea60e8344af0b8d5d" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LinkedListNode" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_LoopMessageItem::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="45" column="23" bodyfile="xp/loop/gg_loop_base.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopMessageItem_1a8a0a1923720077e655b3eb445e2c8eda" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LoopMessage" kindref="compound">GG_LoopMessage</ref> *</type>
+        <definition>GG_LoopMessage* GG_LoopMessageItem::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="46" column="22" bodyfile="xp/loop/gg_loop_base.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Item in a loop&apos;s message queue. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_LoopMessageItem</label>
+        <link refid="structGG__LoopMessageItem"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>message</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_LoopMessage</label>
+        <link refid="structGG__LoopMessage"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_LoopMessageInterface</label>
+        <link refid="structGG__LoopMessageInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop_base.h" line="44" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="44" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structGG__LoopMessageItem_1abef0046b2bd0533ea60e8344af0b8d5d" prot="public" virt="non-virtual"><scope>GG_LoopMessageItem</scope><name>list_node</name></member>
+      <member refid="structGG__LoopMessageItem_1a8a0a1923720077e655b3eb445e2c8eda" prot="public" virt="non-virtual"><scope>GG_LoopMessageItem</scope><name>message</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

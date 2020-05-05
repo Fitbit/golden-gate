@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BitGattPeripheral.setupNotifications - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="index.html">BitGattPeripheral</a>&nbsp;/&nbsp;<a href="./setup-notifications.html">setupNotifications</a><br/>
+<br/>
+<h1>setupNotifications</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)"></a>
+<code><span class="keyword">fun </span><span class="identifier">setupNotifications</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/characteristic">characteristic</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/subscribe">subscribe</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/isIndication">isIndication</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">&gt;</span></code>
+<p>Combined operation to set up notifications on a characteristic (enables notifications + writes to descriptor
+This assumes we are connected to the peripheral.</p>
+<h3>Parameters</h3>
+<p><a name="characteristic"></a>
+<code>characteristic</code> - The <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html">BluetoothGattCharacteristic</a> on which to enable notifications.</p>
+<p><a name="subscribe"></a>
+<code>subscribe</code> - true/false, whether we are subscribing from the characteristic or unsubscribing</p>
+<p><a name="isIndication"></a>
+<code>isIndication</code> - true/false, whether the notification type is indication or notification</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> containing the <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html">BluetoothGattCharacteristic</a> on which notifications were setup/disabled</p>
+</BODY>
+</HTML>

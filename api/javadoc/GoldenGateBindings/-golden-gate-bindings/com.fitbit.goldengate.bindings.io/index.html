@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.bindings.io - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.bindings.io</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.bindings.io</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-attachable/index.html">Attachable</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Attachable</span></code>
+<p>A <a href="-attachable/index.html">Attachable</a> is a source or sink that can be attached to another source or sink.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-blaster/index.html">Blaster</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Blaster</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a></code>
+<p>Stack service for supporting blasting random packets over attached GG stack.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-rx-source/index.html">RxSource</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">RxSource</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>RxSource is a DataSource for bottom on Golden Gate stack and DataSink for top of Native/Android
+connection Bridge and is used to receive data packets to GG stack from connected Node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-single-message-sender/index.html">SingleMessageSender</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SingleMessageSender</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a></code>
+<p>StackService for sending single message over attached GG stack</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-tx-sink/index.html">TxSink</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TxSink</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>TxSink is a DataSink for bottom on Golden Gate stack and DataSource for top of Native/Android
+connection Bridge and is used to transmit data packets from GG stack to connected Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-b-l-a-s-t-e-r_-d-e-f-a-u-l-t_-p-a-c-k-e-t_-s-i-z-e.html">BLASTER_DEFAULT_PACKET_SIZE</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">BLASTER_DEFAULT_PACKET_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-e-x-t-r-a_-b-l-a-s-t_-p-a-c-k-e-t_-s-i-z-e.html">EXTRA_BLAST_PACKET_SIZE</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">EXTRA_BLAST_PACKET_SIZE</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

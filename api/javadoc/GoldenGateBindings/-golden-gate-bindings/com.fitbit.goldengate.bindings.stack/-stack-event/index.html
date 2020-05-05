@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StackEvent - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.stack</a>&nbsp;/&nbsp;<a href="./index.html">StackEvent</a><br/>
+<br/>
+<h1>StackEvent</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">StackEvent</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-gattlink-buffer-over-threshold.html">GattlinkBufferOverThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkBufferOverThreshold</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-buffer-under-threshold.html">GattlinkBufferUnderThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkBufferUnderThreshold</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-ready.html">GattlinkSessionReady</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkSessionReady</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-resent.html">GattlinkSessionResent</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkSessionResent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-stall/index.html">GattlinkSessionStall</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">GattlinkSessionStall</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-unknown.html">Unknown</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Unknown</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="event-id.html">eventId</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">eventId</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="parse-stack-event.html">parseStackEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">parseStackEvent</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackEvent.Companion$parseStackEvent(kotlin.Int, kotlin.Int)/event">event</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackEvent.Companion$parseStackEvent(kotlin.Int, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-gattlink-buffer-over-threshold.html">GattlinkBufferOverThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkBufferOverThreshold</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-buffer-under-threshold.html">GattlinkBufferUnderThreshold</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkBufferUnderThreshold</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-ready.html">GattlinkSessionReady</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkSessionReady</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-resent.html">GattlinkSessionResent</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">GattlinkSessionResent</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-gattlink-session-stall/index.html">GattlinkSessionStall</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">GattlinkSessionStall</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-unknown.html">Unknown</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Unknown</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackEvent</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

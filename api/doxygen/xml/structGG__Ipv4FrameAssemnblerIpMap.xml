@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__Ipv4FrameAssemnblerIpMap" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Ipv4FrameAssemnblerIpMap</compoundname>
+    <includes refid="gg__ipv4__protocol_8h" local="no">xp/protocols/gg_ipv4_protocol.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__Ipv4FrameAssemnblerIpMap_1adb9e1fc34451fe36ccb0faad6dbf1255" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameAssemnblerIpMap::src_address</definition>
+        <argsstring></argsstring>
+        <name>src_address</name>
+        <briefdescription>
+<para>Source address to remap. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="107" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameAssemnblerIpMap_1af9b39047cbe38ed089ac7772a35a52d6" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameAssemnblerIpMap::remapped_src_address</definition>
+        <argsstring></argsstring>
+        <name>remapped_src_address</name>
+        <briefdescription>
+<para>Source address to remap to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="108" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameAssemnblerIpMap_1ac69bbb244d40e2a6f0860cda23d29bd3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameAssemnblerIpMap::dst_address</definition>
+        <argsstring></argsstring>
+        <name>dst_address</name>
+        <briefdescription>
+<para>Destination address to remap. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="109" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameAssemnblerIpMap_1a185b631637c2f7b3a185b68c26cfb801" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameAssemnblerIpMap::remapped_dst_address</definition>
+        <argsstring></argsstring>
+        <name>remapped_dst_address</name>
+        <briefdescription>
+<para>Destination address to remap to. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="110" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>IP Address Remapping Configuration used when a frame assembler should remap a certain source and destination address. </para>
+    </detaileddescription>
+    <location file="xp/protocols/gg_ipv4_protocol.h" line="106" column="15" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="106" bodyend="111"/>
+    <listofallmembers>
+      <member refid="structGG__Ipv4FrameAssemnblerIpMap_1ac69bbb244d40e2a6f0860cda23d29bd3" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameAssemnblerIpMap</scope><name>dst_address</name></member>
+      <member refid="structGG__Ipv4FrameAssemnblerIpMap_1a185b631637c2f7b3a185b68c26cfb801" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameAssemnblerIpMap</scope><name>remapped_dst_address</name></member>
+      <member refid="structGG__Ipv4FrameAssemnblerIpMap_1af9b39047cbe38ed089ac7772a35a52d6" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameAssemnblerIpMap</scope><name>remapped_src_address</name></member>
+      <member refid="structGG__Ipv4FrameAssemnblerIpMap_1adb9e1fc34451fe36ccb0faad6dbf1255" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameAssemnblerIpMap</scope><name>src_address</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

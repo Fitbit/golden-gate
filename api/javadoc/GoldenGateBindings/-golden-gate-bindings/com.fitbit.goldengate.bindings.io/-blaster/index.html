@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Blaster - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.io</a>&nbsp;/&nbsp;<a href="./index.html">Blaster</a><br/>
+<br/>
+<h1>Blaster</h1>
+<code><span class="keyword">class </span><span class="identifier">Blaster</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a></code>
+<p>Stack service for supporting blasting random packets over attached GG stack.</p>
+<p>To start blasting call <a href="start.html">start</a> method, blasting will only be stopped after calling <a href="stop.html">stop</a></p>
+<h3>Parameters</h3>
+<p><a name="lwipBased"></a>
+<code>lwipBased</code> - true is configured with a Network Interface, false otherwise (default is true)</p>
+<p><a name="packetSize"></a>
+<code>packetSize</code> - Size of each packet to send.</p>
+<p><a name="maxPacketCount"></a>
+<code>maxPacketCount</code> - Number of packets to send, or 0 for unlimited.</p>
+<p><a name="sendInterval"></a>
+<code>sendInterval</code> - Time interval between packets, in milliseconds, or 0 for max speed.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Blaster</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Blaster$<init>(kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Long)/lwipBased">lwipBased</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Blaster$<init>(kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Long)/packetSize">packetSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BLASTER_DEFAULT_PACKET_SIZE<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Blaster$<init>(kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Long)/maxPacketCount">maxPacketCount</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Blaster$<init>(kotlin.Boolean, kotlin.Int, kotlin.Int, kotlin.Long)/sendInterval">sendInterval</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">)</span></code>
+<p>Stack service for supporting blasting random packets over attached GG stack.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Blaster$attach(com.fitbit.goldengate.bindings.DataSinkDataSource)/dataSinkDataSource">dataSinkDataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach the source and sink</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="detach.html">detach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detach</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-stats.html">getStats</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getStats</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Maybe</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.util/-perf-data-stats/index.html"><span class="identifier">PerfDataStats</span></a><span class="symbol">&gt;</span></code>
+<p>Get stats for ongoing blast operation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="start.html">start</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Start Blasting data packets</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stop Blasting data packets</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/set-filter-group.html">setFilterGroup</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setFilterGroup</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/group">group</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap/-coap-group-request-filter-mode/index.html"><span class="identifier">CoapGroupRequestFilterMode</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/key">key</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the current filter group used by the CoAP request filter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

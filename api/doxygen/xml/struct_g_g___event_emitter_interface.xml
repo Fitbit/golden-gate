@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___event_emitter_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_EventEmitterInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___event_emitter_interface_1a4fe04e509ac627b39be4dcc990a35b5c" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_EventEmitterInterface::SetListener) (GG_EventEmitter *self, GG_EventListener *listener)</definition>
+        <argsstring>)(GG_EventEmitter *self, GG_EventListener *listener)</argsstring>
+        <name>SetListener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="65" column="5" bodyfile="xp/common/gg_events.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_events.h" line="64" column="87" bodyfile="xp/common/gg_events.h" bodystart="64" bodyend="66"/>
+    <listofallmembers>
+      <member refid="struct_g_g___event_emitter_interface_1a4fe04e509ac627b39be4dcc990a35b5c" prot="public" virt="non-virtual"><scope>GG_EventEmitterInterface</scope><name>SetListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

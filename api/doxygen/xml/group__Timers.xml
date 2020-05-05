@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Timers" kind="group">
+    <compoundname>Timers</compoundname>
+    <title>Timers</title>
+    <innerclass refid="structGG__TimerListener" prot="public">GG_TimerListener</innerclass>
+    <innerclass refid="structGG__TimerListenerInterface" prot="public">GG_TimerListenerInterface</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" prot="public" static="no">
+        <type>struct <ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref></type>
+        <definition>typedef struct GG_Timer GG_Timer</definition>
+        <argsstring></argsstring>
+        <name>GG_Timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Timer object that can be scheduled to fire at a specific time. When a timer fires, a <ref refid="structGG__TimerListener" kindref="compound">GG_TimerListener</ref> listener is called. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="259" column="1" bodyfile="xp/common/gg_timer.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" prot="public" static="no">
+        <type>struct <ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref></type>
+        <definition>typedef struct GG_TimerScheduler GG_TimerScheduler</definition>
+        <argsstring></argsstring>
+        <name>GG_TimerScheduler</name>
+        <briefdescription>
+<para>A timer scheduler is an object that creates and manages timers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="71" column="6" bodyfile="xp/common/gg_timer.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Timers_1ga0c7acc094d9e92169bf2cf6c96c49be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Timer_Destroy</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_Destroy</name>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Deletes a created timer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frees up any memory associated with the timer. The timer can no longer be used after this call is complete </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="80" column="6" declfile="xp/common/gg_timer.h" declline="80" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga38391141dd750b67e17a9196b53ce9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Timer_Schedule</definition>
+        <argsstring>(GG_Timer *self, GG_TimerListener *listener, uint32_t ms_from_now)</argsstring>
+        <name>GG_Timer_Schedule</name>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__TimerListener" kindref="compound">GG_TimerListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ms_from_now</declname>
+        </param>
+        <briefdescription>
+<para>Schedules a timer to execute in the future. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Calling this while the timer is already scheduled will simply reschedule the timer </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to schedule </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An implementation of the interface that will be used to notify consumer about timer events </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ms_from_now</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time in ms for the timer to fire </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__Errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the timer was scheduled or an error code on failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="90" column="11" declfile="xp/common/gg_timer.h" declline="90" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga32f5378503e5c86c8123cfb79b2658e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_Timer_IsScheduled</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_IsScheduled</name>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Checks to see if the requested timer is scheduled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to run the check on </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the timer is scheduled </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="96" column="6" declfile="xp/common/gg_timer.h" declline="96" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga7f23a2180b2d2456aaad88fba9b2a530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Timer_Unschedule</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_Unschedule</name>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Unschedules a timer. If the timer is not actually scheduled, this is a no-op. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to unschedule </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="101" column="6" declfile="xp/common/gg_timer.h" declline="101" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga334c3eb852096eca564b0bfabcf141b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Timer_GetRemainingTime</definition>
+        <argsstring>(GG_Timer *self)</argsstring>
+        <name>GG_Timer_GetRemainingTime</name>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get the remaining time before the timeout fires. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer to get the remaining time </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the remaining time in milliseconds or 0 if the timer is not active or has already expired </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="107" column="10" declfile="xp/common/gg_timer.h" declline="107" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga7e5e111e5853798633783327aa07cad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_Create</definition>
+        <argsstring>(GG_TimerScheduler **scheduler)</argsstring>
+        <name>GG_TimerScheduler_Create</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> **</type>
+          <declname>scheduler</declname>
+        </param>
+        <briefdescription>
+<para>Create a new timer scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="110" column="11" declfile="xp/common/gg_timer.h" declline="110" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga4ccb4a2a268ba289ee37a31c75fe5e49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_TimerScheduler_Destroy</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_Destroy</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Destroy a timer scheduler. (all timers that have been created by this scheduler and have not yet been destroyed will be destroyed) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="115" column="6" declfile="xp/common/gg_timer.h" declline="115" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1gac3238e543b612f5bfeb7fa393edf6b37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_CreateTimer</definition>
+        <argsstring>(GG_TimerScheduler *self, GG_Timer **timer)</argsstring>
+        <name>GG_TimerScheduler_CreateTimer</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> **</type>
+          <declname>timer</declname>
+        </param>
+        <briefdescription>
+<para>Create a timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="118" column="11" declfile="xp/common/gg_timer.h" declline="118" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga8a7151787537bcedebd057ad370dfbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_TimerScheduler_SetTime</definition>
+        <argsstring>(GG_TimerScheduler *self, uint32_t now)</argsstring>
+        <name>GG_TimerScheduler_SetTime</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>now</declname>
+        </param>
+        <briefdescription>
+<para>Set the current time of the scheduler. This causes all timers that are scheduled for a time prior or equal to that time to fire. NOTE: upon creation, the timer scheduler&apos;s time is 0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="123" column="11" declfile="xp/common/gg_timer.h" declline="123" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1gada692dadad93d8d1700805bb3a641cb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_TimerScheduler_GetTime</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_GetTime</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Get the current time of the scheduler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="126" column="10" declfile="xp/common/gg_timer.h" declline="126" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1gad666dfeb0d0c4a6ff88f98bd4bfb0748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_TimerScheduler_GetNextScheduledTime</definition>
+        <argsstring>(GG_TimerScheduler *self)</argsstring>
+        <name>GG_TimerScheduler_GetNextScheduledTime</name>
+        <param>
+          <type><ref refid="group__Timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of milliseconds after which the next scheduled timer is set to fire, or <ref refid="group__Timers_1gae66dcdc10879fe83724cab77e8683446" kindref="member">GG_TIMER_NEVER</ref> if no timer is scheduled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="130" column="10" declfile="xp/common/gg_timer.h" declline="130" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Timers_1ga6a413ab719f64759ee01e74e3847fa72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_TimerListener_OnTimerFired</definition>
+        <argsstring>(GG_TimerListener *self, GG_Timer *timer, uint32_t actual_ms_elapsed)</argsstring>
+        <name>GG_TimerListener_OnTimerFired</name>
+        <param>
+          <type><ref refid="structGG__TimerListener" kindref="compound">GG_TimerListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group__Timers_1gaa91660e9b5a953917e24ee14075d32a7" kindref="member">GG_Timer</ref> *</type>
+          <declname>timer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>actual_ms_elapsed</declname>
+        </param>
+        <briefdescription>
+<para>Called whenever a scheduled timer has fired. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Listener being invoked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timer object being acted on </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time_elapsed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The actual number of milliseconds that have elapsed since the timer was scheduled </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="71" column="6" declfile="xp/common/gg_timer.h" declline="71" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Timers_1gae66dcdc10879fe83724cab77e8683446" prot="public" static="no">
+        <name>GG_TIMER_NEVER</name>
+        <initializer>((uint32_t)-1)</initializer>
+        <briefdescription>
+<para>Value used to represent an infinite time in the future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_timer.h" line="35" column="9" bodyfile="xp/common/gg_timer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Timers </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2055 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+    
+    
+      
+        <title>Getting Started - Golden Gate</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.c3000690.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="." title="Golden Gate" class="md-header-nav__button md-logo" aria-label="Golden Gate">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Golden Gate
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/Fitbit/golden-gate/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fitbit/golden-gate
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Golden Gate" class="md-nav__button md-logo" aria-label="Golden Gate">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Golden Gate
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/Fitbit/golden-gate/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Fitbit/golden-gate
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="introduction.html" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting Started
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="getting_started.html" title="Getting Started" class="md-nav__link md-nav__link--active">
+      Getting Started
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloning-the-project-with-git" class="md-nav__link">
+    Cloning The Project With Git
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloning The Project With Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macoslinux" class="md-nav__link">
+    macOS/Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-your-build-environment" class="md-nav__link">
+    Setting Up Your Build Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Your Build Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-conda-environment" class="md-nav__link">
+    Setting Up a Conda Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    Building
+  </a>
+  
+    <nav class="md-nav" aria-label="Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-your-host-system" class="md-nav__link">
+    Building For Your Host System
+  </a>
+  
+    <nav class="md-nav" aria-label="Building For Your Host System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-xcode-on-macos" class="md-nav__link">
+    Using XCode on macOS
+  </a>
+  
+    <nav class="md-nav" aria-label="Using XCode on macOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-an-xcode-project-using-cmake" class="md-nav__link">
+    Generating An XCode Project Using CMake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-pre-generated-xcode-project" class="md-nav__link">
+    Using The Pre-generated XCode Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-android" class="md-nav__link">
+    Building For Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-ios" class="md-nav__link">
+    Building For iOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-the-pylon-embedded-platform" class="md-nav__link">
+    Building For The Pylon Embedded Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-the-espressif-esp32-platform" class="md-nav__link">
+    Building For The Espressif ESP32 Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-other-platforms" class="md-nav__link">
+    Building For Other Platforms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples" class="md-nav__link">
+    Running Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host-only" class="md-nav__link">
+    Host Only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos-device" class="md-nav__link">
+    macOS &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-macos" class="md-nav__link">
+    Mobile &lt;-&gt; macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-device" class="md-nav__link">
+    Mobile &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-device" class="md-nav__link">
+    Device &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Developer Guide
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Developer Guide" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Developer Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/project_layout.html" title="Project Layout" class="md-nav__link">
+      Project Layout
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/build.html" title="Build" class="md-nav__link">
+      Build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Components
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Components" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Components
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/core_concepts.html" title="Core Concepts" class="md-nav__link">
+      Core Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/object_oriented_c.html" title="Object-Oriented C" class="md-nav__link">
+      Object-Oriented C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/portable_runtime.html" title="Portable Runtime" class="md-nav__link">
+      Portable Runtime
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/logging.html" title="Logging" class="md-nav__link">
+      Logging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/io.html" title="I/O Model" class="md-nav__link">
+      I/O Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/loop.html" title="Loop" class="md-nav__link">
+      Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/events.html" title="Events" class="md-nav__link">
+      Events
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/coap.html" title="CoAP" class="md-nav__link">
+      CoAP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/ip.html" title="IP" class="md-nav__link">
+      IP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/sockets.html" title="Sockets" class="md-nav__link">
+      Sockets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/tls.html" title="TLS" class="md-nav__link">
+      TLS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/stack.html" title="Stack" class="md-nav__link">
+      Stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/gattlink.html" title="Gattlink" class="md-nav__link">
+      Gattlink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/utils.html" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/examples.html" title="Examples" class="md-nav__link">
+      Examples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/porting.html" title="Porting" class="md-nav__link">
+      Porting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-7" type="checkbox" id="nav-4-7">
+    
+    <label class="md-nav__link" for="nav-4-7">
+      Coding Styles
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Coding Styles" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Coding Styles
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/code-styles/c.html" title="C" class="md-nav__link">
+      C
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/code-styles/kotlin.html" title="Kotlin" class="md-nav__link">
+      Kotlin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/code-styles/swift.html" title="Swift" class="md-nav__link">
+      Swift
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="guides/documentation.html" title="Documentation" class="md-nav__link">
+      Documentation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Tools & Apps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Tools & Apps" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Tools & Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="tools/index.html" title="Tools" class="md-nav__link">
+      Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="apps/index.html" title="Apps" class="md-nav__link">
+      Apps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="tools/stack_tool.html" title="Stack Tool" class="md-nav__link">
+      Stack Tool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="tools/coap_client.html" title="CoAP Client" class="md-nav__link">
+      CoAP Client
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="tools/coap_server.html" title="CoAP Server" class="md-nav__link">
+      CoAP Server
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="apps/android/host_app.html" title="Android Host App" class="md-nav__link">
+      Android Host App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="apps/ios/host_app.html" title="iOS Host App" class="md-nav__link">
+      iOS Host App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="apps/mynewt/mynewt_apps.html" title="MyNewt Apps" class="md-nav__link">
+      MyNewt Apps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Architecture
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Architecture" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/software_architecture.html" title="Software Architecture" class="md-nav__link">
+      Software Architecture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/loop.html" title="Loop" class="md-nav__link">
+      Loop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/gattlink.html" title="Gattlink" class="md-nav__link">
+      Gattlink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="architecture/security.html" title="Security" class="md-nav__link">
+      Security
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      API Reference
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api/c_api.html" title="C API Reference" class="md-nav__link">
+      C API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api/kotlin_api.html" title="Kotlin API Reference" class="md-nav__link">
+      Kotlin API Reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="api/swift_api.html" title="Swift API Reference" class="md-nav__link">
+      Swift API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Platforms
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Platforms" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Platforms
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/ports.html" title="OS/RTOS Ports" class="md-nav__link">
+      OS/RTOS Ports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Embedded
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Embedded" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Embedded
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/embedded.html" title="Generic" class="md-nav__link">
+      Generic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/mynewt.html" title="MyNewt" class="md-nav__link">
+      MyNewt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/nuttx.html" title="NuttX" class="md-nav__link">
+      NuttX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/esp32.html" title="ESP32" class="md-nav__link">
+      ESP32
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/zephyr.html" title="Zephyr" class="md-nav__link">
+      Zephyr
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/ios.html" title="iOS" class="md-nav__link">
+      iOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/android.html" title="Android" class="md-nav__link">
+      Android
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/linux.html" title="Linux" class="md-nav__link">
+      Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/macos.html" title="macOS" class="md-nav__link">
+      macOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="platforms/windows.html" title="Windows" class="md-nav__link">
+      Windows
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Transports
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Transports" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Transports
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="transports/index.html" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="transports/bluetooth.html" title="Bluetooth" class="md-nav__link">
+      Bluetooth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="transports/wifi.html" title="Wifi" class="md-nav__link">
+      Wifi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="glossary.html" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="faq.html" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="license.html" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="release_notes.html" title="Release Notes" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cloning-the-project-with-git" class="md-nav__link">
+    Cloning The Project With Git
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloning The Project With Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macoslinux" class="md-nav__link">
+    macOS/Linux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-your-build-environment" class="md-nav__link">
+    Setting Up Your Build Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Your Build Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-conda-environment" class="md-nav__link">
+    Setting Up a Conda Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    Building
+  </a>
+  
+    <nav class="md-nav" aria-label="Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-your-host-system" class="md-nav__link">
+    Building For Your Host System
+  </a>
+  
+    <nav class="md-nav" aria-label="Building For Your Host System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-xcode-on-macos" class="md-nav__link">
+    Using XCode on macOS
+  </a>
+  
+    <nav class="md-nav" aria-label="Using XCode on macOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-an-xcode-project-using-cmake" class="md-nav__link">
+    Generating An XCode Project Using CMake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-pre-generated-xcode-project" class="md-nav__link">
+    Using The Pre-generated XCode Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-android" class="md-nav__link">
+    Building For Android
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-ios" class="md-nav__link">
+    Building For iOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-the-pylon-embedded-platform" class="md-nav__link">
+    Building For The Pylon Embedded Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-the-espressif-esp32-platform" class="md-nav__link">
+    Building For The Espressif ESP32 Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-other-platforms" class="md-nav__link">
+    Building For Other Platforms
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-examples" class="md-nav__link">
+    Running Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host-only" class="md-nav__link">
+    Host Only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos-device" class="md-nav__link">
+    macOS &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-macos" class="md-nav__link">
+    Mobile &lt;-&gt; macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-device" class="md-nav__link">
+    Mobile &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-device" class="md-nav__link">
+    Device &lt;-&gt; Device
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Fitbit/golden-gate/edit/master/docs/getting_started.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>To get started, you'll first need to <a href="#cloning-the-project-with-git">obtain a copy of the project</a> 
+by cloning the Git repo, or another method, if you haven't already done so. 
+Then <a href="#setting-up-your-build-environment">setup your build environment</a>, 
+and finally <a href="#building">build</a> the libraries, examples, tools and unit tests.</p>
+<h2 id="cloning-the-project-with-git">Cloning The Project With Git<a class="headerlink" href="#cloning-the-project-with-git" title="Permanent link">&para;</a></h2>
+<p>Clone the project to a location in your filesystem, and update the submodules.
+For example, to clone the project in your home directory:</p>
+<h3 id="macoslinux">macOS/Linux<a class="headerlink" href="#macoslinux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/Fitbit/golden-gate ~/golden-gate
+$ <span class="nb">cd</span> ~/golden-gate
+$ git submodule update --init --recursive
+</code></pre></div>
+
+<h2 id="setting-up-your-build-environment">Setting Up Your Build Environment<a class="headerlink" href="#setting-up-your-build-environment" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h4>
+<p>macOS is the recommended platform for working with Golden Gate, as it offers
+the most complete build environment, including the ability to build all targets,
+run all the examples, and can use the native Bluetooth support.</p>
+<p>On a mac running macOS 10.14 (Mojave) or higher, you will need to have at 
+a minimum:</p>
+<ul>
+<li>XCode 11 or higher, including the command-line tools</li>
+<li>Homebrew - see <a href="https://brew.sh/">Homebrew</a> for installation instructions</li>
+<li>Miniconda (or Conda) - see <a href="https://docs.conda.io/en/latest/miniconda.html#macosx-installers">Conda</a> for macOS installation instructions</li>
+</ul>
+<p>With those prerequisites installed, you can initialize an environment for
+the Golden Gate project.
+In a shell window, from the top-level directory of the project, first install 
+the homebrew packages by running
+<div class="highlight"><pre><span></span><code>$ brew bundle
+</code></pre></div></p>
+<p>Then continue with the instructions for <a href="getting_started.html#setting-up-a-conda-environment">setting up a <code>conda</code> environment</a>, below</p>
+<h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
+<p>A Linux host can be used to build all the targets, except iOS.
+On a Linux machine, you will need to have at a minimum:</p>
+<ul>
+<li>Git</li>
+<li>GCC and G++ (<code>build_essential</code> package on Ubuntu or similar)</li>
+<li>Miniconda (or Conda) - see <a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">Conda</a> for Linux installation instructions</li>
+</ul>
+<h4 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h4>
+<p>If you have <a href="https://www.docker.com/">docker</a> installed on your system, the 
+project includes a <code>Dockerfile</code> that you can use to build a docker image.
+The resulting docker image contains the minimal set of tools needed to build the 
+core libraries, examples, tests and docs.
+The easiest way to build the docker image is to use the <code>invoke</code> task (if you
+have installed <code>invoke</code> on your host system):
+<div class="highlight"><pre><span></span><code>$ inv docker.build
+</code></pre></div>
+You can also build it with other parameters, using the project's <code>Dockerfile</code> as
+input.</p>
+<h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Under construction</p>
+<p>While the core library does compile and run on Windows, support for that
+platform is currently being re-factored. It isn't functional yet in the 
+current release of the project.</p>
+</div>
+<h3 id="setting-up-a-conda-environment">Setting Up a Conda Environment<a class="headerlink" href="#setting-up-a-conda-environment" title="Permanent link">&para;</a></h3>
+<p>Now that you have <code>conda</code>, you can create a Conda environment.</p>
+<p><a href="https://docs.conda.io/en/latest/">Conda</a> is an open source package management 
+system and environment management system that runs on Windows, macOS and Linux. 
+Conda quickly installs, runs and updates packages and their dependencies.</p>
+<p>This project uses Conda to manage the installation and update of a number of
+tools and software components that are necessary for building and running the 
+software.</p>
+<p>Create your <code>conda</code> environment by running</p>
+<p><div class="highlight"><pre><span></span><code>$ conda env create -n gg
+</code></pre></div>
+This will create a <code>conda</code> environment named <code>gg</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Using a different environment name</p>
+<p>You can choose a different name for your environment if you wish. 
+We use the name <code>gg</code> by default, but you can specify any other name you want 
+when creating the environment by passing that name with the <code>-n</code> option of 
+the <code>conda env create</code> command</p>
+</div>
+<p>Once your environment is created (which you only need to do once), you can 
+activate it by running
+<div class="highlight"><pre><span></span><code>$ conda activate gg
+</code></pre></div></p>
+<p>Activate your <code>gg</code> environment anytime you want to work with the project. 
+Once the environment is activated in a shell, all the tools that are needed to 
+build and run the code are in your <code>PATH</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Updating you environment</p>
+<p>If you pull updated versions of the project, you should also update your <code>gg</code>
+environment (you don't need to re-create it every time) by running
+<div class="highlight"><pre><span></span><code>$ conda env update -n gg
+</code></pre></div></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Smoke-testing your environment</p>
+<p>An easy way to do a basic test to check if your initial environment setup
+has worked, and has been activated, is to try a simple command like:
+<div class="highlight"><pre><span></span><code>$ inv -l
+</code></pre></div>
+which should list all the tasks that are available through the <code>invoke</code>
+task execution system, which you will use later to execute a number of 
+tasks like building and running.</p>
+</div>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
+<p>The project uses the <a href="http://www.pyinvoke.org/"><code>invoke</code></a> task execution 
+system to automate a number of tasks, including building the libraries and 
+documentation, building and running tests, and more.</p>
+<h3 id="building-for-your-host-system">Building For Your Host System<a class="headerlink" href="#building-for-your-host-system" title="Permanent link">&para;</a></h3>
+<p>Building for your host system is called a 'native' build. 
+CMake is used to generate Makefiles and/or Ninja files (if the Ninja build 
+system is installed on your system, which should be the case if you have 
+correctly setup and activated your <code>conda</code> environment).</p>
+<p>Your host system could be a mac running macOS, a machine running Linux, or a
+virtual environment running in docker (use <code>inv docker.run</code> for an easy way
+to start a shell in a docker container, or use a custom invocation of docker
+with the docker image for the project, built as explained above).</p>
+<p>Run
+<div class="highlight"><pre><span></span><code>$ inv native.build
+</code></pre></div>
+to build all the core libraries, examples and unit tests for your host system.
+The output of the build can be found under <code>xp/build/cmake/native</code>.
+For example, you should be able to run
+<div class="highlight"><pre><span></span><code>$ xp/build/cmake/native/apps/stack-tool/gg-stack-tool
+</code></pre></div>
+and see the help for the <code>gg-stack-tool</code> command-line tool.</p>
+<p>And run
+<div class="highlight"><pre><span></span><code>$ inv native.test
+</code></pre></div>
+to execute all the unit tests and show the success/failure results.</p>
+<h4 id="using-xcode-on-macos">Using XCode on macOS<a class="headerlink" href="#using-xcode-on-macos" title="Permanent link">&para;</a></h4>
+<p>If your host system is a mac, it is usually convenient to be able to build, 
+run and debug from within XCode, rather than on the command line. This is the 
+recommended way to work interactively with the project on a mac when you want
+to edit/compile/run/debug.</p>
+<p>There are two options available</p>
+<h5 id="generating-an-xcode-project-using-cmake">Generating An XCode Project Using CMake<a class="headerlink" href="#generating-an-xcode-project-using-cmake" title="Permanent link">&para;</a></h5>
+<p>Start by generating the XCode project by running
+<div class="highlight"><pre><span></span><code>$ inv apple.macos.xp.gen
+</code></pre></div>
+This will generate an XCode project at <code>xp/build/cmake/xcode-macOS/golden-gate-macos.xcodeproj</code>.
+When you open that project file, you will find build targets for all the libraries,
+the command-line tools, the examples, and the unit tests. You can build, run and
+debug right from within XCode.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+</div>
+<p>If you get a CMake error saying <code>No CMAKE_C_COMPILER could be found</code>, try 
+<div class="highlight"><pre><span></span><code>$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+</code></pre></div></p>
+<h5 id="using-the-pre-generated-xcode-project">Using The Pre-generated XCode Project<a class="headerlink" href="#using-the-pre-generated-xcode-project" title="Permanent link">&para;</a></h5>
+<p>A hand-made XCode project is used to build the framework as well as the 
+so-called "Host Application", which is a sample application that illustrates how
+to use some of the basic functionality offered by the framework.
+See the <a href="#building-for-ios">Building For iOS</a> paragraph below for details, 
+as the same project may be used for macOS as well as iOS.</p>
+<h3 id="building-for-android">Building For Android<a class="headerlink" href="#building-for-android" title="Permanent link">&para;</a></h3>
+<p>See the <a href="platforms/android.html">Android Platform</a> documentation for instructions 
+on how to build the libraries, bindings and sample app for Android.</p>
+<h3 id="building-for-ios">Building For iOS<a class="headerlink" href="#building-for-ios" title="Permanent link">&para;</a></h3>
+<p>See the <a href="platforms/ios.html">iOS Platform</a> documentation for instructions 
+on how to build the libraries, bindings and sample app for iOS.</p>
+<h3 id="building-for-the-pylon-embedded-platform">Building For The Pylon Embedded Platform<a class="headerlink" href="#building-for-the-pylon-embedded-platform" title="Permanent link">&para;</a></h3>
+<p>Pylon is the name used for the project's reference RTOS port. 
+In the current version, the Pylon port is a <a href="https://mynewt.apache.org/">MyNewt</a> 
+application running on a <a href="https://www.nordicsemi.com/Software-and-Tools/Development-Kits/nRF52840-DK">Nordic nRF52840 DK Development Kit</a>.</p>
+<p>See the <a href="platforms/mynewt.html">MyNewt Platform</a> documentation for instructions 
+on how to build the libraries, bindings and sample app for MyNewt.</p>
+<h3 id="building-for-the-espressif-esp32-platform">Building For The Espressif ESP32 Platform<a class="headerlink" href="#building-for-the-espressif-esp32-platform" title="Permanent link">&para;</a></h3>
+<p>A basic port and sample Bluetooth peripheral application that can run on 
+ESP32 processors is included.</p>
+<p>See the <a href="platforms/esp32.html">ESP32 Platform</a> documentation for instructions 
+on how to build the libraries and sample app for ESP32.</p>
+<h3 id="building-for-other-platforms">Building For Other Platforms<a class="headerlink" href="#building-for-other-platforms" title="Permanent link">&para;</a></h3>
+<p>See the <a href="platforms/">Platforms</a> documentation for more details.</p>
+<h2 id="running-examples">Running Examples<a class="headerlink" href="#running-examples" title="Permanent link">&para;</a></h2>
+<p>Depending on your host system, and what targets you have chosen to build,
+there are different ways to start running some of the examples.</p>
+<p>You can find a few typical example configurations below, but this is by no
+means exhaustive. Once you become familiar with the different targets and 
+example apps, you can come up with many more ways to setup pairs of communicating
+endpoints.<br />
+Also, you can start building your own applications and devices, then many more
+options are available to you.</p>
+<h3 id="host-only">Host Only<a class="headerlink" href="#host-only" title="Permanent link">&para;</a></h3>
+<p>This is the simplest way to start running two instances of a Golden Gate stack
+on a single Mac or Linux host, without any dependency on a "real" transport like 
+Bluetooth: you simply run two command line applications, each in its own 
+shell on your host machine; the two applications communicate with each other
+using a local socket.<br />
+See the <a href="tools/stack_tool.html">Stack Tool</a> documentation for some examples.</p>
+<h3 id="macos-device">macOS &lt;-&gt; Device<a class="headerlink" href="#macos-device" title="Permanent link">&para;</a></h3>
+<p>If you have a Nordic nrf52840-DK Development Kit, you can build the Pylon
+<code>gg-peripheral</code> app and connect to it from your mac over Bluetooth.<br />
+See <a href="apps/mynewt/mynewt_apps.html">Mynewt Apps</a> for details on how to run and
+configure the <code>gg-peripheral</code> app on your board.</p>
+<h3 id="mobile-macos">Mobile &lt;-&gt; macOS<a class="headerlink" href="#mobile-macos" title="Permanent link">&para;</a></h3>
+<p>If you have an iOS or Android phone, and want to try out one of the mobile
+Host Apps (<a href="apps/ios/host_app.html">iOS Host App</a> and 
+<a href="apps/android/host_app.html">Android Host App</a>) and a mac, 
+you can run an instance of the <a href="tools/stack_tool.html">Stack Tool</a> on the mac, 
+as a Peripheral (a.k.a Node in Golden Gate terminology), and use the Host App on
+your phone to connect to it.<br />
+In addition you will run a CoAP server on your mac, that the Host App will
+make requests to, communicating through the stack tool.</p>
+<p>In a first Terminal window, run the CoAP server:
+<div class="highlight"><pre><span></span><code>$ gg-coap-server
+</code></pre></div></p>
+<p>In a second Terminal window, run the stack tool in Node mode, configured to act 
+as a Bluetooth peripheral, advertising under the name <code>Jiji</code> (the default name
+used by the stack tool), and forwarding CoAP requests to port 5683 on localhost.
+<div class="highlight"><pre><span></span><code>$ gg-stack-tool --top coap <span class="m">127</span>.0.0.1 <span class="m">5683</span> <span class="m">5684</span> --bottom bluetooth node node DSNG
+</code></pre></div></p>
+<p>Now, from either the iOS Host App or Android Host App, scan and find the mac
+that is advertising as <code>Jiji</code>, connect, and once the connection is established,
+send a CoAP request to <code>/helloworld</code></p>
+<h3 id="mobile-device">Mobile &lt;-&gt; Device<a class="headerlink" href="#mobile-device" title="Permanent link">&para;</a></h3>
+<p>If you have an iOS or Android phone, and want to try out one of the mobile
+Host Apps (<a href="apps/ios/host_app.html">iOS Host App</a> and 
+<a href="apps/android/host_app.html">Android Host App</a>), and a Nordic nrf52840-DK 
+Development Kit, you can run the <code>gg-peripheral</code> app on your board and 
+connect to it from your mobile app.</p>
+<h3 id="device-device">Device &lt;-&gt; Device<a class="headerlink" href="#device-device" title="Permanent link">&para;</a></h3>
+<p>If you have a two Nordic nrf52840-DK Development Kits, you can build both the 
+Pylon <code>gg-central</code> and <code>gg-peripheral</code> apps and connect one to the other.  <br />
+See <a href="apps/mynewt/mynewt_apps.html">Mynewt Apps</a> for details on how to run and
+configure the <code>gg-central</code> and <code>gg-peripheral</code> apps on your board.</p>
+<h2 id="whats-next">What's Next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
+<p>Start exploring the project, its architecture, components and APIs, and see
+how you can use the framework in your own applications and devices.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="introduction.html" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="guides/index.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            © 2017-2020 Fitbit, Inc. All rights reserved.
+          </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.f45d2d8d.min.js"></script>
+      <script src="assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

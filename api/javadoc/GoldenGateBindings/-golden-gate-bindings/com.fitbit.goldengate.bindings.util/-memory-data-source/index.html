@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MemoryDataSource - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.util</a>&nbsp;/&nbsp;<a href="./index.html">MemoryDataSource</a><br/>
+<br/>
+<h1>MemoryDataSource</h1>
+<code><span class="keyword">class </span><span class="identifier">MemoryDataSource</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>In-Memory DataSource that is intended to be used for testing</p>
+<h3>Parameters</h3>
+<p><a name="data"></a>
+<code>data</code> - data that will be sent from this DataSource</p>
+<p><a name="chunkSize"></a>
+<code>chunkSize</code> - <a href="start.html">start</a> call will send one packet for each chunkSize (default to send all data in one packet)</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">MemoryDataSource</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.util.MemoryDataSource$<init>(kotlin.ByteArray, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.util.MemoryDataSource$<init>(kotlin.ByteArray, kotlin.Int)/chunkSize">chunkSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;data.size<span class="symbol">)</span></code>
+<p>In-Memory DataSource that is intended to be used for testing</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="this-pointer.html">thisPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">thisPointer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Pointer to native jni reference for this object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.util.MemoryDataSource$attach(kotlin.Long)/dataSinkPtr">dataSinkPtr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach a DataSink that will receive data from this source</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="start.html">start</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Start sending the data from buffer to attached DataSink.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LoopInvokeAsyncMessage" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopInvokeAsyncMessage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LoopInvokeAsyncMessage_1af8dc41da64bb5b2afd665fa385d9a1b7" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref></type>
+        <definition>GG_LoopAsyncFunction GG_LoopInvokeAsyncMessage::function</definition>
+        <argsstring></argsstring>
+        <name>function</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="59" column="26" bodyfile="xp/loop/gg_loop_base.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopInvokeAsyncMessage_1a03b9b244bfecc6a4d014d0aecfc38d02" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* GG_LoopInvokeAsyncMessage::function_argument</definition>
+        <argsstring></argsstring>
+        <name>function_argument</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="60" column="25" bodyfile="xp/loop/gg_loop_base.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structGG__LoopInvokeAsyncMessage_1a68ed82761831222dab7c9fdf5231c6f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_LoopInvokeAsyncMessage::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_LoopMessage)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="structGG__LoopMessage" kindref="compound">GG_LoopMessage</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="58" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/loop/gg_loop_base.h" line="57" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="57" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structGG__LoopInvokeAsyncMessage_1af8dc41da64bb5b2afd665fa385d9a1b7" prot="public" virt="non-virtual"><scope>GG_LoopInvokeAsyncMessage</scope><name>function</name></member>
+      <member refid="structGG__LoopInvokeAsyncMessage_1a03b9b244bfecc6a4d014d0aecfc38d02" prot="public" virt="non-virtual"><scope>GG_LoopInvokeAsyncMessage</scope><name>function_argument</name></member>
+      <member refid="structGG__LoopInvokeAsyncMessage_1a68ed82761831222dab7c9fdf5231c6f7" prot="public" virt="non-virtual"><scope>GG_LoopInvokeAsyncMessage</scope><name>GG_IMPLEMENTS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

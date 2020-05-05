@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__InspectorInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_InspectorInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__InspectorInterface_1ac68c3f8782ea4c6368c0db00488e529f" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnObjectStart) (GG_Inspector *self, const char *name)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name)</argsstring>
+        <name>OnObjectStart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="79" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1ab86633e580ac4c9d33621ccbe6ad292c" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnObjectEnd) (GG_Inspector *self)</definition>
+        <argsstring>)(GG_Inspector *self)</argsstring>
+        <name>OnObjectEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="80" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1abc746f0476331675722211a11ea93d65" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnArrayStart) (GG_Inspector *self, const char *name)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name)</argsstring>
+        <name>OnArrayStart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="81" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1ac8c5732c7725702799c7060291a302f1" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnArrayEnd) (GG_Inspector *self)</definition>
+        <argsstring>)(GG_Inspector *self)</argsstring>
+        <name>OnArrayEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="82" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1a5ef7a045ca708a06be01d00306a6fc95" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnInspectable) (GG_Inspector *self, const char *name, GG_Inspectable *inspectable)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, GG_Inspectable *inspectable)</argsstring>
+        <name>OnInspectable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="83" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1ab98bbed9ba7e655d7c9d5c95815bce41" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnString) (GG_Inspector *self, const char *name, const char *value)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, const char *value)</argsstring>
+        <name>OnString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="84" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1ab769276ea3e5771f227702fa83ccf8b5" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnBoolean) (GG_Inspector *self, const char *name, bool value)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, bool value)</argsstring>
+        <name>OnBoolean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="85" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1a523b97fc332ddab2eb15f82c4d1d109e" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnInteger) (GG_Inspector *self, const char *name, int64_t value, GG_InspectorFormatHint format_hint)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, int64_t value, GG_InspectorFormatHint format_hint)</argsstring>
+        <name>OnInteger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="86" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1a4a70bf22f4ad63331504b8523779fdbc" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnFloat) (GG_Inspector *self, const char *name, double value)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, double value)</argsstring>
+        <name>OnFloat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="90" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1a6b0f7499a495cc3677c36bf9a3e1f9f2" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnBytes) (GG_Inspector *self, const char *name, const uint8_t *data, size_t data_size)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, const uint8_t *data, size_t data_size)</argsstring>
+        <name>OnBytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="91" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__InspectorInterface_1aa4c9c95511690054ac6cd41a37c3381c" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_InspectorInterface::OnExtensible) (GG_Inspector *self, const char *name, uint32_t data_type, const void *data, size_t data_size)</definition>
+        <argsstring>)(GG_Inspector *self, const char *name, uint32_t data_type, const void *data, size_t data_size)</argsstring>
+        <name>OnExtensible</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="95" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_inspect.h" line="78" column="81" bodyfile="xp/common/gg_inspect.h" bodystart="78" bodyend="100"/>
+    <listofallmembers>
+      <member refid="structGG__InspectorInterface_1ac8c5732c7725702799c7060291a302f1" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnArrayEnd</name></member>
+      <member refid="structGG__InspectorInterface_1abc746f0476331675722211a11ea93d65" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnArrayStart</name></member>
+      <member refid="structGG__InspectorInterface_1ab769276ea3e5771f227702fa83ccf8b5" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnBoolean</name></member>
+      <member refid="structGG__InspectorInterface_1a6b0f7499a495cc3677c36bf9a3e1f9f2" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnBytes</name></member>
+      <member refid="structGG__InspectorInterface_1aa4c9c95511690054ac6cd41a37c3381c" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnExtensible</name></member>
+      <member refid="structGG__InspectorInterface_1a4a70bf22f4ad63331504b8523779fdbc" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnFloat</name></member>
+      <member refid="structGG__InspectorInterface_1a5ef7a045ca708a06be01d00306a6fc95" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnInspectable</name></member>
+      <member refid="structGG__InspectorInterface_1a523b97fc332ddab2eb15f82c4d1d109e" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnInteger</name></member>
+      <member refid="structGG__InspectorInterface_1ab86633e580ac4c9d33621ccbe6ad292c" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnObjectEnd</name></member>
+      <member refid="structGG__InspectorInterface_1ac68c3f8782ea4c6368c0db00488e529f" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnObjectStart</name></member>
+      <member refid="structGG__InspectorInterface_1ab98bbed9ba7e655d7c9d5c95815bce41" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___log_record" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LogRecord</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___log_record_1a31a1563ad8941e169cc44fdead9bc60d" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_LogRecord::logger_name</definition>
+        <argsstring></argsstring>
+        <name>logger_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="44" column="22" bodyfile="xp/common/gg_logging.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1a645974ba303e16cec688916d6e218724" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GG_LogRecord::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="45" column="23" bodyfile="xp/common/gg_logging.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1a1d67dc57bd435b4d15e3536aab94acaf" prot="public" static="no" mutable="no">
+        <type>GG_LogMessageType</type>
+        <definition>GG_LogMessageType GG_LogRecord::message_type</definition>
+        <argsstring></argsstring>
+        <name>message_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="46" column="23" bodyfile="xp/common/gg_logging.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1a17d0731d00d0171a04bd5b1ca9a88caf" prot="public" static="no" mutable="no">
+        <type>const void *</type>
+        <definition>const void* GG_LogRecord::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="47" column="22" bodyfile="xp/common/gg_logging.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1a7749e2e648b787aafa5420baee2d8c56" prot="public" static="no" mutable="no">
+        <type><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+        <definition>GG_Timestamp GG_LogRecord::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="48" column="23" bodyfile="xp/common/gg_logging.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1a958e466728f1299a41022092eb284272" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_LogRecord::source_file</definition>
+        <argsstring></argsstring>
+        <name>source_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="49" column="22" bodyfile="xp/common/gg_logging.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1ae04c2393bc4ac11c7eecbf00640290e6" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int GG_LogRecord::source_line</definition>
+        <argsstring></argsstring>
+        <name>source_line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="50" column="23" bodyfile="xp/common/gg_logging.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_record_1ae240843ad78110d268d0042a7a4b069b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_LogRecord::source_function</definition>
+        <argsstring></argsstring>
+        <name>source_function</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="51" column="22" bodyfile="xp/common/gg_logging.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_logging.h" line="43" column="15" bodyfile="xp/common/gg_logging.h" bodystart="43" bodyend="52"/>
+    <listofallmembers>
+      <member refid="struct_g_g___log_record_1a645974ba303e16cec688916d6e218724" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>level</name></member>
+      <member refid="struct_g_g___log_record_1a31a1563ad8941e169cc44fdead9bc60d" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>logger_name</name></member>
+      <member refid="struct_g_g___log_record_1a17d0731d00d0171a04bd5b1ca9a88caf" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>message</name></member>
+      <member refid="struct_g_g___log_record_1a1d67dc57bd435b4d15e3536aab94acaf" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>message_type</name></member>
+      <member refid="struct_g_g___log_record_1a958e466728f1299a41022092eb284272" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>source_file</name></member>
+      <member refid="struct_g_g___log_record_1ae240843ad78110d268d0042a7a4b069b" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>source_function</name></member>
+      <member refid="struct_g_g___log_record_1ae04c2393bc4ac11c7eecbf00640290e6" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>source_line</name></member>
+      <member refid="struct_g_g___log_record_1a7749e2e648b787aafa5420baee2d8c56" prot="public" virt="non-virtual"><scope>GG_LogRecord</scope><name>timestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DataProbeReport" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DataProbeReport</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DataProbeReport_1aae2ca298fcd5afd2196abd4c6a4f3efb" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_DataProbeReport::total_bytes</definition>
+        <argsstring></argsstring>
+        <name>total_bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="41" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1adf9f424ba64c55d8360331509d19aa0e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::total_throughput</definition>
+        <argsstring></argsstring>
+        <name>total_throughput</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="42" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1ab0c74f58db4dc0b92c971ca49a056e41" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::total_throughput_peak</definition>
+        <argsstring></argsstring>
+        <name>total_throughput_peak</name>
+        <briefdescription>
+<para>bytes / seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="43" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1a34d4e6bed8fe342fa2852beb2c2e8135" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::window_throughput</definition>
+        <argsstring></argsstring>
+        <name>window_throughput</name>
+        <briefdescription>
+<para>bytes / seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="44" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1a91025bb55c5dc9f3531c9d4dbb8cdd68" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::window_throughput_peak</definition>
+        <argsstring></argsstring>
+        <name>window_throughput_peak</name>
+        <briefdescription>
+<para>bytes / seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="45" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1a6901b778fdff3377b3ce3722526fbf79" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::window_bytes_second</definition>
+        <argsstring></argsstring>
+        <name>window_bytes_second</name>
+        <briefdescription>
+<para>bytes / seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="46" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1a03a0cfb5a8852abf0a0f30f01f393549" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_DataProbeReport::window_bytes_second_peak</definition>
+        <argsstring></argsstring>
+        <name>window_bytes_second_peak</name>
+        <briefdescription>
+<para>bytes * seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="47" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DataProbeReport_1a305168997e7033210f505d2efce8e91e" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref></type>
+        <definition>GG_Timestamp GG_DataProbeReport::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+<para>bytes * seconds </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="48" column="18" bodyfile="xp/utils/gg_data_probe.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/utils/gg_data_probe.h" line="40" column="33" bodyfile="xp/utils/gg_data_probe.h" bodystart="40" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structGG__DataProbeReport_1a305168997e7033210f505d2efce8e91e" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>time</name></member>
+      <member refid="structGG__DataProbeReport_1aae2ca298fcd5afd2196abd4c6a4f3efb" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>total_bytes</name></member>
+      <member refid="structGG__DataProbeReport_1adf9f424ba64c55d8360331509d19aa0e" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>total_throughput</name></member>
+      <member refid="structGG__DataProbeReport_1ab0c74f58db4dc0b92c971ca49a056e41" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>total_throughput_peak</name></member>
+      <member refid="structGG__DataProbeReport_1a6901b778fdff3377b3ce3722526fbf79" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>window_bytes_second</name></member>
+      <member refid="structGG__DataProbeReport_1a03a0cfb5a8852abf0a0f30f01f393549" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>window_bytes_second_peak</name></member>
+      <member refid="structGG__DataProbeReport_1a34d4e6bed8fe342fa2852beb2c2e8135" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>window_throughput</name></member>
+      <member refid="structGG__DataProbeReport_1a91025bb55c5dc9f3531c9d4dbb8cdd68" prot="public" virt="non-virtual"><scope>GG_DataProbeReport</scope><name>window_throughput_peak</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

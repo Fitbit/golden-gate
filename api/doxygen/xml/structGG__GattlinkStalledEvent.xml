@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__GattlinkStalledEvent" kind="struct" language="C++" prot="public">
+    <compoundname>GG_GattlinkStalledEvent</compoundname>
+    <includes refid="gg__gattlink__generic__client_8h" local="no">xp/gattlink/gg_gattlink_generic_client.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__GattlinkStalledEvent_1ae8dc92c43e8fe55cf17ee054a11335dd" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__Event" kindref="compound">GG_Event</ref></type>
+        <definition>GG_Event GG_GattlinkStalledEvent::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="90" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkStalledEvent_1a554db05b5c7fde7c92f7341ba82936ba" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_GattlinkStalledEvent::stalled_time</definition>
+        <argsstring></argsstring>
+        <name>stalled_time</name>
+        <briefdescription>
+<para>Stall time so far in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="91" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Event emitted by a Gattlink Client when it is detecting a stall. This event may be emitted several times, as the stall continues, until the stall stops.</para>
+<para>(cast a <ref refid="structGG__Event" kindref="compound">GG_Event</ref> to that type when the event&apos;s type ID is GG_EVENT_TYPE_GATTLINK_SESSION_STALLED) </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_GattlinkStalledEvent</label>
+        <link refid="structGG__GattlinkStalledEvent"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_Event</label>
+        <link refid="structGG__Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/gattlink/gg_gattlink_generic_client.h" line="89" column="15" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="89" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structGG__GattlinkStalledEvent_1ae8dc92c43e8fe55cf17ee054a11335dd" prot="public" virt="non-virtual"><scope>GG_GattlinkStalledEvent</scope><name>base</name></member>
+      <member refid="structGG__GattlinkStalledEvent_1a554db05b5c7fde7c92f7341ba82936ba" prot="public" virt="non-virtual"><scope>GG_GattlinkStalledEvent</scope><name>stalled_time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

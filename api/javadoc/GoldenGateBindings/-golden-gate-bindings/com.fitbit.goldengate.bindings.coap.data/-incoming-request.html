@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IncomingRequest - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./-incoming-request.html">IncomingRequest</a><br/>
+<br/>
+<h1>IncomingRequest</h1>
+<code><span class="keyword">interface </span><span class="identifier">IncomingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-incoming-message/index.html"><span class="identifier">IncomingMessage</span></a><span class="symbol">, </span><a href="-base-request/index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Incoming coap request message.</p>
+<p>Coap server will receive this request object for any client request.</p>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-incoming-message/body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="-incoming-body/index.html"><span class="identifier">IncomingBody</span></a></code>
+<p>Coap message body</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-request/method.html">method</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">method</span><span class="symbol">: </span><a href="-method/index.html"><span class="identifier">Method</span></a></code>
+<p>Request <a href="-method/index.html">Method</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-request/progress-observer.html">progressObserver</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">progressObserver</span><span class="symbol">: </span><span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Observer for the number of bytes Sent/Received in a Blockwise Operation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__threads_8h" kind="file" language="C++">
+    <compoundname>gg_threads.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__utils_8h" local="yes">xp/common/gg_utils.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__coap__endpoint_8h" local="yes">xp/coap/gg_coap_endpoint.h</includedby>
+    <includedby refid="gg__coap__filters_8h" local="yes">xp/coap/gg_coap_filters.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___threads_1ga369b2439bae845d0ca7eb24092d20712" prot="public" static="no">
+        <name>GG_THREAD_GUARD_ENABLE_BINDING</name>
+        <initializer><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref> _bound_thread_id;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this macro in an object field declaration to enable thread binding </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="49" column="9" bodyfile="xp/common/gg_threads.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___threads_1gacc27a161b8fa7fa9e42def92986e08b6" prot="public" static="no">
+        <name>GG_THREAD_GUARD_BIND</name>
+        <param><defname>_object</defname></param>
+        <initializer>do {                 \
+    (_object)-&gt;_bound_thread_id = <ref refid="group___threads_1gafe5f3585deb1344d65c2dd560f647ab3" kindref="member">GG_GetCurrentThreadId</ref>(); \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bind an object to the current thread ID <blockquote><para>NOTE: the object must support thread binding, which is done by using </para>
+</blockquote>the GG_THREAD_GUARD_ENABLE_BINDING macro in the object declaration. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="56" column="9" bodyfile="xp/common/gg_threads.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___threads_1ga237f652010423d576898698f3926ead7" prot="public" static="no">
+        <name>GG_THREAD_GUARD_IS_CURRENT_THREAD_BOUND</name>
+        <param><defname>_object</defname></param>
+        <initializer>((_object)-&gt;_bound_thread_id == <ref refid="group___threads_1gafe5f3585deb1344d65c2dd560f647ab3" kindref="member">GG_GetCurrentThreadId</ref>())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether or not the current thread is the object&apos;s bound thread </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="63" column="9" bodyfile="xp/common/gg_threads.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___threads_1ga73bdb6283537d61cf29ec0e73aa059b6" prot="public" static="no">
+        <name>GG_THREAD_GUARD_IS_OBJECT_BOUND</name>
+        <param><defname>_object</defname></param>
+        <initializer>((_object)-&gt;_bound_thread_id != 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether or not an object is bound to a thread </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="69" column="9" bodyfile="xp/common/gg_threads.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___threads_1ga7ad7df7274e68375e74bc17000c681a7" prot="public" static="no">
+        <name>GG_THREAD_GUARD_CHECK_BINDING</name>
+        <param><defname>_object</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="97" column="9" bodyfile="xp/common/gg_threads.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___threads_1ga5590972afb637f12f67ce344bc9e5734" prot="public" static="no">
+        <name>GG_THREAD_GUARD_CHECK_MAIN_LOOP</name>
+        <param></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="98" column="9" bodyfile="xp/common/gg_threads.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" prot="public" static="no">
+        <type>uintptr_t</type>
+        <definition>typedef uintptr_t GG_ThreadId</definition>
+        <argsstring></argsstring>
+        <name>GG_ThreadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thread identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="41" column="19" bodyfile="xp/common/gg_threads.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___threads_1ga7903f2029964736efabef65cb047cfd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_ThreadGuard_SetMainLoopThreadId</definition>
+        <argsstring>(GG_ThreadId thread_id)</argsstring>
+        <name>GG_ThreadGuard_SetMainLoopThreadId</name>
+        <param>
+          <type><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref></type>
+          <declname>thread_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the ID of the thread used to compare against when calling <ref refid="group___threads_1ga3585e7580b065588671c1d7c6c7a5334" kindref="member">GG_ThreadGuard_CheckCurrentThreadIsMainLoop()</ref>. By default, the target thread ID is set to 0, which is used as a special value that matches all threads.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thread_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of the thread ID to check against, or 0. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="110" column="6" declfile="xp/common/gg_threads.h" declline="110" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___threads_1ga3585e7580b065588671c1d7c6c7a5334" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_ThreadGuard_CheckCurrentThreadIsMainLoop</definition>
+        <argsstring>(const char *caller_name)</argsstring>
+        <name>GG_ThreadGuard_CheckCurrentThreadIsMainLoop</name>
+        <param>
+          <type>const char *</type>
+          <declname>caller_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check that the current thread matches the target set previously. This function is a convenience function to allow logging and setting breakpoints when a mismatch is detected.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>caller_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the caller (for logging), or NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the current thread matches the target thread ID or if the target thread ID is 0; returns <computeroutput>false</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="122" column="6" declfile="xp/common/gg_threads.h" declline="122" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___threads_1ga972abff41ac6fc380f38619c5398e414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_ThreadGuard_CheckCurrentThreadIsExpected</definition>
+        <argsstring>(GG_ThreadId thread_id, const char *caller_name)</argsstring>
+        <name>GG_ThreadGuard_CheckCurrentThreadIsExpected</name>
+        <param>
+          <type><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref></type>
+          <declname>thread_id</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>caller_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check that the current thread matches an expected thread. This function is a convenience function to allow logging and setting breakpoints when a mismatch is detected.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>thread_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The expected thread ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>caller_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the caller (for logging), or NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the current thread matches the expected thread ID or <computeroutput>false</computeroutput> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="135" column="6" declfile="xp/common/gg_threads.h" declline="135" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___threads_1gaae8995f2c5e3772ee3a7b79313371680" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Mutex_Create</definition>
+        <argsstring>(GG_Mutex **mutex)</argsstring>
+        <name>GG_Mutex_Create</name>
+        <param>
+          <type><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref> **</type>
+          <declname>mutex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a mutex object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mutex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the mutex will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the mutex could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="153" column="1" declfile="xp/common/gg_threads.h" declline="153" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___threads_1gafe5f3585deb1344d65c2dd560f647ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref></type>
+        <definition>GG_ThreadId GG_GetCurrentThreadId</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_GetCurrentThreadId</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the identifier of the current thread.</para>
+<para><simplesect kind="return"><para>The identifier of the current thread. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="210" column="1" declfile="xp/common/gg_threads.h" declline="210" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group___threads_1gaa82e5bd25d44cb151d17d1695142d53b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Semaphore_Create</definition>
+        <argsstring>(unsigned int initial_value, GG_Semaphore **semaphore)</argsstring>
+        <name>GG_Semaphore_Create</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>initial_value</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref> **</type>
+          <declname>semaphore</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a semaphore object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initial_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial value of the semaphore. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>semaphore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the semaphore will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the semaphore could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_threads.h" line="228" column="1" declfile="xp/common/gg_threads.h" declline="228" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstraction layer for thread-related functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-27 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="15"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__utils_8h" kindref="compound">xp/common/gg_utils.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="41" refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uintptr_t<sp/><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">|<sp/><sp/><sp/>macros</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="49" refid="group___threads_1ga369b2439bae845d0ca7eb24092d20712" refkind="member"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_ENABLE_BINDING<sp/>GG_ThreadId<sp/>_bound_thread_id;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="group___threads_1gacc27a161b8fa7fa9e42def92986e08b6" refkind="member"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_BIND(_object)<sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(_object)-&gt;_bound_thread_id<sp/>=<sp/>GG_GetCurrentThreadId();<sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="group___threads_1ga237f652010423d576898698f3926ead7" refkind="member"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_IS_CURRENT_THREAD_BOUND(_object)<sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor">((_object)-&gt;_bound_thread_id<sp/>==<sp/>GG_GetCurrentThreadId())</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="group___threads_1ga73bdb6283537d61cf29ec0e73aa059b6" refkind="member"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_IS_OBJECT_BOUND(_object)<sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor">((_object)-&gt;_bound_thread_id<sp/>!=<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(GG_CONFIG_ENABLE_THREAD_GUARDS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(GG_CONFIG_THREAD_GUARDS_ASSERT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK(_x)<sp/>GG_ASSERT(_x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK(_x)<sp/>(_x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK_BINDING(_object)<sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="84"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>GG_THREAD_GUARD_CHECK(GG_ThreadGuard_CheckCurrentThreadIsExpected((_object)-&gt;_bound_thread_id,<sp/>NULL));<sp/>\</highlight></codeline>
+<codeline lineno="85"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK_MAIN_LOOP()<sp/>do<sp/>{\</highlight></codeline>
+<codeline lineno="92"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>GG_THREAD_GUARD_CHECK(GG_ThreadGuard_CheckCurrentThreadIsMainLoop(NULL));<sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK_BINDING(_object)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_THREAD_GUARD_CHECK_MAIN_LOOP()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___threads_1ga7903f2029964736efabef65cb047cfd4" kindref="member">GG_ThreadGuard_SetMainLoopThreadId</ref>(<ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref><sp/>thread_id);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___threads_1ga3585e7580b065588671c1d7c6c7a5334" kindref="member">GG_ThreadGuard_CheckCurrentThreadIsMainLoop</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>caller_name);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="group___threads_1ga972abff41ac6fc380f38619c5398e414" kindref="member">GG_ThreadGuard_CheckCurrentThreadIsExpected</ref>(<ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref><sp/>thread_id,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>caller_name);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref><sp/><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><ref refid="group___threads_1gaae8995f2c5e3772ee3a7b79313371680" kindref="member">GG_Mutex_Create</ref>(<ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>**<sp/>mutex);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><ref refid="group___threads_1ga1ba17a80f2c144726dadecad61147aff" kindref="member">GG_Mutex_LockAutoCreate</ref>(<ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>**<sp/>mutex);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><ref refid="group___threads_1gae9e2877d7b30ba04980c7000817d7872" kindref="member">GG_Mutex_Lock</ref>(<ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><ref refid="group___threads_1gae51dc97814b4332548e1b55ee003a73a" kindref="member">GG_Mutex_Unlock</ref>(<ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><ref refid="group___threads_1ga5ad0d3388bd9d9c537b96dec616c8827" kindref="member">GG_Mutex_Destroy</ref>(<ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><ref refid="group___threads_1ga9f4b6a6ff1dd4e1feeffd06098fa341c" kindref="member">GG_ThreadId</ref></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><ref refid="group___threads_1gafe5f3585deb1344d65c2dd560f647ab3" kindref="member">GG_GetCurrentThreadId</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref><sp/><ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><ref refid="group___threads_1gaa82e5bd25d44cb151d17d1695142d53b" kindref="member">GG_Semaphore_Create</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>initial_value,<sp/><ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>**<sp/>semaphore);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><ref refid="group___threads_1ga2c8500d5b1e7af0a919505af03d0c99a" kindref="member">GG_Semaphore_Acquire</ref>(<ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><ref refid="group___threads_1gae967d0fca959a558d12c3d4e8cb2f128" kindref="member">GG_Semaphore_Release</ref>(<ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><ref refid="group___threads_1ga5de66d6709017c7c6239b70caff65fcf" kindref="member">GG_Semaphore_Destroy</ref>(<ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_threads.h"/>
+  </compounddef>
+</doxygen>

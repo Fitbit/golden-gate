@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Events" kind="group">
+    <compoundname>Events</compoundname>
+    <title>Events</title>
+    <innerclass refid="structGG__Event" prot="public">GG_Event</innerclass>
+    <innerclass refid="structGG__EventListener" prot="public">GG_EventListener</innerclass>
+    <innerclass refid="structGG__EventListenerInterface" prot="public">GG_EventListenerInterface</innerclass>
+    <innerclass refid="structGG__EventEmitter" prot="public">GG_EventEmitter</innerclass>
+    <innerclass refid="structGG__EventEmitterInterface" prot="public">GG_EventEmitterInterface</innerclass>
+    <innerclass refid="structGG__EventEmitterBase" prot="public">GG_EventEmitterBase</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Events_1ga8966dfc09e79f434420a3e3cc07c82a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_EventListener_OnEvent</definition>
+        <argsstring>(GG_EventListener *self, const GG_Event *event)</argsstring>
+        <name>GG_EventListener_OnEvent</name>
+        <param>
+          <type><ref refid="structGG__EventListener" kindref="compound">GG_EventListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__Event" kindref="compound">GG_Event</ref> *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="55" column="6" declfile="xp/common/gg_events.h" declline="55" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Events_1gaac5f2b436e8ddf9a66ae09ff8443c598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_EventEmitter_SetListener</definition>
+        <argsstring>(GG_EventEmitter *self, GG_EventListener *listener)</argsstring>
+        <name>GG_EventEmitter_SetListener</name>
+        <param>
+          <type><ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__EventListener" kindref="compound">GG_EventListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="67" column="6" declfile="xp/common/gg_events.h" declline="67" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Events_1ga86f069e738cc8ceadde83b258d1b5188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_EventEmitterBase_Init</definition>
+        <argsstring>(GG_EventEmitterBase *self)</argsstring>
+        <name>GG_EventEmitterBase_Init</name>
+        <param>
+          <type><ref refid="structGG__EventEmitterBase" kindref="compound">GG_EventEmitterBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the base-class part of an object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="81" column="6" declfile="xp/common/gg_events.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>General purpose events </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

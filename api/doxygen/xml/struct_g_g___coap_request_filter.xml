@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_request_filter" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapRequestFilter</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_request_filter_1a47ec0a5e632d8305dc8ab19dfd6dcb60" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___coap_request_filter_interface" kindref="compound">GG_CoapRequestFilterInterface</ref> *</type>
+        <definition>const GG_CoapRequestFilterInterface* GG_CoapRequestFilter::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="290" column="97" bodyfile="xp/coap/gg_coap.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group___co_a_p_1ga7cf647ace7a2b7a99324ea3702c5a17c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GG_CoapRequestHandlerResult</type>
+        <definition>GG_CoapRequestHandlerResult GG_CoapRequestFilter_FilterRequest</definition>
+        <argsstring>(GG_CoapRequestFilter *self, GG_CoapEndpoint *endpoint, uint32_t handler_flags, const GG_CoapMessage *request, GG_CoapMessage **response)</argsstring>
+        <name>GG_CoapRequestFilter_FilterRequest</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>handler_flags</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> **</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Filter a request. The filter may either:<itemizedlist>
+<listitem><para>terminate the filter chain by providing a response or a CoAP result code, in which case the CoAP endpoint will stop iterating over the filter chain, and respond immediately without invoking the registered handler for the request or</para>
+</listitem><listitem><para>return GG_SUCCESS and not provide a response, in which case the CoAP endpoint will continue iterating over the filter chain to the next filter or the final handler</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint that received the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler_flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Flags associated with the handler for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request to filter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable where the filter may return a response if it terminates the filter chain. The filter should only return a response in this variable if it also returns GG_SUCCESS.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS or a CoAP result code if the filter was able to complete, or negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="325" column="29" declfile="xp/coap/gg_coap.h" declline="325" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_CoapRequestFilterInterface</label>
+        <link refid="struct_g_g___coap_request_filter_interface"/>
+      </node>
+      <node id="1">
+        <label>GG_CoapRequestFilter</label>
+        <link refid="struct_g_g___coap_request_filter"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="290" column="60" bodyfile="xp/coap/gg_coap.h" bodystart="290" bodyend="290"/>
+    <listofallmembers>
+      <member refid="group___co_a_p_1ga7cf647ace7a2b7a99324ea3702c5a17c" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilter</scope><name>GG_CoapRequestFilter_FilterRequest</name></member>
+      <member refid="struct_g_g___coap_request_filter_1a47ec0a5e632d8305dc8ab19dfd6dcb60" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilter</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

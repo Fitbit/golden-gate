@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group___memory" kind="group">
+    <compoundname>Memory</compoundname>
+    <title>Memory Management</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___memory_1ga00e11f36180828b2ed314d7e84fd9bf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* GG_AllocateMemory</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>GG_AllocateMemory</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memory from the default application heap. The memory is not initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to allocate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated memory, or NULL when out of memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="53" column="6" declfile="xp/common/gg_memory.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga070be3a1513247a0667d152c0dba9a87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* GG_AllocateZeroMemory</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>GG_AllocateZeroMemory</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocate memory from the default application heap and initialize it to zeros.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to allocate </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the allocated memory, or NULL when out of memory. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="61" column="6" declfile="xp/common/gg_memory.h" declline="61" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1gae915ba2c56af78faf745ba1e99a5d7e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_FreeMemory</definition>
+        <argsstring>(void *memory)</argsstring>
+        <name>GG_FreeMemory</name>
+        <param>
+          <type>void *</type>
+          <declname>memory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Free a block of memory that was allocated from the default application heap.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>memory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory to free. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="68" column="6" declfile="xp/common/gg_memory.h" declline="68" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga87711c7f72de6c852d1c4b2f14d7e420" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_ClearAndFreeMemory</definition>
+        <argsstring>(void *memory, size_t memory_size, size_t trap_count)</argsstring>
+        <name>GG_ClearAndFreeMemory</name>
+        <param>
+          <type>void *</type>
+          <declname>memory</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>memory_size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>trap_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clear a block of memory that was allocated from the default application heap, then free it. Clearing fills the memory with 0s. Optionally, this function can also set one or more vtable &quot;traps&quot; at the start of the memory block, which allows catching invalid calls to virtual functions on objects that have been free&apos;d.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>memory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory to clear and free. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>memory_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the memory block to clear. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trap_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of vtable pointers to set a trap for at the start of the block. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="80" column="6" declfile="xp/common/gg_memory.h" declline="80" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga6c5eedb2ede7d9c3d74803be5638ab12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_AutoreleaseWrap</definition>
+        <argsstring>(GG_Result(*function)(void *arg), void *arg)</argsstring>
+        <name>GG_AutoreleaseWrap</name>
+        <param>
+          <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*)(void *arg)</type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap a function invocation inside an autorelease context. (Needed by some platforms to avoid long term retention of objects)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the function that should be invoked from within the wrapping context. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The result returned by the wrapped function. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="97" column="11" declfile="xp/common/gg_memory.h" declline="97" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___memory_1ga963e7b98879b5b8874f445add8cf2cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RegisterAllocateMemoryFailureCallback</definition>
+        <argsstring>(GG_AllocateMemoryFailureCallback callback)</argsstring>
+        <name>GG_RegisterAllocateMemoryFailureCallback</name>
+        <param>
+          <type>GG_AllocateMemoryFailureCallback</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register callback to be called when an GG allocate memory call fails</para>
+<para>The callback can be register to call platform specific code when a memory allocation fails within the GG lib.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to function to be called on memory allocation failure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="107" column="6" declfile="xp/common/gg_memory.h" declline="107" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___memory_1ga102d2dcf825c80ac3931b7479c08f86f" prot="public" static="no">
+        <name>GG_ClearAndFreeObject</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_trap_count</defname></param>
+        <initializer><ref refid="group___memory_1ga87711c7f72de6c852d1c4b2f14d7e420" kindref="member">GG_ClearAndFreeMemory</ref>((_object), sizeof(*(_object)), (_trap_count))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience macro to call GG_ClearAndFreeMemory with the memory size set to the size of the object being free&apos;d. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_memory.h" line="86" column="9" bodyfile="xp/common/gg_memory.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Memory management. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

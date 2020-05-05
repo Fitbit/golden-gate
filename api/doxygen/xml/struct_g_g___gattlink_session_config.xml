@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___gattlink_session_config" kind="struct" language="C++" prot="public">
+    <compoundname>GG_GattlinkSessionConfig</compoundname>
+    <includes refid="gg__gattlink_8h" local="no">xp/gattlink/gg_gattlink.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___gattlink_session_config_1a019c3928f155ec9f83cf5d63a31de5bd" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_GattlinkSessionConfig::max_tx_window_size</definition>
+        <argsstring></argsstring>
+        <name>max_tx_window_size</name>
+        <briefdescription>
+<para>The max number of transport in-flight outbound packets at any given time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="183" column="13" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___gattlink_session_config_1ac2a3fcea957af4d6d14a8fab557e7e3b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_GattlinkSessionConfig::max_rx_window_size</definition>
+        <argsstring></argsstring>
+        <name>max_rx_window_size</name>
+        <briefdescription>
+<para>The max number of transport in-flight inbound packets at any given time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="185" column="13" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Configuration information for the a GattLink Session. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/gattlink/gg_gattlink.h" line="181" column="15" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="181" bodyend="186"/>
+    <listofallmembers>
+      <member refid="struct_g_g___gattlink_session_config_1ac2a3fcea957af4d6d14a8fab557e7e3b" prot="public" virt="non-virtual"><scope>GG_GattlinkSessionConfig</scope><name>max_rx_window_size</name></member>
+      <member refid="struct_g_g___gattlink_session_config_1a019c3928f155ec9f83cf5d63a31de5bd" prot="public" virt="non-virtual"><scope>GG_GattlinkSessionConfig</scope><name>max_tx_window_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

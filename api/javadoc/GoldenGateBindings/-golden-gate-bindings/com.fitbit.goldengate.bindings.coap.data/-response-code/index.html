@@ -1,0 +1,316 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ResponseCode - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">ResponseCode</a><br/>
+<br/>
+<h1>ResponseCode</h1>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">ResponseCode</span></code>
+<p>This represents a CoAP response code (analogous to an HTTP response code (e.g. 201, 404, 500)</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-class/index.html">Class</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Class</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ResponseCode</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.ResponseCode$<init>(kotlin.Byte, kotlin.Byte)/responseClass">responseClass</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.ResponseCode$<init>(kotlin.Byte, kotlin.Byte)/detail">detail</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a><span class="symbol">)</span></code>
+<p>This represents a CoAP response code (analogous to an HTTP response code (e.g. 201, 404, 500)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="detail.html">detail</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">detail</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a></code>
+<p>is the class-specific detail code. (e.g. ResponseCode(2, 5) represents CONTENT and ResponseCode (4, 4) represents NOT_FOUND</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="response-class.html">responseClass</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">responseClass</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a></code>
+<p>Response <a href="-class/index.html">Class</a> is the major class of the code. 2 = Success, 3 = Redirection, 4 = Client Error, 5 = Server Error</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="bad-gateway.html">badGateway</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">badGateway</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 502</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="bad-option.html">badOption</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">badOption</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 402</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="bad-request.html">badRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">badRequest</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 400</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="changed.html">changed</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">changed</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 204</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="content.html">content</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">content</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 205</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="continue.html">continue</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">continue</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 231</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="created.html">created</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">created</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 201</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="deleted.html">deleted</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">deleted</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 202</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="forbidden.html">forbidden</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">forbidden</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 403</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="gateway-timeout.html">gatewayTimeout</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">gatewayTimeout</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 504</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="internal-server-error.html">internalServerError</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">internalServerError</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 500</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="method-not-allowed.html">methodNotAllowed</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">methodNotAllowed</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 405</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="not-acceptable.html">notAcceptable</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notAcceptable</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 406</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="not-found.html">notFound</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notFound</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 404</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="not-implemented.html">notImplemented</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">notImplemented</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 501</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="precondition-failed.html">preconditionFailed</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">preconditionFailed</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 412</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="proxying-not-supported.html">proxyingNotSupported</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">proxyingNotSupported</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 505</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="request-entity-incomplete.html">requestEntityIncomplete</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">requestEntityIncomplete</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 408</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="request-entity-too-large.html">requestEntityTooLarge</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">requestEntityTooLarge</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 413</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="service-unavailable.html">serviceUnavailable</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">serviceUnavailable</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 503</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="unauthorized.html">unauthorized</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">unauthorized</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 401</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="unsupported-content-format.html">unsupportedContentFormat</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">unsupportedContentFormat</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 415</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="valid.html">valid</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">valid</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP Response Code 203</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../client-error.html">clientError</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">clientError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is client error, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../error.html">error</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">error</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is client or server error, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../ok.html">ok</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">ok</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is ok, false otherwise</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../server-error.html">serverError</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">ResponseCode</span></a><span class="symbol">.</span><span class="identifier">serverError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Extension function that return true if response is server error, false otherwise</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

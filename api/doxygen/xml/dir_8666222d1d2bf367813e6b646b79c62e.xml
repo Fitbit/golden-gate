@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_8666222d1d2bf367813e6b646b79c62e" kind="dir">
+    <compoundname>xp/loop</compoundname>
+    <innerdir refid="dir_23f83e90152b4b3714c6b6919b896974">xp/loop/extensions</innerdir>
+    <innerfile refid="gg__loop_8h">gg_loop.h</innerfile>
+    <innerfile refid="gg__loop__base_8h">gg_loop_base.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/loop/"/>
+  </compounddef>
+</doxygen>

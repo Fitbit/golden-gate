@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__EventListenerInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_EventListenerInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__EventListenerInterface_1aba109025dfa94c7a125d6ce0b738202f" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_EventListenerInterface::OnEvent) (GG_EventListener *self, const GG_Event *event)</definition>
+        <argsstring>)(GG_EventListener *self, const GG_Event *event)</argsstring>
+        <name>OnEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="52" column="5" bodyfile="xp/common/gg_events.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_events.h" line="51" column="89" bodyfile="xp/common/gg_events.h" bodystart="51" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structGG__EventListenerInterface_1aba109025dfa94c7a125d6ce0b738202f" prot="public" virt="non-virtual"><scope>GG_EventListenerInterface</scope><name>OnEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

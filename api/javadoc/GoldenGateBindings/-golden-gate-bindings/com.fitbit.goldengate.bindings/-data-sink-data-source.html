@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DataSinkDataSource - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.goldengate.bindings</a>&nbsp;/&nbsp;<a href="./-data-sink-data-source.html">DataSinkDataSource</a><br/>
+<br/>
+<h1>DataSinkDataSource</h1>
+<code><span class="keyword">interface </span><span class="identifier">DataSinkDataSource</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-data-sink/index.html"><span class="identifier">DataSink</span></a><span class="symbol">, </span><a href="-data-source/index.html"><span class="identifier">DataSource</span></a></code>
+<p>Created by muyttersprot on 3/7/18.</p>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-data-sink/get-as-data-sink-pointer.html">getAsDataSinkPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAsDataSinkPointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-data-source/get-as-data-source-pointer.html">getAsDataSourcePointer</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getAsDataSourcePointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../com.fitbit.goldengate.bindings.sockets.bsd/-bsd-datagram-socket/index.html">BsdDatagramSocket</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BsdDatagramSocket</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="./-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Creates a new BSD socket with given configuration data</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../com.fitbit.goldengate.bindings.coap/-coap-endpoint/index.html">CoapEndpoint</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpoint</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a><span class="symbol">, </span><a href="../com.fitbit.goldengate.bindings.coap/-endpoint/index.html"><span class="identifier">Endpoint</span></a><span class="symbol">, </span><a href="./-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a></code>
+<p>Coap Client/Server API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../com.fitbit.goldengate.bindings.stack/-stack/index.html">Stack</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Stack</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="./-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>A Kotlin representation of a Golden Gate stack. The data sink and data source exposed through
+<a href="../com.fitbit.goldengate.bindings.stack/-stack/get-as-data-sink-pointer.html">getAsDataSinkPointer</a> and <a href="../com.fitbit.goldengate.bindings.stack/-stack/get-as-data-source-pointer.html">getAsDataSourcePointer</a> are the data sink/source on the "top" of the stack.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Interfaces" kind="group">
+    <compoundname>Interfaces</compoundname>
+    <title>Interfaces</title>
+    <innerclass refid="structGG__InspectableInterface" prot="public">GG_InspectableInterface</innerclass>
+    <innerclass refid="interfaceGG__Buffer" prot="public">GG_Buffer</innerclass>
+    <innerclass refid="interfaceGG__BufferSource" prot="public">GG_BufferSource</innerclass>
+    <innerclass refid="structGG__EventListener" prot="public">GG_EventListener</innerclass>
+    <innerclass refid="structGG__EventEmitter" prot="public">GG_EventEmitter</innerclass>
+    <innerclass refid="structGG__DataSinkListener" prot="public">GG_DataSinkListener</innerclass>
+    <innerclass refid="structGG__DataSink" prot="public">GG_DataSink</innerclass>
+    <innerclass refid="structGG__DataSource" prot="public">GG_DataSource</innerclass>
+    <innerclass refid="structGG__InputStream" prot="public">GG_InputStream</innerclass>
+    <innerclass refid="structGG__OutputStream" prot="public">GG_OutputStream</innerclass>
+    <innerclass refid="structGG__LogHandler" prot="public">GG_LogHandler</innerclass>
+    <innerclass refid="structGG__TimerListener" prot="public">GG_TimerListener</innerclass>
+    <innerclass refid="structGG__GenericCallbackHandler" prot="public">GG_GenericCallbackHandler</innerclass>
+    <innerclass refid="structGG__Inspector" prot="public">GG_Inspector</innerclass>
+    <innerclass refid="structGG__FrameAssembler" prot="public">GG_FrameAssembler</innerclass>
+    <innerclass refid="structGG__FrameSerializer" prot="public">GG_FrameSerializer</innerclass>
+    <innerclass refid="structGG__TlsKeyResolver" prot="public">GG_TlsKeyResolver</innerclass>
+    <innerclass refid="structGG__DataProbeListener" prot="public">GG_DataProbeListener</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" prot="public" static="no">
+        <name>GG_INTERFACE_BASE_FIELD</name>
+        <param><defname>_iface</defname></param>
+        <initializer>_iface##_Base</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Name of the field used to hold the interface base class in an instance </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="66" column="9" bodyfile="xp/common/gg_types.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga2e8fdfcce2850f6531b6e1b453c90c31" prot="public" static="no">
+        <name>GG_SELF</name>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>GG_SELF_O(_self, _self_type, _iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to obtain a pointer to the containing object from a pointer to an interface implemented by that object. The use of this macro assumes that the pointer to the interface is a variable named <computeroutput>_self</computeroutput>, typically the first parameter in a method implementation function.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>MyFooar;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>MyFoobar_SomeMethod(GG_Foobar*<sp/>_self)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>MyFoobar*<sp/>self<sp/>=<sp/>GG_SELF(MyFoobar,<sp/>GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>do<sp/>something<sp/>that<sp/>accesses<sp/>the<sp/>fields<sp/>of<sp/>self</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="87" column="9" bodyfile="xp/common/gg_types.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga711d3358292cebcd723f367405f76b3b" prot="public" static="no">
+        <name>GG_SELF_O</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>( (_self_type *)( ((uintptr_t)(_object)) - offsetof(_self_type, <ref refid="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface))) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="88" column="9" bodyfile="xp/common/gg_types.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1gade1e4e3a9d135089a2fd1a30e4ae1d24" prot="public" static="no">
+        <name>GG_SELF_M</name>
+        <param><defname>_member</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>GG_SELF_M_O(_self, _member, _self_type, _iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro similar to <computeroutput>GG_SELF</computeroutput>, but for when the object declares that it implements an interface as part of an inner object/struct field.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>inner;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>MyFooar;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>MyFoobar_SomeMethod(GG_Foobar*<sp/>_self)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>MyFoobar*<sp/>self<sp/>=<sp/>GG_SELF_M(inner,<sp/>MyFoobar,<sp/>GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>do<sp/>something<sp/>that<sp/>accesses<sp/>the<sp/>fields<sp/>of<sp/>self</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="111" column="9" bodyfile="xp/common/gg_types.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga5b1745108ad036e9e0c07f8b26c8d64b" prot="public" static="no">
+        <name>GG_SELF_M_O</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_member</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>( (_self_type *)( ((uintptr_t)(_object)) - offsetof(_self_type, <ref refid="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">_member.GG_INTERFACE_BASE_FIELD</ref>(_iface))) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="112" column="9" bodyfile="xp/common/gg_types.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga3514945cbd3978948239166812e3d26f" prot="public" static="no">
+        <name>GG_CAST</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>&amp;(_object)-&gt;<ref refid="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to obtain a pointer to one of the interfaces implemented by that object.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_Foobar*<sp/>foobar<sp/>=<sp/>GG_CAST(my_object,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="123" column="9" bodyfile="xp/common/gg_types.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga8f7027840366e425586829a75c1bfb30" prot="public" static="no">
+        <name>GG_DECLARE_INTERFACE</name>
+        <param><defname>_iface</defname></param>
+        <initializer>typedef struct _iface##Interface _iface##Interface;  \
+typedef struct {                                     \
+    const _iface##Interface* vtable;                 \
+} _iface;                                            \
+struct _iface##Interface</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to declare an abstract interface.</para>
+<para>The parameter is the name of an interface to define. For a name <computeroutput>Foo</computeroutput>, this will declare an object type <computeroutput>Foo</computeroutput> that can be used to type pointers to objects that implement the <computeroutput>Foo</computeroutput> interface, as well as a virtual function table <computeroutput>FooInterface</computeroutput> that is a structure containing fields that are function pointers, one for each method of the interface.</para>
+<para>This macro must be followed directly (without <computeroutput>;</computeroutput>) by an opening <computeroutput>{</computeroutput>, then methods expressed as function pointers, and finally a closing <computeroutput>};</computeroutput></para>
+<para>The first parameter of each method declaration <emphasis>must</emphasis> be a pointer to the object type.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_DECLARE_INTERFACE(GG_Foobar)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_Result<sp/>(*Method1)(GG_Foobar*<sp/>self,<sp/>int<sp/>param);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_Result<sp/>(*Method2)(GG_Foobar*<sp/>self,<sp/>const<sp/>char*<sp/>param);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="147" column="9" bodyfile="xp/common/gg_types.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga336e7ba50a655742b221c831740ed2e8" prot="public" static="no">
+        <name>GG_IMPLEMENT_INTERFACE</name>
+        <param><defname>_class</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>static const _iface##Interface _class##_##_iface##Interface =</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to define the virtual function table for a class that implements an interface.</para>
+<para>The first parameter is the name of the class, and the second parameter is the name of an interface implemented by the class.</para>
+<para>This macro must be followed directly (without <computeroutput>;</computeroutput>) by an opening <computeroutput>{</computeroutput>, then the names of the function that implement each of the methods of the interface, separated by <computeroutput>,</computeroutput>, then a closing <computeroutput>};</computeroutput></para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_IMPLEMENT_INTERFACE(MyClass,<sp/>GG_Foobar)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.Method1<sp/>=<sp/>MyClass_Method1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.Method2<sp/>=<sp/>MyClass_Method2</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="173" column="9" bodyfile="xp/common/gg_types.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1gab80b4535f8dc0da5624e36997daa90dd" prot="public" static="no">
+        <name>GG_SET_INTERFACE</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_class</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>do {                                 \
+    (_object)-&gt;<ref refid="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface).vtable = &amp;_class##_##_iface##Interface; \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to setup a virtual function table pointer for an instance of a class that implements an interface.</para>
+<para>The first parameter is the object instance. The second parameter is the name of the class of the instance. The third parameter is the name of the interface for which to set the virtual function table pointer.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_SET_INTERFACE(my_object,<sp/>MyObjectType,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="189" column="9" bodyfile="xp/common/gg_types.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Interfaces_1ga3ed5aa4cb75b5444f3e4bdce9f83b82d" prot="public" static="no">
+        <name>GG_SET_INTERFACE_TRAP</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>do {                                                 \
+    (_object)-&gt;<ref refid="group__Interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface).vtable = (const void*)GG_GenericInterfaceTrapVTable; \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to set an interface trap. A trap is a special implementation of an interface that can be used to trap calls made through that interface when it shouldn&apos;t have. This is typically used in object destructors, so that if a destroyed object is used after its memory has been free&apos;d, the trap will be called (unless of course that memory has been overwritten with something else).</para>
+<para>The first parameter is the object instance. The second parameter is the name of the interface for which to set a trap.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_SET_INTERFACE_TRAP(my_object,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="208" column="9" bodyfile="xp/common/gg_types.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Abstract Interfaces </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

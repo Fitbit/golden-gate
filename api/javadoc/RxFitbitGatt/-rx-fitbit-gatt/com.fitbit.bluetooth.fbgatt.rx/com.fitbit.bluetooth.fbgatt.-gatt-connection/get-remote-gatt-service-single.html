@@ -1,0 +1,20 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>getRemoteGattServiceSingle - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.bluetooth.fbgatt.GattConnection</a>&nbsp;/&nbsp;<a href="./get-remote-gatt-service-single.html">getRemoteGattServiceSingle</a><br/>
+<br/>
+<h1>getRemoteGattServiceSingle</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceSingle(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)"></a>
+<code><span class="keyword">fun </span><span class="identifier">GattConnection</span><span class="symbol">.</span><span class="identifier">getRemoteGattServiceSingle</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceSingle(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span></code>
+<p>Reactive extension function to return <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html">BluetoothGattService</a> for given service uuid</p>
+<h3>Exceptions</h3>
+<p><a name="GattServiceNotFoundException"></a>
+<code>GattServiceNotFoundException</code> - if remote service is NOT found OR peripheral is not connected</p>
+<p><strong>Return</strong><br/>
+Single <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html">BluetoothGattService</a> if remote service is found, else emmits exception</p>
+</BODY>
+</HTML>

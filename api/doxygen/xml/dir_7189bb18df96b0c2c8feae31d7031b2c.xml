@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_7189bb18df96b0c2c8feae31d7031b2c" kind="dir">
+    <compoundname>xp/utils</compoundname>
+    <innerfile refid="gg__activity__data__monitor_8h">gg_activity_data_monitor.h</innerfile>
+    <innerfile refid="gg__async__pipe_8h">gg_async_pipe.h</innerfile>
+    <innerfile refid="gg__blaster__data__source_8h">gg_blaster_data_source.h</innerfile>
+    <innerfile refid="gg__coap__event__emitter_8h">gg_coap_event_emitter.h</innerfile>
+    <innerfile refid="gg__data__probe_8h">gg_data_probe.h</innerfile>
+    <innerfile refid="gg__memory__data__sink_8h">gg_memory_data_sink.h</innerfile>
+    <innerfile refid="gg__memory__data__source_8h">gg_memory_data_source.h</innerfile>
+    <innerfile refid="gg__perf__data__sink_8h">gg_perf_data_sink.h</innerfile>
+    <innerfile refid="gg__print__data__sink_8h">gg_print_data_sink.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/utils/"/>
+  </compounddef>
+</doxygen>

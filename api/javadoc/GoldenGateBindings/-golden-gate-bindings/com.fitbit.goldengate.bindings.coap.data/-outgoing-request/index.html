@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OutgoingRequest - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">OutgoingRequest</a><br/>
+<br/>
+<h1>OutgoingRequest</h1>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-outgoing-message/index.html"><span class="identifier">OutgoingMessage</span></a><span class="symbol">, </span><a href="../-base-request/index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Represents outgoing request for a request in coap client mode.</p>
+<p>Use <a href="../-outgoing-request-builder/index.html">OutgoingRequestBuilder</a> for creating this object.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ack-timeout.html">ackTimeout</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">ackTimeout</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Timeout after which a resend will happen, in milliseconds.
+Set 0 to use a default value, which is a random number within <a href="#">GG_COAP_ACK_TIMEOUT_MS</a> sec to
+1.5 * <a href="#">GG_COAP_ACK_TIMEOUT_MS</a> sec</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="expect-success.html">expectSuccess</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">expectSuccess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Tweaks Observable behavior and allows for custom error handling.
+If true (default), a non-2.xx response will error <a href="#">CoapEndpointResponseException</a> the response() Observable.
+If false, a non-2.xx response will be reported as a <code>next</code> event.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="force-non-blockwise.html">forceNonBlockwise</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">forceNonBlockwise</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Flag to treat the request as non-blockwise. In a blockwise request data is sent in chuncks(blocks)
+of fixed size. In GG we use 1024 bytes. On the tracker some Coap resources accept larger data payloads
+in a single block. In this case we need to force a non-blockwise request. Here is an example of this
+type of resource:</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="max-resend-count.html">maxResendCount</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">maxResendCount</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Maximum number of times the client will resend the request if there is a response timeout.
+For example, when set to 0, a request will only be sent once and not re-sent if a response
+isn't received before the ack timeout. If maxResendCount is set to a negative value, the
+default value <a href="#">GG_COAP_DEFAULT_MAX_RETRANSMIT</a> from GG XP lib will be used.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-outgoing-message/body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="../-outgoing-body.html"><span class="identifier">OutgoingBody</span></a></code>
+<p>Coap message body</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-request/method.html">method</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">method</span><span class="symbol">: </span><a href="../-method/index.html"><span class="identifier">Method</span></a></code>
+<p>Request <a href="../-method/index.html">Method</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-request/progress-observer.html">progressObserver</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">progressObserver</span><span class="symbol">: </span><span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Observer for the number of bytes Sent/Received in a Blockwise Operation</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

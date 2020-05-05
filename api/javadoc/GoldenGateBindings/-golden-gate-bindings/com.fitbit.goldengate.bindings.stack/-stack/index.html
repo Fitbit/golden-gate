@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Stack - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.stack</a>&nbsp;/&nbsp;<a href="./index.html">Stack</a><br/>
+<br/>
+<h1>Stack</h1>
+<code><span class="keyword">class </span><span class="identifier">Stack</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>A Kotlin representation of a Golden Gate stack. The data sink and data source exposed through
+<a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a> and <a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a> are the data sink/source on the "top" of the stack.</p>
+<p>Appropriate things to attach to those are <a href="../-stack-service/index.html">StackService</a> like <a href="#">CoapEndpoint</a> and <a href="#">Blaster</a></p>
+<h3>Parameters</h3>
+<p><a name="nodeKey"></a>
+<code>nodeKey</code> - node identifier this stack is attached to</p>
+<p><a name="transportSinkPtr"></a>
+<code>transportSinkPtr</code> - Bottom of stack sink (data will be transmitted on this sink reference)</p>
+<p><a name="transportSourcePtr"></a>
+<code>transportSourcePtr</code> - Bottom of stack (data will be received from this source reference)</p>
+<p><a name="stackConfig"></a>
+<code>stackConfig</code> - configuration in which this stack should be created (Default is <a href="../-dtls-socket-netif-gattlink/index.html">DtlsSocketNetifGattlink</a>)</p>
+<p><a name="isNode"></a>
+<code>isNode</code> - if stack should be configured as Node or Hub (default is false)</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Stack</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/nodeKey">nodeKey</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/transportSinkPtr">transportSinkPtr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/transportSourcePtr">transportSourcePtr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/stackConfig">stackConfig</span><span class="symbol">:</span>&nbsp;<a href="../-stack-config/index.html"><span class="identifier">StackConfig</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DtlsSocketNetifGattlink()<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$<init>(com.fitbit.goldengate.bindings.node.NodeKey((kotlin.Any)), kotlin.Long, kotlin.Long, com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Boolean)/isNode">isNode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span></code>
+<p>A Kotlin representation of a Golden Gate stack. The data sink and data source exposed through
+<a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a> and <a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a> are the data sink/source on the "top" of the stack.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="dtls-event-observable.html">dtlsEventObservable</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dtlsEventObservable</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.dtls/-dtls-protocol-status/index.html"><span class="identifier">DtlsProtocolStatus</span></a><span class="symbol">&gt;</span></code>
+<p>Observable on which DTLS event changes are available. This observable is only applicable
+when stack is configured with DTLS</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stack-event-observable.html">stackEventObservable</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">stackEventObservable</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="../-stack-event/index.html"><span class="identifier">StackEvent</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="this-pointer.html">thisPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">thisPointer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Pointer to native jni reference for this object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSinkPointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSourcePointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-dtls-status-change.html">onDtlsStatusChange</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onDtlsStatusChange</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$onDtlsStatusChange(kotlin.Int, kotlin.Int, kotlin.ByteArray)/tlsState">tlsState</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$onDtlsStatusChange(kotlin.Int, kotlin.Int, kotlin.ByteArray)/tlsLastError">tlsLastError</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$onDtlsStatusChange(kotlin.Int, kotlin.Int, kotlin.ByteArray)/pskIdentity">pskIdentity</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-stack-event.html">onStackEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onStackEvent</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$onStackEvent(kotlin.Int, kotlin.Int)/eventId">eventId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$onStackEvent(kotlin.Int, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="start.html">start</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Start the stack must be called as soon as Node is connected</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="update-mtu.html">updateMtu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">updateMtu</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.Stack$updateMtu(kotlin.Int)/mtu">mtu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Update MTU for this stack</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

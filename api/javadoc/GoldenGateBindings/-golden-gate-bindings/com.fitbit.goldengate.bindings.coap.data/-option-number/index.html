@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OptionNumber - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">OptionNumber</a><br/>
+<br/>
+<h1>OptionNumber</h1>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">OptionNumber</span></code>
+<p>Supported options that can be added to a coap message options</p>
+<p>Note: For Internal use only, use <a href="../-option/index.html">Option</a> and <a href="../-outgoing-request-builder/index.html">OutgoingRequestBuilder</a> for creating coap request</p>
+<h3>Enum Values</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-i-f_-m-a-t-c-h.html">IF_MATCH</a></p>
+</td>
+<td>
+<p>The If-Match Option MAY be used to make a request conditional on the current existence or
+value of an ETag for one or more representations of the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-e-t-a-g.html">ETAG</a></p>
+</td>
+<td>
+<p>The request MAY include one or more ETag Options, identifying responses that the client has stored.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-i-f_-n-o-n-e_-m-a-t-c-h.html">IF_NONE_MATCH</a></p>
+</td>
+<td>
+<p>The If-None-Match Option MAY be used to make a request conditional on the nonexistence of
+the target resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-l-o-c-a-t-i-o-n_-p-a-t-h.html">LOCATION_PATH</a></p>
+</td>
+<td>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-u-r-i_-p-a-t-h.html">URI_PATH</a></p>
+</td>
+<td>
+<p>Specifies one segment of the absolute path to the resource</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-c-o-n-t-e-n-t_-f-o-r-m-a-t.html">CONTENT_FORMAT</a></p>
+</td>
+<td>
+<p>The Content-Format Option indicates the representation format of the message payload.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-m-a-x_-a-g-e.html">MAX_AGE</a></p>
+</td>
+<td>
+<p>Caches can use the Max-Age Option to determine freshness and (if present) the <a href="-e-t-a-g.html">ETAG</a> Option
+for validation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-u-r-i_-q-u-e-r-y.html">URI_QUERY</a></p>
+</td>
+<td>
+<p>Specifies one argument parameterizing the resource.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-a-c-c-e-p-t.html">ACCEPT</a></p>
+</td>
+<td>
+<p>Can be used to indicate which Content-Format is acceptable to the client.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-l-o-c-a-t-i-o-n_-q-u-e-r-y.html">LOCATION_QUERY</a></p>
+</td>
+<td>
+<p>The values of these options specify the location at which the resource was created.
+Otherwise, the resource was created at the request URI.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-s-t-a-r-t_-o-f-f-s-e-t.html">START_OFFSET</a></p>
+</td>
+<td>
+<p>vendor-specific option number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="value.html">value</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><span class="identifier">Short</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="from-value.html">fromValue</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">fromValue</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OptionNumber.Companion$fromValue(kotlin.Short)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><span class="identifier">Short</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OptionNumber</span></a></code>
+<p>Create <a href="./index.html">OptionNumber</a> from given value</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

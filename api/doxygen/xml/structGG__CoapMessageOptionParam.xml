@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapMessageOptionParam" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapMessageOptionParam</compoundname>
+    <includes refid="gg__coap_8h" local="no">xp/coap/gg_coap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapMessageOptionParam_1a2a558190c62b370954358b8d5cba7391" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__CoapMessageOption" kindref="compound">GG_CoapMessageOption</ref></type>
+        <definition>GG_CoapMessageOption GG_CoapMessageOptionParam::option</definition>
+        <argsstring></argsstring>
+        <name>option</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="141" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapMessageOptionParam_1a61e7b6ab7c561654950a45823440fa24" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structGG__CoapMessageOptionParam" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+        <definition>struct GG_CoapMessageOptionParam* GG_CoapMessageOptionParam::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This field allows options to be put in a linked list It may be set to NULL when options are passed as an array. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="148" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapMessageOptionParam_1a90d6f716fe46f27ce6d63f8303a3be93" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structGG__CoapMessageOptionParam" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+        <definition>struct GG_CoapMessageOptionParam* GG_CoapMessageOptionParam::sorted_next</definition>
+        <argsstring></argsstring>
+        <name>sorted_next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This field allows options to be sorted. It is used internally by the CoAP runtime when serializing messages to datagrams, and should be ignored by users of the API. It is part of this structure for efficiency, so that the library does not have to allocate its own memory when sorting options. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="157" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct used to pass array(s) of options when creating a CoAP message.</para>
+<para>This struct is intended to be used to hold on-stack initializers for message options. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_CoapMessageOption</label>
+        <link refid="structGG__CoapMessageOption"/>
+      </node>
+      <node id="1">
+        <label>GG_CoapMessageOptionParam</label>
+        <link refid="structGG__CoapMessageOptionParam"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>sorted_next</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>option</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="140" column="40" bodyfile="xp/coap/gg_coap.h" bodystart="140" bodyend="158"/>
+    <listofallmembers>
+      <member refid="structGG__CoapMessageOptionParam_1a61e7b6ab7c561654950a45823440fa24" prot="public" virt="non-virtual"><scope>GG_CoapMessageOptionParam</scope><name>next</name></member>
+      <member refid="structGG__CoapMessageOptionParam_1a2a558190c62b370954358b8d5cba7391" prot="public" virt="non-virtual"><scope>GG_CoapMessageOptionParam</scope><name>option</name></member>
+      <member refid="structGG__CoapMessageOptionParam_1a90d6f716fe46f27ce6d63f8303a3be93" prot="public" virt="non-virtual"><scope>GG_CoapMessageOptionParam</scope><name>sorted_next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

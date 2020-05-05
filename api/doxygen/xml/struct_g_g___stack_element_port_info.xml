@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___stack_element_port_info" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackElementPortInfo</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" prot="public" static="no" mutable="no">
+        <type><ref refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" kindref="member">GG_StackPortId</ref></type>
+        <definition>GG_StackPortId GG_StackElementPortInfo::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>Identifier for the port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="93" column="20" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_StackElementPortInfo::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <briefdescription>
+<para>Data source interface for an element I/O port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="94" column="19" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_StackElementPortInfo::sink</definition>
+        <argsstring></argsstring>
+        <name>sink</name>
+        <briefdescription>
+<para>Data sink interface for an element I/O port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="95" column="19" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>I/O interfaces that are exposed by stack elements. A stack element typically has 1 or 2 ports that it communicates through. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_StackElementPortInfo</label>
+        <link refid="struct_g_g___stack_element_port_info"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>source</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>sink</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_DataSourceInterface</label>
+        <link refid="struct_g_g___data_source_interface"/>
+      </node>
+      <node id="2">
+        <label>GG_DataSource</label>
+        <link refid="struct_g_g___data_source"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_DataSink</label>
+        <link refid="struct_g_g___data_sink"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GG_DataSinkInterface</label>
+        <link refid="struct_g_g___data_sink_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="92" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="92" bodyend="96"/>
+    <listofallmembers>
+      <member refid="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" prot="public" virt="non-virtual"><scope>GG_StackElementPortInfo</scope><name>id</name></member>
+      <member refid="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" prot="public" virt="non-virtual"><scope>GG_StackElementPortInfo</scope><name>sink</name></member>
+      <member refid="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" prot="public" virt="non-virtual"><scope>GG_StackElementPortInfo</scope><name>source</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StackService - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.stack</a>&nbsp;/&nbsp;<a href="./index.html">StackService</a><br/>
+<br/>
+<h1>StackService</h1>
+<code><span class="keyword">interface </span><span class="identifier">StackService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.io/-attachable/index.html"><span class="identifier">Attachable</span></a><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings.util/-detachable/index.html"><span class="identifier">Detachable</span></a><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Service that communicates with top of the stack</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-provider/index.html">Provider</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Provider</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="set-filter-group.html">setFilterGroup</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setFilterGroup</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/group">group</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap/-coap-group-request-filter-mode/index.html"><span class="identifier">CoapGroupRequestFilterMode</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/key">key</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the current filter group used by the CoAP request filter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.io/-attachable/attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Attachable$attach(com.fitbit.goldengate.bindings.DataSinkDataSource)/dataSinkDataSource">dataSinkDataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach the source and sink</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.util/-detachable/detach.html">detach</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">detach</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.services/-blast-service/index.html">BlastService</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">BlastService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackService</span></a></code>
+<p>Service to automate sending and receiving packets, this service can be exposed via remote api</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.io/-blaster/index.html">Blaster</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Blaster</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackService</span></a></code>
+<p>Stack service for supporting blasting random packets over attached GG stack.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.coap/-coap-endpoint/index.html">CoapEndpoint</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpoint</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">StackService</span></a><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings.coap/-endpoint/index.html"><span class="identifier">Endpoint</span></a><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a></code>
+<p>Coap Client/Server API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.services/-coap-services/index.html">CoapServices</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapServices</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackService</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.io/-single-message-sender/index.html">SingleMessageSender</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">SingleMessageSender</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">StackService</span></a></code>
+<p>StackService for sending single message over attached GG stack</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

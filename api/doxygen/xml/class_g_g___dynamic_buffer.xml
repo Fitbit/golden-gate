@@ -1,0 +1,637 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="class_g_g___dynamic_buffer" kind="class" language="C++" prot="public">
+    <compoundname>GG_DynamicBuffer</compoundname>
+    <basecompoundref refid="interface_g_g___buffer" prot="public" virt="non-virtual">GG_Buffer</basecompoundref>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group___buffers_1gadd8eaf129a1656211adf8c6f6d91ba52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_Create</definition>
+        <argsstring>(size_t size, GG_DynamicBuffer **buffer)</argsstring>
+        <name>GG_DynamicBuffer_Create</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> **</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size to pre-reserve for the buffer (may be 0, it can grow later). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the new object instance will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="148" column="11" declfile="xp/common/gg_buffer.h" declline="148" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga4b3113c0006afb17ee911784e1865364" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> *</type>
+        <definition>GG_Buffer * GG_DynamicBuffer_AsBuffer</definition>
+        <argsstring>(GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_AsBuffer</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="157" column="11" declfile="xp/common/gg_buffer.h" declline="157" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga2a321b9e73381f3241292053f7023708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+        <definition>GG_DynamicBuffer * GG_DynamicBuffer_Retain</definition>
+        <argsstring>(GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_Retain</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>GG_BufferInterface::Retain </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="163" column="18" declfile="xp/common/gg_buffer.h" declline="163" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga2a70c1b62a0b694d2cd9c920b730e91c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DynamicBuffer_Release</definition>
+        <argsstring>(GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_Release</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>GG_BufferInterface::Release </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="169" column="6" declfile="xp/common/gg_buffer.h" declline="169" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga62a6ade588b86c3b0e9220a5cf623c93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * GG_DynamicBuffer_GetData</definition>
+        <argsstring>(const GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_GetData</name>
+        <param>
+          <type>const <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>GG_BufferInterface::GetData </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="175" column="15" declfile="xp/common/gg_buffer.h" declline="175" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga3f3da89dcb7c6be6767c2a22c0255244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * GG_DynamicBuffer_UseData</definition>
+        <argsstring>(GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_UseData</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>GG_BufferInterface::UseData </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="181" column="9" declfile="xp/common/gg_buffer.h" declline="181" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gac854d762405a66e0a74f01b944b8c164" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_DynamicBuffer_GetDataSize</definition>
+        <argsstring>(const GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_GetDataSize</name>
+        <param>
+          <type>const <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>GG_BufferInterface::GetDataSize </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="187" column="8" declfile="xp/common/gg_buffer.h" declline="187" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gaf1ad074a3a266e03520df1fd62d0a9a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_Clone</definition>
+        <argsstring>(const GG_DynamicBuffer *self, GG_DynamicBuffer **clone)</argsstring>
+        <name>GG_DynamicBuffer_Clone</name>
+        <param>
+          <type>const <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> **</type>
+          <declname>clone</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clone the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clone</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the cloned object will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be cloned, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="197" column="11" declfile="xp/common/gg_buffer.h" declline="197" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga09dcfa04a1ff966cdcc8e6821716de95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_SetBuffer</definition>
+        <argsstring>(GG_DynamicBuffer *self, uint8_t *buffer, size_t buffer_size)</argsstring>
+        <name>GG_DynamicBuffer_SetBuffer</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Configure the object to use an external buffer. NOTE: after calling this method, the buffer can no longer grow.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to use for data storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be configured, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="209" column="12" declfile="xp/common/gg_buffer.h" declline="209" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga70524fff84267e724b668a9e70b849e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_SetBufferSize</definition>
+        <argsstring>(GG_DynamicBuffer *self, size_t buffer_size)</argsstring>
+        <name>GG_DynamicBuffer_SetBufferSize</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the size of the buffer used for data storage. NOTE: this does not change the data size, it only changes the buffer reserved for future growth of the data. The buffer size cannot be less than the current data size of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be updated, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="222" column="12" declfile="xp/common/gg_buffer.h" declline="222" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga1fbc7deae3762cbff829528142cbf211" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_DynamicBuffer_GetBufferSize</definition>
+        <argsstring>(const GG_DynamicBuffer *self)</argsstring>
+        <name>GG_DynamicBuffer_GetBufferSize</name>
+        <param>
+          <type>const <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the size of the buffer used by this object. NOTE: the buffer size is not the data size. <simplesect kind="see"><para><ref refid="group___buffers_1gac854d762405a66e0a74f01b944b8c164" kindref="member">GG_DynamicBuffer_GetDataSize</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The size of the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="232" column="8" declfile="xp/common/gg_buffer.h" declline="232" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gaca8a8cceeb6297be19733001c6b44446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_Reserve</definition>
+        <argsstring>(GG_DynamicBuffer *self, size_t buffer_size)</argsstring>
+        <name>GG_DynamicBuffer_Reserve</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reserve a minimum size the size for the buffer used for data storage. NOTE: this does not shrink the current buffer if it is already large enough.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum size of the buffer to reserve. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the buffer size could be reserved, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="243" column="11" declfile="xp/common/gg_buffer.h" declline="243" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga2f2a62458d9d6da26deafe69149d503a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_SetData</definition>
+        <argsstring>(GG_DynamicBuffer *self, const uint8_t *data, size_t data_size)</argsstring>
+        <name>GG_DynamicBuffer_SetData</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the data. The data is copied to the object&apos;s buffer, and the data size is updated.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to copy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the data could be copied, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="255" column="12" declfile="xp/common/gg_buffer.h" declline="255" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gaea4950020ab099218ac1fc6e31be391e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_SetDataSize</definition>
+        <argsstring>(GG_DynamicBuffer *self, size_t size)</argsstring>
+        <name>GG_DynamicBuffer_SetDataSize</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets/updates the data size. This updates the size of the data (typically called after updating the data directly in the buffer obtained from GG_DynamicBuffer_UseData, to reflect the new size of the data)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size to set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the size could be updated, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="267" column="12" declfile="xp/common/gg_buffer.h" declline="267" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga4b48d2271ab405de393c71eb17e0fb18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_DynamicBuffer_Equals</definition>
+        <argsstring>(const GG_DynamicBuffer *self, const GG_Buffer *other)</argsstring>
+        <name>GG_DynamicBuffer_Equals</name>
+        <param>
+          <type>const <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compare the contents of two data buffers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data buffer object with which to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the data are the same, false if the data are different. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="277" column="6" declfile="xp/common/gg_buffer.h" declline="277" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga474a89e2ca026a0bd77bd8fbb5819cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DynamicBuffer_AppendData</definition>
+        <argsstring>(GG_DynamicBuffer *self, const uint8_t *data, size_t data_size)</argsstring>
+        <name>GG_DynamicBuffer_AppendData</name>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Append data at the end of an object&apos;s existing data. NOTE: this will automatically try to grow the buffer if needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to append. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data to append. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the data could be appended, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="289" column="11" declfile="xp/common/gg_buffer.h" declline="289" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements the <ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> interface, with a dynamic heap-allocated buffer storage, which can grow, or a user-supplied external buffer, which cannot grow. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GG_DynamicBuffer</label>
+        <link refid="class_g_g___dynamic_buffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_Buffer</label>
+        <link refid="interface_g_g___buffer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_DynamicBuffer</label>
+        <link refid="class_g_g___dynamic_buffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_Buffer</label>
+        <link refid="interface_g_g___buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_buffer.h" line="131" column="1"/>
+    <listofallmembers>
+      <member refid="group___buffers_1ga095e75a71654105904cb903e0e198ba8" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_Buffer_GetData</name></member>
+      <member refid="group___buffers_1gab240731784936a8c86d9089635801225" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_Buffer_GetDataSize</name></member>
+      <member refid="group___buffers_1ga852cf21610f14b8a8312eed8a78d5342" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_Buffer_Release</name></member>
+      <member refid="group___buffers_1ga6af313cb369183f7ef343cd73691282d" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_Buffer_Retain</name></member>
+      <member refid="group___buffers_1ga8d0ad1fea98d61c8948a93ca962b2999" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_Buffer_UseData</name></member>
+      <member refid="group___buffers_1ga474a89e2ca026a0bd77bd8fbb5819cfe" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_AppendData</name></member>
+      <member refid="group___buffers_1ga4b3113c0006afb17ee911784e1865364" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_AsBuffer</name></member>
+      <member refid="group___buffers_1gaf1ad074a3a266e03520df1fd62d0a9a1" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Clone</name></member>
+      <member refid="group___buffers_1gadd8eaf129a1656211adf8c6f6d91ba52" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Create</name></member>
+      <member refid="group___buffers_1ga4b48d2271ab405de393c71eb17e0fb18" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Equals</name></member>
+      <member refid="group___buffers_1ga1fbc7deae3762cbff829528142cbf211" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_GetBufferSize</name></member>
+      <member refid="group___buffers_1ga62a6ade588b86c3b0e9220a5cf623c93" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_GetData</name></member>
+      <member refid="group___buffers_1gac854d762405a66e0a74f01b944b8c164" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_GetDataSize</name></member>
+      <member refid="group___buffers_1ga2a70c1b62a0b694d2cd9c920b730e91c" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Release</name></member>
+      <member refid="group___buffers_1gaca8a8cceeb6297be19733001c6b44446" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Reserve</name></member>
+      <member refid="group___buffers_1ga2a321b9e73381f3241292053f7023708" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_Retain</name></member>
+      <member refid="group___buffers_1ga09dcfa04a1ff966cdcc8e6821716de95" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_SetBuffer</name></member>
+      <member refid="group___buffers_1ga70524fff84267e724b668a9e70b849e2" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_SetBufferSize</name></member>
+      <member refid="group___buffers_1ga2f2a62458d9d6da26deafe69149d503a" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_SetData</name></member>
+      <member refid="group___buffers_1gaea4950020ab099218ac1fc6e31be391e" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_SetDataSize</name></member>
+      <member refid="group___buffers_1ga3f3da89dcb7c6be6767c2a22c0255244" prot="public" virt="non-virtual"><scope>GG_DynamicBuffer</scope><name>GG_DynamicBuffer_UseData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

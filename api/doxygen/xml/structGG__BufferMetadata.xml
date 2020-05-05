@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__BufferMetadata" kind="struct" language="C++" prot="public">
+    <compoundname>GG_BufferMetadata</compoundname>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__BufferMetadata_1a1bf0ab8d657bfc377dbc9dace8a581e1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BufferMetadata::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Unique type identifier. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="45" column="14" bodyfile="xp/common/gg_io.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__BufferMetadata_1aff68dd90f53c4b1e04aea61543c4b9e2" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_BufferMetadata::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Size of the struct. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="46" column="14" bodyfile="xp/common/gg_io.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class for buffer metadata sub-classes. NOTE: subclasses must be clonable by simple memory copy. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_io.h" line="44" column="15" bodyfile="xp/common/gg_io.h" bodystart="44" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structGG__BufferMetadata_1aff68dd90f53c4b1e04aea61543c4b9e2" prot="public" virt="non-virtual"><scope>GG_BufferMetadata</scope><name>size</name></member>
+      <member refid="structGG__BufferMetadata_1a1bf0ab8d657bfc377dbc9dace8a581e1" prot="public" virt="non-virtual"><scope>GG_BufferMetadata</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

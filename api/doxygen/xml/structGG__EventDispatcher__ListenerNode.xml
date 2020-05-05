@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__EventDispatcher__ListenerNode" kind="struct" language="C++" prot="public">
+    <compoundname>GG_EventDispatcher_ListenerNode</compoundname>
+    <includes refid="gg__event__dispatcher_8h" local="no">xp/common/gg_event_dispatcher.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1af55e2990764c90779d772035ef3f8dbb" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LinkedListNode" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_EventDispatcher_ListenerNode::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+<para>Linked list node for storing listener context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="41" column="24" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1a2586469724248a695f002096db2e7ab1" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__EventListener" kindref="compound">GG_EventListener</ref> *</type>
+        <definition>GG_EventListener* GG_EventDispatcher_ListenerNode::listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <briefdescription>
+<para>Event listner for this entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="42" column="23" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1a84cf3a8a5e7899ecc7eec025ff471fb3" prot="public" static="no" mutable="no">
+        <type>const uint32_t *</type>
+        <definition>const uint32_t* GG_EventDispatcher_ListenerNode::events</definition>
+        <argsstring></argsstring>
+        <name>events</name>
+        <briefdescription>
+<para>Array of events to listen to, NULL to listen to all events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="43" column="23" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1a26cc34cc5cb5fc5cf8f4bca92f4062e7" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_EventDispatcher_ListenerNode::num_events</definition>
+        <argsstring></argsstring>
+        <name>num_events</name>
+        <briefdescription>
+<para>Size of events array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="44" column="24" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1a3b6c4e193c0422f44526f11bb4910b98" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_EventDispatcher_ListenerNode::node_is_local</definition>
+        <argsstring></argsstring>
+        <name>node_is_local</name>
+        <briefdescription>
+<para>Flag indicating if this object should be freed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="45" column="24" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__EventDispatcher__ListenerNode_1a8426f07386533aea200daa0323a11d09" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_EventDispatcher_ListenerNode::sequence_number</definition>
+        <argsstring></argsstring>
+        <name>sequence_number</name>
+        <briefdescription>
+<para>Indicates order in which it was added. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="46" column="24" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Entry in a list of handlers maintained by the event dispather </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_EventDispatcher_ListenerNode</label>
+        <link refid="structGG__EventDispatcher__ListenerNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>listener</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_EventListenerInterface</label>
+        <link refid="structGG__EventListenerInterface"/>
+      </node>
+      <node id="3">
+        <label>GG_EventListener</label>
+        <link refid="structGG__EventListener"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_event_dispatcher.h" line="40" column="15" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="40" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structGG__EventDispatcher__ListenerNode_1a84cf3a8a5e7899ecc7eec025ff471fb3" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>events</name></member>
+      <member refid="structGG__EventDispatcher__ListenerNode_1af55e2990764c90779d772035ef3f8dbb" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>list_node</name></member>
+      <member refid="structGG__EventDispatcher__ListenerNode_1a2586469724248a695f002096db2e7ab1" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>listener</name></member>
+      <member refid="structGG__EventDispatcher__ListenerNode_1a3b6c4e193c0422f44526f11bb4910b98" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>node_is_local</name></member>
+      <member refid="structGG__EventDispatcher__ListenerNode_1a26cc34cc5cb5fc5cf8f4bca92f4062e7" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>num_events</name></member>
+      <member refid="structGG__EventDispatcher__ListenerNode_1a8426f07386533aea200daa0323a11d09" prot="public" virt="non-virtual"><scope>GG_EventDispatcher_ListenerNode</scope><name>sequence_number</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

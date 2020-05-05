@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OutgoingResponse - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./-outgoing-response.html">OutgoingResponse</a><br/>
+<br/>
+<h1>OutgoingResponse</h1>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingResponse</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-outgoing-message/index.html"><span class="identifier">OutgoingMessage</span></a><span class="symbol">, </span><a href="-base-response/index.html"><span class="identifier">BaseResponse</span></a></code>
+<p>Implementations of this interface will be sent back to the CoAP Client in response to requests coming in to a CoAP Server</p>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-outgoing-message/body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="-outgoing-body.html"><span class="identifier">OutgoingBody</span></a></code>
+<p>Coap message body</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-response/response-code.html">responseCode</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">responseCode</span><span class="symbol">: </span><a href="-response-code/index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP response code</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

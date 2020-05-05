@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DatagramSocketInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DatagramSocketInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DatagramSocketInterface_1a6ac98ca88d6ecd59eb78d22ceb11bb52" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *(*</type>
+        <definition>GG_DataSink*(* GG_DatagramSocketInterface::AsDataSink) (GG_DatagramSocket *self)</definition>
+        <argsstring>)(GG_DatagramSocket *self)</argsstring>
+        <name>AsDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the socket.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="87" column="5" bodyfile="xp/sockets/gg_sockets.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DatagramSocketInterface_1a9b6f345c935ed36e84ae57bb3641b5ad" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *(*</type>
+        <definition>GG_DataSource*(* GG_DatagramSocketInterface::AsDataSource) (GG_DatagramSocket *self)</definition>
+        <argsstring>)(GG_DatagramSocket *self)</argsstring>
+        <name>AsDataSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the socket.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="96" column="5" bodyfile="xp/sockets/gg_sockets.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DatagramSocketInterface_1ab9378402cf1f38619eade1caa19dbef0" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_DatagramSocketInterface::Destroy) (GG_DatagramSocket *self)</definition>
+        <argsstring>)(GG_DatagramSocket *self)</argsstring>
+        <name>Destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the socket.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="103" column="5" bodyfile="xp/sockets/gg_sockets.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DatagramSocketInterface_1a82bf05f3891ca186732301b1bd1c45b3" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_DatagramSocketInterface::Attach) (GG_DatagramSocket *self, GG_Loop *loop)</definition>
+        <argsstring>)(GG_DatagramSocket *self, GG_Loop *loop)</argsstring>
+        <name>Attach</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Attach the socket to a loop. This allows the loop to monitor I/O on the socket and call I/O event handlers as appropriate.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The loop to attach to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="115" column="5" bodyfile="xp/sockets/gg_sockets.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface implemented by objects that can send and/or receive datagrams.</para>
+<para>For UDP sockets, when sending data through the socket by calling GG_DataSink_PutData on the socket&apos;s <ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> interface, passing metadata of type GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS allows the caller to specify the destination IP address and UDP port number to send to. The sink receiving data from the socket would receive metadata of type GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS indicating what IP address and UDP port number the datagram was received from. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_DatagramSocketInterface</label>
+        <link refid="structGG__DatagramSocketInterface"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>AsDataSource</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>AsDataSink</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_DataSourceInterface</label>
+        <link refid="structGG__DataSourceInterface"/>
+      </node>
+      <node id="2">
+        <label>GG_DataSource</label>
+        <link refid="structGG__DataSource"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_DataSink</label>
+        <link refid="structGG__DataSink"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GG_DataSinkInterface</label>
+        <link refid="structGG__DataSinkInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/sockets/gg_sockets.h" line="79" column="1" bodyfile="xp/sockets/gg_sockets.h" bodystart="78" bodyend="116"/>
+    <listofallmembers>
+      <member refid="structGG__DatagramSocketInterface_1a6ac98ca88d6ecd59eb78d22ceb11bb52" prot="public" virt="non-virtual"><scope>GG_DatagramSocketInterface</scope><name>AsDataSink</name></member>
+      <member refid="structGG__DatagramSocketInterface_1a9b6f345c935ed36e84ae57bb3641b5ad" prot="public" virt="non-virtual"><scope>GG_DatagramSocketInterface</scope><name>AsDataSource</name></member>
+      <member refid="structGG__DatagramSocketInterface_1a82bf05f3891ca186732301b1bd1c45b3" prot="public" virt="non-virtual"><scope>GG_DatagramSocketInterface</scope><name>Attach</name></member>
+      <member refid="structGG__DatagramSocketInterface_1ab9378402cf1f38619eade1caa19dbef0" prot="public" virt="non-virtual"><scope>GG_DatagramSocketInterface</scope><name>Destroy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

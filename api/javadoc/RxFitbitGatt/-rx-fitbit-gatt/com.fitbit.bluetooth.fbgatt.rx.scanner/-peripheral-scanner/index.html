@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PeripheralScanner - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.scanner</a>&nbsp;/&nbsp;<a href="./index.html">PeripheralScanner</a><br/>
+<br/>
+<h1>PeripheralScanner</h1>
+<code><span class="keyword">class </span><span class="identifier">PeripheralScanner</span></code>
+<p>Reactive interface for scanning devices</p>
+<p>This class is designed to support to only run one scan at any given time. When you start a scan
+any previous ongoing scan operation will get canceled before starting new scan operation.</p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-scan-event/index.html">ScanEvent</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ScanEvent</span></code>
+<p>Events encountered during a device scan</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">PeripheralScanner</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$<init>(com.fitbit.bluetooth.fbgatt.FitbitGatt)/fitbitGatt">fitbitGatt</span><span class="symbol">:</span>&nbsp;<span class="identifier">FitbitGatt</span>&nbsp;<span class="symbol">=</span>&nbsp;FitbitGatt.getInstance()<span class="symbol">)</span></code>
+<p>Reactive interface for scanning devices</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="scan-for-devices.html">scanForDevices</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">scanForDevices</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/scanFilters">scanFilters</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-peripheral-scanner-filter/index.html"><span class="identifier">PeripheralScannerFilter</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/resetExistingFilters">resetExistingFilters</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/cancelScanOnDispose">cancelScanOnDispose</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="-scan-event/index.html"><span class="identifier">ScanEvent</span></a><span class="symbol">&gt;</span></code>
+<p>Scan for devices and emits <a href="-scan-event/index.html">ScanEvent</a>s. Will scan until <a href="#">disposed</a>,</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

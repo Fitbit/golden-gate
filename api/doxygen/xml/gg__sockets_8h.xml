@@ -1,0 +1,1085 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__sockets_8h" kind="file" language="C++">
+    <compoundname>gg_sockets.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__io_8h" local="yes">xp/common/gg_io.h</includes>
+    <includes refid="gg__loop_8h" local="yes">xp/loop/gg_loop.h</includes>
+    <includedby refid="gg__ipv4__protocol_8h" local="yes">xp/protocols/gg_ipv4_protocol.h</includedby>
+    <includedby refid="gg__stack__builder_8h" local="yes">xp/stack_builder/gg_stack_builder.h</includedby>
+    <includedby refid="gg__bsd__sockets_8h" local="yes">xp/sockets/ports/bsd/gg_bsd_sockets.h</includedby>
+    <includedby refid="gg__lwip__sockets_8h" local="yes">xp/sockets/ports/lwip/gg_lwip_sockets.h</includedby>
+    <includedby refid="gg__nip__sockets_8h" local="yes">xp/sockets/ports/nip/gg_nip_sockets.h</includedby>
+    <includedby refid="gg__nip_8h" local="yes">xp/nip/gg_nip.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>assert.h</label>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___ip_address" prot="public">GG_IpAddress</innerclass>
+    <innerclass refid="struct_g_g___socket_address" prot="public">GG_SocketAddress</innerclass>
+    <innerclass refid="struct_g_g___socket_address_metadata" prot="public">GG_SocketAddressMetadata</innerclass>
+    <innerclass refid="struct_g_g___datagram_socket" prot="public">GG_DatagramSocket</innerclass>
+    <innerclass refid="struct_g_g___datagram_socket_interface" prot="public">GG_DatagramSocketInterface</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___sockets_1gaae6a72922bb1cf203224c59aaf3ee2f7" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS</name>
+        <initializer><ref refid="group___types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;d&apos;, &apos;s&apos;, &apos;t&apos;, &apos;a&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer metadata type that indicates a destination address. Metadata structs with this type ID must be of type <ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="131" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga3fb3197a0d7e4d445c7f12c0f5fd096f" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS</name>
+        <initializer><ref refid="group___types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;s&apos;, &apos;r&apos;, &apos;c&apos;, &apos;a&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer metadata type that indicates a source address. Metadata structs with this type ID must be of type <ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="137" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gaee000a48d1ace0eadca7b8ffc6d0d6c0" prot="public" static="no">
+        <name>GG_IP_ADDRESS_NULL_INITIALIZER</name>
+        <initializer>{{0, 0, 0, 0}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="142" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga52db399062233dcef4db946db698bb54" prot="public" static="no">
+        <name>GG_SOCKET_ADDRESS_NULL_INITIALIZER</name>
+        <initializer>{GG_IP_ADDRESS_NULL_INITIALIZER, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="144" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gae43ec9888b018106532cc4a982a44617" prot="public" static="no">
+        <name>GG_SOURCE_SOCKET_ADDRESS_METADATA_INITIALIZER</name>
+        <param><defname>_address</defname></param>
+        <param><defname>_port</defname></param>
+        <initializer>((<ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref>){                                           \
+    .base = {                                                          \
+        .type = <ref refid="group___sockets_1ga3fb3197a0d7e4d445c7f12c0f5fd096f" kindref="member">GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS</ref>,         \
+        .size = sizeof(<ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref>)                       \
+    },                                                                 \
+    .socket_address = {                                                \
+        .address = _address,                                           \
+        .port    = (_port)                                             \
+    }                                                                  \
+})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="146" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga4c3e9f1cf89018302bdaa9fa902cc355" prot="public" static="no">
+        <name>GG_DESTINATION_SOCKET_ADDRESS_METADATA_INITIALIZER</name>
+        <param><defname>_address</defname></param>
+        <param><defname>_port</defname></param>
+        <initializer>((<ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref>){                                                \
+    .base = {                                                               \
+        .type = <ref refid="group___sockets_1gaae6a72922bb1cf203224c59aaf3ee2f7" kindref="member">GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS</ref>,         \
+        .size = sizeof(<ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref>)                            \
+    },                                                                      \
+    .socket_address = {                                                     \
+        .address = _address,                                                \
+        .port    = (_port)                                                  \
+    }                                                                       \
+})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="158" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gad7eca914d73d720d92338b0c5840e028" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_RESET</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="173" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga38b3bf650d1bb6ebc698579189567564" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_ABORTED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="174" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga705a9fc767ac77e39e39cf061b1edecf" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_REFUSED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="175" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga2b5c680f8df039141e9cb1956b30fbea" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="176" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gab62fb5e5af9715fec248788e2c476e5f" prot="public" static="no">
+        <name>GG_ERROR_HOST_UNKNOWN</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="177" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga10c5d988aad5003750a7da33e33de8b9" prot="public" static="no">
+        <name>GG_ERROR_SOCKET_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="178" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga0712d5b825d759a86d5d81aa83d66ea8" prot="public" static="no">
+        <name>GG_ERROR_GETSOCKOPT_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  6)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="179" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gad2e253748c55713630a745869faa90d5" prot="public" static="no">
+        <name>GG_ERROR_SETSOCKOPT_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  7)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="180" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga7f236afc4cd809bda2a1e4ca00361c67" prot="public" static="no">
+        <name>GG_ERROR_SOCKET_CONTROL_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  8)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="181" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga7a47a78576b70a77aa25333ef76924ba" prot="public" static="no">
+        <name>GG_ERROR_BIND_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  9)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="182" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga099f86c2ab606fdf787a784abd413524" prot="public" static="no">
+        <name>GG_ERROR_LISTEN_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="183" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gaad6520be588b58571296b95c84f51b41" prot="public" static="no">
+        <name>GG_ERROR_ACCEPT_FAILED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 11)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="184" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga774fbbf3254c4263fc5aa743270048cd" prot="public" static="no">
+        <name>GG_ERROR_ADDRESS_IN_USE</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 12)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="185" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga36bfe56411ffc6e62c83ca231935f2e4" prot="public" static="no">
+        <name>GG_ERROR_NETWORK_DOWN</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 13)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="186" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gaf3f28ef2d4bc73f79f8bf43a5df3dd1a" prot="public" static="no">
+        <name>GG_ERROR_NETWORK_UNREACHABLE</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="187" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1ga2dd36c85b966ba131f457728818a2523" prot="public" static="no">
+        <name>GG_ERROR_HOST_UNREACHABLE</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="188" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___sockets_1gaefc349ffde5ddc42da325925b563e42c" prot="public" static="no">
+        <name>GG_ERROR_NOT_CONNECTED</name>
+        <initializer>(<ref refid="group___errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="189" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group___sockets_1ga083bd70fea87e10221ab5f8fe4df56b8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>const GG_IpAddress GG_IpAddress_Any</definition>
+        <argsstring></argsstring>
+        <name>GG_IpAddress_Any</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The 0.0.0.0 IP address. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="125" column="27" declfile="xp/sockets/gg_sockets.h" declline="125" declcolumn="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___sockets_1ga77defce9eaaa1cdf484d3d9372ff13d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_IpAddress_AsInteger</definition>
+        <argsstring>(const GG_IpAddress *address)</argsstring>
+        <name>GG_IpAddress_AsInteger</name>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="194" column="10" declfile="xp/sockets/gg_sockets.h" declline="194" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga479fc32dd971a86b34b6eb16e1d60dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_SetFromInteger</definition>
+        <argsstring>(GG_IpAddress *address, uint32_t value)</argsstring>
+        <name>GG_IpAddress_SetFromInteger</name>
+        <param>
+          <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="195" column="6" declfile="xp/sockets/gg_sockets.h" declline="195" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga9bc216c3ca7a651ae8b0b023e9bd86d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_AsString</definition>
+        <argsstring>(const GG_IpAddress *address, char *buffer, size_t buffer_size)</argsstring>
+        <name>GG_IpAddress_AsString</name>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="196" column="6" declfile="xp/sockets/gg_sockets.h" declline="196" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga7e025bf9de31b4bf9b501ccd7b766e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_IpAddress_SetFromString</definition>
+        <argsstring>(GG_IpAddress *address, const char *string)</argsstring>
+        <name>GG_IpAddress_SetFromString</name>
+        <param>
+          <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="197" column="11" declfile="xp/sockets/gg_sockets.h" declline="197" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1gac63ef6f70ae6fcb83c53f5ce78fad840" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_Copy</definition>
+        <argsstring>(GG_IpAddress *dst_address, const GG_IpAddress *src_address)</argsstring>
+        <name>GG_IpAddress_Copy</name>
+        <param>
+          <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>dst_address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>src_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="198" column="6" declfile="xp/sockets/gg_sockets.h" declline="198" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1gabb33ad6ff5a10119e0e469f2af1ff8d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_IpAddress_Equal</definition>
+        <argsstring>(const GG_IpAddress *address1, const GG_IpAddress *address2)</argsstring>
+        <name>GG_IpAddress_Equal</name>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="199" column="6" declfile="xp/sockets/gg_sockets.h" declline="199" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1gaad6cd90a4abf804c0b88af3d8a96c954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_IpAddress_IsAny</definition>
+        <argsstring>(const GG_IpAddress *address)</argsstring>
+        <name>GG_IpAddress_IsAny</name>
+        <param>
+          <type>const <ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="200" column="6" declfile="xp/sockets/gg_sockets.h" declline="200" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga2476fa7872cc7f9d2fbc9d9d9135b61d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_SocketAddress_AsString</definition>
+        <argsstring>(const GG_SocketAddress *addrss, char *buffer, size_t buffer_size)</argsstring>
+        <name>GG_SocketAddress_AsString</name>
+        <param>
+          <type>const <ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>addrss</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="201" column="6" declfile="xp/sockets/gg_sockets.h" declline="201" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1gaeaa086eb9e4284a614fddcc7c7362eb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DatagramSocket_Create</definition>
+        <argsstring>(const GG_SocketAddress *local_address, const GG_SocketAddress *remote_address, bool connect_to_remote, unsigned int max_datagram_size, GG_DatagramSocket **socket)</argsstring>
+        <name>GG_DatagramSocket_Create</name>
+        <param>
+          <type>const <ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>local_address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>remote_address</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>connect_to_remote</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_datagram_size</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref> **</type>
+          <declname>socket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a bound UDP socket. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="206" column="11" declfile="xp/sockets/gg_sockets.h" declline="206" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga7e4d99ef1b6f5b1cd59c36f602ea5ef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_DatagramSocket_AsDataSink</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_AsDataSink</name>
+        <param>
+          <type><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="212" column="13" declfile="xp/sockets/gg_sockets.h" declline="212" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga6b0c98dab564b005331afab35153024a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_DatagramSocket_AsDataSource</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_AsDataSource</name>
+        <param>
+          <type><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="213" column="15" declfile="xp/sockets/gg_sockets.h" declline="213" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga17d9daf73a2678a750e34fc071a111c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DatagramSocket_Destroy</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_Destroy</name>
+        <param>
+          <type><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a UDP socket. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="218" column="6" declfile="xp/sockets/gg_sockets.h" declline="218" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___sockets_1ga49c27ddfbdf2dfdb7b3b71a056be8880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DatagramSocket_Attach</definition>
+        <argsstring>(GG_DatagramSocket *self, GG_Loop *loop)</argsstring>
+        <name>GG_DatagramSocket_Attach</name>
+        <param>
+          <type><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="220" column="11" declfile="xp/sockets/gg_sockets.h" declline="220" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18</para>
+</simplesect>
+Networking sockets interfaces. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__io_8h" kindref="compound">xp/common/gg_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__loop_8h" kindref="compound">xp/loop/gg_loop.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="44" refid="struct_g_g___ip_address" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ipv4[4];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}<sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="struct_g_g___socket_address" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/>address;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/>port;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="struct_g_g___socket_address_metadata" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref><sp/>base;</highlight></codeline>
+<codeline lineno="66" refid="struct_g_g___socket_address_metadata_1a1b3e8d8d97442fbf945b00dba1cd99c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref><sp/><sp/><ref refid="struct_g_g___socket_address_metadata_1a1b3e8d8d97442fbf945b00dba1cd99c5" kindref="member">socket_address</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}<sp/><ref refid="struct_g_g___socket_address_metadata" kindref="compound">GG_SocketAddressMetadata</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="struct_g_g___datagram_socket_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88" refid="struct_g_g___datagram_socket_interface_1a6ac98ca88d6ecd59eb78d22ceb11bb52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/>(*AsDataSink)(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="struct_g_g___datagram_socket_interface_1a9b6f345c935ed36e84ae57bb3641b5ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/>(*AsDataSource)(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="struct_g_g___datagram_socket_interface_1ab9378402cf1f38619eade1caa19dbef0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Destroy)(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="struct_g_g___datagram_socket_interface_1a82bf05f3891ca186732301b1bd1c45b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Attach)(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>GG_Loop*<sp/>loop);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="120"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="121"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="125"><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="group___sockets_1ga083bd70fea87e10221ab5f8fe4df56b8" kindref="member">GG_IpAddress_Any</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="group___sockets_1gaae6a72922bb1cf203224c59aaf3ee2f7" refkind="member"><highlight class="preprocessor">#define<sp/>GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS<sp/>GG_4CC(&apos;d&apos;,<sp/>&apos;s&apos;,<sp/>&apos;t&apos;,<sp/>&apos;a&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="group___sockets_1ga3fb3197a0d7e4d445c7f12c0f5fd096f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS<sp/>GG_4CC(&apos;s&apos;,<sp/>&apos;r&apos;,<sp/>&apos;c&apos;,<sp/>&apos;a&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="140"><highlight class="comment">|<sp/><sp/><sp/>macros</highlight></codeline>
+<codeline lineno="141"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IP_ADDRESS_NULL_INITIALIZER<sp/>{{0,<sp/>0,<sp/>0,<sp/>0}}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_SOCKET_ADDRESS_NULL_INITIALIZER<sp/>{GG_IP_ADDRESS_NULL_INITIALIZER,<sp/>0}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_SOURCE_SOCKET_ADDRESS_METADATA_INITIALIZER(_address,<sp/>_port)<sp/>\</highlight></codeline>
+<codeline lineno="147"><highlight class="preprocessor">((GG_SocketAddressMetadata){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="148"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.base<sp/>=<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.type<sp/>=<sp/>GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(GG_SocketAddressMetadata)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.socket_address<sp/>=<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.address<sp/>=<sp/>_address,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="154"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.port<sp/><sp/><sp/><sp/>=<sp/>(_port)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="155"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="156"><highlight class="preprocessor">})</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_DESTINATION_SOCKET_ADDRESS_METADATA_INITIALIZER(_address,<sp/>_port)<sp/>\</highlight></codeline>
+<codeline lineno="159"><highlight class="preprocessor">((GG_SocketAddressMetadata){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="160"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.base<sp/>=<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="161"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.type<sp/>=<sp/>GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="162"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(GG_SocketAddressMetadata)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="163"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="164"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.socket_address<sp/>=<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="165"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.address<sp/>=<sp/>_address,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="166"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.port<sp/><sp/><sp/><sp/>=<sp/>(_port)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="167"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="168"><highlight class="preprocessor">})</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="171"><highlight class="comment">|<sp/><sp/><sp/>results</highlight></codeline>
+<codeline lineno="172"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_CONNECTION_RESET<sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_CONNECTION_ABORTED<sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_CONNECTION_REFUSED<sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_CONNECTION_FAILED<sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_HOST_UNKNOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>4)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_SOCKET_FAILED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>5)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_GETSOCKOPT_FAILED<sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>6)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_SETSOCKOPT_FAILED<sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>7)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_SOCKET_CONTROL_FAILED<sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>8)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_BIND_FAILED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/><sp/>9)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_LISTEN_FAILED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>10)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_ACCEPT_FAILED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>11)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_ADDRESS_IN_USE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>12)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_NETWORK_DOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>13)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_NETWORK_UNREACHABLE<sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>14)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_HOST_UNREACHABLE<sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>15)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_NOT_CONNECTED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(GG_ERROR_BASE_SOCKET<sp/>-<sp/>16)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="192"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="193"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">uint32_t<sp/>GG_IpAddress_AsInteger(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_IpAddress_SetFromInteger(<ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address,<sp/>uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_IpAddress_AsString(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_IpAddress_SetFromString(<ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_IpAddress_Copy(<ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>dst_address,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>src_address);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GG_IpAddress_Equal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address2);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GG_IpAddress_IsAny(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref>*<sp/>address);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_SocketAddress_AsString(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>*<sp/>addrss,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___sockets_1gaeaa086eb9e4284a614fddcc7c7362eb7" kindref="member">GG_DatagramSocket_Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>*<sp/>local_address,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref>*<sp/>remote_address,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connect_to_remote,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_datagram_size,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>**<sp/><sp/><sp/><sp/><sp/>socket);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/>GG_DatagramSocket_AsDataSink(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/>GG_DatagramSocket_AsDataSource(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___sockets_1ga17d9daf73a2678a750e34fc071a111c1" kindref="member">GG_DatagramSocket_Destroy</ref>(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_DatagramSocket_Attach(<ref refid="struct_g_g___datagram_socket" kindref="compound">GG_DatagramSocket</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>GG_Loop*<sp/>loop);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/sockets/gg_sockets.h"/>
+  </compounddef>
+</doxygen>

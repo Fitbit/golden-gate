@@ -1,0 +1,805 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__ring__buffer_8h" kind="file" language="C++">
+    <compoundname>gg_ring_buffer.h</compoundname>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___ring_buffer" prot="public">GG_RingBuffer</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___buffers_1ga41bc22774de4e43ce8f58b526e97fe09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RingBuffer_Init</definition>
+        <argsstring>(GG_RingBuffer *self, uint8_t *buffer, size_t buffer_size)</argsstring>
+        <name>GG_RingBuffer_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a ring buffer object</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the memory buffer used as storage for the object. This buffer needs to stay allocated at least as long as the ring buffer object that is being initialized by this call. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="59" column="6" declfile="xp/common/gg_ring_buffer.h" declline="59" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga706ae8d501c3729a4fc5e4e6fadb0105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_GetSpace</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_GetSpace</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the writable space in the buffer (how much can be written).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes that can be written to the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="67" column="8" declfile="xp/common/gg_ring_buffer.h" declline="67" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gacdd1c264bb216484311333939bf4bfad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_GetContiguousSpace</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_GetContiguousSpace</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the number of bytes that can be writen contiguously given the current state of the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The contiguous space available in the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="76" column="8" declfile="xp/common/gg_ring_buffer.h" declline="76" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gabedc652314eaccedfc441edc05265e44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_GetAvailable</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_GetAvailable</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the amount of data available from the buffer (how much can be read).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes that can be read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="84" column="8" declfile="xp/common/gg_ring_buffer.h" declline="84" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga29313789ea704f8240639af164dadaa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_GetContiguousAvailable</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_GetContiguousAvailable</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the amount of data availble from the buffer in a single contiguous block.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of contiguous bytes available. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="92" column="8" declfile="xp/common/gg_ring_buffer.h" declline="92" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga7832d3c7783413626abe66f5d6a203f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_RingBuffer_ReadByte</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_ReadByte</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read one byte from the buffer. NOTE: This method does not do any bounds checking, so it always returns a value regardless of whether any data is available from the buffer or not. So it should only be called when the caller knows that data is available.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The byte read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="103" column="9" declfile="xp/common/gg_ring_buffer.h" declline="103" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gab31cc1db7fc08381b3e24bb4e743e2f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_Read</definition>
+        <argsstring>(GG_RingBuffer *self, uint8_t *buffer, size_t size)</argsstring>
+        <name>GG_RingBuffer_Read</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read data from the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory into which to read the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually read (which may be less than the requested amount if the buffer doesn&apos;t have enough data). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="115" column="8" declfile="xp/common/gg_ring_buffer.h" declline="115" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga0dc03056d9c92ef6c1dbb56f3ab4188d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_RingBuffer_PeekByte</definition>
+        <argsstring>(GG_RingBuffer *self, size_t offset)</argsstring>
+        <name>GG_RingBuffer_PeekByte</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Peek one byte from the buffer. NOTE: this method does not perform any bounds checking. It always returns a value regardless of whether there is enough data in the buffer or not. So it should only be called when the bounds are otherwise known by the caller.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset from the first available byte.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The byte at the specified offset. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="130" column="9" declfile="xp/common/gg_ring_buffer.h" declline="130" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga00a0306d6c33876f9e0752c0ef7257cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_Peek</definition>
+        <argsstring>(GG_RingBuffer *self, uint8_t *buffer, size_t offset, size_t size)</argsstring>
+        <name>GG_RingBuffer_Peek</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Peek data from the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The memory into which to store the peeked data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Offset from the start of the available data to peek from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to peek at.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually peeked (which may be less than the requested amount if the buffer doesnt have enough data). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="143" column="8" declfile="xp/common/gg_ring_buffer.h" declline="143" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga8041ca582d5ed393b3b093361c309013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer_Write</definition>
+        <argsstring>(GG_RingBuffer *self, const uint8_t *buffer, size_t size)</argsstring>
+        <name>GG_RingBuffer_Write</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write data to the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the data to write.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually written (which may be less than the requested amount if the buffer doesn&apos;t have enough space). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="158" column="8" declfile="xp/common/gg_ring_buffer.h" declline="158" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1gab48af8d09d1d4e5ca7328b98dd807463" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RingBuffer_MoveIn</definition>
+        <argsstring>(GG_RingBuffer *self, size_t offset)</argsstring>
+        <name>GG_RingBuffer_MoveIn</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move the ring&apos;s <computeroutput>in</computeroutput> pointer of the buffer. This method may be useful if data is directly copied to the buffer without calling GG_RingBuffer_Write.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes by which to advance the <computeroutput>in</computeroutput> pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="170" column="6" declfile="xp/common/gg_ring_buffer.h" declline="170" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga12d65dcf23ce2f337a4cdf34e5d54836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RingBuffer_MoveOut</definition>
+        <argsstring>(GG_RingBuffer *self, size_t offset)</argsstring>
+        <name>GG_RingBuffer_MoveOut</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Move the ring&apos;s <computeroutput>out</computeroutput> pointer of the buffer. This method may be useful if data is directly copied out the buffer without calling GG_RingBuffer_Read.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes by which to advance the <computeroutput>out</computeroutput> pointer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="180" column="6" declfile="xp/common/gg_ring_buffer.h" declline="180" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___buffers_1ga8aaf76c019c30767bd0fd54f3188d2d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_RingBuffer_Reset</definition>
+        <argsstring>(GG_RingBuffer *self)</argsstring>
+        <name>GG_RingBuffer_Reset</name>
+        <param>
+          <type><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the buffer to its initial empty state.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="187" column="6" declfile="xp/common/gg_ring_buffer.h" declline="187" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose ring buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-10-02 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">|<sp/><sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="struct_g_g___ring_buffer" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/>start;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/>end;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/>size;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t*<sp/>in;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t*<sp/>out;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}<sp/><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">|<sp/><sp/><sp/><sp/>prototypes</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga41bc22774de4e43ce8f58b526e97fe09" kindref="member">GG_RingBuffer_Init</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga706ae8d501c3729a4fc5e4e6fadb0105" kindref="member">GG_RingBuffer_GetSpace</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gacdd1c264bb216484311333939bf4bfad" kindref="member">GG_RingBuffer_GetContiguousSpace</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gabedc652314eaccedfc441edc05265e44" kindref="member">GG_RingBuffer_GetAvailable</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga29313789ea704f8240639af164dadaa3" kindref="member">GG_RingBuffer_GetContiguousAvailable</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal">uint8_t<sp/><ref refid="group___buffers_1ga7832d3c7783413626abe66f5d6a203f2" kindref="member">GG_RingBuffer_ReadByte</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gab31cc1db7fc08381b3e24bb4e743e2f6" kindref="member">GG_RingBuffer_Read</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">uint8_t<sp/><ref refid="group___buffers_1ga0dc03056d9c92ef6c1dbb56f3ab4188d" kindref="member">GG_RingBuffer_PeekByte</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga00a0306d6c33876f9e0752c0ef7257cd" kindref="member">GG_RingBuffer_Peek</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga8041ca582d5ed393b3b093361c309013" kindref="member">GG_RingBuffer_Write</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer,</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1gab48af8d09d1d4e5ca7328b98dd807463" kindref="member">GG_RingBuffer_MoveIn</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga12d65dcf23ce2f337a4cdf34e5d54836" kindref="member">GG_RingBuffer_MoveOut</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___buffers_1ga8aaf76c019c30767bd0fd54f3188d2d4" kindref="member">GG_RingBuffer_Reset</ref>(<ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_ring_buffer.h"/>
+  </compounddef>
+</doxygen>

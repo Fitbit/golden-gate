@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BitGattServer - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.server</a>&nbsp;/&nbsp;<a href="./index.html">BitGattServer</a><br/>
+<br/>
+<h1>BitGattServer</h1>
+<code><span class="keyword">class </span><span class="identifier">BitGattServer</span></code>
+<p>Reactive API for the Bitgatt Bluetooth GATT Profile server role.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BitGattServer</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer$<init>(com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.ServerTransactionProvider)/fitbitGatt">fitbitGatt</span><span class="symbol">:</span>&nbsp;<span class="identifier">FitbitGatt</span>&nbsp;<span class="symbol">=</span>&nbsp;FitbitGatt.getInstance()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer$<init>(com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.ServerTransactionProvider)/serverTransactionProvider">serverTransactionProvider</span><span class="symbol">:</span>&nbsp;<a href="../-server-transaction-provider/index.html"><span class="identifier">ServerTransactionProvider</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ServerTransactionProvider()<span class="symbol">)</span></code>
+<p>Reactive API for the Bitgatt Bluetooth GATT Profile server role.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-services.html">addServices</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addServices</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer$addServices(android.bluetooth.BluetoothGattService)/service">service</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Adds a <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html">BluetoothGattService</a> to this gatt server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-up.html">isUp</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isUp</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns true if up, false if not up.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoapEndpoint.addResourceHandler - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="index.html">CoapEndpoint</a>&nbsp;/&nbsp;<a href="./add-resource-handler.html">addResourceHandler</a><br/>
+<br/>
+<h1>addResourceHandler</h1>
+<a name="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)"></a>
+<code><span class="keyword">fun </span><span class="identifier">addResourceHandler</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/handler">handler</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.handler/-resource-handler/index.html"><span class="identifier">ResourceHandler</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/configuration">configuration</span><span class="symbol">:</span>&nbsp;<a href="../-coap-endpoint-handler-configuration/index.html"><span class="identifier">CoapEndpointHandlerConfiguration</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Overrides <a href="../-endpoint/add-resource-handler.html">Endpoint.addResourceHandler</a></p>
+<p>Registers a coap handler for a certain path.</p>
+<p>An error will be emitted if trying to register handler on previously registered <a href="../-endpoint/add-resource-handler.html#com.fitbit.goldengate.bindings.coap.Endpoint$addResourceHandler(kotlin.String, com.fitbit.goldengate.bindings.coap.handler.ResourceHandler, com.fitbit.goldengate.bindings.coap.CoapEndpointHandlerConfiguration)/path">path</a></p>
+<h3>Parameters</h3>
+<p><a name="path"></a>
+<code>path</code> - The path where the coap handler will be registered.</p>
+<p><a name="handler"></a>
+<code>handler</code> - The handler that will get called when a coap request is received.</p>
+<p><a name="configuration"></a>
+<code>configuration</code> - contains all the flags used by coap handler registration</p>
+<p><strong>Return</strong><br/>
+Completable
+    - Error: If the coap endpoint registration fails.
+    - Complete: The coap handler is registered.</p>
+</BODY>
+</HTML>

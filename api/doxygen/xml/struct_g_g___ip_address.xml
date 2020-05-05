@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___ip_address" kind="struct" language="C++" prot="public">
+    <compoundname>GG_IpAddress</compoundname>
+    <includes refid="gg__sockets_8h" local="no">xp/sockets/gg_sockets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___ip_address_1a44d676c4743c3c8cc231479727472e5a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_IpAddress::ipv4[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>ipv4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="45" column="13" bodyfile="xp/sockets/gg_sockets.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>IPv4 address. </para>
+    </detaileddescription>
+    <location file="xp/sockets/gg_sockets.h" line="44" column="15" bodyfile="xp/sockets/gg_sockets.h" bodystart="44" bodyend="46"/>
+    <listofallmembers>
+      <member refid="struct_g_g___ip_address_1a44d676c4743c3c8cc231479727472e5a" prot="public" virt="non-virtual"><scope>GG_IpAddress</scope><name>ipv4</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

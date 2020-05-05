@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___log_handler_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LogHandlerInterface</compoundname>
+    <includes refid="gg__logging_8h" local="no">xp/common/gg_logging.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___log_handler_interface_1a77bf1d39293f550bbb8faf4a277f2bf6" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_LogHandlerInterface::Log) (GG_LogHandler *self, const GG_LogRecord *record)</definition>
+        <argsstring>)(GG_LogHandler *self, const GG_LogRecord *record)</argsstring>
+        <name>Log</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle a log record.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>record</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The log record to handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="113" column="5" bodyfile="xp/common/gg_logging.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___log_handler_interface_1a4314985c3c3b99a998692e667d596fdf" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_LogHandlerInterface::Destroy) (GG_LogHandler *self)</definition>
+        <argsstring>)(GG_LogHandler *self)</argsstring>
+        <name>Destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="120" column="5" bodyfile="xp/common/gg_logging.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="struct_g_g___log_handler" kindref="compound">GG_LogHandler</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/common/gg_logging.h" line="106" column="83" bodyfile="xp/common/gg_logging.h" bodystart="106" bodyend="121"/>
+    <listofallmembers>
+      <member refid="struct_g_g___log_handler_interface_1a4314985c3c3b99a998692e667d596fdf" prot="public" virt="non-virtual"><scope>GG_LogHandlerInterface</scope><name>Destroy</name></member>
+      <member refid="struct_g_g___log_handler_interface_1a77bf1d39293f550bbb8faf4a277f2bf6" prot="public" virt="non-virtual"><scope>GG_LogHandlerInterface</scope><name>Log</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

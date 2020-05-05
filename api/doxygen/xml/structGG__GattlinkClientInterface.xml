@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__GattlinkClientInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_GattlinkClientInterface</compoundname>
+    <includes refid="gg__gattlink_8h" local="no">xp/gattlink/gg_gattlink.h</includes>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1ac82bdc3796ddaacdc563fef6fc17b482" prot="public" static="no" mutable="no">
+        <type>size_t(*</type>
+        <definition>size_t(* GG_GattlinkClientInterface::GetOutgoingDataAvailable) (GG_GattlinkClient *self)</definition>
+        <argsstring>)(GG_GattlinkClient *self)</argsstring>
+        <name>GetOutgoingDataAvailable</name>
+        <briefdescription>
+<para>The functions that deal with sending data from the local client out to the peer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes ready to be sent </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="57" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a16585c868d5f4e2bbebea1e1ef1dc766" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_GattlinkClientInterface::GetOutgoingData) (GG_GattlinkClient *self, size_t offset, void *buffer, size_t size)</definition>
+        <argsstring>)(GG_GattlinkClient *self, size_t offset, void *buffer, size_t size)</argsstring>
+        <name>GetOutgoingData</name>
+        <briefdescription>
+<para>Copies the requested data ready to be transferred out to the peer device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The data cannot be free&apos;d upon completion of this call. It can only be free&apos;d when <ref refid="structGG__GattlinkClientInterface_1ac7f0e6480164de4a20dad8455f500087" kindref="member">ConsumeOutgoingData()</ref> is called</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index within the currently outstanding send data to start copying from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to copy the send data into </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to copy </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__Errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> on success, or an error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="68" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1ac7f0e6480164de4a20dad8455f500087" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GattlinkClientInterface::ConsumeOutgoingData) (GG_GattlinkClient *self, size_t size)</definition>
+        <argsstring>)(GG_GattlinkClient *self, size_t size)</argsstring>
+        <name>ConsumeOutgoingData</name>
+        <briefdescription>
+<para>Called once the bytes have been successfully sent. Informs the client that it may free any allocations associated with these bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that can be free&apos;d </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="75" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a9a2d830651ed8fe41dd59e0a58cf29b2" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GattlinkClientInterface::NotifyIncomingDataAvailable) (GG_GattlinkClient *self)</definition>
+        <argsstring>)(GG_GattlinkClient *self)</argsstring>
+        <name>NotifyIncomingDataAvailable</name>
+        <briefdescription>
+<para>The functions that deal with receiving data from the peer and forwarding it to the client. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called every time data has been successfully received by the peer and converted to a data payload that is ready for reading by the client <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="85" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a20819d2e92bb6daccd3d5183fe686c03" prot="public" static="no" mutable="no">
+        <type>size_t(*</type>
+        <definition>size_t(* GG_GattlinkClientInterface::GetTransportMaxPacketSize) (GG_GattlinkClient *self)</definition>
+        <argsstring>)(GG_GattlinkClient *self)</argsstring>
+        <name>GetTransportMaxPacketSize</name>
+        <briefdescription>
+<para>The low level APIs for sending &amp; receiving raw &apos;GattLink&apos; data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Informs GattLink the maximum payload size it can use. (i.e For a transport over GATT, this would be the negotiated MTU size minus the ATT Overhead)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the max size that can be provided to <ref refid="structGG__GattlinkClientInterface_1a16585c868d5f4e2bbebea1e1ef1dc766" kindref="member">GetOutgoingData()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="97" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a68c0e45d53eb3b274486dafd72f3f487" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_GattlinkClientInterface::SendRawData) (GG_GattlinkClient *self, const void *buffer, size_t size)</definition>
+        <argsstring>)(GG_GattlinkClient *self, const void *buffer, size_t size)</argsstring>
+        <name>SendRawData</name>
+        <briefdescription>
+<para>Called in order to send data over the underlying transport. See &quot;Sending / Receiving Data
+Overview&quot; in doc linked in header details. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gattlink data to send over the underlying transport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__Errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> on success, or an error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="106" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a4781641656ec1bc23c2add8ca19fc9fd" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GattlinkClientInterface::NotifySessionReady) (GG_GattlinkClient *self)</definition>
+        <argsstring>)(GG_GattlinkClient *self)</argsstring>
+        <name>NotifySessionReady</name>
+        <briefdescription>
+<para>The APIs used to open/close a GattLink session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Called when a session has been established and is ready to send/receive data <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="115" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1a511b0d934e1427ccc1bf6c39758e5373" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GattlinkClientInterface::NotifySessionReset) (GG_GattlinkClient *self)</definition>
+        <argsstring>)(GG_GattlinkClient *self)</argsstring>
+        <name>NotifySessionReset</name>
+        <briefdescription>
+<para>Called when a session has been reset. This is an indication to the client that it should assume that the peer has changed and/or reset its state. As a result, there is no guarantee that data sent prior to the reset has been successfully received by the peer, so the client is likely to need to flush some of its buffers and/or reset its state as well. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="123" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkClientInterface_1ae88fcf7e4e3286b91a2b3b20634d6b0f" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GattlinkClientInterface::NotifySessionStalled) (GG_GattlinkClient *self, uint32_t stalled_time)</definition>
+        <argsstring>)(GG_GattlinkClient *self, uint32_t stalled_time)</argsstring>
+        <name>NotifySessionStalled</name>
+        <briefdescription>
+<para>Called when the communication with the peer is stalled for some period of time. It is not an indication that an error occurred, but an indication that there may be something wrong with the transport. It is up to the client to decide what to do when that happens, as the protocol will not automatically reset. This method may be invoked repeatedly by the protocol as it tries to continue to deliver packets to the peer and isn&apos;t receiving responses. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">stalled_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of milliseconds we have been stalled for so far. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink.h" line="134" column="5" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="structGG__GattlinkClient" kindref="compound">GG_GattlinkClient</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/gattlink/gg_gattlink.h" line="52" column="91" bodyfile="xp/gattlink/gg_gattlink.h" bodystart="52" bodyend="135"/>
+    <listofallmembers>
+      <member refid="structGG__GattlinkClientInterface_1ac7f0e6480164de4a20dad8455f500087" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>ConsumeOutgoingData</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a16585c868d5f4e2bbebea1e1ef1dc766" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>GetOutgoingData</name></member>
+      <member refid="structGG__GattlinkClientInterface_1ac82bdc3796ddaacdc563fef6fc17b482" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>GetOutgoingDataAvailable</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a20819d2e92bb6daccd3d5183fe686c03" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>GetTransportMaxPacketSize</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a9a2d830651ed8fe41dd59e0a58cf29b2" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>NotifyIncomingDataAvailable</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a4781641656ec1bc23c2add8ca19fc9fd" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>NotifySessionReady</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a511b0d934e1427ccc1bf6c39758e5373" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>NotifySessionReset</name></member>
+      <member refid="structGG__GattlinkClientInterface_1ae88fcf7e4e3286b91a2b3b20634d6b0f" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>NotifySessionStalled</name></member>
+      <member refid="structGG__GattlinkClientInterface_1a68c0e45d53eb3b274486dafd72f3f487" prot="public" virt="non-virtual"><scope>GG_GattlinkClientInterface</scope><name>SendRawData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

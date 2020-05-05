@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NodeKey - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.node</a>&nbsp;/&nbsp;<a href="./index.html">NodeKey</a><br/>
+<br/>
+<h1>NodeKey</h1>
+<code><span class="keyword">interface </span><span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Marker interface for uniquely identifying a remote Node device</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="value.html">value</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="index.html#T"><span class="identifier">T</span></a></code>
+<p>Unique identifier for a Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-bluetooth-address-node-key/index.html">BluetoothAddressNodeKey</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">BluetoothAddressNodeKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code>
+<p>Uniquely identifies a Node with a bluetooth address that is connected over BLE</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-bsd-socket-node-key/index.html">BsdSocketNodeKey</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">BsdSocketNodeKey</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.sockets.bsd/-bsd-datagram-socket-address/index.html"><span class="identifier">BsdDatagramSocketAddress</span></a><span class="symbol">&gt;</span></code>
+<p>Uniquely identifies a Node that is connected over BsdSocket</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

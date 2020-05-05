@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Portability" kind="group">
+    <compoundname>Portability</compoundname>
+    <title>Portability</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Portability_1ga03851fd7e6337964c0cbfacceb1b416f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void __gg_assert_func</definition>
+        <argsstring>(const char *file, int line, const char *func, const char *mesg)</argsstring>
+        <name>__gg_assert_func</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mesg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="109" column="1" declfile="xp/common/gg_port.h" declline="109" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Portability_1ga6d57d5fc8580b5f523f07696616d76c0" prot="public" static="no">
+        <name>GG_PLATFORM_ANY</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Generic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="28" column="9" bodyfile="xp/common/gg_port.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gad65a3c9eea28af64985fb3b903b63085" prot="public" static="no">
+        <name>GG_PLATFORM_BISON</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Bison FW platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="29" column="9" bodyfile="xp/common/gg_port.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga344a82868432a42b23d567377bfd4dc1" prot="public" static="no">
+        <name>GG_PLATFORM_LINUX</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Linux platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="30" column="9" bodyfile="xp/common/gg_port.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga09731bf1f6d9348cc576101b7159bb67" prot="public" static="no">
+        <name>GG_PLATFORM_WINDOWS</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>Windows platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="31" column="9" bodyfile="xp/common/gg_port.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gac51cd5fda3da2c4c3d8d8c02e3d0198f" prot="public" static="no">
+        <name>GG_PLATFORM_NUTTX</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>NuttX platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="32" column="9" bodyfile="xp/common/gg_port.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gab67cbe67d9f2f3135eb2d209cc6b4b74" prot="public" static="no">
+        <name>GG_PLATFORM_PYLON</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>Pylon platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="33" column="9" bodyfile="xp/common/gg_port.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gac573495c1252d69e7d1fe5c926a4ff50" prot="public" static="no">
+        <name>GG_PLATFORM_DARKHORSE</name>
+        <initializer>6</initializer>
+        <briefdescription>
+<para>Darkhorse platform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="34" column="9" bodyfile="xp/common/gg_port.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga48f8654a540adc87fa975e5b652f0fb7" prot="public" static="no">
+        <name>GG_CONFIG_PLATFORM</name>
+        <initializer><ref refid="group__Portability_1ga6d57d5fc8580b5f523f07696616d76c0" kindref="member">GG_PLATFORM_ANY</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="41" column="10" bodyfile="xp/common/gg_port.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga5334da47dd330f018987143908a614e4" prot="public" static="no">
+        <name>GG_CONFIG_CPU_BYTE_ORDER</name>
+        <initializer><ref refid="group__Portability_1ga81582db709af2fc24f7bf8a7991d3aa3" kindref="member">GG_CPU_LITTLE_ENDIAN</ref></initializer>
+        <briefdescription>
+<para>CPU Byte order. Assume little endian by default as this is the most common. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="49" column="9" bodyfile="xp/common/gg_port.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga3279f941ede182e2db6f2a73b58c990b" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STD_C</name>
+        <briefdescription>
+<para>The platform/compiler has Standard C support. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="51" column="9" bodyfile="xp/common/gg_port.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gac7ab41ce463f44fc5fcb487f620eba02" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STDLIB_H</name>
+        <briefdescription>
+<para>The platform/compiler has stdlib.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="52" column="9" bodyfile="xp/common/gg_port.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga601ec46c53c51d82ade4330cb7d352d3" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STRING_H</name>
+        <briefdescription>
+<para>The platform/compiler has string.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="53" column="9" bodyfile="xp/common/gg_port.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gab267692522a52098d9cdc9b9d68bc971" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STDIO_H</name>
+        <briefdescription>
+<para>The platform/compiler has stdio.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="54" column="9" bodyfile="xp/common/gg_port.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gac2bafc8f163c21449051c49c22977636" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STDARG_H</name>
+        <briefdescription>
+<para>The platform/compiler has stdarg.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="55" column="9" bodyfile="xp/common/gg_port.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gabecc510de9731a45f1a8f8035d12883f" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_STDDEF_H</name>
+        <briefdescription>
+<para>The platform/compiler has stddef.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="56" column="9" bodyfile="xp/common/gg_port.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga857cb6a72096166a988bcb7bd3133c8f" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_CTYPE_H</name>
+        <briefdescription>
+<para>The platform/compiler has ctype.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="57" column="9" bodyfile="xp/common/gg_port.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga10a37fd13ec6ed3417b00b7cdd8eef09" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MATH_H</name>
+        <briefdescription>
+<para>The platform/compiler has math.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="58" column="9" bodyfile="xp/common/gg_port.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaacfa6b7d8925095216ebc5ec3471441a" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_ASSERT_H</name>
+        <briefdescription>
+<para>The platform/compiler has assert.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="59" column="9" bodyfile="xp/common/gg_port.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gabb4ab838c1c2418d15f648617802fbba" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_LIMITS_H</name>
+        <briefdescription>
+<para>The platform/compiler has limits.h. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="60" column="9" bodyfile="xp/common/gg_port.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaf14f9a6db9f2bf37e85d40969e75e752" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_SOCKADDR_SA_LEN</name>
+        <briefdescription>
+<para>The platform&apos;s sockets have sa_len. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="62" column="9" bodyfile="xp/common/gg_port.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaebb5ede790b8130b19d4afdf3f4690ba" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MALLOC</name>
+        <briefdescription>
+<para>The platform/compiler has malloc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="65" column="9" bodyfile="xp/common/gg_port.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga92f01e472e4762685adb1e39189a6e5e" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_CALLOC</name>
+        <briefdescription>
+<para>The platform/compiler has calloc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="66" column="9" bodyfile="xp/common/gg_port.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga74bd260ddd7184658dbc0524c4c6755f" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_REALLOC</name>
+        <briefdescription>
+<para>The platform/compiler has realloc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="67" column="9" bodyfile="xp/common/gg_port.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga0686d1c8b98dde25d2190c95fab3f736" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_FREE</name>
+        <briefdescription>
+<para>The platform/compiler has free. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="68" column="9" bodyfile="xp/common/gg_port.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gab632e533aac10f40e38f05ed52455397" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MEMCPY</name>
+        <briefdescription>
+<para>The platform/compiler has memcpy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="69" column="9" bodyfile="xp/common/gg_port.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga28305aa5db69db8464fdd8a29ac229ca" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MEMMOVE</name>
+        <briefdescription>
+<para>The platform/compiler has memmove. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="70" column="9" bodyfile="xp/common/gg_port.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga6547f1a2794981cbd2755aae49d956f3" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MEMSET</name>
+        <briefdescription>
+<para>The platform/compiler has memset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="71" column="9" bodyfile="xp/common/gg_port.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gae5bb3793917a69ec6443557d7b226042" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_MEMCMP</name>
+        <briefdescription>
+<para>The platform/compiler has memcmp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="72" column="9" bodyfile="xp/common/gg_port.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaa691c6588a87fe6fd1ed63347e13b614" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_ATEXIT</name>
+        <briefdescription>
+<para>The platform/compiler has atexit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="73" column="9" bodyfile="xp/common/gg_port.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga20eb1abce9553777a463e9601d9d8c12" prot="public" static="no">
+        <name>GG_CONFIG_HAVE_GETENV</name>
+        <briefdescription>
+<para>The platform/compiler has getenv. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="74" column="9" bodyfile="xp/common/gg_port.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaa06149bfc48b46819f9b9a9a73dc5ea6" prot="public" static="no">
+        <name>GG_CONST_CAST</name>
+        <param><defname>var</defname></param>
+        <param><defname>type</defname></param>
+        <initializer>((type)(uintptr_t)(var))</initializer>
+        <briefdescription>
+<para>cast-away constness (use with care!) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="80" column="9" bodyfile="xp/common/gg_port.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gaad4a9fdce241d29a42163e70f647d085" prot="public" static="no">
+        <name>GG_CPU_BIG_ENDIAN</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Big-endian byte order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="85" column="9" bodyfile="xp/common/gg_port.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga81582db709af2fc24f7bf8a7991d3aa3" prot="public" static="no">
+        <name>GG_CPU_LITTLE_ENDIAN</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>Little-endian byte order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="86" column="9" bodyfile="xp/common/gg_port.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga2871889094d0654f31971cb44ed635fc" prot="public" static="no">
+        <name>GG_ASSERT</name>
+        <param><defname>x</defname></param>
+        <initializer>assert(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="144" column="10" bodyfile="xp/common/gg_port.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1gae67252350228f9743fdf73208c66d87a" prot="public" static="no">
+        <name>GG_COMPILER_UNUSED</name>
+        <param><defname>var</defname></param>
+        <initializer>(void)var</initializer>
+        <briefdescription>
+<para>Macro used to signal that a function parameter isn&apos;t used. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="153" column="9" bodyfile="xp/common/gg_port.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga31bb808902a10197861a235634a7395b" prot="public" static="no">
+        <name>GG_LocalFunctionName</name>
+        <initializer>(<ref refid="group__Types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="179" column="9" bodyfile="xp/common/gg_port.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Portability_1ga992d0170464532e42ccd89570f62bcbb" prot="public" static="no">
+        <name>GG_COMPILER_ATTRIBUTE_PACKED</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_port.h" line="183" column="9" bodyfile="xp/common/gg_port.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Cross-platform and compiler portability support </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

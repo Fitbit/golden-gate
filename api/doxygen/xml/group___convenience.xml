@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group___convenience" kind="group">
+    <compoundname>Convenience</compoundname>
+    <title>Convenience</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Convenience Include Files </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

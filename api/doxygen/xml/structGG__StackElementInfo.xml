@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__StackElementInfo" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackElementInfo</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__StackElementInfo_1a64d166cf45d5a12414c1ffbf19d16912" prot="public" static="no" mutable="no">
+        <type><ref refid="group__StackBuilder_1gad6cfc1cb4baae50296445f8a3679d222" kindref="member">GG_StackElementId</ref></type>
+        <definition>GG_StackElementId GG_StackElementInfo::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+<para>Identifier for the element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="83" column="25" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementInfo_1a7139cc2faa447a94aa311573bd6ada36" prot="public" static="no" mutable="no">
+        <type><ref refid="group__StackBuilder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref></type>
+        <definition>GG_StackElementType GG_StackElementInfo::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Type of the element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="84" column="25" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Information about a stack element </para>
+    </detaileddescription>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="82" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="82" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structGG__StackElementInfo_1a64d166cf45d5a12414c1ffbf19d16912" prot="public" virt="non-virtual"><scope>GG_StackElementInfo</scope><name>id</name></member>
+      <member refid="structGG__StackElementInfo_1a7139cc2faa447a94aa311573bd6ada36" prot="public" virt="non-virtual"><scope>GG_StackElementInfo</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

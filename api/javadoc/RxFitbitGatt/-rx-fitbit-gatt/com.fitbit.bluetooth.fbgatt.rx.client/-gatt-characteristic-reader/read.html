@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattCharacteristicReader.read - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="index.html">GattCharacteristicReader</a>&nbsp;/&nbsp;<a href="./read.html">read</a><br/>
+<br/>
+<h1>read</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader$read(java.util.UUID, java.util.UUID)"></a>
+<code><span class="keyword">fun </span><span class="identifier">read</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader$read(java.util.UUID, java.util.UUID)/serviceId">serviceId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader$read(java.util.UUID, java.util.UUID)/characteristicId">characteristicId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code>
+<p>Write given data to the provided remote GATT characteristic</p>
+<h3>Parameters</h3>
+<p><a name="serviceId"></a>
+<code>serviceId</code> - ID of the remote service to write data</p>
+<p><a name="characteristicId"></a>
+<code>characteristicId</code> - ID of the remote characteristic to write data</p>
+<h3>Exceptions</h3>
+<p><a name="GattServiceNotFoundException"></a>
+<code>GattServiceNotFoundException</code> - if given remote GATT service was not found</p>
+<p><a name="GattCharacteristicException"></a>
+<code>GattCharacteristicException</code> - if given remote GATT Characteristic is not found</p>
+<p><strong>Return</strong><br/>
+Data read from given GATT Characteristic</p>
+</BODY>
+</HTML>

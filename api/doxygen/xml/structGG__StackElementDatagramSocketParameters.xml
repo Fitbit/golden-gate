@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__StackElementDatagramSocketParameters" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackElementDatagramSocketParameters</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__StackElementDatagramSocketParameters_1a5b0a168cce61591c6138f6624b1ea4e4" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_StackElementDatagramSocketParameters::local_port</definition>
+        <argsstring></argsstring>
+        <name>local_port</name>
+        <briefdescription>
+<para>Local UDP port number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="146" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementDatagramSocketParameters_1a6af5a15114183e55a3be00c5212212e9" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_StackElementDatagramSocketParameters::remote_port</definition>
+        <argsstring></argsstring>
+        <name>remote_port</name>
+        <briefdescription>
+<para>Remote UDP port number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="147" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Construction parameters for a UDP Datagram Socket element </para>
+    </detaileddescription>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="145" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="145" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structGG__StackElementDatagramSocketParameters_1a5b0a168cce61591c6138f6624b1ea4e4" prot="public" virt="non-virtual"><scope>GG_StackElementDatagramSocketParameters</scope><name>local_port</name></member>
+      <member refid="structGG__StackElementDatagramSocketParameters_1a6af5a15114183e55a3be00c5212212e9" prot="public" virt="non-virtual"><scope>GG_StackElementDatagramSocketParameters</scope><name>remote_port</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

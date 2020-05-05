@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___bit_output_stream" kind="struct" language="C++" prot="public">
+    <compoundname>GG_BitOutputStream</compoundname>
+    <includes refid="gg__bitstream_8h" local="no">xp/common/gg_bitstream.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___bit_output_stream_1a50f90ff581cc4aa4b9010671eaee764d" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* GG_BitOutputStream::bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="62" column="21" bodyfile="xp/common/gg_bitstream.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___bit_output_stream_1a93a7a12a9ae982fd5b5f13ce9ba4bb63" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_BitOutputStream::byte_size</definition>
+        <argsstring></argsstring>
+        <name>byte_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="63" column="22" bodyfile="xp/common/gg_bitstream.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___bit_output_stream_1affa78d66345ed5190dee7a5b8e406ffa" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_BitOutputStream::byte_position</definition>
+        <argsstring></argsstring>
+        <name>byte_position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="64" column="22" bodyfile="xp/common/gg_bitstream.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___bit_output_stream_1a2d93eddf43681e0da850070d6823a5c9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BitOutputStream::cache</definition>
+        <argsstring></argsstring>
+        <name>cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="65" column="22" bodyfile="xp/common/gg_bitstream.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___bit_output_stream_1aa7f0a826f97e63c961ec602462981f75" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_BitOutputStream::bits_cached</definition>
+        <argsstring></argsstring>
+        <name>bits_cached</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="66" column="22" bodyfile="xp/common/gg_bitstream.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Bit Output Stream (stream of bits stored in a byte buffer)</para>
+<para>This class supports writing 1 to 32 bits at a time to a byte buffer. </para>
+    </detaileddescription>
+    <location file="xp/common/gg_bitstream.h" line="61" column="1" bodyfile="xp/common/gg_bitstream.h" bodystart="60" bodyend="67"/>
+    <listofallmembers>
+      <member refid="struct_g_g___bit_output_stream_1aa7f0a826f97e63c961ec602462981f75" prot="public" virt="non-virtual"><scope>GG_BitOutputStream</scope><name>bits_cached</name></member>
+      <member refid="struct_g_g___bit_output_stream_1affa78d66345ed5190dee7a5b8e406ffa" prot="public" virt="non-virtual"><scope>GG_BitOutputStream</scope><name>byte_position</name></member>
+      <member refid="struct_g_g___bit_output_stream_1a93a7a12a9ae982fd5b5f13ce9ba4bb63" prot="public" virt="non-virtual"><scope>GG_BitOutputStream</scope><name>byte_size</name></member>
+      <member refid="struct_g_g___bit_output_stream_1a50f90ff581cc4aa4b9010671eaee764d" prot="public" virt="non-virtual"><scope>GG_BitOutputStream</scope><name>bytes</name></member>
+      <member refid="struct_g_g___bit_output_stream_1a2d93eddf43681e0da850070d6823a5c9" prot="public" virt="non-virtual"><scope>GG_BitOutputStream</scope><name>cache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

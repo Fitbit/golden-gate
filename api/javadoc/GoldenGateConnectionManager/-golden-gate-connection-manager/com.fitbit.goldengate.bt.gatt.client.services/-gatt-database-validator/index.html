@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattDatabaseValidator - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bt.gatt.client.services</a>&nbsp;/&nbsp;<a href="./index.html">GattDatabaseValidator</a><br/>
+<br/>
+<h1>GattDatabaseValidator</h1>
+<code><span class="keyword">class </span><span class="identifier">GattDatabaseValidator</span></code>
+<p>The class implements the Gatt database version validation</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GattDatabaseValidator</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$<init>(kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter)))/gattCharacteristicReaderProvider">gattCharacteristicReaderProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">GattConnection</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">GattCharacteristicReader</span>&nbsp;<span class="symbol">=</span>&nbsp;{ GattCharacteristicReader(it) }<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$<init>(kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter)))/gattCharacteristicWriterProvider">gattCharacteristicWriterProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">GattConnection</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">GattCharacteristicWriter</span>&nbsp;<span class="symbol">=</span>&nbsp;{ GattCharacteristicWriter(it) }<span class="symbol">)</span></code>
+<p>The class implements the Gatt database version validation</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="validate.html">validate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">validate</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$validate(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral)/peripheral">peripheral</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattPeripheral</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>To validate the GATT Database version, first read the payload of Ephemeral Pointer Characteristic from <a href="../-gatt-database-confirmation-service/index.html">GattDatabaseConfirmationService</a>
+The payload will contains the UUID of GATT Ephemeral Characteristic. Second, we write to Ephemeral GATT Characteristic UUID.
+If the write succeeds within timeout, tracker will not send us the service changed indication and complete the validation process.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OutgoingRequestBuilder - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">OutgoingRequestBuilder</a><br/>
+<br/>
+<h1>OutgoingRequestBuilder</h1>
+<code><span class="keyword">class </span><span class="identifier">OutgoingRequestBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-outgoing-message-builder/index.html"><span class="identifier">BaseOutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">&gt;</span></code>
+<p>Concrete class of MessageBuilder for building <a href="../-outgoing-request/index.html">OutgoingRequest</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">OutgoingRequestBuilder</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$<init>(kotlin.String, com.fitbit.goldengate.bindings.coap.data.Method)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$<init>(kotlin.String, com.fitbit.goldengate.bindings.coap.data.Method)/method">method</span><span class="symbol">:</span>&nbsp;<a href="../-method/index.html"><span class="identifier">Method</span></a><span class="symbol">)</span></code>
+<p>Concrete class of MessageBuilder for building <a href="../-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="method.html">method</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">method</span><span class="symbol">: </span><a href="../-method/index.html"><span class="identifier">Method</span></a></code>
+<p>The CoAP Method to use for this request (GET/PUT/POST/DELETE)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="path.html">path</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">path</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>The path to send this request to. (e.g. /foo/bar)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="ack-timeout.html">ackTimeout</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">ackTimeout</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$ackTimeout(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OutgoingRequestBuilder</span></a></code>
+<p>Config the timeout after which a resend will happen, in milliseconds.
+When set to 0, to use a default value according to the CoAP specification and the endpoint.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a></code>
+<p>Build Coap <a href="../-message/index.html">Message</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="expect-success.html">expectSuccess</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">expectSuccess</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$expectSuccess(kotlin.Boolean)/expect">expect</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OutgoingRequestBuilder</span></a></code>
+<p>Tweaks Observable behavior and allows for custom error handling.
+If true, a non-2.xx response will error the response() Observable.
+If false (default), a non-2.xx response will be reported as a <code>next</code> event.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="force-non-blockwise.html">forceNonBlockwise</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">forceNonBlockwise</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$forceNonBlockwise(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OutgoingRequestBuilder</span></a></code>
+<p>Flag to treat the request as non-blockwise. In a blockwise request data is sent in chuncks(blocks)
+of fixed size. In GG we use 1024 bytes. On the tracker some Coap resources accept larger data payloads
+in a single block. In this case we need to force a non-blockwise request. Here is an example of this
+type of resource:</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="max-resend-count.html">maxResendCount</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">maxResendCount</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$maxResendCount(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OutgoingRequestBuilder</span></a></code>
+<p>Config the maximum number of times the client will resend the request if there is a response timeout.
+When set to 0, a request will only be sent once and not re-sent.
+When set to a negative number(e.g. -1), the max resend count will set to <a href="#">GG_COAP_DEFAULT_MAX_RETRANSMIT</a>
+from GG XP lib</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-base-outgoing-message-builder/body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">body</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$body(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="../-data.html"><span class="identifier">Data</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-base-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">body</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$body(java.io.InputStream)/stream">stream</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-base-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Body of the coap message</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-outgoing-message-builder/option.html">option</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">option</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$option(com.fitbit.goldengate.bindings.coap.data.Option)/option">option</span><span class="symbol">:</span>&nbsp;<a href="../-option/index.html"><span class="identifier">Option</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-base-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Add an option to coap message</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-outgoing-message-builder/progress-observer.html">progressObserver</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">progressObserver</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$progressObserver(io.reactivex.Observer((kotlin.Int)))/progressObserver">progressObserver</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-base-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Progress Observer of the coap message</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseRequest - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">BaseRequest</a><br/>
+<br/>
+<h1>BaseRequest</h1>
+<code><span class="keyword">interface </span><span class="identifier">BaseRequest</span></code>
+<p>Holds common data for <a href="../-incoming-request.html">IncomingRequest</a> and <a href="../-outgoing-request/index.html">OutgoingRequest</a></p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="method.html">method</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">method</span><span class="symbol">: </span><a href="../-method/index.html"><span class="identifier">Method</span></a></code>
+<p>Request <a href="../-method/index.html">Method</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="progress-observer.html">progressObserver</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">progressObserver</span><span class="symbol">: </span><span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Observer for the number of bytes Sent/Received in a Blockwise Operation</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-incoming-request.html">IncomingRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">IncomingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-incoming-message/index.html"><span class="identifier">IncomingMessage</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Incoming coap request message.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OutgoingRequest</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-outgoing-message/index.html"><span class="identifier">OutgoingMessage</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">BaseRequest</span></a></code>
+<p>Represents outgoing request for a request in coap client mode.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

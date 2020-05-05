@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__async__pipe_8h" kind="file" language="C++">
+    <compoundname>gg_async_pipe.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__io_8h" local="yes">xp/common/gg_io.h</includes>
+    <includes refid="gg__timer_8h" local="yes">xp/common/gg_timer.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>assert.h</label>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___utils_1ga0cd4f3749521ae2153785d1e9960948d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_AsyncPipe_Create</definition>
+        <argsstring>(GG_TimerScheduler *timer_scheduler, unsigned int max_items, GG_AsyncPipe **pipe)</argsstring>
+        <name>GG_AsyncPipe_Create</name>
+        <param>
+          <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+          <declname>timer_scheduler</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_items</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref> **</type>
+          <declname>pipe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timer_scheduler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timer scheduler used to create a tick timer for pumping the data between the endpoints. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where the created object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="83" column="11" declfile="xp/utils/gg_async_pipe.h" declline="83" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga0255c24a6e8ccaf3615a638fa96bbcc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_AsyncPipe_Destroy</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_Destroy</name>
+        <param>
+          <type><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="90" column="6" declfile="xp/utils/gg_async_pipe.h" declline="90" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga1de22a904337308a24051dceff17823a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_AsyncPipe_AsDataSource</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_AsDataSource</name>
+        <param>
+          <type><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="99" column="15" declfile="xp/utils/gg_async_pipe.h" declline="99" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1gadb1c6ee16cd9a0c67b207710e8419a93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_AsyncPipe_AsDataSink</definition>
+        <argsstring>(GG_AsyncPipe *self)</argsstring>
+        <name>GG_AsyncPipe_AsDataSink</name>
+        <param>
+          <type><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface of the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface of the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_async_pipe.h" line="108" column="13" declfile="xp/utils/gg_async_pipe.h" declline="108" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-12-08 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="15"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__io_8h" kindref="compound">xp/common/gg_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__timer_8h" kindref="compound">xp/common/gg_timer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref><sp/><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utils_1ga0cd4f3749521ae2153785d1e9960948d" kindref="member">GG_AsyncPipe_Create</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/>timer_scheduler,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_items,<sp/><ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref>**<sp/>pipe);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utils_1ga0255c24a6e8ccaf3615a638fa96bbcc1" kindref="member">GG_AsyncPipe_Destroy</ref>(<ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="group___utils_1ga1de22a904337308a24051dceff17823a" kindref="member">GG_AsyncPipe_AsDataSource</ref>(<ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="group___utils_1gadb1c6ee16cd9a0c67b207710e8419a93" kindref="member">GG_AsyncPipe_AsDataSink</ref>(<ref refid="class_g_g___async_pipe" kindref="compound">GG_AsyncPipe</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/utils/gg_async_pipe.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PeripheralServiceSubscriber.subscribe - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="index.html">PeripheralServiceSubscriber</a>&nbsp;/&nbsp;<a href="./subscribe.html">subscribe</a><br/>
+<br/>
+<h1>subscribe</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber$subscribe(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, java.util.UUID, java.util.UUID, kotlin.Boolean)"></a>
+<code><span class="keyword">fun </span><span class="identifier">subscribe</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber$subscribe(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, java.util.UUID, java.util.UUID, kotlin.Boolean)/peripheral">peripheral</span><span class="symbol">:</span>&nbsp;<a href="../-bit-gatt-peripheral/index.html"><span class="identifier">BitGattPeripheral</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber$subscribe(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, java.util.UUID, java.util.UUID, kotlin.Boolean)/serviceUuid">serviceUuid</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber$subscribe(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, java.util.UUID, java.util.UUID, kotlin.Boolean)/characteristicUUID">characteristicUUID</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber$subscribe(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, java.util.UUID, java.util.UUID, kotlin.Boolean)/isIndication">isIndication</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Subscribe to given characteristic hosted on remote peripheral</p>
+<h3>Parameters</h3>
+<p><a name="peripheral"></a>
+<code>peripheral</code> - connected peripheral</p>
+<p><a name="serviceUuid"></a>
+<code>serviceUuid</code> - GATT service hosting the characteristic to subscribe to</p>
+<p><a name="characteristicUUID"></a>
+<code>characteristicUUID</code> - GATT characteristic to subscribe to</p>
+<p><a name="isIndication"></a>
+<code>isIndication</code> - whether the notification type is indication (by default, it's set to notification)</p>
+<h3>Exceptions</h3>
+<p><a name="GattServiceNotFoundException"></a>
+<code>GattServiceNotFoundException</code> - if given service is not found</p>
+</BODY>
+</HTML>

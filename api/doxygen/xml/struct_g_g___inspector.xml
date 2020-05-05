@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___inspector" kind="interface" language="C++" prot="public">
+    <compoundname>GG_Inspector</compoundname>
+    <includes refid="gg__inspect_8h" local="no">xp/common/gg_inspect.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___inspector_1aeff4e073628af96e7af6cd08bb9b4f70" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___inspector_interface" kindref="compound">GG_InspectorInterface</ref> *</type>
+        <definition>const GG_InspectorInterface* GG_Inspector::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_inspect.h" line="79" column="81" bodyfile="xp/common/gg_inspect.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that can inspect a <ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> object. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_Inspector</label>
+        <link refid="struct_g_g___inspector"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_InspectorInterface</label>
+        <link refid="struct_g_g___inspector_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_inspect.h" line="79" column="52" bodyfile="xp/common/gg_inspect.h" bodystart="79" bodyend="79"/>
+    <listofallmembers>
+      <member refid="struct_g_g___inspector_1aeff4e073628af96e7af6cd08bb9b4f70" prot="public" virt="non-virtual"><scope>GG_Inspector</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

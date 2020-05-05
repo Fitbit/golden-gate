@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattServerConnectionChangeListener - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.server.listeners</a>&nbsp;/&nbsp;<a href="./index.html">GattServerConnectionChangeListener</a><br/>
+<br/>
+<h1>GattServerConnectionChangeListener</h1>
+<code><span class="keyword">object </span><span class="identifier">GattServerConnectionChangeListener</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-server-connection-event-listener/index.html"><span class="identifier">BaseServerConnectionEventListener</span></a></code>
+<p>GATT server listener that listens to connection changes with a remote device.
+Connection changes are available per remote device</p>
+<p>Note: This Singleton listener must be registered when app in initialized</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-data-observable.html">getDataObservable</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getDataObservable</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerConnectionChangeListener$getDataObservable(android.bluetooth.BluetoothDevice)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="../../com.fitbit.bluetooth.fbgatt.rx/-peripheral-connection-status/index.html"><span class="identifier">PeripheralConnectionStatus</span></a><span class="symbol">&gt;</span></code>
+<p>Observable on which changes to Gatt server connection state changes are available</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-server-connection-state-changed.html">onServerConnectionStateChanged</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onServerConnectionStateChanged</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerConnectionChangeListener$onServerConnectionStateChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerConnectionChangeListener$onServerConnectionStateChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerConnectionChangeListener$onServerConnectionStateChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-base-server-connection-event-listener/on-server-characteristic-read-request.html">onServerCharacteristicReadRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onServerCharacteristicReadRequest</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-server-connection-event-listener/on-server-characteristic-write-request.html">onServerCharacteristicWriteRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onServerCharacteristicWriteRequest</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerCharacteristicWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-server-connection-event-listener/on-server-descriptor-read-request.html">onServerDescriptorReadRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onServerDescriptorReadRequest</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorReadRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-server-connection-event-listener/on-server-descriptor-write-request.html">onServerDescriptorWriteRequest</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onServerDescriptorWriteRequest</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerDescriptorWriteRequest(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-server-connection-event-listener/on-server-mtu-changed.html">onServerMtuChanged</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onServerMtuChanged</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerMtuChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerMtuChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/result">result</span><span class="symbol">:</span>&nbsp;<span class="identifier">TransactionResult</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener$onServerMtuChanged(android.bluetooth.BluetoothDevice, com.fitbit.bluetooth.fbgatt.TransactionResult, com.fitbit.bluetooth.fbgatt.GattServerConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

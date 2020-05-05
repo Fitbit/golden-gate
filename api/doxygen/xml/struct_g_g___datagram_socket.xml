@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___datagram_socket" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DatagramSocket</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___datagram_socket_1a4782318aa8862d512962f34d183c8251" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___datagram_socket_interface" kindref="compound">GG_DatagramSocketInterface</ref> *</type>
+        <definition>const GG_DatagramSocketInterface* GG_DatagramSocket::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="79" column="91" bodyfile="xp/sockets/gg_sockets.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_DatagramSocketInterface</label>
+        <link refid="struct_g_g___datagram_socket_interface"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>AsDataSource</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>AsDataSink</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_DatagramSocket</label>
+        <link refid="struct_g_g___datagram_socket"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_DataSourceInterface</label>
+        <link refid="struct_g_g___data_source_interface"/>
+      </node>
+      <node id="3">
+        <label>GG_DataSource</label>
+        <link refid="struct_g_g___data_source"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GG_DataSink</label>
+        <link refid="struct_g_g___data_sink"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GG_DataSinkInterface</label>
+        <link refid="struct_g_g___data_sink_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/sockets/gg_sockets.h" line="79" column="57" bodyfile="xp/sockets/gg_sockets.h" bodystart="79" bodyend="79"/>
+    <listofallmembers>
+      <member refid="struct_g_g___datagram_socket_1a4782318aa8862d512962f34d183c8251" prot="public" virt="non-virtual"><scope>GG_DatagramSocket</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

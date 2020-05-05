@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__StaticBuffer" kind="class" language="C++" prot="public">
+    <compoundname>GG_StaticBuffer</compoundname>
+    <basecompoundref refid="interfaceGG__Buffer" prot="public" virt="non-virtual">GG_Buffer</basecompoundref>
+    <includes refid="gg__buffer_8h" local="no">xp/common/gg_buffer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__StaticBuffer_1a3dbba0d7d728215ddc0c754d6d5bcc11" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* GG_StaticBuffer::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Pointer to the read-only static data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="117" column="19" bodyfile="xp/common/gg_buffer.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StaticBuffer_1a454eabcef142653b4e9216a3bae8ab20" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_StaticBuffer::data_size</definition>
+        <argsstring></argsstring>
+        <name>data_size</name>
+        <briefdescription>
+<para>Size of the data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="118" column="20" bodyfile="xp/common/gg_buffer.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structGG__StaticBuffer_1a03a9cb93e7cbaac5ce5202acc874fb00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_StaticBuffer::GG_IMPLEMENTS</definition>
+        <argsstring>(GG_Buffer)</argsstring>
+        <name>GG_IMPLEMENTS</name>
+        <param>
+          <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref></type>
+        </param>
+        <briefdescription>
+<para><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> interface vtable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="115" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__Buffers_1ga3efda6a3b6f4e8e3f7b3f1a60328032e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GG_StaticBuffer_AsBuffer</definition>
+        <argsstring>(buffer)</argsstring>
+        <name>GG_StaticBuffer_AsBuffer</name>
+        <param>
+          <type>buffer</type>
+        </param>
+        <briefdescription>
+<para>Obtain the <ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> interface of a <ref refid="structGG__StaticBuffer" kindref="compound">GG_StaticBuffer</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="124" column="1" bodyfile="xp/common/gg_buffer.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Buffers_1ga6cff9b55a03158d197c330c9cf43a57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_StaticBuffer_Init</definition>
+        <argsstring>(GG_StaticBuffer *self, const uint8_t *data, size_t data_size)</argsstring>
+        <name>GG_StaticBuffer_Init</name>
+        <param>
+          <type><ref refid="structGG__StaticBuffer" kindref="compound">GG_StaticBuffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+<para>Initialize a <ref refid="structGG__StaticBuffer" kindref="compound">GG_StaticBuffer</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="127" column="6" declfile="xp/common/gg_buffer.h" declline="127" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements the <ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> interface, providing a read-only view of a static data buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GG_Buffer</label>
+        <link refid="interfaceGG__Buffer"/>
+      </node>
+      <node id="1">
+        <label>GG_StaticBuffer</label>
+        <link refid="structGG__StaticBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_Buffer</label>
+        <link refid="interfaceGG__Buffer"/>
+      </node>
+      <node id="1">
+        <label>GG_StaticBuffer</label>
+        <link refid="structGG__StaticBuffer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_buffer.h" line="114" column="15" bodyfile="xp/common/gg_buffer.h" bodystart="114" bodyend="119"/>
+    <listofallmembers>
+      <member refid="structGG__StaticBuffer_1a3dbba0d7d728215ddc0c754d6d5bcc11" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>data</name></member>
+      <member refid="structGG__StaticBuffer_1a454eabcef142653b4e9216a3bae8ab20" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>data_size</name></member>
+      <member refid="group__Buffers_1ga095e75a71654105904cb903e0e198ba8" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_Buffer_GetData</name></member>
+      <member refid="group__Buffers_1gab240731784936a8c86d9089635801225" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_Buffer_GetDataSize</name></member>
+      <member refid="group__Buffers_1ga852cf21610f14b8a8312eed8a78d5342" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_Buffer_Release</name></member>
+      <member refid="group__Buffers_1ga6af313cb369183f7ef343cd73691282d" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_Buffer_Retain</name></member>
+      <member refid="group__Buffers_1ga8d0ad1fea98d61c8948a93ca962b2999" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_Buffer_UseData</name></member>
+      <member refid="structGG__StaticBuffer_1a03a9cb93e7cbaac5ce5202acc874fb00" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_IMPLEMENTS</name></member>
+      <member refid="group__Buffers_1ga3efda6a3b6f4e8e3f7b3f1a60328032e" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_StaticBuffer_AsBuffer</name></member>
+      <member refid="group__Buffers_1ga6cff9b55a03158d197c330c9cf43a57e" prot="public" virt="non-virtual"><scope>GG_StaticBuffer</scope><name>GG_StaticBuffer_Init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

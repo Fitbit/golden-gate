@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoapEndpoint.ResponseForResult - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="../index.html">CoapEndpoint</a>&nbsp;/&nbsp;<a href="./index.html">ResponseForResult</a><br/>
+<br/>
+<h1>ResponseForResult</h1>
+<code><span class="keyword">class </span><span class="identifier">ResponseForResult</span></code>
+<p>Result for <a href="../response-for.html">CoapEndpoint.responseFor</a> and <a href="#">CoapEndpoint.responseForBlockwise</a> native call</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">ResponseForResult</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint.ResponseForResult$<init>(kotlin.Int, kotlin.Long)/resultCode">resultCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpoint.ResponseForResult$<init>(kotlin.Int, kotlin.Long)/nativeResponseListenerReference">nativeResponseListenerReference</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span></code>
+<p>Result for <a href="../response-for.html">CoapEndpoint.responseFor</a> and <a href="#">CoapEndpoint.responseForBlockwise</a> native call</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="native-response-listener-reference.html">nativeResponseListenerReference</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">nativeResponseListenerReference</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Reference to native response listener that holds reference to ongoing CoAP request
+only valid when <a href="result-code.html">resultCode</a>  is +ve</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="result-code.html">resultCode</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">resultCode</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Result code for responseFor request, -ve value indicates error</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

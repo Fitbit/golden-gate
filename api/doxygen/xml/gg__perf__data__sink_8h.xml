@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__perf__data__sink_8h" kind="file" language="C++">
+    <compoundname>gg_perf_data_sink.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__io_8h" local="yes">xp/common/gg_io.h</includes>
+    <includes refid="gg__buffer_8h" local="yes">xp/common/gg_buffer.h</includes>
+    <includes refid="gg__timer_8h" local="yes">xp/common/gg_timer.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>assert.h</label>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___perf_data_sink_stats" prot="public">GG_PerfDataSinkStats</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___utils_1ga11dc5c1882d9ef09d2e94701f37c975f" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be printed on the console </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="71" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utils_1ga23df7c8b920bb1105df1b4f6d32d4218" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be logged with level INFO </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="76" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utils_1ga36740103cf1ba1451a323f17444ac620" prot="public" static="no">
+        <name>GG_PERF_DATA_SINK_OPTION_AUTO_RESET_STATS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When this flag is set in the options, the stats will be automatically reset every time the stats are output </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="82" column="9" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group___utils_1ga980e61e5ab99285e4301484afae7be7f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_PerfDataSinkMode</name>
+        <enumvalue id="group___utils_1gga980e61e5ab99285e4301484afae7be7fa83f3aedb38ecc2cb50c9ca8a013a65fa" prot="public">
+          <name>GG_PERF_DATA_SINK_MODE_RAW</name>
+          <briefdescription>
+<para>Can receive any packets with any payload,. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group___utils_1gga980e61e5ab99285e4301484afae7be7fa7c5a7fcfcb963e286cecd20477c12dca" prot="public">
+          <name>GG_PERF_DATA_SINK_MODE_BASIC_OR_IP_COUNTER</name>
+          <briefdescription>
+<para>Can receive packets from a GG_BlasterDataSource. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Type of packets expected by the sink. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="60" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="60" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" prot="public" static="no">
+        <type>struct <ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref></type>
+        <definition>typedef struct GG_PerfDataSink GG_PerfDataSink</definition>
+        <argsstring></argsstring>
+        <name>GG_PerfDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performance-measuring sink object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="116" column="11" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___utils_1ga9281ded14cd92a8da066c7b4e3619382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_PerfDataSink_Create</definition>
+        <argsstring>(GG_PerfDataSinkMode mode, uint32_t options, unsigned int stats_print_time_interval, GG_PerfDataSink **sink)</argsstring>
+        <name>GG_PerfDataSink_Create</name>
+        <param>
+          <type><ref refid="group___utils_1ga980e61e5ab99285e4301484afae7be7f" kindref="member">GG_PerfDataSinkMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>stats_print_time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> **</type>
+          <declname>sink</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a Perf data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>What type of packets to expect. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Or&apos;ed combination of option flags. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stats_print_time_interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>How frequently to print the stats, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable in which the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object was created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="98" column="11" declfile="xp/utils/gg_perf_data_sink.h" declline="98" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga2cadfcd36d86b53ba51db0a4af944fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_PerfDataSink_Destroy</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_Destroy</name>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a Perf data sink.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="108" column="6" declfile="xp/utils/gg_perf_data_sink.h" declline="108" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga2bb3a7cd472821cd9ce3c1f674f88ba5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_PerfDataSink_SetPassthroughTarget</definition>
+        <argsstring>(GG_PerfDataSink *self, GG_DataSink *target)</argsstring>
+        <name>GG_PerfDataSink_SetPassthroughTarget</name>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Specify that the sink should pass buffers through to a <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> target</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sink to which buffers should be passed through.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="118" column="11" declfile="xp/utils/gg_perf_data_sink.h" declline="118" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga1e7744c8cd9954630791c08ad2e16f5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_PerfDataSink_AsDataSink</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_AsDataSink</name>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface for the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="128" column="13" declfile="xp/utils/gg_perf_data_sink.h" declline="128" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga89286173a2a1cf8d1818ea4fb4ca200e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_PerfDataSink_ResetStats</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_ResetStats</name>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset the statistics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="135" column="6" declfile="xp/utils/gg_perf_data_sink.h" declline="135" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utils_1ga07c9a5d97f30c0bf3161bbc38a5a2ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_g_g___perf_data_sink_stats" kindref="compound">GG_PerfDataSinkStats</ref> *</type>
+        <definition>const GG_PerfDataSinkStats* GG_PerfDataSink_GetStats</definition>
+        <argsstring>(GG_PerfDataSink *self)</argsstring>
+        <name>GG_PerfDataSink_GetStats</name>
+        <param>
+          <type><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current statistics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current statistics. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="144" column="28" declfile="xp/utils/gg_perf_data_sink.h" declline="144" declcolumn="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2018-01-09 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="15"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__io_8h" kindref="compound">xp/common/gg_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__buffer_8h" kindref="compound">xp/common/gg_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__timer_8h" kindref="compound">xp/common/gg_timer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="42" refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref><sp/><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="struct_g_g___perf_data_sink_stats" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48" refid="struct_g_g___perf_data_sink_stats_1ad2c49f8fe2ae63fb3ba50772d0cd5d09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___perf_data_sink_stats_1ad2c49f8fe2ae63fb3ba50772d0cd5d09" kindref="member">packets_received</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49" refid="struct_g_g___perf_data_sink_stats_1a5e67beae5bc8aedc6e726dbf42406e6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___perf_data_sink_stats_1a5e67beae5bc8aedc6e726dbf42406e6d" kindref="member">bytes_received</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50" refid="struct_g_g___perf_data_sink_stats_1a5c53df8d3a58883490238f1cdd4ff9b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___perf_data_sink_stats_1a5c53df8d3a58883490238f1cdd4ff9b3" kindref="member">throughput</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="struct_g_g___perf_data_sink_stats_1af4d018917b306c189f3166c609dad037" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___perf_data_sink_stats_1af4d018917b306c189f3166c609dad037" kindref="member">last_received_counter</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="struct_g_g___perf_data_sink_stats_1aa5dc8643ef209f567d142088c9fb04c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___perf_data_sink_stats_1aa5dc8643ef209f567d142088c9fb04c5" kindref="member">next_expected_counter</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53" refid="struct_g_g___perf_data_sink_stats_1a07075f8166ce5b79e6b00cbd2a62ddf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___perf_data_sink_stats_1a07075f8166ce5b79e6b00cbd2a62ddf2" kindref="member">gap_count</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="struct_g_g___perf_data_sink_stats_1a9d4c0afb9afa2637b3e56d3071e2e3ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___perf_data_sink_stats_1a9d4c0afb9afa2637b3e56d3071e2e3ac" kindref="member">passthrough_would_block_count</ref>;<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}<sp/><ref refid="struct_g_g___perf_data_sink_stats" kindref="compound">GG_PerfDataSinkStats</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="group___utils_1ga980e61e5ab99285e4301484afae7be7f" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="61" refid="group___utils_1gga980e61e5ab99285e4301484afae7be7fa83f3aedb38ecc2cb50c9ca8a013a65fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___utils_1gga980e61e5ab99285e4301484afae7be7fa83f3aedb38ecc2cb50c9ca8a013a65fa" kindref="member">GG_PERF_DATA_SINK_MODE_RAW</ref>,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="group___utils_1gga980e61e5ab99285e4301484afae7be7fa7c5a7fcfcb963e286cecd20477c12dca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___utils_1gga980e61e5ab99285e4301484afae7be7fa7c5a7fcfcb963e286cecd20477c12dca" kindref="member">GG_PERF_DATA_SINK_MODE_BASIC_OR_IP_COUNTER</ref><sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="group___utils_1ga980e61e5ab99285e4301484afae7be7f" kindref="member">GG_PerfDataSinkMode</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="66"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="67"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="71" refid="group___utils_1ga11dc5c1882d9ef09d2e94701f37c975f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE<sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="group___utils_1ga23df7c8b920bb1105df1b4f6d32d4218" refkind="member"><highlight class="preprocessor">#define<sp/>GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG<sp/><sp/><sp/><sp/><sp/><sp/><sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="group___utils_1ga36740103cf1ba1451a323f17444ac620" refkind="member"><highlight class="preprocessor">#define<sp/>GG_PERF_DATA_SINK_OPTION_AUTO_RESET_STATS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="85"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="86"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utils_1ga9281ded14cd92a8da066c7b4e3619382" kindref="member">GG_PerfDataSink_Create</ref>(<ref refid="group___utils_1ga980e61e5ab99285e4301484afae7be7f" kindref="member">GG_PerfDataSinkMode</ref><sp/>mode,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stats_print_time_interval,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>**<sp/><sp/><sp/>sink);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utils_1ga2cadfcd36d86b53ba51db0a4af944fed" kindref="member">GG_PerfDataSink_Destroy</ref>(<ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utils_1ga2bb3a7cd472821cd9ce3c1f674f88ba5" kindref="member">GG_PerfDataSink_SetPassthroughTarget</ref>(<ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><sp/><sp/>target);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="group___utils_1ga1e7744c8cd9954630791c08ad2e16f5d" kindref="member">GG_PerfDataSink_AsDataSink</ref>(<ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utils_1ga89286173a2a1cf8d1818ea4fb4ca200e" kindref="member">GG_PerfDataSink_ResetStats</ref>(<ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___perf_data_sink_stats" kindref="compound">GG_PerfDataSinkStats</ref>*<sp/><ref refid="group___utils_1ga07c9a5d97f30c0bf3161bbc38a5a2ec0" kindref="member">GG_PerfDataSink_GetStats</ref>(<ref refid="group___utils_1ga6043733f7808f69e9c8bc7f302de1289" kindref="member">GG_PerfDataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/utils/gg_perf_data_sink.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_58174c7d49980ceb0b9a19863d08d107" kind="dir">
+    <compoundname>xp/tls</compoundname>
+    <innerdir refid="dir_d9984e7d0cac5e2fd530023c1f683fc2">xp/tls/ports</innerdir>
+    <innerfile refid="gg__tls_8h">gg_tls.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/tls/"/>
+  </compounddef>
+</doxygen>

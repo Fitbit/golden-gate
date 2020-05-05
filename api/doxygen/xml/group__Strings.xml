@@ -1,0 +1,1127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Strings" kind="group">
+    <compoundname>Strings</compoundname>
+    <title>Strings</title>
+    <innerclass refid="structGG__String" prot="public">GG_String</innerclass>
+    <innerclass refid="structGG__StringBuffer" prot="public">GG_StringBuffer</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group__Strings_1ga04207cb115b73ce915db8d7d1892430a" prot="public" static="no" mutable="no">
+        <type>const char *const</type>
+        <definition>const char* const GG_String_EmptyString</definition>
+        <argsstring></argsstring>
+        <name>GG_String_EmptyString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="39" column="25" declfile="xp/common/gg_strings.h" declline="39" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Strings_1gae6b6d09a7e41104ae05a10ccd077df1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_Create</definition>
+        <argsstring>(const char *s)</argsstring>
+        <name>GG_String_Create</name>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="87" column="1" declfile="xp/common/gg_strings.h" declline="87" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gae7d03b3e84d089c5a3890428728fb740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_CreateFromSubString</definition>
+        <argsstring>(const char *s, unsigned int first, size_t length)</argsstring>
+        <name>GG_String_CreateFromSubString</name>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="90" column="1" declfile="xp/common/gg_strings.h" declline="90" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaa8b838d1e2620792a12a493693c832a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_Clone</definition>
+        <argsstring>(const GG_String *str)</argsstring>
+        <name>GG_String_Clone</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="93" column="1" declfile="xp/common/gg_strings.h" declline="93" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gac551599b739c73af8ed8e9ff4eef9c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_Copy</definition>
+        <argsstring>(GG_String *str, const GG_String *other)</argsstring>
+        <name>GG_String_Copy</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="96" column="1" declfile="xp/common/gg_strings.h" declline="96" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga17130011ec1811d0fc5c5d8966d90fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_SetLength</definition>
+        <argsstring>(GG_String *str, size_t length)</argsstring>
+        <name>GG_String_SetLength</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="99" column="1" declfile="xp/common/gg_strings.h" declline="99" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gab22035019b0780a9e4bc0205068bc3cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_Assign</definition>
+        <argsstring>(GG_String *str, const char *chars)</argsstring>
+        <name>GG_String_Assign</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="102" column="1" declfile="xp/common/gg_strings.h" declline="102" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga07709083cac52c6d66704cef41378b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_AssignN</definition>
+        <argsstring>(GG_String *str, const char *chars, size_t size)</argsstring>
+        <name>GG_String_AssignN</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>chars</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="105" column="1" declfile="xp/common/gg_strings.h" declline="105" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga9eaa8bf1891a717ecd7a42b471725009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_Append</definition>
+        <argsstring>(GG_String *str, const char *other)</argsstring>
+        <name>GG_String_Append</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="108" column="1" declfile="xp/common/gg_strings.h" declline="108" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga4324c9e42cb936978e0fa19b885388d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_AppendSubString</definition>
+        <argsstring>(GG_String *str, const char *other, size_t size)</argsstring>
+        <name>GG_String_AppendSubString</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="111" column="1" declfile="xp/common/gg_strings.h" declline="111" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga59a34647753e01065d3572c5146ffa98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_AppendChar</definition>
+        <argsstring>(GG_String *str, char c)</argsstring>
+        <name>GG_String_AppendChar</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="114" column="1" declfile="xp/common/gg_strings.h" declline="114" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga8d15728dab853e0f22cc9ecd24925689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_Add</definition>
+        <argsstring>(const GG_String *str1, const char *str2)</argsstring>
+        <name>GG_String_Add</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>str2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="117" column="1" declfile="xp/common/gg_strings.h" declline="117" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gab17185a2dd0942f5307f02260b781012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_Compare</definition>
+        <argsstring>(const GG_String *str, const char *s, bool ignore_case)</argsstring>
+        <name>GG_String_Compare</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ignore_case</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="120" column="1" declfile="xp/common/gg_strings.h" declline="120" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaa47ff4b5053d7feca34e3442b3ad9aa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_String_Equals</definition>
+        <argsstring>(const GG_String *str, const char *s, bool ignore_case)</argsstring>
+        <name>GG_String_Equals</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ignore_case</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="123" column="1" declfile="xp/common/gg_strings.h" declline="123" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga3c54e5c93fd8f371865d265840d4069b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_SubString</definition>
+        <argsstring>(const GG_String *str, unsigned int first, size_t length)</argsstring>
+        <name>GG_String_SubString</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="126" column="1" declfile="xp/common/gg_strings.h" declline="126" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga34186db9d23920526ae8e0590f0eaa58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_Left</definition>
+        <argsstring>(const GG_String *str, size_t length)</argsstring>
+        <name>GG_String_Left</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="129" column="1" declfile="xp/common/gg_strings.h" declline="129" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga1d74bb6d54b9e5348ad36316da9e2732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_Right</definition>
+        <argsstring>(const GG_String *str, size_t length)</argsstring>
+        <name>GG_String_Right</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="132" column="1" declfile="xp/common/gg_strings.h" declline="132" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga6c5dc5793e6965b5abcdd6284497a009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_Reserve</definition>
+        <argsstring>(GG_String *str, size_t length)</argsstring>
+        <name>GG_String_Reserve</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="135" column="1" declfile="xp/common/gg_strings.h" declline="135" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gabb2f6addbd89629594e07d3249208b9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_ToLowercase</definition>
+        <argsstring>(const GG_String *str)</argsstring>
+        <name>GG_String_ToLowercase</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="138" column="1" declfile="xp/common/gg_strings.h" declline="138" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga54b22934358225b62bc621a216a05af7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__String" kindref="compound">GG_String</ref></type>
+        <definition>GG_String GG_String_ToUppercase</definition>
+        <argsstring>(const GG_String *str)</argsstring>
+        <name>GG_String_ToUppercase</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="141" column="1" declfile="xp/common/gg_strings.h" declline="141" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga726ed5f4a82ad12404403e33c4fee448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_ToInteger</definition>
+        <argsstring>(const GG_String *str, int *value)</argsstring>
+        <name>GG_String_ToInteger</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="144" column="1" declfile="xp/common/gg_strings.h" declline="144" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga0db1f94529b8d7064199c72a70451ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_MakeLowercase</definition>
+        <argsstring>(GG_String *str)</argsstring>
+        <name>GG_String_MakeLowercase</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="147" column="1" declfile="xp/common/gg_strings.h" declline="147" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga7ac7233d4e281962ba6b3958b8153f7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_MakeUppercase</definition>
+        <argsstring>(GG_String *str)</argsstring>
+        <name>GG_String_MakeUppercase</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="150" column="1" declfile="xp/common/gg_strings.h" declline="150" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga9d28ad7d9d26970a07cbb40024c34706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_Replace</definition>
+        <argsstring>(GG_String *str, char a, char b)</argsstring>
+        <name>GG_String_Replace</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="153" column="1" declfile="xp/common/gg_strings.h" declline="153" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga39f483efde2414bb3ec8fc5cfd4f4794" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_FindChar</definition>
+        <argsstring>(const GG_String *str, char c)</argsstring>
+        <name>GG_String_FindChar</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="156" column="1" declfile="xp/common/gg_strings.h" declline="156" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gae2c216dbe9cce1efbe462008fbdfb57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_FindCharFrom</definition>
+        <argsstring>(const GG_String *str, char c, unsigned int start)</argsstring>
+        <name>GG_String_FindCharFrom</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="159" column="1" declfile="xp/common/gg_strings.h" declline="159" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga8cfbcd56dcb6ead23e5ccf14f025072d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_FindString</definition>
+        <argsstring>(const GG_String *str, const char *s)</argsstring>
+        <name>GG_String_FindString</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="162" column="1" declfile="xp/common/gg_strings.h" declline="162" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga87d32727f4c6f92e83ce1c7e9d04cb8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_FindStringFrom</definition>
+        <argsstring>(const GG_String *str, const char *s, unsigned int start)</argsstring>
+        <name>GG_String_FindStringFrom</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="165" column="1" declfile="xp/common/gg_strings.h" declline="165" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gae4c264f21cbee631fc221d657ce02d34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_ReverseFindChar</definition>
+        <argsstring>(const GG_String *str, char c)</argsstring>
+        <name>GG_String_ReverseFindChar</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="168" column="1" declfile="xp/common/gg_strings.h" declline="168" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gadb4d736134f9c24168efe41d9c246183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_ReverseFindCharFrom</definition>
+        <argsstring>(const GG_String *str, char c, unsigned int start)</argsstring>
+        <name>GG_String_ReverseFindCharFrom</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="171" column="1" declfile="xp/common/gg_strings.h" declline="171" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga53e19423c3864e5ef21fae2493c5a6a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_ReverseFindString</definition>
+        <argsstring>(const GG_String *str, const char *s)</argsstring>
+        <name>GG_String_ReverseFindString</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="174" column="1" declfile="xp/common/gg_strings.h" declline="174" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga1570e495c97f33d9c427bedbe145460b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_String_ReverseFindStringFrom</definition>
+        <argsstring>(const GG_String *str, const char *s, unsigned int start)</argsstring>
+        <name>GG_String_ReverseFindStringFrom</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="177" column="1" declfile="xp/common/gg_strings.h" declline="177" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga45b157eacc9865f62433905b773284e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_String_StartsWith</definition>
+        <argsstring>(const GG_String *str, const char *s)</argsstring>
+        <name>GG_String_StartsWith</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="180" column="1" declfile="xp/common/gg_strings.h" declline="180" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaf64ed639b828f5784456db589219f82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_String_EndsWith</definition>
+        <argsstring>(const GG_String *str, const char *s)</argsstring>
+        <name>GG_String_EndsWith</name>
+        <param>
+          <type>const <ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="183" column="1" declfile="xp/common/gg_strings.h" declline="183" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gac1d3b9a3c171aee89a28852c86cdb46c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimWhitespaceLeft</definition>
+        <argsstring>(GG_String *str)</argsstring>
+        <name>GG_String_TrimWhitespaceLeft</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="186" column="1" declfile="xp/common/gg_strings.h" declline="186" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga4870efc6bacd94f7146df2f4b90f5992" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimCharLeft</definition>
+        <argsstring>(GG_String *str, char c)</argsstring>
+        <name>GG_String_TrimCharLeft</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="189" column="1" declfile="xp/common/gg_strings.h" declline="189" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gae38203fe5a471f64f80d6b1bfb624658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimCharsLeft</definition>
+        <argsstring>(GG_String *str, const char *chars)</argsstring>
+        <name>GG_String_TrimCharsLeft</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="192" column="1" declfile="xp/common/gg_strings.h" declline="192" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga4e1cbf0c8b42c6474307d8dac04f80dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimWhitespaceRight</definition>
+        <argsstring>(GG_String *str)</argsstring>
+        <name>GG_String_TrimWhitespaceRight</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="195" column="1" declfile="xp/common/gg_strings.h" declline="195" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaeae0f4693d2935a196ff44e2eb6c0294" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimCharRight</definition>
+        <argsstring>(GG_String *str, char c)</argsstring>
+        <name>GG_String_TrimCharRight</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="198" column="1" declfile="xp/common/gg_strings.h" declline="198" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaff46f50e696b773be43a4af83ee040b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimCharsRight</definition>
+        <argsstring>(GG_String *str, const char *chars)</argsstring>
+        <name>GG_String_TrimCharsRight</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="201" column="1" declfile="xp/common/gg_strings.h" declline="201" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1ga2700b6a2c63e1f1cd2926d2ce75870bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimWhitespace</definition>
+        <argsstring>(GG_String *str)</argsstring>
+        <name>GG_String_TrimWhitespace</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="204" column="1" declfile="xp/common/gg_strings.h" declline="204" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gaf99de29c97985aee520b8697ae9ebdaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimChar</definition>
+        <argsstring>(GG_String *str, char c)</argsstring>
+        <name>GG_String_TrimChar</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="207" column="1" declfile="xp/common/gg_strings.h" declline="207" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gafff6238fd99d905e1490420fadd6525d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_String_TrimChars</definition>
+        <argsstring>(GG_String *str, const char *chars)</argsstring>
+        <name>GG_String_TrimChars</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="210" column="1" declfile="xp/common/gg_strings.h" declline="210" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Strings_1gac801397f5e35478d3f6b6d4e5126028b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_String_Insert</definition>
+        <argsstring>(GG_String *str, const char *s, unsigned int where)</argsstring>
+        <name>GG_String_Insert</name>
+        <param>
+          <type><ref refid="structGG__String" kindref="compound">GG_String</ref> *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="213" column="1" declfile="xp/common/gg_strings.h" declline="213" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Strings_1ga38450d9cd6f14fcf3fa85bcc81053464" prot="public" static="no">
+        <name>GG_STRING_SEARCH_FAILED</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="36" column="9" bodyfile="xp/common/gg_strings.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga6ae1b06a01b1ad43c4e3fa8ccb26fd2b" prot="public" static="no">
+        <name>GG_EMPTY_STRING</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="37" column="9" bodyfile="xp/common/gg_strings.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga231001aaf740a8c77e2c433b8b95c8c6" prot="public" static="no">
+        <name>GG_StringsEqual</name>
+        <param><defname>s1</defname></param>
+        <param><defname>s2</defname></param>
+        <initializer>(strcmp((s1), (s2)) == 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="44" column="9" bodyfile="xp/common/gg_strings.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gae29cb3496fce8838675daf2228d825dc" prot="public" static="no">
+        <name>GG_String_GetBuffer</name>
+        <param><defname>str</defname></param>
+        <initializer>( ((<ref refid="structGG__StringBuffer" kindref="compound">GG_StringBuffer</ref>*)((void*)(str)-&gt;chars))-1 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="62" column="9" bodyfile="xp/common/gg_strings.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gaa54521c6823fdc92e3275c289aff044f" prot="public" static="no">
+        <name>GG_String_Construct</name>
+        <param><defname>str</defname></param>
+        <initializer>do { \
+    (str)-&gt;chars = <ref refid="group__Types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>;              \
+} while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="63" column="9" bodyfile="xp/common/gg_strings.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga0f0afb9eb2a5a6d676283b66dc9d98ae" prot="public" static="no">
+        <name>GG_String_Destruct</name>
+        <param><defname>str</defname></param>
+        <initializer>do {                       \
+    if ((str)-&gt;chars) {                                    \
+        <ref refid="group__Memory_1gae915ba2c56af78faf745ba1e99a5d7e1" kindref="member">GG_FreeMemory</ref>((void*)GG_String_GetBuffer((str)));  \
+        (str)-&gt;chars = <ref refid="group__Types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>;                               \
+    }                                                      \
+} while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="66" column="9" bodyfile="xp/common/gg_strings.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga3c6425a6f3e7928acd541a76afaee60a" prot="public" static="no">
+        <name>GG_String_GetChar</name>
+        <param><defname>str</defname></param>
+        <param><defname>index</defname></param>
+        <initializer>((str)-&gt;chars[(index)])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="72" column="9" bodyfile="xp/common/gg_strings.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gac048ad21be021feb2a4975ecbb0fafc5" prot="public" static="no">
+        <name>GG_String_SetChar</name>
+        <param><defname>str</defname></param>
+        <param><defname>index</defname></param>
+        <param><defname>c</defname></param>
+        <initializer>do {          \
+    (str)-&gt;chars[(index)] = (c);                       \
+} while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="73" column="9" bodyfile="xp/common/gg_strings.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga395068bdf0b157f9872a021832a3be4a" prot="public" static="no">
+        <name>GG_String_GetLength</name>
+        <param><defname>str</defname></param>
+        <initializer>((str)-&gt;chars?(GG_String_GetBuffer(str)-&gt;length):0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="76" column="9" bodyfile="xp/common/gg_strings.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga2182745b638f3ed87610d3638dfd5b21" prot="public" static="no">
+        <name>GG_String_GetChars</name>
+        <param><defname>str</defname></param>
+        <initializer>((str)-&gt;chars?(const char*)((str)-&gt;chars):GG_String_EmptyString)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="77" column="9" bodyfile="xp/common/gg_strings.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gac6cc21e18cf3ef814340a4010d5f4fd1" prot="public" static="no">
+        <name>GG_String_UseChars</name>
+        <param><defname>str</defname></param>
+        <initializer>((str)-&gt;chars?(str)-&gt;chars:GG_CONST_CAST(GG_String_EmptyString, char*))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="78" column="9" bodyfile="xp/common/gg_strings.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gacbf4883a36ccaea08f5226c0546e4a48" prot="public" static="no">
+        <name>GG_CSTR</name>
+        <param><defname>str</defname></param>
+        <initializer>GG_String_GetChars(&amp;(str))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="79" column="9" bodyfile="xp/common/gg_strings.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1ga76b09252c3d08c8e1b60b6d08304fdc0" prot="public" static="no">
+        <name>GG_String_IsEmpty</name>
+        <param><defname>str</defname></param>
+        <initializer>(GG_String_GetLength((str))==0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="80" column="9" bodyfile="xp/common/gg_strings.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Strings_1gad7e7d4365af77da222b39062835bf1fc" prot="public" static="no">
+        <name>GG_String_Init</name>
+        <param><defname>str</defname></param>
+        <initializer>do {(str).chars = <ref refid="group__Types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>; } while(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="81" column="9" bodyfile="xp/common/gg_strings.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>General purpose strings </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

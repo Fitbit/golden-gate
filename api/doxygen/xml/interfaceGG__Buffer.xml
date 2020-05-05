@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="interfaceGG__Buffer" kind="interface" language="C++" prot="public">
+    <compoundname>GG_Buffer</compoundname>
+    <derivedcompoundref refid="classGG__DynamicBuffer" prot="public" virt="non-virtual">GG_DynamicBuffer</derivedcompoundref>
+    <derivedcompoundref refid="structGG__StaticBuffer" prot="public" virt="non-virtual">GG_StaticBuffer</derivedcompoundref>
+    <derivedcompoundref refid="classGG__SubBuffer" prot="public" virt="non-virtual">GG_SubBuffer</derivedcompoundref>
+    <includes refid="gg__buffer_8h" local="no">xp/common/gg_buffer.h</includes>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group__Buffers_1ga6af313cb369183f7ef343cd73691282d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+        <definition>GG_Buffer * GG_Buffer_Retain</definition>
+        <argsstring>(GG_Buffer *self)</argsstring>
+        <name>GG_Buffer_Retain</name>
+        <param>
+          <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="89" column="11" declfile="xp/common/gg_buffer.h" declline="89" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Buffers_1ga852cf21610f14b8a8312eed8a78d5342" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Buffer_Release</definition>
+        <argsstring>(GG_Buffer *self)</argsstring>
+        <name>GG_Buffer_Release</name>
+        <param>
+          <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="93" column="6" declfile="xp/common/gg_buffer.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Buffers_1ga095e75a71654105904cb903e0e198ba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * GG_Buffer_GetData</definition>
+        <argsstring>(const GG_Buffer *self)</argsstring>
+        <name>GG_Buffer_GetData</name>
+        <param>
+          <type>const <ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="97" column="15" declfile="xp/common/gg_buffer.h" declline="97" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Buffers_1ga8d0ad1fea98d61c8948a93ca962b2999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * GG_Buffer_UseData</definition>
+        <argsstring>(GG_Buffer *self)</argsstring>
+        <name>GG_Buffer_UseData</name>
+        <param>
+          <type><ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="101" column="9" declfile="xp/common/gg_buffer.h" declline="101" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Buffers_1gab240731784936a8c86d9089635801225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_Buffer_GetDataSize</definition>
+        <argsstring>(const GG_Buffer *self)</argsstring>
+        <name>GG_Buffer_GetDataSize</name>
+        <param>
+          <type>const <ref refid="interfaceGG__Buffer" kindref="compound">GG_Buffer</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_buffer.h" line="105" column="8" declfile="xp/common/gg_buffer.h" declline="105" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that represent data buffers that can be accessed via a direct pointer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GG_DynamicBuffer</label>
+        <link refid="classGG__DynamicBuffer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_SubBuffer</label>
+        <link refid="classGG__SubBuffer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_Buffer</label>
+        <link refid="interfaceGG__Buffer"/>
+      </node>
+      <node id="3">
+        <label>GG_StaticBuffer</label>
+        <link refid="structGG__StaticBuffer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="xp/common/gg_buffer.h" line="36" column="1"/>
+    <listofallmembers>
+      <member refid="group__Buffers_1ga095e75a71654105904cb903e0e198ba8" prot="public" virt="non-virtual"><scope>GG_Buffer</scope><name>GG_Buffer_GetData</name></member>
+      <member refid="group__Buffers_1gab240731784936a8c86d9089635801225" prot="public" virt="non-virtual"><scope>GG_Buffer</scope><name>GG_Buffer_GetDataSize</name></member>
+      <member refid="group__Buffers_1ga852cf21610f14b8a8312eed8a78d5342" prot="public" virt="non-virtual"><scope>GG_Buffer</scope><name>GG_Buffer_Release</name></member>
+      <member refid="group__Buffers_1ga6af313cb369183f7ef343cd73691282d" prot="public" virt="non-virtual"><scope>GG_Buffer</scope><name>GG_Buffer_Retain</name></member>
+      <member refid="group__Buffers_1ga8d0ad1fea98d61c8948a93ca962b2999" prot="public" virt="non-virtual"><scope>GG_Buffer</scope><name>GG_Buffer_UseData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

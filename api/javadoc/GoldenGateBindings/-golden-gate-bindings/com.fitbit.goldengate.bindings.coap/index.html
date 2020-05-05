@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.bindings.coap - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.bindings.coap</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.bindings.coap</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-byte-array-parser.html">ByteArrayParser</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ByteArrayParser</span><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-parser/index.html"><span class="identifier">Parser</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">,</span>&nbsp;<a href="-byte-array-parser.html#Result"><span class="identifier">Result</span></a><span class="symbol">&gt;</span></code>
+<p>This interface is a specific subinterface of Parser that parses ByteArray objects</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-endpoint/index.html">CoapEndpoint</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpoint</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a><span class="symbol">, </span><a href="-endpoint/index.html"><span class="identifier">Endpoint</span></a><span class="symbol">, </span><a href="../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a></code>
+<p>Coap Client/Server API.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-endpoint-builder/index.html">CoapEndpointBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">CoapEndpointBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="-coap-endpoint/index.html"><span class="identifier">CoapEndpoint</span></a></code>
+<p>Utility object for building a <a href="-coap-endpoint/index.html">CoapEndpoint</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-endpoint-handler-configuration/index.html">CoapEndpointHandlerConfiguration</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">CoapEndpointHandlerConfiguration</span></code>
+<p>Contains all the configuration/flags used by CoAP endpoint handler registration</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-endpoint-provider/index.html">CoapEndpointProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">CoapEndpointProvider</span></code>
+<p>Provider for <a href="-endpoint/index.html">Endpoint</a> that ensures only single CoapEndpoint instance exist per node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-group-request-filter/index.html">CoapGroupRequestFilter</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapGroupRequestFilter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>This class provides apis to setup/update CoAP request filters
+group #1 is used for non-authenticated connections,
+and group #0 (i.e. no filtering) is used for authenticated states.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-group-request-filter-mode/index.html">CoapGroupRequestFilterMode</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">CoapGroupRequestFilterMode</span></code>
+<p>Enum representing CoAP group filter mode
+CoAP resource filter can support up to four different filter groups.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-endpoint/index.html">Endpoint</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Endpoint</span></code>
+<p>This class is the Client/Server API of that will be exposed to users of this library.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-parser/index.html">Parser</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Parser</span><span class="symbol">&lt;</span><span class="identifier">Input</span><span class="symbol">, </span><span class="identifier">Result</span><span class="symbol">&gt;</span></code>
+<p>This can be used by the library to parse responses into a format the caller desires</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-coap-endpoint-exception/index.html">CoapEndpointException</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpointException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code>
+<p>Exception indicating error when requesting data from coap server</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-coap-endpoint-response-exception/index.html">CoapEndpointResponseException</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpointResponseException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code>
+<p>Exception thrown when <a href="../com.fitbit.goldengate.bindings.coap.data/-response-code/index.html">ResponseCode</a> for response from a CoAP request is
+<a href="../com.fitbit.goldengate.bindings.coap.data/-response-code/-class/client-error.html">ResponseCode.Class.clientError</a> or <a href="../com.fitbit.goldengate.bindings.coap.data/-response-code/-class/server-error.html">ResponseCode.Class.serverError</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-c-o-a-p_-d-e-f-a-u-l-t_-p-o-r-t.html">COAP_DEFAULT_PORT</a></p>
+</td>
+<td>
+<code><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">COAP_DEFAULT_PORT</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Default Coap port</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

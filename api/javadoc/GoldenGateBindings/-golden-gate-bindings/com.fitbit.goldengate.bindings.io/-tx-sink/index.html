@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>TxSink - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.io</a>&nbsp;/&nbsp;<a href="./index.html">TxSink</a><br/>
+<br/>
+<h1>TxSink</h1>
+<code><span class="keyword">class </span><span class="identifier">TxSink</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>TxSink is a DataSink for bottom on Golden Gate stack and DataSource for top of Native/Android
+connection Bridge and is used to transmit data packets from GG stack to connected Node</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">TxSink</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>TxSink is a DataSink for bottom on Golden Gate stack and DataSource for top of Native/Android
+connection Bridge and is used to transmit data packets from GG stack to connected Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="data-observable.html">dataObservable</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">dataObservable</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code>
+<p>Data to be transmitted (over tx characteristics) will be available on this Observable</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="this-pointer.html">thisPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">thisPointer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Pointer to native jni reference for this object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="put-data.html">putData</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">putData</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.TxSink$putData(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>This should only be called from the JNI code and in tests as it is the output from Gattlink
+to be sent over BLE</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

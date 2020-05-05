@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Bridge - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node</a>&nbsp;/&nbsp;<a href="./index.html">Bridge</a><br/>
+<br/>
+<h1>Bridge</h1>
+<code><span class="keyword">class </span><span class="identifier">Bridge</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DataSinkDataSource</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Establishes a bidirectional transport bridge between cross platform stack and native/android bluetooth services.</p>
+<p>Bridge has a TOP of top of DataSink and DataSource that will be used to attach to bottom of cross platform stack</p>
+<p>It is expected that before creating any Bridge GoldenGate module is initialized (<a href="#">GoldenGate.init</a>) and
+Gattlink service and GATT listeners are registered (see GattServerListenerRegistrar)</p>
+<p>Note: There should only be one bridge per Node. It is expected that before a bridge is created
+all initialization is complete and GATT services and its listeners are setup</p>
+<p>+-------------------+
+|                   |
+|     GG Stack      |
+|                   |
+|  Cross Platform   |
++----|---------^----+
+    |         |
+    |         |
++----v---+-+---|----+
+|TxSink  | |RxSource|
++--------+ +--------+
+|                   |
+|      Bridge       |
++----|---------^----+
+    |         |
+    |         |
+    |         |
++----v---+-+---|----+
+|  Tx    | |   Rx   |
++--------+ +--------+
+|   Gatt Service    |
+|                   |
+|    Android BT     |
++-------------------+</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-sink-pointer.html">getAsDataSinkPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSinkPointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-as-data-source-pointer.html">getAsDataSourcePointer</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAsDataSourcePointer</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="start.html">start</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Starts listening and transmitting data to/from Node.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="suspend.html">suspend</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">suspend</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

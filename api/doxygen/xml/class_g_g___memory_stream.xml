@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="class_g_g___memory_stream" kind="class" language="C++" prot="public">
+    <compoundname>GG_MemoryStream</compoundname>
+    <basecompoundref refid="struct_g_g___input_stream" prot="public" virt="non-virtual">GG_InputStream</basecompoundref>
+    <basecompoundref refid="struct_g_g___output_stream" prot="public" virt="non-virtual">GG_OutputStream</basecompoundref>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group___input_output_1gaf80adf9524bb1e7d291dae945957806c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> *</type>
+        <definition>GG_MemoryStream * GG_MemoryStream_Retain</definition>
+        <argsstring>(GG_MemoryStream *self)</argsstring>
+        <name>GG_MemoryStream_Retain</name>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="struct_g_g___input_stream_interface_1afca5e33c03b3a1005f6b2c3763864ae1" kindref="member">GG_InputStreamInterface::Retain</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_g_g___output_stream_interface_1aeb5ae47ed0e34d81a0d56fd798872e85" kindref="member">GG_OutputStreamInterface::Retain</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="596" column="17" declfile="xp/common/gg_io.h" declline="596" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gab55b313c397831d655265cff78d782b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_MemoryStream_Release</definition>
+        <argsstring>(GG_MemoryStream *self)</argsstring>
+        <name>GG_MemoryStream_Release</name>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="struct_g_g___input_stream_interface_1abe6f42d3484f2d0aea2307bd22d52df9" kindref="member">GG_InputStreamInterface::Release</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_g_g___output_stream_interface_1af964ab989a14182702bcf7a03247eebf" kindref="member">GG_OutputStreamInterface::Release</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="603" column="6" declfile="xp/common/gg_io.h" declline="603" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that implements the <ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref> and <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interfaces, to offer read/write operations on a memory buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>GG_OutputStream</label>
+        <link refid="struct_g_g___output_stream"/>
+      </node>
+      <node id="2">
+        <label>GG_InputStream</label>
+        <link refid="struct_g_g___input_stream"/>
+      </node>
+      <node id="1">
+        <label>GG_MemoryStream</label>
+        <link refid="class_g_g___memory_stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>GG_OutputStream</label>
+        <link refid="struct_g_g___output_stream"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GG_OutputStreamInterface</label>
+        <link refid="struct_g_g___output_stream_interface"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Retain</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_InputStreamInterface</label>
+        <link refid="struct_g_g___input_stream_interface"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Retain</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_InputStream</label>
+        <link refid="struct_g_g___input_stream"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_MemoryStream</label>
+        <link refid="class_g_g___memory_stream"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_io.h" line="550" column="1"/>
+    <listofallmembers>
+      <member refid="group___input_output_1gad41a61dea4d7306031a3c288227c7889" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_GetAvailable</name></member>
+      <member refid="group___input_output_1ga766b2be66111f59dfd01a512f15dea64" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_GetSize</name></member>
+      <member refid="group___input_output_1ga081e2647a501e95969ce3873951787d1" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Load</name></member>
+      <member refid="group___input_output_1ga6b30fe7ee10e15552dbdf592fa7ce91c" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Read</name></member>
+      <member refid="group___input_output_1ga0f425b936d820d88e7f69aeb0b39ede5" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadFully</name></member>
+      <member refid="group___input_output_1gaed44154b1461b3448cdab758aeff1597" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadLine</name></member>
+      <member refid="group___input_output_1ga95b91546a6e0eeecc713c6d9e2079de1" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadLineString</name></member>
+      <member refid="group___input_output_1ga2a2817d31389d11848b9bed7bcfa9725" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadUI16</name></member>
+      <member refid="group___input_output_1ga00da41fbe64dace4953feeb4a571fe87" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadUI32</name></member>
+      <member refid="group___input_output_1ga3c9e3091ffa0d96c4ee8fabbdc060f22" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_ReadUI64</name></member>
+      <member refid="group___input_output_1ga153f8e4db9f8d56ddbd483f7239f7fd6" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Release</name></member>
+      <member refid="group___input_output_1gabda3f57560947b144de8b94d396adbe9" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Retain</name></member>
+      <member refid="group___input_output_1ga3c4a579880cd08fe7ef4eb68099c09b2" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Seek</name></member>
+      <member refid="group___input_output_1gad5ed4b847291dfa293b8df9801d49284" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Skip</name></member>
+      <member refid="group___input_output_1ga7c3787a69ff8d48c0d037211e4e48c20" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_InputStream_Tell</name></member>
+      <member refid="group___input_output_1gaffcbcc514ac2049fd8ebeaa181717a00" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_Create</name></member>
+      <member refid="group___input_output_1gaa5f497a43615055c4d212ab2778b27b8" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_CreateFromBuffer</name></member>
+      <member refid="group___input_output_1gacc68c61fa0566a9b9ec3c3036fc83635" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_GetBuffer</name></member>
+      <member refid="group___input_output_1ga93aae2221b4c3d198c397cbce518c988" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_GetInputStream</name></member>
+      <member refid="group___input_output_1gaf488b1cf1a2caa88e53e49fcfac0bf51" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_GetOutputStream</name></member>
+      <member refid="group___input_output_1gab55b313c397831d655265cff78d782b2" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_Release</name></member>
+      <member refid="group___input_output_1gaf80adf9524bb1e7d291dae945957806c" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_MemoryStream_Retain</name></member>
+      <member refid="group___input_output_1ga8648f2f8394c18944ec8b00c84b03069" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Flush</name></member>
+      <member refid="group___input_output_1gaf45bc56d0cc7c366f030fb4a115d0d41" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Release</name></member>
+      <member refid="group___input_output_1gaf2550aa87ab411cb4d246a262ca11408" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Retain</name></member>
+      <member refid="group___input_output_1ga352f763e38bab40c99688934ef4b8357" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Seek</name></member>
+      <member refid="group___input_output_1ga2384b4b7f211b7763d238c2a51192af5" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Tell</name></member>
+      <member refid="group___input_output_1ga66df410759fe8fadd48bfd2e6385427b" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_Write</name></member>
+      <member refid="group___input_output_1ga719c6da2c619f7e124124a3d41165d4a" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_WriteFully</name></member>
+      <member refid="group___input_output_1ga926db9f2bdaad3d27533dd700c2f1cb6" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_WriteLine</name></member>
+      <member refid="group___input_output_1gacfca6708039f104dea0bb0fef340f2ac" prot="public" virt="non-virtual"><scope>GG_MemoryStream</scope><name>GG_OutputStream_WriteString</name></member>
+      <member refid="struct_g_g___input_stream_1a931d03c2ac16fc34377859c08a3b1a31" prot="public" virt="non-virtual" ambiguityscope="GG_InputStream::"><scope>GG_MemoryStream</scope><name>vtable</name></member>
+      <member refid="struct_g_g___output_stream_1abd327bf077b2a77c9371080d0b182382" prot="public" virt="non-virtual" ambiguityscope="GG_OutputStream::"><scope>GG_MemoryStream</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

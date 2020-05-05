@@ -1,0 +1,901 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group___loop" kind="group">
+    <compoundname>Loop</compoundname>
+    <title>Loop</title>
+    <innerclass refid="struct_g_g___loop_event_handler" prot="public">GG_LoopEventHandler</innerclass>
+    <innerclass refid="struct_g_g___loop_event_handler_interface" prot="public">GG_LoopEventHandlerInterface</innerclass>
+    <innerclass refid="struct_g_g___runnable" prot="public">GG_Runnable</innerclass>
+    <innerclass refid="struct_g_g___runnable_interface" prot="public">GG_RunnableInterface</innerclass>
+    <innerclass refid="struct_g_g___loop_message" prot="public">GG_LoopMessage</innerclass>
+    <innerclass refid="struct_g_g___loop_message_interface" prot="public">GG_LoopMessageInterface</innerclass>
+    <innerclass refid="struct_g_g___loop_event_handler_item" prot="public">GG_LoopEventHandlerItem</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___loop_1ga9f89cef1e5c82374438865f21555768d" prot="public" static="no">
+        <type>struct GG_Loop</type>
+        <definition>typedef struct GG_Loop GG_Loop</definition>
+        <argsstring></argsstring>
+        <name>GG_Loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1gadf77ff6c7157f786c22128e8412914a0" prot="public" static="no">
+        <type>struct <ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref></type>
+        <definition>typedef struct GG_LoopDataSinkProxy GG_LoopDataSinkProxy</definition>
+        <argsstring></argsstring>
+        <name>GG_LoopDataSinkProxy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A GG_DataSinkProxy is an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface as a proxy for an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface, in a way that makes it possible to call <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> methods on the proxy from a thread other than the GG_Loop thread on which the proxy&apos;ed object is intended to run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1gad1a9063479ee10b07fc53937b037607b" prot="public" static="no">
+        <type>struct <ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref></type>
+        <definition>typedef struct GG_LoopDataSinkListenerProxy GG_LoopDataSinkListenerProxy</definition>
+        <argsstring></argsstring>
+        <name>GG_LoopDataSinkListenerProxy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A GG_DataSinkListenerProxy is an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface as a proxy for an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface, in a way that makes it possible to call <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> methods on the proxy from a thread other than the GG_Loop thread on which the proxy&apos;ed object is intended to run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1ga55c408181efb3d48770428074b68b80c" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GG_LoopSyncFunction) (void *arg)</definition>
+        <argsstring>)(void *arg)</argsstring>
+        <name>GG_LoopSyncFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that can be used with GG_Loop_InvokeSync </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="85" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* GG_LoopAsyncFunction) (void *arg)</definition>
+        <argsstring>)(void *arg)</argsstring>
+        <name>GG_LoopAsyncFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that can be used with GG_Loop_InvokeAsync </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="90" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___loop_1ga254b78c3f1c979f7b66b79dcf69fe0b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_Create</definition>
+        <argsstring>(GG_Loop **loop)</argsstring>
+        <name>GG_Loop_Create</name>
+        <param>
+          <type>GG_Loop **</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new GG_Loop object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable in which a pointer to the the new object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or an error code if it failed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="102" column="11" declfile="xp/loop/gg_loop.h" declline="102" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga84ed09e89ba6c2f6938dcea7d9b791e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Loop_Destroy</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_Destroy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_Loop object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="109" column="6" declfile="xp/loop/gg_loop.h" declline="109" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga2bd9e1ba0384bdfdbfdeb73431653450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_BindToCurrentThread</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_BindToCurrentThread</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bind a loop to the current thread. NOTE: while this function may be called from any thread, it isn&apos;t re-entrant, so the caller must ensure that no other methods may be invoked at the same time by another thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the loop could be bound, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="120" column="11" declfile="xp/loop/gg_loop.h" declline="120" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad45a36c13c3dd1fbcd83dac121124865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_Run</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_Run</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run a loop. This method does not return until the loop is terminated. NOTE: if the loop isn&apos;t bound to a thread, this will automatically bind it to the current thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The loop to run. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the loop was terminated cleanly, or an error code if the loop could not be run. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="131" column="11" declfile="xp/loop/gg_loop.h" declline="131" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga03ade7492e185da9e0bef00ce6d3861d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_DoWork</definition>
+        <argsstring>(GG_Loop *self, uint32_t max_wait_time, uint32_t *call_again_time)</argsstring>
+        <name>GG_Loop_DoWork</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>max_wait_time</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>call_again_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Do some work on the loop, with a maximum wait time. All non-blocking work will be performed, then this method will wait for more work to perform up to max_wait_time, and return.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_wait_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time to block for, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>call_again_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time, in milliseconds, that the caller may wait until calling this method again. This argument may be NULL if max_wait_time is not 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call was successful, GG_ERROR_INTERRUPTED if loop termination was requested (in which case this method should not be called anymore), or another negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="147" column="11" declfile="xp/loop/gg_loop.h" declline="147" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gaf23f2cd34e2a2879953ea48722c9701c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Loop_RequestTermination</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_RequestTermination</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request that the loop terminate cleanly as soon as possible.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="154" column="6" declfile="xp/loop/gg_loop.h" declline="154" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gab610f19b1184fdae8e63d44f9175144f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+        <definition>GG_LoopMessage* GG_Loop_CreateTerminationMessage</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_CreateTerminationMessage</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask the loop for a termination message that can be used to send using GG_Loop_PostMessage in order to trigger a loop termination from outside the context of the loop thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> object that can be posted to the loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="164" column="16" declfile="xp/loop/gg_loop.h" declline="164" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga19b7a9b6a1e69056f86308763bd51a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+        <definition>GG_TimerScheduler* GG_Loop_GetTimerScheduler</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_GetTimerScheduler</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the timer scheduler associated with a loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The timer scheduler associated with the loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="173" column="19" declfile="xp/loop/gg_loop.h" declline="173" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gae51bd8737723caa5c3bce55ed74e3d8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_PostMessage</definition>
+        <argsstring>(GG_Loop *self, GG_LoopMessage *message, GG_Timeout timeout)</argsstring>
+        <name>GG_Loop_PostMessage</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post a message to the loop thread. The message will he handled in the context of the loop thread. This function can be called from a different thread than the loop thread! NOTE: the ownership of the message is transferred to the loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to post. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum amount of time to wait for space to be available in the message queue.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the message was posted, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="189" column="11" declfile="xp/loop/gg_loop.h" declline="189" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad7285430b55e05e8128155414576910f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_InvokeSync</definition>
+        <argsstring>(GG_Loop *self, GG_LoopSyncFunction function, void *function_argument, int *function_result)</argsstring>
+        <name>GG_Loop_InvokeSync</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>function_result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request the invocation of a function in the context of a loop thread. This is a synchronous invocation, so the caller will block until the function has been invoked, and can obtain the return value of the invoked function. Because this is a synchronous invocation, the invoked function argument may point directly or indirectly to stack variables.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to invoke. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable in which the function result will be returned</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the function could be invoked, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="205" column="11" declfile="xp/loop/gg_loop.h" declline="205" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga7ebfcd7c29b3fb91fec7322f898c196f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_InvokeAsync</definition>
+        <argsstring>(GG_Loop *self, GG_LoopAsyncFunction function, void *function_argument)</argsstring>
+        <name>GG_Loop_InvokeAsync</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request the invocation of a function in the context of a loop thread. This is an asynchronous invocation, so the call will return immediately without waiting for the function invocation to occur. The function invocation may happen before or after this method call returns, depending on how the calling thread and the loop thread are scheduled as well as other factors. Since this is an asynchronous invocation, the function arguments must not point directly or indirectly to stack variables, because the caller&apos;s stack may no longer be valid when the function is invoked.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to invoke. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the invocation request could be sent, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="228" column="11" declfile="xp/loop/gg_loop.h" declline="228" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga32c0dc2b6969d1da52eaa9214b7ebb62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_CreateDataSinkProxy</definition>
+        <argsstring>(GG_Loop *self, unsigned int queue_size, GG_DataSink *sink, GG_LoopDataSinkProxy **sink_proxy)</argsstring>
+        <name>GG_Loop_CreateDataSinkProxy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>queue_size</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+          <declname>sink</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> **</type>
+          <declname>sink_proxy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a cross-thread proxy for an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object in which the proxy&apos;ed object is intended to run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queue_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of items that can be queued (between 0 and GG_LOOP_DATA_SINK_PROXY_MAX_QUEUE_LENGTH). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> object to proxy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink_proxy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable where the created proxy object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS or an error code if the call fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="241" column="11" declfile="xp/loop/gg_loop.h" declline="241" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga8c0da111d0c1b18e3b241a7f91f8ed6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
+        <definition>GG_Inspectable* GG_Loop_AsInspectable</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_AsInspectable</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain a <ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> interface for a loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The object&apos;s <ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> interface. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="252" column="16" declfile="xp/loop/gg_loop.h" declline="252" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga49dbed26d691141bc66940052fd91730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopDataSinkProxy_Destroy</definition>
+        <argsstring>(GG_LoopDataSinkProxy *self)</argsstring>
+        <name>GG_LoopDataSinkProxy_Destroy</name>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_DataSinkProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="259" column="6" declfile="xp/loop/gg_loop.h" declline="259" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga385ee5822bd6111792a84a890cfeacbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_LoopDataSinkProxy_AsDataSink</definition>
+        <argsstring>(GG_LoopDataSinkProxy *self)</argsstring>
+        <name>GG_LoopDataSinkProxy_AsDataSink</name>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface of a GG_LoopDataSinkProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object for which to obtain the interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="267" column="13" declfile="xp/loop/gg_loop.h" declline="267" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga77684360d791ca5776ee3977e4692350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_CreateDataSinkListenerProxy</definition>
+        <argsstring>(GG_Loop *self, GG_DataSinkListener *listener, GG_LoopDataSinkListenerProxy **listener_proxy)</argsstring>
+        <name>GG_Loop_CreateDataSinkListenerProxy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> **</type>
+          <declname>listener_proxy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a cross-thread proxy for an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object in which the proxy&apos;ed object is intended to run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> object to proxy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener_proxy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable where the created proxy object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS or an error code if the call fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="277" column="11" declfile="xp/loop/gg_loop.h" declline="277" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gab63bf7b6c843ead7279c390bee138e2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopDataSinkListenerProxy_Destroy</definition>
+        <argsstring>(GG_LoopDataSinkListenerProxy *self)</argsstring>
+        <name>GG_LoopDataSinkListenerProxy_Destroy</name>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_DataSinkListenerProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="286" column="6" declfile="xp/loop/gg_loop.h" declline="286" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gafca2d5e87e9d5930c05194910c69f642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> *</type>
+        <definition>GG_DataSinkListener* GG_LoopDataSinkListenerProxy_AsDataSinkListener</definition>
+        <argsstring>(GG_LoopDataSinkListenerProxy *self)</argsstring>
+        <name>GG_LoopDataSinkListenerProxy_AsDataSinkListener</name>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface of a GG_LoopDataSinkListenerProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object for which to obtain the interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="294" column="21" declfile="xp/loop/gg_loop.h" declline="294" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad9c1c71d7a839a4b59d54de592f400b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopEventHandler_OnEvent</definition>
+        <argsstring>(GG_LoopEventHandler *self, GG_Loop *loop)</argsstring>
+        <name>GG_LoopEventHandler_OnEvent</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopEventHandler::OnEvent method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object that emits the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="302" column="6" declfile="xp/loop/gg_loop.h" declline="302" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad129c1de50a4280f27b031a3a9b8d5fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopMessage_Handle</definition>
+        <argsstring>(GG_LoopMessage *self)</argsstring>
+        <name>GG_LoopMessage_Handle</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopMessage::Handle method</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="309" column="6" declfile="xp/loop/gg_loop.h" declline="309" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga0ef8a869e782e3b33bd76510f900459b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopMessage_Release</definition>
+        <argsstring>(GG_LoopMessage *self)</argsstring>
+        <name>GG_LoopMessage_Release</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopMessage::Release method</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="316" column="6" declfile="xp/loop/gg_loop.h" declline="316" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___loop_1gaacfcc44877f48730c9b221c66ed72b8f" prot="public" static="no">
+        <name>GG_LOOP_DATA_SINK_PROXY_MAX_QUEUE_LENGTH</name>
+        <initializer>64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="38" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Loop functionality </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattlinkStackConfig - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.goldengate.bindings.stack</a>&nbsp;/&nbsp;<a href="./-gattlink-stack-config.html">GattlinkStackConfig</a><br/>
+<br/>
+<h1>GattlinkStackConfig</h1>
+<code><span class="keyword">object </span><span class="identifier">GattlinkStackConfig</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-stack-config/index.html"><span class="identifier">StackConfig</span></a></code>
+<p>Stack with only a Gattlink element.</p>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-stack-config/config-descriptor.html">configDescriptor</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">configDescriptor</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>Unique Constant descriptor for a known stack configuration</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-stack-config/local-address.html">localAddress</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">localAddress</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/net/Inet4Address.html"><span class="identifier">Inet4Address</span></a></code>
+<p>Stack local IP address (use 0.0.0.0 for default)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-stack-config/local-port.html">localPort</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">localPort</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Local UDP port number</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-stack-config/remote-address.html">remoteAddress</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">remoteAddress</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/net/Inet4Address.html"><span class="identifier">Inet4Address</span></a></code>
+<p>Stack remote IP address (use 0.0.0.0 for default)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-stack-config/remote-port.html">remotePort</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">remotePort</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Remote UDP port number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="is-lwip-based.html">isLwipBased</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="-stack-config/index.html"><span class="identifier">StackConfig</span></a><span class="symbol">.</span><span class="identifier">isLwipBased</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>true is configured with a Network Interface, false otherwise (default is true)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

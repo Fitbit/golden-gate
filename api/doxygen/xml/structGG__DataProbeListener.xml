@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DataProbeListener" kind="interface" language="C++" prot="public">
+    <compoundname>GG_DataProbeListener</compoundname>
+    <includes refid="gg__data__probe_8h" local="no">xp/utils/gg_data_probe.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DataProbeListener_1a65d9a752b307b15b1aa62852ccbb7e89" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__DataProbeListenerInterface" kindref="compound">GG_DataProbeListenerInterface</ref> *</type>
+        <definition>const GG_DataProbeListenerInterface* GG_DataProbeListener::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="73" column="97" bodyfile="xp/utils/gg_data_probe.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="structGG__DataProbeListener_1ac6803a9304c20df0d149973bda9d5b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DataProbe_OnReportReady</definition>
+        <argsstring>(GG_DataProbeListener *self, GG_DataProbe *probe)</argsstring>
+        <name>GG_DataProbe_OnReportReady</name>
+        <param>
+          <type><ref refid="structGG__DataProbeListener" kindref="compound">GG_DataProbeListener</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="gg__data__probe_8h_1ab9c232c4c777c59fc8d29732f58b5275" kindref="member">GG_DataProbe</ref> *</type>
+          <declname>probe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_data_probe.h" line="89" column="6" declfile="xp/utils/gg_data_probe.h" declline="89" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects that listen for reports. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_DataProbeListenerInterface</label>
+        <link refid="structGG__DataProbeListenerInterface"/>
+      </node>
+      <node id="1">
+        <label>GG_DataProbeListener</label>
+        <link refid="structGG__DataProbeListener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/utils/gg_data_probe.h" line="73" column="60" bodyfile="xp/utils/gg_data_probe.h" bodystart="73" bodyend="73"/>
+    <listofallmembers>
+      <member refid="structGG__DataProbeListener_1ac6803a9304c20df0d149973bda9d5b05" prot="public" virt="non-virtual"><scope>GG_DataProbeListener</scope><name>GG_DataProbe_OnReportReady</name></member>
+      <member refid="structGG__DataProbeListener_1a65d9a752b307b15b1aa62852ccbb7e89" prot="public" virt="non-virtual"><scope>GG_DataProbeListener</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

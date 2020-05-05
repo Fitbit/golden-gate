@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___output_stream" kind="interface" language="C++" prot="public">
+    <compoundname>GG_OutputStream</compoundname>
+    <derivedcompoundref refid="class_g_g___memory_stream" prot="public" virt="non-virtual">GG_MemoryStream</derivedcompoundref>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___output_stream_1abd327bf077b2a77c9371080d0b182382" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___output_stream_interface" kindref="compound">GG_OutputStreamInterface</ref> *</type>
+        <definition>const GG_OutputStreamInterface* GG_OutputStream::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="422" column="87" bodyfile="xp/common/gg_io.h" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group___input_output_1gaf2550aa87ab411cb4d246a262ca11408" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+        <definition>GG_OutputStream * GG_OutputStream_Retain</definition>
+        <argsstring>(GG_OutputStream *self)</argsstring>
+        <name>GG_OutputStream_Retain</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retain a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The retained object (which may or may not be the same pointer as the one on which this method is called). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="488" column="17" declfile="xp/common/gg_io.h" declline="488" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gaf45bc56d0cc7c366f030fb4a115d0d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_OutputStream_Release</definition>
+        <argsstring>(GG_OutputStream *self)</argsstring>
+        <name>GG_OutputStream_Release</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Retain a reference to this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The retained object (which may or may not be the same pointer as the one on which this method is called). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="492" column="6" declfile="xp/common/gg_io.h" declline="492" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga66df410759fe8fadd48bfd2e6385427b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_Write</definition>
+        <argsstring>(GG_OutputStream *self, const void *buffer, size_t bytes_to_write, size_t *bytes_written)</argsstring>
+        <name>GG_OutputStream_Write</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytes_to_write</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes_written</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_to_write</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_written</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the number of bytes written is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if at least one byte could be written, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="496" column="11" declfile="xp/common/gg_io.h" declline="496" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga352f763e38bab40c99688934ef4b8357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_Seek</definition>
+        <argsstring>(GG_OutputStream *self, GG_Position offset)</argsstring>
+        <name>GG_OutputStream_Seek</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the current stream position, relative to the start of the stream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position to which to seek. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="503" column="11" declfile="xp/common/gg_io.h" declline="503" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga2384b4b7f211b7763d238c2a51192af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_Tell</definition>
+        <argsstring>(GG_OutputStream *self, GG_Position *offset)</argsstring>
+        <name>GG_OutputStream_Tell</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref> *</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current stream position, relative to the start of the stream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the position will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="507" column="11" declfile="xp/common/gg_io.h" declline="507" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga8648f2f8394c18944ec8b00c84b03069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_Flush</definition>
+        <argsstring>(GG_OutputStream *self)</argsstring>
+        <name>GG_OutputStream_Flush</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flush any pending/cached data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="511" column="11" declfile="xp/common/gg_io.h" declline="511" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga719c6da2c619f7e124124a3d41165d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_WriteFully</definition>
+        <argsstring>(GG_OutputStream *self, const void *buffer, size_t bytes_to_write)</argsstring>
+        <name>GG_OutputStream_WriteFully</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytes_to_write</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a fixed amount of data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytes_to_write</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if exactly bytes_to_write bytes were written, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="523" column="11" declfile="xp/common/gg_io.h" declline="523" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gacfca6708039f104dea0bb0fef340f2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_WriteString</definition>
+        <argsstring>(GG_OutputStream *self, const char *string)</argsstring>
+        <name>GG_OutputStream_WriteString</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a NULL-terminated string (the NULL termination is not written).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the entire string was written, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="536" column="11" declfile="xp/common/gg_io.h" declline="536" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1ga926db9f2bdaad3d27533dd700c2f1cb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_OutputStream_WriteLine</definition>
+        <argsstring>(GG_OutputStream *self, const char *line)</argsstring>
+        <name>GG_OutputStream_WriteLine</name>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write a NULL-terminated string followed by <computeroutput>\r\n</computeroutput> (the NULL termination is not written).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>line</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The line to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the entire line was written, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="547" column="11" declfile="xp/common/gg_io.h" declline="547" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gaffcbcc514ac2049fd8ebeaa181717a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryStream_Create</definition>
+        <argsstring>(size_t size, GG_MemoryStream **stream)</argsstring>
+        <name>GG_MemoryStream_Create</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> **</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new instance of <ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>. The object starts with a data size of 0. Writing to the <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interface will attempt to grow the data buffer held by the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initial size of the memory buffer managed by the object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable where the object will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="571" column="11" declfile="xp/common/gg_io.h" declline="571" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gaa5f497a43615055c4d212ab2778b27b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryStream_CreateFromBuffer</definition>
+        <argsstring>(void *buffer, size_t size, GG_MemoryStream **stream)</argsstring>
+        <name>GG_MemoryStream_CreateFromBuffer</name>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> **</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new instance of <ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>. The object starts with the supplied data, provided as an external buffer, which must remain allocated during the lifetime of this object. Writing to the <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interface will not attempt to grow the data buffer held by the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to which this object provides a view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable where the object will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the object could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="587" column="11" declfile="xp/common/gg_io.h" declline="587" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gacc68c61fa0566a9b9ec3c3036fc83635" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryStream_GetBuffer</definition>
+        <argsstring>(GG_MemoryStream *self, GG_DynamicBuffer **buffer)</argsstring>
+        <name>GG_MemoryStream_GetBuffer</name>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> **</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the internal <ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref> object that represents the data managed by this object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable where the internal buffer object will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the call succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="614" column="11" declfile="xp/common/gg_io.h" declline="614" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___input_output_1gaf488b1cf1a2caa88e53e49fcfac0bf51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_MemoryStream_GetOutputStream</definition>
+        <argsstring>(GG_MemoryStream *self, GG_OutputStream **stream)</argsstring>
+        <name>GG_MemoryStream_GetOutputStream</name>
+        <param>
+          <type><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> **</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interface for this object. NOTE: the caller must call GG_OutputStream_Release on the interface obtained from this call when it is done with it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable where the <ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref> interface will be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the call succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="640" column="11" declfile="xp/common/gg_io.h" declline="640" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface implemented by objects to which data can be written as a stream. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GG_OutputStream</label>
+        <link refid="struct_g_g___output_stream"/>
+      </node>
+      <node id="2">
+        <label>GG_MemoryStream</label>
+        <link refid="class_g_g___memory_stream"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_OutputStream</label>
+        <link refid="struct_g_g___output_stream"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_OutputStreamInterface</label>
+        <link refid="struct_g_g___output_stream_interface"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>Retain</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_io.h" line="422" column="55" bodyfile="xp/common/gg_io.h" bodystart="422" bodyend="422"/>
+    <listofallmembers>
+      <member refid="group___input_output_1gaffcbcc514ac2049fd8ebeaa181717a00" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_MemoryStream_Create</name></member>
+      <member refid="group___input_output_1gaa5f497a43615055c4d212ab2778b27b8" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_MemoryStream_CreateFromBuffer</name></member>
+      <member refid="group___input_output_1gacc68c61fa0566a9b9ec3c3036fc83635" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_MemoryStream_GetBuffer</name></member>
+      <member refid="group___input_output_1gaf488b1cf1a2caa88e53e49fcfac0bf51" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_MemoryStream_GetOutputStream</name></member>
+      <member refid="group___input_output_1ga8648f2f8394c18944ec8b00c84b03069" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Flush</name></member>
+      <member refid="group___input_output_1gaf45bc56d0cc7c366f030fb4a115d0d41" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Release</name></member>
+      <member refid="group___input_output_1gaf2550aa87ab411cb4d246a262ca11408" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Retain</name></member>
+      <member refid="group___input_output_1ga352f763e38bab40c99688934ef4b8357" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Seek</name></member>
+      <member refid="group___input_output_1ga2384b4b7f211b7763d238c2a51192af5" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Tell</name></member>
+      <member refid="group___input_output_1ga66df410759fe8fadd48bfd2e6385427b" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_Write</name></member>
+      <member refid="group___input_output_1ga719c6da2c619f7e124124a3d41165d4a" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_WriteFully</name></member>
+      <member refid="group___input_output_1ga926db9f2bdaad3d27533dd700c2f1cb6" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_WriteLine</name></member>
+      <member refid="group___input_output_1gacfca6708039f104dea0bb0fef340f2ac" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>GG_OutputStream_WriteString</name></member>
+      <member refid="struct_g_g___output_stream_1abd327bf077b2a77c9371080d0b182382" prot="public" virt="non-virtual"><scope>GG_OutputStream</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

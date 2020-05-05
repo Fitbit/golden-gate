@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattServerResponseSender.send - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.server</a>&nbsp;/&nbsp;<a href="index.html">GattServerResponseSender</a>&nbsp;/&nbsp;<a href="./send.html">send</a><br/>
+<br/>
+<h1>send</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)"></a>
+<code><span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/successEndState">successEndState</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattState</span>&nbsp;<span class="symbol">=</span>&nbsp;GattState.SEND_SERVER_RESPONSE_SUCCESS<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/device">device</span><span class="symbol">:</span>&nbsp;<span class="identifier">FitbitBluetoothDevice</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/requestId">requestId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/status">status</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/offset">offset</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender$send(com.fitbit.bluetooth.fbgatt.GattState, com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.ByteArray)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Send acknowledgment to remote device that requires response</p>
+<h3>Parameters</h3>
+<p><a name="successEndState"></a>
+<code>successEndState</code> - end state for this transaction</p>
+<p><a name="device"></a>
+<code>device</code> - The remote device to send this response to</p>
+<p><a name="requestId"></a>
+<code>requestId</code> - The ID of the request that was received with the callback</p>
+<p><a name="status"></a>
+<code>status</code> - The status of the request to be sent to the remote devices</p>
+<p><a name="offset"></a>
+<code>offset</code> - Value offset for partial read/write response</p>
+<p><a name="value"></a>
+<code>value</code> - The value of the attribute that was read/written (optional)</p>
+</BODY>
+</HTML>

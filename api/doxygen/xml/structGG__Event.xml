@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__Event" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Event</compoundname>
+    <includes refid="gg__events_8h" local="no">xp/common/gg_events.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__Event_1a74eadd69c522200091bcddb78f6dafd9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Event::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Type of the event. [usually a constant constructed with <ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC()</ref>]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="41" column="14" bodyfile="xp/common/gg_events.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Event_1a10094eb91259dc9dc3f6cda37b47e0ce" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* GG_Event::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <briefdescription>
+<para>Source of the event. May be NULL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_events.h" line="42" column="13" bodyfile="xp/common/gg_events.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Base type for events. </para>
+    </detaileddescription>
+    <location file="xp/common/gg_events.h" line="40" column="15" bodyfile="xp/common/gg_events.h" bodystart="40" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structGG__Event_1a10094eb91259dc9dc3f6cda37b47e0ce" prot="public" virt="non-virtual"><scope>GG_Event</scope><name>source</name></member>
+      <member refid="structGG__Event_1a74eadd69c522200091bcddb78f6dafd9" prot="public" virt="non-virtual"><scope>GG_Event</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

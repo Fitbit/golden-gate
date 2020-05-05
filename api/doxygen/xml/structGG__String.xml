@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__String" kind="struct" language="C++" prot="public">
+    <compoundname>GG_String</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__String_1a03d22a37261e857a6069217f86db2d4a" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* GG_String::chars</definition>
+        <argsstring></argsstring>
+        <name>chars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_strings.h" line="50" column="10" bodyfile="xp/common/gg_strings.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/common/gg_strings.h" line="49" column="15" bodyfile="xp/common/gg_strings.h" bodystart="49" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structGG__String_1a03d22a37261e857a6069217f86db2d4a" prot="public" virt="non-virtual"><scope>GG_String</scope><name>chars</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattCharacteristicWriter - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="./index.html">GattCharacteristicWriter</a><br/>
+<br/>
+<h1>GattCharacteristicWriter</h1>
+<code><span class="keyword">class </span><span class="identifier">GattCharacteristicWriter</span></code>
+<p>Write to remote GATT Characteristic</p>
+<h3>Parameters</h3>
+<p><a name="gattConnection"></a>
+<code>gattConnection</code> - <a href="#">GattConnection</a> for the remote peripheral to write to</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GattCharacteristicWriter</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.WriteGattCharacteristicTransactionProvider, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.WriteGattCharacteristicTransactionProvider, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/writeTransactionProvider">writeTransactionProvider</span><span class="symbol">:</span>&nbsp;<a href="../-write-gatt-characteristic-transaction-provider/index.html"><span class="identifier">WriteGattCharacteristicTransactionProvider</span></a>&nbsp;<span class="symbol">=</span>&nbsp;WriteGattCharacteristicTransactionProvider()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.WriteGattCharacteristicTransactionProvider, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/gattClientConnectionStateSetter">gattClientConnectionStateSetter</span><span class="symbol">:</span>&nbsp;<a href="../-gatt-client-connection-state-setter/index.html"><span class="identifier">GattClientConnectionStateSetter</span></a>&nbsp;<span class="symbol">=</span>&nbsp;GattClientConnectionStateSetter()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.WriteGattCharacteristicTransactionProvider, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/scheduler">scheduler</span><span class="symbol">:</span>&nbsp;<span class="identifier">Scheduler</span>&nbsp;<span class="symbol">=</span>&nbsp;ReadWriteCharacteristicProvider.scheduler<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.WriteGattCharacteristicTransactionProvider, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/readWriteLock">readWriteLock</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/concurrent/Semaphore.html"><span class="identifier">Semaphore</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ReadWriteCharacteristicLock.lock<span class="symbol">)</span></code>
+<p>Write to remote GATT Characteristic</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="write.html">write</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">write</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$write(java.util.UUID, java.util.UUID, kotlin.ByteArray)/serviceId">serviceId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$write(java.util.UUID, java.util.UUID, kotlin.ByteArray)/characteristicId">characteristicId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter$write(java.util.UUID, java.util.UUID, kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Write given data to the provided remote GATT characteristic</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="slow-logging-enabled.html">slowLoggingEnabled</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">slowLoggingEnabled</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Set this to true in order to turn on verbose logging that may impact gatt write throughput</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

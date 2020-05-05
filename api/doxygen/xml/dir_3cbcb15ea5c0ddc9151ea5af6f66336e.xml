@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_3cbcb15ea5c0ddc9151ea5af6f66336e" kind="dir">
+    <compoundname>xp/sockets</compoundname>
+    <innerdir refid="dir_6a2356fa04b9970e8d6edfc95b4741a1">xp/sockets/ports</innerdir>
+    <innerfile refid="gg__sockets_8h">gg_sockets.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/sockets/"/>
+  </compounddef>
+</doxygen>

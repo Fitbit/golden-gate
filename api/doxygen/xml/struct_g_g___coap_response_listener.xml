@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_response_listener" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapResponseListener</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_response_listener_1a44e73121b6e48f388c23697f8fd5253c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___coap_response_listener_interface" kindref="compound">GG_CoapResponseListenerInterface</ref> *</type>
+        <definition>const GG_CoapResponseListenerInterface* GG_CoapResponseListener::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="183" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_CoapResponseListenerInterface</label>
+        <link refid="struct_g_g___coap_response_listener_interface"/>
+      </node>
+      <node id="1">
+        <label>GG_CoapResponseListener</label>
+        <link refid="struct_g_g___coap_response_listener"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="183" column="63" bodyfile="xp/coap/gg_coap.h" bodystart="183" bodyend="183"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_response_listener_1a44e73121b6e48f388c23697f8fd5253c" prot="public" virt="non-virtual"><scope>GG_CoapResponseListener</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

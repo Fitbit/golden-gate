@@ -1,0 +1,865 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__types_8h" kind="file" language="C++">
+    <compoundname>gg_types.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="gg__buffer_8h" local="yes">xp/common/gg_buffer.h</includedby>
+    <includedby refid="gg__io_8h" local="yes">xp/common/gg_io.h</includedby>
+    <includedby refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includedby>
+    <includedby refid="gg__logging_8h" local="yes">xp/common/gg_logging.h</includedby>
+    <includedby refid="gg__queues_8h" local="yes">xp/common/gg_queues.h</includedby>
+    <includedby refid="gg__ring__buffer_8h" local="yes">xp/common/gg_ring_buffer.h</includedby>
+    <includedby refid="gg__utils_8h" local="yes">xp/common/gg_utils.h</includedby>
+    <includedby refid="gg__timer_8h" local="yes">xp/common/gg_timer.h</includedby>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__events_8h" local="yes">xp/common/gg_events.h</includedby>
+    <includedby refid="gg__bitstream_8h" local="yes">xp/common/gg_bitstream.h</includedby>
+    <includedby refid="gg__event__dispatcher_8h" local="yes">xp/common/gg_event_dispatcher.h</includedby>
+    <includedby refid="gg__gattlink_8h" local="yes">xp/gattlink/gg_gattlink.h</includedby>
+    <includedby refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includedby>
+    <includedby refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includedby>
+    <includedby refid="gg__mbedtls__tls_8h" local="yes">xp/tls/ports/mbedtls/gg_mbedtls_tls.h</includedby>
+    <includedby refid="gg__async__pipe_8h" local="yes">xp/utils/gg_async_pipe.h</includedby>
+    <includedby refid="gg__memory__data__source_8h" local="yes">xp/utils/gg_memory_data_source.h</includedby>
+    <includedby refid="gg__memory__data__sink_8h" local="yes">xp/utils/gg_memory_data_sink.h</includedby>
+    <includedby refid="gg__blaster__data__source_8h" local="yes">xp/utils/gg_blaster_data_source.h</includedby>
+    <includedby refid="gg__perf__data__sink_8h" local="yes">xp/utils/gg_perf_data_sink.h</includedby>
+    <includedby refid="gg__print__data__sink_8h" local="yes">xp/utils/gg_print_data_sink.h</includedby>
+    <includedby refid="gg__activity__data__monitor_8h" local="yes">xp/utils/gg_activity_data_monitor.h</includedby>
+    <includedby refid="gg__bsd__sockets_8h" local="yes">xp/sockets/ports/bsd/gg_bsd_sockets.h</includedby>
+    <includedby refid="gg__lwip__sockets_8h" local="yes">xp/sockets/ports/lwip/gg_lwip_sockets.h</includedby>
+    <includedby refid="gg__nip__sockets_8h" local="yes">xp/sockets/ports/nip/gg_nip_sockets.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="45">
+        <label>xp/common/gg_event_dispatcher.h</label>
+        <link refid="gg__event__dispatcher_8h"/>
+      </node>
+      <node id="8">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="31">
+        <label>xp/utils/gg_print_data_sink.h</label>
+        <link refid="gg__print__data__sink_8h"/>
+      </node>
+      <node id="26">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="43">
+        <label>xp/gattlink/gg_gattlink.h</label>
+        <link refid="gg__gattlink_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/utils/gg_memory_data_source.h</label>
+        <link refid="gg__memory__data__source_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="39">
+        <label>xp/utils/gg_data_probe.h</label>
+        <link refid="gg__data__probe_8h"/>
+      </node>
+      <node id="33">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>xp/utils/gg_blaster_data_source.h</label>
+        <link refid="gg__blaster__data__source_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="38">
+        <label>xp/module/gg_module.h</label>
+        <link refid="gg__module_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="37">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="23">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="32">
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
+      </node>
+      <node id="35">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="28">
+        <label>xp/utils/gg_memory_data_sink.h</label>
+        <link refid="gg__memory__data__sink_8h"/>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="30">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" prot="public" static="no">
+        <name>NULL</name>
+        <initializer>((void*)0)</initializer>
+        <briefdescription>
+<para>NULL pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="38" column="9" bodyfile="xp/common/gg_types.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___types_1ga7329da5b88bbf0d960dc1f1ae2c66033" prot="public" static="no">
+        <name>GG_TIMEOUT_INFINITE</name>
+        <initializer>((<ref refid="group___types_1ga974bf37990b5cf02b01345b936c9d453" kindref="member">GG_TimeInterval</ref>)-1)</initializer>
+        <briefdescription>
+<para>Infinite timeout (wait forever) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="41" column="9" bodyfile="xp/common/gg_types.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___types_1ga2048e879f87a7ce8f954a4d892605862" prot="public" static="no">
+        <name>GG_4CC</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <param><defname>c</defname></param>
+        <param><defname>d</defname></param>
+        <initializer>( ((uint32_t)a &lt;&lt; 24) | ((uint32_t)b &lt;&lt; 16) | ((uint32_t)c &lt;&lt; 8) | ((uint32_t)d) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro that constructs a 32-bit integer from 4 characters (4CC = Four Character Code) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="46" column="9" bodyfile="xp/common/gg_types.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" prot="public" static="no">
+        <name>GG_INTERFACE_BASE_FIELD</name>
+        <param><defname>_iface</defname></param>
+        <initializer>_iface##_Base</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Name of the field used to hold the interface base class in an instance </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="67" column="9" bodyfile="xp/common/gg_types.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga2e8fdfcce2850f6531b6e1b453c90c31" prot="public" static="no">
+        <name>GG_SELF</name>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>GG_SELF_O(_self, _self_type, _iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to obtain a pointer to the containing object from a pointer to an interface implemented by that object. The use of this macro assumes that the pointer to the interface is a variable named <computeroutput>_self</computeroutput>, typically the first parameter in a method implementation function.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>MyFooar;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>MyFoobar_SomeMethod(GG_Foobar*<sp/>_self)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>MyFoobar*<sp/>self<sp/>=<sp/>GG_SELF(MyFoobar,<sp/>GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>do<sp/>something<sp/>that<sp/>accesses<sp/>the<sp/>fields<sp/>of<sp/>self</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="88" column="9" bodyfile="xp/common/gg_types.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga711d3358292cebcd723f367405f76b3b" prot="public" static="no">
+        <name>GG_SELF_O</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>( (_self_type *)( ((uintptr_t)(_object)) - offsetof(_self_type, <ref refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface))) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="89" column="9" bodyfile="xp/common/gg_types.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1gade1e4e3a9d135089a2fd1a30e4ae1d24" prot="public" static="no">
+        <name>GG_SELF_M</name>
+        <param><defname>_member</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>GG_SELF_M_O(_self, _member, _self_type, _iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro similar to <computeroutput>GG_SELF</computeroutput>, but for when the object declares that it implements an interface as part of an inner object/struct field.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">typedef<sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>struct<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/>inner;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>other<sp/>fields...</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>MyFooar;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>MyFoobar_SomeMethod(GG_Foobar*<sp/>_self)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>MyFoobar*<sp/>self<sp/>=<sp/>GG_SELF_M(inner,<sp/>MyFoobar,<sp/>GG_Foobar);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>do<sp/>something<sp/>that<sp/>accesses<sp/>the<sp/>fields<sp/>of<sp/>self</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="112" column="9" bodyfile="xp/common/gg_types.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga5b1745108ad036e9e0c07f8b26c8d64b" prot="public" static="no">
+        <name>GG_SELF_M_O</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_member</defname></param>
+        <param><defname>_self_type</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>( (_self_type *)( ((uintptr_t)(_object)) - offsetof(_self_type, <ref refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">_member.GG_INTERFACE_BASE_FIELD</ref>(_iface))) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="113" column="9" bodyfile="xp/common/gg_types.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga3514945cbd3978948239166812e3d26f" prot="public" static="no">
+        <name>GG_CAST</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>&amp;(_object)-&gt;<ref refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to obtain a pointer to one of the interfaces implemented by that object.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_Foobar*<sp/>foobar<sp/>=<sp/>GG_CAST(my_object,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="124" column="9" bodyfile="xp/common/gg_types.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" prot="public" static="no">
+        <name>GG_DECLARE_INTERFACE</name>
+        <param><defname>_iface</defname></param>
+        <initializer>typedef struct _iface##Interface _iface##Interface;  \
+typedef struct {                                     \
+    const _iface##Interface* vtable;                 \
+} _iface;                                            \
+struct _iface##Interface</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to declare an abstract interface.</para>
+<para>The parameter is the name of an interface to define. For a name <computeroutput>Foo</computeroutput>, this will declare an object type <computeroutput>Foo</computeroutput> that can be used to type pointers to objects that implement the <computeroutput>Foo</computeroutput> interface, as well as a virtual function table <computeroutput>FooInterface</computeroutput> that is a structure containing fields that are function pointers, one for each method of the interface.</para>
+<para>This macro must be followed directly (without <computeroutput>;</computeroutput>) by an opening <computeroutput>{</computeroutput>, then methods expressed as function pointers, and finally a closing <computeroutput>};</computeroutput></para>
+<para>The first parameter of each method declaration <emphasis>must</emphasis> be a pointer to the object type.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_DECLARE_INTERFACE(GG_Foobar)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_Result<sp/>(*Method1)(GG_Foobar*<sp/>self,<sp/>int<sp/>param);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>GG_Result<sp/>(*Method2)(GG_Foobar*<sp/>self,<sp/>const<sp/>char*<sp/>param);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="148" column="9" bodyfile="xp/common/gg_types.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga336e7ba50a655742b221c831740ed2e8" prot="public" static="no">
+        <name>GG_IMPLEMENT_INTERFACE</name>
+        <param><defname>_class</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>static const _iface##Interface _class##_##_iface##Interface =</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to define the virtual function table for a class that implements an interface.</para>
+<para>The first parameter is the name of the class, and the second parameter is the name of an interface implemented by the class.</para>
+<para>This macro must be followed directly (without <computeroutput>;</computeroutput>) by an opening <computeroutput>{</computeroutput>, then the names of the function that implement each of the methods of the interface, separated by <computeroutput>,</computeroutput>, then a closing <computeroutput>};</computeroutput></para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_IMPLEMENT_INTERFACE(MyClass,<sp/>GG_Foobar)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.Method1<sp/>=<sp/>MyClass_Method1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.Method2<sp/>=<sp/>MyClass_Method2</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="174" column="9" bodyfile="xp/common/gg_types.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1gab80b4535f8dc0da5624e36997daa90dd" prot="public" static="no">
+        <name>GG_SET_INTERFACE</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_class</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>do {                                 \
+    (_object)-&gt;<ref refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface).vtable = &amp;_class##_##_iface##Interface; \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to setup a virtual function table pointer for an instance of a class that implements an interface.</para>
+<para>The first parameter is the object instance. The second parameter is the name of the class of the instance. The third parameter is the name of the interface for which to set the virtual function table pointer.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_SET_INTERFACE(my_object,<sp/>MyObjectType,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="190" column="9" bodyfile="xp/common/gg_types.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___interfaces_1ga3ed5aa4cb75b5444f3e4bdce9f83b82d" prot="public" static="no">
+        <name>GG_SET_INTERFACE_TRAP</name>
+        <param><defname>_object</defname></param>
+        <param><defname>_iface</defname></param>
+        <initializer>do {                                                 \
+    (_object)-&gt;<ref refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" kindref="member">GG_INTERFACE_BASE_FIELD</ref>(_iface).vtable = (const void*)GG_GenericInterfaceTrapVTable; \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Macro used to set an interface trap. A trap is a special implementation of an interface that can be used to trap calls made through that interface when it shouldn&apos;t have. This is typically used in object destructors, so that if a destroyed object is used after its memory has been free&apos;d, the trap will be called (unless of course that memory has been overwritten with something else).</para>
+<para>The first parameter is the object instance. The second parameter is the name of the interface for which to set a trap.</para>
+<para>Example: <programlisting><codeline><highlight class="normal">GG_SET_INTERFACE_TRAP(my_object,<sp/>GG_Foobar);</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="209" column="9" bodyfile="xp/common/gg_types.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___types_1ga211487066e746316239c66cea030a31b" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>typedef uint64_t GG_Position</definition>
+        <argsstring></argsstring>
+        <name>GG_Position</name>
+        <briefdescription>
+<para>Position in a file or stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="29" column="18" bodyfile="xp/common/gg_types.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>typedef uint64_t GG_Timestamp</definition>
+        <argsstring></argsstring>
+        <name>GG_Timestamp</name>
+        <briefdescription>
+<para>Timestamp in nanoseconds since an arbitrary origin. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="30" column="18" bodyfile="xp/common/gg_types.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___types_1ga974bf37990b5cf02b01345b936c9d453" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>typedef uint64_t GG_TimeInterval</definition>
+        <argsstring></argsstring>
+        <name>GG_TimeInterval</name>
+        <briefdescription>
+<para>Time interval in nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="31" column="18" bodyfile="xp/common/gg_types.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" prot="public" static="no">
+        <type>uint64_t</type>
+        <definition>typedef uint64_t GG_Timeout</definition>
+        <argsstring></argsstring>
+        <name>GG_Timeout</name>
+        <briefdescription>
+<para>Timeout value in nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="32" column="18" bodyfile="xp/common/gg_types.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="gg__types_8h_1a57a7759f3844a911f92c8b5aca07c635" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* GG_GenericInterfaceTrapMethod) (const void *)</definition>
+        <argsstring>)(const void *)</argsstring>
+        <name>GG_GenericInterfaceTrapMethod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="53" column="9" bodyfile="xp/common/gg_types.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="gg__types_8h_1a3b5439ba105e76ee79471d6004bf6969" prot="public" static="no" mutable="no">
+        <type>const GG_GenericInterfaceTrapMethod</type>
+        <definition>const GG_GenericInterfaceTrapMethod GG_GenericInterfaceTrapVTable[]</definition>
+        <argsstring>[]</argsstring>
+        <name>GG_GenericInterfaceTrapVTable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_types.h" line="54" column="44" declfile="xp/common/gg_types.h" declline="54" declcolumn="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose type definitions and interface macros. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">|<sp/><sp/><sp/>common<sp/>types</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="group___types_1ga211487066e746316239c66cea030a31b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="group___types_1ga974bf37990b5cf02b01345b936c9d453" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group___types_1ga974bf37990b5cf02b01345b936c9d453" kindref="member">GG_TimeInterval</ref>;<sp/></highlight></codeline>
+<codeline lineno="32" refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint64_t<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(NULL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="group___types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NULL<sp/>((void*)0)<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="group___types_1ga7329da5b88bbf0d960dc1f1ae2c66033" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_TIMEOUT_INFINITE<sp/>((GG_TimeInterval)-1)<sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="group___types_1ga2048e879f87a7ce8f954a4d892605862" refkind="member"><highlight class="preprocessor">#define<sp/>GG_4CC(a,<sp/>b,<sp/>c,<sp/>d)<sp/>(<sp/>((uint32_t)a<sp/>&lt;&lt;<sp/>24)<sp/>|<sp/>((uint32_t)b<sp/>&lt;&lt;<sp/>16)<sp/>|<sp/>((uint32_t)c<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>((uint32_t)d)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="51"><highlight class="comment">|<sp/><sp/><sp/>globals</highlight></codeline>
+<codeline lineno="52"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*GG_GenericInterfaceTrapMethod)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>GG_GenericInterfaceTrapMethod<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GG_GenericInterfaceTrapVTable[];</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>Interface<sp/>macros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="group___interfaces_1ga41b8898b17af8b309039c9ae03dc351c" refkind="member"><highlight class="preprocessor">#define<sp/>GG_INTERFACE_BASE_FIELD(_iface)<sp/>_iface##_Base</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="group___interfaces_1ga2e8fdfcce2850f6531b6e1b453c90c31" refkind="member"><highlight class="preprocessor">#define<sp/>GG_SELF(_self_type,<sp/>_iface)<sp/>GG_SELF_O(_self,<sp/>_self_type,<sp/>_iface)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_SELF_O(_object,<sp/>_self_type,<sp/>_iface)<sp/>\</highlight></codeline>
+<codeline lineno="90"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(<sp/>(_self_type<sp/>*)(<sp/>((uintptr_t)(_object))<sp/>-<sp/>offsetof(_self_type,<sp/>GG_INTERFACE_BASE_FIELD(_iface)))<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="group___interfaces_1gade1e4e3a9d135089a2fd1a30e4ae1d24" refkind="member"><highlight class="preprocessor">#define<sp/>GG_SELF_M(_member,<sp/>_self_type,<sp/>_iface)<sp/>GG_SELF_M_O(_self,<sp/>_member,<sp/>_self_type,<sp/>_iface)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_SELF_M_O(_object,<sp/>_member,<sp/>_self_type,<sp/>_iface)<sp/>\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(<sp/>(_self_type<sp/>*)(<sp/>((uintptr_t)(_object))<sp/>-<sp/>offsetof(_self_type,<sp/>_member.GG_INTERFACE_BASE_FIELD(_iface)))<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="group___interfaces_1ga3514945cbd3978948239166812e3d26f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_CAST(_object,<sp/>_iface)<sp/>&amp;(_object)-&gt;GG_INTERFACE_BASE_FIELD(_iface)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" refkind="member"><highlight class="preprocessor">#define<sp/>GG_DECLARE_INTERFACE(_iface)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="149"><highlight class="preprocessor">typedef<sp/>struct<sp/>_iface##Interface<sp/>_iface##Interface;<sp/><sp/>\</highlight></codeline>
+<codeline lineno="150"><highlight class="preprocessor">typedef<sp/>struct<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="151"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>const<sp/>_iface##Interface*<sp/>vtable;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="152"><highlight class="preprocessor">}<sp/>_iface;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="153"><highlight class="preprocessor">struct<sp/>_iface##Interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="group___interfaces_1ga336e7ba50a655742b221c831740ed2e8" refkind="member"><highlight class="preprocessor">#define<sp/>GG_IMPLEMENT_INTERFACE(_class,<sp/>_iface)<sp/>static<sp/>const<sp/>_iface##Interface<sp/>_class##_##_iface##Interface<sp/>=</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="group___interfaces_1gab80b4535f8dc0da5624e36997daa90dd" refkind="member"><highlight class="preprocessor">#define<sp/>GG_SET_INTERFACE(_object,<sp/>_class,<sp/>_iface)<sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="191"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(_object)-&gt;GG_INTERFACE_BASE_FIELD(_iface).vtable<sp/>=<sp/>&amp;_class##_##_iface##Interface;<sp/>\</highlight></codeline>
+<codeline lineno="192"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="group___interfaces_1ga3ed5aa4cb75b5444f3e4bdce9f83b82d" refkind="member"><highlight class="preprocessor">#define<sp/>GG_SET_INTERFACE_TRAP(_object,<sp/>_iface)<sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="210"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(_object)-&gt;GG_INTERFACE_BASE_FIELD(_iface).vtable<sp/>=<sp/>(const<sp/>void*)GG_GenericInterfaceTrapVTable;<sp/>\</highlight></codeline>
+<codeline lineno="211"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="preprocessor">#define<sp/>GG_INTERFACE_INITIALIZER(_class,<sp/>_iface)<sp/>\</highlight></codeline>
+<codeline lineno="225"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.GG_INTERFACE_BASE_FIELD(_iface)<sp/>=<sp/>{<sp/>.vtable<sp/>=<sp/>&amp;_class##_##_iface##Interface<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="preprocessor">#define<sp/>GG_INTERFACE_INLINE(_iface,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="248"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.GG_INTERFACE_BASE_FIELD(_iface)<sp/>=<sp/>{<sp/>.vtable<sp/>=<sp/>&amp;(_iface##Interface)<sp/>__VA_ARGS__<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="preprocessor">#define<sp/>GG_INTERFACE_INLINE_UNNAMED(_iface,<sp/>...)<sp/>\</highlight></codeline>
+<codeline lineno="272"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>(_iface)<sp/>{<sp/>.vtable<sp/>=<sp/>&amp;(_iface##Interface)<sp/>__VA_ARGS__<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="preprocessor">#define<sp/>GG_IMPLEMENTS(_iface)<sp/>_iface<sp/>GG_INTERFACE_BASE_FIELD(_iface)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="preprocessor">#define<sp/>GG_INTERFACE(_iface)<sp/>((_iface)-&gt;vtable)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_types.h"/>
+  </compounddef>
+</doxygen>

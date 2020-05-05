@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattCharacteristicNotifier - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.server</a>&nbsp;/&nbsp;<a href="./index.html">GattCharacteristicNotifier</a><br/>
+<br/>
+<h1>GattCharacteristicNotifier</h1>
+<code><span class="keyword">class </span><span class="identifier">GattCharacteristicNotifier</span></code>
+<p>Notify GATT Characteristic change</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GattCharacteristicNotifier</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(android.bluetooth.BluetoothDevice)/device">device</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html"><span class="identifier">BluetoothDevice</span></a><span class="symbol">)</span></code><code><span class="identifier">GattCharacteristicNotifier</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/fitbitDevice">fitbitDevice</span><span class="symbol">:</span>&nbsp;<span class="identifier">FitbitBluetoothDevice</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/bitgatt">bitgatt</span><span class="symbol">:</span>&nbsp;<span class="identifier">FitbitGatt</span>&nbsp;<span class="symbol">=</span>&nbsp;FitbitGatt.getInstance()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/notifyTransactionProvider">notifyTransactionProvider</span><span class="symbol">:</span>&nbsp;<a href="../-notify-gatt-server-characteristic-transaction-provider/index.html"><span class="identifier">NotifyGattServerCharacteristicTransactionProvider</span></a>&nbsp;<span class="symbol">=</span>&nbsp;NotifyGattServerCharacteristicTransactionProvider()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/scheduler">scheduler</span><span class="symbol">:</span>&nbsp;<span class="identifier">Scheduler</span>&nbsp;<span class="symbol">=</span>&nbsp;GattCharacteristicNotifierProvider.scheduler<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$<init>(com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice, com.fitbit.bluetooth.fbgatt.FitbitGatt, com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider, io.reactivex.Scheduler, java.util.concurrent.Semaphore)/notifierLock">notifierLock</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/concurrent/Semaphore.html"><span class="identifier">Semaphore</span></a>&nbsp;<span class="symbol">=</span>&nbsp;GattCharacteristicNotifierLock.lock<span class="symbol">)</span></code>
+<p>Notify GATT Characteristic change</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="notify.html">notify</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">notify</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/serviceId">serviceId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/characteristicId">characteristicId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Send a notification or indication that local GATT Characteristic has been updated</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

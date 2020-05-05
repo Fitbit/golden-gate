@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_block_source" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapBlockSource</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_block_source_1a037139444848693c2e2d5a33825732ff" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___coap_block_source_interface" kindref="compound">GG_CoapBlockSourceInterface</ref> *</type>
+        <definition>const GG_CoapBlockSourceInterface* GG_CoapBlockSource::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="145" column="93" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="related">
+      <memberdef kind="function" id="group___co_a_p_1ga9281806f762c5b57036f6d341457ac8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapBlockSource_GetDataSize</definition>
+        <argsstring>(GG_CoapBlockSource *self, size_t offset, size_t *data_size, bool *more)</argsstring>
+        <name>GG_CoapBlockSource_GetDataSize</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>data_size</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>more</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="179" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="179" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gaf68d51ca2abfa89d5165aae4943ac2af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapBlockSource_GetData</definition>
+        <argsstring>(GG_CoapBlockSource *self, size_t offset, size_t data_size, void *data)</argsstring>
+        <name>GG_CoapBlockSource_GetData</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="186" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="186" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_CoapBlockSource</label>
+        <link refid="struct_g_g___coap_block_source"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_CoapBlockSourceInterface</label>
+        <link refid="struct_g_g___coap_block_source_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap_blockwise.h" line="145" column="58" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="145" bodyend="145"/>
+    <listofallmembers>
+      <member refid="group___co_a_p_1gaf68d51ca2abfa89d5165aae4943ac2af" prot="public" virt="non-virtual"><scope>GG_CoapBlockSource</scope><name>GG_CoapBlockSource_GetData</name></member>
+      <member refid="group___co_a_p_1ga9281806f762c5b57036f6d341457ac8f" prot="public" virt="non-virtual"><scope>GG_CoapBlockSource</scope><name>GG_CoapBlockSource_GetDataSize</name></member>
+      <member refid="struct_g_g___coap_block_source_1a037139444848693c2e2d5a33825732ff" prot="public" virt="non-virtual"><scope>GG_CoapBlockSource</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

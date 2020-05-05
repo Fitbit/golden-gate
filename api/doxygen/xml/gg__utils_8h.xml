@@ -1,0 +1,1563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__utils_8h" kind="file" language="C++">
+    <compoundname>gg_utils.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includes>
+    <includedby refid="gg__threads_8h" local="yes">xp/common/gg_threads.h</includedby>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__module_8h" local="yes">xp/module/gg_module.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="25">
+        <label>xp/module/gg_module.h</label>
+        <link refid="gg__module_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="23">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="10">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___generic_callback_handler" prot="public">GG_GenericCallbackHandler</innerclass>
+    <innerclass refid="struct_g_g___generic_callback_handler_interface" prot="public">GG_GenericCallbackHandlerInterface</innerclass>
+    <innerclass refid="struct_g_g___simple_callback" prot="public">GG_SimpleCallback</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___utilities_1ga3858b0d5bd58683fc250971689db0c30" prot="public" static="no">
+        <name>GG_ARRAY_SIZE</name>
+        <param><defname>x</defname></param>
+        <initializer>(sizeof((x))/sizeof((x)[0]))</initializer>
+        <briefdescription>
+<para>Number of elements in a C array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="38" column="9" bodyfile="xp/common/gg_utils.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga1c409edacab3e6b2f6e928cb2a0cde73" prot="public" static="no">
+        <name>GG_MIN</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>(((a) &lt; (b)) ? (a) : (b))</initializer>
+        <briefdescription>
+<para>Minimum of two values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="39" column="9" bodyfile="xp/common/gg_utils.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga82c7f2ff35017c7ab82074ecb22e2199" prot="public" static="no">
+        <name>GG_MAX</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>(((a) &gt; (b)) ? (a) : (b))</initializer>
+        <briefdescription>
+<para>Maximum of two values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="40" column="9" bodyfile="xp/common/gg_utils.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga7239e78cd3b6fb34ae687c00d9353133" prot="public" static="no">
+        <name>GG_MILLISECONDS_PER_SECOND</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+<para>Number of milliseconds in a second. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="41" column="9" bodyfile="xp/common/gg_utils.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga765d9318db2cacbb788e5d90667cc90f" prot="public" static="no">
+        <name>GG_MICROSECONDS_PER_SECOND</name>
+        <initializer>1000000</initializer>
+        <briefdescription>
+<para>Number of microseconds in a second. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="42" column="9" bodyfile="xp/common/gg_utils.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1gab51db6e91e0c0ff16a6c86a19af0e7b2" prot="public" static="no">
+        <name>GG_MICROSECONDS_PER_MILLISECOND</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+<para>Number of microseconds in a millisecond. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="43" column="9" bodyfile="xp/common/gg_utils.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga77f8d82331fec259dab639b98b3d0293" prot="public" static="no">
+        <name>GG_NANOSECONDS_PER_SECOND</name>
+        <initializer>1000000000</initializer>
+        <briefdescription>
+<para>Number of nanoseconds in a second. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="44" column="9" bodyfile="xp/common/gg_utils.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga44ad25b0ac57044ee232ede68fed6f8d" prot="public" static="no">
+        <name>GG_NANOSECONDS_PER_MILLISECOND</name>
+        <initializer>1000000</initializer>
+        <briefdescription>
+<para>Number of nanoseconds in a millisecond. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="45" column="9" bodyfile="xp/common/gg_utils.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga5b68fa58c59f4abff7fc947a9af12d2d" prot="public" static="no">
+        <name>GG_NANOSECONDS_PER_MICROSECOND</name>
+        <initializer>1000</initializer>
+        <briefdescription>
+<para>Number of nanoseconds in a microsecond. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="46" column="9" bodyfile="xp/common/gg_utils.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga54728d5c95a7ee7716f116f74218d747" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_VARINT</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="48" column="9" bodyfile="xp/common/gg_utils.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1gade67b2415a0ebbb6fc862d2e6d643db2" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_64_BIT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="49" column="9" bodyfile="xp/common/gg_utils.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga9a2ad04a75d944722e178a9656c5a5b9" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_LENGTH_DELIMITED</name>
+        <initializer>2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="50" column="9" bodyfile="xp/common/gg_utils.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga418bd94a09e5966b26fade7f11e069eb" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_START_GROUP</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="51" column="9" bodyfile="xp/common/gg_utils.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga16e6cce40a0e8bbe1849d0d058ff85bf" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_END_GROUP</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="52" column="9" bodyfile="xp/common/gg_utils.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1ga6e638213219849f4db2e09b388df61d8" prot="public" static="no">
+        <name>GG_PROTOBUF_WIRE_TYPE_32_BIT</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="53" column="9" bodyfile="xp/common/gg_utils.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___utilities_1gaaca551478ede46c97a1d15ed4e572d86" prot="public" static="no">
+        <name>GG_PROTOBUF_FIELD_KEY</name>
+        <param><defname>field_number</defname></param>
+        <param><defname>wire_type</defname></param>
+        <initializer>(((field_number) &lt;&lt; 3) | (GG_PROTOBUF_WIRE_TYPE_##wire_type))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="54" column="9" bodyfile="xp/common/gg_utils.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___utilities_1ga82f556d80ccaf128b2e72a17324a261e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref> *</type>
+        <definition>GG_GenericCallbackHandler* GG_SimpleCallback_Init</definition>
+        <argsstring>(GG_SimpleCallback *callback, void(*handler)(void *state), void *state)</argsstring>
+        <name>GG_SimpleCallback_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___simple_callback" kindref="compound">GG_SimpleCallback</ref> *</type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>void(*)(void *state)</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a <ref refid="struct_g_g___simple_callback" kindref="compound">GG_SimpleCallback</ref> object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the object to initialize. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the handler function for the callback. If this pointer is NULL, the callback handler will be a no-op. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the state that will be passed to the callback handler function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref> interface for the initialized object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="104" column="27" declfile="xp/common/gg_utils.h" declline="104" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga6189dad3708cc8cab77335a2234f429b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_GetRandomInteger</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_GetRandomInteger</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain a 32-bit random value.</para>
+<para><blockquote><para>NOTE: do not use as a secure source of entropy, this is only </para>
+</blockquote>for non-secure pseudo random number generation.</para>
+<para><simplesect kind="return"><para>A pseudo-random 32-bit value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="120" column="10" declfile="xp/common/gg_utils.h" declline="120" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga6649f48a3fa1924f49fcdef2a208ebd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_GetRandomBytes</definition>
+        <argsstring>(uint8_t *buffer, size_t buffer_size)</argsstring>
+        <name>GG_GetRandomBytes</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain an array of random bytes.</para>
+<para><blockquote><para>NOTE: do not use as a secure source of entropy, this is only </para>
+</blockquote>for non-secure pseudo random byte generation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Memory in which to store the random bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the buffer to fill. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="131" column="6" declfile="xp/common/gg_utils.h" declline="131" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gafbf7e2f148a572f14c13f0ac60514c3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Base64_Encode</definition>
+        <argsstring>(const uint8_t *input, size_t input_size, char *output, size_t *output_size, bool url_safe)</argsstring>
+        <name>GG_Base64_Encode</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>input_size</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>output_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>url_safe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encode a byte array into a base64 string.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input data to encode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input size in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable containing on input the size of the output buffer and on output the number of bytes written. If the buffer size is too small, the buffer size needed is returned instead. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>url_safe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean indicating whether or not to use the URL-safe character set instead of the standard one. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the input could be encoded, or <ref refid="group___errors_1gaa3254cc49863d837956aed4c38cf579d" kindref="member">GG_ERROR_NOT_ENOUGH_SPACE</ref> if the output buffer was too small. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="150" column="11" declfile="xp/common/gg_utils.h" declline="150" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga6aa5cbe58a66b96ffcf90a1def8fef54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Base64_Decode</definition>
+        <argsstring>(const char *input, size_t input_size, uint8_t *output, size_t *output_size, bool url_safe)</argsstring>
+        <name>GG_Base64_Decode</name>
+        <param>
+          <type>const char *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>input_size</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>output_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>url_safe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Decode a base64 string into a byte array.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Base64 string to decode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the input string (if the string is null-terminated, passing 0 will automatically measure the length of the string). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable containing on input the size if the output buffer and on output the number of bytes written. If the buffer size is too small, the buffer size needed is returned instead. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>url_safe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Boolean indicating whether or not to use the URL-safe character set instead of the standard one. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the input could be decoded, <ref refid="group___errors_1gaa3254cc49863d837956aed4c38cf579d" kindref="member">GG_ERROR_NOT_ENOUGH_SPACE</ref> if the output buffer was too small, or <ref refid="group___errors_1ga1048d0cb6aff279f64d99c7375d96888" kindref="member">GG_ERROR_INVALID_FORMAT</ref> if the input is not valid base64. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="171" column="11" declfile="xp/common/gg_utils.h" declline="171" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga29966031fcd99e7c5d1805db3900f37c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char GG_NibbleToHex</definition>
+        <argsstring>(unsigned int nibble, bool uppercase)</argsstring>
+        <name>GG_NibbleToHex</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>nibble</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uppercase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="177" column="6" declfile="xp/common/gg_utils.h" declline="177" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gae56cb8ae679db1bcfc9f3eb3ccb9e3a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_ByteToHex</definition>
+        <argsstring>(uint8_t b, char *buffer, bool uppercase)</argsstring>
+        <name>GG_ByteToHex</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uppercase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="178" column="6" declfile="xp/common/gg_utils.h" declline="178" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga6452c1482e0af053e7d69baf7c38ab33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesToHex</definition>
+        <argsstring>(const uint8_t *bytes, size_t bytes_size, char *hex, bool uppercase)</argsstring>
+        <name>GG_BytesToHex</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytes_size</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>hex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uppercase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="179" column="6" declfile="xp/common/gg_utils.h" declline="179" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gabbedf48c1a78dc386b3c0d5e3f281e4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesToHexString</definition>
+        <argsstring>(const uint8_t *bytes, size_t bytes_size, GG_String *hex, bool uppercase)</argsstring>
+        <name>GG_BytesToHexString</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bytes_size</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___string" kindref="compound">GG_String</ref> *</type>
+          <declname>hex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>uppercase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="180" column="6" declfile="xp/common/gg_utils.h" declline="180" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gade9a07cf758595561337d111f18050b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_HexToNibble</definition>
+        <argsstring>(char hex)</argsstring>
+        <name>GG_HexToNibble</name>
+        <param>
+          <type>char</type>
+          <declname>hex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="181" column="5" declfile="xp/common/gg_utils.h" declline="181" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gacf9617ed6deb2567944ff4c60195d8ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_HexToByte</definition>
+        <argsstring>(const char *buffer, uint8_t *byte)</argsstring>
+        <name>GG_HexToByte</name>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="182" column="11" declfile="xp/common/gg_utils.h" declline="182" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaf12af8e9b8316f57b705e1a52b56f746" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_HexToBytes</definition>
+        <argsstring>(const char *hex, size_t hex_length, uint8_t *bytes)</argsstring>
+        <name>GG_HexToBytes</name>
+        <param>
+          <type>const char *</type>
+          <declname>hex</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>hex_length</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="183" column="11" declfile="xp/common/gg_utils.h" declline="183" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaa3dca1bb3f84be988c6504b06dc7c99a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt16Be</definition>
+        <argsstring>(uint8_t *buffer, uint16_t value)</argsstring>
+        <name>GG_BytesFromInt16Be</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 16-bit integer to 2 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 2-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="194" column="6" declfile="xp/common/gg_utils.h" declline="194" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaedec4e1c34567cba2d5c9268214758d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt32Be</definition>
+        <argsstring>(uint8_t *buffer, uint32_t value)</argsstring>
+        <name>GG_BytesFromInt32Be</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 32-bit integer to 4 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 4-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="202" column="6" declfile="xp/common/gg_utils.h" declline="202" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaab34a135beae64adb77247fb914339dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt64Be</definition>
+        <argsstring>(uint8_t *buffer, uint64_t value)</argsstring>
+        <name>GG_BytesFromInt64Be</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 64-bit integer to 8 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an 8-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="210" column="6" declfile="xp/common/gg_utils.h" declline="210" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga0903c910f67a17213ea0a66af4182781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_BytesToInt16Be</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt16Be</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 16-bit integer value to 2 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 2-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 16-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="218" column="10" declfile="xp/common/gg_utils.h" declline="218" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gada062fcc5a49c88bcd4175547311e94b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BytesToInt32Be</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt32Be</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 32-bit integer value to 4 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 4-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 32-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="226" column="10" declfile="xp/common/gg_utils.h" declline="226" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga42807147983fd40fefce43804b55c31b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t GG_BytesToInt64Be</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt64Be</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 64-bit integer value to 8 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an 8-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 64-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="234" column="10" declfile="xp/common/gg_utils.h" declline="234" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gae8a407a0dac013d70cd47dedf260e151" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt16Le</definition>
+        <argsstring>(uint8_t *buffer, uint16_t value)</argsstring>
+        <name>GG_BytesFromInt16Le</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 16-bit integer to 2 bytes, using little-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 2-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="242" column="6" declfile="xp/common/gg_utils.h" declline="242" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gae0d8071954557b618b80aa21a68792a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt32Le</definition>
+        <argsstring>(uint8_t *buffer, uint32_t value)</argsstring>
+        <name>GG_BytesFromInt32Le</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 32-bit integer to 4 bytes, using little-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 4-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="250" column="6" declfile="xp/common/gg_utils.h" declline="250" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga998dd1b729a70f39d9944717584183c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BytesFromInt64Le</definition>
+        <argsstring>(uint8_t *buffer, uint64_t value)</argsstring>
+        <name>GG_BytesFromInt64Le</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 64-bit integer to 8 bytes, using big-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an 8-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="258" column="6" declfile="xp/common/gg_utils.h" declline="258" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga99d2da5e160bdc09b32526e912631171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_BytesToInt16Le</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt16Le</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 16-bit integer value to 2 bytes, using little-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 2-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 16-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="266" column="10" declfile="xp/common/gg_utils.h" declline="266" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga7cbd158bd2e68c06616ccd37e0847669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BytesToInt32Le</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt32Le</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 32-bit integer value to 4 bytes, using little-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a 4-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 32-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="274" column="10" declfile="xp/common/gg_utils.h" declline="274" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga769abbcd1cf048998ec3485c51c95bec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t GG_BytesToInt64Le</definition>
+        <argsstring>(const uint8_t *buffer)</argsstring>
+        <name>GG_BytesToInt64Le</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert a 64-bit integer value to 8 bytes, using little-endian byte order.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an 8-byte buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The 64-bit integer value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="282" column="10" declfile="xp/common/gg_utils.h" declline="282" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga9318c00179a58811774bb51b5a621967" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_ProtobufVarintSize</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>GG_ProtobufVarintSize</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="284" column="8" declfile="xp/common/gg_utils.h" declline="284" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaae35d57eb74cee1300d77e72ab6ff0c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_EncodeProtobufVarint</definition>
+        <argsstring>(uint64_t value, uint8_t *encoded)</argsstring>
+        <name>GG_EncodeProtobufVarint</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>encoded</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="285" column="8" declfile="xp/common/gg_utils.h" declline="285" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gab0d29a70e1f261e9b0260cedc86fe643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_DecodeProtobufVarint</definition>
+        <argsstring>(const uint8_t *encoded, size_t encoded_size, uint64_t *decoded)</argsstring>
+        <name>GG_DecodeProtobufVarint</name>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>encoded</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>encoded_size</declname>
+        </param>
+        <param>
+          <type>uint64_t *</type>
+          <declname>decoded</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="286" column="8" declfile="xp/common/gg_utils.h" declline="286" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1ga38f60aaebb45de5b3d10188050ea3d26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t GG_ProtobufSignedToZigZag</definition>
+        <argsstring>(int64_t value)</argsstring>
+        <name>GG_ProtobufSignedToZigZag</name>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="287" column="10" declfile="xp/common/gg_utils.h" declline="287" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___utilities_1gaf9682a31be7c6ae33a09344d6e5d9b31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t GG_ProtobufSignedFromZigZag</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>GG_ProtobufSignedFromZigZag</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="288" column="9" declfile="xp/common/gg_utils.h" declline="288" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose utility functions and macros. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__strings_8h" kindref="compound">xp/common/gg_strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/>macros<sp/>and<sp/>constants</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="group___utilities_1ga3858b0d5bd58683fc250971689db0c30" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ARRAY_SIZE(x)<sp/>(sizeof((x))/sizeof((x)[0]))<sp/></highlight></codeline>
+<codeline lineno="39" refid="group___utilities_1ga1c409edacab3e6b2f6e928cb2a0cde73" refkind="member"><highlight class="preprocessor">#define<sp/>GG_MIN(a,<sp/>b)<sp/>(((a)<sp/>&lt;<sp/>(b))<sp/>?<sp/>(a)<sp/>:<sp/>(b))<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40" refid="group___utilities_1ga82c7f2ff35017c7ab82074ecb22e2199" refkind="member"><highlight class="preprocessor">#define<sp/>GG_MAX(a,<sp/>b)<sp/>(((a)<sp/>&gt;<sp/>(b))<sp/>?<sp/>(a)<sp/>:<sp/>(b))<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="group___utilities_1ga7239e78cd3b6fb34ae687c00d9353133" refkind="member"><highlight class="preprocessor">#define<sp/>GG_MILLISECONDS_PER_SECOND<sp/><sp/><sp/><sp/><sp/><sp/>1000<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="group___utilities_1ga765d9318db2cacbb788e5d90667cc90f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_MICROSECONDS_PER_SECOND<sp/><sp/><sp/><sp/><sp/><sp/>1000000<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="group___utilities_1gab51db6e91e0c0ff16a6c86a19af0e7b2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_MICROSECONDS_PER_MILLISECOND<sp/>1000<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="group___utilities_1ga77f8d82331fec259dab639b98b3d0293" refkind="member"><highlight class="preprocessor">#define<sp/>GG_NANOSECONDS_PER_SECOND<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000000000<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45" refid="group___utilities_1ga44ad25b0ac57044ee232ede68fed6f8d" refkind="member"><highlight class="preprocessor">#define<sp/>GG_NANOSECONDS_PER_MILLISECOND<sp/><sp/>1000000<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="group___utilities_1ga5b68fa58c59f4abff7fc947a9af12d2d" refkind="member"><highlight class="preprocessor">#define<sp/>GG_NANOSECONDS_PER_MICROSECOND<sp/><sp/>1000<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_VARINT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_64_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_LENGTH_DELIMITED<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_START_GROUP<sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_END_GROUP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_WIRE_TYPE_32_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_PROTOBUF_FIELD_KEY(field_number,<sp/>wire_type)<sp/>(((field_number)<sp/>&lt;&lt;<sp/>3)<sp/>|<sp/>(GG_PROTOBUF_WIRE_TYPE_##wire_type))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="struct_g_g___generic_callback_handler_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="70" refid="struct_g_g___generic_callback_handler_interface_1a018877211b52cc3c704ef8d54ea5e3e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnCallback)(<ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"></codeline>
+<codeline lineno="78"></codeline>
+<codeline lineno="81"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1ga0fff3ac8e4b931a24ecb3cba5dd10c73" kindref="member">GG_GenericCallbackHandler_OnCallback</ref>(<ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="struct_g_g___simple_callback" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref>);</highlight></codeline>
+<codeline lineno="90" refid="struct_g_g___simple_callback_1a29c60ae82be28aab12183ebc9400d3ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*handler)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>state);<sp/></highlight></codeline>
+<codeline lineno="91" refid="struct_g_g___simple_callback_1ababee2d41cede89355e233224f298649" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="struct_g_g___simple_callback_1ababee2d41cede89355e233224f298649" kindref="member">state</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}<sp/><ref refid="struct_g_g___simple_callback" kindref="compound">GG_SimpleCallback</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref>*<sp/><ref refid="group___utilities_1ga82f556d80ccaf128b2e72a17324a261e" kindref="member">GG_SimpleCallback_Init</ref>(<ref refid="struct_g_g___simple_callback" kindref="compound">GG_SimpleCallback</ref>*<sp/>callback,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*handler)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>state),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="109"><highlight class="comment">|<sp/><sp/><sp/>random</highlight></codeline>
+<codeline lineno="110"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">uint32_t<sp/><ref refid="group___utilities_1ga6189dad3708cc8cab77335a2234f429b" kindref="member">GG_GetRandomInteger</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1ga6649f48a3fa1924f49fcdef2a208ebd4" kindref="member">GG_GetRandomBytes</ref>(uint8_t*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="134"><highlight class="comment">|<sp/><sp/><sp/>base64</highlight></codeline>
+<codeline lineno="135"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utilities_1gafbf7e2f148a572f14c13f0ac60514c3e" kindref="member">GG_Base64_Encode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>input,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input_size,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output,</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_size,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>url_safe);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utilities_1ga6aa5cbe58a66b96ffcf90a1def8fef54" kindref="member">GG_Base64_Decode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>input,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>input_size,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/>output,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/>output_size,</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>url_safe);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>GG_NibbleToHex(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nibble,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>uppercase);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_ByteToHex(uint8_t<sp/>b,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>uppercase);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_BytesToHex(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>bytes,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytes_size,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>hex,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>uppercase);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_BytesToHexString(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>bytes,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytes_size,<sp/><ref refid="struct_g_g___string" kindref="compound">GG_String</ref>*<sp/>hex,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>uppercase);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GG_HexToNibble(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>hex);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_HexToByte(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,<sp/>uint8_t*<sp/></highlight><highlight class="keywordtype">byte</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_HexToBytes(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>hex,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>hex_length,<sp/>uint8_t*<sp/>bytes);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="186"><highlight class="comment">|<sp/><sp/><sp/>bytes<sp/>&lt;-&gt;<sp/>integer<sp/>conversions</highlight></codeline>
+<codeline lineno="187"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="194"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1gaa3dca1bb3f84be988c6504b06dc7c99a" kindref="member">GG_BytesFromInt16Be</ref>(uint8_t*<sp/>buffer,<sp/>uint16_t<sp/>value);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1gaedec4e1c34567cba2d5c9268214758d7" kindref="member">GG_BytesFromInt32Be</ref>(uint8_t*<sp/>buffer,<sp/>uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1gaab34a135beae64adb77247fb914339dd" kindref="member">GG_BytesFromInt64Be</ref>(uint8_t*<sp/>buffer,<sp/>uint64_t<sp/>value);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal">uint16_t<sp/><ref refid="group___utilities_1ga0903c910f67a17213ea0a66af4182781" kindref="member">GG_BytesToInt16Be</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal">uint32_t<sp/><ref refid="group___utilities_1gada062fcc5a49c88bcd4175547311e94b" kindref="member">GG_BytesToInt32Be</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal">uint64_t<sp/><ref refid="group___utilities_1ga42807147983fd40fefce43804b55c31b" kindref="member">GG_BytesToInt64Be</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1gae8a407a0dac013d70cd47dedf260e151" kindref="member">GG_BytesFromInt16Le</ref>(uint8_t*<sp/>buffer,<sp/>uint16_t<sp/>value);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1gae0d8071954557b618b80aa21a68792a6" kindref="member">GG_BytesFromInt32Le</ref>(uint8_t*<sp/>buffer,<sp/>uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utilities_1ga998dd1b729a70f39d9944717584183c0" kindref="member">GG_BytesFromInt64Le</ref>(uint8_t*<sp/>buffer,<sp/>uint64_t<sp/>value);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal">uint16_t<sp/><ref refid="group___utilities_1ga99d2da5e160bdc09b32526e912631171" kindref="member">GG_BytesToInt16Le</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal">uint32_t<sp/><ref refid="group___utilities_1ga7cbd158bd2e68c06616ccd37e0847669" kindref="member">GG_BytesToInt32Le</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal">uint64_t<sp/><ref refid="group___utilities_1ga769abbcd1cf048998ec3485c51c95bec" kindref="member">GG_BytesToInt64Le</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>GG_ProtobufVarintSize(uint64_t<sp/>value);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>GG_EncodeProtobufVarint(uint64_t<sp/>value,<sp/>uint8_t*<sp/>encoded);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>GG_DecodeProtobufVarint(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>encoded,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>encoded_size,<sp/>uint64_t*<sp/>decoded);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">uint64_t<sp/>GG_ProtobufSignedToZigZag(int64_t<sp/>value);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal">int64_t<sp/>GG_ProtobufSignedFromZigZag(uint64_t<sp/>value);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_utils.h"/>
+  </compounddef>
+</doxygen>

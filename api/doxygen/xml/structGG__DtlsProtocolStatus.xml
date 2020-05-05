@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DtlsProtocolStatus" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DtlsProtocolStatus</compoundname>
+    <includes refid="gg__tls_8h" local="no">xp/tls/gg_tls.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DtlsProtocolStatus_1a9718b87cccafa190607d7ffcd1b2b8a8" prot="public" static="no" mutable="no">
+        <type><ref refid="group__TLS_1ga3eab9a14dca9139ba4e8757dd24d60ac" kindref="member">GG_TlsProtocolState</ref></type>
+        <definition>GG_TlsProtocolState GG_DtlsProtocolStatus::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+<para>Current state of the protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="164" column="25" bodyfile="xp/tls/gg_tls.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DtlsProtocolStatus_1a68845f902e482ac43eb8b449f934a76e" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DtlsProtocolStatus::last_error</definition>
+        <argsstring></argsstring>
+        <name>last_error</name>
+        <briefdescription>
+<para>Last error, if any (GG_SUCCESS when no error has occurred) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="165" column="25" bodyfile="xp/tls/gg_tls.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DtlsProtocolStatus_1afa81e53ae5dbf8d3c04bc4d3d979c8fc" prot="public" static="no" mutable="no">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* GG_DtlsProtocolStatus::psk_identity</definition>
+        <argsstring></argsstring>
+        <name>psk_identity</name>
+        <briefdescription>
+<para>PSK identity (only valid after a successful handshake) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="166" column="24" bodyfile="xp/tls/gg_tls.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__DtlsProtocolStatus_1a7272f3deb344faf8b08ed0f4c7eab08a" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_DtlsProtocolStatus::psk_identity_size</definition>
+        <argsstring></argsstring>
+        <name>psk_identity_size</name>
+        <briefdescription>
+<para>Size of the PSK identity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="167" column="25" bodyfile="xp/tls/gg_tls.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Status of a DTLS protocol object. </para>
+    </detaileddescription>
+    <location file="xp/tls/gg_tls.h" line="163" column="15" bodyfile="xp/tls/gg_tls.h" bodystart="163" bodyend="168"/>
+    <listofallmembers>
+      <member refid="structGG__DtlsProtocolStatus_1a68845f902e482ac43eb8b449f934a76e" prot="public" virt="non-virtual"><scope>GG_DtlsProtocolStatus</scope><name>last_error</name></member>
+      <member refid="structGG__DtlsProtocolStatus_1afa81e53ae5dbf8d3c04bc4d3d979c8fc" prot="public" virt="non-virtual"><scope>GG_DtlsProtocolStatus</scope><name>psk_identity</name></member>
+      <member refid="structGG__DtlsProtocolStatus_1a7272f3deb344faf8b08ed0f4c7eab08a" prot="public" virt="non-virtual"><scope>GG_DtlsProtocolStatus</scope><name>psk_identity_size</name></member>
+      <member refid="structGG__DtlsProtocolStatus_1a9718b87cccafa190607d7ffcd1b2b8a8" prot="public" virt="non-virtual"><scope>GG_DtlsProtocolStatus</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

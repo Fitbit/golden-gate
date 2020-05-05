@@ -1,0 +1,15 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.fitbit.goldengate.bt.gatt.util$toUuid(kotlin.ByteArray)com.fitbit.goldengate.bt.gatt.util/kotlin.-byte-array/to-uuid.html
+com.fitbit.goldengate
+com.fitbit.goldengate.bt
+com.fitbit.goldengate.bt.gatt
+com.fitbit.goldengate.bt.gatt.client.services
+com.fitbit.goldengate.bt.gatt.scanner
+com.fitbit.goldengate.bt.gatt.server.services.gattlink
+com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners
+com.fitbit.goldengate.bt.gatt.util
+com.fitbit.goldengate.node
+com.fitbit.goldengate.node.stack
+com.fitbit.goldengate.peripheral
+com.fitbit.goldengate.stackservice

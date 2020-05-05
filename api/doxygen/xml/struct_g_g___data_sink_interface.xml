@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___data_sink_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DataSinkInterface</compoundname>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___data_sink_interface_1a9172a7791ed5499d86a5764a52b5ccb1" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_DataSinkInterface::PutData) (GG_DataSink *self, GG_Buffer *data, const GG_BufferMetadata *metadata)</definition>
+        <argsstring>)(GG_DataSink *self, GG_Buffer *data, const GG_BufferMetadata *metadata)</argsstring>
+        <name>PutData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Put data to a sink. If the data is accepted, the caller may release its reference to the data passed in, since the sink will retain its own references if needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to put. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional metadata (may be NULL). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the data was accepted by the sink, <ref refid="group___errors_1ga2fce56428f10fb9106698ceb49b60ca9" kindref="member">GG_ERROR_WOULD_BLOCK</ref> if the sink would normally accept the data, but cannot do so at this time, in which case the caller should retry at a later time. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_g_g___data_sink_listener_interface_1a306a7087d974223eea827b0bda5130ee" kindref="member">GG_DataSinkListenerInterface::OnCanPut</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="136" column="5" bodyfile="xp/common/gg_io.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___data_sink_interface_1a97adcb3468a0dd1c81a0e2753f10f0c8" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_DataSinkInterface::SetListener) (GG_DataSink *self, GG_DataSinkListener *listener)</definition>
+        <argsstring>)(GG_DataSink *self, GG_DataSinkListener *listener)</argsstring>
+        <name>SetListener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set a sink&apos;s listener. The listener is called when it is appropriate to call GG_DataSink_PutData after a return value equal to <ref refid="group___errors_1ga2fce56428f10fb9106698ceb49b60ca9" kindref="member">GG_ERROR_WOULD_BLOCK</ref></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The listener for the sink. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="147" column="5" bodyfile="xp/common/gg_io.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/common/gg_io.h" line="122" column="79" bodyfile="xp/common/gg_io.h" bodystart="122" bodyend="148"/>
+    <listofallmembers>
+      <member refid="struct_g_g___data_sink_interface_1a9172a7791ed5499d86a5764a52b5ccb1" prot="public" virt="non-virtual"><scope>GG_DataSinkInterface</scope><name>PutData</name></member>
+      <member refid="struct_g_g___data_sink_interface_1a97adcb3468a0dd1c81a0e2753f10f0c8" prot="public" virt="non-virtual"><scope>GG_DataSinkInterface</scope><name>SetListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

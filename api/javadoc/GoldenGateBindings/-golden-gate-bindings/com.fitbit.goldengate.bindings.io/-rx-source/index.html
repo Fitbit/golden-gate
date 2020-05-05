@@ -1,0 +1,65 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RxSource - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.io</a>&nbsp;/&nbsp;<a href="./index.html">RxSource</a><br/>
+<br/>
+<h1>RxSource</h1>
+<code><span class="keyword">class </span><span class="identifier">RxSource</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NativeReference</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>RxSource is a DataSource for bottom on Golden Gate stack and DataSink for top of Native/Android
+connection Bridge and is used to receive data packets to GG stack from connected Node</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RxSource</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>RxSource is a DataSource for bottom on Golden Gate stack and DataSink for top of Native/Android
+connection Bridge and is used to receive data packets to GG stack from connected Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="this-pointer.html">thisPointer</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">thisPointer</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>Pointer to native jni reference for this object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="receive-data.html">receiveData</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">receiveData</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.RxSource$receiveData(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Receive data from connected Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapExtendedError" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapExtendedError</compoundname>
+    <includes refid="gg__coap_8h" local="no">xp/coap/gg_coap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapExtendedError_1a86c80d6d65ed30747b84fc3c2be08c5c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_CoapExtendedError::name_space</definition>
+        <argsstring></argsstring>
+        <name>name_space</name>
+        <briefdescription>
+<para>Namespace for the error code (ex: &quot;org.example.foo&quot;) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="1210" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapExtendedError_1a8205896aae718a8fbc2d10eabf97bac1" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapExtendedError::name_space_size</definition>
+        <argsstring></argsstring>
+        <name>name_space_size</name>
+        <briefdescription>
+<para>Size of the name_space string, or 0 if the string is null-terminated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="1211" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapExtendedError_1a9a846ae16cd1fcc5b54f7b9d9f2e380a" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t GG_CoapExtendedError::code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <briefdescription>
+<para>Error code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="1212" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapExtendedError_1a4c9e9fabfa2e0c828f83c8ad9db20d28" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_CoapExtendedError::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+<para>Error message (may be NULL) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="1213" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapExtendedError_1a97079e78736bf9bd1d003f75c0bb282f" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapExtendedError::message_size</definition>
+        <argsstring></argsstring>
+        <name>message_size</name>
+        <briefdescription>
+<para>Size of the message string, or 0 if the string is null-terminated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="1214" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Extended error information, used with 4.xx and 5.xx responses.</para>
+<para>WARNING: the name_space and message fields may not be null-terminated, so it is important to make use of the string size fields.</para>
+<para>NOTE: the <computeroutput>name_space</computeroutput> field is named like this so as not to conflicts with the reserved <computeroutput>namespace</computeroutput> keyword in C++.</para>
+<para>This data is designed to be encoded to and decoded from a protobuf message with the following schema:</para>
+<para>message Error { optional string namespace = 1; optional sint32 code = 2; optional string message = 3; } </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap.h" line="1209" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="1209" bodyend="1215"/>
+    <listofallmembers>
+      <member refid="structGG__CoapExtendedError_1a9a846ae16cd1fcc5b54f7b9d9f2e380a" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>code</name></member>
+      <member refid="structGG__CoapExtendedError_1a4c9e9fabfa2e0c828f83c8ad9db20d28" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>message</name></member>
+      <member refid="structGG__CoapExtendedError_1a97079e78736bf9bd1d003f75c0bb282f" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>message_size</name></member>
+      <member refid="structGG__CoapExtendedError_1a86c80d6d65ed30747b84fc3c2be08c5c" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>name_space</name></member>
+      <member refid="structGG__CoapExtendedError_1a8205896aae718a8fbc2d10eabf97bac1" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>name_space_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

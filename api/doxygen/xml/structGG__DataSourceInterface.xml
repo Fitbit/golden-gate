@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__DataSourceInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_DataSourceInterface</compoundname>
+    <includes refid="gg__io_8h" local="no">xp/common/gg_io.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__DataSourceInterface_1ad1153e63cdc9ee402d8f7104774c0988" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_DataSourceInterface::SetDataSink) (GG_DataSource *self, GG_DataSink *sink)</definition>
+        <argsstring>)(GG_DataSource *self, GG_DataSink *sink)</argsstring>
+        <name>SetDataSink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the sink to which this source will send data.</para>
+<para>NOTE: the lifetime of the sink passed to this method must be the same or longer than that of this object. Therefore, if that sink must be destroyed earlier than this object, the caller MUST call this method again with a NULL (or other sink) before destroying it.</para>
+<para>NOTE: objects that implement this method typically call the sink&apos;s GG_DataSink::SetListener method to register themselves as a listener. In that case, the object MUST keep a reference to the sink so it can de-register itself by calling GG_DataSink::SetListener(_, NULL) prior to registering itself to a different sink and/or in its destructor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The sink that will receive data from this object when available. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__Errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the operation succeeded, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="188" column="5" bodyfile="xp/common/gg_io.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/common/gg_io.h" line="170" column="83" bodyfile="xp/common/gg_io.h" bodystart="170" bodyend="189"/>
+    <listofallmembers>
+      <member refid="structGG__DataSourceInterface_1ad1153e63cdc9ee402d8f7104774c0988" prot="public" virt="non-virtual"><scope>GG_DataSourceInterface</scope><name>SetDataSink</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

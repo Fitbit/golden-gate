@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_block_source_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapBlockSourceInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_block_source_interface_1af5f91bddf8ae632e91172680478fc0c0" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_CoapBlockSourceInterface::GetDataSize) (GG_CoapBlockSource *self, size_t offset, size_t *data_size, bool *more)</definition>
+        <argsstring>)(GG_CoapBlockSource *self, size_t offset, size_t *data_size, bool *more)</argsstring>
+        <name>GetDataSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the data size for a given block.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset from which to read the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">data_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to read from that data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">more</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether there&apos;s more data to read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the requested block was not outside of the range. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="156" column="5" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_block_source_interface_1aa5de9476db1d2ba1221fc3d88696aedb" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_CoapBlockSourceInterface::GetData) (GG_CoapBlockSource *self, size_t offset, size_t data_size, void *data)</definition>
+        <argsstring>)(GG_CoapBlockSource *self, size_t offset, size_t data_size, void *data)</argsstring>
+        <name>GetData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the data for a given block.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset of the requested block in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the requested block in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer in which the block data should be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the data for the requested block could be copied, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="171" column="5" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface implemented by objects that are a source of payload blocks for a CoAP blockwise transfer. </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap_blockwise.h" line="145" column="93" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="145" bodyend="175"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_block_source_interface_1aa5de9476db1d2ba1221fc3d88696aedb" prot="public" virt="non-virtual"><scope>GG_CoapBlockSourceInterface</scope><name>GetData</name></member>
+      <member refid="struct_g_g___coap_block_source_interface_1af5f91bddf8ae632e91172680478fc0c0" prot="public" virt="non-virtual"><scope>GG_CoapBlockSourceInterface</scope><name>GetDataSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

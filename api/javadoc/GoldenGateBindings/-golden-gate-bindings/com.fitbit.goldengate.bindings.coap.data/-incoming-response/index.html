@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>IncomingResponse - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">IncomingResponse</a><br/>
+<br/>
+<h1>IncomingResponse</h1>
+<code><span class="keyword">interface </span><span class="identifier">IncomingResponse</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-incoming-message/index.html"><span class="identifier">IncomingMessage</span></a><span class="symbol">, </span><a href="../-base-response/index.html"><span class="identifier">BaseResponse</span></a></code>
+<p>Incoming coap response message.</p>
+<p>Coap client will receive this response object as a result of requesting data from server</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="extended-error.html">extendedError</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">extendedError</span><span class="symbol">: </span><a href="../-extended-error/index.html"><span class="identifier">ExtendedError</span></a><span class="symbol">?</span></code>
+<p>Extended error information, used when <a href="../-response-code/index.html">ResponseCode</a> is
+<a href="../-response-code/-class/client-error.html">ResponseCode.Class.clientError</a> or <a href="../-response-code/-class/server-error.html">ResponseCode.Class.serverError</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-incoming-message/body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">body</span><span class="symbol">: </span><a href="../-incoming-body/index.html"><span class="identifier">IncomingBody</span></a></code>
+<p>Coap message body</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-response/response-code.html">responseCode</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">responseCode</span><span class="symbol">: </span><a href="../-response-code/index.html"><span class="identifier">ResponseCode</span></a></code>
+<p>CoAP response code</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

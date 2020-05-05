@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___socket_address_metadata" kind="struct" language="C++" prot="public">
+    <compoundname>GG_SocketAddressMetadata</compoundname>
+    <includes refid="gg__sockets_8h" local="no">xp/sockets/gg_sockets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___socket_address_metadata_1a187b242edcf88e07cd4041287489c8b5" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref></type>
+        <definition>GG_BufferMetadata GG_SocketAddressMetadata::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="62" column="23" bodyfile="xp/sockets/gg_sockets.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___socket_address_metadata_1a1b3e8d8d97442fbf945b00dba1cd99c5" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___socket_address" kindref="compound">GG_SocketAddress</ref></type>
+        <definition>GG_SocketAddress GG_SocketAddressMetadata::socket_address</definition>
+        <argsstring></argsstring>
+        <name>socket_address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Depending on the base type, this may be interpreted as a source or destination address </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="66" column="23" bodyfile="xp/sockets/gg_sockets.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Metadata used to provide information about the source or destination for a datagram sent to or received from a socket. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>GG_SocketAddress</label>
+        <link refid="struct_g_g___socket_address"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>address</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_IpAddress</label>
+        <link refid="struct_g_g___ip_address"/>
+      </node>
+      <node id="2">
+        <label>GG_BufferMetadata</label>
+        <link refid="struct_g_g___buffer_metadata"/>
+      </node>
+      <node id="1">
+        <label>GG_SocketAddressMetadata</label>
+        <link refid="struct_g_g___socket_address_metadata"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>socket_address</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/sockets/gg_sockets.h" line="61" column="15" bodyfile="xp/sockets/gg_sockets.h" bodystart="61" bodyend="67"/>
+    <listofallmembers>
+      <member refid="struct_g_g___socket_address_metadata_1a187b242edcf88e07cd4041287489c8b5" prot="public" virt="non-virtual"><scope>GG_SocketAddressMetadata</scope><name>base</name></member>
+      <member refid="struct_g_g___socket_address_metadata_1a1b3e8d8d97442fbf945b00dba1cd99c5" prot="public" virt="non-virtual"><scope>GG_SocketAddressMetadata</scope><name>socket_address</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

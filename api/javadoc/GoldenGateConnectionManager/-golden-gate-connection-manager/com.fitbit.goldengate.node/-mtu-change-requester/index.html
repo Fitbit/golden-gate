@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MtuChangeRequester - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node</a>&nbsp;/&nbsp;<a href="./index.html">MtuChangeRequester</a><br/>
+<br/>
+<h1>MtuChangeRequester</h1>
+<code><span class="keyword">class </span><span class="identifier">MtuChangeRequester</span></code>
+<p>Class to request MTU change for a CONNECTED Node</p>
+<h3>Parameters</h3>
+<p><a name="mtu"></a>
+<code>mtu</code> - MTU request value</p>
+<p><a name="bluetoothAddress"></a>
+<code>bluetoothAddress</code> - bluetoothAddress of Node for which MTU change is requested</p>
+<p><a name="stack"></a>
+<code>stack</code> - stack for connected Node</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">MtuChangeRequester</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$<init>(kotlin.String, com.fitbit.goldengate.bindings.stack.Stack, kotlin.Long, io.reactivex.Scheduler)/bluetoothAddress">bluetoothAddress</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$<init>(kotlin.String, com.fitbit.goldengate.bindings.stack.Stack, kotlin.Long, io.reactivex.Scheduler)/stack">stack</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stack</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$<init>(kotlin.String, com.fitbit.goldengate.bindings.stack.Stack, kotlin.Long, io.reactivex.Scheduler)/updateMtuTimeoutSeconds">updateMtuTimeoutSeconds</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;MTU_UPDATE_TIMEOUT_SECONDS<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$<init>(kotlin.String, com.fitbit.goldengate.bindings.stack.Stack, kotlin.Long, io.reactivex.Scheduler)/timeoutScheduler">timeoutScheduler</span><span class="symbol">:</span>&nbsp;<span class="identifier">Scheduler</span>&nbsp;<span class="symbol">=</span>&nbsp;Schedulers.computation()<span class="symbol">)</span></code>
+<p>Class to request MTU change for a CONNECTED Node</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="request-mtu.html">requestMtu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">requestMtu</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$requestMtu(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, kotlin.Int)/peripheral">peripheral</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattPeripheral</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$requestMtu(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral, kotlin.Int)/mtu">mtu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Request to set MTU for bluetooth connection and stack for connected Node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="update-stack-mtu.html">updateStackMtu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">updateStackMtu</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.MtuChangeRequester$updateStackMtu(kotlin.Int)/mtu">mtu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Request to update Stack MTU</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

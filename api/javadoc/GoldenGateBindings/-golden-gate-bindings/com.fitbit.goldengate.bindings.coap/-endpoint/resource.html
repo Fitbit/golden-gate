@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Endpoint.resource - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="index.html">Endpoint</a>&nbsp;/&nbsp;<a href="./resource.html">resource</a><br/>
+<br/>
+<h1>resource</h1>
+<a name="com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">resource</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))/parser">parser</span><span class="symbol">:</span>&nbsp;<a href="../-byte-array-parser.html"><span class="identifier">ByteArrayParser</span></a><span class="symbol">&lt;</span><a href="resource.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="resource.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Convenience method for making a GET request to path and parsing it into a T</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - The type of object expected to be returned from a GET request to <a href="resource.html#com.fitbit.goldengate.bindings.coap.Endpoint$resource(kotlin.String, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.resource.T)))/path">path</a></p>
+<p><a name="path"></a>
+<code>path</code> - The path to make a request for over CoAP</p>
+<p><a name="parser"></a>
+<code>parser</code> - An object that knows how to construct an object of type <a href="resource.html#T">T</a> from a ByteArray</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> that will emit either the response parsed into a <a href="resource.html#T">T</a> or an error.</p>
+</BODY>
+</HTML>

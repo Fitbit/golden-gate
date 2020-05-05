@@ -1,0 +1,1509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__coap__blockwise_8h" kind="file" language="C++">
+    <compoundname>gg_coap_blockwise.h</compoundname>
+    <includes refid="gg__coap_8h" local="yes">xp/coap/gg_coap.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="14">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>assert.h</label>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>stdint.h</label>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stddef.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___coap_message_block_info" prot="public">GG_CoapMessageBlockInfo</innerclass>
+    <innerclass refid="struct_g_g___coap_blockwise_server_helper" prot="public">GG_CoapBlockwiseServerHelper</innerclass>
+    <innerclass refid="struct_g_g___coap_block_source" prot="public">GG_CoapBlockSource</innerclass>
+    <innerclass refid="struct_g_g___coap_block_source_interface" prot="public">GG_CoapBlockSourceInterface</innerclass>
+    <innerclass refid="struct_g_g___coap_blockwise_response_listener" prot="public">GG_CoapBlockwiseResponseListener</innerclass>
+    <innerclass refid="struct_g_g___coap_blockwise_response_listener_interface" prot="public">GG_CoapBlockwiseResponseListenerInterface</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___co_a_p_1ga000454047f6425498162c53f1dfd861f" prot="public" static="no">
+        <name>GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+<para>Default block size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="102" column="9" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___co_a_p_1ga521a012d2a7454af9e2d69f003c472ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapMessage_GetBlockInfo</definition>
+        <argsstring>(const GG_CoapMessage *self, uint32_t block_option_number, GG_CoapMessageBlockInfo *block_info, size_t default_block_size)</argsstring>
+        <name>GG_CoapMessage_GetBlockInfo</name>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>block_option_number</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref> *</type>
+          <declname>block_info</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>default_block_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get block info from a message&apos;s options.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_option_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The block option to look for (GG_COAP_MESSAGE_OPTION_BLOCK1 or GG_COAP_MESSAGE_OPTION_BLOCK2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure in which the block info will be returned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>default_block_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Default block size to use if the requested block option isn&apos;t found (pass 0 for no default, in which case GG_ERROR_NO_SUCH_ITEM is returned if the option isn&apos;t found). The value must be 0, 16, 32, 64, 128, 256, 512, or 1024.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the requested block option was found and could be parsed, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="120" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="120" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga96355a77932c6d92b25fb2a8c9a139e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapMessageBlockInfo_AdjustAndGetChunkSize</definition>
+        <argsstring>(size_t offset, size_t *size, bool *more, size_t payload_size)</argsstring>
+        <name>GG_CoapMessageBlockInfo_AdjustAndGetChunkSize</name>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>more</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>payload_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Given a block info and a total payload size, adjust the block info&apos;s <computeroutput>more</computeroutput> field, and return the size of the payload chunk that corresponds to that block of the payload. For all blocks until the last one, this function sets the block&apos;s <computeroutput>more</computeroutput> field to <computeroutput>true</computeroutput> and returns the block size. For the last block, this function sets the block&apos;s <computeroutput>more</computeroutput> field to <computeroutput>false</computeroutput> and returns a size between 1 and the block size. For blocks that would be outside of the payload, this method just returns 0.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset of the block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired size of the block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">more</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether there&apos;s more data to read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the payload</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the requested block was not outside of the range. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="140" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="140" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gaa640f1ab00b9d1d4e1b5e23ab6e49630" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_SendBlockwiseRequest</definition>
+        <argsstring>(GG_CoapEndpoint *self, GG_CoapMethod method, GG_CoapMessageOptionParam *options, size_t options_count, GG_CoapBlockSource *payload_source, size_t preferred_block_size, const GG_CoapClientParameters *client_parameters, GG_CoapBlockwiseResponseListener *listener, GG_CoapRequestHandle *request_handle)</argsstring>
+        <name>GG_CoapEndpoint_SendBlockwiseRequest</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1gab00f564a93ded3e1ee5dd1546ba2640c" kindref="member">GG_CoapMethod</ref></type>
+          <declname>method</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>options_count</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref> *</type>
+          <declname>payload_source</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>preferred_block_size</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___coap_client_parameters" kindref="compound">GG_CoapClientParameters</ref> *</type>
+          <declname>client_parameters</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref> *</type>
+          <declname>request_handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Send a CoAP blockwise request. This method is similar to GG_CoapEndpoint_SendRequest, but with the payload passed as a <ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref> rather than a fixed buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>method</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Method for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Options for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of options for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload_source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload source for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>preferred_block_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Preferred block size. If set to 0, the server&apos;s preferred block size will be used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>client_parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional client parameters to customize the client behavior. Pass NULL for defaults. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Listener object that will receive callbacks regarding any response or error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request_handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle to the request, that may be used subsequently to cancel the request. (the caller may pass NULL if it isn&apos;t interested in the handle value).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the request could be sent, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="245" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="245" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga74003958a62feb4e2f16f1862f5f7665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_CancelBlockwiseRequest</definition>
+        <argsstring>(GG_CoapEndpoint *self, GG_CoapRequestHandle request_handle)</argsstring>
+        <name>GG_CoapEndpoint_CancelBlockwiseRequest</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref></type>
+          <declname>request_handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cancel a previously sent blockwise request. When a request is cancelled, its listener will no longer be called, even if a response datagram is received.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. @parm request_handle Handle of the request to cancel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="265" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="265" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga4b29bcd4b094d5d22395a7d495290a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_PauseBlockwiseRequest</definition>
+        <argsstring>(GG_CoapEndpoint *self, GG_CoapRequestHandle request_handle)</argsstring>
+        <name>GG_CoapEndpoint_PauseBlockwiseRequest</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref></type>
+          <declname>request_handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pause a blockwise request. When a blockwise request is paused, no further individual block requests will be made until it is resumed. This method may be used by a GG_CoapBlockwiseResponseListener::OnResponseBlock callback if it isn&apos;t ready to receive more callbacks (when it is ready again, it can call GG_CoapEndpoint_ResumeBlockwiseRequest).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. @parm request_handle Handle of the request to pause.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="279" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="279" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gac5877324e5fcd046297c8e8decc7e138" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_ResumeBlockwiseRequest</definition>
+        <argsstring>(GG_CoapEndpoint *self, GG_CoapRequestHandle request_handle)</argsstring>
+        <name>GG_CoapEndpoint_ResumeBlockwiseRequest</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref></type>
+          <declname>request_handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resume a blockwise request. If the request is not paused, this has no effect.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. @parm request_handle Handle of the request to resume.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="290" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="290" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gad704c8d5c1a6102e3d218ff2c5a5e455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_CreateBlockwiseResponse</definition>
+        <argsstring>(GG_CoapEndpoint *self, const GG_CoapMessage *request, uint8_t code, GG_CoapMessageOptionParam *options, size_t options_count, const uint8_t *payload, size_t payload_size, uint32_t block_option_number, const GG_CoapMessageBlockInfo *block_info, GG_CoapMessage **response)</argsstring>
+        <name>GG_CoapEndpoint_CreateBlockwiseResponse</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>options_count</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>payload_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>block_option_number</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref> *</type>
+          <declname>block_info</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> **</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a CoAP blockwise response. This method is similar to GG_CoapEndpoint_CreateResponse, but for blockwise responses.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request for which the response is created. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Options for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of options for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the payload. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_option_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Block option number for the response (GG_COAP_MESSAGE_OPTION_BLOCK1 or GG_COAP_MESSAGE_OPTION_BLOCK2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Details about the block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable in which the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="310" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="310" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga5a06a3c5509441e906350ec28cf921ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapEndpoint_CreateBlockwiseResponseFromBlockSource</definition>
+        <argsstring>(GG_CoapEndpoint *self, const GG_CoapMessage *request, uint8_t code, GG_CoapMessageOptionParam *options, size_t options_count, GG_CoapBlockSource *payload_source, uint32_t block_option_number, const GG_CoapMessageBlockInfo *block_info, GG_CoapMessage **response)</argsstring>
+        <name>GG_CoapEndpoint_CreateBlockwiseResponseFromBlockSource</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>options_count</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref> *</type>
+          <declname>payload_source</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>block_option_number</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref> *</type>
+          <declname>block_info</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> **</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a CoAP blockwise response. This method is similar to GG_CoapEndpoint_CreateBlockwiseResponse, but with the payload supplied by a <ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request for which the response is created. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Options for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of options for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload_source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload source for the response. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_option_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Block option number for the response (GG_COAP_MESSAGE_OPTION_BLOCK1 or GG_COAP_MESSAGE_OPTION_BLOCK2) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Details about the block. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable in which the object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="339" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="339" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga01b59b4c85787cc575df91564729628c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapEndpoint_DestroyBlockwiseRequestContexts</definition>
+        <argsstring>(GG_CoapEndpoint *self)</argsstring>
+        <name>GG_CoapEndpoint_DestroyBlockwiseRequestContexts</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy all pending blockwise request contexts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="354" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="354" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga4e9aa2166af15e85d16de10371159724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapEndpoint_InspectBlockwiseRequestContexts</definition>
+        <argsstring>(GG_CoapEndpoint *self, GG_Inspector *inspector, const GG_InspectionOptions *options)</argsstring>
+        <name>GG_CoapEndpoint_InspectBlockwiseRequestContexts</name>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref> *</type>
+          <declname>inspector</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref> *</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inspect all pending blockwise request contexts.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inspector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inspector to call during the inspection. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Inspection options. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="363" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="363" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga865873f8550c382534fada2194e3266d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapMessageBlockInfo_ToOptionValue</definition>
+        <argsstring>(const GG_CoapMessageBlockInfo *blockwise_info, uint32_t *block_option_value)</argsstring>
+        <name>GG_CoapMessageBlockInfo_ToOptionValue</name>
+        <param>
+          <type>const <ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref> *</type>
+          <declname>blockwise_info</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>block_option_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Encode block info into a block option value.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>blockwise_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The block info structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">block_option_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The block option value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if successful, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="375" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="375" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gac500b57c72fa8b231da95b75ac784058" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapBlockwiseServerHelper_Init</definition>
+        <argsstring>(GG_CoapBlockwiseServerHelper *self, uint32_t block_type, size_t preferred_block_size)</argsstring>
+        <name>GG_CoapBlockwiseServerHelper_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>block_type</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>preferred_block_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a <ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref> object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>block_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of block transfer this object is helping with. (GG_COAP_MESSAGE_OPTION_BLOCK1 for PUT/POST or GG_COAP_MESSAGE_OPTION_BLOCK2 for GET) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>preferred_block_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The preferred block size for the server. Pass 0 to use a default value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="386" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="386" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1gad64be36befdaccfbf2975be97bf3afcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_CoapBlockwiseServerHelper_SetEtag</definition>
+        <argsstring>(GG_CoapBlockwiseServerHelper *self, const uint8_t *etag, size_t etag_size)</argsstring>
+        <name>GG_CoapBlockwiseServerHelper_SetEtag</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>etag</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>etag_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the ETag value for the current transfer. This is normally called everytime a new transfer starts (i.e a new block with index 0 is received). The Etag value should be as unique as possible, at least within the context of the resource that is exposed by the server.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>etag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ETag value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>etag_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the ETag value (1 to 8 bytes) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="399" column="6" declfile="xp/coap/gg_coap_blockwise.h" declline="399" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga018dd696dea3da3c5118f863826cf620" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapBlockwiseServerHelper_OnRequest</definition>
+        <argsstring>(GG_CoapBlockwiseServerHelper *self, const GG_CoapMessage *request, bool *request_was_resent)</argsstring>
+        <name>GG_CoapBlockwiseServerHelper_OnRequest</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>request_was_resent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the state of the helper when a request is received.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request that was received by the server. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request_was_resent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to where a boolean flag will be returned, indicating whether the request appears to be a resent request or a new request.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the request is acceptable, or a non-zero value if the server handler should return without further processing the request (in that case, this return value may be returned as the server OnRequest() handler&apos;s return value). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="413" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="413" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___co_a_p_1ga6c30a370f572f4ffafc6a8d906436cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_CoapBlockwiseServerHelper_CreateResponse</definition>
+        <argsstring>(GG_CoapBlockwiseServerHelper *self, GG_CoapEndpoint *endpoint, const GG_CoapMessage *request, uint8_t code, GG_CoapMessageOptionParam *options, size_t options_count, const uint8_t *payload, size_t payload_size, GG_CoapMessage **response)</argsstring>
+        <name>GG_CoapBlockwiseServerHelper_CreateResponse</name>
+        <param>
+          <type><ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref> *</type>
+          <declname>endpoint</declname>
+        </param>
+        <param>
+          <type>const <ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>options_count</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>payload_size</declname>
+        </param>
+        <param>
+          <type><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref> **</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a response based on the previously processed request (GG_CoapBlockwiseServerHelper_OnRequest)</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint to use to create the response object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request for which the response is. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The response code. Should be GG_COAP_MESSAGE_CODE_CONTINUE for BLOCK1 transfers when the block is not the last block, unless an error condition needs to be returned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload for the response (NULL for BLOCK1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>payload_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the payload. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional list of response options (may be NULL if there are none). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of options in the options list. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to variable in which the response should be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the response could be created, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="433" column="11" declfile="xp/coap/gg_coap_blockwise.h" declline="433" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2018-04-28</para>
+</simplesect>
+CoAP library - Blockwise Transfers. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="19"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__coap_8h" kindref="compound">xp/coap/gg_coap.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="struct_g_g___coap_message_block_info" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42" refid="struct_g_g___coap_message_block_info_1a87a784ffb58ccf77064bfc6e013bffed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_message_block_info_1a87a784ffb58ccf77064bfc6e013bffed" kindref="member">offset</ref>;<sp/></highlight></codeline>
+<codeline lineno="43" refid="struct_g_g___coap_message_block_info_1abbbed36f72bbf6ff6dbe0e3bda8702bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_message_block_info_1abbbed36f72bbf6ff6dbe0e3bda8702bf" kindref="member">size</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="struct_g_g___coap_message_block_info_1ac1418d673e84f9fcaa27e6a682efab87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_block_info_1ac1418d673e84f9fcaa27e6a682efab87" kindref="member">more</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}<sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="struct_g_g___coap_blockwise_server_helper" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90" refid="struct_g_g___coap_blockwise_server_helper_1a61147ea3f1b9a4f8eda98e0335ed2586" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1a61147ea3f1b9a4f8eda98e0335ed2586" kindref="member">block_type</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="struct_g_g___coap_blockwise_server_helper_1a8f56f92a8356769c6e40e67e100183c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1a8f56f92a8356769c6e40e67e100183c6" kindref="member">next_offset</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92" refid="struct_g_g___coap_blockwise_server_helper_1adca8787b7ca20c9ccaaa3e66914ab5f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1adca8787b7ca20c9ccaaa3e66914ab5f3" kindref="member">done</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="struct_g_g___coap_blockwise_server_helper_1aff626ebd03378082181abfa82a58eb78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1aff626ebd03378082181abfa82a58eb78" kindref="member">preferred_block_size</ref>;<sp/></highlight></codeline>
+<codeline lineno="94" refid="struct_g_g___coap_blockwise_server_helper_1a940992744e13e8212691430e6d5d42b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1a940992744e13e8212691430e6d5d42b8" kindref="member">block_info</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95" refid="struct_g_g___coap_blockwise_server_helper_1ab60f0463b1e388053dfc63f0b560085f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>etag[<ref refid="group___co_a_p_1gaa4f5ba5ff2d6f69943d26ce6ee233f44" kindref="member">GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE</ref>];<sp/></highlight></codeline>
+<codeline lineno="96" refid="struct_g_g___coap_blockwise_server_helper_1af9cdaed62d9428a81c5bf6d74b5bb4fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_server_helper_1af9cdaed62d9428a81c5bf6d74b5bb4fc" kindref="member">etag_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}<sp/><ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="100"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="101"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="group___co_a_p_1ga000454047f6425498162c53f1dfd861f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE<sp/>1024<sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="106"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga521a012d2a7454af9e2d69f003c472ed" kindref="member">GG_CoapMessage_GetBlockInfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_option_number,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/>block_info,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>default_block_size);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga96355a77932c6d92b25fb2a8c9a139e5" kindref="member">GG_CoapMessageBlockInfo_AdjustAndGetChunkSize</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>size,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/>more,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>payload_size);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="struct_g_g___coap_block_source_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="156" refid="struct_g_g___coap_block_source_interface_1af5f91bddf8ae632e91172680478fc0c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*GetDataSize)(<ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>more);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="struct_g_g___coap_block_source_interface_1aa5de9476db1d2ba1221fc3d88696aedb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*GetData)(<ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size,</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga9281806f762c5b57036f6d341457ac8f" kindref="member">GG_CoapBlockSource_GetDataSize</ref>(<ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>more);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1gaf68d51ca2abfa89d5165aae4943ac2af" kindref="member">GG_CoapBlockSource_GetData</ref>(<ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="struct_g_g___coap_blockwise_response_listener_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="202" refid="struct_g_g___coap_blockwise_response_listener_interface_1a1b672450979fcc84e704991d347eda3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnResponseBlock)(<ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_info,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_message);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="struct_g_g___coap_blockwise_response_listener_interface_1a168d742c218abf3c111527bfc1e8ed03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnError)(<ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>error,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>message);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga87cd2d6df6d03535c36aa9061a70d8bf" kindref="member">GG_CoapBlockwiseResponseListener_OnResponseBlock</ref>(<ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_info,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_message);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga51a9cd769bc2633dbdea87dbac3e5081" kindref="member">GG_CoapBlockwiseResponseListener_OnError</ref>(<ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>error,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>message);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1gaa640f1ab00b9d1d4e1b5e23ab6e49630" kindref="member">GG_CoapEndpoint_SendBlockwiseRequest</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1gab00f564a93ded3e1ee5dd1546ba2640c" kindref="member">GG_CoapMethod</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>method,</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options_count,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload_source,</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preferred_block_size,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_client_parameters" kindref="compound">GG_CoapClientParameters</ref>*<sp/><sp/><sp/><sp/>client_parameters,</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_blockwise_response_listener" kindref="compound">GG_CoapBlockwiseResponseListener</ref>*<sp/>listener,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request_handle);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga74003958a62feb4e2f16f1862f5f7665" kindref="member">GG_CoapEndpoint_CancelBlockwiseRequest</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref><sp/>request_handle);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga4b29bcd4b094d5d22395a7d495290a24" kindref="member">GG_CoapEndpoint_PauseBlockwiseRequest</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref><sp/>request_handle);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1gac5877324e5fcd046297c8e8decc7e138" kindref="member">GG_CoapEndpoint_ResumeBlockwiseRequest</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" kindref="member">GG_CoapRequestHandle</ref><sp/>request_handle);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1gad704c8d5c1a6102e3d218ff2c5a5e455" kindref="member">GG_CoapEndpoint_CreateBlockwiseResponse</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request,</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code,</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref>*<sp/><sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options_count,</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload,</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload_size,</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_option_number,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/>block_info,</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga5a06a3c5509441e906350ec28cf921ba" kindref="member">GG_CoapEndpoint_CreateBlockwiseResponseFromBlockSource</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request,</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref>*<sp/><sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options_count,</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_block_source" kindref="compound">GG_CoapBlockSource</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload_source,</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_option_number,</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/>block_info,</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga01b59b4c85787cc575df91564729628c" kindref="member">GG_CoapEndpoint_DestroyBlockwiseRequestContexts</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"></highlight></codeline>
+<codeline lineno="363"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga4e9aa2166af15e85d16de10371159724" kindref="member">GG_CoapEndpoint_InspectBlockwiseRequestContexts</ref>(<ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inspector,</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>*<sp/>options);</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga865873f8550c382534fada2194e3266d" kindref="member">GG_CoapMessageBlockInfo_ToOptionValue</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___coap_message_block_info" kindref="compound">GG_CoapMessageBlockInfo</ref>*<sp/><sp/>blockwise_info,</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_option_value);</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1gac500b57c72fa8b231da95b75ac784058" kindref="member">GG_CoapBlockwiseServerHelper_Init</ref>(<ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_type,</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>preferred_block_size);</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1gad64be36befdaccfbf2975be97bf3afcd" kindref="member">GG_CoapBlockwiseServerHelper_SetEtag</ref>(<ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>etag,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>etag_size);</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga018dd696dea3da3c5118f863826cf620" kindref="member">GG_CoapBlockwiseServerHelper_OnRequest</ref>(<ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request,</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request_was_resent);</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___co_a_p_1ga6c30a370f572f4ffafc6a8d906436cdf" kindref="member">GG_CoapBlockwiseServerHelper_CreateResponse</ref>(<ref refid="struct_g_g___coap_blockwise_server_helper" kindref="compound">GG_CoapBlockwiseServerHelper</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endpoint,</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>request,</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>code,</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref>*<sp/><sp/><sp/><sp/>options,</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>options_count,</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload,</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload_size,</highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___co_a_p_1ga9157b9a869a3491836c914884c1e6c7d" kindref="member">GG_CoapMessage</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>response);</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"></highlight></codeline>
+<codeline lineno="444"><highlight class="normal"></highlight></codeline>
+<codeline lineno="445"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="446"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/coap/gg_coap_blockwise.h"/>
+  </compounddef>
+</doxygen>

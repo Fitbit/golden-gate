@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="class_g_g___async_pipe" kind="class" language="C++" prot="public">
+    <compoundname>GG_AsyncPipe</compoundname>
+    <briefdescription>
+<para>Class that implements a simple store-and-forward pipe, in one direction. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It may be used, for example, when connecting two elements that want to communicate asynchronously (i.e without <ref refid="group___input_output_1ga0727b8f76fd9f80fdd69f6a7304c8ff9" kindref="member">GG_DataSink_PutData()</ref> directly calling the GG_DataSink::PutData method on the sink, but instead having that method invoked in the next timer tick.)</para>
+<para>This object exposes a <ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> and a <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface. Calling GG_DataSink_PutData causes the data to be received by the source&apos;s sink on the next timer tick</para>
+<para><programlisting><codeline><highlight class="normal"><sp/><sp/><sp/><sp/>+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">+---v----+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/>sink<sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">+--------+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>+-----------------+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Buffer<sp/>|&lt;--&gt;|<sp/>Timer<sp/>Scheduler<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/>+-----------------+</highlight></codeline>
+<codeline><highlight class="normal">+--------+</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>source<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">+---+----+</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>v</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="xp/utils/gg_async_pipe.h" line="40" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

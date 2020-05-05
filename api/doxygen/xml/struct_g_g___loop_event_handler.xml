@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___loop_event_handler" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopEventHandler</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___loop_event_handler_1a1096ffe18c2db9d5dc56641827328924" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___loop_event_handler_interface" kindref="compound">GG_LoopEventHandlerInterface</ref> *</type>
+        <definition>const GG_LoopEventHandlerInterface* GG_LoopEventHandler::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="63" column="95" bodyfile="xp/loop/gg_loop.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_LoopEventHandler</label>
+        <link refid="struct_g_g___loop_event_handler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LoopEventHandlerInterface</label>
+        <link refid="struct_g_g___loop_event_handler_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop.h" line="63" column="59" bodyfile="xp/loop/gg_loop.h" bodystart="63" bodyend="63"/>
+    <listofallmembers>
+      <member refid="struct_g_g___loop_event_handler_1a1096ffe18c2db9d5dc56641827328924" prot="public" virt="non-virtual"><scope>GG_LoopEventHandler</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

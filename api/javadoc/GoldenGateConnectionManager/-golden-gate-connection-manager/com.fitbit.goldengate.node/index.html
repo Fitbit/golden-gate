@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.node - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.node</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.node</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-bridge/index.html">Bridge</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Bridge</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DataSinkDataSource</span><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Establishes a bidirectional transport bridge between cross platform stack and native/android bluetooth services.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-mtu-change-requester/index.html">MtuChangeRequester</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MtuChangeRequester</span></code>
+<p>Class to request MTU change for a CONNECTED Node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node/index.html">Node</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Node</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span></code>
+<p>Interface for Golden Gate Nodes. Used to represent a connection and encapsulates the protocol</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-builder/index.html">NodeBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NodeBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Builds a <a href="-node/index.html">Node</a> with <a href="#">StackService</a> of type <a href="-node-builder/index.html#S">S</a> and key of type <a href="-node-builder/index.html#K">K</a> and determines if an existing <a href="-node/index.html">Node</a> is the same as the one's it builds</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-connection-status/index.html">NodeConnectionStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NodeConnectionStatus</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-data-receiver/index.html">NodeDataReceiver</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NodeDataReceiver</span></code>
+<p>Receives data from connected Node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-data-receiver-provider/index.html">NodeDataReceiverProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NodeDataReceiverProvider</span></code>
+<p>Provides <a href="-node-data-receiver/index.html">NodeDataReceiver</a> to use for receiving data</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-data-sender/index.html">NodeDataSender</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NodeDataSender</span></code>
+<p>Sends data from connected Node</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-data-sender-provider/index.html">NodeDataSenderProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NodeDataSenderProvider</span></code>
+<p>Provides <a href="-node-data-sender/index.html">NodeDataSender</a> to use for sending data</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-node-mapper/index.html">NodeMapper</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">NodeMapper</span></code>
+<p>Maps a <a href="#">NodeKey</a> to a <a href="-node/index.html">Node</a>. Uses a <a href="-node-builder/index.html">NodeBuilder</a> to make the node if it does not exist or if
+the existing <a href="-node/index.html">Node</a> is different than expected</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-stack-event-handler/index.html">StackEventHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">StackEventHandler</span></code>
+<p>Receives stack events and dispatches them to the right handler. For now this only supports
+gattlink buffer events.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Exceptions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-mtu-change-exception/index.html">MtuChangeException</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">MtuChangeException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code>
+<p>Exception thrown when failed to update MTU</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

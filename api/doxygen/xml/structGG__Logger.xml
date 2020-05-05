@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__Logger" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Logger</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__Logger_1a336e59a065c2a57493b411ff1280a27f" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LinkedListNode" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_Logger::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="77" column="23" bodyfile="xp/common/gg_logging.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1a16bc6d0756e9a1864eb7a453ad9a90da" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* GG_Logger::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="78" column="22" bodyfile="xp/common/gg_logging.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1a9603f680c2d9bd1a0dd5781997fe914e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GG_Logger::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="79" column="23" bodyfile="xp/common/gg_logging.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1ae6cf7fd53c4a8a7212cf3c8e244e24f0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_Logger::level_is_inherited</definition>
+        <argsstring></argsstring>
+        <name>level_is_inherited</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="80" column="23" bodyfile="xp/common/gg_logging.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1a025b99c72408a2ecfda5b25cf7d6e2e9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_Logger::forward_to_parent</definition>
+        <argsstring></argsstring>
+        <name>forward_to_parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="81" column="23" bodyfile="xp/common/gg_logging.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1a282fc9880d646137bb267b25179b0db0" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__Logger" kindref="compound">GG_Logger</ref> *</type>
+        <definition>GG_Logger* GG_Logger::parent</definition>
+        <argsstring></argsstring>
+        <name>parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="82" column="22" bodyfile="xp/common/gg_logging.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1ad8f3cc078db3cbd517fec133699f240a" prot="public" static="no" mutable="no">
+        <type><ref refid="group__Lists_1ga250dd19f98916234725f29cdbac7972e" kindref="member">GG_LinkedList</ref></type>
+        <definition>GG_LinkedList GG_Logger::handlers</definition>
+        <argsstring></argsstring>
+        <name>handlers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="83" column="23" bodyfile="xp/common/gg_logging.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Logger_1ab0fc0874fbdbd0d652d0609367b8861c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_Logger::auto_release</definition>
+        <argsstring></argsstring>
+        <name>auto_release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="84" column="23" bodyfile="xp/common/gg_logging.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_Logger</label>
+        <link refid="structGG__Logger"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>parent</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>handlers</edgelabel>
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/common/gg_logging.h" line="76" column="16" bodyfile="xp/common/gg_logging.h" bodystart="76" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structGG__Logger_1ab0fc0874fbdbd0d652d0609367b8861c" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>auto_release</name></member>
+      <member refid="structGG__Logger_1a025b99c72408a2ecfda5b25cf7d6e2e9" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>forward_to_parent</name></member>
+      <member refid="structGG__Logger_1ad8f3cc078db3cbd517fec133699f240a" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>handlers</name></member>
+      <member refid="structGG__Logger_1a9603f680c2d9bd1a0dd5781997fe914e" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>level</name></member>
+      <member refid="structGG__Logger_1ae6cf7fd53c4a8a7212cf3c8e244e24f0" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>level_is_inherited</name></member>
+      <member refid="structGG__Logger_1a336e59a065c2a57493b411ff1280a27f" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>list_node</name></member>
+      <member refid="structGG__Logger_1a16bc6d0756e9a1864eb7a453ad9a90da" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>name</name></member>
+      <member refid="structGG__Logger_1a282fc9880d646137bb267b25179b0db0" prot="public" virt="non-virtual"><scope>GG_Logger</scope><name>parent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

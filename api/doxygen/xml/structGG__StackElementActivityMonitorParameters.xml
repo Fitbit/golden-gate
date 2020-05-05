@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__StackElementActivityMonitorParameters" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackElementActivityMonitorParameters</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__StackElementActivityMonitorParameters_1a4a0367c2da7fde22b2c7591229205367" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_StackElementActivityMonitorParameters::inactivity_timeout</definition>
+        <argsstring></argsstring>
+        <name>inactivity_timeout</name>
+        <briefdescription>
+<para>Delay before detecting inactivity in ms (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="128" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Construction parameters for an Activity Monitor element </para>
+    </detaileddescription>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="127" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="127" bodyend="129"/>
+    <listofallmembers>
+      <member refid="structGG__StackElementActivityMonitorParameters_1a4a0367c2da7fde22b2c7591229205367" prot="public" virt="non-virtual"><scope>GG_StackElementActivityMonitorParameters</scope><name>inactivity_timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

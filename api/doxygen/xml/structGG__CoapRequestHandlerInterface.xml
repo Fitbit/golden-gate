@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapRequestHandlerInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapRequestHandlerInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapRequestHandlerInterface_1aef7557f1cc5a3cadda5e8010f9789e1a" prot="public" static="no" mutable="no">
+        <type>GG_CoapRequestHandlerResult(*</type>
+        <definition>GG_CoapRequestHandlerResult(* GG_CoapRequestHandlerInterface::OnRequest) (GG_CoapRequestHandler *self, GG_CoapEndpoint *endpoint, const GG_CoapMessage *request, GG_CoapResponder *responder, const GG_BufferMetadata *transport_metadata, GG_CoapMessage **response)</definition>
+        <argsstring>)(GG_CoapRequestHandler *self, GG_CoapEndpoint *endpoint, const GG_CoapMessage *request, GG_CoapResponder *responder, const GG_BufferMetadata *transport_metadata, GG_CoapMessage **response)</argsstring>
+        <name>OnRequest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method invoked when a request has been received and should be handled by the handler. The handler must either create a response message and return GG_SUCCESS, or return a non-zero result and not create a response message. If the handler returns GG_SUCCESS and a response message, that message is sent after this function returns. If the result is &gt; 0 and &lt;= 255, it is treated as a CoAP result code, and a response with that code and an empty body will be generated and sent on behalf of the handler. If the result is GG_ERROR_WOULD_BLOCK, no response will be sent (the <computeroutput>responder</computeroutput> object must be used subsequently to send the response asynchronously). If the result is any other negative value, a response with code GG_COAP_MESSAGE_CODE_INTERNAL_SERVER_ERROR and an empty body will be generated and sent on behalf of the handler.</para>
+<para>NOTE: for asynchronous responses, the <computeroutput>request</computeroutput> object will remain valid until the <computeroutput>responder</computeroutput> object is released.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endpoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The endpoint that received the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request that was received for this handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>responder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The responder object that may be used to respond asynchronously. This parameter is NULL if the handler wasn&apos;t registered with the GG_COAP_REQUEST_HANDLER_FLAG_ENABLE_ASYNC flag set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tansport_metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Metadata associated with the transport from which the request was received (typically of type GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS if the transport is a UDP socket). May be NULL if no metadata exists for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable where the handler should return its response. The handler should only return a response in this variable if it also returns GG_SUCCESS.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the handler was able to create a response object, or a CoAP result code, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="253" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface implemented by request handlers that may be registered with an endpoint. </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap.h" line="219" column="99" bodyfile="xp/coap/gg_coap.h" bodystart="219" bodyend="259"/>
+    <listofallmembers>
+      <member refid="structGG__CoapRequestHandlerInterface_1aef7557f1cc5a3cadda5e8010f9789e1a" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerInterface</scope><name>OnRequest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

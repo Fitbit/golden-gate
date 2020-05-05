@@ -1,0 +1,686 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__bitstream_8h" kind="file" language="C++">
+    <compoundname>gg_bitstream.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___bit_input_stream" prot="public">GG_BitInputStream</innerclass>
+    <innerclass refid="struct_g_g___bit_output_stream" prot="public">GG_BitOutputStream</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___formats_1gaaf51934a4979ca9a6464f04417573246" prot="public" static="no">
+        <name>GG_BITSTREAM_WORD_BITS</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="32" column="9" bodyfile="xp/common/gg_bitstream.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___formats_1ga7acd1144a7cfbe2cd7fef1980acaf10e" prot="public" static="no">
+        <name>GG_BITSTREAM_WORD_BYTES</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="33" column="9" bodyfile="xp/common/gg_bitstream.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___formats_1ga310471717beaf75ae9584da69b24f4bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_Init</definition>
+        <argsstring>(GG_BitInputStream *self, const uint8_t *data, size_t data_size)</argsstring>
+        <name>GG_BitInputStream_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a bitstream for reading.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="81" column="6" declfile="xp/common/gg_bitstream.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gaad5585bbd4c16c502c4979be64d7241f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_Reset</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_Reset</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset a bitstream. This is equivalent to calling GG_BitInputStream_Init again with the same parameters as when the bitstream was initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="90" column="6" declfile="xp/common/gg_bitstream.h" declline="90" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga9d30ecbdf51048a9b0d7429f5b614e5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_ByteAlign</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_ByteAlign</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Align the reading position to the nearest byte boundary.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="97" column="6" declfile="xp/common/gg_bitstream.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gabc2c1e01fa46ed873053b8fd74eac6f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_BitInputStream_GetPosition</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_GetPosition</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current bit position of a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current bit position. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="106" column="8" declfile="xp/common/gg_bitstream.h" declline="106" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga48aa89f903888a425c2830f2397e4fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BitInputStream_Read</definition>
+        <argsstring>(GG_BitInputStream *self, size_t bit_count)</argsstring>
+        <name>GG_BitInputStream_Read</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read bits from a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to read (between 1 and 32).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The bits read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="116" column="10" declfile="xp/common/gg_bitstream.h" declline="116" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga68483eeeb6ca8b926fa9ae2eef683067" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BitInputStream_Peek</definition>
+        <argsstring>(GG_BitInputStream *self, size_t bit_count)</argsstring>
+        <name>GG_BitInputStream_Peek</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Peek at bits from a bitstream. This is the same as GG_BitInputStream_Read but without advancing the bit position.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to read (between 1 and 32).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The bits read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="127" column="10" declfile="xp/common/gg_bitstream.h" declline="127" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gafcf3163b243e9232e8bdfc20497d32b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Init</definition>
+        <argsstring>(GG_BitOutputStream *self, uint8_t *buffer, size_t buffer_size)</argsstring>
+        <name>GG_BitOutputStream_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a bitstream for writing. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="132" column="6" declfile="xp/common/gg_bitstream.h" declline="132" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gab188f5d1da287bbd24ec85f7668133ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Reset</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_Reset</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset a bitstream. This is equivalent to calling GG_BitOutputStream_Init again with the same parameters as when the bitstream was initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="141" column="6" declfile="xp/common/gg_bitstream.h" declline="141" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga592115ca3dd07beb77b96d2271a3256a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Write</definition>
+        <argsstring>(GG_BitOutputStream *self, uint32_t bits, size_t bit_count)</argsstring>
+        <name>GG_BitOutputStream_Write</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write bits to a bitstream. NOTE: the bits may not be immediately stored in the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value representing the bits to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to write (between 1 and 32). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="151" column="6" declfile="xp/common/gg_bitstream.h" declline="151" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga220bb748e8c47eade24ca77940dba2e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Flush</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_Flush</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flush the bitstream to the underlying byte buffer. NOTE: this may write zero-padding bits. More bits written after calling this method may not be contiguous. This method is typically called when the caller is done writing and wants to use the values in the underlying buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="161" column="6" declfile="xp/common/gg_bitstream.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gaa331546d339f4470ff31a1196ca5140c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_BitOutputStream_GetPosition</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_GetPosition</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current bit position of a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current bit position. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="170" column="8" declfile="xp/common/gg_bitstream.h" declline="170" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Bitstream reader/writer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2019-03-08 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/>types<sp/>helpers</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_BITSTREAM_WORD_BITS<sp/><sp/>32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_BITSTREAM_WORD_BYTES<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="struct_g_g___bit_input_stream" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/>bytes;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Data<sp/>from<sp/>which<sp/>bits<sp/>are<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte_size;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Data<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte_position;<sp/></highlight><highlight class="comment">//<sp/>Byte<sp/>read<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cache;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Cached<sp/>bits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bits_cached;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>the<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}<sp/><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="struct_g_g___bit_output_stream" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Buffer<sp/>in<sp/>which<sp/>bits<sp/>are<sp/>written</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte_size;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Buffer<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>byte_position;<sp/></highlight><highlight class="comment">//<sp/>Byte<sp/>write<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cache;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Cached<sp/>bits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bits_cached;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bits<sp/>in<sp/>the<sp/>cache</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}<sp/><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="70"><highlight class="comment">|<sp/><sp/><sp/><sp/>prototypes</highlight></codeline>
+<codeline lineno="71"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1ga310471717beaf75ae9584da69b24f4bb" kindref="member">GG_BitInputStream_Init</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1gaad5585bbd4c16c502c4979be64d7241f" kindref="member">GG_BitInputStream_Reset</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1ga9d30ecbdf51048a9b0d7429f5b614e5d" kindref="member">GG_BitInputStream_ByteAlign</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___formats_1gabc2c1e01fa46ed873053b8fd74eac6f7" kindref="member">GG_BitInputStream_GetPosition</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">uint32_t<sp/><ref refid="group___formats_1ga48aa89f903888a425c2830f2397e4fdc" kindref="member">GG_BitInputStream_Read</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bit_count);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">uint32_t<sp/><ref refid="group___formats_1ga68483eeeb6ca8b926fa9ae2eef683067" kindref="member">GG_BitInputStream_Peek</ref>(<ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bit_count);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1gafcf3163b243e9232e8bdfc20497d32b6" kindref="member">GG_BitOutputStream_Init</ref>(<ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>buffer_size);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1gab188f5d1da287bbd24ec85f7668133ba" kindref="member">GG_BitOutputStream_Reset</ref>(<ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1ga592115ca3dd07beb77b96d2271a3256a" kindref="member">GG_BitOutputStream_Write</ref>(<ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t<sp/>bits,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bit_count);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___formats_1ga220bb748e8c47eade24ca77940dba2e2" kindref="member">GG_BitOutputStream_Flush</ref>(<ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___formats_1gaa331546d339f4470ff31a1196ca5140c" kindref="member">GG_BitOutputStream_GetPosition</ref>(<ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_bitstream.h"/>
+  </compounddef>
+</doxygen>

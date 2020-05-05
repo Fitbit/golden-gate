@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>SingleMessageSender - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.io</a>&nbsp;/&nbsp;<a href="./index.html">SingleMessageSender</a><br/>
+<br/>
+<h1>SingleMessageSender</h1>
+<code><span class="keyword">class </span><span class="identifier">SingleMessageSender</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/index.html"><span class="identifier">StackService</span></a></code>
+<p>StackService for sending single message over attached GG stack</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">SingleMessageSender</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>StackService for sending single message over attached GG stack</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.SingleMessageSender$attach(com.fitbit.goldengate.bindings.DataSinkDataSource)/dataSinkDataSource">dataSinkDataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach the source and sink</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="close.html">close</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="detach.html">detach</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">detach</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="send.html">send</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">send</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.SingleMessageSender$send(kotlin.ByteArray)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Send a single message to attached Node. It is required to call attach before calling this method</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/set-filter-group.html">setFilterGroup</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">setFilterGroup</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/group">group</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap/-coap-group-request-filter-mode/index.html"><span class="identifier">CoapGroupRequestFilterMode</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.stack.StackService$setFilterGroup(com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode, com.fitbit.goldengate.bindings.node.NodeKey((kotlin.String)))/key">key</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.node/-node-key/index.html"><span class="identifier">NodeKey</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Update the current filter group used by the CoAP request filter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Attachable - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.io</a>&nbsp;/&nbsp;<a href="./index.html">Attachable</a><br/>
+<br/>
+<h1>Attachable</h1>
+<code><span class="keyword">interface </span><span class="identifier">Attachable</span></code>
+<p>A <a href="./index.html">Attachable</a> is a source or sink that can be attached to another source or sink.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="attach.html">attach</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">attach</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.io.Attachable$attach(com.fitbit.goldengate.bindings.DataSinkDataSource)/dataSinkDataSource">dataSinkDataSource</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings/-data-sink-data-source.html"><span class="identifier">DataSinkDataSource</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Attach the source and sink</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.bindings.stack/-stack-service/index.html">StackService</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">StackService</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Attachable</span></a><span class="symbol">, </span><a href="../../com.fitbit.goldengate.bindings.util/-detachable/index.html"><span class="identifier">Detachable</span></a><span class="symbol">, </span><a href="https://developer.android.com/reference/java/io/Closeable.html"><span class="identifier">Closeable</span></a></code>
+<p>Service that communicates with top of the stack</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseOutgoingMessageBuilder - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./index.html">BaseOutgoingMessageBuilder</a><br/>
+<br/>
+<h1>BaseOutgoingMessageBuilder</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseOutgoingMessageBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-message/index.html"><span class="identifier">Message</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Base class for <a href="#">MessageBuilder</a> providing common implementation</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BaseOutgoingMessageBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Base class for <a href="#">MessageBuilder</a> providing common implementation</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="body.html">body</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">body</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$body(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="../-data.html"><span class="identifier">Data</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">body</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$body(java.io.InputStream)/stream">stream</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Body of the coap message</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="option.html">option</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">option</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$option(com.fitbit.goldengate.bindings.coap.data.Option)/option">option</span><span class="symbol">:</span>&nbsp;<a href="../-option/index.html"><span class="identifier">Option</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Add an option to coap message</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="progress-observer.html">progressObserver</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">progressObserver</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.BaseOutgoingMessageBuilder$progressObserver(io.reactivex.Observer((kotlin.Int)))/progressObserver">progressObserver</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observer</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html"><span class="identifier">OutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Progress Observer of the coap message</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-outgoing-message-builder/build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-outgoing-message-builder/index.html#T"><span class="identifier">T</span></a></code>
+<p>Build Coap <a href="../-message/index.html">Message</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-outgoing-request-builder/index.html">OutgoingRequestBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OutgoingRequestBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BaseOutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">&gt;</span></code>
+<p>Concrete class of MessageBuilder for building <a href="../-outgoing-request/index.html">OutgoingRequest</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-outgoing-response-builder/index.html">OutgoingResponseBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OutgoingResponseBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">BaseOutgoingMessageBuilder</span></a><span class="symbol">&lt;</span><a href="../-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Concrete class of MessageBuilder for building <a href="../-outgoing-response.html">OutgoingResponse</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

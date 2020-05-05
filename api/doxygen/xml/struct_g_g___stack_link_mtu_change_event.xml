@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___stack_link_mtu_change_event" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackLinkMtuChangeEvent</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___stack_link_mtu_change_event_1a9050cafa5f3190a1e73643e5cf4b2a32" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref></type>
+        <definition>GG_Event GG_StackLinkMtuChangeEvent::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="184" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int GG_StackLinkMtuChangeEvent::link_mtu</definition>
+        <argsstring></argsstring>
+        <name>link_mtu</name>
+        <briefdescription>
+<para>Value of the new MTU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="185" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Event emitted when a link MTU has changed.</para>
+<para>(cast a <ref refid="struct_g_g___event" kindref="compound">GG_Event</ref> to that type when the event&apos;s type ID is GG_EVENT_TYPE_LINK_MTU_CHANGE) </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_StackLinkMtuChangeEvent</label>
+        <link refid="struct_g_g___stack_link_mtu_change_event"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_Event</label>
+        <link refid="struct_g_g___event"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="183" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="183" bodyend="186"/>
+    <listofallmembers>
+      <member refid="struct_g_g___stack_link_mtu_change_event_1a9050cafa5f3190a1e73643e5cf4b2a32" prot="public" virt="non-virtual"><scope>GG_StackLinkMtuChangeEvent</scope><name>base</name></member>
+      <member refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" prot="public" virt="non-virtual"><scope>GG_StackLinkMtuChangeEvent</scope><name>link_mtu</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

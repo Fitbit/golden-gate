@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___stack_ip_configuration" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackIpConfiguration</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_StackIpConfiguration::local_address</definition>
+        <argsstring></argsstring>
+        <name>local_address</name>
+        <briefdescription>
+<para>Local IP address (use 0.0.0.0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="102" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_StackIpConfiguration::remote_address</definition>
+        <argsstring></argsstring>
+        <name>remote_address</name>
+        <briefdescription>
+<para>Remote IP address (use 0.0.0.0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="103" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_StackIpConfiguration::if_netmask</definition>
+        <argsstring></argsstring>
+        <name>if_netmask</name>
+        <briefdescription>
+<para>Network interface netmask (use 0.0.0.0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="104" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_StackIpConfiguration::ip_mtu</definition>
+        <argsstring></argsstring>
+        <name>ip_mtu</name>
+        <briefdescription>
+<para>IP MTU (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="105" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_StackIpConfiguration::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <briefdescription>
+<para>True when header compression is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>True when address remapping is enabled. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="107" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_StackIpConfiguration::default_udp_port</definition>
+        <argsstring></argsstring>
+        <name>default_udp_port</name>
+        <briefdescription>
+<para>Default UDP port used with header compression. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="108" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a9e518e342a10d4f841f33741c2f20d85" prot="public" static="no" mutable="no">
+        <type>struct GG_StackIpConfiguration::@4</type>
+        <definition>struct GG_StackIpConfiguration::@4             GG_StackIpConfiguration::header_compression</definition>
+        <argsstring></argsstring>
+        <name>header_compression</name>
+        <briefdescription>
+<para>Header compression configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="109" column="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_StackIpConfiguration::source_address</definition>
+        <argsstring></argsstring>
+        <name>source_address</name>
+        <briefdescription>
+<para>Remap this source address to the remote address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="112" column="22" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref></type>
+        <definition>GG_IpAddress GG_StackIpConfiguration::destination_address</definition>
+        <argsstring></argsstring>
+        <name>destination_address</name>
+        <briefdescription>
+<para>Remap this destination address to the local address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="113" column="22" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___stack_ip_configuration_1a7ae93e63733b1b9a418a1835fbe77fed" prot="public" static="no" mutable="no">
+        <type>struct GG_StackIpConfiguration::@5</type>
+        <definition>struct GG_StackIpConfiguration::@5             GG_StackIpConfiguration::inbound_address_remapping</definition>
+        <argsstring></argsstring>
+        <name>inbound_address_remapping</name>
+        <briefdescription>
+<para>Inbound address remapping. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="114" column="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>IP configuration for a stack </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_IpAddress</label>
+        <link refid="struct_g_g___ip_address"/>
+      </node>
+      <node id="1">
+        <label>GG_StackIpConfiguration</label>
+        <link refid="struct_g_g___stack_ip_configuration"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>local_address</edgelabel>
+          <edgelabel>remote_address</edgelabel>
+          <edgelabel>if_netmask</edgelabel>
+          <edgelabel>destination_address</edgelabel>
+          <edgelabel>source_address</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="101" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="101" bodyend="115"/>
+    <listofallmembers>
+      <member refid="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>default_udp_port</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>destination_address</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>enabled</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a9e518e342a10d4f841f33741c2f20d85" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>header_compression</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>if_netmask</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a7ae93e63733b1b9a418a1835fbe77fed" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>inbound_address_remapping</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>ip_mtu</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>local_address</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>remote_address</name></member>
+      <member refid="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" prot="public" virt="non-virtual"><scope>GG_StackIpConfiguration</scope><name>source_address</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

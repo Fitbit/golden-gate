@@ -1,0 +1,589 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Sockets" kind="group">
+    <compoundname>Sockets</compoundname>
+    <title>Network Sockets</title>
+    <innerclass refid="structGG__IpAddress" prot="public">GG_IpAddress</innerclass>
+    <innerclass refid="structGG__SocketAddress" prot="public">GG_SocketAddress</innerclass>
+    <innerclass refid="structGG__SocketAddressMetadata" prot="public">GG_SocketAddressMetadata</innerclass>
+    <innerclass refid="structGG__DatagramSocket" prot="public">GG_DatagramSocket</innerclass>
+    <innerclass refid="structGG__DatagramSocketInterface" prot="public">GG_DatagramSocketInterface</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group__Sockets_1ga083bd70fea87e10221ab5f8fe4df56b8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref></type>
+        <definition>const GG_IpAddress GG_IpAddress_Any</definition>
+        <argsstring></argsstring>
+        <name>GG_IpAddress_Any</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The 0.0.0.0 IP address. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="124" column="27" declfile="xp/sockets/gg_sockets.h" declline="124" declcolumn="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Sockets_1ga77defce9eaaa1cdf484d3d9372ff13d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_IpAddress_AsInteger</definition>
+        <argsstring>(const GG_IpAddress *address)</argsstring>
+        <name>GG_IpAddress_AsInteger</name>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="193" column="10" declfile="xp/sockets/gg_sockets.h" declline="193" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga479fc32dd971a86b34b6eb16e1d60dc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_SetFromInteger</definition>
+        <argsstring>(GG_IpAddress *address, uint32_t value)</argsstring>
+        <name>GG_IpAddress_SetFromInteger</name>
+        <param>
+          <type><ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="194" column="6" declfile="xp/sockets/gg_sockets.h" declline="194" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga9bc216c3ca7a651ae8b0b023e9bd86d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_AsString</definition>
+        <argsstring>(const GG_IpAddress *address, char *buffer, size_t buffer_size)</argsstring>
+        <name>GG_IpAddress_AsString</name>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="195" column="6" declfile="xp/sockets/gg_sockets.h" declline="195" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga7e025bf9de31b4bf9b501ccd7b766e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_IpAddress_SetFromString</definition>
+        <argsstring>(GG_IpAddress *address, const char *string)</argsstring>
+        <name>GG_IpAddress_SetFromString</name>
+        <param>
+          <type><ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="196" column="11" declfile="xp/sockets/gg_sockets.h" declline="196" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1gac63ef6f70ae6fcb83c53f5ce78fad840" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_IpAddress_Copy</definition>
+        <argsstring>(GG_IpAddress *dst_address, const GG_IpAddress *src_address)</argsstring>
+        <name>GG_IpAddress_Copy</name>
+        <param>
+          <type><ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>dst_address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>src_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="197" column="6" declfile="xp/sockets/gg_sockets.h" declline="197" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1gabb33ad6ff5a10119e0e469f2af1ff8d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_IpAddress_Equal</definition>
+        <argsstring>(const GG_IpAddress *address1, const GG_IpAddress *address2)</argsstring>
+        <name>GG_IpAddress_Equal</name>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="198" column="6" declfile="xp/sockets/gg_sockets.h" declline="198" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1gaad6cd90a4abf804c0b88af3d8a96c954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GG_IpAddress_IsAny</definition>
+        <argsstring>(const GG_IpAddress *address)</argsstring>
+        <name>GG_IpAddress_IsAny</name>
+        <param>
+          <type>const <ref refid="structGG__IpAddress" kindref="compound">GG_IpAddress</ref> *</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="199" column="6" declfile="xp/sockets/gg_sockets.h" declline="199" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga2476fa7872cc7f9d2fbc9d9d9135b61d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_SocketAddress_AsString</definition>
+        <argsstring>(const GG_SocketAddress *addrss, char *buffer, size_t buffer_size)</argsstring>
+        <name>GG_SocketAddress_AsString</name>
+        <param>
+          <type>const <ref refid="structGG__SocketAddress" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>addrss</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="200" column="6" declfile="xp/sockets/gg_sockets.h" declline="200" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1gaeaa086eb9e4284a614fddcc7c7362eb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DatagramSocket_Create</definition>
+        <argsstring>(const GG_SocketAddress *local_address, const GG_SocketAddress *remote_address, bool connect_to_remote, unsigned int max_datagram_size, GG_DatagramSocket **socket)</argsstring>
+        <name>GG_DatagramSocket_Create</name>
+        <param>
+          <type>const <ref refid="structGG__SocketAddress" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>local_address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__SocketAddress" kindref="compound">GG_SocketAddress</ref> *</type>
+          <declname>remote_address</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>connect_to_remote</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>max_datagram_size</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref> **</type>
+          <declname>socket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a bound UDP socket. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="205" column="11" declfile="xp/sockets/gg_sockets.h" declline="205" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga7e4d99ef1b6f5b1cd59c36f602ea5ef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_DatagramSocket_AsDataSink</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_AsDataSink</name>
+        <param>
+          <type><ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="211" column="13" declfile="xp/sockets/gg_sockets.h" declline="211" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga6b0c98dab564b005331afab35153024a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+        <definition>GG_DataSource* GG_DatagramSocket_AsDataSource</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_AsDataSource</name>
+        <param>
+          <type><ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="212" column="15" declfile="xp/sockets/gg_sockets.h" declline="212" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga17d9daf73a2678a750e34fc071a111c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_DatagramSocket_Destroy</definition>
+        <argsstring>(GG_DatagramSocket *self)</argsstring>
+        <name>GG_DatagramSocket_Destroy</name>
+        <param>
+          <type><ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a UDP socket. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="217" column="6" declfile="xp/sockets/gg_sockets.h" declline="217" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Sockets_1ga49c27ddfbdf2dfdb7b3b71a056be8880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_DatagramSocket_Attach</definition>
+        <argsstring>(GG_DatagramSocket *self, GG_Loop *loop)</argsstring>
+        <name>GG_DatagramSocket_Attach</name>
+        <param>
+          <type><ref refid="structGG__DatagramSocket" kindref="compound">GG_DatagramSocket</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="219" column="11" declfile="xp/sockets/gg_sockets.h" declline="219" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Sockets_1gaae6a72922bb1cf203224c59aaf3ee2f7" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;d&apos;, &apos;s&apos;, &apos;t&apos;, &apos;a&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer metadata type that indicates a destination address. Metadata structs with this type ID must be of type <ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="130" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga3fb3197a0d7e4d445c7f12c0f5fd096f" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;s&apos;, &apos;r&apos;, &apos;c&apos;, &apos;a&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Buffer metadata type that indicates a source address. Metadata structs with this type ID must be of type <ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="136" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gaee000a48d1ace0eadca7b8ffc6d0d6c0" prot="public" static="no">
+        <name>GG_IP_ADDRESS_NULL_INITIALIZER</name>
+        <initializer>{{0, 0, 0, 0}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="141" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga52db399062233dcef4db946db698bb54" prot="public" static="no">
+        <name>GG_SOCKET_ADDRESS_NULL_INITIALIZER</name>
+        <initializer>{GG_IP_ADDRESS_NULL_INITIALIZER, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="143" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gae43ec9888b018106532cc4a982a44617" prot="public" static="no">
+        <name>GG_SOURCE_SOCKET_ADDRESS_METADATA_INITIALIZER</name>
+        <param><defname>_address</defname></param>
+        <param><defname>_port</defname></param>
+        <initializer>((<ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref>){                                           \
+    .base = {                                                          \
+        .type = <ref refid="group__Sockets_1ga3fb3197a0d7e4d445c7f12c0f5fd096f" kindref="member">GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS</ref>,         \
+        .size = sizeof(<ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref>)                       \
+    },                                                                 \
+    .socket_address = {                                                \
+        .address = _address,                                           \
+        .port    = (_port)                                             \
+    }                                                                  \
+})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="145" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga4c3e9f1cf89018302bdaa9fa902cc355" prot="public" static="no">
+        <name>GG_DESTINATION_SOCKET_ADDRESS_METADATA_INITIALIZER</name>
+        <param><defname>_address</defname></param>
+        <param><defname>_port</defname></param>
+        <initializer>((<ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref>){                                                \
+    .base = {                                                               \
+        .type = <ref refid="group__Sockets_1gaae6a72922bb1cf203224c59aaf3ee2f7" kindref="member">GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS</ref>,         \
+        .size = sizeof(<ref refid="structGG__SocketAddressMetadata" kindref="compound">GG_SocketAddressMetadata</ref>)                            \
+    },                                                                      \
+    .socket_address = {                                                     \
+        .address = _address,                                                \
+        .port    = (_port)                                                  \
+    }                                                                       \
+})</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="157" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gad7eca914d73d720d92338b0c5840e028" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_RESET</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="172" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga38b3bf650d1bb6ebc698579189567564" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_ABORTED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="173" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga705a9fc767ac77e39e39cf061b1edecf" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_REFUSED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="174" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga2b5c680f8df039141e9cb1956b30fbea" prot="public" static="no">
+        <name>GG_ERROR_CONNECTION_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="175" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gab62fb5e5af9715fec248788e2c476e5f" prot="public" static="no">
+        <name>GG_ERROR_HOST_UNKNOWN</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  4)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="176" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga10c5d988aad5003750a7da33e33de8b9" prot="public" static="no">
+        <name>GG_ERROR_SOCKET_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  5)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="177" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga0712d5b825d759a86d5d81aa83d66ea8" prot="public" static="no">
+        <name>GG_ERROR_GETSOCKOPT_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  6)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="178" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gad2e253748c55713630a745869faa90d5" prot="public" static="no">
+        <name>GG_ERROR_SETSOCKOPT_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  7)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="179" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga7f236afc4cd809bda2a1e4ca00361c67" prot="public" static="no">
+        <name>GG_ERROR_SOCKET_CONTROL_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  8)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="180" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga7a47a78576b70a77aa25333ef76924ba" prot="public" static="no">
+        <name>GG_ERROR_BIND_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> -  9)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="181" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga099f86c2ab606fdf787a784abd413524" prot="public" static="no">
+        <name>GG_ERROR_LISTEN_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 10)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="182" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gaad6520be588b58571296b95c84f51b41" prot="public" static="no">
+        <name>GG_ERROR_ACCEPT_FAILED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 11)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="183" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga774fbbf3254c4263fc5aa743270048cd" prot="public" static="no">
+        <name>GG_ERROR_ADDRESS_IN_USE</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 12)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="184" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga36bfe56411ffc6e62c83ca231935f2e4" prot="public" static="no">
+        <name>GG_ERROR_NETWORK_DOWN</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 13)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="185" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gaf3f28ef2d4bc73f79f8bf43a5df3dd1a" prot="public" static="no">
+        <name>GG_ERROR_NETWORK_UNREACHABLE</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 14)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="186" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1ga2dd36c85b966ba131f457728818a2523" prot="public" static="no">
+        <name>GG_ERROR_HOST_UNREACHABLE</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 15)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="187" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Sockets_1gaefc349ffde5ddc42da325925b563e42c" prot="public" static="no">
+        <name>GG_ERROR_NOT_CONNECTED</name>
+        <initializer>(<ref refid="group__Errors_1ga408956a37e7e708630aae2606f72a9bf" kindref="member">GG_ERROR_BASE_SOCKET</ref> - 16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/sockets/gg_sockets.h" line="188" column="9" bodyfile="xp/sockets/gg_sockets.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Network Sockets </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

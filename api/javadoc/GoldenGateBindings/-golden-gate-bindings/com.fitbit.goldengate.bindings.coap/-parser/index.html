@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Parser - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="./index.html">Parser</a><br/>
+<br/>
+<h1>Parser</h1>
+<code><span class="keyword">interface </span><span class="identifier">Parser</span><span class="symbol">&lt;</span><span class="identifier">Input</span><span class="symbol">, </span><span class="identifier">Result</span><span class="symbol">&gt;</span></code>
+<p>This can be used by the library to parse responses into a format the caller desires</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="parse.html">parse</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">parse</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Parser$parse(com.fitbit.goldengate.bindings.coap.Parser.Input)/input">input</span><span class="symbol">:</span>&nbsp;<a href="index.html#Input"><span class="identifier">Input</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="index.html#Result"><span class="identifier">Result</span></a><span class="symbol">&gt;</span></code>
+<p>Parse an object of type <a href="index.html#Input">Input</a> into an object of type <a href="index.html#Result">Result</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-byte-array-parser.html">ByteArrayParser</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ByteArrayParser</span><span class="symbol">&lt;</span><span class="identifier">Result</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">Parser</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">,</span>&nbsp;<a href="../-byte-array-parser.html#Result"><span class="identifier">Result</span></a><span class="symbol">&gt;</span></code>
+<p>This interface is a specific subinterface of Parser that parses ByteArray objects</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

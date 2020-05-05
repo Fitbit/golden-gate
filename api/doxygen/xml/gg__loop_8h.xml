@@ -1,0 +1,1372 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__loop_8h" kind="file" language="C++">
+    <compoundname>gg_loop.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
+    <includedby refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includedby>
+    <includedby refid="gg__loop__base_8h" local="yes">xp/loop/gg_loop_base.h</includedby>
+    <includedby refid="gg__loop__fd_8h" local="yes">xp/loop/extensions/gg_loop_fd.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>assert.h</label>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="8">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="10">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___loop_event_handler" prot="public">GG_LoopEventHandler</innerclass>
+    <innerclass refid="struct_g_g___loop_event_handler_interface" prot="public">GG_LoopEventHandlerInterface</innerclass>
+    <innerclass refid="struct_g_g___runnable" prot="public">GG_Runnable</innerclass>
+    <innerclass refid="struct_g_g___runnable_interface" prot="public">GG_RunnableInterface</innerclass>
+    <innerclass refid="struct_g_g___loop_message" prot="public">GG_LoopMessage</innerclass>
+    <innerclass refid="struct_g_g___loop_message_interface" prot="public">GG_LoopMessageInterface</innerclass>
+    <innerclass refid="struct_g_g___loop_event_handler_item" prot="public">GG_LoopEventHandlerItem</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___loop_1gaacfcc44877f48730c9b221c66ed72b8f" prot="public" static="no">
+        <name>GG_LOOP_DATA_SINK_PROXY_MAX_QUEUE_LENGTH</name>
+        <initializer>64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="38" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group___loop_1ga9f89cef1e5c82374438865f21555768d" prot="public" static="no">
+        <type>struct GG_Loop</type>
+        <definition>typedef struct GG_Loop GG_Loop</definition>
+        <argsstring></argsstring>
+        <name>GG_Loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1gadf77ff6c7157f786c22128e8412914a0" prot="public" static="no">
+        <type>struct <ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref></type>
+        <definition>typedef struct GG_LoopDataSinkProxy GG_LoopDataSinkProxy</definition>
+        <argsstring></argsstring>
+        <name>GG_LoopDataSinkProxy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A GG_DataSinkProxy is an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface as a proxy for an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface, in a way that makes it possible to call <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> methods on the proxy from a thread other than the GG_Loop thread on which the proxy&apos;ed object is intended to run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1gad1a9063479ee10b07fc53937b037607b" prot="public" static="no">
+        <type>struct <ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref></type>
+        <definition>typedef struct GG_LoopDataSinkListenerProxy GG_LoopDataSinkListenerProxy</definition>
+        <argsstring></argsstring>
+        <name>GG_LoopDataSinkListenerProxy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A GG_DataSinkListenerProxy is an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface as a proxy for an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface, in a way that makes it possible to call <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> methods on the proxy from a thread other than the GG_Loop thread on which the proxy&apos;ed object is intended to run. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1ga55c408181efb3d48770428074b68b80c" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GG_LoopSyncFunction) (void *arg)</definition>
+        <argsstring>)(void *arg)</argsstring>
+        <name>GG_LoopSyncFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that can be used with GG_Loop_InvokeSync </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="85" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* GG_LoopAsyncFunction) (void *arg)</definition>
+        <argsstring>)(void *arg)</argsstring>
+        <name>GG_LoopAsyncFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that can be used with GG_Loop_InvokeAsync </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="90" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___loop_1ga254b78c3f1c979f7b66b79dcf69fe0b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_Create</definition>
+        <argsstring>(GG_Loop **loop)</argsstring>
+        <name>GG_Loop_Create</name>
+        <param>
+          <type>GG_Loop **</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new GG_Loop object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable in which a pointer to the the new object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call succeeded, or an error code if it failed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="102" column="11" declfile="xp/loop/gg_loop.h" declline="102" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga84ed09e89ba6c2f6938dcea7d9b791e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Loop_Destroy</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_Destroy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_Loop object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="109" column="6" declfile="xp/loop/gg_loop.h" declline="109" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga2bd9e1ba0384bdfdbfdeb73431653450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_BindToCurrentThread</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_BindToCurrentThread</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Bind a loop to the current thread. NOTE: while this function may be called from any thread, it isn&apos;t re-entrant, so the caller must ensure that no other methods may be invoked at the same time by another thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the loop could be bound, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="120" column="11" declfile="xp/loop/gg_loop.h" declline="120" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad45a36c13c3dd1fbcd83dac121124865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_Run</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_Run</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Run a loop. This method does not return until the loop is terminated. NOTE: if the loop isn&apos;t bound to a thread, this will automatically bind it to the current thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The loop to run. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the loop was terminated cleanly, or an error code if the loop could not be run. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="131" column="11" declfile="xp/loop/gg_loop.h" declline="131" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga03ade7492e185da9e0bef00ce6d3861d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_DoWork</definition>
+        <argsstring>(GG_Loop *self, uint32_t max_wait_time, uint32_t *call_again_time)</argsstring>
+        <name>GG_Loop_DoWork</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>max_wait_time</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>call_again_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Do some work on the loop, with a maximum wait time. All non-blocking work will be performed, then this method will wait for more work to perform up to max_wait_time, and return.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max_wait_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time to block for, in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>call_again_time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time, in milliseconds, that the caller may wait until calling this method again. This argument may be NULL if max_wait_time is not 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the call was successful, GG_ERROR_INTERRUPTED if loop termination was requested (in which case this method should not be called anymore), or another negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="147" column="11" declfile="xp/loop/gg_loop.h" declline="147" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gaf23f2cd34e2a2879953ea48722c9701c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Loop_RequestTermination</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_RequestTermination</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request that the loop terminate cleanly as soon as possible.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="154" column="6" declfile="xp/loop/gg_loop.h" declline="154" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gab610f19b1184fdae8e63d44f9175144f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+        <definition>GG_LoopMessage* GG_Loop_CreateTerminationMessage</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_CreateTerminationMessage</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ask the loop for a termination message that can be used to send using GG_Loop_PostMessage in order to trigger a loop termination from outside the context of the loop thread.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> object that can be posted to the loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="164" column="16" declfile="xp/loop/gg_loop.h" declline="164" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga19b7a9b6a1e69056f86308763bd51a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
+        <definition>GG_TimerScheduler* GG_Loop_GetTimerScheduler</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_GetTimerScheduler</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the timer scheduler associated with a loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The timer scheduler associated with the loop. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="173" column="19" declfile="xp/loop/gg_loop.h" declline="173" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gae51bd8737723caa5c3bce55ed74e3d8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_PostMessage</definition>
+        <argsstring>(GG_Loop *self, GG_LoopMessage *message, GG_Timeout timeout)</argsstring>
+        <name>GG_Loop_PostMessage</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post a message to the loop thread. The message will he handled in the context of the loop thread. This function can be called from a different thread than the loop thread! NOTE: the ownership of the message is transferred to the loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to post. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum amount of time to wait for space to be available in the message queue.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the message was posted, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="189" column="11" declfile="xp/loop/gg_loop.h" declline="189" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad7285430b55e05e8128155414576910f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_InvokeSync</definition>
+        <argsstring>(GG_Loop *self, GG_LoopSyncFunction function, void *function_argument, int *function_result)</argsstring>
+        <name>GG_Loop_InvokeSync</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>function_result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request the invocation of a function in the context of a loop thread. This is a synchronous invocation, so the caller will block until the function has been invoked, and can obtain the return value of the invoked function. Because this is a synchronous invocation, the invoked function argument may point directly or indirectly to stack variables.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to invoke. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the variable in which the function result will be returned</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the function could be invoked, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="205" column="11" declfile="xp/loop/gg_loop.h" declline="205" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga7ebfcd7c29b3fb91fec7322f898c196f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_InvokeAsync</definition>
+        <argsstring>(GG_Loop *self, GG_LoopAsyncFunction function, void *function_argument)</argsstring>
+        <name>GG_Loop_InvokeAsync</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Request the invocation of a function in the context of a loop thread. This is an asynchronous invocation, so the call will return immediately without waiting for the function invocation to occur. The function invocation may happen before or after this method call returns, depending on how the calling thread and the loop thread are scheduled as well as other factors. Since this is an asynchronous invocation, the function arguments must not point directly or indirectly to stack variables, because the caller&apos;s stack may no longer be valid when the function is invoked.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to invoke. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>function_argument</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Argument that will be passed to the invoked function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the invocation request could be sent, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="228" column="11" declfile="xp/loop/gg_loop.h" declline="228" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga32c0dc2b6969d1da52eaa9214b7ebb62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_CreateDataSinkProxy</definition>
+        <argsstring>(GG_Loop *self, unsigned int queue_size, GG_DataSink *sink, GG_LoopDataSinkProxy **sink_proxy)</argsstring>
+        <name>GG_Loop_CreateDataSinkProxy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>queue_size</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+          <declname>sink</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> **</type>
+          <declname>sink_proxy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a cross-thread proxy for an object that implements the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object in which the proxy&apos;ed object is intended to run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>queue_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum number of items that can be queued (between 0 and GG_LOOP_DATA_SINK_PROXY_MAX_QUEUE_LENGTH). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> object to proxy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink_proxy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable where the created proxy object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS or an error code if the call fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="241" column="11" declfile="xp/loop/gg_loop.h" declline="241" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga8c0da111d0c1b18e3b241a7f91f8ed6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
+        <definition>GG_Inspectable* GG_Loop_AsInspectable</definition>
+        <argsstring>(GG_Loop *self)</argsstring>
+        <name>GG_Loop_AsInspectable</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain a <ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> interface for a loop.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The object&apos;s <ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> interface. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="252" column="16" declfile="xp/loop/gg_loop.h" declline="252" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga49dbed26d691141bc66940052fd91730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopDataSinkProxy_Destroy</definition>
+        <argsstring>(GG_LoopDataSinkProxy *self)</argsstring>
+        <name>GG_LoopDataSinkProxy_Destroy</name>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_DataSinkProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="259" column="6" declfile="xp/loop/gg_loop.h" declline="259" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga385ee5822bd6111792a84a890cfeacbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
+        <definition>GG_DataSink* GG_LoopDataSinkProxy_AsDataSink</definition>
+        <argsstring>(GG_LoopDataSinkProxy *self)</argsstring>
+        <name>GG_LoopDataSinkProxy_AsDataSink</name>
+        <param>
+          <type><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface of a GG_LoopDataSinkProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object for which to obtain the interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="267" column="13" declfile="xp/loop/gg_loop.h" declline="267" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga77684360d791ca5776ee3977e4692350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Loop_CreateDataSinkListenerProxy</definition>
+        <argsstring>(GG_Loop *self, GG_DataSinkListener *listener, GG_LoopDataSinkListenerProxy **listener_proxy)</argsstring>
+        <name>GG_Loop_CreateDataSinkListenerProxy</name>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> **</type>
+          <declname>listener_proxy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a cross-thread proxy for an object that implements the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object in which the proxy&apos;ed object is intended to run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> object to proxy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener_proxy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable where the created proxy object is returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS or an error code if the call fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="277" column="11" declfile="xp/loop/gg_loop.h" declline="277" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gab63bf7b6c843ead7279c390bee138e2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopDataSinkListenerProxy_Destroy</definition>
+        <argsstring>(GG_LoopDataSinkListenerProxy *self)</argsstring>
+        <name>GG_LoopDataSinkListenerProxy_Destroy</name>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a GG_DataSinkListenerProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object to destroy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="286" column="6" declfile="xp/loop/gg_loop.h" declline="286" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gafca2d5e87e9d5930c05194910c69f642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> *</type>
+        <definition>GG_DataSinkListener* GG_LoopDataSinkListenerProxy_AsDataSinkListener</definition>
+        <argsstring>(GG_LoopDataSinkListenerProxy *self)</argsstring>
+        <name>GG_LoopDataSinkListenerProxy_AsDataSinkListener</name>
+        <param>
+          <type><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface of a GG_LoopDataSinkListenerProxy object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object for which to obtain the interface. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the <ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="294" column="21" declfile="xp/loop/gg_loop.h" declline="294" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad9c1c71d7a839a4b59d54de592f400b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopEventHandler_OnEvent</definition>
+        <argsstring>(GG_LoopEventHandler *self, GG_Loop *loop)</argsstring>
+        <name>GG_LoopEventHandler_OnEvent</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopEventHandler::OnEvent method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_Loop object that emits the event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="302" column="6" declfile="xp/loop/gg_loop.h" declline="302" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1gad129c1de50a4280f27b031a3a9b8d5fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopMessage_Handle</definition>
+        <argsstring>(GG_LoopMessage *self)</argsstring>
+        <name>GG_LoopMessage_Handle</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopMessage::Handle method</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="309" column="6" declfile="xp/loop/gg_loop.h" declline="309" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___loop_1ga0ef8a869e782e3b33bd76510f900459b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopMessage_Release</definition>
+        <argsstring>(GG_LoopMessage *self)</argsstring>
+        <name>GG_LoopMessage_Release</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thunk function for the GG_LoopMessage::Release method</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="316" column="6" declfile="xp/loop/gg_loop.h" declline="316" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18</para>
+</simplesect>
+Loop interface. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_LOOP_DATA_SINK_PROXY_MAX_QUEUE_LENGTH<sp/><sp/><sp/><sp/>64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">GG_Loop<sp/>GG_Loop;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref><sp/><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref><sp/><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="struct_g_g___loop_event_handler_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnEvent)(<ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>GG_Loop*<sp/>loop);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_g_g___runnable_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___runnable" kindref="compound">GG_Runnable</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Run)(<ref refid="struct_g_g___runnable" kindref="compound">GG_Runnable</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="struct_g_g___loop_message_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Handle)(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Release)(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="struct_g_g___loop_event_handler_item" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref><sp/>list_node;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}<sp/><ref refid="struct_g_g___loop_event_handler_item" kindref="compound">GG_LoopEventHandlerItem</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="group___loop_1ga55c408181efb3d48770428074b68b80c" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int<sp/>(*<ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="93"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="94"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga254b78c3f1c979f7b66b79dcf69fe0b2" kindref="member">GG_Loop_Create</ref>(GG_Loop**<sp/>loop);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1ga84ed09e89ba6c2f6938dcea7d9b791e8" kindref="member">GG_Loop_Destroy</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga2bd9e1ba0384bdfdbfdeb73431653450" kindref="member">GG_Loop_BindToCurrentThread</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1gad45a36c13c3dd1fbcd83dac121124865" kindref="member">GG_Loop_Run</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga03ade7492e185da9e0bef00ce6d3861d" kindref="member">GG_Loop_DoWork</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t<sp/>max_wait_time,<sp/>uint32_t*<sp/>call_again_time);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1gaf23f2cd34e2a2879953ea48722c9701c" kindref="member">GG_Loop_RequestTermination</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/><ref refid="group___loop_1gab610f19b1184fdae8e63d44f9175144f" kindref="member">GG_Loop_CreateTerminationMessage</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/><ref refid="group___loop_1ga19b7a9b6a1e69056f86308763bd51a82" kindref="member">GG_Loop_GetTimerScheduler</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1gae51bd8737723caa5c3bce55ed74e3d8e" kindref="member">GG_Loop_PostMessage</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/>message,<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1gad7285430b55e05e8128155414576910f" kindref="member">GG_Loop_InvokeSync</ref>(GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_result);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga7ebfcd7c29b3fb91fec7322f898c196f" kindref="member">GG_Loop_InvokeAsync</ref>(GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga32c0dc2b6969d1da52eaa9214b7ebb62" kindref="member">GG_Loop_CreateDataSinkProxy</ref>(GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>queue_size,</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sink,</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref>**<sp/>sink_proxy);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="group___loop_1ga8c0da111d0c1b18e3b241a7f91f8ed6f" kindref="member">GG_Loop_AsInspectable</ref>(GG_Loop*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1ga49dbed26d691141bc66940052fd91730" kindref="member">GG_LoopDataSinkProxy_Destroy</ref>(<ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="group___loop_1ga385ee5822bd6111792a84a890cfeacbd" kindref="member">GG_LoopDataSinkProxy_AsDataSink</ref>(<ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___loop_1ga77684360d791ca5776ee3977e4692350" kindref="member">GG_Loop_CreateDataSinkListenerProxy</ref>(GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listener,</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref>**<sp/>listener_proxy);</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1gab63bf7b6c843ead7279c390bee138e2b" kindref="member">GG_LoopDataSinkListenerProxy_Destroy</ref>(<ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/><ref refid="group___loop_1gafca2d5e87e9d5930c05194910c69f642" kindref="member">GG_LoopDataSinkListenerProxy_AsDataSinkListener</ref>(<ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1gad9c1c71d7a839a4b59d54de592f400b1" kindref="member">GG_LoopEventHandler_OnEvent</ref>(<ref refid="struct_g_g___loop_event_handler" kindref="compound">GG_LoopEventHandler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>GG_Loop*<sp/>loop);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1gad129c1de50a4280f27b031a3a9b8d5fc" kindref="member">GG_LoopMessage_Handle</ref>(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___loop_1ga0ef8a869e782e3b33bd76510f900459b" kindref="member">GG_LoopMessage_Release</ref>(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/loop/gg_loop.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___frame_serializer_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_FrameSerializerInterface</compoundname>
+    <includes refid="gg__protocols_8h" local="no">xp/protocols/gg_protocols.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___frame_serializer_interface_1ab4772862a56c9665c68c0e426f888d6a" prot="public" static="no" mutable="no">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>GG_Result(* GG_FrameSerializerInterface::SerializeFrame) (GG_FrameSerializer *self, const uint8_t *frame, size_t frame_size, GG_RingBuffer *output)</definition>
+        <argsstring>)(GG_FrameSerializer *self, const uint8_t *frame, size_t frame_size, GG_RingBuffer *output)</argsstring>
+        <name>SerializeFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Serialize a frame into an output buffer. The serializer must consume the entire frame in a single call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the frame data to serialize </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of frame </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer in which the serialized data should be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the frame could be serialized, or a negative error code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_protocols.h" line="122" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/protocols/gg_protocols.h" line="110" column="93" bodyfile="xp/protocols/gg_protocols.h" bodystart="110" bodyend="126"/>
+    <listofallmembers>
+      <member refid="struct_g_g___frame_serializer_interface_1ab4772862a56c9665c68c0e426f888d6a" prot="public" virt="non-virtual"><scope>GG_FrameSerializerInterface</scope><name>SerializeFrame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___tls_server_options" kind="struct" language="C++" prot="public">
+    <compoundname>GG_TlsServerOptions</compoundname>
+    <includes refid="gg__tls_8h" local="no">xp/tls/gg_tls.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___tls_server_options_1ab828ec01a81de5ab036378a68c9263b0" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___tls_options" kindref="compound">GG_TlsOptions</ref></type>
+        <definition>GG_TlsOptions GG_TlsServerOptions::base</definition>
+        <argsstring></argsstring>
+        <name>base</name>
+        <briefdescription>
+<para>Common options. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="157" column="24" bodyfile="xp/tls/gg_tls.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___tls_server_options_1a6b30ad51fef113f77208ac12d10dc052" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g___tls_key_resolver" kindref="compound">GG_TlsKeyResolver</ref> *</type>
+        <definition>GG_TlsKeyResolver* GG_TlsServerOptions::key_resolver</definition>
+        <argsstring></argsstring>
+        <name>key_resolver</name>
+        <briefdescription>
+<para>Key resolver use to resolve a key identity to a key value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/tls/gg_tls.h" line="158" column="23" bodyfile="xp/tls/gg_tls.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Options passed when creating a TLS/DTLS server </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_TlsOptions</label>
+        <link refid="struct_g_g___tls_options"/>
+      </node>
+      <node id="4">
+        <label>GG_TlsKeyResolverInterface</label>
+        <link refid="struct_g_g___tls_key_resolver_interface"/>
+      </node>
+      <node id="3">
+        <label>GG_TlsKeyResolver</label>
+        <link refid="struct_g_g___tls_key_resolver"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GG_TlsServerOptions</label>
+        <link refid="struct_g_g___tls_server_options"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>base</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>key_resolver</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/tls/gg_tls.h" line="156" column="15" bodyfile="xp/tls/gg_tls.h" bodystart="156" bodyend="159"/>
+    <listofallmembers>
+      <member refid="struct_g_g___tls_server_options_1ab828ec01a81de5ab036378a68c9263b0" prot="public" virt="non-virtual"><scope>GG_TlsServerOptions</scope><name>base</name></member>
+      <member refid="struct_g_g___tls_server_options_1a6b30ad51fef113f77208ac12d10dc052" prot="public" virt="non-virtual"><scope>GG_TlsServerOptions</scope><name>key_resolver</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

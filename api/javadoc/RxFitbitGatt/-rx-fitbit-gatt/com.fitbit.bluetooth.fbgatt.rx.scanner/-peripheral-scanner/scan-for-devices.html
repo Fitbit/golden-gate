@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>PeripheralScanner.scanForDevices - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.scanner</a>&nbsp;/&nbsp;<a href="index.html">PeripheralScanner</a>&nbsp;/&nbsp;<a href="./scan-for-devices.html">scanForDevices</a><br/>
+<br/>
+<h1>scanForDevices</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)"></a>
+<code><span class="identifier">@Synchronized</span> <span class="keyword">fun </span><span class="identifier">scanForDevices</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/scanFilters">scanFilters</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-peripheral-scanner-filter/index.html"><span class="identifier">PeripheralScannerFilter</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/resetExistingFilters">resetExistingFilters</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner$scanForDevices(android.content.Context, kotlin.collections.List((com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter)), kotlin.Boolean, kotlin.Boolean)/cancelScanOnDispose">cancelScanOnDispose</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="-scan-event/index.html"><span class="identifier">ScanEvent</span></a><span class="symbol">&gt;</span></code>
+<p>Scan for devices and emits <a href="-scan-event/index.html">ScanEvent</a>s. Will scan until <a href="#">disposed</a>,</p>
+<p>Any previous ongoing scan wil be canceled before starting a this new scan operation</p>
+<h3>Parameters</h3>
+<p><a name="context"></a>
+<code>context</code> - the <a href="https://developer.android.com/reference/android/content/Context.html">Context</a> used for the Android gatt layer</p>
+<p><a name="scanFilters"></a>
+<code>scanFilters</code> - filters to apply for this scan operation</p>
+<p><a name="resetExistingFilters"></a>
+<code>resetExistingFilters</code> - If TRUE existing filters will be reset before applying new one,
+    when FALSE existing filters will be applied in addition to one
+    provided with this method (default is FALSE)</p>
+<p><a name="cancelScanOnDispose"></a>
+<code>cancelScanOnDispose</code> - will cancel if scan is on-going when the stream is disposed (TRUE by default)</p>
+<p><strong>Return</strong><br/>
+an <a href="#">Observable</a> that emits <a href="-scan-event/index.html">ScanEvent</a>s made during. Disposing of this
+stream will stop the scan</p>
+</BODY>
+</HTML>

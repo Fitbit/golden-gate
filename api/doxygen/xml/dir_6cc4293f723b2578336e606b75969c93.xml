@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_6cc4293f723b2578336e606b75969c93" kind="dir">
+    <compoundname>xp</compoundname>
+    <innerdir refid="dir_2fcc9b214dbcd1fab488922716101b96">xp/coap</innerdir>
+    <innerdir refid="dir_22bb40deb5a056d45b581a34c033dcab">xp/common</innerdir>
+    <innerdir refid="dir_b54147f3e5252e6e046596abc4877b13">xp/gattlink</innerdir>
+    <innerdir refid="dir_8666222d1d2bf367813e6b646b79c62e">xp/loop</innerdir>
+    <innerdir refid="dir_674312a96af465171b63e7ce402daa4f">xp/module</innerdir>
+    <innerdir refid="dir_87b4bfe2ccbfaea97c78cd22a414a84f">xp/nip</innerdir>
+    <innerdir refid="dir_683555292e4c994269220ad5d1456bd9">xp/protocols</innerdir>
+    <innerdir refid="dir_3cbcb15ea5c0ddc9151ea5af6f66336e">xp/sockets</innerdir>
+    <innerdir refid="dir_ad5fb86cfff3dbb807bd87d5b7d3dfc4">xp/stack_builder</innerdir>
+    <innerdir refid="dir_58174c7d49980ceb0b9a19863d08d107">xp/tls</innerdir>
+    <innerdir refid="dir_7189bb18df96b0c2c8feae31d7031b2c">xp/utils</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/"/>
+  </compounddef>
+</doxygen>

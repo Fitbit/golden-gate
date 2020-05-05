@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___loop_message" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopMessage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___loop_message_1a049be64dbe3cf446e28f7d453fb89eb5" prot="public" static="no" mutable="no">
+        <type>const <ref refid="struct_g_g___loop_message_interface" kindref="compound">GG_LoopMessageInterface</ref> *</type>
+        <definition>const GG_LoopMessageInterface* GG_LoopMessage::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="71" column="85" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_LoopMessage</label>
+        <link refid="struct_g_g___loop_message"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_LoopMessageInterface</label>
+        <link refid="struct_g_g___loop_message_interface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop.h" line="71" column="54" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="71"/>
+    <listofallmembers>
+      <member refid="struct_g_g___loop_message_1a049be64dbe3cf446e28f7d453fb89eb5" prot="public" virt="non-virtual"><scope>GG_LoopMessage</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

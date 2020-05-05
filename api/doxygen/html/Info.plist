@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+     <key>CFBundleName</key>
+     <string>Golden Gate</string>
+     <key>CFBundleIdentifier</key>
+     <string>com.fitbit.GoldenGate</string>
+     <key>CFBundleVersion</key>
+     <string>ProjectNumber</string>
+     <key>DocSetFeedName</key>
+     <string>Golden Gate Documentation</string>
+     <key>DocSetPublisherIdentifier</key>
+     <string>com.fitbit</string>
+     <key>DocSetPublisherName</key>
+     <string>Fitbit</string>
+     <key>DashDocSetFamily</key>
+     <string>doxy</string>
+     <key>DocSetPlatformFamily</key>
+     <string>doxygen</string>
+</dict>
+</plist>

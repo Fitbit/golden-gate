@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___ring_buffer" kind="struct" language="C++" prot="public">
+    <compoundname>GG_RingBuffer</compoundname>
+    <includes refid="gg__ring__buffer_8h" local="no">xp/common/gg_ring_buffer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1aca7c513ac4e2dd65fc597d6ae66f0cab" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* GG_RingBuffer::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="35" column="17" bodyfile="xp/common/gg_ring_buffer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1a2773176a0d24c29bfc065ce5ef33edec" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* GG_RingBuffer::end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="36" column="17" bodyfile="xp/common/gg_ring_buffer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1ab11b0d01bf4ea78fa38ded6001e81ea1" prot="public" static="no" mutable="no">
+        <type>struct GG_RingBuffer::@0</type>
+        <definition>struct GG_RingBuffer::@0         GG_RingBuffer::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="37" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1ae738d9948d3ff4686b6641085dacba99" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_RingBuffer::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="38" column="14" bodyfile="xp/common/gg_ring_buffer.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1a0183ecaa92d1bc3567a40b6e5caa1e3d" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* GG_RingBuffer::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="39" column="13" bodyfile="xp/common/gg_ring_buffer.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___ring_buffer_1aeeefc965c861e59e248a477d8e88cbda" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* GG_RingBuffer::out</definition>
+        <argsstring></argsstring>
+        <name>out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_ring_buffer.h" line="40" column="13" bodyfile="xp/common/gg_ring_buffer.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Ring Buffer (a.k.a Circular Buffer) </para>
+    </detaileddescription>
+    <location file="xp/common/gg_ring_buffer.h" line="33" column="15" bodyfile="xp/common/gg_ring_buffer.h" bodystart="33" bodyend="41"/>
+    <listofallmembers>
+      <member refid="struct_g_g___ring_buffer_1ab11b0d01bf4ea78fa38ded6001e81ea1" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>data</name></member>
+      <member refid="struct_g_g___ring_buffer_1a2773176a0d24c29bfc065ce5ef33edec" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>end</name></member>
+      <member refid="struct_g_g___ring_buffer_1a0183ecaa92d1bc3567a40b6e5caa1e3d" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>in</name></member>
+      <member refid="struct_g_g___ring_buffer_1aeeefc965c861e59e248a477d8e88cbda" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>out</name></member>
+      <member refid="struct_g_g___ring_buffer_1ae738d9948d3ff4686b6641085dacba99" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>size</name></member>
+      <member refid="struct_g_g___ring_buffer_1aca7c513ac4e2dd65fc597d6ae66f0cab" prot="public" virt="non-virtual"><scope>GG_RingBuffer</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

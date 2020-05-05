@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OutgoingRequest.maxResendCount - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="index.html">OutgoingRequest</a>&nbsp;/&nbsp;<a href="./max-resend-count.html">maxResendCount</a><br/>
+<br/>
+<h1>maxResendCount</h1>
+<a name="com.fitbit.goldengate.bindings.coap.data.OutgoingRequest$maxResendCount"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">maxResendCount</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>Maximum number of times the client will resend the request if there is a response timeout.
+For example, when set to 0, a request will only be sent once and not re-sent if a response
+isn't received before the ack timeout. If maxResendCount is set to a negative value, the
+default value <a href="#">GG_COAP_DEFAULT_MAX_RETRANSMIT</a> from GG XP lib will be used.</p>
+</BODY>
+</HTML>

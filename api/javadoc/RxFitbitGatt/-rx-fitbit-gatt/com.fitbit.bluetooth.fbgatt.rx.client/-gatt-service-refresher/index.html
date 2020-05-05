@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattServiceRefresher - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="./index.html">GattServiceRefresher</a><br/>
+<br/>
+<h1>GattServiceRefresher</h1>
+<code><span class="keyword">class </span><span class="identifier">GattServiceRefresher</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">GattServiceRefresher</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher$<init>(com.fitbit.bluetooth.fbgatt.rx.client.GattClientRefreshGattTransactionProvider, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral)))/refreshTransactionProvider">refreshTransactionProvider</span><span class="symbol">:</span>&nbsp;<a href="../-gatt-client-refresh-gatt-transaction-provider/index.html"><span class="identifier">GattClientRefreshGattTransactionProvider</span></a>&nbsp;<span class="symbol">=</span>&nbsp;GattClientRefreshGattTransactionProvider()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher$<init>(com.fitbit.bluetooth.fbgatt.rx.client.GattClientRefreshGattTransactionProvider, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral)))/provideBitGattPeripheral">provideBitGattPeripheral</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">GattConnection</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../-bit-gatt-peripheral/index.html"><span class="identifier">BitGattPeripheral</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ BitGattPeripheral(it) }<span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="refresh.html">refresh</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">refresh</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher$refresh(com.fitbit.bluetooth.fbgatt.GattConnection)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Performs service refresh on the peripheral
+If the gattConnection is not connected we will first try to connect</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

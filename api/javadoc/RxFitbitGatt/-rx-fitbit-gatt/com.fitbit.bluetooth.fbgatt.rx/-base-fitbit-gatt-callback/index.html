@@ -1,0 +1,142 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseFitbitGattCallback - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx</a>&nbsp;/&nbsp;<a href="./index.html">BaseFitbitGattCallback</a><br/>
+<br/>
+<h1>BaseFitbitGattCallback</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseFitbitGattCallback</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FitbitGattCallback</span></code>
+<p>An abstract adapter class of <a href="#">FitbitGattCallback</a> that provides no implementation
+for all callbacks, given implementation ability to only add implementation for
+specific callback method</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BaseFitbitGattCallback</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>An abstract adapter class of <a href="#">FitbitGattCallback</a> that provides no implementation
+for all callbacks, given implementation ability to only add implementation for
+specific callback method</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-bluetooth-off.html">onBluetoothOff</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothOff</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bluetooth-on.html">onBluetoothOn</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothOn</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bluetooth-peripheral-disconnected.html">onBluetoothPeripheralDisconnected</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothPeripheralDisconnected</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onBluetoothPeripheralDisconnected(com.fitbit.bluetooth.fbgatt.GattConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bluetooth-peripheral-discovered.html">onBluetoothPeripheralDiscovered</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothPeripheralDiscovered</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onBluetoothPeripheralDiscovered(com.fitbit.bluetooth.fbgatt.GattConnection)/connection">connection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bluetooth-turning-off.html">onBluetoothTurningOff</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothTurningOff</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bluetooth-turning-on.html">onBluetoothTurningOn</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onBluetoothTurningOn</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-gatt-client-start-error.html">onGattClientStartError</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGattClientStartError</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onGattClientStartError(com.fitbit.bluetooth.fbgatt.exception.BitGattStartException)/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattStartException</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-gatt-client-started.html">onGattClientStarted</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGattClientStarted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-gatt-server-start-error.html">onGattServerStartError</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGattServerStartError</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onGattServerStartError(com.fitbit.bluetooth.fbgatt.exception.BitGattStartException)/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattStartException</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-gatt-server-started.html">onGattServerStarted</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGattServerStarted</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onGattServerStarted(com.fitbit.bluetooth.fbgatt.GattServerConnection)/serverConnection">serverConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattServerConnection</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-pending-intent-scan-started.html">onPendingIntentScanStarted</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onPendingIntentScanStarted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-pending-intent-scan-stopped.html">onPendingIntentScanStopped</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onPendingIntentScanStopped</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-scan-started.html">onScanStarted</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onScanStarted</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-scan-stopped.html">onScanStopped</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onScanStopped</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-scanner-init-error.html">onScannerInitError</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onScannerInitError</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback$onScannerInitError(com.fitbit.bluetooth.fbgatt.exception.BitGattStartException)/exception">exception</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattStartException</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

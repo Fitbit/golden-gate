@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__GattlinkProbeConfig" kind="struct" language="C++" prot="public">
+    <compoundname>GG_GattlinkProbeConfig</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__GattlinkProbeConfig_1acd50863a805baca73ec9460b185139af" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_GattlinkProbeConfig::window_size_ms</definition>
+        <argsstring></argsstring>
+        <name>window_size_ms</name>
+        <briefdescription>
+<para>Size of window in ms. 0 to disable windowing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="95" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkProbeConfig_1a9e3179ccb96973af00d5d9e31a0dd17b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_GattlinkProbeConfig::buffer_sample_count</definition>
+        <argsstring></argsstring>
+        <name>buffer_sample_count</name>
+        <briefdescription>
+<para>Size of buffer to allocate for probe. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="96" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__GattlinkProbeConfig_1a4b2bbc2c11f1ee11c8f391fda5866a21" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_GattlinkProbeConfig::buffer_threshold</definition>
+        <argsstring></argsstring>
+        <name>buffer_threshold</name>
+        <briefdescription>
+<para>Threshold to use for when deciding to send event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="97" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/gattlink/gg_gattlink_generic_client.h" line="94" column="15" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="94" bodyend="98"/>
+    <listofallmembers>
+      <member refid="structGG__GattlinkProbeConfig_1a9e3179ccb96973af00d5d9e31a0dd17b" prot="public" virt="non-virtual"><scope>GG_GattlinkProbeConfig</scope><name>buffer_sample_count</name></member>
+      <member refid="structGG__GattlinkProbeConfig_1a4b2bbc2c11f1ee11c8f391fda5866a21" prot="public" virt="non-virtual"><scope>GG_GattlinkProbeConfig</scope><name>buffer_threshold</name></member>
+      <member refid="structGG__GattlinkProbeConfig_1acd50863a805baca73ec9460b185139af" prot="public" virt="non-virtual"><scope>GG_GattlinkProbeConfig</scope><name>window_size_ms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

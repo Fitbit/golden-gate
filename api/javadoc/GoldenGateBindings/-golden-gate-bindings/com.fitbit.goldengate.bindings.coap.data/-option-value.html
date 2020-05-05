@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OptionValue - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="./-option-value.html">OptionValue</a><br/>
+<br/>
+<h1>OptionValue</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">OptionValue</span></code>
+<p>Supported value types for a coap option</p>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-empty-option-value/index.html">EmptyOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EmptyOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>For option that does not have a value, like <a href="-option-number/-i-f_-n-o-n-e_-m-a-t-c-h.html">OptionNumber.IF_NONE_MATCH</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-int-option-value/index.html">IntOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">IntOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-opaque-option-value/index.html">OpaqueOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">OpaqueOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="-opaque.html">Opaque</a> type</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-string-option-value/index.html">StringOptionValue</a></p>
+</td>
+<td>
+<code><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">StringOptionValue</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./-option-value.html"><span class="identifier">OptionValue</span></a></code>
+<p>Option value with <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> type</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

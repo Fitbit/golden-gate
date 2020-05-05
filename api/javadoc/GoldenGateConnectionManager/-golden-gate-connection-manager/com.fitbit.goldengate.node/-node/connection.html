@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Node.connection - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node</a>&nbsp;/&nbsp;<a href="index.html">Node</a>&nbsp;/&nbsp;<a href="./connection.html">connection</a><br/>
+<br/>
+<h1>connection</h1>
+<a name="com.fitbit.goldengate.node.Node$connection()"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">connection</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="../-node-connection-status/index.html"><span class="identifier">NodeConnectionStatus</span></a><span class="symbol">&gt;</span></code>
+<p>Get a reference to the connection of the <a href="index.html">Node</a>. If the <a href="index.html">Node</a> is not yet connected,
+it will connect upon <a href="#">subscription</a>. The returned <a href="#">Observable</a> will
+be shared for all callers <a href="./connection.html">connection</a> until the connection is lost or
+<a href="disconnect.html">disconnected</a>. A successive call after <a href="disconnect.html">disconnected</a> will return a
+new <a href="#">Observable</a>. <a href="#">Disposing</a> the returned <a href="#">Observable</a> will <strong>NOT</strong>
+<a href="disconnect.html">disconnect</a> the connection. This method should be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html">Synchronized</a> with <a href="disconnect.html">disconnect</a> and <a href="#">close</a></p>
+<p><strong>Return</strong><br/>
+an <a href="#">Observable</a>&lt;<a href="../-node-connection-status/index.html">NodeConnectionStatus</a>&gt;:</p>
+</BODY>
+</HTML>

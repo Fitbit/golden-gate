@@ -1,0 +1,19 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>OutgoingRequest.forceNonBlockwise - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.data</a>&nbsp;/&nbsp;<a href="index.html">OutgoingRequest</a>&nbsp;/&nbsp;<a href="./force-non-blockwise.html">forceNonBlockwise</a><br/>
+<br/>
+<h1>forceNonBlockwise</h1>
+<a name="com.fitbit.goldengate.bindings.coap.data.OutgoingRequest$forceNonBlockwise"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">forceNonBlockwise</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Flag to treat the request as non-blockwise. In a blockwise request data is sent in chuncks(blocks)
+of fixed size. In GG we use 1024 bytes. On the tracker some Coap resources accept larger data payloads
+in a single block. In this case we need to force a non-blockwise request. Here is an example of this
+type of resource:</p>
+<p>https://wiki.fitbit.com/pages/viewpage.action?pageId=109586801</p>
+</BODY>
+</HTML>

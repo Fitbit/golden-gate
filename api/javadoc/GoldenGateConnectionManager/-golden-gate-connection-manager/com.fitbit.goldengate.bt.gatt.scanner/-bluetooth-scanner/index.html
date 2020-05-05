@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BluetoothScanner - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bt.gatt.scanner</a>&nbsp;/&nbsp;<a href="./index.html">BluetoothScanner</a><br/>
+<br/>
+<h1>BluetoothScanner</h1>
+<code><span class="keyword">interface </span><span class="identifier">BluetoothScanner</span></code>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="scan-for-device.html">scanForDevice</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">scanForDevice</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.scanner.BluetoothScanner$scanForDevice(kotlin.String)/macAddress">macAddress</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><span class="identifier">GattConnection</span><span class="symbol">&gt;</span></code>
+<p>Scans for a device with a specific mac address</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scan-for-devices.html">scanForDevices</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">scanForDevices</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">GattConnection</span><span class="symbol">&gt;</span></code>
+<p>Scans for devices</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scan-for-name.html">scanForName</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">scanForName</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.scanner.BluetoothScanner$scanForName(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">GattConnection</span><span class="symbol">&gt;</span></code>
+<p>Scans for devices matching a specific name</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

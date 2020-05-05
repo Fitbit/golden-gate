@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__StackElementGattlinkParameters" kind="struct" language="C++" prot="public">
+    <compoundname>GG_StackElementGattlinkParameters</compoundname>
+    <includes refid="gg__stack__builder_8h" local="no">xp/stack_builder/gg_stack_builder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__StackElementGattlinkParameters_1ace11f531da7d498a3bbfea63e4f612fe" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_StackElementGattlinkParameters::rx_window</definition>
+        <argsstring></argsstring>
+        <name>rx_window</name>
+        <briefdescription>
+<para>Size of the RX window (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="135" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementGattlinkParameters_1a4945468b24c6260de24d954b67ae7565" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_StackElementGattlinkParameters::tx_window</definition>
+        <argsstring></argsstring>
+        <name>tx_window</name>
+        <briefdescription>
+<para>Size of the TX window (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="136" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementGattlinkParameters_1a044d9311e10d394c6d672dbb5a4cb1c0" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_StackElementGattlinkParameters::buffer_size</definition>
+        <argsstring></argsstring>
+        <name>buffer_size</name>
+        <briefdescription>
+<para>Size of the buffer (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="137" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementGattlinkParameters_1a9626b24b06e2e54e4baa5652c13f7276" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_StackElementGattlinkParameters::initial_max_fragment_size</definition>
+        <argsstring></argsstring>
+        <name>initial_max_fragment_size</name>
+        <briefdescription>
+<para>Initial maximum fragment size (use 0 for default) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="138" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__StackElementGattlinkParameters_1abd2615351184cf98a87226c0651b37dc" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__GattlinkProbeConfig" kindref="compound">GG_GattlinkProbeConfig</ref> *</type>
+        <definition>const GG_GattlinkProbeConfig* GG_StackElementGattlinkParameters::probe_config</definition>
+        <argsstring></argsstring>
+        <name>probe_config</name>
+        <briefdescription>
+<para>Configuration for data probe (use NULL to disable) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="139" column="34" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Construction parameters for a Gattlink element </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GG_GattlinkProbeConfig</label>
+        <link refid="structGG__GattlinkProbeConfig"/>
+      </node>
+      <node id="1">
+        <label>GG_StackElementGattlinkParameters</label>
+        <link refid="structGG__StackElementGattlinkParameters"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>probe_config</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="134" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="134" bodyend="140"/>
+    <listofallmembers>
+      <member refid="structGG__StackElementGattlinkParameters_1a044d9311e10d394c6d672dbb5a4cb1c0" prot="public" virt="non-virtual"><scope>GG_StackElementGattlinkParameters</scope><name>buffer_size</name></member>
+      <member refid="structGG__StackElementGattlinkParameters_1a9626b24b06e2e54e4baa5652c13f7276" prot="public" virt="non-virtual"><scope>GG_StackElementGattlinkParameters</scope><name>initial_max_fragment_size</name></member>
+      <member refid="structGG__StackElementGattlinkParameters_1abd2615351184cf98a87226c0651b37dc" prot="public" virt="non-virtual"><scope>GG_StackElementGattlinkParameters</scope><name>probe_config</name></member>
+      <member refid="structGG__StackElementGattlinkParameters_1ace11f531da7d498a3bbfea63e4f612fe" prot="public" virt="non-virtual"><scope>GG_StackElementGattlinkParameters</scope><name>rx_window</name></member>
+      <member refid="structGG__StackElementGattlinkParameters_1a4945468b24c6260de24d954b67ae7565" prot="public" virt="non-virtual"><scope>GG_StackElementGattlinkParameters</scope><name>tx_window</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

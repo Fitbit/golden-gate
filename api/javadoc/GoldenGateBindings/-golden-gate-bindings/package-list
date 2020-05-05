@@ -1,0 +1,17 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.fitbit.goldengate.bindings.util$hexString(kotlin.ByteArray)com.fitbit.goldengate.bindings.util/kotlin.-byte-array/hex-string.html
+$dokka.location:com.fitbit.goldengate.bindings.util$hexStringToByteArray(kotlin.String)com.fitbit.goldengate.bindings.util/kotlin.-string/hex-string-to-byte-array.html
+com.fitbit.goldengate.bindings
+com.fitbit.goldengate.bindings.coap
+com.fitbit.goldengate.bindings.coap.data
+com.fitbit.goldengate.bindings.coap.handler
+com.fitbit.goldengate.bindings.dtls
+com.fitbit.goldengate.bindings.gattlink
+com.fitbit.goldengate.bindings.io
+com.fitbit.goldengate.bindings.node
+com.fitbit.goldengate.bindings.remote
+com.fitbit.goldengate.bindings.services
+com.fitbit.goldengate.bindings.sockets.bsd
+com.fitbit.goldengate.bindings.stack
+com.fitbit.goldengate.bindings.util

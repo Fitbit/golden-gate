@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Endpoint.responseFor - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="index.html">Endpoint</a>&nbsp;/&nbsp;<a href="./response-for.html">responseFor</a><br/>
+<br/>
+<h1>responseFor</h1>
+<a name="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest)"></a>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">responseFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-response/index.html"><span class="identifier">IncomingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Call this to send a request and get a response (i.e. be a client).</p>
+<h3>Parameters</h3>
+<p><a name="request"></a>
+<code>request</code> - The request that should be sent to the CoAP server. Use <a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request-builder/index.html">OutgoingRequestBuilder</a> to construct requests.</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> that will emit either an <a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-response/index.html">IncomingResponse</a> returned from the CoAP server or an error</p>
+<a name="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.responseFor.T)))"></a>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">responseFor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.responseFor.T)))/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-request/index.html"><span class="identifier">OutgoingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.Endpoint$responseFor(com.fitbit.goldengate.bindings.coap.data.OutgoingRequest, com.fitbit.goldengate.bindings.coap.ByteArrayParser((com.fitbit.goldengate.bindings.coap.Endpoint.responseFor.T)))/parser">parser</span><span class="symbol">:</span>&nbsp;<a href="../-byte-array-parser.html"><span class="identifier">ByteArrayParser</span></a><span class="symbol">&lt;</span><a href="response-for.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="response-for.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Convenience method for parsing a Response into a T</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - The type of response object expected from this request</p>
+<p><a name="request"></a>
+<code>request</code> - The request to send over CoAP.</p>
+<p><a name="parser"></a>
+<code>parser</code> - An object that knows how to construct an object of type <a href="response-for.html#T">T</a> from a ByteArray</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> that will emit either the response parsed into a <a href="response-for.html#T">T</a> or an error.</p>
+</BODY>
+</HTML>

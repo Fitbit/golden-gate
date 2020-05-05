@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_6a2356fa04b9970e8d6edfc95b4741a1" kind="dir">
+    <compoundname>xp/sockets/ports</compoundname>
+    <innerdir refid="dir_a886a0728fba3f5309fd88d2f7ff9815">xp/sockets/ports/bsd</innerdir>
+    <innerdir refid="dir_dac0e665ef0840001d489a6c4c23ace9">xp/sockets/ports/lwip</innerdir>
+    <innerdir refid="dir_c7ff727efb7c9208109d22683c8fc0b9">xp/sockets/ports/nip</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/sockets/ports/"/>
+  </compounddef>
+</doxygen>

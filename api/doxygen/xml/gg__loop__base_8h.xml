@@ -1,0 +1,691 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__loop__base_8h" kind="file" language="C++">
+    <compoundname>gg_loop_base.h</compoundname>
+    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
+    <includes refid="gg__loop_8h" local="yes">xp/loop/gg_loop.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>assert.h</label>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="12">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_threads.h</label>
+        <link refid="gg__threads_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/common/gg_queues.h</label>
+        <link refid="gg__queues_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___loop_message_item" prot="public">GG_LoopMessageItem</innerclass>
+    <innerclass refid="struct_g_g___loop_invoke_sync_message" prot="public">GG_LoopInvokeSyncMessage</innerclass>
+    <innerclass refid="struct_g_g___loop_invoke_async_message" prot="public">GG_LoopInvokeAsyncMessage</innerclass>
+    <innerclass refid="struct_g_g___loop_base" prot="public">GG_LoopBase</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="gg__loop__base_8h_1a97c7f9a2b940383b7489f355ed7cc409" prot="public" static="no">
+        <name>GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH</name>
+        <initializer>64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="34" column="9" bodyfile="xp/loop/gg_loop_base.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gg__loop__base_8h_1a5901139416b64bc4510685751d62e496" prot="public" static="no">
+        <name>GG_LOOP_MIN_TIME_INTERVAL_MS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="37" column="9" bodyfile="xp/loop/gg_loop_base.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gg__loop__base_8h_1a79b76f1046c21f5f250710bac37e0f9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopBase_UpdateTime</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_UpdateTime</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the timer scheduler notion of current time </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="91" column="6" declfile="xp/loop/gg_loop_base.h" declline="91" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a15feb2e0c78e1147d870fa19621620c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_LoopBase_CheckTimers</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_CheckTimers</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check for expired timers and call timer listeners. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="96" column="10" declfile="xp/loop/gg_loop_base.h" declline="96" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a9838a752e5ef18f29a9c996c239d5581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_PostMessage</definition>
+        <argsstring>(GG_LoopBase *self, GG_LoopMessage *message, GG_Timeout timeout)</argsstring>
+        <name>GG_LoopBase_PostMessage</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Post a message to the loop&apos;s queue, from a thread other than the loop thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="101" column="11" declfile="xp/loop/gg_loop_base.h" declline="101" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a71350953a687017010324dff5ace2d65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_ProcessMessage</definition>
+        <argsstring>(GG_LoopBase *self, GG_Timeout timeout)</argsstring>
+        <name>GG_LoopBase_ProcessMessage</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Process the next message in the queue.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum time to wait for a message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group___errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if a message was processed, <ref refid="group___errors_1ga9671274df6309ec48be9c90023856619" kindref="member">GG_ERROR_TIMEOUT</ref> if no message arrived before the timeout elapsed, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="112" column="11" declfile="xp/loop/gg_loop_base.h" declline="112" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a77601801a799001abd42d28ba7720f23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_InvokeSync</definition>
+        <argsstring>(GG_LoopBase *self, GG_LoopSyncFunction function, void *function_argument, int *function_result)</argsstring>
+        <name>GG_LoopBase_InvokeSync</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>function_result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="114" column="11" declfile="xp/loop/gg_loop_base.h" declline="114" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1aa25f27f6cbf927cb0c80b71d81ccf59e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_InvokeAsync</definition>
+        <argsstring>(GG_LoopBase *self, GG_LoopAsyncFunction function, void *function_argument)</argsstring>
+        <name>GG_LoopBase_InvokeAsync</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref></type>
+          <declname>function</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>function_argument</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="119" column="11" declfile="xp/loop/gg_loop_base.h" declline="119" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a0ff5bc398b28854ec36015b9e8af4260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_BindToCurrentThread</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_BindToCurrentThread</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="group___loop_1ga2bd9e1ba0384bdfdbfdeb73431653450" kindref="member">GG_Loop_BindToCurrentThread</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="127" column="1" declfile="xp/loop/gg_loop_base.h" declline="127" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a3117a92f9b8b823a10a939c0808bbbf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LoopBase_Init</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize an instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="132" column="11" declfile="xp/loop/gg_loop_base.h" declline="132" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1a8d3742e3200c5c1d92a38105f321375b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopBase_Deinit</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_Deinit</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Deinitialize an instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="137" column="6" declfile="xp/loop/gg_loop_base.h" declline="137" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1adc343bd33c2bc5ed0cec32d25a0581f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoopBase_RequestTermination</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_RequestTermination</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Base implementation of GG_Loop_RequestTermination </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="142" column="6" declfile="xp/loop/gg_loop_base.h" declline="142" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__loop__base_8h_1ae57fb50c8216266455c9810d9666182f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
+        <definition>GG_LoopMessage* GG_LoopBase_CreateTerminationMessage</definition>
+        <argsstring>(GG_LoopBase *self)</argsstring>
+        <name>GG_LoopBase_CreateTerminationMessage</name>
+        <param>
+          <type><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Base implementation of GG_Loop_CreateTerminationMessage </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop_base.h" line="147" column="16" declfile="xp/loop/gg_loop_base.h" declline="147" declcolumn="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-11-26</para>
+</simplesect>
+Base class for loop implementations. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="18"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__loop_8h" kindref="compound">xp/loop/gg_loop.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="32"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH<sp/>64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_LOOP_MIN_TIME_INTERVAL_MS<sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="45" refid="struct_g_g___loop_message_item" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref><sp/>list_node;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/><sp/><sp/>message;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/><ref refid="struct_g_g___loop_message_item" kindref="compound">GG_LoopMessageItem</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="struct_g_g___loop_invoke_sync_message" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_result;</highlight></codeline>
+<codeline lineno="55" refid="struct_g_g___loop_invoke_sync_message_1a9012da73471d6b7d03f30fdd47b90e45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_g___semaphore" kindref="compound">GG_Semaphore</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_invoke_sync_message_1a9012da73471d6b7d03f30fdd47b90e45" kindref="member">result_semaphore</ref>;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}<sp/><ref refid="struct_g_g___loop_invoke_sync_message" kindref="compound">GG_LoopInvokeSyncMessage</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="struct_g_g___loop_invoke_async_message" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}<sp/><ref refid="struct_g_g___loop_invoke_async_message" kindref="compound">GG_LoopInvokeAsyncMessage</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="struct_g_g___loop_base" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_IF_INSPECTION_ENABLED(GG_IMPLEMENTS(<ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>);)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_time;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>timer_scheduler;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message_queue;</highlight></codeline>
+<codeline lineno="73" refid="struct_g_g___loop_base_1aaeaa8645624ef9ac1b6bab571ca56855" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_base_1aaeaa8645624ef9ac1b6bab571ca56855" kindref="member">message_item_pool</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_message_item" kindref="compound">GG_LoopMessageItem</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>message_items[GG_CONFIG_LOOP_MESSAGE_QUEUE_LENGTH];</highlight></codeline>
+<codeline lineno="75" refid="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" kindref="member">invoke_mutex</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76" refid="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___loop_invoke_sync_message" kindref="compound">GG_LoopInvokeSyncMessage</ref><sp/><ref refid="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" kindref="member">invoke_message</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termination_requested;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_IMPLEMENTS(<ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>termination_message;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___threads_1ga369b2439bae845d0ca7eb24092d20712" kindref="member">GG_THREAD_GUARD_ENABLE_BINDING</ref></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}<sp/><ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="86"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="87"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="91"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__loop__base_8h_1a79b76f1046c21f5f250710bac37e0f9c" kindref="member">GG_LoopBase_UpdateTime</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">uint32_t<sp/><ref refid="gg__loop__base_8h_1a15feb2e0c78e1147d870fa19621620c7" kindref="member">GG_LoopBase_CheckTimers</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__loop__base_8h_1a9838a752e5ef18f29a9c996c239d5581" kindref="member">GG_LoopBase_PostMessage</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/>message,<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__loop__base_8h_1a71350953a687017010324dff5ace2d65" kindref="member">GG_LoopBase_ProcessMessage</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga8d5b02477db6ded92e2bb7e5dcfae9f1" kindref="member">GG_Timeout</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_LoopBase_InvokeSync(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga55c408181efb3d48770428074b68b80c" kindref="member">GG_LoopSyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_result);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_LoopBase_InvokeAsync(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" kindref="member">GG_LoopAsyncFunction</ref><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_argument);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><ref refid="gg__loop__base_8h_1a0ff5bc398b28854ec36015b9e8af4260" kindref="member">GG_LoopBase_BindToCurrentThread</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__loop__base_8h_1a3117a92f9b8b823a10a939c0808bbbf2" kindref="member">GG_LoopBase_Init</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__loop__base_8h_1a8d3742e3200c5c1d92a38105f321375b" kindref="member">GG_LoopBase_Deinit</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__loop__base_8h_1adc343bd33c2bc5ed0cec32d25a0581f6" kindref="member">GG_LoopBase_RequestTermination</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref>*<sp/><ref refid="gg__loop__base_8h_1ae57fb50c8216266455c9810d9666182f" kindref="member">GG_LoopBase_CreateTerminationMessage</ref>(<ref refid="struct_g_g___loop_base" kindref="compound">GG_LoopBase</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="xp/loop/gg_loop_base.h"/>
+  </compounddef>
+</doxygen>

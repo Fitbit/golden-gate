@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StackNodeBuilder - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node.stack</a>&nbsp;/&nbsp;<a href="./index.html">StackNodeBuilder</a><br/>
+<br/>
+<h1>StackNodeBuilder</h1>
+<code><span class="keyword">class </span><span class="identifier">StackNodeBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.node/-node-builder/index.html"><span class="identifier">NodeBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">&gt;</span></code>
+<p>Builds a <a href="../-stack-node/index.html">StackNode</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
+<h3>Parameters</h3>
+<p><a name="clazz"></a>
+<code>clazz</code> - The <a href="https://developer.android.com/reference/java/lang/Class.html">Class</a> of the <a href="#">StackService</a> to use with this <a href="../-stack-node/index.html">StackNode</a></p>
+<p><a name="stackConfig"></a>
+<code>stackConfig</code> - the <a href="#">StackConfig</a> of the <a href="../-stack-node/index.html">StackNode</a>'s <a href="#">Stack</a></p>
+<p><a name="buildStackNode"></a>
+<code>buildStackNode</code> - function for building a <a href="../-stack-node/index.html">StackNode</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">StackNodeBuilder</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackNodeBuilder$<init>(java.lang.Class((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)), com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Function1((com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.node.stack.StackNode((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)))))/clazz">clazz</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackNodeBuilder$<init>(java.lang.Class((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)), com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Function1((com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.node.stack.StackNode((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)))))/stackConfig">stackConfig</span><span class="symbol">:</span>&nbsp;<span class="identifier">StackConfig</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackNodeBuilder$<init>(java.lang.Class((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)), com.fitbit.goldengate.bindings.stack.StackConfig, kotlin.Function1((com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.node.stack.StackNode((com.fitbit.goldengate.node.stack.StackNodeBuilder.T)))))/buildStackNode">buildStackNode</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="../-stack-node/index.html"><span class="identifier">StackNode</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Builds a <a href="../-stack-node/index.html">StackNode</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build.html">build</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackNodeBuilder$build(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey)/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-stack-node/index.html"><span class="identifier">StackNode</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>Build the <a href="../-stack-node/index.html">StackNode</a>, connect it and emit it via a <a href="#">Single</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="does-build.html">doesBuild</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">doesBuild</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackNodeBuilder$doesBuild(com.fitbit.goldengate.node.Node((com.fitbit.goldengate.bindings.stack.StackService)))/node">node</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.node/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Tests if the given <a href="../../com.fitbit.goldengate.node/-node/index.html">Node</a> is the same as the one this can <a href="../../com.fitbit.goldengate.node/-node-builder/build.html">build</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

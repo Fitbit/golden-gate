@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CoapEndpointException - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap</a>&nbsp;/&nbsp;<a href="./index.html">CoapEndpointException</a><br/>
+<br/>
+<h1>CoapEndpointException</h1>
+<code><span class="keyword">class </span><span class="identifier">CoapEndpointException</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/index.html"><span class="identifier">Exception</span></a></code>
+<p>Exception indicating error when requesting data from coap server</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">CoapEndpointException</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpointException$<init>(kotlin.String, kotlin.Int, kotlin.ByteArray)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpointException$<init>(kotlin.String, kotlin.Int, kotlin.ByteArray)/error">error</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.CoapEndpointException$<init>(kotlin.String, kotlin.Int, kotlin.ByteArray)/partialData">partialData</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-data.html"><span class="identifier">Data</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Data(0)<span class="symbol">)</span></code>
+<p>Exception indicating error when requesting data from coap server</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="error.html">error</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">error</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code>
+<p>Error code</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="partial-data.html">partialData</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">partialData</span><span class="symbol">: </span><a href="../../com.fitbit.goldengate.bindings.coap.data/-data.html"><span class="identifier">Data</span></a></code>
+<p>Any partial data cached so far in-memory for CoAP request before failure</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

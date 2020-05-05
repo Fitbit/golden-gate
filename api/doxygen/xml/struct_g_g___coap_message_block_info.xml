@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___coap_message_block_info" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapMessageBlockInfo</compoundname>
+    <includes refid="gg__coap__blockwise_8h" local="no">xp/coap/gg_coap_blockwise.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___coap_message_block_info_1a87a784ffb58ccf77064bfc6e013bffed" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapMessageBlockInfo::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <briefdescription>
+<para>Offset of the block, in bytes, from the start of the resource. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="42" column="12" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_message_block_info_1abbbed36f72bbf6ff6dbe0e3bda8702bf" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapMessageBlockInfo::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Size of the block, in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="43" column="12" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___coap_message_block_info_1ac1418d673e84f9fcaa27e6a682efab87" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_CoapMessageBlockInfo::more</definition>
+        <argsstring></argsstring>
+        <name>more</name>
+        <briefdescription>
+<para><computeroutput>false</computeroutput> if this is the last block of the resource, <computeroutput>true</computeroutput>otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="44" column="12" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Details about a block of data. </para>
+    </detaileddescription>
+    <location file="xp/coap/gg_coap_blockwise.h" line="41" column="15" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="41" bodyend="45"/>
+    <listofallmembers>
+      <member refid="struct_g_g___coap_message_block_info_1ac1418d673e84f9fcaa27e6a682efab87" prot="public" virt="non-virtual"><scope>GG_CoapMessageBlockInfo</scope><name>more</name></member>
+      <member refid="struct_g_g___coap_message_block_info_1a87a784ffb58ccf77064bfc6e013bffed" prot="public" virt="non-virtual"><scope>GG_CoapMessageBlockInfo</scope><name>offset</name></member>
+      <member refid="struct_g_g___coap_message_block_info_1abbbed36f72bbf6ff6dbe0e3bda8702bf" prot="public" virt="non-virtual"><scope>GG_CoapMessageBlockInfo</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

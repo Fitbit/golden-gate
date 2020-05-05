@@ -1,0 +1,1915 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__Logging" kind="group">
+    <compoundname>Logging</compoundname>
+    <title>Logging</title>
+    <innerclass refid="structGG__LogRecord" prot="public">GG_LogRecord</innerclass>
+    <innerclass refid="structGG__LogObject" prot="public">GG_LogObject</innerclass>
+    <innerclass refid="structGG__Logger" prot="public">GG_Logger</innerclass>
+    <innerclass refid="structGG__LoggerReference" prot="public">GG_LoggerReference</innerclass>
+    <innerclass refid="structGG__LogHandler" prot="public">GG_LogHandler</innerclass>
+    <innerclass refid="structGG__LogHandlerInterface" prot="public">GG_LogHandlerInterface</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__Logging_1ga55051f8f64e46ecbf5e6173e15f2122f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_LogMessageType</name>
+        <enumvalue id="group__Logging_1gga55051f8f64e46ecbf5e6173e15f2122fae8da116e88313c54550a9a11a3e63d0b" prot="public">
+          <name>GG_LOG_MESSAGE_TYPE_STRING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__Logging_1gga55051f8f64e46ecbf5e6173e15f2122fa340c754e8f588770324195baeb0ab64f" prot="public">
+          <name>GG_LOG_MESSAGE_TYPE_OBJECT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="37" column="14" bodyfile="xp/common/gg_logging.h" bodystart="37" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__Logging_1ga3843902c99ac4e73c01b206cde009c8b" prot="public" static="no">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
+        <definition>typedef GG_Result(* GG_LogHandlerFactory) (const char *handler_name, const char *logger_name, GG_LogHandler **handler)</definition>
+        <argsstring>)(const char *handler_name, const char *logger_name, GG_LogHandler **handler)</argsstring>
+        <name>GG_LogHandlerFactory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Factory function for log handlers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handler_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the handler type to create. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>logger_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the logger for which the returned handler will be attached to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable in which the newly created handler will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="group__Errors_1ga74ac21a451c08367bf69467eb4756490" kindref="member">GG_SUCCESS</ref> if the handler could be created, or an error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="145" column="9" bodyfile="xp/common/gg_logging.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__Logging_1gabc666e08324fff66358f1ffe1017f560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LogManager_Initialize</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_LogManager_Initialize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Explicitly initialize the log manager singleton.</para>
+<para>It is normally not necessary to call this function, as the log manager can self-initialize upon first use. But in cases where the application needs to initialize the logging subsystem at a specifc point, it may use this function for that purpose.</para>
+<para>This function may be called from any thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="423" column="11" declfile="xp/common/gg_logging.h" declline="423" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga5c1d36e0ce93d38b5503a505e528677d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LogManager_Terminate</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_LogManager_Terminate</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Explicitly terminate the log manager singleton.</para>
+<para>It is normally not necessary to call this function, as the log manager can self-terminate upon application exit. But in cases where the application needs to terminate the logging subsystem at a specifc point, it may use this function for that purpose.</para>
+<para>This function may be called from any thread. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="435" column="11" declfile="xp/common/gg_logging.h" declline="435" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga7afeaf2a63a16838ee34e7d20c6c22d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LogManager_Enable</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_LogManager_Enable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="447" column="11" declfile="xp/common/gg_logging.h" declline="447" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga18a1631a2c827b89670d573766db3b67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LogManager_Disable</definition>
+        <argsstring>(void)</argsstring>
+        <name>GG_LogManager_Disable</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="458" column="11" declfile="xp/common/gg_logging.h" declline="458" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga451039cdd5ae67f718ec36d5710c6a7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_LogManager_Configure</definition>
+        <argsstring>(const char *configuration_sources)</argsstring>
+        <name>GG_LogManager_Configure</name>
+        <param>
+          <type>const char *</type>
+          <declname>configuration_sources</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="469" column="11" declfile="xp/common/gg_logging.h" declline="469" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1gae16869762456c9c04d8a7e86ec612e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LogManager_SetPlatformHandlerFactory</definition>
+        <argsstring>(GG_LogHandlerFactory factory)</argsstring>
+        <name>GG_LogManager_SetPlatformHandlerFactory</name>
+        <param>
+          <type><ref refid="group__Logging_1ga3843902c99ac4e73c01b206cde009c8b" kindref="member">GG_LogHandlerFactory</ref></type>
+          <declname>factory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register a factory for creating custom log handlers.</para>
+<para>Platform specific implementations may want to handle log records using custom handlers.</para>
+<para>This function may be called from any thread.</para>
+<para><simplesect kind="note"><para>Calling this method will override the root logger default handler. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>factory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_LogHandlerFactory method that will be called to create new &quot;PlatformHandler&quot; handlers. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="482" column="6" declfile="xp/common/gg_logging.h" declline="482" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga5bcdae7b4afd9e1e204416300bc592d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LogManager_SetDefaultHandlerFactory</definition>
+        <argsstring>(GG_LogHandlerFactory factory)</argsstring>
+        <name>GG_LogManager_SetDefaultHandlerFactory</name>
+        <param>
+          <type><ref refid="group__Logging_1ga3843902c99ac4e73c01b206cde009c8b" kindref="member">GG_LogHandlerFactory</ref></type>
+          <declname>factory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register a default factory for creating custom log handlers.</para>
+<para>When set, the default log handler factory is called when no other factory (built-in or platform) is suitable to create a log handler by name.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>factory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The GG_LogHandlerFactory method that will be called to create new handlers. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="492" column="6" declfile="xp/common/gg_logging.h" declline="492" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga427f4c578abef7d04692e6999454223a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoggerReference_LogString</definition>
+        <argsstring>(GG_LoggerReference *self, int level, const char *source_file, unsigned int source_line, const char *source_function, const char *message,...)</argsstring>
+        <name>GG_LoggerReference_LogString</name>
+        <param>
+          <type><ref refid="structGG__LoggerReference" kindref="compound">GG_LoggerReference</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>source_file</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>source_line</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>source_function</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emit a string-based log record through a logger, via a logger reference. If the logger reference&apos;s logger isn&apos;t initialized, it will be automatically initialized, and the reference will be updated before returning.</para>
+<para>This function should not be called directly. It is intended to be used by the logging macros. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="501" column="6" declfile="xp/common/gg_logging.h" declline="501" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga68b152da8f926715b535760fb101f45d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LoggerReference_LogObject</definition>
+        <argsstring>(GG_LoggerReference *self, int level, const char *source_file, unsigned int source_line, const char *source_function, GG_LogObject *object)</argsstring>
+        <name>GG_LoggerReference_LogObject</name>
+        <param>
+          <type><ref refid="structGG__LoggerReference" kindref="compound">GG_LoggerReference</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>source_file</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>source_line</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>source_function</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__LogObject" kindref="compound">GG_LogObject</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Emit a object-based log record through a logger, via a logger reference. If the logger reference&apos;s logger isn&apos;t initialized, it will be automatically initialized, and the reference will be updated before returning.</para>
+<para>This function should not be called directly. It is intended to be used by the logging macros. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="521" column="6" declfile="xp/common/gg_logging.h" declline="521" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga52e95770681e7d5cb509362380077f07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Logger_AddHandler</definition>
+        <argsstring>(GG_Logger *self, GG_LogHandler *handler)</argsstring>
+        <name>GG_Logger_AddHandler</name>
+        <param>
+          <type><ref refid="structGG__Logger" kindref="compound">GG_Logger</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__LogHandler" kindref="compound">GG_LogHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="528" column="11" declfile="xp/common/gg_logging.h" declline="528" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga44ec4d066b405dad04ac9f02b33ac24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GG_Log_GetLogLevel</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>GG_Log_GetLogLevel</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the numerical logging level for a logging level name string</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Logging level name</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A numerical logging level, or -1 if the name does not exist. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="537" column="5" declfile="xp/common/gg_logging.h" declline="537" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1gad783d90782968819a92f6b693ea20ea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* GG_Log_GetLogLevelName</definition>
+        <argsstring>(int level)</argsstring>
+        <name>GG_Log_GetLogLevelName</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the logging level name string for a numerical logging level.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Numerical logging level</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Logging level name, of an empty string if the numerical level does not have a name. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="546" column="12" declfile="xp/common/gg_logging.h" declline="546" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga2680e4df7c32122f56f497700004f63b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Log_FormatRecordToStringBuffer</definition>
+        <argsstring>(const GG_LogRecord *record, char *buffer, size_t buffer_size, bool use_colors, uint32_t format_filter, bool add_newline)</argsstring>
+        <name>GG_Log_FormatRecordToStringBuffer</name>
+        <param>
+          <type>const <ref refid="structGG__LogRecord" kindref="compound">GG_LogRecord</ref> *</type>
+          <declname>record</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_colors</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>format_filter</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>add_newline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Format log record to a string based on format filter</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>record</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Log record to format </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to store formatted string </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of buffer provided </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>use_colors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether to use colors or not </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format_filter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filter indicating log string format </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>add_newline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Add a newline (\r<linebreak/>
+) at the end of the buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="558" column="6" declfile="xp/common/gg_logging.h" declline="558" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga970615361fb2dcb9da39af698d4ca3f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Log_GetConsoleHandlerConfig</definition>
+        <argsstring>(const char *logger_name, const char *handler_name, bool *use_colors, uint32_t *format_filter)</argsstring>
+        <name>GG_Log_GetConsoleHandlerConfig</name>
+        <param>
+          <type>const char *</type>
+          <declname>logger_name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>handler_name</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>use_colors</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>format_filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get configuration properties for the console handler</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>logger_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the logger </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of the console handler</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>use_colors Whether to use colors or not in log string output </para>
+</simplesect>
+<simplesect kind="return"><para>format_filter Filter indicating log string format </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="574" column="11" declfile="xp/common/gg_logging.h" declline="574" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga065bacc356cd15bcedad52b6835d709d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LogHandler_Log</definition>
+        <argsstring>(GG_LogHandler *self, const GG_LogRecord *record)</argsstring>
+        <name>GG_LogHandler_Log</name>
+        <param>
+          <type><ref refid="structGG__LogHandler" kindref="compound">GG_LogHandler</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__LogRecord" kindref="compound">GG_LogRecord</ref> *</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle a log record.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>record</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The log record to handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="130" column="6" declfile="xp/common/gg_logging.h" declline="130" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__Logging_1ga4e71c4c947444f932f6a1e9b17c8a27e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_LogHandler_Destroy</definition>
+        <argsstring>(GG_LogHandler *handler)</argsstring>
+        <name>GG_LogHandler_Destroy</name>
+        <param>
+          <type><ref refid="structGG__LogHandler" kindref="compound">GG_LogHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy the object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="134" column="6" declfile="xp/common/gg_logging.h" declline="134" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__Logging_1gac7e19c0788e39022229bc26cf7e9b382" prot="public" static="no">
+        <name>GG_LOG_LEVEL_FATAL</name>
+        <initializer>700</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="152" column="9" bodyfile="xp/common/gg_logging.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaa5650c57553722fbde17caa8ace3f2da" prot="public" static="no">
+        <name>GG_LOG_LEVEL_SEVERE</name>
+        <initializer>600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="153" column="9" bodyfile="xp/common/gg_logging.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga9e54cad7ad633af3cec40e9e2932bd9d" prot="public" static="no">
+        <name>GG_LOG_LEVEL_WARNING</name>
+        <initializer>500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="154" column="9" bodyfile="xp/common/gg_logging.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaa6d68d1f70ea010b68ff5df4b2eeb234" prot="public" static="no">
+        <name>GG_LOG_LEVEL_INFO</name>
+        <initializer>400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="155" column="9" bodyfile="xp/common/gg_logging.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga6f72f1acf404f74393f79118c20cc763" prot="public" static="no">
+        <name>GG_LOG_LEVEL_FINE</name>
+        <initializer>300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="156" column="9" bodyfile="xp/common/gg_logging.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga54f8ff7998cfc15b1f0150ad84448349" prot="public" static="no">
+        <name>GG_LOG_LEVEL_FINER</name>
+        <initializer>200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="157" column="9" bodyfile="xp/common/gg_logging.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga8dc2ce0259c3c73d6e01f1e26143b7ed" prot="public" static="no">
+        <name>GG_LOG_LEVEL_FINEST</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="158" column="9" bodyfile="xp/common/gg_logging.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga8a0f35d02728940b6b7ee2d7b8fb8c2e" prot="public" static="no">
+        <name>GG_LOG_LEVEL_OFF</name>
+        <initializer>32767</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="160" column="9" bodyfile="xp/common/gg_logging.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4066c1397bdf885383da6d465006aeb4" prot="public" static="no">
+        <name>GG_LOG_LEVEL_ALL</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="161" column="9" bodyfile="xp/common/gg_logging.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaeebfc14641a064b74d397bafe58b1478" prot="public" static="no">
+        <name>GG_LOG_PLATFORM_HANDLER_NAME</name>
+        <initializer>&quot;PlatformHandler&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="163" column="9" bodyfile="xp/common/gg_logging.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4710ffb6d4268457f7f5d05946ee0871" prot="public" static="no">
+        <name>GG_LOG_NULL_HANDLER_NAME</name>
+        <initializer>&quot;NullHandler&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="164" column="9" bodyfile="xp/common/gg_logging.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gac2cb5c95ae42fc77afd72b30f8563d59" prot="public" static="no">
+        <name>GG_LOG_CONSOLE_HANDLER_NAME</name>
+        <initializer>&quot;ConsoleHandler&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="165" column="9" bodyfile="xp/common/gg_logging.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga258c99fe3a02624f8dbcf0c90b33eaca" prot="public" static="no">
+        <name>GG_LOG_FILE_HANDLER_NAME</name>
+        <initializer>&quot;FileHandler&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="166" column="9" bodyfile="xp/common/gg_logging.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gafca2a60acde2f0c7e70b1ad963140fe4" prot="public" static="no">
+        <name>GG_LOG_FORMAT_FILTER_NO_SOURCE</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="168" column="9" bodyfile="xp/common/gg_logging.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga61072131f0fcb98cf21d77dcc572828b" prot="public" static="no">
+        <name>GG_LOG_FORMAT_FILTER_NO_TIMESTAMP</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="169" column="9" bodyfile="xp/common/gg_logging.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga96150d795e227710fcc5b7511baaa889" prot="public" static="no">
+        <name>GG_LOG_FORMAT_FILTER_NO_FUNCTION_NAME</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="170" column="9" bodyfile="xp/common/gg_logging.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad1963a18d704ccead66f067693be0a02" prot="public" static="no">
+        <name>GG_LOG_FORMAT_FILTER_NO_LEVEL_NAME</name>
+        <initializer>0x08</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="171" column="9" bodyfile="xp/common/gg_logging.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4a571d4e620ec849b8c72bb04d551760" prot="public" static="no">
+        <name>GG_LOG_FORMAT_FILTER_NO_LOGGER_NAME</name>
+        <initializer>0x10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="172" column="9" bodyfile="xp/common/gg_logging.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga73ab53332fd773ebe7dca9699e326b8a" prot="public" static="no">
+        <name>GG_LOG_FILE_MACRO</name>
+        <initializer>&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="180" column="10" bodyfile="xp/common/gg_logging.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga8450ffa4fed8110f5c3b0ab5d5471c37" prot="public" static="no">
+        <name>GG_LOG_STATIC_LEVEL_GUARD</name>
+        <param><defname>_level</defname></param>
+        <param><defname>_statement</defname></param>
+        <initializer>_statement</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="191" column="10" bodyfile="xp/common/gg_logging.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gadba412d6ab4781a0d6db8d392e48538c" prot="public" static="no">
+        <name>GG_DEFINE_LOGGER</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_name</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="279" column="9" bodyfile="xp/common/gg_logging.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaf9633f792d1bab52ebb901f271608638" prot="public" static="no">
+        <name>GG_LOG_STRING</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_argsx</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="280" column="9" bodyfile="xp/common/gg_logging.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad402d3694a377d27a6d3e9f259b947e3" prot="public" static="no">
+        <name>GG_CHECK_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer><ref refid="group__Errors_1gaa79367b1c50b56ea0217f0caf5d41df9" kindref="member">GG_CHECK</ref>(_result)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="281" column="9" bodyfile="xp/common/gg_logging.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaafcd6b1ae4891316ec231c42c741746d" prot="public" static="no">
+        <name>GG_CHECK_LABEL_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL((_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="282" column="9" bodyfile="xp/common/gg_logging.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gae4ff01110d325482b810f235c24df88d" prot="public" static="no">
+        <name>GG_LOG_OBJECT</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_argsx</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="312" column="9" bodyfile="xp/common/gg_logging.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gacf9c6824309494d9cbe6d054ddb2780b" prot="public" static="no">
+        <name>GG_LOG_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="316" column="9" bodyfile="xp/common/gg_logging.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga28301ae9147f3c0bfff7257a0233c5b8" prot="public" static="no">
+        <name>GG_LOG_OTD_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_object_domain</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="320" column="9" bodyfile="xp/common/gg_logging.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaa28f19002ff0d2f0465a1729f019fe5d" prot="public" static="no">
+        <name>GG_SET_LOCAL_LOGGER</name>
+        <param><defname>_name</defname></param>
+        <initializer>GG_DEFINE_LOGGER(_GG_LocalLogger, (_name))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="325" column="9" bodyfile="xp/common/gg_logging.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga482230933d504eb3b3fda0b70a07cf7b" prot="public" static="no">
+        <name>GG_CHECK_L</name>
+        <param><defname>_level</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL(_GG_LocalLogger, (_level), (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="326" column="9" bodyfile="xp/common/gg_logging.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga56a8084de6c4bd1a6fc50b70dd9c9d0f" prot="public" static="no">
+        <name>GG_CHECK_LABEL_L</name>
+        <param><defname>_level</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL(_GG_LocalLogger, (_level), <ref refid="group__Types_1ga070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="327" column="9" bodyfile="xp/common/gg_logging.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaaab7e336a761d6a30fa7a10bf6bfc92f" prot="public" static="no">
+        <name>GG_LOG_OT_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OTD_LL(_logger, _level, TOPLEVEL, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="329" column="9" bodyfile="xp/common/gg_logging.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4b57fe0faac8b4ae162582dc5853c55f" prot="public" static="no">
+        <name>GG_LOG_O_LL</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_level</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OTD_LL(_logger, _level, GG, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="332" column="9" bodyfile="xp/common/gg_logging.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gac8a8b2c32f481fc981028178285cb22d" prot="public" static="no">
+        <name>GG_LOG_FATAL</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_FATAL, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="335" column="9" bodyfile="xp/common/gg_logging.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4c68b2d166608ce619a7cbcc8924f0c1" prot="public" static="no">
+        <name>GG_LOG_FATAL_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_FATAL, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="336" column="9" bodyfile="xp/common/gg_logging.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga66041a4f94d74b40e969da7e009a7e69" prot="public" static="no">
+        <name>GG_LOG_SEVERE</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_SEVERE, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="337" column="9" bodyfile="xp/common/gg_logging.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga781692bc94a2ac60216c3ca000e59e25" prot="public" static="no">
+        <name>GG_LOG_SEVERE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_SEVERE, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="338" column="9" bodyfile="xp/common/gg_logging.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga9b8529c064aec42ffbc6680270e041fb" prot="public" static="no">
+        <name>GG_LOG_WARNING</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_WARNING, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="339" column="9" bodyfile="xp/common/gg_logging.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga3e9167a172c6f8d1a5655dc61e6ca1a2" prot="public" static="no">
+        <name>GG_LOG_WARNING_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_WARNING, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="340" column="9" bodyfile="xp/common/gg_logging.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaaf7deb6c69438a20590231491f870aed" prot="public" static="no">
+        <name>GG_LOG_INFO</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_INFO, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="341" column="9" bodyfile="xp/common/gg_logging.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga330728bc7157a944d6a819a6e8a928bb" prot="public" static="no">
+        <name>GG_LOG_INFO_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_INFO, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="342" column="9" bodyfile="xp/common/gg_logging.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaca251a9f3c5288e0cc60dd5ec67074b7" prot="public" static="no">
+        <name>GG_LOG_FINE</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINE, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="343" column="9" bodyfile="xp/common/gg_logging.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga6d904d56c5adb5902f5170e6f7b594af" prot="public" static="no">
+        <name>GG_LOG_FINE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_FINE, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="344" column="9" bodyfile="xp/common/gg_logging.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga274e6a97e25884e365c9e84102043b23" prot="public" static="no">
+        <name>GG_LOG_FINER</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINER, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="345" column="9" bodyfile="xp/common/gg_logging.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga54f86454631dd911cf5bd73b52937264" prot="public" static="no">
+        <name>GG_LOG_FINER_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_FINER, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="346" column="9" bodyfile="xp/common/gg_logging.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga966d63a963b7e08b0227b4b35ff55936" prot="public" static="no">
+        <name>GG_LOG_FINEST</name>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINEST, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="347" column="9" bodyfile="xp/common/gg_logging.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gafacf924e702f77e05fedd85b93c3c3aa" prot="public" static="no">
+        <name>GG_LOG_FINEST_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_LL((_logger), GG_LOG_LEVEL_FINEST, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="348" column="9" bodyfile="xp/common/gg_logging.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga671585b767af6cbe019007e521940c34" prot="public" static="no">
+        <name>GG_LOG_O_FATAL</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_FATAL, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="350" column="9" bodyfile="xp/common/gg_logging.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4d0a58f51be7cacecd1d54eadec768ab" prot="public" static="no">
+        <name>GG_LOG_O_FATAL_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_FATAL, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="351" column="9" bodyfile="xp/common/gg_logging.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaa22c5624e203ef4c44a93afd65d4bd3e" prot="public" static="no">
+        <name>GG_LOG_O_SEVERE</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_SEVERE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="352" column="9" bodyfile="xp/common/gg_logging.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gafca14bfff89bd9f09bdb3aa6df8b68af" prot="public" static="no">
+        <name>GG_LOG_O_SEVERE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_SEVERE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="353" column="9" bodyfile="xp/common/gg_logging.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga613499fa8e5a474cc0fca2fefd9e38a6" prot="public" static="no">
+        <name>GG_LOG_O_WARNING</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_WARNING, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="354" column="9" bodyfile="xp/common/gg_logging.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad17344be87dbad5654e40290f81754ee" prot="public" static="no">
+        <name>GG_LOG_O_WARNING_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_WARNING, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="355" column="9" bodyfile="xp/common/gg_logging.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gab75471c7bb35559cb53980abd42d11fe" prot="public" static="no">
+        <name>GG_LOG_O_INFO</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_INFO, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="356" column="9" bodyfile="xp/common/gg_logging.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gae02fd5d474a52e78a4cab33da2e6ba8c" prot="public" static="no">
+        <name>GG_LOG_O_INFO_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_INFO, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="357" column="9" bodyfile="xp/common/gg_logging.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga21e2179c0e7a34d9f9cd028314eaa983" prot="public" static="no">
+        <name>GG_LOG_O_FINE</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="358" column="9" bodyfile="xp/common/gg_logging.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gafd3616af6274c5667888135d2f8f772a" prot="public" static="no">
+        <name>GG_LOG_O_FINE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_FINE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="359" column="9" bodyfile="xp/common/gg_logging.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4184cd91908a7389c8e4b88408fd2a99" prot="public" static="no">
+        <name>GG_LOG_O_FINER</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINER, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="360" column="9" bodyfile="xp/common/gg_logging.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga3524033f39bbe61bdf22ee4a8bcb6b1d" prot="public" static="no">
+        <name>GG_LOG_O_FINER_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_FINER, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="361" column="9" bodyfile="xp/common/gg_logging.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gabb10e5117c829a3b785fff3e07bf7588" prot="public" static="no">
+        <name>GG_LOG_O_FINEST</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINEST, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="362" column="9" bodyfile="xp/common/gg_logging.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga20ab9fea320f58373ffb43045f84a662" prot="public" static="no">
+        <name>GG_LOG_O_FINEST_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_O_LL((_logger), GG_LOG_LEVEL_FINEST, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="363" column="9" bodyfile="xp/common/gg_logging.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaf5e47ac32883a8212ae68b9b3a2c1c8d" prot="public" static="no">
+        <name>GG_LOG_OT_FATAL</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_FATAL, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="365" column="9" bodyfile="xp/common/gg_logging.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga5bfc3d7687aa67fc6e2e3c9759c80201" prot="public" static="no">
+        <name>GG_LOG_OT_FATAL_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_FATAL, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="366" column="9" bodyfile="xp/common/gg_logging.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaddbd74d1adc4ee1642eaba0c77f4b2fd" prot="public" static="no">
+        <name>GG_LOG_OT_SEVERE</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_SEVERE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="367" column="9" bodyfile="xp/common/gg_logging.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga479161e820e16a6e53a83c9d674ffd2c" prot="public" static="no">
+        <name>GG_LOG_OT_SEVERE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_SEVERE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="368" column="9" bodyfile="xp/common/gg_logging.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga854ad9d92846f6f5729c2f18a0684373" prot="public" static="no">
+        <name>GG_LOG_OT_WARNING</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_WARNING, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="369" column="9" bodyfile="xp/common/gg_logging.h" bodystart="369" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga5e49d21398aa5ca5ca7d4fdb23f8016b" prot="public" static="no">
+        <name>GG_LOG_OT_WARNING_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_WARNING, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="370" column="9" bodyfile="xp/common/gg_logging.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga78efb8f0413c835bbdbed3bfcff9cfee" prot="public" static="no">
+        <name>GG_LOG_OT_INFO</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_INFO, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="371" column="9" bodyfile="xp/common/gg_logging.h" bodystart="371" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad2a6086092203ce6bb41a4ca6d038776" prot="public" static="no">
+        <name>GG_LOG_OT_INFO_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_INFO, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="372" column="9" bodyfile="xp/common/gg_logging.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaed7c76c09be5a18e65da74c38f041942" prot="public" static="no">
+        <name>GG_LOG_OT_FINE</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="373" column="9" bodyfile="xp/common/gg_logging.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga621400b38fb3b738deae0bf7187a3915" prot="public" static="no">
+        <name>GG_LOG_OT_FINE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_FINE, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="374" column="9" bodyfile="xp/common/gg_logging.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga773fc2b9aea5d6ea5f54bc7db51e3442" prot="public" static="no">
+        <name>GG_LOG_OT_FINER</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINER, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="375" column="9" bodyfile="xp/common/gg_logging.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaf06d110fca436d63b91d0181d976756f" prot="public" static="no">
+        <name>GG_LOG_OT_FINER_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_FINER, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="376" column="9" bodyfile="xp/common/gg_logging.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga921abdeb3a194693590565db65b1a80b" prot="public" static="no">
+        <name>GG_LOG_OT_FINEST</name>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINEST, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="377" column="9" bodyfile="xp/common/gg_logging.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga6b8f6372cace55099f073759e123aba3" prot="public" static="no">
+        <name>GG_LOG_OT_FINEST_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_object_type</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>GG_LOG_OT_LL((_logger), GG_LOG_LEVEL_FINEST, _object_type, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="378" column="9" bodyfile="xp/common/gg_logging.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga41f6ac0956374147475bc917f2a54ee1" prot="public" static="no">
+        <name>GG_CHECK_FATAL</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_FATAL, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="380" column="9" bodyfile="xp/common/gg_logging.h" bodystart="380" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga175a3430c482575b9aab3eeffef8c259" prot="public" static="no">
+        <name>GG_CHECK_FATAL_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_FATAL, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="381" column="9" bodyfile="xp/common/gg_logging.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga1b4db2546f043a18cacd6796f284084b" prot="public" static="no">
+        <name>GG_CHECK_SEVERE</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_SEVERE, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="382" column="9" bodyfile="xp/common/gg_logging.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga132e98a7c2c649c7df280357a544bb52" prot="public" static="no">
+        <name>GG_CHECK_SEVERE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_SEVERE, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="383" column="9" bodyfile="xp/common/gg_logging.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaad5b11ad27d16312f47de0d8f46bb109" prot="public" static="no">
+        <name>GG_CHECK_WARNING</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_WARNING, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="384" column="9" bodyfile="xp/common/gg_logging.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga13a54a05764d59a1daef62b3abae9049" prot="public" static="no">
+        <name>GG_CHECK_WARNING_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_WARNING, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="385" column="9" bodyfile="xp/common/gg_logging.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga61c7fc38ad0ef0ad523542ba483d5b89" prot="public" static="no">
+        <name>GG_CHECK_INFO</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_INFO, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="386" column="9" bodyfile="xp/common/gg_logging.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gac41430b0d8712635db5b83d8456960f7" prot="public" static="no">
+        <name>GG_CHECK_INFO_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_INFO, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="387" column="9" bodyfile="xp/common/gg_logging.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga05670311a5d04459ec22b363a95fe4a8" prot="public" static="no">
+        <name>GG_CHECK_FINE</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINE, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="388" column="9" bodyfile="xp/common/gg_logging.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga0465d12a54ba55f2430cd693edf9cc8b" prot="public" static="no">
+        <name>GG_CHECK_FINE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_FINE, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="389" column="9" bodyfile="xp/common/gg_logging.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga0cf3d1cb845cadaf683b2b11a1e36d25" prot="public" static="no">
+        <name>GG_CHECK_FINER</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINER, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="390" column="9" bodyfile="xp/common/gg_logging.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga1d593cb5bf196eafc968acbc2ab1c6c3" prot="public" static="no">
+        <name>GG_CHECK_FINER_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_FINER, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="391" column="9" bodyfile="xp/common/gg_logging.h" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga6b18718dc3bcdf1171b4412551ea9f2e" prot="public" static="no">
+        <name>GG_CHECK_FINEST</name>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINEST, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="392" column="9" bodyfile="xp/common/gg_logging.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga3f3e9f9005460ef98996080c7bda041e" prot="public" static="no">
+        <name>GG_CHECK_FINEST_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <initializer>GG_CHECK_LL((_logger), GG_LOG_LEVEL_FINEST, (_result))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="393" column="9" bodyfile="xp/common/gg_logging.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaac19dda797b6e4933dbf72376320a5cf" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FATAL</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_FATAL, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="395" column="9" bodyfile="xp/common/gg_logging.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga086cd555cb2b9dbf3c3d6a5ae6684671" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FATAL_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_FATAL, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="396" column="9" bodyfile="xp/common/gg_logging.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gaaf72abcf02a549686dff502c655c1bea" prot="public" static="no">
+        <name>GG_CHECK_LABEL_SEVERE</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_SEVERE, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="397" column="9" bodyfile="xp/common/gg_logging.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga355a32f765faece13f6e43b86016257c" prot="public" static="no">
+        <name>GG_CHECK_LABEL_SEVERE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_SEVERE, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="398" column="9" bodyfile="xp/common/gg_logging.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4fbdf9151d5713123e437382e3f21e91" prot="public" static="no">
+        <name>GG_CHECK_LABEL_WARNING</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_WARNING, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="399" column="9" bodyfile="xp/common/gg_logging.h" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4c3016b2be0299c38d2c19526c2a552c" prot="public" static="no">
+        <name>GG_CHECK_LABEL_WARNING_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_WARNING, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="400" column="9" bodyfile="xp/common/gg_logging.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga2e6a2a082de18cdd2adf7b02392e915e" prot="public" static="no">
+        <name>GG_CHECK_LABEL_INFO</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_INFO, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="401" column="9" bodyfile="xp/common/gg_logging.h" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad8a184167354a1dc122518ccb51fc615" prot="public" static="no">
+        <name>GG_CHECK_LABEL_INFO_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_INFO, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="402" column="9" bodyfile="xp/common/gg_logging.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga8baf2b71dd6cd4927abbc09b11113e2d" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINE</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINE, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="403" column="9" bodyfile="xp/common/gg_logging.h" bodystart="403" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1gad395a3e3ccfd1acf7813039dc6ce17d4" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINE_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_FINE, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="404" column="9" bodyfile="xp/common/gg_logging.h" bodystart="404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga3a5e088301683581d3da88dd944cd6db" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINER</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINER, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="405" column="9" bodyfile="xp/common/gg_logging.h" bodystart="405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga4b25aeebadffe5729cade2f2ecd05502" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINER_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_FINER, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="406" column="9" bodyfile="xp/common/gg_logging.h" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga684d79b3dd214464df63c459c0e25a22" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINEST</name>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_GG_LocalLogger), GG_LOG_LEVEL_FINEST, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="407" column="9" bodyfile="xp/common/gg_logging.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__Logging_1ga3764cac719dca2d07edf20aaf3597475" prot="public" static="no">
+        <name>GG_CHECK_LABEL_FINEST_L</name>
+        <param><defname>_logger</defname></param>
+        <param><defname>_result</defname></param>
+        <param><defname>_label</defname></param>
+        <initializer>GG_CHECK_LABEL_LL((_logger), GG_LOG_LEVEL_FINEST, (_result), _label)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_logging.h" line="408" column="9" bodyfile="xp/common/gg_logging.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Logging subsystem </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

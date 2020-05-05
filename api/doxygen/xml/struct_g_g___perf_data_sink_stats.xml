@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___perf_data_sink_stats" kind="struct" language="C++" prot="public">
+    <compoundname>GG_PerfDataSinkStats</compoundname>
+    <includes refid="gg__perf__data__sink_8h" local="no">xp/utils/gg_perf_data_sink.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1ad2c49f8fe2ae63fb3ba50772d0cd5d09" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_PerfDataSinkStats::packets_received</definition>
+        <argsstring></argsstring>
+        <name>packets_received</name>
+        <briefdescription>
+<para>Total number of packets received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="48" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1a5e67beae5bc8aedc6e726dbf42406e6d" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_PerfDataSinkStats::bytes_received</definition>
+        <argsstring></argsstring>
+        <name>bytes_received</name>
+        <briefdescription>
+<para>Total number of bytes received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="49" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1a5c53df8d3a58883490238f1cdd4ff9b3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_PerfDataSinkStats::throughput</definition>
+        <argsstring></argsstring>
+        <name>throughput</name>
+        <briefdescription>
+<para>Throughput in bytes/s. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="50" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1af4d018917b306c189f3166c609dad037" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_PerfDataSinkStats::last_received_counter</definition>
+        <argsstring></argsstring>
+        <name>last_received_counter</name>
+        <briefdescription>
+<para>Last packet counter received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="51" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1aa5dc8643ef209f567d142088c9fb04c5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_PerfDataSinkStats::next_expected_counter</definition>
+        <argsstring></argsstring>
+        <name>next_expected_counter</name>
+        <briefdescription>
+<para>Expected next counter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="52" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1a07075f8166ce5b79e6b00cbd2a62ddf2" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_PerfDataSinkStats::gap_count</definition>
+        <argsstring></argsstring>
+        <name>gap_count</name>
+        <briefdescription>
+<para>Number of detected counter gaps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="53" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g___perf_data_sink_stats_1a9d4c0afb9afa2637b3e56d3071e2e3ac" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_PerfDataSinkStats::passthrough_would_block_count</definition>
+        <argsstring></argsstring>
+        <name>passthrough_would_block_count</name>
+        <briefdescription>
+<para>Number of times the passthrough sink returned GG_ERROR_WOULD_BLOCK. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/utils/gg_perf_data_sink.h" line="54" column="14" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Stats maintained by the sink </para>
+    </detaileddescription>
+    <location file="xp/utils/gg_perf_data_sink.h" line="47" column="15" bodyfile="xp/utils/gg_perf_data_sink.h" bodystart="47" bodyend="55"/>
+    <listofallmembers>
+      <member refid="struct_g_g___perf_data_sink_stats_1a5e67beae5bc8aedc6e726dbf42406e6d" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>bytes_received</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1a07075f8166ce5b79e6b00cbd2a62ddf2" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>gap_count</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1af4d018917b306c189f3166c609dad037" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>last_received_counter</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1aa5dc8643ef209f567d142088c9fb04c5" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>next_expected_counter</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1ad2c49f8fe2ae63fb3ba50772d0cd5d09" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>packets_received</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1a9d4c0afb9afa2637b3e56d3071e2e3ac" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>passthrough_would_block_count</name></member>
+      <member refid="struct_g_g___perf_data_sink_stats_1a5c53df8d3a58883490238f1cdd4ff9b3" prot="public" virt="non-virtual"><scope>GG_PerfDataSinkStats</scope><name>throughput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

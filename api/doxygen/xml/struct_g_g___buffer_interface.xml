@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___buffer_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_BufferInterface</compoundname>
+    <includes refid="gg__buffer_8h" local="no">xp/common/gg_buffer.h</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/common/gg_buffer.h" line="85" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="dir_2eaf09ad2413628eb6f4a1661d24a738" kind="dir">
+    <compoundname>xp/tls/ports/mbedtls</compoundname>
+    <innerfile refid="gg__mbedtls__tls_8h">gg_mbedtls_tls.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/tls/ports/mbedtls/"/>
+  </compounddef>
+</doxygen>

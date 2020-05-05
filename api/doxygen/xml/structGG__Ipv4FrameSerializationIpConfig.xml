@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__Ipv4FrameSerializationIpConfig" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Ipv4FrameSerializationIpConfig</compoundname>
+    <includes refid="gg__ipv4__protocol_8h" local="no">xp/protocols/gg_ipv4_protocol.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__Ipv4FrameSerializationIpConfig_1a0f3d93084fa63fdb9d7f84244e53b3c9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameSerializationIpConfig::default_src_address</definition>
+        <argsstring></argsstring>
+        <name>default_src_address</name>
+        <briefdescription>
+<para>Source address to elide/restore when compressing/decrompressing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="96" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameSerializationIpConfig_1a6c50f9fcefef12ce27bc3c87e326df64" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_Ipv4FrameSerializationIpConfig::default_dst_address</definition>
+        <argsstring></argsstring>
+        <name>default_dst_address</name>
+        <briefdescription>
+<para>Destination address to elide/restore when compressing/decrompressing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="97" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameSerializationIpConfig_1a0ebb2840c270d8bf06f2892cb4546dcb" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4FrameSerializationIpConfig::udp_src_ports[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>udp_src_ports</name>
+        <briefdescription>
+<para>Source port numbers to elide/restore when compressing/decrompressing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="98" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__Ipv4FrameSerializationIpConfig_1acffab5246b44946b3ced5692de8069df" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GG_Ipv4FrameSerializationIpConfig::udp_dst_ports[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>udp_dst_ports</name>
+        <briefdescription>
+<para>Destination port numbers to elide/restore when compressing/decrompressing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="99" column="14" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>IP Configuration used when creating GG_Ipv4FrameSerializer and GG_Ipv4FrameAssembler instances. This configuration is used when compressing/decompression IPv4 and UDP headers: header fields with matching values may be elided when compressing, and elided fields will be set to those values when decompressing. </para>
+    </detaileddescription>
+    <location file="xp/protocols/gg_ipv4_protocol.h" line="95" column="15" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="95" bodyend="100"/>
+    <listofallmembers>
+      <member refid="structGG__Ipv4FrameSerializationIpConfig_1a6c50f9fcefef12ce27bc3c87e326df64" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameSerializationIpConfig</scope><name>default_dst_address</name></member>
+      <member refid="structGG__Ipv4FrameSerializationIpConfig_1a0f3d93084fa63fdb9d7f84244e53b3c9" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameSerializationIpConfig</scope><name>default_src_address</name></member>
+      <member refid="structGG__Ipv4FrameSerializationIpConfig_1acffab5246b44946b3ced5692de8069df" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameSerializationIpConfig</scope><name>udp_dst_ports</name></member>
+      <member refid="structGG__Ipv4FrameSerializationIpConfig_1a0ebb2840c270d8bf06f2892cb4546dcb" prot="public" virt="non-virtual"><scope>GG_Ipv4FrameSerializationIpConfig</scope><name>udp_src_ports</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

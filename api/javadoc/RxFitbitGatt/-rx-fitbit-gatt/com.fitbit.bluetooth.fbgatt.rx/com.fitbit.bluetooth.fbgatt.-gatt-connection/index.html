@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.bluetooth.fbgatt.rx.com.fitbit.bluetooth.fbgatt.GattConnection - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.bluetooth.fbgatt.GattConnection</a><br/>
+<br/>
+<h3>Extensions for com.fitbit.bluetooth.fbgatt.GattConnection</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-remote-gatt-service-maybe.html">getRemoteGattServiceMaybe</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">GattConnection</span><span class="symbol">.</span><span class="identifier">getRemoteGattServiceMaybe</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceMaybe(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Maybe</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span></code>
+<p>Reactive extension function to return <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html">BluetoothGattService</a> for given service uuid</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-remote-gatt-service-single.html">getRemoteGattServiceSingle</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">GattConnection</span><span class="symbol">.</span><span class="identifier">getRemoteGattServiceSingle</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$getRemoteGattServiceSingle(com.fitbit.bluetooth.fbgatt.GattConnection, java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span></code>
+<p>Reactive extension function to return <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html">BluetoothGattService</a> for given service uuid</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="reset-gatt-state-if-necessary.html">resetGattStateIfNecessary</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">GattConnection</span><span class="symbol">.</span><span class="identifier">resetGattStateIfNecessary</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$resetGattStateIfNecessary(com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Throwable, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter)/t">t</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx$resetGattStateIfNecessary(com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Throwable, com.fitbit.bluetooth.fbgatt.rx.client.GattClientConnectionStateSetter)/stateSetter">stateSetter</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.bluetooth.fbgatt.rx.client/-gatt-client-connection-state-setter/index.html"><span class="identifier">GattClientConnectionStateSetter</span></a>&nbsp;<span class="symbol">=</span>&nbsp;GattClientConnectionStateSetter()<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Extension function to reset Gatt state to <a href="#">GattState.IDLE</a> on <a href="../-gatt-transaction-exception/index.html">GattTransactionException</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

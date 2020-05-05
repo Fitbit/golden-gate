@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__event__dispatcher_8h" kind="file" language="C++">
+    <compoundname>gg_event_dispatcher.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__events_8h" local="yes">xp/common/gg_events.h</includes>
+    <includes refid="gg__lists_8h" local="yes">xp/common/gg_lists.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>xp/common/gg_event_dispatcher.h</label>
+        <link refid="gg__event__dispatcher_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>stdbool.h</label>
+      </node>
+      <node id="6">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="4">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_g_g___event_dispatcher___listener_node" prot="public">GG_EventDispatcher_ListenerNode</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="gg__event__dispatcher_8h_1a1b03e36eea37ca9f6c217a9252ba7a3f" prot="public" static="no">
+        <type>struct GG_EventDispatcher</type>
+        <definition>typedef struct GG_EventDispatcher GG_EventDispatcher</definition>
+        <argsstring></argsstring>
+        <name>GG_EventDispatcher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="54" column="44" bodyfile="xp/common/gg_event_dispatcher.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="gg__event__dispatcher_8h_1ad63fe3434df0d3ef1aedf0c26de7c4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_EventDispatcher_AddListener</definition>
+        <argsstring>(GG_EventDispatcher *self, GG_EventListener *listener, const uint32_t *events, size_t num_events, GG_EventDispatcher_ListenerNode *node)</argsstring>
+        <name>GG_EventDispatcher_AddListener</name>
+        <param>
+          <type>GG_EventDispatcher *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type>const uint32_t *</type>
+          <declname>events</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>num_events</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___event_dispatcher___listener_node" kindref="compound">GG_EventDispatcher_ListenerNode</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register as a listener with the dispatcher</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The listener to be registered </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>events</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of events the listener will be called back for. NULL to listen to all events </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>num_events</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of events in the array </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Listener Node to store data. If NULL, event dispatcher will allocate and manage memory of the node NOTE: Event Dispatcher will NOT copy over the events. User must ensure events array remains valid A listener can only be registered once. If a listener tries to register again dispatcher will return GG_ERROR_INVALID_PARAMETERS NOTE: Well behaved event listeners should not emit the event they listen to when called back. Listeners that are added during an onEvent callback will be notified only for subsequent events </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or Failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="70" column="11" declfile="xp/common/gg_event_dispatcher.h" declline="70" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__event__dispatcher_8h_1a51aa596d478cc3d36b3134f3c4dc8d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_EventDispatcher_RemoveListener</definition>
+        <argsstring>(GG_EventDispatcher *self, GG_EventListener *listener)</argsstring>
+        <name>GG_EventDispatcher_RemoveListener</name>
+        <param>
+          <type>GG_EventDispatcher *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref> *</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Remove a listener from the event dispatcher</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event listener to be removed. Will NOT be called back after removal </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or Failure </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="83" column="11" declfile="xp/common/gg_event_dispatcher.h" declline="83" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__event__dispatcher_8h_1a8210e053258083861714a3bf9e491eec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref> *</type>
+        <definition>GG_EventListener* GG_EventDispatcher_AsEventListener</definition>
+        <argsstring>(GG_EventDispatcher *self)</argsstring>
+        <name>GG_EventDispatcher_AsEventListener</name>
+        <param>
+          <type>GG_EventDispatcher *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get an Event Dispatcher as an Event Listener </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="90" column="18" declfile="xp/common/gg_event_dispatcher.h" declline="90" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__event__dispatcher_8h_1a2feb86749660c52e30547cd7e99af939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_EventDispatcher_Create</definition>
+        <argsstring>(GG_EventDispatcher **self)</argsstring>
+        <name>GG_EventDispatcher_Create</name>
+        <param>
+          <type>GG_EventDispatcher **</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create an event dispatcher </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="96" column="6" declfile="xp/common/gg_event_dispatcher.h" declline="96" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="gg__event__dispatcher_8h_1a176c9d786f639602fa7c7a7e7fffbab2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_EventDispatcher_Destroy</definition>
+        <argsstring>(GG_EventDispatcher *self)</argsstring>
+        <name>GG_EventDispatcher_Destroy</name>
+        <param>
+          <type>GG_EventDispatcher *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy an event dispatcher and clean up memory </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_event_dispatcher.h" line="101" column="6" declfile="xp/common/gg_event_dispatcher.h" declline="101" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Dispatcher that can have multiple listeners. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Kishore B. Rao</para>
+</simplesect>
+<simplesect kind="date"><para>2019-02-01 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__events_8h" kindref="compound">xp/common/gg_events.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__lists_8h" kindref="compound">xp/common/gg_lists.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="33"><highlight class="comment">|<sp/><sp/>types</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">GG_EventDispatcher<sp/>GG_EventDispatcher;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="struct_g_g___event_dispatcher___listener_node" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42" refid="struct_g_g___event_dispatcher___listener_node_1af55e2990764c90779d772035ef3f8dbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___linked_list_node" kindref="compound">GG_LinkedListNode</ref><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1af55e2990764c90779d772035ef3f8dbb" kindref="member">list_node</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="struct_g_g___event_dispatcher___listener_node_1a2586469724248a695f002096db2e7ab1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1a2586469724248a695f002096db2e7ab1" kindref="member">listener</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="struct_g_g___event_dispatcher___listener_node_1a84cf3a8a5e7899ecc7eec025ff471fb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t*<sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1a84cf3a8a5e7899ecc7eec025ff471fb3" kindref="member">events</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45" refid="struct_g_g___event_dispatcher___listener_node_1a26cc34cc5cb5fc5cf8f4bca92f4062e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1a26cc34cc5cb5fc5cf8f4bca92f4062e7" kindref="member">num_events</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="struct_g_g___event_dispatcher___listener_node_1a3b6c4e193c0422f44526f11bb4910b98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1a3b6c4e193c0422f44526f11bb4910b98" kindref="member">node_is_local</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="struct_g_g___event_dispatcher___listener_node_1a8426f07386533aea200daa0323a11d09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node_1a8426f07386533aea200daa0323a11d09" kindref="member">sequence_number</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/><ref refid="struct_g_g___event_dispatcher___listener_node" kindref="compound">GG_EventDispatcher_ListenerNode</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="51"><highlight class="comment">|<sp/><sp/>Functions</highlight></codeline>
+<codeline lineno="52"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__event__dispatcher_8h_1ad63fe3434df0d3ef1aedf0c26de7c4c6" kindref="member">GG_EventDispatcher_AddListener</ref>(GG_EventDispatcher*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listener,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>events,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>num_events,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_dispatcher___listener_node" kindref="compound">GG_EventDispatcher_ListenerNode</ref>*<sp/><sp/><sp/><sp/>node);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__event__dispatcher_8h_1a51aa596d478cc3d36b3134f3c4dc8d3b" kindref="member">GG_EventDispatcher_RemoveListener</ref>(GG_EventDispatcher*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><sp/><sp/>listener);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><ref refid="gg__event__dispatcher_8h_1a8210e053258083861714a3bf9e491eec" kindref="member">GG_EventDispatcher_AsEventListener</ref>(GG_EventDispatcher*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__event__dispatcher_8h_1a2feb86749660c52e30547cd7e99af939" kindref="member">GG_EventDispatcher_Create</ref>(GG_EventDispatcher**<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__event__dispatcher_8h_1a176c9d786f639602fa7c7a7e7fffbab2" kindref="member">GG_EventDispatcher_Destroy</ref>(GG_EventDispatcher*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_event_dispatcher.h"/>
+  </compounddef>
+</doxygen>

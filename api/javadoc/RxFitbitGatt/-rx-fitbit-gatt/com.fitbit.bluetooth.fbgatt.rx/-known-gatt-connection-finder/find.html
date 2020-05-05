@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KnownGattConnectionFinder.find - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx</a>&nbsp;/&nbsp;<a href="index.html">KnownGattConnectionFinder</a>&nbsp;/&nbsp;<a href="./find.html">find</a><br/>
+<br/>
+<h1>find</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.KnownGattConnectionFinder$find(kotlin.collections.List((kotlin.String)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Boolean)))"></a>
+<code><span class="keyword">fun </span><span class="identifier">find</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.KnownGattConnectionFinder$find(kotlin.collections.List((kotlin.String)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Boolean)))/names">names</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;emptyList()<span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.KnownGattConnectionFinder$find(kotlin.collections.List((kotlin.String)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Boolean)))/filterPredicate">filterPredicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">GattConnection</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ true }<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">GattConnection</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Finds known GattConnections matching given device names and <a href="find.html#com.fitbit.bluetooth.fbgatt.rx.KnownGattConnectionFinder$find(kotlin.collections.List((kotlin.String)), kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, kotlin.Boolean)))/filterPredicate">filterPredicate</a> filter</p>
+<h3>Parameters</h3>
+<p><a name="names"></a>
+<code>names</code> - list of device names to match, if empty known connections will not be filtered by device names</p>
+<p><a name="filterPredicate"></a>
+<code>filterPredicate</code> - filter to apply to known GattConnection, if no predicate provided will return all known connections</p>
+<p><strong>Return</strong><br/>
+Returns a <a href="#">Single</a> that will emit all known GattConnection</p>
+</BODY>
+</HTML>

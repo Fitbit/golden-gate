@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___runnable_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_RunnableInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___runnable_interface_1aa415c88ab97e62edbb5096a147aa82b9" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_RunnableInterface::Run) (GG_Runnable *self)</definition>
+        <argsstring>)(GG_Runnable *self)</argsstring>
+        <name>Run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="68" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/loop/gg_loop.h" line="67" column="79" bodyfile="xp/loop/gg_loop.h" bodystart="67" bodyend="69"/>
+    <listofallmembers>
+      <member refid="struct_g_g___runnable_interface_1aa415c88ab97e62edbb5096a147aa82b9" prot="public" virt="non-virtual"><scope>GG_RunnableInterface</scope><name>Run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

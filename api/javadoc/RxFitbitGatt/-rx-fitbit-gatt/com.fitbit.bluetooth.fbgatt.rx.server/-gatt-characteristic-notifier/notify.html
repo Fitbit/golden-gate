@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>GattCharacteristicNotifier.notify - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.server</a>&nbsp;/&nbsp;<a href="index.html">GattCharacteristicNotifier</a>&nbsp;/&nbsp;<a href="./notify.html">notify</a><br/>
+<br/>
+<h1>notify</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)"></a>
+<code><span class="keyword">fun </span><span class="identifier">notify</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/serviceId">serviceId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/characteristicId">characteristicId</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier$notify(java.util.UUID, java.util.UUID, kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<p>Send a notification or indication that local GATT Characteristic has been updated</p>
+<h3>Parameters</h3>
+<p><a name="serviceId"></a>
+<code>serviceId</code> - ID of the local service to notify</p>
+<p><a name="characteristicId"></a>
+<code>characteristicId</code> - ID of the local characteristic to notify</p>
+<p><a name="data"></a>
+<code>data</code> - data to update GATT Characteristic with</p>
+<h3>Exceptions</h3>
+<p><a name="GattServerNotFoundException"></a>
+<code>GattServerNotFoundException</code> - if GATT server is not available</p>
+<p><a name="GattServiceNotFoundException"></a>
+<code>GattServiceNotFoundException</code> - if GATT service was not found</p>
+<p><a name="GattCharacteristicException"></a>
+<code>GattCharacteristicException</code> - if GATT Characteristic is not found</p>
+</BODY>
+</HTML>

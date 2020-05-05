@@ -1,0 +1,635 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="gg__io_8h" kind="file" language="C++">
+    <compoundname>gg_io.h</compoundname>
+    <includes local="no">stdint.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
+    <includes refid="gg__buffer_8h" local="yes">xp/common/gg_buffer.h</includes>
+    <includes refid="gg__strings_8h" local="yes">xp/common/gg_strings.h</includes>
+    <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includedby>
+    <includedby refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includedby>
+    <includedby refid="gg__async__pipe_8h" local="yes">xp/utils/gg_async_pipe.h</includedby>
+    <includedby refid="gg__memory__data__source_8h" local="yes">xp/utils/gg_memory_data_source.h</includedby>
+    <includedby refid="gg__memory__data__sink_8h" local="yes">xp/utils/gg_memory_data_sink.h</includedby>
+    <includedby refid="gg__blaster__data__source_8h" local="yes">xp/utils/gg_blaster_data_source.h</includedby>
+    <includedby refid="gg__perf__data__sink_8h" local="yes">xp/utils/gg_perf_data_sink.h</includedby>
+    <includedby refid="gg__print__data__sink_8h" local="yes">xp/utils/gg_print_data_sink.h</includedby>
+    <includedby refid="gg__activity__data__monitor_8h" local="yes">xp/utils/gg_activity_data_monitor.h</includedby>
+    <includedby refid="gg__nip_8h" local="yes">xp/nip/gg_nip.h</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>stdbool.h</label>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>assert.h</label>
+      </node>
+      <node id="2">
+        <label>stdint.h</label>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stddef.h</label>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="29">
+        <label>xp/utils/gg_print_data_sink.h</label>
+        <link refid="gg__print__data__sink_8h"/>
+      </node>
+      <node id="24">
+        <label>xp/utils/gg_async_pipe.h</label>
+        <link refid="gg__async__pipe_8h"/>
+      </node>
+      <node id="14">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
+      </node>
+      <node id="5">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>xp/utils/gg_memory_data_source.h</label>
+        <link refid="gg__memory__data__source_8h"/>
+      </node>
+      <node id="6">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="27">
+        <label>xp/utils/gg_blaster_data_source.h</label>
+        <link refid="gg__blaster__data__source_8h"/>
+      </node>
+      <node id="17">
+        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
+        <link refid="gg__mbedtls__tls_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/coap/gg_coap_blockwise.h</label>
+        <link refid="gg__coap__blockwise_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="30">
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
+      </node>
+      <node id="9">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
+        <link refid="gg__bsd__sockets_8h"/>
+      </node>
+      <node id="26">
+        <label>xp/utils/gg_memory_data_sink.h</label>
+        <link refid="gg__memory__data__sink_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
+      </node>
+      <node id="19">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="28">
+        <label>xp/utils/gg_perf_data_sink.h</label>
+        <link refid="gg__perf__data__sink_8h"/>
+      </node>
+      <node id="15">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_g___buffer_metadata" prot="public">GG_BufferMetadata</innerclass>
+    <innerclass refid="struct_g_g___data_sink_listener" prot="public">GG_DataSinkListener</innerclass>
+    <innerclass refid="struct_g_g___data_sink_listener_interface" prot="public">GG_DataSinkListenerInterface</innerclass>
+    <innerclass refid="struct_g_g___data_sink" prot="public">GG_DataSink</innerclass>
+    <innerclass refid="struct_g_g___data_sink_interface" prot="public">GG_DataSinkInterface</innerclass>
+    <innerclass refid="struct_g_g___data_source" prot="public">GG_DataSource</innerclass>
+    <innerclass refid="struct_g_g___data_source_interface" prot="public">GG_DataSourceInterface</innerclass>
+    <innerclass refid="struct_g_g___input_stream" prot="public">GG_InputStream</innerclass>
+    <innerclass refid="struct_g_g___input_stream_interface" prot="public">GG_InputStreamInterface</innerclass>
+    <innerclass refid="struct_g_g___output_stream" prot="public">GG_OutputStream</innerclass>
+    <innerclass refid="struct_g_g___output_stream_interface" prot="public">GG_OutputStreamInterface</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___input_output_1ga03f933b21bb40e344d742979c4b217a4" prot="public" static="no">
+        <name>GG_ERROR_EOS</name>
+        <initializer>(<ref refid="group___errors_1gaece26aab8fba5241bec75750f339634c" kindref="member">GG_ERROR_BASE_IO</ref> - 0)</initializer>
+        <briefdescription>
+<para>End Of Stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="36" column="9" bodyfile="xp/common/gg_io.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___input_output_1ga2751ad0311395f3a3c156c2755985c8b" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_TYPE_NONE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="53" column="9" bodyfile="xp/common/gg_io.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___input_output_1ga670b59e68a9edb94aec0e9ddf058769b" prot="public" static="no">
+        <name>GG_BUFFER_METADATA_INITIALIZER</name>
+        <param><defname>_type_id</defname></param>
+        <param><defname>_c_type</defname></param>
+        <initializer>((<ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>){                                     \
+    .type = GG_BUFFER_METADATA_TYPE_##_type_id,           \
+    .size = sizeof(_c_type)                               \
+})</initializer>
+        <briefdescription>
+<para>Initialize a <ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref> struct given its type ID and C type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The type ID passed here is the tail of the C constant name for the type ID that follows the GG_BUFFER_METADATA_TYPE_ prefix. So for example, to initialize a metadata struct that has the C type FooBar and the type ID constant GG_BUFFER_METADATA_TYPE_FOOBAR, you would use <ref refid="group___input_output_1ga670b59e68a9edb94aec0e9ddf058769b" kindref="member">GG_BUFFER_METADATA_INITIALIZER(FOOBAR, Foobar)</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="68" column="9" bodyfile="xp/common/gg_io.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___input_output_1gafefaf443db72c7e110f266a766303654" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_BufferMetadata_Clone</definition>
+        <argsstring>(const GG_BufferMetadata *metadata, GG_BufferMetadata **clone)</argsstring>
+        <name>GG_BufferMetadata_Clone</name>
+        <param>
+          <type>const <ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref> *</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref> **</type>
+          <declname>clone</declname>
+        </param>
+        <briefdescription>
+<para>Clone a metadata object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>metadata</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is called. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clone</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the variable where the cloned object will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the object could be cloned, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_io.h" line="82" column="11" declfile="xp/common/gg_io.h" declline="82" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose I/O interfaces. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>Copyright 2017-2020 Fitbit, Inc SPDX-License-Identifier: Apache-2.0</para>
+</simplesect>
+<simplesect kind="author"><para>Gilles Boccon-Gibod</para>
+</simplesect>
+<simplesect kind="date"><para>2017-09-18 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="14"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__buffer_8h" kindref="compound">xp/common/gg_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__strings_8h" kindref="compound">xp/common/gg_strings.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">|<sp/><sp/><sp/>error<sp/>codes</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="group___input_output_1ga03f933b21bb40e344d742979c4b217a4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ERROR_EOS<sp/>(GG_ERROR_BASE_IO<sp/>-<sp/>0)<sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="45" refid="struct_g_g___buffer_metadata" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46" refid="struct_g_g___buffer_metadata_1a1bf0ab8d657bfc377dbc9dace8a581e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___buffer_metadata_1a1bf0ab8d657bfc377dbc9dace8a581e1" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="47" refid="struct_g_g___buffer_metadata_1aff68dd90f53c4b1e04aea61543c4b9e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___buffer_metadata_1aff68dd90f53c4b1e04aea61543c4b9e2" kindref="member">size</ref>;<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="51"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="52"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_BUFFER_METADATA_TYPE_NONE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="56"><highlight class="comment">|<sp/><sp/><sp/>macros</highlight></codeline>
+<codeline lineno="57"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="group___input_output_1ga670b59e68a9edb94aec0e9ddf058769b" refkind="member"><highlight class="preprocessor">#define<sp/>GG_BUFFER_METADATA_INITIALIZER(_type_id,<sp/>_c_type)<sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor">((GG_BufferMetadata){<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.type<sp/>=<sp/>GG_BUFFER_METADATA_TYPE_##_type_id,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(_c_type)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor">})</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gafefaf443db72c7e110f266a766303654" kindref="member">GG_BufferMetadata_Clone</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>*<sp/>metadata,<sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>**<sp/>clone);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="struct_g_g___data_sink_listener_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="101" refid="struct_g_g___data_sink_listener_interface_1a306a7087d974223eea827b0bda5130ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnCanPut)(<ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"></codeline>
+<codeline lineno="109"></codeline>
+<codeline lineno="112"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___input_output_1gacdc03d1cfb3d68203eb1c32ccaf0ac12" kindref="member">GG_DataSinkListener_OnCanPut</ref>(<ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="struct_g_g___data_sink_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="136" refid="struct_g_g___data_sink_interface_1a9172a7791ed5499d86a5764a52b5ccb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*PutData)(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/>data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>*<sp/>metadata);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="struct_g_g___data_sink_interface_1a97adcb3468a0dd1c81a0e2753f10f0c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*SetListener)(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/>listener);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"></codeline>
+<codeline lineno="155"></codeline>
+<codeline lineno="158"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga0727b8f76fd9f80fdd69f6a7304c8ff9" kindref="member">GG_DataSink_PutData</ref>(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>*<sp/>data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___buffer_metadata" kindref="compound">GG_BufferMetadata</ref>*<sp/>metadata);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga58201b484acd2344344a7a5cd9756ad1" kindref="member">GG_DataSink_SetListener</ref>(<ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref>*<sp/>listener);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="struct_g_g___data_source_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="189" refid="struct_g_g___data_source_interface_1ad1153e63cdc9ee402d8f7104774c0988" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*SetDataSink)(<ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/>sink);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"></codeline>
+<codeline lineno="197"></codeline>
+<codeline lineno="200"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga2ab916d109055c75274c063569554f1a" kindref="member">GG_DataSource_SetDataSink</ref>(<ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/>sink);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="struct_g_g___input_stream_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="216" refid="struct_g_g___input_stream_interface_1afca5e33c03b3a1005f6b2c3763864ae1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/>(*Retain)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="struct_g_g___input_stream_interface_1abe6f42d3484f2d0aea2307bd22d52df9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Release)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235" refid="struct_g_g___input_stream_interface_1af354157930930068f82e7bcbdf0204a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Read)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_read,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_read);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247" refid="struct_g_g___input_stream_interface_1a1cedeab891810970853b7f2bce690125" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Seek)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref><sp/>offset);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="struct_g_g___input_stream_interface_1a9275bd69c11debf784d726500ab8218a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Tell)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>offset);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265" refid="struct_g_g___input_stream_interface_1a884ac15715cf1517565516fb09688399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*GetSize)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>size);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274" refid="struct_g_g___input_stream_interface_1a46841149f3540ee5fe48c917a67f2cd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*GetAvailable)(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>available);</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"></codeline>
+<codeline lineno="282"></codeline>
+<codeline lineno="285"><highlight class="normal"><ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/><ref refid="group___input_output_1gabda3f57560947b144de8b94d396adbe9" kindref="member">GG_InputStream_Retain</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___input_output_1ga153f8e4db9f8d56ddbd483f7239f7fd6" kindref="member">GG_InputStream_Release</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga6b30fe7ee10e15552dbdf592fa7ce91c" kindref="member">GG_InputStream_Read</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_read,</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_read);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga3c4a579880cd08fe7ef4eb68099c09b2" kindref="member">GG_InputStream_Seek</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref><sp/>offset);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga7c3787a69ff8d48c0d037211e4e48c20" kindref="member">GG_InputStream_Tell</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>offset);</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga766b2be66111f59dfd01a512f15dea64" kindref="member">GG_InputStream_GetSize</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>size);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gad41a61dea4d7306031a3c288227c7889" kindref="member">GG_InputStream_GetAvailable</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>available);</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gaed44154b1461b3448cdab758aeff1597" kindref="member">GG_InputStream_ReadLine</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>line,</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>line_size,</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chars_read);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga95b91546a6e0eeecc713c6d9e2079de1" kindref="member">GG_InputStream_ReadLineString</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___string" kindref="compound">GG_String</ref>*<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_length);</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga3c9e3091ffa0d96c4ee8fabbdc060f22" kindref="member">GG_InputStream_ReadUI64</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint64_t*<sp/>value);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga00da41fbe64dace4953feeb4a571fe87" kindref="member">GG_InputStream_ReadUI32</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t*<sp/>value);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga2a2817d31389d11848b9bed7bcfa9725" kindref="member">GG_InputStream_ReadUI16</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint16_t*<sp/>value);</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga0f425b936d820d88e7f69aeb0b39ede5" kindref="member">GG_InputStream_ReadFully</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_read);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gad5ed4b847291dfa293b8df9801d49284" kindref="member">GG_InputStream_Skip</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count);</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga081e2647a501e95969ce3873951787d1" kindref="member">GG_InputStream_Load</ref>(<ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>*<sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_read,<sp/></highlight><highlight class="comment">/*<sp/>=<sp/>0<sp/>if<sp/>no<sp/>limit<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>**<sp/>buffer);</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="421"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="422" refid="struct_g_g___output_stream_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="430" refid="struct_g_g___output_stream_interface_1aeb5ae47ed0e34d81a0d56fd798872e85" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/>(*Retain)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="437" refid="struct_g_g___output_stream_interface_1af964ab989a14182702bcf7a03247eebf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Release)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight></codeline>
+<codeline lineno="448" refid="struct_g_g___output_stream_interface_1a30e19cf0e867cb7445dff0a4fc82dfa6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Write)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_write,</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_written);</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"></highlight></codeline>
+<codeline lineno="460" refid="struct_g_g___output_stream_interface_1a7cf27ec0f0962760f234207293671e7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Seek)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref><sp/>offset);</highlight></codeline>
+<codeline lineno="461"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469" refid="struct_g_g___output_stream_interface_1a3694b72b9a62d4f9c62905a279f4024c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Tell)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>offset);</highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight></codeline>
+<codeline lineno="477" refid="struct_g_g___output_stream_interface_1af32319f68fedd73e04f49921d2de80fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Flush)(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="478"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"></highlight></codeline>
+<codeline lineno="482"></codeline>
+<codeline lineno="485"></codeline>
+<codeline lineno="488"><highlight class="normal"><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/><ref refid="group___input_output_1gaf2550aa87ab411cb4d246a262ca11408" kindref="member">GG_OutputStream_Retain</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"></highlight></codeline>
+<codeline lineno="492"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___input_output_1gaf45bc56d0cc7c366f030fb4a115d0d41" kindref="member">GG_OutputStream_Release</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="493"><highlight class="normal"></highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga66df410759fe8fadd48bfd2e6385427b" kindref="member">GG_OutputStream_Write</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_write,</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_written);</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"></highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga352f763e38bab40c99688934ef4b8357" kindref="member">GG_OutputStream_Seek</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref><sp/>offset);</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga2384b4b7f211b7763d238c2a51192af5" kindref="member">GG_OutputStream_Tell</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="group___types_1ga211487066e746316239c66cea030a31b" kindref="member">GG_Position</ref>*<sp/>offset);</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="511"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga8648f2f8394c18944ec8b00c84b03069" kindref="member">GG_OutputStream_Flush</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="512"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga719c6da2c619f7e124124a3d41165d4a" kindref="member">GG_OutputStream_WriteFully</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bytes_to_write);</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"></highlight></codeline>
+<codeline lineno="536"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gacfca6708039f104dea0bb0fef340f2ac" kindref="member">GG_OutputStream_WriteString</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"></highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga926db9f2bdaad3d27533dd700c2f1cb6" kindref="member">GG_OutputStream_WriteLine</ref>(<ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>line);</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"></highlight></codeline>
+<codeline lineno="549"><highlight class="normal"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="553"><highlight class="comment"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="556"><highlight class="comment"></highlight><highlight class="comment">//---------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="557"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref><sp/><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>;</highlight></codeline>
+<codeline lineno="558"><highlight class="normal"></highlight></codeline>
+<codeline lineno="571"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gaffcbcc514ac2049fd8ebeaa181717a00" kindref="member">GG_MemoryStream_Create</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>**<sp/>stream);</highlight></codeline>
+<codeline lineno="572"><highlight class="normal"></highlight></codeline>
+<codeline lineno="587"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gaa5f497a43615055c4d212ab2778b27b8" kindref="member">GG_MemoryStream_CreateFromBuffer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="588"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size,</highlight></codeline>
+<codeline lineno="589"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>**<sp/>stream);</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"></highlight></codeline>
+<codeline lineno="596"><highlight class="normal"><ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/><ref refid="group___input_output_1gaf80adf9524bb1e7d291dae945957806c" kindref="member">GG_MemoryStream_Retain</ref>(<ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="597"><highlight class="normal"></highlight></codeline>
+<codeline lineno="603"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___input_output_1gab55b313c397831d655265cff78d782b2" kindref="member">GG_MemoryStream_Release</ref>(<ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="604"><highlight class="normal"></highlight></codeline>
+<codeline lineno="614"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gacc68c61fa0566a9b9ec3c3036fc83635" kindref="member">GG_MemoryStream_GetBuffer</ref>(<ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="class_g_g___dynamic_buffer" kindref="compound">GG_DynamicBuffer</ref>**<sp/>buffer);</highlight></codeline>
+<codeline lineno="615"><highlight class="normal"></highlight></codeline>
+<codeline lineno="627"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1ga93aae2221b4c3d198c397cbce518c988" kindref="member">GG_MemoryStream_GetInputStream</ref>(<ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___input_stream" kindref="compound">GG_InputStream</ref>**<sp/>stream);</highlight></codeline>
+<codeline lineno="628"><highlight class="normal"></highlight></codeline>
+<codeline lineno="640"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___input_output_1gaf488b1cf1a2caa88e53e49fcfac0bf51" kindref="member">GG_MemoryStream_GetOutputStream</ref>(<ref refid="class_g_g___memory_stream" kindref="compound">GG_MemoryStream</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___output_stream" kindref="compound">GG_OutputStream</ref>**<sp/>stream);</highlight></codeline>
+<codeline lineno="641"><highlight class="normal"></highlight></codeline>
+<codeline lineno="643"><highlight class="normal"></highlight></codeline>
+<codeline lineno="644"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="645"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="646"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="xp/common/gg_io.h"/>
+  </compounddef>
+</doxygen>

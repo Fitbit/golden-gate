@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__Runnable" kind="struct" language="C++" prot="public">
+    <compoundname>GG_Runnable</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__Runnable_1aed4f1eef544f9838c841d7dc01c827a8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structGG__RunnableInterface" kindref="compound">GG_RunnableInterface</ref> *</type>
+        <definition>const GG_RunnableInterface* GG_Runnable::vtable</definition>
+        <argsstring></argsstring>
+        <name>vtable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="66" column="79" bodyfile="xp/loop/gg_loop.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_Runnable</label>
+        <link refid="structGG__Runnable"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_RunnableInterface</label>
+        <link refid="structGG__RunnableInterface"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/loop/gg_loop.h" line="66" column="51" bodyfile="xp/loop/gg_loop.h" bodystart="66" bodyend="66"/>
+    <listofallmembers>
+      <member refid="structGG__Runnable_1aed4f1eef544f9838c841d7dc01c827a8" prot="public" virt="non-virtual"><scope>GG_Runnable</scope><name>vtable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

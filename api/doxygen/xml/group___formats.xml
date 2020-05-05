@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group___formats" kind="group">
+    <compoundname>Formats</compoundname>
+    <title>Formats</title>
+    <innerclass refid="struct_g_g___bit_input_stream" prot="public">GG_BitInputStream</innerclass>
+    <innerclass refid="struct_g_g___bit_output_stream" prot="public">GG_BitOutputStream</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group___formats_1ga310471717beaf75ae9584da69b24f4bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_Init</definition>
+        <argsstring>(GG_BitInputStream *self, const uint8_t *data, size_t data_size)</argsstring>
+        <name>GG_BitInputStream_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a bitstream for reading.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="81" column="6" declfile="xp/common/gg_bitstream.h" declline="81" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gaad5585bbd4c16c502c4979be64d7241f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_Reset</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_Reset</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset a bitstream. This is equivalent to calling GG_BitInputStream_Init again with the same parameters as when the bitstream was initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="90" column="6" declfile="xp/common/gg_bitstream.h" declline="90" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga9d30ecbdf51048a9b0d7429f5b614e5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitInputStream_ByteAlign</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_ByteAlign</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Align the reading position to the nearest byte boundary.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="97" column="6" declfile="xp/common/gg_bitstream.h" declline="97" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gabc2c1e01fa46ed873053b8fd74eac6f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_BitInputStream_GetPosition</definition>
+        <argsstring>(GG_BitInputStream *self)</argsstring>
+        <name>GG_BitInputStream_GetPosition</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current bit position of a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current bit position. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="106" column="8" declfile="xp/common/gg_bitstream.h" declline="106" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga48aa89f903888a425c2830f2397e4fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BitInputStream_Read</definition>
+        <argsstring>(GG_BitInputStream *self, size_t bit_count)</argsstring>
+        <name>GG_BitInputStream_Read</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read bits from a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to read (between 1 and 32).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The bits read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="116" column="10" declfile="xp/common/gg_bitstream.h" declline="116" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga68483eeeb6ca8b926fa9ae2eef683067" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_BitInputStream_Peek</definition>
+        <argsstring>(GG_BitInputStream *self, size_t bit_count)</argsstring>
+        <name>GG_BitInputStream_Peek</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_input_stream" kindref="compound">GG_BitInputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Peek at bits from a bitstream. This is the same as GG_BitInputStream_Read but without advancing the bit position.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to read (between 1 and 32).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The bits read from the buffer. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="127" column="10" declfile="xp/common/gg_bitstream.h" declline="127" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gafcf3163b243e9232e8bdfc20497d32b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Init</definition>
+        <argsstring>(GG_BitOutputStream *self, uint8_t *buffer, size_t buffer_size)</argsstring>
+        <name>GG_BitOutputStream_Init</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize a bitstream for writing. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="132" column="6" declfile="xp/common/gg_bitstream.h" declline="132" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gab188f5d1da287bbd24ec85f7668133ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Reset</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_Reset</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset a bitstream. This is equivalent to calling GG_BitOutputStream_Init again with the same parameters as when the bitstream was initialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="141" column="6" declfile="xp/common/gg_bitstream.h" declline="141" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga592115ca3dd07beb77b96d2271a3256a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Write</definition>
+        <argsstring>(GG_BitOutputStream *self, uint32_t bits, size_t bit_count)</argsstring>
+        <name>GG_BitOutputStream_Write</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bit_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write bits to a bitstream. NOTE: the bits may not be immediately stored in the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bits</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer value representing the bits to write. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bit_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bits to write (between 1 and 32). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="151" column="6" declfile="xp/common/gg_bitstream.h" declline="151" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1ga220bb748e8c47eade24ca77940dba2e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_BitOutputStream_Flush</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_Flush</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flush the bitstream to the underlying byte buffer. NOTE: this may write zero-padding bits. More bits written after calling this method may not be contiguous. This method is typically called when the caller is done writing and wants to use the values in the underlying buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="161" column="6" declfile="xp/common/gg_bitstream.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group___formats_1gaa331546d339f4470ff31a1196ca5140c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_BitOutputStream_GetPosition</definition>
+        <argsstring>(GG_BitOutputStream *self)</argsstring>
+        <name>GG_BitOutputStream_GetPosition</name>
+        <param>
+          <type><ref refid="struct_g_g___bit_output_stream" kindref="compound">GG_BitOutputStream</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the current bit position of a bitstream.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which the method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The current bit position. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="170" column="8" declfile="xp/common/gg_bitstream.h" declline="170" declcolumn="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group___formats_1gaaf51934a4979ca9a6464f04417573246" prot="public" static="no">
+        <name>GG_BITSTREAM_WORD_BITS</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="32" column="9" bodyfile="xp/common/gg_bitstream.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group___formats_1ga7acd1144a7cfbe2cd7fef1980acaf10e" prot="public" static="no">
+        <name>GG_BITSTREAM_WORD_BYTES</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_bitstream.h" line="33" column="9" bodyfile="xp/common/gg_bitstream.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Bitstream reading &amp; writing </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1088 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="group__StackBuilder" kind="group">
+    <compoundname>StackBuilder</compoundname>
+    <title>Stack Builder</title>
+    <innerclass refid="structGG__StackElementInfo" prot="public">GG_StackElementInfo</innerclass>
+    <innerclass refid="structGG__StackElementPortInfo" prot="public">GG_StackElementPortInfo</innerclass>
+    <innerclass refid="structGG__StackIpConfiguration" prot="public">GG_StackIpConfiguration</innerclass>
+    <innerclass refid="structGG__StackElementActivityMonitorParameters" prot="public">GG_StackElementActivityMonitorParameters</innerclass>
+    <innerclass refid="structGG__StackElementGattlinkParameters" prot="public">GG_StackElementGattlinkParameters</innerclass>
+    <innerclass refid="structGG__StackElementDatagramSocketParameters" prot="public">GG_StackElementDatagramSocketParameters</innerclass>
+    <innerclass refid="structGG__StackBuilderParameters" prot="public">GG_StackBuilderParameters</innerclass>
+    <innerclass refid="structGG__StackForwardEvent" prot="public">GG_StackForwardEvent</innerclass>
+    <innerclass refid="structGG__StackLinkMtuChangeEvent" prot="public">GG_StackLinkMtuChangeEvent</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__StackBuilder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GG_StackRole</name>
+        <enumvalue id="group__StackBuilder_1gga9fa40d505d8bab0a27fd1a65d9bd215aa29aa05c00e5932e1e4c455b9861e9399" prot="public">
+          <name>GG_STACK_ROLE_HUB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__StackBuilder_1gga9fa40d505d8bab0a27fd1a65d9bd215aa2296ff2a64028f497174f42dcacef774" prot="public">
+          <name>GG_STACK_ROLE_NODE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Role of a stack </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="119" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="119" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" prot="public" static="no">
+        <type>struct <ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref></type>
+        <definition>typedef struct GG_Stack GG_Stack</definition>
+        <argsstring></argsstring>
+        <name>GG_Stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack object.</para>
+<para>A Stack represents a collection of one or more communication layers/elements connected to each other and managed as a single unit.</para>
+<para>The elements are logically layered from &apos;bottom&apos; to &apos;top&apos;, where the &apos;bottom&apos; layer is typically logically closest to the &apos;transport&apos; side of the stack and the &apos;top&apos; layer is logically closest to the &apos;application&apos; side of the stack.</para>
+<para>Each element in a stack has one or two I/O ports that can be internally connected to other elements in the same stack and/or exposed to users of the stack so that they may be used directly or connected to other data sources/sinks.</para>
+<para>Stacks may be connected on their top and bottom sides as applicable, to communication elements like transport sources/sinks, application source/sinks, as well as sources/sinks from other stacks (for example, one may create two stack objets and connect them together to form a larger stack).</para>
+<para>Stack objects listen for events from the elements they create and hold, and forward some of those events to their listener, if any. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="107" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__StackBuilder_1ga6fb996726e8286250237d87718835809" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t GG_StackElementType</definition>
+        <argsstring></argsstring>
+        <name>GG_StackElementType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack element type identifier. See GG_STACK_ELEMENT_TYPE_XXX constants </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="67" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__StackBuilder_1gad6cfc1cb4baae50296445f8a3679d222" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t GG_StackElementId</definition>
+        <argsstring></argsstring>
+        <name>GG_StackElementId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack element identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="72" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__StackBuilder_1gaa986fcaaad456ca027496d21ac04e7cc" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>typedef uint32_t GG_StackPortId</definition>
+        <argsstring></argsstring>
+        <name>GG_StackPortId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack port identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="77" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__StackBuilder_1ga8dac1f419fb84dd511d1002608bd0202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_StackBuilder_BuildStack</definition>
+        <argsstring>(const char *descriptor, const GG_StackBuilderParameters *parameters, size_t parameter_count, GG_StackRole role, const GG_StackIpConfiguration *ip_configuration, GG_Loop *loop, GG_DataSource *source, GG_DataSink *sink, GG_Stack **stack)</argsstring>
+        <name>GG_StackBuilder_BuildStack</name>
+        <param>
+          <type>const char *</type>
+          <declname>descriptor</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__StackBuilderParameters" kindref="compound">GG_StackBuilderParameters</ref> *</type>
+          <declname>parameters</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>parameter_count</declname>
+        </param>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" kindref="member">GG_StackRole</ref></type>
+          <declname>role</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structGG__StackIpConfiguration" kindref="compound">GG_StackIpConfiguration</ref> *</type>
+          <declname>ip_configuration</declname>
+        </param>
+        <param>
+          <type>GG_Loop *</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__DataSource" kindref="compound">GG_DataSource</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__DataSink" kindref="compound">GG_DataSink</ref> *</type>
+          <declname>sink</declname>
+        </param>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> **</type>
+          <declname>stack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Build a stack.</para>
+<para>Depending on the stack that is requested, the caller may pass construction parameters and/or an IP configuration when non-default values are needed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>descriptor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A descriptor that uniquely identifies the stack that is requested. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to an array of element construction parameters. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>parameter_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of entries in the parameters array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>role</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Role that this stack should assume. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ip_configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IP Configuration for the stack, or NULL to let the stack builder decide. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>loop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Loop in which the stack will run. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data source to connect the bottom of the stack to, or NULL if not applicable. NOTE: when this parameter is not NULL, the stack builder will connect that source to the bottom element of the stack, but not keep a reference to that object. It is the responsibility of the caller to disconnect that source from the stack before destroying the stack. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sink</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data sink to connect the bottom of the stack to, or NULL if not applicable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stack</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] Pointer to the variable where the built stack will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the stack could be built, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="494" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="494" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga993367b16ecf0de6e75d41943ca959d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GG_Stack_Destroy</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_Destroy</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy/teardown a stack </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="507" column="6" declfile="xp/stack_builder/gg_stack_builder.h" declline="507" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga92ce18062ea3f502fff2310426a49427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_Start</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_Start</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start a stack.</para>
+<para>Starting a stack should be done after the stack has been built and the user of the stack is ready for data to start flowing through the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the stack could be started, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="520" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="520" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga0ca78f6091b08b531d4ffa062cfd3629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_Reset</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_Reset</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset a stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the stack could be reset, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="529" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="529" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga83d234dd3513856a8e80b51bd3f63c72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> *</type>
+        <definition>GG_EventEmitter* GG_Stack_AsEventEmitter</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_AsEventEmitter</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the event emitter interface of a stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="538" column="17" declfile="xp/stack_builder/gg_stack_builder.h" declline="538" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1gaa65e38def48dab3619a3a1b9ecd2f65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__EventListener" kindref="compound">GG_EventListener</ref> *</type>
+        <definition>GG_EventListener* GG_Stack_AsEventListener</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_AsEventListener</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the event listener interface of a stack.</para>
+<para>That interface allows sending events directly to the stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__EventEmitter" kindref="compound">GG_EventEmitter</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="549" column="18" declfile="xp/stack_builder/gg_stack_builder.h" declline="549" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1gac6d2ac9b2717e8c135623260f553a603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGG__Inspectable" kindref="compound">GG_Inspectable</ref> *</type>
+        <definition>GG_Inspectable* GG_Stack_AsInspectable</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_AsInspectable</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the inspectable interface of a stack.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structGG__Inspectable" kindref="compound">GG_Inspectable</ref> interface for the object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="558" column="16" declfile="xp/stack_builder/gg_stack_builder.h" declline="558" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga423a8e6c521e3f91efa591633f22d0b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_GetIpConfiguration</definition>
+        <argsstring>(GG_Stack *self, GG_StackIpConfiguration *ip_configuration)</argsstring>
+        <name>GG_Stack_GetIpConfiguration</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__StackIpConfiguration" kindref="compound">GG_StackIpConfiguration</ref> *</type>
+          <declname>ip_configuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the IP information associated with a stack, if any.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if an IP configuration can be returned for the stack, or GG_ERROR_NOT_SUPPORTED if the stack does not have any IP configuration. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="568" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="568" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga99d04f523d13aaf71b6026556b8dac60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_GetDtlsProtocolStatus</definition>
+        <argsstring>(GG_Stack *self, GG_DtlsProtocolStatus *status)</argsstring>
+        <name>GG_Stack_GetDtlsProtocolStatus</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__DtlsProtocolStatus" kindref="compound">GG_DtlsProtocolStatus</ref> *</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the status for the DTLS element of the stack, if there is one.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the struct where the status will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the stack has a DTLS element and its status could be obtained, GG_ERROR_NO_SUCH_ITEM if the stack does not have a DTLS element, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="579" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="579" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga0e5caa1e16bfacc9d12eb2c5abfe1997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_GetPortById</definition>
+        <argsstring>(GG_Stack *self, uint32_t element_id, uint32_t port_id, GG_StackElementPortInfo *port)</argsstring>
+        <name>GG_Stack_GetPortById</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>element_id</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>port_id</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__StackElementPortInfo" kindref="compound">GG_StackElementPortInfo</ref> *</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get I/O interfaces for a stack element.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id of the element that owns the port. A virtual element ID constants may be used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id of the port to get within the element. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] Address of the struct in which the port info will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the port exists, or GG_ERROR_NO_SUCH_ITEM if it doesn&apos;t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="591" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="591" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga710dba4df7f7630acc4b53a1fa327381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GG_Stack_GetElementCount</definition>
+        <argsstring>(GG_Stack *self)</argsstring>
+        <name>GG_Stack_GetElementCount</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the number of elements in a stack.</para>
+<para><simplesect kind="return"><para>The number of elements in the stack. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="598" column="8" declfile="xp/stack_builder/gg_stack_builder.h" declline="598" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__StackBuilder_1ga6126bb14accea6145ef110b554d8fdbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__Errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
+        <definition>GG_Result GG_Stack_GetElementByIndex</definition>
+        <argsstring>(GG_Stack *self, unsigned int element_index, GG_StackElementInfo *element_info)</argsstring>
+        <name>GG_Stack_GetElementByIndex</name>
+        <param>
+          <type><ref refid="group__StackBuilder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>element_index</declname>
+        </param>
+        <param>
+          <type><ref refid="structGG__StackElementInfo" kindref="compound">GG_StackElementInfo</ref> *</type>
+          <declname>element_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get an element by index. This may be used, for example, to iterate over all the elements in a stack. The elements in a stack are ordered from top to bottom, so the top-most element is at index 0.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element_index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of the element to get (0-based). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>element_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[out] Address of the struct in which the element info will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>GG_SUCCESS if the requested element exits in the stack, or a GG_ERROR_NO_SUCH_ITEM. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="611" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="611" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__StackBuilder_1ga578c5bfefadc2fd48e113b2b03b6a776" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_ACTIVITY_MONITOR</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;a&apos;, &apos;m&apos;, &apos;o&apos;, &apos;n&apos;)</initializer>
+        <briefdescription>
+<para>Activity Monitor element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="190" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga95b3cb211edbd43a40affa40d3f5551f" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_GATTLINK</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;g&apos;, &apos;l&apos;, &apos;n&apos;, &apos;k&apos;)</initializer>
+        <briefdescription>
+<para>Gattlink element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="191" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gae0e13fffc83aae0b56c2ec64a3393ef8" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_IP_NETWORK_INTERFACE</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;n&apos;, &apos;e&apos;, &apos;t&apos;, &apos;i&apos;)</initializer>
+        <briefdescription>
+<para>Network Interface element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="192" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga13610d02a9724e6bcf1931e85e344bb9" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;u&apos;, &apos;d&apos;, &apos;p&apos;, &apos;s&apos;)</initializer>
+        <briefdescription>
+<para>UDP Socket element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="193" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga8a273e348f4f074008c8cce5c65c0fcf" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;t&apos;, &apos;l&apos;, &apos;s&apos;, &apos;c&apos;)</initializer>
+        <briefdescription>
+<para>DTLS Client element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="194" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gafb5a0ae7182e1afd858fcb6956953171" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_TYPE_DTLS_SERVER</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;t&apos;, &apos;l&apos;, &apos;s&apos;, &apos;s&apos;)</initializer>
+        <briefdescription>
+<para>DTLS Server element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="195" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga0dfabc6c8dd122b149fc9be4abceaa81" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_ID_TOP</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Virtual element ID for the top-most element of a stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="197" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga2bbbf6c5839acc0fe28127ae75b8c463" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_ID_BOTTOM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Virtual element ID for the bottom-most element of a stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="198" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gac9503bdd8b6817408a848d2e7deab3e1" prot="public" static="no">
+        <name>GG_STACK_PORT_ID_TOP</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Port at the top side of an element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="200" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga6670e8e81c1e1cd0ae89285c935a37e2" prot="public" static="no">
+        <name>GG_STACK_PORT_ID_BOTTOM</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Port at the bottom side of an element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="201" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gacfaaa039172c279002e59132206226cf" prot="public" static="no">
+        <name>GG_EVENT_TYPE_STACK_EVENT_FORWARD</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;s&apos;, &apos;t&apos;, &apos;k&apos;, &apos;f&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structGG__StackForwardEvent" kindref="compound">GG_StackForwardEvent</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="203" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga7196f24e47fb5fc175652a07fecb72a2" prot="public" static="no">
+        <name>GG_EVENT_TYPE_LINK_MTU_CHANGE</name>
+        <initializer><ref refid="group__Types_1ga2048e879f87a7ce8f954a4d892605862" kindref="member">GG_4CC</ref>(&apos;m&apos;, &apos;t&apos;, &apos;u&apos;, &apos;c&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structGG__StackLinkMtuChangeEvent" kindref="compound">GG_StackLinkMtuChangeEvent</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="204" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga3d0822cf2dbf6a690666e173ef388971" prot="public" static="no">
+        <name>GG_STACK_ELEMENT_ACTIVITY_MONITOR_DEFAULT_TIMEOUT</name>
+        <initializer>30000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="206" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gab5687a4196f4c6bde7caddfc8952a217" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_GATTLINK_ONLY</name>
+        <initializer>&quot;G&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with only a Gattlink element.</para>
+<para><preformatted>
+             &lt;top&gt;</preformatted></para>
+<para><preformatted>     [sink]        [source]
++----------------------------+
+|    Gattlink  (&apos;glnk&apos;)      |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>           &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementGattlinkParameters" kindref="compound">GG_StackElementGattlinkParameters</ref> (optional, omit for defaults)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="233" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga120798858e7101bfd37fbb65dd597bd2" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_NETIF_GATTLINK</name>
+        <initializer>&quot;NG&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with Gattlink and a Network Interface</para>
+<para><preformatted>
+            &lt;top&gt;</preformatted></para>
+<para><preformatted>      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+
+   {internal communication}
++----------------------------+
+| Network Interface (&apos;neti&apos;) |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++----------------------------+
+|        Gattlink            |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>          &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementGattlinkParameters" kindref="compound">GG_StackElementGattlinkParameters</ref> (optional, omit for defaults)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required)</para>
+</listitem><listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="266" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga5184c436a89fa187281986be9f09db91" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK</name>
+        <initializer>&quot;SNG&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with Gattlink, a Network Interface, and a UDP socket</para>
+<para><preformatted>
+             &lt;top&gt;</preformatted></para>
+<para><preformatted>     [sink]        [source]
++------------------------------+
+| UDP Datagram Socket (&apos;udps&apos;) |
++------------------------------+
+   {internal communication}
+      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+
+   {internal communication}
++----------------------------+
+| Network Interface (&apos;neti&apos;) |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++----------------------------+
+|        Gattlink            |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>           &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementGattlinkParameters" kindref="compound">GG_StackElementGattlinkParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__StackElementDatagramSocketParameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref> (optional, omit for defaults)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required)</para>
+</listitem><listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="305" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga428779bc41545f7d92b0aa762785d56d" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK</name>
+        <initializer>&quot;DSNG&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with Gattlink, a Network Interface, a UDP socket and DTLS</para>
+<para><preformatted>
+            &lt;top&gt;</preformatted></para>
+<para><preformatted>     [sink]        [source]
++----------------------------+
+|   DTLS (&apos;tlss&apos; or &apos;tlsc&apos;)  |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++------------------------------+
+| UDP Datagram Socket (&apos;udps&apos;) |
++------------------------------+
+   {internal communication}
+      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+
+   {internal communication}
++----------------------------+
+| Network Interface (&apos;neti&apos;) |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++----------------------------+
+|        Gattlink            |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>          &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementGattlinkParameters" kindref="compound">GG_StackElementGattlinkParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__StackElementDatagramSocketParameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__TlsServerOptions" kindref="compound">GG_TlsServerOptions</ref> (required in Server mode, omit in Client mode)</para>
+</listitem><listitem><para><ref refid="structGG__TlsClientOptions" kindref="compound">GG_TlsClientOptions</ref> (required in Client mode, omit in Server mode)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required)</para>
+</listitem><listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="352" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1gaae74b02462b6e88f505b1335c71cf7f1" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET</name>
+        <initializer>&quot;DS&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with a UDP socket and DTLS</para>
+<para><preformatted>
+            &lt;top&gt;</preformatted></para>
+<para><preformatted>     [sink]        [source]
++----------------------------+
+|   DTLS (&apos;tlss&apos; or &apos;tlsc&apos;)  |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++------------------------------+
+| UDP Datagram Socket (&apos;udps&apos;) |
++------------------------------+
+   {internal communication}
+      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+</preformatted></para>
+<para><preformatted>          &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementDatagramSocketParameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__TlsServerOptions" kindref="compound">GG_TlsServerOptions</ref> (required in Server mode, omit in Client mode)</para>
+</listitem><listitem><para><ref refid="structGG__TlsClientOptions" kindref="compound">GG_TlsClientOptions</ref> (required in Client mode, omit in Server mode)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="386" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga0ca6f2adb853ef431ff8c9cd8bf6a41b" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_NETIF</name>
+        <initializer>&quot;N&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with just a Network Interface</para>
+<para><preformatted>
+            &lt;top&gt;</preformatted></para>
+<para><preformatted>      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+
+   {internal communication}
++----------------------------+
+| Network Interface (&apos;neti&apos;) |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>          &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para>none</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required)</para>
+</listitem><listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="413" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__StackBuilder_1ga44f890474fe46e816d20bf02d1bb4a69" prot="public" static="no">
+        <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK_ACTIVITY</name>
+        <initializer>&quot;DSNGA&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stack with Transport Activity Monitor, Gattlink, a Network Interface, a UDP socket and DTLS</para>
+<para><preformatted>
+            &lt;top&gt;</preformatted></para>
+<para><preformatted>     [sink]        [source]
++----------------------------+
+|   DTLS (&apos;tlss&apos; or &apos;tlsc&apos;)  |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++------------------------------+
+| UDP Datagram Socket (&apos;udps&apos;) |
++------------------------------+
+   {internal communication}
+      +~~~~~~~~~~~~~~~~+
+      |       IP       |  (not exposed as a stack element)
+      +~~~~~~~~~~~~~~~~+
+   {internal communication}
++----------------------------+
+| Network Interface (&apos;neti&apos;) |
++----------------------------+
+     [source]      [sink]
+        |             |
+     [sink]        [source]
++----------------------------+
+|        Gattlink            |
++----------------------------+
+     [source]      [sink]
+         |             |
+     [sink]        [source]
++----------------------------+
+|        Activity Monitor    |
++----------------------------+
+     [source]      [sink]</preformatted></para>
+<para><preformatted>          &lt;bottom&gt;
+</preformatted></para>
+<para>Element Configuration parameters:<itemizedlist>
+<listitem><para><ref refid="structGG__StackElementActivityMonitorParameters" kindref="compound">GG_StackElementActivityMonitorParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__StackElementGattlinkParameters" kindref="compound">GG_StackElementGattlinkParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__StackElementDatagramSocketParameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref> (optional, omit for defaults)</para>
+</listitem><listitem><para><ref refid="structGG__TlsServerOptions" kindref="compound">GG_TlsServerOptions</ref> (required in Server mode, omit in Client mode)</para>
+</listitem><listitem><para><ref refid="structGG__TlsClientOptions" kindref="compound">GG_TlsClientOptions</ref> (required in Client mode, omit in Server mode)</para>
+</listitem></itemizedlist>
+</para>
+<para>Construction parameters:<itemizedlist>
+<listitem><para>source, sink (required)</para>
+</listitem><listitem><para>ip_configuration (optional, pass NULL for defaults) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="467" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Stack Builder </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

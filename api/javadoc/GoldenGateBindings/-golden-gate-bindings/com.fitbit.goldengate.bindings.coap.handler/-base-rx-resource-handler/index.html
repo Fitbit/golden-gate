@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BaseRxResourceHandler - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bindings.coap.handler</a>&nbsp;/&nbsp;<a href="./index.html">BaseRxResourceHandler</a><br/>
+<br/>
+<h1>BaseRxResourceHandler</h1>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseRxResourceHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-base-resource-handler/index.html"><span class="identifier">BaseResourceHandler</span></a></code>
+<p>Abstract class extended from <a href="../-base-resource-handler/index.html">BaseResourceHandler</a> with extra functionality to receive data
+from a request and forward it to subscribed Observers</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BaseRxResourceHandler</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>Abstract class extended from <a href="../-base-resource-handler/index.html">BaseResourceHandler</a> with extra functionality to receive data
+from a request and forward it to subscribed Observers</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="emit-updates.html">emitUpdates</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">emitUpdates</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseRxResourceHandler$emitUpdates(kotlin.ByteArray)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Instructs the internal <a href="#">PublishSubject</a> to emit data. This method is intended to be used inside
+handlers that extend the <a href="./index.html">BaseRxResourceHandler</a> when an <a href="../-base-resource-handler/on-put.html">onPost</a> is override</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="observe-updates.html">observeUpdates</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">observeUpdates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code>
+<p>Gets an Observable that will emit the data from the body of the incoming requests. The source
+of the data(POST, PUT request etc.) depends on the implementation of the class that extends
+<a href="./index.html">BaseRxResourceHandler</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-base-resource-handler/on-delete.html">onDelete</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onDelete</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onDelete(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-request.html"><span class="identifier">IncomingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onDelete(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/responseBuilder">responseBuilder</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response-builder/index.html"><span class="identifier">OutgoingResponseBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Handler for request of DELETE</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-resource-handler/on-get.html">onGet</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onGet</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onGet(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-request.html"><span class="identifier">IncomingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onGet(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/responseBuilder">responseBuilder</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response-builder/index.html"><span class="identifier">OutgoingResponseBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Handler for request of GET</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-resource-handler/on-post.html">onPost</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onPost</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onPost(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-request.html"><span class="identifier">IncomingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onPost(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/responseBuilder">responseBuilder</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response-builder/index.html"><span class="identifier">OutgoingResponseBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Handler for request of POST</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-base-resource-handler/on-put.html">onPut</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">onPut</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onPut(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/request">request</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-incoming-request.html"><span class="identifier">IncomingRequest</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.handler.BaseResourceHandler$onPut(com.fitbit.goldengate.bindings.coap.data.IncomingRequest, com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder)/responseBuilder">responseBuilder</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response-builder/index.html"><span class="identifier">OutgoingResponseBuilder</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.bindings.coap.data/-outgoing-response.html"><span class="identifier">OutgoingResponse</span></a><span class="symbol">&gt;</span></code>
+<p>Handler for request of PUT</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

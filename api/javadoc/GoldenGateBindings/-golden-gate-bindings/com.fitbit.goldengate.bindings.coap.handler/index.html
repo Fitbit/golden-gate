@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.fitbit.goldengate.bindings.coap.handler - GoldenGateBindings</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">GoldenGateBindings</a>&nbsp;/&nbsp;<a href="./index.html">com.fitbit.goldengate.bindings.coap.handler</a><br/>
+<br/>
+<h2>Package com.fitbit.goldengate.bindings.coap.handler</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-base-resource-handler/index.html">BaseResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">BaseResourceHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-resource-handler/index.html"><span class="identifier">ResourceHandler</span></a></code>
+<p>Base Implementation for <a href="-resource-handler/index.html">ResourceHandler</a> providing request not supported implementation
+for all resource handler.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-base-rx-resource-handler/index.html">BaseRxResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">BaseRxResourceHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-resource-handler/index.html"><span class="identifier">BaseResourceHandler</span></a></code>
+<p>Abstract class extended from <a href="-base-resource-handler/index.html">BaseResourceHandler</a> with extra functionality to receive data
+from a request and forward it to subscribed Observers</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-echo-resource-handler/index.html">EchoResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">EchoResourceHandler</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-base-resource-handler/index.html"><span class="identifier">BaseResourceHandler</span></a></code>
+<p>Resource handler to echo back any PUT and POST request</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-resource-handler/index.html">ResourceHandler</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ResourceHandler</span></code>
+<p>A user of this API will implement this interface and register it with an Endpoint.
+The user can then expect each of these methods to be called when an appropriate request is received.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

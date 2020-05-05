@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapRequestFilterNode" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapRequestFilterNode</compoundname>
+    <includes refid="gg__coap_8h" local="no">xp/coap/gg_coap.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapRequestFilterNode_1aa08e211c5a5c265e58ee422ec5b92363" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__LinkedListNode" kindref="compound">GG_LinkedListNode</ref></type>
+        <definition>GG_LinkedListNode GG_CoapRequestFilterNode::list_node</definition>
+        <argsstring></argsstring>
+        <name>list_node</name>
+        <briefdescription>
+<para>Linked list node for storing filter node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="334" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapRequestFilterNode_1a0400a431a062bd7e2edda5b371764cd1" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__CoapRequestFilter" kindref="compound">GG_CoapRequestFilter</ref> *</type>
+        <definition>GG_CoapRequestFilter* GG_CoapRequestFilterNode::filter</definition>
+        <argsstring></argsstring>
+        <name>filter</name>
+        <briefdescription>
+<para>CoAP request filter to be registered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="335" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapRequestFilterNode_1a023214d7e94a68b79f577761be33b3d9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_CoapRequestFilterNode::auto_release</definition>
+        <argsstring></argsstring>
+        <name>auto_release</name>
+        <briefdescription>
+<para>Flag indicating if this object should be freed when filter is unregistered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap.h" line="336" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Entry in a list of request filters maintained by an endpoint. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_CoapRequestFilterNode</label>
+        <link refid="structGG__CoapRequestFilterNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>list_node</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>filter</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GG_CoapRequestFilterInterface</label>
+        <link refid="structGG__CoapRequestFilterInterface"/>
+      </node>
+      <node id="2">
+        <label>GG_LinkedListNode</label>
+        <link refid="structGG__LinkedListNode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>prev</edgelabel>
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GG_CoapRequestFilter</label>
+        <link refid="structGG__CoapRequestFilter"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>vtable</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap.h" line="333" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="333" bodyend="338"/>
+    <listofallmembers>
+      <member refid="structGG__CoapRequestFilterNode_1a023214d7e94a68b79f577761be33b3d9" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterNode</scope><name>auto_release</name></member>
+      <member refid="structGG__CoapRequestFilterNode_1a0400a431a062bd7e2edda5b371764cd1" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterNode</scope><name>filter</name></member>
+      <member refid="structGG__CoapRequestFilterNode_1aa08e211c5a5c265e58ee422ec5b92363" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterNode</scope><name>list_node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___generic_callback_handler_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_GenericCallbackHandlerInterface</compoundname>
+    <includes refid="gg__utils_8h" local="no">xp/common/gg_utils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___generic_callback_handler_interface_1a018877211b52cc3c704ef8d54ea5e3e1" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_GenericCallbackHandlerInterface::OnCallback) (GG_GenericCallbackHandler *self)</definition>
+        <argsstring>)(GG_GenericCallbackHandler *self)</argsstring>
+        <name>OnCallback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Invoked when the object is called back.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>self</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object on which this method is invoked. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/common/gg_utils.h" line="70" column="5" bodyfile="xp/common/gg_utils.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Virtual function table for the <ref refid="struct_g_g___generic_callback_handler" kindref="compound">GG_GenericCallbackHandler</ref> interface </para>
+    </detaileddescription>
+    <location file="xp/common/gg_utils.h" line="64" column="107" bodyfile="xp/common/gg_utils.h" bodystart="64" bodyend="71"/>
+    <listofallmembers>
+      <member refid="struct_g_g___generic_callback_handler_interface_1a018877211b52cc3c704ef8d54ea5e3e1" prot="public" virt="non-virtual"><scope>GG_GenericCallbackHandlerInterface</scope><name>OnCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

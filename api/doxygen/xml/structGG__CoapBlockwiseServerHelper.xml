@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__CoapBlockwiseServerHelper" kind="struct" language="C++" prot="public">
+    <compoundname>GG_CoapBlockwiseServerHelper</compoundname>
+    <includes refid="gg__coap__blockwise_8h" local="no">xp/coap/gg_coap_blockwise.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1a61147ea3f1b9a4f8eda98e0335ed2586" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GG_CoapBlockwiseServerHelper::block_type</definition>
+        <argsstring></argsstring>
+        <name>block_type</name>
+        <briefdescription>
+<para>GG_COAP_MESSAGE_OPTION_BLOCK1 or GG_COAP_MESSAGE_OPTION_BLOCK2. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="89" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1a8f56f92a8356769c6e40e67e100183c6" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapBlockwiseServerHelper::next_offset</definition>
+        <argsstring></argsstring>
+        <name>next_offset</name>
+        <briefdescription>
+<para>Next expected block offset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="90" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1adca8787b7ca20c9ccaaa3e66914ab5f3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GG_CoapBlockwiseServerHelper::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <briefdescription>
+<para>True when we&apos;ve received the last block. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="91" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1aff626ebd03378082181abfa82a58eb78" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapBlockwiseServerHelper::preferred_block_size</definition>
+        <argsstring></argsstring>
+        <name>preferred_block_size</name>
+        <briefdescription>
+<para>Preferred block size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="92" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1a940992744e13e8212691430e6d5d42b8" prot="public" static="no" mutable="no">
+        <type><ref refid="structGG__CoapMessageBlockInfo" kindref="compound">GG_CoapMessageBlockInfo</ref></type>
+        <definition>GG_CoapMessageBlockInfo GG_CoapBlockwiseServerHelper::block_info</definition>
+        <argsstring></argsstring>
+        <name>block_info</name>
+        <briefdescription>
+<para>Last parsed BLOCK1 option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="93" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1ab60f0463b1e388053dfc63f0b560085f" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GG_CoapBlockwiseServerHelper::etag[GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE]</definition>
+        <argsstring>[GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE]</argsstring>
+        <name>etag</name>
+        <briefdescription>
+<para>ETag for the transfer session. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="94" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__CoapBlockwiseServerHelper_1af9cdaed62d9428a81c5bf6d74b5bb4fc" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t GG_CoapBlockwiseServerHelper::etag_size</definition>
+        <argsstring></argsstring>
+        <name>etag_size</name>
+        <briefdescription>
+<para>ETag size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/coap/gg_coap_blockwise.h" line="95" column="29" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Help object for handling blockwise request. This object is a helper for CoAP server handlers that support BLOCK1 blockwise transfers (i.e PUT or POST requests with large payloads) or BLOCK2 blockwise transfers (i.e GET request with large payloads). This object maintains the current state of a blockwise transfer. This includes the next expected request&apos;s block offset, as well as an ETag value used to differentiate between different transfers. Only one transfer can be active at a time. When a request is received, the helper can check if the request is a resent request (the block range is just before the current one) or a new request for the next block.</para>
+<para>A typical use for this helper is: In the OnRequest() method of a CoAP server handler, when a request is received, call <ref refid="group__CoAP_1ga018dd696dea3da3c5118f863826cf620" kindref="member">GG_CoapBlockwiseServerHelper_OnRequest()</ref> to analyze the request and check that it matches the current expectations. If that method returns an error the handler should terminate and return that error. Otherwise, the handler should check if the requested block is the first block (block 0) of a new transfer (<computeroutput>helper.block_info.offset == 0</computeroutput>). If it is a new transfer, the handler should set the helper&apos;s ETag value to differentiate this new transfer from previous ones, by calling <ref refid="group__CoAP_1gad64be36befdaccfbf2975be97bf3afcd" kindref="member">GG_CoapBlockwiseServerHelper_SetEtag()</ref>.</para>
+<para>NOTE: unfortunately, there&apos;s no way to differentiate a new request for block 0 and a retransmitted block 0 request, because for block 0, the ETag value isn&apos;t yet known to the client. But that isn&apos;t an issue in general, because a retransmitted block 0 would simply start a new session just after the one started by the initial block 0 request.</para>
+<para>Finally, the handler should: for BLOCK1 PUT/POST transfers, save/handle/process the block&apos;s payload if the block isn&apos;t a resent block, or for BLOCK2 GET transfers, prepare the block payload to respond with, then call <ref refid="group__CoAP_1ga6c30a370f572f4ffafc6a8d906436cdf" kindref="member">GG_CoapBlockwiseServerHelper_CreateResponse()</ref> to create and return a response. (the call to <ref refid="group__CoAP_1ga018dd696dea3da3c5118f863826cf620" kindref="member">GG_CoapBlockwiseServerHelper_OnRequest()</ref> returns a boolean flag that indicates whether the request is a new request or a resent request).</para>
+<para>NOTE: the handler must be prepared to receive the same block request more than once, because transmissions may be lost. The helper object will guarantee that the block requests are never out of order or with gaps, but repeated sequential requests for the same block are possible. For PUT/POST requests, simply ignoring resent blocks is usually sufficient. For GET requests, the handler may want to cache the last returned block if it can&apos;t re-generate the block payload. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GG_CoapBlockwiseServerHelper</label>
+        <link refid="structGG__CoapBlockwiseServerHelper"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>block_info</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GG_CoapMessageBlockInfo</label>
+        <link refid="structGG__CoapMessageBlockInfo"/>
+      </node>
+    </collaborationgraph>
+    <location file="xp/coap/gg_coap_blockwise.h" line="88" column="15" bodyfile="xp/coap/gg_coap_blockwise.h" bodystart="88" bodyend="96"/>
+    <listofallmembers>
+      <member refid="structGG__CoapBlockwiseServerHelper_1a940992744e13e8212691430e6d5d42b8" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>block_info</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1a61147ea3f1b9a4f8eda98e0335ed2586" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>block_type</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1adca8787b7ca20c9ccaaa3e66914ab5f3" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>done</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1ab60f0463b1e388053dfc63f0b560085f" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>etag</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1af9cdaed62d9428a81c5bf6d74b5bb4fc" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>etag_size</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1a8f56f92a8356769c6e40e67e100183c6" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>next_offset</name></member>
+      <member refid="structGG__CoapBlockwiseServerHelper_1aff626ebd03378082181abfa82a58eb78" prot="public" virt="non-virtual"><scope>GG_CoapBlockwiseServerHelper</scope><name>preferred_block_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

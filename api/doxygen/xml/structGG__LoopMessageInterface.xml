@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="structGG__LoopMessageInterface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopMessageInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGG__LoopMessageInterface_1aa696f09c82986ff68b78c2008068099e" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_LoopMessageInterface::Handle) (GG_LoopMessage *self)</definition>
+        <argsstring>)(GG_LoopMessage *self)</argsstring>
+        <name>Handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="71" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structGG__LoopMessageInterface_1a1a15022ca9de9c00619c2c30eeaefde6" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_LoopMessageInterface::Release) (GG_LoopMessage *self)</definition>
+        <argsstring>)(GG_LoopMessage *self)</argsstring>
+        <name>Release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="72" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/loop/gg_loop.h" line="70" column="85" bodyfile="xp/loop/gg_loop.h" bodystart="70" bodyend="73"/>
+    <listofallmembers>
+      <member refid="structGG__LoopMessageInterface_1aa696f09c82986ff68b78c2008068099e" prot="public" virt="non-virtual"><scope>GG_LoopMessageInterface</scope><name>Handle</name></member>
+      <member refid="structGG__LoopMessageInterface_1a1a15022ca9de9c00619c2c30eeaefde6" prot="public" virt="non-virtual"><scope>GG_LoopMessageInterface</scope><name>Release</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

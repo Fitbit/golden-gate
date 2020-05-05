@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
+  <compounddef id="struct_g_g___loop_event_handler_interface" kind="struct" language="C++" prot="public">
+    <compoundname>GG_LoopEventHandlerInterface</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g___loop_event_handler_interface_1ae62dcf1426dac695f9796e3b737c444c" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* GG_LoopEventHandlerInterface::OnEvent) (GG_LoopEventHandler *self, GG_Loop *loop)</definition>
+        <argsstring>)(GG_LoopEventHandler *self, GG_Loop *loop)</argsstring>
+        <name>OnEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="xp/loop/gg_loop.h" line="64" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="xp/loop/gg_loop.h" line="63" column="95" bodyfile="xp/loop/gg_loop.h" bodystart="63" bodyend="65"/>
+    <listofallmembers>
+      <member refid="struct_g_g___loop_event_handler_interface_1ae62dcf1426dac695f9796e3b737c444c" prot="public" virt="non-virtual"><scope>GG_LoopEventHandlerInterface</scope><name>OnEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
