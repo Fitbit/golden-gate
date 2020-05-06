@@ -385,5 +385,6 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
 
     override fun onBackPressed() {
         backPressedListener?.invoke()
+        super.onBackPressed()
     }
 }
