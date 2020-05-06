@@ -26,8 +26,6 @@
     <string name="scan_item_address">Address: %s</string>
     <string name="scan_item_origin">Device Origin: %s</string>
     <string name="scan_item_rssi">Rssi: %s</string>
-    <string name="helloworld">helloworld</string>
-    <string name="sync_dump">sync/dump</string>
     <string name="enable_slow_logging">Enable Slow Logging</string>
 
 </resources>

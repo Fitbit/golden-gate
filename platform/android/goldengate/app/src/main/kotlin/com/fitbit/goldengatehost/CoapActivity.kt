@@ -24,8 +24,6 @@ import com.fitbit.goldengatehost.coap.handler.addAllAvailableCoapHandlers
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_single_message.coap_endpoint_group
-import kotlinx.android.synthetic.main.a_single_message.coap_helloworld
 import kotlinx.android.synthetic.main.a_single_message.coap_response_time
 import kotlinx.android.synthetic.main.a_single_message.edittext
 import kotlinx.android.synthetic.main.a_single_message.rxtext
@@ -34,8 +32,6 @@ import timber.log.Timber
 class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
 
     private var sendRequestTime: Long = 0
-
-    private lateinit var requestPath: String
 
     override fun getContentViewRes(): Int = R.layout.a_single_message
 
@@ -60,10 +56,6 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
         renderButtonText(stackConfig)
         edittext.visibility = View.VISIBLE
 
-        coap_endpoint_group.visibility = View.VISIBLE
-        updateCoapEndpointSelection()
-        coap_endpoint_group.setOnCheckedChangeListener { _, _ -> updateCoapEndpointSelection() }
-
         send.setOnClickListener {
             sendRequestTime = System.currentTimeMillis()
             sendMessage(stackService)
@@ -72,14 +64,6 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
             disposeBag,
             stackService
         )
-    }
-
-    private fun updateCoapEndpointSelection() {
-        requestPath = if (coap_helloworld.isChecked) {
-            resources.getString(R.string.helloworld)
-        } else {
-            resources.getString(R.string.sync_dump)
-        }
     }
 
     private fun renderButtonText(stackConfig: StackConfig) {
@@ -92,9 +76,8 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
     }
 
     private fun sendMessage(stackService: CoapEndpoint) {
-        Timber.i("Sending coap request: ${Method.GET} $requestPath")
-
-        val request = OutgoingRequestBuilder(requestPath, Method.GET).build()
+        Timber.i("Sending coap message")
+        val request = OutgoingRequestBuilder("helloworld", Method.GET).build()
 
         disposeBag.add(
             stackService.responseFor(request)

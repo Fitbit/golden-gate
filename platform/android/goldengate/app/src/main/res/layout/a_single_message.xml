@@ -24,31 +24,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone"/>
 
-        <RadioGroup
-            android:id="@+id/coap_endpoint_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edittext"
-            android:visibility="gone">
-
-            <RadioButton
-                android:id="@+id/coap_helloworld"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_step_half"
-                android:layout_marginTop="@dimen/margin_step_half"
-                android:text="@string/helloworld"
-                android:checked="true"/>
-
-            <RadioButton
-                android:id="@+id/coap_sync_dump"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_step_half"
-                android:layout_marginTop="@dimen/margin_step_half"
-                android:text="@string/sync_dump"/>
-        </RadioGroup>
-
         <Button
             android:id="@+id/send"
             android:layout_width="match_parent"
