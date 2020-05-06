@@ -88,8 +88,7 @@ If false (default), a non-2.xx response will be reported as a <code>next</code> 
 <code><span class="keyword">fun </span><span class="identifier">forceNonBlockwise</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bindings.coap.data.OutgoingRequestBuilder$forceNonBlockwise(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">OutgoingRequestBuilder</span></a></code>
 <p>Flag to treat the request as non-blockwise. In a blockwise request data is sent in chuncks(blocks)
 of fixed size. In GG we use 1024 bytes. On the tracker some Coap resources accept larger data payloads
-in a single block. In this case we need to force a non-blockwise request. Here is an example of this
-type of resource:</p>
+in a single block. In this case we need to force a non-blockwise request.</p>
 </td>
 </tr>
 <tr>
