@@ -38,4 +38,4 @@ Run The Host App
 ----------------
 
 In XCode, click Run (the "Play" icon).
-See the [iOS Host App](../apps/ios/host_app.md) documentation for details.
+See the [iOS Host App](https://fitbit.github.io/golden-gate/apps/ios/host_app.html) documentation for details.
