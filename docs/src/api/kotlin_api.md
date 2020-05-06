@@ -15,16 +15,16 @@ interested in the bindings.coap package, specifically the Endpoint interface.
 Golden Gate Bindings Package
 ----------------------------
 
-[Browse through the Kdoc-generated documentation](/api/javadoc/GoldenGateBindings/-golden-gate-bindings/index.html){:target="_blank"}
+[Browse through the Kdoc-generated documentation](javadoc/GoldenGateBindings/-golden-gate-bindings/index.html){:target="_blank"}
 
 Golden Gate Connection Manager Package
 --------------------------------------
 
-[Browse through the Kdoc-generated documentation](/api/javadoc/GoldenGateConnectionManager/-golden-gate-connection-manager/index.html){:target="_blank"}
+[Browse through the Kdoc-generated documentation](javadoc/GoldenGateConnectionManager/-golden-gate-connection-manager/index.html){:target="_blank"}
 
 RX FibitGatt Package
 --------------------
 
 Reactive API on top of the [bitgatt API](https://github.com/Fitbit/bitgatt)
 
-[Browse through the Kdoc-generated documentation](/api/javadoc/RxFitbitGatt/-rx-fitbit-gatt/index.html){:target="_blank"}
+[Browse through the Kdoc-generated documentation](javadoc/RxFitbitGatt/-rx-fitbit-gatt/index.html){:target="_blank"}
