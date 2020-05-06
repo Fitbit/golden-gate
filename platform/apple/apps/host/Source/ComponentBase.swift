@@ -263,10 +263,7 @@ class ComponentBase {
 
     let globalStackDescriptor = BehaviorRelay(value: StackDescriptor.dtlsSocketNetifGattlinkActivity)
 
-    lazy var globalServiceDescriptor: BehaviorRelay<ServiceDescriptor> = {
-        let descriptor: ServiceDescriptor = .coap
-        return BehaviorRelay(value: descriptor)
-    }()
+    lazy var globalServiceDescriptor: BehaviorRelay<ServiceDescriptor> = BehaviorRelay(value: .coap)
 
     let globalBlasterConfiguration = BehaviorRelay(value: BlasterService.Configuration.default)
 
