@@ -14,11 +14,10 @@ import RxSwift
 class ManagedHub: ManagedPeer {
     private let disposeBag = DisposeBag()
 
-    override init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, remoteTestServer: RemoteTestServerType?) {
+    override init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters) {
         super.init(
             record: record,
-            commonPeerParameters: commonPeerParameters,
-            remoteTestServer: remoteTestServer
+            commonPeerParameters: commonPeerParameters
         )
         let registerHelloWorld = HelloWorldResource()
             .register(on: coapEndpoint)

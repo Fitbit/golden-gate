@@ -27,7 +27,6 @@ class HubComponent: ComponentBase {
         return ManagedNode(
             record: record,
             commonPeerParameters: commonPeerParameters,
-            remoteTestServer: remoteTestServer,
             linkConfigurationService: linkConfigurationService
         )
     }

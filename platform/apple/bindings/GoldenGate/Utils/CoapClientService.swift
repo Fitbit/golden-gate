@@ -35,15 +35,3 @@ public class CoapClientService {
         }
     }
 }
-
-extension CoapClientService: RemoteApiModule {
-    public var methods: Set<String> { [] } // Methods are defined in xp
-
-    public func publishHandlers(on remoteShell: RemoteShell) {
-        GG_CoapClientService_Register(ref, remoteShell.ref)
-    }
-
-    public func unpublishHandlers(from remoteShell: RemoteShell) {
-        GG_CoapClientService_Unregister(ref, remoteShell.ref)
-    }
-}

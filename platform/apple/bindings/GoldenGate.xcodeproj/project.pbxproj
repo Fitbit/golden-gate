@@ -100,10 +100,6 @@
 		48A81024220E085D0067A593 /* SecureDatagramServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAB3D9520743C9E0056173A /* SecureDatagramServer.swift */; };
 		48A81025220E085D0067A593 /* SocketAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1BB9B1FD0335200192B6E /* SocketAddress.swift */; };
 		48A81026220E085D0067A593 /* TlsKeyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5392C71FEBEDE40059C3B3 /* TlsKeyResolver.swift */; };
-		48A81027220E088E0067A593 /* RemoteShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A21CD1FB06FD7003C256D /* RemoteShell.swift */; };
-		48A81028220E088E0067A593 /* RemoteShellHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A21D01FB070F9003C256D /* RemoteShellHandler.swift */; };
-		48A81029220E088E0067A593 /* RemoteTestServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5FE0E920E2435E006C4499 /* RemoteTestServer.swift */; };
-		48A8102A220E088E0067A593 /* RemoteTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A21CA1FB060E0003C256D /* RemoteTransport.swift */; };
 		48A81035220E08A20067A593 /* DtlsProtocolState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C155F213D9EBA005B702D /* DtlsProtocolState.swift */; };
 		48A81036220E08A20067A593 /* GattlinkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131852206BE8B5002AA4C8 /* GattlinkParameters.swift */; };
 		48A81037220E08A20067A593 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7BC9582063F8B30039A371 /* Stack.swift */; };
@@ -166,7 +162,6 @@
 		48A81076220E0CCE0067A593 /* ConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF08601FD84730007388A1 /* ConnectionControllerSpec.swift */; };
 		48A81077220E0CCE0067A593 /* ReconnectingConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC8C1FDAA4E300913C10 /* ReconnectingConnectionControllerSpec.swift */; };
 		48A81078220E0CCE0067A593 /* SocketAddressSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D41E10320CED8FC00CAC73D /* SocketAddressSpec.swift */; };
-		48A81079220E0CD80067A593 /* RemoteShellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF21142046E05100BAC2A7 /* RemoteShellSpec.swift */; };
 		48A81088220E0D090067A593 /* GGBsdDatagramSocketSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D41E10620D0042D00CAC73D /* GGBsdDatagramSocketSpec.swift */; };
 		48A81089220E0D160067A593 /* Data+NetworkExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898BB99217AF4E100ADFEDF /* Data+NetworkExtensionsSpec.swift */; };
 		48A8108A220E0D1E0067A593 /* GoldenGatePrincipalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C92471FD82B60006E9551 /* GoldenGatePrincipalClass.swift */; };
@@ -186,9 +181,6 @@
 		48A810D9220E6C630067A593 /* GoldenGateXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */; };
 		48A810DB220E715A0067A593 /* Blaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810DA220E715A0067A593 /* Blaster.swift */; };
 		48A810DD220E71830067A593 /* BlasterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810DC220E71830067A593 /* BlasterService.swift */; };
-		48A810E3220E83C30067A593 /* AdvertisementRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810E0220E83C30067A593 /* AdvertisementRemoteApi.swift */; };
-		48A810E4220E83C30067A593 /* VersionInfoRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810E1220E83C30067A593 /* VersionInfoRemoteAPI.swift */; };
-		48A810E5220E83C30067A593 /* StackRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810E2220E83C30067A593 /* StackRemoteAPI.swift */; };
 		48AE718022820EBF00DE90AD /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AE717F22820EBF00DE90AD /* RxRelay.framework */; };
 		48AE718222820ECD00DE90AD /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AE718122820ECD00DE90AD /* RxRelay.framework */; };
 		48BAB3F4224F033E007A3F3D /* DataProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAB3F3224F033E007A3F3D /* DataProbe.swift */; };
@@ -198,14 +190,14 @@
 		75651C36222769ED0076AD25 /* CharacteristicUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75651C35222769ED0076AD25 /* CharacteristicUpdater.swift */; };
 		75860A842244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75860A832244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift */; };
 		75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */; };
-		75B1BF21232677A80062510D /* BluetoothRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF20232677A80062510D /* BluetoothRemoteApi.swift */; };
 		75BD2C452227706F0067C7E0 /* RetryingWriterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */; };
 		75F6F9782327E2C600F4C207 /* TransportReadiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6F9772327E2C600F4C207 /* TransportReadiness.swift */; };
 		AF8260E8244772A900EE499A /* libFbSmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260E5244772A300EE499A /* libFbSmo.a */; };
 		AF8F0940224281D300FF5604 /* GGCoapRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */; };
+		AFF076372462D1E400E04F2B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF076362462D1E400E04F2B /* Rxbit.framework */; };
+		AFF076382462D1E400E04F2B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFF076362462D1E400E04F2B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD05DC6522AF9E70002AB750 /* NilComparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05DC6422AF9E6F002AB750 /* NilComparer.swift */; };
 		FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
-		FD53D953222DDCD100BCC02C /* RemoteAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD53D952222DDCD100BCC02C /* RemoteAPIError.swift */; };
 		FD6FB79C22A9015F000EFB76 /* CoapGroupRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */; };
 		FDCC7CB72364377900910311 /* OptionalStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC7CB62364377900910311 /* OptionalStringInterpolation.swift */; };
 		FDE446F62363254E00BD8E34 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
@@ -253,6 +245,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AFF076392462D1E400E04F2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AFF076382462D1E400E04F2B /* Rxbit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -296,9 +299,6 @@
 		48A810B2220E52190067A593 /* RxBlocking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A810DA220E715A0067A593 /* Blaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blaster.swift; sourceTree = "<group>"; };
 		48A810DC220E71830067A593 /* BlasterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlasterService.swift; sourceTree = "<group>"; };
-		48A810E0220E83C30067A593 /* AdvertisementRemoteApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementRemoteApi.swift; sourceTree = "<group>"; };
-		48A810E1220E83C30067A593 /* VersionInfoRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionInfoRemoteAPI.swift; sourceTree = "<group>"; };
-		48A810E2220E83C30067A593 /* StackRemoteAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackRemoteAPI.swift; sourceTree = "<group>"; };
 		48AE717F22820EBF00DE90AD /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AE718122820ECD00DE90AD /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BAB3F3224F033E007A3F3D /* DataProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProbe.swift; sourceTree = "<group>"; };
@@ -346,7 +346,6 @@
 		6D5392C41FEBD1820059C3B3 /* SecureDatagramClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDatagramClient.swift; sourceTree = "<group>"; };
 		6D5392C71FEBEDE40059C3B3 /* TlsKeyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlsKeyResolver.swift; sourceTree = "<group>"; };
 		6D5E30D22059B43900A5FA83 /* Port.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Port.swift; sourceTree = "<group>"; };
-		6D5FE0E920E2435E006C4499 /* RemoteTestServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTestServer.swift; sourceTree = "<group>"; };
 		6D6749DD1FCC6D5100979BDE /* VoidDataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidDataSink.swift; sourceTree = "<group>"; };
 		6D6E750E1FE184F300F00EF4 /* DataSink+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSink+RxSpec.swift"; sourceTree = "<group>"; };
 		6D6E75111FE186C500F00EF4 /* DataSource+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSource+RxSpec.swift"; sourceTree = "<group>"; };
@@ -395,7 +394,6 @@
 		6DAE29561FC6401900DB872B /* Node+Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node+Advertiser.swift"; sourceTree = "<group>"; };
 		6DAF210420402BE300BAC2A7 /* NetworkLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLink.swift; sourceTree = "<group>"; };
 		6DAF2111204460A100BAC2A7 /* BluetoothReconnectStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReconnectStrategy.swift; sourceTree = "<group>"; };
-		6DAF21142046E05100BAC2A7 /* RemoteShellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteShellSpec.swift; sourceTree = "<group>"; };
 		6DB124DB20BFD97300DE91CB /* CoapMessageOptionParamSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapMessageOptionParamSpec.swift; sourceTree = "<group>"; };
 		6DB1BB9B1FD0335200192B6E /* SocketAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketAddress.swift; sourceTree = "<group>"; };
 		6DB3EFA12003A052004E42DF /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
@@ -429,12 +427,12 @@
 		75651C35222769ED0076AD25 /* CharacteristicUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicUpdater.swift; sourceTree = "<group>"; };
 		75860A832244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkConfigurationService+GeneralPurposeCommand.swift"; sourceTree = "<group>"; };
 		75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaseIterable+AllUniqueRawValues.swift"; sourceTree = "<group>"; };
-		75B1BF20232677A80062510D /* BluetoothRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothRemoteApi.swift; sourceTree = "<group>"; };
 		75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryingWriterSpec.swift; sourceTree = "<group>"; };
 		75F6F9772327E2C600F4C207 /* TransportReadiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportReadiness.swift; sourceTree = "<group>"; };
 		AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoldenGateXP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8260DC244772A300EE499A /* FbSmo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FbSmo.xcodeproj; path = ../../../external/smo/swift/FbSmo.xcodeproj; sourceTree = "<group>"; };
 		AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCoapRequestParameters.swift; sourceTree = "<group>"; };
+		AFF076362462D1E400E04F2B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF00AE8B207393A100B00C3E /* CoapMessageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapMessageBuilder.swift; sourceTree = "<group>"; };
 		BF0408F91FCEBA6600D875BA /* CoapCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapCode.swift; sourceTree = "<group>"; };
 		BF0408FA1FCEBA6600D875BA /* CoapRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapRequestHandler.swift; sourceTree = "<group>"; };
@@ -448,9 +446,6 @@
 		BF3E74AE1F755DB9009FA8FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF4C1500213D37C0005B702D /* GGEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGEventListener.swift; sourceTree = "<group>"; };
 		BF4C155F213D9EBA005B702D /* DtlsProtocolState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtlsProtocolState.swift; sourceTree = "<group>"; };
-		BF5A21CA1FB060E0003C256D /* RemoteTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTransport.swift; sourceTree = "<group>"; };
-		BF5A21CD1FB06FD7003C256D /* RemoteShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteShell.swift; sourceTree = "<group>"; };
-		BF5A21D01FB070F9003C256D /* RemoteShellHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteShellHandler.swift; sourceTree = "<group>"; };
 		BFA6A33220739CAE007E5D3E /* CoapResponseBuilderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapResponseBuilderSpec.swift; sourceTree = "<group>"; };
 		BFB4B9DB1FDFDC04005EA291 /* RawCoapMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawCoapMessage.swift; sourceTree = "<group>"; };
 		BFE757D2200CC466003D49E0 /* PerfDataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfDataSink.swift; sourceTree = "<group>"; };
@@ -458,7 +453,6 @@
 		FD09E03721F22A6100BBD13A /* CoapStreamingMessageBodySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapStreamingMessageBodySpec.swift; sourceTree = "<group>"; };
 		FD3B0626234F62C700A92603 /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD51255521807614005A7B37 /* CoapClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapClientService.swift; sourceTree = "<group>"; };
-		FD53D952222DDCD100BCC02C /* RemoteAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAPIError.swift; sourceTree = "<group>"; };
 		FD56580D219AF63200C91C29 /* CoapTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapTestService.swift; sourceTree = "<group>"; };
 		FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapGroupRequestFilter.swift; sourceTree = "<group>"; };
 		FDCC7CB62364377900910311 /* OptionalStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalStringInterpolation.swift; sourceTree = "<group>"; };
@@ -473,6 +467,7 @@
 				48A81092220E488F0067A593 /* libSwiftCBOR.a in Frameworks */,
 				FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */,
 				48A81098220E48BD0067A593 /* RxBluetoothKit.framework in Frameworks */,
+				AFF076372462D1E400E04F2B /* Rxbit.framework in Frameworks */,
 				48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */,
 				48AE718022820EBF00DE90AD /* RxRelay.framework in Frameworks */,
 				48A81094220E48A60067A593 /* RxSwift.framework in Frameworks */,
@@ -515,6 +510,7 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFF076362462D1E400E04F2B /* Rxbit.framework */,
 				AF8260DC244772A300EE499A /* FbSmo.xcodeproj */,
 				AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */,
 				48A8108F220E488F0067A593 /* libFbSmo.a */,
@@ -862,23 +858,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		BF5A217D1FB05CC5003C256D /* RemoteAPI */ = {
-			isa = PBXGroup;
-			children = (
-				48A810E0220E83C30067A593 /* AdvertisementRemoteApi.swift */,
-				75B1BF20232677A80062510D /* BluetoothRemoteApi.swift */,
-				FD53D952222DDCD100BCC02C /* RemoteAPIError.swift */,
-				BF5A21CD1FB06FD7003C256D /* RemoteShell.swift */,
-				BF5A21D01FB070F9003C256D /* RemoteShellHandler.swift */,
-				6DAF21142046E05100BAC2A7 /* RemoteShellSpec.swift */,
-				6D5FE0E920E2435E006C4499 /* RemoteTestServer.swift */,
-				BF5A21CA1FB060E0003C256D /* RemoteTransport.swift */,
-				48A810E2220E83C30067A593 /* StackRemoteAPI.swift */,
-				48A810E1220E83C30067A593 /* VersionInfoRemoteAPI.swift */,
-			);
-			path = RemoteAPI;
-			sourceTree = "<group>";
-		};
 		BFCB98E51F7542B800F979B8 = {
 			isa = PBXGroup;
 			children = (
@@ -914,7 +893,6 @@
 				6DAE27D61FC3B50000DB872B /* Loop */,
 				6DAE282A1FC3B60300DB872B /* Networking */,
 				FDCC7CB5236436E600910311 /* Operators */,
-				BF5A217D1FB05CC5003C256D /* RemoteAPI */,
 				6D7BC9542063F8830039A371 /* Stack */,
 				481F27AF1F8F396400074F66 /* Supporting Files */,
 				6D4AB3BD1FA0B08E005498AF /* Testing */,
@@ -958,6 +936,7 @@
 				48A80FB8220E07680067A593 /* Frameworks */,
 				48A80FB6220E07680067A593 /* Headers */,
 				48A80FB9220E07680067A593 /* Resources */,
+				AFF076392462D1E400E04F2B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1099,7 +1078,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A810E3220E83C30067A593 /* AdvertisementRemoteApi.swift in Sources */,
 				486851082216619E0026781D /* BatteryServiceLevel.swift in Sources */,
 				48A810DB220E715A0067A593 /* Blaster.swift in Sources */,
 				48A810DD220E71830067A593 /* BlasterService.swift in Sources */,
@@ -1107,7 +1085,6 @@
 				48A80FF0220E081E0067A593 /* BluetoothConnection.swift in Sources */,
 				48A80FF1220E081E0067A593 /* BluetoothPeerDescriptor.swift in Sources */,
 				48A80FF2220E081E0067A593 /* BluetoothReconnectStrategy.swift in Sources */,
-				75B1BF21232677A80062510D /* BluetoothRemoteApi.swift in Sources */,
 				48A81006220E08360067A593 /* Buffer.swift in Sources */,
 				75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */,
 				48A80FF3220E081E0067A593 /* CentralManager.swift in Sources */,
@@ -1210,11 +1187,6 @@
 				48A80FFB220E081E0067A593 /* ReadRequest.swift in Sources */,
 				48A81020220E085D0067A593 /* ReconnectingConnectionController.swift in Sources */,
 				48A81021220E085D0067A593 /* ReconnectStrategy.swift in Sources */,
-				FD53D953222DDCD100BCC02C /* RemoteAPIError.swift in Sources */,
-				48A81027220E088E0067A593 /* RemoteShell.swift in Sources */,
-				48A81028220E088E0067A593 /* RemoteShellHandler.swift in Sources */,
-				48A81029220E088E0067A593 /* RemoteTestServer.swift in Sources */,
-				48A8102A220E088E0067A593 /* RemoteTransport.swift in Sources */,
 				75651C34222769810076AD25 /* RetryingWriter.swift in Sources */,
 				48A81040220E08F70067A593 /* ReusableTableViewCell.swift in Sources */,
 				48A81022220E085D0067A593 /* Role.swift in Sources */,
@@ -1236,13 +1208,11 @@
 				48A8103A220E08A20067A593 /* StackElementId.swift in Sources */,
 				48A8103B220E08A20067A593 /* StackElementType.swift in Sources */,
 				48A8103C220E08A20067A593 /* StackPortId.swift in Sources */,
-				48A810E5220E83C30067A593 /* StackRemoteAPI.swift in Sources */,
 				48A81026220E085D0067A593 /* TlsKeyResolver.swift in Sources */,
 				75F6F9782327E2C600F4C207 /* TransportReadiness.swift in Sources */,
 				48A81041220E08F70067A593 /* UILabel+Rx.swift in Sources */,
 				48A81042220E08F70067A593 /* UITableViewCell+Rx.swift in Sources */,
 				48A80FEE220E08150067A593 /* UnsafeHeapAllocatedValue.swift in Sources */,
-				48A810E4220E83C30067A593 /* VersionInfoRemoteAPI.swift in Sources */,
 				48A8100E220E08360067A593 /* VoidDataSink.swift in Sources */,
 				48A80FFD220E081E0067A593 /* WriteRequest.swift in Sources */,
 			);
@@ -1281,7 +1251,6 @@
 				48A81075220E0CC60067A593 /* MockStack.swift in Sources */,
 				48A81069220E0CA30067A593 /* RawCoapMessageSpec.swift in Sources */,
 				48A81077220E0CCE0067A593 /* ReconnectingConnectionControllerSpec.swift in Sources */,
-				48A81079220E0CD80067A593 /* RemoteShellSpec.swift in Sources */,
 				75BD2C452227706F0067C7E0 /* RetryingWriterSpec.swift in Sources */,
 				48A81071220E0CBF0067A593 /* RunLoopSpec.swift in Sources */,
 				48A81078220E0CCE0067A593 /* SocketAddressSpec.swift in Sources */,

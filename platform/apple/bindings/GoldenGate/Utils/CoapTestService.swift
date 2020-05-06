@@ -28,17 +28,3 @@ public class CoapTestService {
         GG_CoapTestService_Destroy(ref)
     }
 }
-
-extension CoapTestService: RemoteApiModule {
-    public var methods: Set<String> { [] } // Methods are defined in xp
-
-    public func publishHandlers(on remoteShell: RemoteShell) {
-        GG_CoapTestService_Register(ref)
-        GG_CoapTestService_RegisterSmoHandlers(remoteShell.ref, GG_CoapTestService_AsRemoteSmoHandler(ref))
-    }
-
-    public func unpublishHandlers(from remoteShell: RemoteShell) {
-        GG_CoapTestService_UnregisterSmoHandlers(remoteShell.ref, GG_CoapTestService_AsRemoteSmoHandler(ref))
-        GG_CoapTestService_Unregister(ref)
-    }
-}

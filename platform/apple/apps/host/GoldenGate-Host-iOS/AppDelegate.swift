@@ -33,41 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .subscribe(component.appDidBecomeActiveSubject)
             .disposed(by: disposeBag)
 
-        let peerManager = component.peerManager
-
-        if let remoteTestServer = component.remoteTestServer {
-            let stackRemoteApi = StackRemoteAPI()
-            stackRemoteApi.globalConfigurable = component
-            remoteTestServer.register(module: stackRemoteApi)
-
-            remoteTestServer.register(
-                module: PairRemoteApi(
-                    peerManager: peerManager,
-                    scanner: Component.instance.scanner
-                )
-            )
-
-            remoteTestServer.register(
-                module: ConnectionRemoteApi(
-                    peerManager: peerManager,
-                    scanner: Component.instance.scanner
-                )
-            )
-
-            remoteTestServer.register(
-                module: BluetoothRemoteApi(
-                    bluetoothManager: BluetoothManagerWrapper()
-                )
-            )
-
-            remoteTestServer.register(
-                module: SystemRemoteApi()
-            )
-
-            // Start the remote test server if necessary
-            remoteTestServer.start()
-        }
-
         return true
     }
 
@@ -119,8 +84,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-}
-
-extension LoggerDomain {
-    static let hockey = LoggerDomain("HockeySDK")
 }

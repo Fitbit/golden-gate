@@ -42,7 +42,6 @@
 		48BC7D541FFF302F0036B18D /* CoAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC7D531FFF302F0036B18D /* CoAPTests.swift */; };
 		48C39498204A6D2000576D8C /* UIApplication+BSMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C39496204A6D1F00576D8C /* UIApplication+BSMobileProvision.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D6B11DB1FC0D49E00FA0841 /* NodeSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B11DA1FC0D49E00FA0841 /* NodeSimulator.swift */; };
-		6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E02074E2B50096FD0C /* HubComponent.swift */; };
 		6D9484E32074E2DD0096FD0C /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E22074E2DD0096FD0C /* NodeComponent.swift */; };
 		6D9484E42074E8C30096FD0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB3DA02074C32D0056173A /* Main.storyboard */; };
@@ -72,8 +71,6 @@
 		6DFCA5F41FAC79970022F4DB /* PeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFCA5F31FAC79970022F4DB /* PeerManager.swift */; };
 		750C2A85233B92BC0060F24D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
 		751A7CBB2329306000087BFB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
-		75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */; };
-		91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		AF8260DA2447726C00EE499A /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; };
 		AF8260DB2447726C00EE499A /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553A1F78532D003EC08B /* AppDelegate.swift */; };
@@ -81,13 +78,10 @@
 		BF6A55401F78532D003EC08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A553E1F78532D003EC08B /* Main.storyboard */; };
 		BF6A55421F78532D003EC08B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6A55411F78532D003EC08B /* Assets.xcassets */; };
 		BF6A55451F78532D003EC08B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */; };
-		BFCC5A751FE5474200D7347D /* ConnectionRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCC5A711FE415C500D7347D /* ConnectionRemoteApi.swift */; };
 		BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
 		BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
 		FD2B6E49234F6F2500765D7B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; };
 		FD2B6E4A234F6F2500765D7B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FDC6457B236C352C00E9385B /* SystemRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC6457A236C352C00E9385B /* SystemRemoteApi.swift */; };
-		FDE9CA8B2227473300AC46C1 /* PairRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9CA8A2227473300AC46C1 /* PairRemoteApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,8 +188,6 @@
 		6DFCA5EF1FAB658B0022F4DB /* PeerRecordDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerRecordDatabase.swift; sourceTree = "<group>"; };
 		6DFCA5F31FAC79970022F4DB /* PeerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerManager.swift; sourceTree = "<group>"; };
 		751A7CB92329306000087BFB /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerWrapper.swift; sourceTree = "<group>"; };
-		91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostVersion.swift; sourceTree = "<group>"; };
 		AC4ACFE7243D47830088C55C /* macOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Application.xcconfig"; sourceTree = "<group>"; };
 		AC4ACFE8243D47830088C55C /* macOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Framework.xcconfig"; sourceTree = "<group>"; };
 		AC4ACFE9243D47830088C55C /* macOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
@@ -229,12 +221,9 @@
 		BFCB99DD1F754B5400F979B9 /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
 		BFCB99DE1F754B5400F979B9 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		BFCB99DF1F754B5400F979B9 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
-		BFCC5A711FE415C500D7347D /* ConnectionRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRemoteApi.swift; sourceTree = "<group>"; };
 		BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldCoAPClient.swift; sourceTree = "<group>"; };
 		FD2B6E45234F6F1400765D7B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2B6E48234F6F2500765D7B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDC6457A236C352C00E9385B /* SystemRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemRemoteApi.swift; sourceTree = "<group>"; };
-		FDE9CA8A2227473300AC46C1 /* PairRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairRemoteApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,12 +385,9 @@
 			isa = PBXGroup;
 			children = (
 				6DEDA45C207E0B3F008861F5 /* GoldenGate-UI-Internal */,
-				FDC64579236C351000E9385B /* RemoteApi */,
 				BF6A553A1F78532D003EC08B /* AppDelegate.swift */,
 				BF6A55411F78532D003EC08B /* Assets.xcassets */,
-				75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */,
 				48C39495204A6D1E00576D8C /* GoldenGateHost-iOS-Bridging-Header.h */,
-				91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */,
 				BF6A55461F78532D003EC08B /* Info.plist */,
 				BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */,
 				BF6A553E1F78532D003EC08B /* Main.storyboard */,
@@ -506,16 +492,6 @@
 			);
 			name = "Mac OS X";
 			path = "../../../../external/xcconfigs/Mac OS X";
-			sourceTree = "<group>";
-		};
-		FDC64579236C351000E9385B /* RemoteApi */ = {
-			isa = PBXGroup;
-			children = (
-				BFCC5A711FE415C500D7347D /* ConnectionRemoteApi.swift */,
-				FDE9CA8A2227473300AC46C1 /* PairRemoteApi.swift */,
-				FDC6457A236C352C00E9385B /* SystemRemoteApi.swift */,
-			);
-			path = RemoteApi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,7 +671,6 @@
 				6D9485012077903A0096FD0C /* ConnectionRegistry.swift in Sources */,
 				BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB02074D92D0056173A /* HelloWorldResource.swift in Sources */,
-				6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */,
 				751A7CBB2329306000087BFB /* Log.swift in Sources */,
 				6DAB3DA52074C87B0056173A /* MainViewController.swift in Sources */,
 				6DAB3DAE2074D90A0056173A /* ManagedHub.swift in Sources */,
@@ -716,13 +691,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */,
-				75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */,
 				6DFCA5EC1FAA39380022F4DB /* ComponentBase.swift in Sources */,
 				6D9485002077903A0096FD0C /* ConnectionRegistry.swift in Sources */,
-				BFCC5A751FE5474200D7347D /* ConnectionRemoteApi.swift in Sources */,
 				BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB12074DBAC0056173A /* HelloWorldResource.swift in Sources */,
-				91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */,
 				6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */,
 				750C2A85233B92BC0060F24D /* Log.swift in Sources */,
 				6DAE28961FC3E69000DB872B /* ManagedNode.swift in Sources */,
@@ -731,14 +703,12 @@
 				4887255D203662E600A3F15E /* NSLoggerLogger.swift in Sources */,
 				486134F6213309B300E29452 /* OptionalType.swift in Sources */,
 				6DFCA5EA1FAA389D0022F4DB /* PairPeerViewController.swift in Sources */,
-				FDE9CA8B2227473300AC46C1 /* PairRemoteApi.swift in Sources */,
 				6DFCA5F41FAC79970022F4DB /* PeerManager.swift in Sources */,
 				6DAB3DA82074D7520056173A /* PeerRecord.swift in Sources */,
 				6DFCA5F01FAB658B0022F4DB /* PeerRecordDatabase.swift in Sources */,
 				6DAB3DAB2074D7600056173A /* PeerRecordHandle.swift in Sources */,
 				48A810BD220E58C20067A593 /* ReusableTableViewCell.swift in Sources */,
 				BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */,
-				FDC6457B236C352C00E9385B /* SystemRemoteApi.swift in Sources */,
 				48C39498204A6D2000576D8C /* UIApplication+BSMobileProvision.m in Sources */,
 				48A810BF220E58C20067A593 /* UILabel+Rx.swift in Sources */,
 				48A810BE220E58C20067A593 /* UITableViewCell+Rx.swift in Sources */,
