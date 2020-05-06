@@ -261,16 +261,10 @@ class ComponentBase {
         }
     }()
 
-    lazy var remoteTestServer: RemoteTestServerType? = {
-        guard let server = RemoteTestServer() else { return nil }
-        server.register(module: VersionInfoRemoteAPI(provider: HostVersion.shared))
-        return server
-    }()
-
     let globalStackDescriptor = BehaviorRelay(value: StackDescriptor.dtlsSocketNetifGattlinkActivity)
 
     lazy var globalServiceDescriptor: BehaviorRelay<ServiceDescriptor> = {
-        let descriptor: ServiceDescriptor = remoteTestServer != nil ? .none : .coap
+        let descriptor: ServiceDescriptor = .coap
         return BehaviorRelay(value: descriptor)
     }()
 
@@ -328,16 +322,6 @@ extension ComponentBase: StackElementConfigurationProvider {
 
     func gattlinkConfiguration() -> GattlinkParameters? {
         return nil
-    }
-}
-
-extension ComponentBase: StackConfigurable {
-    func setStackDescriptor(_ descriptor: StackDescriptor) {
-        globalStackDescriptor.accept(descriptor)
-    }
-
-    func setServiceDescriptor(_ descriptor: ServiceDescriptor) {
-        globalServiceDescriptor.accept(descriptor)
     }
 }
 

@@ -21,11 +21,11 @@ class ManagedPeer: CommonPeer, ManagedPeerType {
 
     private let disposeBag = DisposeBag()
 
-    init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, remoteTestServer: RemoteTestServerType?) {
+    init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters) {
         self.record = record
         self.name = BehaviorRelay(value: record.name)
 
-        super.init(commonPeerParameters, remoteTestServer: remoteTestServer)
+        super.init(commonPeerParameters)
 
         // Load the descriptor from the database into the Connection Controller.
         if let descriptor = record.bluetoothPeerDescriptor {
@@ -41,9 +41,6 @@ class ManagedPeer: CommonPeer, ManagedPeerType {
             })
             .disposed(by: disposeBag)
 
-        // Start auto connecting if no remote test server present
-        if remoteTestServer == nil {
-            setUserWantsToConnect(true)
-        }
+        setUserWantsToConnect(true)
     }
 }

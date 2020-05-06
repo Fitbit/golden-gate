@@ -27,8 +27,7 @@ class NodeComponent: ComponentBase {
     func makeManagedHub(record: PeerRecord) -> ManagedHub {
         return ManagedHub(
             record: record,
-            commonPeerParameters: commonPeerParameters,
-            remoteTestServer: remoteTestServer
+            commonPeerParameters: commonPeerParameters
         )
     }
 

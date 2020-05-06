@@ -101,15 +101,13 @@ open class CommonPeer {
     private let customBlasterConfiguration = BehaviorRelay<BlasterService.Configuration?>(value: nil)
     private let customPortUrlRelay = BehaviorRelay<URL?>(value: nil)
     private let disposeBag = DisposeBag()
-    private let remoteTestServer: RemoteTestServerType?
 
     /// Minimum stalled time threshold beyond which session stalled will be reported.
     private static let gattlinkStalledTimeout: TimeInterval = 60
 
     // swiftlint:disable:next function_body_length
-    public init(_ parameters: Parameters, remoteTestServer: RemoteTestServerType? = nil) {
+    public init(_ parameters: Parameters) {
         self.runLoop = parameters.runLoop
-        self.remoteTestServer = remoteTestServer
 
         if let urlString = ProcessInfo.processInfo.environment["GG_TOP_PORT"] {
             customPortUrlRelay.accept(URL(string: urlString))
@@ -214,31 +212,6 @@ open class CommonPeer {
             )
         }
 
-        // Register blasterService
-        remoteTestServer?.register(module: blasterService)
-
-        if let remoteTestServer = remoteTestServer {
-            self.coapClientService = parameters.runLoop.sync { [runLoop, coapEndpoint] in
-                // swiftlint:disable:next force_try
-                try! CoapClientService(runLoop: runLoop, coapEndpoint: coapEndpoint)
-            }
-
-            self.coapTestService = parameters.runLoop.sync { [coapEndpoint] in
-                // swiftlint:disable:next force_try
-                try! CoapTestService(coapEndpoint: coapEndpoint)
-            }
-
-            // Register CoAP test service
-            if let coapTestService = coapTestService {
-                remoteTestServer.register(module: coapTestService)
-            }
-
-            // Register CoAP client service
-            if let coapClientService = coapClientService {
-                remoteTestServer.register(module: coapClientService)
-            }
-        }
-
         // Resolve the URL and create a socket from it
         let customPort = customPortUrl
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
@@ -310,28 +283,5 @@ open class CommonPeer {
             interval: 0
         )
         customBlasterConfiguration.accept(customConfiguration)
-    }
-
-    deinit {
-        // unregister RemoteApi modules
-        remoteTestServer?.unregister(module: blasterService)
-
-        if let coapTestService = coapTestService {
-             remoteTestServer?.unregister(module: coapTestService)
-        }
-
-        if let coapClientService = coapClientService {
-            remoteTestServer?.unregister(module: coapClientService)
-        }
-    }
-}
-
-extension CommonPeer: StackConfigurable {
-    public func setStackDescriptor(_ descriptor: StackDescriptor) {
-        setCustomStackDescriptor(descriptor)
-    }
-
-    public func setServiceDescriptor(_ descriptor: ServiceDescriptor) {
-        setCustomServiceDescriptor(descriptor)
     }
 }

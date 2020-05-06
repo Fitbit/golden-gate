@@ -18,11 +18,10 @@ class ManagedNode: ManagedPeer {
     public let preferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>(value: .default)
     public let preferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>(value: .default)
 
-    init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, remoteTestServer: RemoteTestServerType?, linkConfigurationService: LinkConfigurationService) {
+    init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, linkConfigurationService: LinkConfigurationService) {
         super.init(
             record: record,
-            commonPeerParameters: commonPeerParameters,
-            remoteTestServer: remoteTestServer
+            commonPeerParameters: commonPeerParameters
         )
 
         // Handle gattlink session stall event

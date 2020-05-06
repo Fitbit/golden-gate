@@ -72,16 +72,5 @@ class NodeSimulator {
             .do(onNext: peerManager.remove)
             .subscribe()
             .disposed(by: disposeBag)
-
-        if let server = Component.instance.remoteTestServer {
-            register(on: server)
-            server.start()
-        }
-    }
-
-    func register(on server: RemoteTestServerType) {
-        server.register(module: AdvertisementRemoteApi(
-            advertiser: advertiser
-        ))
     }
 }

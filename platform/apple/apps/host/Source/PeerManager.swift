@@ -75,24 +75,6 @@ extension PeerManager {
     }
 }
 
-extension PeerManager {
-    /// Looks in the database for a single paired device.
-    /// - Note: Enforces the mobile to be paired with just one device.
-    ///
-    /// - Returns: An observable that will emit the coresponding Peer object.
-    func pairedDevice() -> Single<Peer> {
-        return peers.take(1)
-            .map { peers in
-                guard peers.count == 1 else {
-                    throw RemoteAPIError.invalidNumberOfPairedDevices(peers.count)
-                }
-
-                return peers[0]
-            }
-            .asSingle()
-    }
-}
-
 private extension PeerManager {
     func ensurePeer(for record: PeerRecord) -> Peer {
         if let peer = peerByHandle[record.handle] {

@@ -130,15 +130,3 @@ public final class BlasterService {
         }
     }
 }
-
-extension BlasterService: RemoteApiModule {
-    public var methods: Set<String> { [] } // Methods are defined in xp
-
-    public func publishHandlers(on remoteShell: RemoteShell) {
-        GG_BlastService_Register(ref, remoteShell.ref)
-    }
-
-    public func unpublishHandlers(from remoteShell: RemoteShell) {
-        GG_BlastService_Unregister(ref, remoteShell.ref)
-    }
-}
