@@ -12,7 +12,6 @@ dependencies:
 - gcc-arm-none-eabi=8.2019.q3.update
 - doxygen=1.8.16
 - ninja=1.9.0
-- cpputest=3.8
 - mkdocs=1.1
 - pip=20.0
 - pip:

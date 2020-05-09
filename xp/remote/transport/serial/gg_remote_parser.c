@@ -203,4 +203,5 @@ GG_Result GG_SerialRemoteParser_Reset(GG_SerialRemoteParser *parser)
 void GG_SerialRemoteParser_PrintState(GG_SerialRemoteParser* parser) {
     // Debug printing can go here, but the print/logs are platform specific
     GG_ASSERT(parser);
+    GG_COMPILER_UNUSED(parser);
 }

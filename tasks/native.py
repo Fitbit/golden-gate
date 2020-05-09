@@ -25,20 +25,20 @@ def detect_profile():
     return profile
 
 @task(help={
-    "debug": "Build the Debug build instead of the Release build",
+    "build-type": "Build type ('Debug', 'Release', 'MinSizeRel', 'RelWithDebInfo')",
     "coverage": "Generate a code coverage report",
     "sonarqube": "Enable Sonarqube scanning",
     "sanitize": "Enable a sanitizer ('address', ...). You can use this option multiple times, one for each sanitizer.",
     "cmakegen": "Override CMake generator (e.g. 'Xcode', run `cmake --help` for a list of supported generators)"
 }, iterable=['sanitize'])
-def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmake_verbose=False, cmakegen=None):
+def build(ctx, build_type='Debug', coverage=False, sonarqube=False, sanitize=None, cmake_verbose=False, cmakegen=None):
     '''Build Golden Gate natively using the default auto-detected profile for the host platform'''
     build_dir = ctx.C.BUILD_DIR_NATIVE
     cmake.build(ctx,
                 build_dir,
                 detect_profile(),
                 tests=True,
-                debug=debug,
+                build_type=build_type,
                 coverage=coverage,
                 sanitize=sanitize,
                 cmake_verbose=cmake_verbose,

@@ -1706,7 +1706,9 @@ GG_StackToolBluetoothTransport_OnDataReceived(GG_StackToolBluetoothTransport* se
     // send the data to the sink via the proxy, ignoring any error
     GG_DynamicBuffer* buffer;
     GG_Result result = GG_DynamicBuffer_Create(data_size, &buffer);
-    GG_ASSERT(GG_SUCCEEDED(result));
+    if (GG_FAILED(result)) {
+        return;
+    }
     GG_DynamicBuffer_SetData(buffer, data, data_size);
     GG_DataSink_PutData(GG_LoopDataSinkProxy_AsDataSink(self->sink_proxy), GG_DynamicBuffer_AsBuffer(buffer), NULL);
     GG_DynamicBuffer_Release(buffer);

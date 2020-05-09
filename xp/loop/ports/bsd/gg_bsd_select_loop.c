@@ -565,7 +565,7 @@ GG_Result
 GG_Loop_RemoveFileDescriptorHandler(GG_Loop*                           self,
                                     GG_LoopFileDescriptorEventHandler* handler)
 {
-    GG_ASSERT(self);
+    GG_COMPILER_UNUSED(self);
 
     // check that this handler is linked
     if (GG_LINKED_LIST_NODE_IS_UNLINKED(&handler->base.list_node)) {
@@ -584,6 +584,7 @@ GG_Loop_OnEvent(GG_LoopEventHandler* _self, GG_Loop* loop)
 {
     GG_ASSERT(_self);
     GG_COMPILER_UNUSED(loop);
+
     GG_Loop* self = GG_SELF_M(wakeup_handler.base, GG_Loop, GG_LoopEventHandler);
 
     // read all we can from the wakeup file descriptor, ignoring errors

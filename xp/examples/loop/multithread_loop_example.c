@@ -90,6 +90,7 @@ main(int argc, char** argv)
     GG_Loop* loop = NULL;
     GG_Result result = GG_Loop_Create(&loop);
     GG_ASSERT(GG_SUCCEEDED(result));
+    GG_COMPILER_UNUSED(result);
     GG_Loop_BindToCurrentThread(loop);
     GG_ASSERT(GG_SUCCEEDED(result));
 
