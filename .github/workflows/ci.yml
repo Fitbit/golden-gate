@@ -28,13 +28,13 @@ jobs:
            auto-activate-base: false
 
       # Build Code
-      - shell: ${{matrix.SHELL_COMMAND}}
-        name: Build Code
+      - name: Build Code
+        shell: ${{ matrix.SHELL_COMMAND }}
         run: |
           inv native.build
 
       # Build Docs
-      - shell: ${{matrix.SHELL_COMMAND}}
-        name: Build Docs
+      - name: Build Docs
+        shell: ${{ matrix.SHELL_COMMAND }}
         run: |
           inv doc.mkdocs.build
