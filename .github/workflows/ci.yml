@@ -31,6 +31,7 @@ jobs:
       - name: Build Code
         shell: bash -l {0}
         run: |
+          git submodule update --init --recursive
           inv native.build
 
       # Build Docs
