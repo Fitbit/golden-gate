@@ -12,6 +12,7 @@ def build(ctx, build_dir, profile, toolchain_file=None,
     '''Build Golden Gate using CMake'''
     if not os.path.exists(build_dir):
         os.makedirs(build_dir)
+    install_dir = os.path.join(build_dir, "install")
 
     cmd = [cmake_bin]
     if cmake_wrapper:
@@ -31,9 +32,9 @@ def build(ctx, build_dir, profile, toolchain_file=None,
         cmd.append("-DGG_CMAKE_VERBOSE=1")
     cmd.append("-DCMAKE_BUILD_TYPE={}".format(build_type))
     cmd.append("-Hxp")
-    cmd.append("-B{}".format(build_dir))
+    cmd.append('-B"{}"'.format(build_dir))
     cmd.append("-Cxp/config/profiles/{}.cmake".format(profile))
-    cmd.append("-DCMAKE_INSTALL_PREFIX={}".format(os.path.join(ctx.C.ROOT_DIR, "install")))
+    cmd.append('-DCMAKE_INSTALL_PREFIX="{}"'.format(install_dir))
     if toolchain_file:
         cmd.append("-DCMAKE_TOOLCHAIN_FILE={}".format(toolchain_file))
     if generator:

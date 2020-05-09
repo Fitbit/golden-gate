@@ -5,7 +5,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  build-linux-macos:
+  build-matrix:
     name: Build ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -29,12 +29,12 @@ jobs:
 
       # Build Code
       - name: Build Code
-        shell: ${{ matrix.SHELL_COMMAND }}
+        shell: bash -l {0}
         run: |
           inv native.build
 
       # Build Docs
       - name: Build Docs
-        shell: ${{ matrix.SHELL_COMMAND }}
+        shell: bash -l {0}
         run: |
           inv doc.mkdocs.build
