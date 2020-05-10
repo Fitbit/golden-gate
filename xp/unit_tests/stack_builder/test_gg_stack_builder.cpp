@@ -63,10 +63,11 @@ TEST(GG_STACK_BUILDER, Test_Constructor) {
     LONGS_EQUAL(GG_ERROR_INVALID_PARAMETERS, result);
 
     // stack with an IP config
-    GG_StackIpConfiguration ip_config;
-    ip_config.local_address  = (GG_IpAddress) { {1, 2, 3, 4} };
-    ip_config.remote_address = (GG_IpAddress) { {5, 6, 7, 8} };
-    ip_config.ip_mtu         = 0;
+    GG_StackIpConfiguration ip_config = {
+        .local_address  = { {1, 2, 3, 4} },
+        .remote_address = { {5, 6, 7, 8} },
+        .ip_mtu         = 0
+    };
     result = GG_StackBuilder_BuildStack(GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK,
                                         NULL,
                                         0,

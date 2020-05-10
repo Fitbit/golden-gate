@@ -144,7 +144,7 @@ extern const GG_IpAddress GG_IpAddress_Any;
 #define GG_SOCKET_ADDRESS_NULL_INITIALIZER {GG_IP_ADDRESS_NULL_INITIALIZER, 0}
 
 #define GG_SOURCE_SOCKET_ADDRESS_METADATA_INITIALIZER(_address, _port) \
-((GG_SocketAddressMetadata){                                           \
+{                                                                      \
     .base = {                                                          \
         .type = GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS,         \
         .size = sizeof(GG_SocketAddressMetadata)                       \
@@ -153,10 +153,10 @@ extern const GG_IpAddress GG_IpAddress_Any;
         .address = _address,                                           \
         .port    = (_port)                                             \
     }                                                                  \
-})
+}
 
 #define GG_DESTINATION_SOCKET_ADDRESS_METADATA_INITIALIZER(_address, _port) \
-((GG_SocketAddressMetadata){                                                \
+{                                                                           \
     .base = {                                                               \
         .type = GG_BUFFER_METADATA_TYPE_DESTINATION_SOCKET_ADDRESS,         \
         .size = sizeof(GG_SocketAddressMetadata)                            \
@@ -165,7 +165,7 @@ extern const GG_IpAddress GG_IpAddress_Any;
         .address = _address,                                                \
         .port    = (_port)                                                  \
     }                                                                       \
-})
+}
 
 /*----------------------------------------------------------------------
 |   results

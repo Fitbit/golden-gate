@@ -1430,10 +1430,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = true;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option2 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option2,
                                    1,
                                    0,
                                    token,
@@ -1458,10 +1458,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = true;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option3 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option3,
                                    1,
                                    0,
                                    token,
@@ -1495,10 +1495,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = false;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option4 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option4,
                                    1,
                                    0,
                                    token,
@@ -1532,10 +1532,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = true;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option5 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option5,
                                    1,
                                    0,
                                    token,
@@ -1558,10 +1558,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = true;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option6 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option6,
                                    1,
                                    0,
                                    token,
@@ -1639,10 +1639,10 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper) {
     block_info.size = 1024;
     block_info.more = true;
     GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
-    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_CoapMessageOptionParam block_option7 = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
     result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
                                    GG_COAP_MESSAGE_TYPE_CON,
-                                   &block_option,
+                                   &block_option7,
                                    1,
                                    0,
                                    token,
@@ -1823,10 +1823,10 @@ TEST(GG_COAP_BLOCKWISE, Test_BlockwiseCancelFromListener) {
     // create a canceling listener
     CancelingListener listener = {
         GG_INTERFACE_INITIALIZER(CancelingListener, GG_CoapBlockwiseResponseListener),
-        endpoint1,
-        {0, 0},
-        1024,
-        true
+        .endpoint = endpoint1,
+        .request_handle = {0, 0},
+        .offset_to_cancel_on = 1024,
+        .cancel_on_error = true
     };
 
     // make a first blockwise GET request for handler2

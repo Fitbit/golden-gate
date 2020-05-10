@@ -32,6 +32,13 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_C_COMPILER_ID MATCHES "GNU")
     target_compile_options(CppUTest PRIVATE -Wno-cast-qual -Wno-comma)
     target_compile_options(CppUTestExt PRIVATE -Wno-cast-qual -Wno-comma)
 endif()
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++latest")
+    endif()
+endif()
 ##########################################################################
 
 # Define a function to allow the subdirectories to easily define tests
