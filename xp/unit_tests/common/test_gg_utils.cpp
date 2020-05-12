@@ -526,10 +526,10 @@ TEST(GG_UTILS, Test_ProtobufVarint) {
     s_value = GG_ProtobufSignedFromZigZag(u_value);
     LONGLONGS_EQUAL(2147483647, s_value);
     LONGLONGS_EQUAL(4294967294, u_value);
-    u_value = GG_ProtobufSignedToZigZag(-2147483648);
+    u_value = GG_ProtobufSignedToZigZag(-2147483648ll);
     s_value = GG_ProtobufSignedFromZigZag(u_value);
-    LONGLONGS_EQUAL((int64_t)-2147483648, s_value);
-    LONGLONGS_EQUAL((uint64_t)4294967295, u_value);
+    LONGLONGS_EQUAL((int64_t)-2147483648ll, s_value);
+    LONGLONGS_EQUAL((uint64_t)4294967295ull, u_value);
 
     uint8_t foo[] = { 0x81 };
     size_t bytes_consumed = GG_DecodeProtobufVarint(foo, sizeof(foo), &u_value);

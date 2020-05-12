@@ -35,6 +35,12 @@ jobs:
           git submodule update --init --recursive
           inv native.build
 
+      # Test
+      - name: Run Unit Tests
+        shell: bash -l {0}
+        run: |
+          inv native.test
+
       # Build Docs
       - name: Build Docs
         shell: bash -l {0}
