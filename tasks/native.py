@@ -72,8 +72,11 @@ def clean(ctx):
     '''Blow away the build directory'''
     ctx.run("rm -rf {}".format(ctx.C.BUILD_DIR_NATIVE))
 
-@task(help={"sonarqube": "Sonarqube host URL"})
-def test(ctx, coverage=False, sonarqube='', output_on_failure=True, verbose=False, file_name=None, skip_build=True):
+@task(help={
+    "build-type": "Build type ('Debug', 'Release', 'MinSizeRel', 'RelWithDebInfo')",
+    "sonarqube": "Sonarqube host URL"
+})
+def test(ctx, build_type='Debug', coverage=False, sonarqube='', output_on_failure=True, verbose=False, file_name=None, skip_build=True):
     '''Run GoldenGate XP tests
     Note: please run "inv native.build" to build the unit tests first
 
@@ -114,7 +117,7 @@ def test(ctx, coverage=False, sonarqube='', output_on_failure=True, verbose=Fals
         args = ["--output-on-failure"] if output_on_failure else []
         args += ["--verbose"] if verbose else []
         args += ["--tests-regex", file_name] if file_name else []
-        ctx.run("ctest {}".format(" ".join(args)))
+        ctx.run("ctest -C {} {}".format(build_type, " ".join(args)))
 
     # analyze coverage after running tests
     if coverage:
