@@ -16,7 +16,7 @@ def doxygen_build(ctx):
     '''Generate Golden Gate API documentation using doxygen'''
     build_dir = ctx.C.BUILD_DIR_NATIVE
     cmake.build(ctx, build_dir, native.detect_profile(), docs=True)
-    ctx.run("cmake --build {build} --target doxygen".format(build=build_dir), pty=(sys.platform != 'win32'))
+    ctx.run('cmake --build "{build}" --target doxyge'.format(build=build_dir), pty=(sys.platform != 'win32'))
 
 doxygen = Collection('doxygen')
 doxygen.add_task(doxygen_build, 'build')
