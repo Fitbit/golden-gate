@@ -595,7 +595,7 @@ GG_String_ToInteger(const GG_String* self, int* value)
 {
     char* end = NULL;
     const char* str = GG_CSTR(*self);
-    long result = strtol(str, &end, 10);
+    long long result = strtoll(str, &end, 10);
 
     // check the result
     if (*end != '\0' || end == str) {

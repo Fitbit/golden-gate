@@ -9,9 +9,8 @@
 +---------------------------------------------------------------------*/
 #include <string.h>
 
-#include "xp/common/gg_io.h"
-#include "xp/common/gg_port.h"
-#include "xp/common/gg_buffer.h"
+#include "xp/module/gg_module.h"
+#include "xp/common/gg_common.h"
 #include "xp/services/blast/gg_blast_service.h"
 #include "xp/utils/gg_perf_data_sink.h"
 #include "xp/utils/gg_blaster_data_source.h"
@@ -21,9 +20,11 @@
 +---------------------------------------------------------------------*/
 TEST_GROUP(GG_SERVICES) {
     void setup(void) {
+        GG_Module_Initialize();
     }
 
     void teardown(void) {
+        GG_Module_Terminate();
     }
 };
 

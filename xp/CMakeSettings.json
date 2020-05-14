@@ -10,7 +10,13 @@
       "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "variables": []
+      "variables": [
+        {
+          "name": "GG_ENABLE_UNIT_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ]
     },
     {
       "name": "x86-Release",
@@ -34,7 +40,13 @@
       "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
-      "variables": []
+      "variables": [
+        {
+          "name": "GG_ENABLE_UNIT_TESTS",
+          "value": "True",
+          "type": "BOOL"
+        }
+      ]
     },
     {
       "name": "x64-Release",

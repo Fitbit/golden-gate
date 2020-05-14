@@ -65,7 +65,7 @@ def build(ctx, build_type='Debug', coverage=False, sonarqube=False, sanitize=Non
             build_wrapper = ""
 
     # Run the build
-    ctx.run("{}cmake --build {}".format(build_wrapper, build_dir), pty=(sys.platform != 'win32'))
+    ctx.run('{}cmake --build "{}"'.format(build_wrapper, build_dir), pty=(sys.platform != 'win32'))
 
 @task
 def clean(ctx):

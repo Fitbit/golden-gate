@@ -12,10 +12,8 @@
 
 #include "CppUTest/MemoryLeakDetectorNewMacros.h"
 
-#include "xp/common/gg_port.h"
-#include "xp/common/gg_utils.h"
-#include "xp/common/gg_timer.h"
-#include "xp/common/gg_system.h"
+#include "xp/module/gg_module.h"
+#include "xp/common/gg_common.h"
 #include "xp/loop/gg_loop.h"
 #include "xp/common/gg_threads.h"
 
@@ -23,9 +21,11 @@
 TEST_GROUP(GG_LOOP_WITH_THREADS)
 {
     void setup(void) {
+        GG_Module_Initialize();
     }
 
     void teardown(void) {
+        GG_Module_Terminate();
     }
 };
 

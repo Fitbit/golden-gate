@@ -13,10 +13,7 @@
 #include "CppUTest/MemoryLeakDetectorNewMacros.h"
 
 #include "xp/module/gg_module.h"
-#include "xp/common/gg_lists.h"
-#include "xp/common/gg_port.h"
-#include "xp/module/gg_module.h"
-#include "xp/common/gg_io.h"
+#include "xp/common/gg_common.h"
 #include "xp/sockets/gg_sockets.h"
 #include "xp/sockets/ports/bsd/gg_bsd_sockets.h"
 
@@ -24,9 +21,11 @@
 TEST_GROUP(GG_SOCKETS)
 {
     void setup(void) {
+        GG_Module_Initialize();
     }
 
     void teardown(void) {
+        GG_Module_Terminate();
     }
 };
 
@@ -108,8 +107,8 @@ TEST(GG_SOCKETS, Test_MultiSocketDestroy) {
     // create a second socket
     GG_DatagramSocket* socket2 = NULL;
     GG_SocketAddress remote_address_2;
-    remote_address_2.address = GG_IpAddress_Any;
-    remote_address_2.port    = local_address_1.port;
+    GG_IpAddress_SetFromString(&remote_address_2.address, "127.0.0.1");
+    remote_address_2.port = local_address_1.port;
     result = GG_BsdDatagramSocket_Create(NULL, &remote_address_2, false, 2000, &socket2);
     LONGS_EQUAL(GG_SUCCESS, result);
 
