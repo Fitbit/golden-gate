@@ -1,7 +1,8 @@
 # Copyright 2017-2020 Fitbit, Inc
 # SPDX-License-Identifier: Apache-2.0
 
-find_package(Doxygen)
+find_package(Doxygen
+             OPTIONAL_COMPONENTS dot mscgen dia)
 if(NOT DOXYGEN_FOUND)
     return()
 endif()
