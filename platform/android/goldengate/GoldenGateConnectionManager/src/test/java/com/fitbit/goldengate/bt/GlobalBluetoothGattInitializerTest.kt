@@ -6,6 +6,7 @@ package com.fitbit.goldengate.bt
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.exception.BluetoothNotEnabledException
+import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
 import com.fitbit.linkcontroller.LinkControllerProvider
 import com.nhaarman.mockitokotlin2.*
@@ -25,9 +26,11 @@ class GlobalBluetoothGattInitializerTest {
     private val mockGattServerListenerRegistrar = mock<GattServerListenerRegistrar>()
     private val mockLinkControllerProvider = mock<LinkControllerProvider>()
     private val callbackCaptor = ArgumentCaptor.forClass(FitbitGatt.FitbitGattCallback::class.java)
+    private val mockGattServer = mock<BitGattServer>()
 
     private val initializer = GlobalBluetoothGattInitializer(
         fitbitGatt = mockFitbitGatt,
+        gattServer = mockGattServer,
         gattServerListenerRegistrar = mockGattServerListenerRegistrar,
         linkControllerProvider = mockLinkControllerProvider
     )

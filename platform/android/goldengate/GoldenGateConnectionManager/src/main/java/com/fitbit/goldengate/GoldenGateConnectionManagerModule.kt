@@ -15,8 +15,8 @@ object GoldenGateConnectionManagerModule {
      * Initialized GG module.
      */
     @JvmStatic
-    fun init(applicationContext: Context, loggingEnabled: Boolean = true) {
+    fun init(applicationContext: Context, loggingEnabled: Boolean = true, isBleCentralRole: Boolean = true) {
         GoldenGate.init(loggingEnabled)
-        globalBluetoothGattInitializer.start(applicationContext)
+        globalBluetoothGattInitializer.start(applicationContext, isBleCentralRole)
     }
 }

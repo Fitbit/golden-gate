@@ -23,8 +23,6 @@ class GoldenGateHostApplication : Application() {
 
         initRxJava()
         Timber.plant(ThreadReportingTimberTree())
-
-        GoldenGateConnectionManagerModule.init(applicationContext, true)
     }
 
     class ThreadReportingTimberTree : Timber.DebugTree() {

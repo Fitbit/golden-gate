@@ -3,6 +3,8 @@
 
 package com.fitbit.goldengatehost
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.fitbit.bluetooth.fbgatt.GattConnection
@@ -92,5 +94,11 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
                 }, {
                     Timber.e(it, "Error getting stats")
                 }))
+    }
+
+    companion object {
+        fun getIntent(context: Context): Intent {
+            return Intent(context, BlastActivity::class.java)
+        }
     }
 }

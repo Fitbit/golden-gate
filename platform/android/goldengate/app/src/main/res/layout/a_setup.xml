@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusableInTouchMode="true">
@@ -55,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/margin_step_half"
                         android:layout_marginTop="@dimen/margin_step_half"
-                        android:text="Gattlink + UDP w/ DTLS"
+                        android:text="Gattlink + UDP + DTLS"
                         android:checked="true"/>
 
                 <RadioButton
@@ -127,11 +126,47 @@
 
             </RadioGroup>
 
+            <TextView
+                android:id="@+id/labelBleRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLE Role"
+                android:layout_marginTop="14dp"
+                android:layout_below="@id/radioGroupService"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupBleRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelBleRole">
+
+                <RadioButton
+                    android:id="@+id/rb_central"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step_half"
+                    android:layout_marginBottom="@dimen/margin_step_half"
+                    android:checked="true"
+                    android:text="Central" />
+
+                <RadioButton
+                    android:id="@+id/rb_peripheral"
+                    style="@style/LargerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_step_half"
+                    android:layout_marginBottom="@dimen/margin_step_half"
+                    android:text="Peripheral" />
+
+            </RadioGroup>
+
+
             <RelativeLayout
                 android:id="@+id/container_edit_ip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/radioGroupService">
+                android:layout_below="@id/radioGroupBleRole">
 
                 <TextView
                     android:id="@+id/labelIpAddress"

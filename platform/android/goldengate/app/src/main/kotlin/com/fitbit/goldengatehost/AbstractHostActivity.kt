@@ -3,6 +3,7 @@
 
 package com.fitbit.goldengatehost
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.bluetooth.BluetoothDevice
 import android.companion.AssociationRequest
@@ -30,10 +31,13 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.CentralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
+import com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter
+import com.fitbit.bluetooth.fbgatt.rx.server.listeners.ConnectionEvent
 import com.fitbit.goldengate.bindings.GoldenGate
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
@@ -41,6 +45,7 @@ import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.node.Node
 import com.fitbit.goldengate.node.NodeBuilder
 import com.fitbit.goldengate.node.NodeMapper
@@ -50,12 +55,14 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.a_single_message.central_controls
 import timber.log.Timber
 
 const val EXTRA_STACK_CONFIG = "extra_stack_config"
 const val EXTRA_LOCAL_PORT = "extra_local_port"
 const val EXTRA_REMOTE_IP = "extra_remote_ip"
 const val EXTRA_REMOTE_PORT = "extra_remote_port"
+const val EXTRA_IS_BLE_CENTRAL_ROLE = "extra_is_ble_central_role"
 const val REQ_ID = 1234
 const val SELECT_DEVICE_REQUEST_CODE = 9123
 const val GGHOST_PARTIAL_WAKELOCK = "goldengatehost:partial_wakelock"
@@ -76,11 +83,12 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     private lateinit var slowLogsToggle: Switch
     private lateinit var deviceLinking: Switch
     private lateinit var wakeLock: Switch
+    private lateinit var advertiser: Advertiser
 
     private var companionDeviceManager: CompanionDeviceManager? = null
     private var bluetoothWakeLock: PowerManager.WakeLock? = null
     private var backPressedListener: (() -> Unit)? = null
-    private lateinit var nodeKey:BluetoothAddressNodeKey
+    private lateinit var nodeKey: BluetoothAddressNodeKey
     /**
      * Get the android content view
      */
@@ -125,59 +133,108 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         buildmodel.text = Build.MODEL
 
         val stackConfig = intent.getSerializableExtra(EXTRA_STACK_CONFIG) as StackConfig
-        val bluetoothDevice = intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
-        val gattConnection = FitbitGatt.getInstance().getConnection(bluetoothDevice)
-        if (gattConnection == null) {
-            Toast.makeText(this, "Device ${bluetoothDevice.address} not known to bitgatt", Toast.LENGTH_LONG).show()
-            finish()
-            return
-        }
-        val currentDevice = BitGattPeripheral(gattConnection)
-        nodeKey = BluetoothAddressNodeKey(bluetoothDevice.address)
-        val stackNode = NodeMapper.instance.get(
+
+        val isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
+
+        if (isBleCentralRole) {
+            val bluetoothDevice = intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
+            val gattConnection = FitbitGatt.getInstance().getConnection(bluetoothDevice)
+            if (gattConnection == null) {
+                Toast.makeText(this, "Device ${bluetoothDevice.address} not known to bitgatt", Toast.LENGTH_LONG).show()
+                finish()
+                return
+            }
+            val currentDevice = BitGattPeripheral(gattConnection)
+            nodeKey = BluetoothAddressNodeKey(bluetoothDevice.address)
+            val stackNode = NodeMapper.instance.get(
                 nodeKey,
                 getNodeBuilder(stackConfig, listenToGattlinkStatus, listenToDtlsEvents(stackConfig)),
                 true
-        ) as Node<T>
+            ) as Node<T>
 
-        if (stackConfig is DtlsSocketNetifGattlink) {
-            findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
-        }
-        gattlink_status.text = getString(R.string.gattlink_status, PeripheralConnectionStatus.DISCONNECTED)
-        handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
+            if (stackConfig is DtlsSocketNetifGattlink) {
+                findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
+            }
+            gattlink_status.text = getString(R.string.gattlink_status, PeripheralConnectionStatus.DISCONNECTED)
+            handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
 
-        connectCentralMode(stackNode, currentDevice, stackConfig)
-        linkControllerSetup.setOnClickListener { startLinkControllerActivity(bluetoothDevice)}
+            connectCentralMode(stackNode, currentDevice, stackConfig)
+            linkControllerSetup.setOnClickListener { startLinkControllerActivity(bluetoothDevice) }
 
-        slowLogsToggle.setOnCheckedChangeListener { _, isChecked ->
-            FitbitGatt.getInstance().setSlowLoggingEnabled(isChecked)
-            GattCharacteristicWriter.slowLoggingEnabled = isChecked
-        }
+            slowLogsToggle.setOnCheckedChangeListener { _, isChecked ->
+                FitbitGatt.getInstance().setSlowLoggingEnabled(isChecked)
+                GattCharacteristicWriter.slowLoggingEnabled = isChecked
+            }
 
-        if (Build.VERSION.SDK_INT >= O) {
-            companionDeviceManager = getSystemService(CompanionDeviceManager::class.java)
-            unlinkAllDevices()
-            deviceLinking.visibility = View.VISIBLE
+            if (Build.VERSION.SDK_INT >= O) {
+                companionDeviceManager = getSystemService(CompanionDeviceManager::class.java)
+                unlinkAllDevices()
+                deviceLinking.visibility = View.VISIBLE
 
-            deviceLinking.setOnCheckedChangeListener { buttonView, isChecked ->
-                if (isChecked) {
-                    linkDevice(bluetoothDevice)
-                } else {
-                    unlinkDevice(bluetoothDevice)
+                deviceLinking.setOnCheckedChangeListener { buttonView, isChecked ->
+                    if (isChecked) {
+                        linkDevice(bluetoothDevice)
+                    } else {
+                        unlinkDevice(bluetoothDevice)
+                    }
                 }
             }
-        }
 
-        wakeLock.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                acquirePartialWakeLock()
-            } else {
-                releasePartialWakeLock()
+            wakeLock.setOnCheckedChangeListener { buttonView, isChecked ->
+                if (isChecked) {
+                    acquirePartialWakeLock()
+                } else {
+                    releasePartialWakeLock()
+                }
             }
+        } else {
+            central_controls.visibility = View.GONE
+            disposeBag.add(
+                CentralConnectionChangeListener().register().subscribe(
+                    { when (it) {
+                        is ConnectionEvent.Connected -> {
+                            stopAdvertisement()
+                            Timber.d("Connection state update: ${it.centralDevice} connected") }
+                        is ConnectionEvent.Disconnected -> {
+                            Timber.d("Connection state update: ${it.centralDevice} disconnected") } }
+                    },
+                    { Timber.d("Error!") })
+            )
+
+            startAdvertisement()
+
         }
     }
 
-    @RequiresApi(O)
+    private fun startAdvertisement() {
+        advertiser = Advertiser(this)
+        disposeBag.add(
+            advertiser.startAdvertising(Advertiser.getAdvertiseSettings(),
+                Advertiser.getAdvertiseData(GattlinkService.uuid.toString()),
+                    Advertiser.getScanResponseData())
+                .subscribe({
+                    Snackbar.make(container, "Start Advertising", Snackbar.LENGTH_SHORT).show()
+                    Timber.d("Started advertising")
+                }, {
+                    Timber.e(it, "Womp womp. Didn't start advertising.")
+                    Snackbar.make(container, "Failed to start Advertising", Snackbar.LENGTH_SHORT).show()
+                })
+        )
+    }
+
+    @SuppressLint("CheckResult") // this is a fire-and-forget call
+    private fun stopAdvertisement() {
+        advertiser.stopAdvertising()
+            .subscribe({
+                Snackbar.make(container, "Stop Advertising", Snackbar.LENGTH_SHORT).show()
+                Timber.d("Stop advertising")
+            }, {
+                Timber.e(it, "Womp womp. Didn't stop advertising.")
+                Snackbar.make(container, "Failed to stop Advertising", Snackbar.LENGTH_SHORT).show()
+            })
+    }
+
+        @RequiresApi(O)
     private fun linkDevice(device: BluetoothDevice?) {
         if (device == null) {
             Timber.d("No device to link")
@@ -379,11 +436,13 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
             unlinkAllDevices()
         }
         releasePartialWakeLock()
+        stopAdvertisement()
         disposeBag.dispose()
         super.onStop()
     }
 
     override fun onBackPressed() {
+
         backPressedListener?.invoke()
         super.onBackPressed()
     }
