@@ -9,7 +9,7 @@ import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralDisconnector
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerMtuChangeListener
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
@@ -18,11 +18,12 @@ import com.fitbit.goldengate.bindings.stack.GattlinkStackConfig
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackEvent
 import com.fitbit.goldengate.bindings.stack.StackService
-import com.fitbit.goldengate.bt.PeripheralConnector
+import com.fitbit.goldengate.bt.PeerConnector
+import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.node.Bridge
-import com.fitbit.goldengate.node.LinkupHandler
+import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.MtuChangeRequester
-import com.fitbit.goldengate.node.NodeConnectionStatus
+import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.peripheral.NodeDisconnectedException
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doAnswer
@@ -49,7 +50,7 @@ import java.util.concurrent.TimeoutException
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
-class StackNodeTest {
+class StackPeerTest {
 
     private val bluetoothAddress = "bluetoothAddress"
     private val pskIdentity = "TEST"
@@ -64,13 +65,13 @@ class StackNodeTest {
         on { btDevice } doReturn device
         on { address } doReturn bluetoothAddress
     }
-    private val peripheral = mock<BitGattPeripheral> {
+    private val peripheral = mock<BitGattPeer> {
         on { fitbitDevice } doReturn fitbitBluetoothDevice
     }
     private val gattConnection = mock<GattConnection> {
         on { device } doReturn fitbitBluetoothDevice
     }
-    private val peripheralProvider = mock<(gattConnection: GattConnection) -> BitGattPeripheral> {
+    private val peripheralProvider = mock<(gattConnection: GattConnection) -> BitGattPeer> {
         on { invoke(gattConnection) } doReturn peripheral
     }
     private val key = mock<BluetoothAddressNodeKey> {
@@ -80,11 +81,11 @@ class StackNodeTest {
     private val mtu = STACK_NODE_DEFAULT_MTU
     private val timeout = STACK_NODE_CONNECTION_TIMEOUT_SECONDS
 
-    private val linkupHandler = mock<LinkupHandler> {
+    private val linkupHandler = mock<LinkupWithPeerNodeHandler> {
         on { link(peripheral) } doReturn Completable.complete()
     }
 
-    private val peripheralConnectionHandler = mock<PeripheralConnector> {
+    private val peripheralConnectionHandler = mock<PeerConnector> {
         on { connect() } doReturn Single.just(gattConnection)
     }
     private val connectionStatusProvider = mock<(GattConnection) -> Observable<PeripheralConnectionStatus>> {
@@ -135,51 +136,81 @@ class StackNodeTest {
     }
 
     @Test
-    fun connection() {
-        val connection = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+    fun `connection to a remote Node`() {
+        val connection = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         ).connection().test()
 
         //Connected
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
         connection.assertNotComplete()
         verifyConnectionSequence()
     }
 
     @Test
-    fun disconnect() {
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+    fun `connection to a remote Hub`() {
+        val connection = StackPeer(
+            key,
+            PeerRole.Central,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
+        ).connection().test()
+
+        //Connected
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
+        connection.assertNotComplete()
+        verifyConnectionSequence()
+    }
+
+    @Test
+    fun `disconnect with a remote Node`() {
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
 
         //Works twice in the same way after disconnecting
@@ -190,7 +221,7 @@ class StackNodeTest {
             //Disconnecting
             stackNode.disconnect()
 
-            connection.assertValue(NodeConnectionStatus.CONNECTED)
+            connection.assertValue(PeerConnectionStatus.CONNECTED)
             connection.assertComplete()
 
             verify(stackService, times(n)).detach()
@@ -202,25 +233,67 @@ class StackNodeTest {
     }
 
     @Test
-    fun close() {
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+    fun `disconnect with a remote Hub`() {
+        val stackHub = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
+        )
+
+        //Works twice in the same way after disconnecting
+        (1..2).forEach { n ->
+            //Connecting
+            val connection = stackHub.connection().test().assertNotComplete()
+
+            //Disconnecting
+            stackHub.disconnect()
+
+            connection.assertValue(PeerConnectionStatus.CONNECTED)
+            connection.assertComplete()
+
+            verify(stackService, times(n)).detach()
+            verify(bridge, times(n)).close()
+            verify(stack, times(n)).close()
+
+            connection.assertComplete()
+        }
+    }
+
+    @Test
+    fun `close stack node`() {
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
         val connection = stackNode.connection().test().assertNotComplete()
 
@@ -228,7 +301,47 @@ class StackNodeTest {
 
         stackNode.close()
 
-        connection.assertValue(NodeConnectionStatus.CONNECTED).assertComplete()
+        connection.assertValue(PeerConnectionStatus.CONNECTED).assertComplete()
+
+        //Should disconnect
+        verify(stackService).detach()
+        verify(bridge).close()
+        verify(stack).close()
+        verify(mockPeripheralDisconnector).disconnect(key.value)
+
+        //Should close
+        verify(stackService).close()
+    }
+
+    @Test
+    fun `close stack hub`() {
+        val stackHub = StackPeer(
+            key,
+            PeerRole.Central,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
+        )
+        val connection = stackHub.connection().test().assertNotComplete()
+
+        verifyConnectionSequence()
+
+        stackHub.close()
+
+        connection.assertValue(PeerConnectionStatus.CONNECTED).assertComplete()
 
         //Should disconnect
         verify(stackService).detach()
@@ -242,18 +355,18 @@ class StackNodeTest {
 
     private fun verifyConnectionSequence(nthTime: Int = 1) {
         val inOrder = inOrder(
-                peripheralConnectionHandler,
-                buildBridge,
-                buildStack,
-                stackService,
-                mtuChangeRequesterProvider,
-                mtuChangeRequester,
-                linkupHandler,
-                bridge,
-                stack,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                mockGattServerMtuChangeListener
+            peripheralConnectionHandler,
+            buildBridge,
+            buildStack,
+            stackService,
+            mtuChangeRequesterProvider,
+            mtuChangeRequester,
+            linkupHandler,
+            bridge,
+            stack,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            mockGattServerMtuChangeListener
         )
         inOrder.verify(peripheralConnectionHandler, times(nthTime)).connect()
         inOrder.verify(buildBridge, times(nthTime)).invoke(gattConnection)
@@ -273,27 +386,28 @@ class StackNodeTest {
 
     @Test
     fun closeBeforeConnected() {
-        val peripheralConnectionHandler = mock<PeripheralConnector> {
+        val peripheralConnectionHandler = mock<PeerConnector> {
             on { connect() } doReturn Single.never()
         }
 
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
         val connection = stackNode.connection().test().assertNotComplete()
 
@@ -325,24 +439,25 @@ class StackNodeTest {
             on { invoke(stack) } doReturn mtuChangeRequester
         }
 
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
         val connection = stackNode.connection().test().assertNotComplete()
 
@@ -371,28 +486,29 @@ class StackNodeTest {
 
     @Test
     fun disconnectBeforeConnected() {
-        val peripheralConnectionHandler = mock<PeripheralConnector> {
+        val peripheralConnectionHandler = mock<PeerConnector> {
             on { connect() } doReturn Single.never()
         }
 
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
 
         //Should happen the same after disconnected
@@ -426,24 +542,25 @@ class StackNodeTest {
             on { invoke(stack) } doReturn mtuChangeRequester
         }
 
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
 
         //Should happen the same after disconnected
@@ -472,29 +589,30 @@ class StackNodeTest {
 
     @Test
     fun disposeConnectionDoesNotDisconnect() {
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
         val connection = stackNode.connection().test().apply { dispose() }
 
         //Not disconnecting
-        connection.assertValue(NodeConnectionStatus.CONNECTED).assertNotComplete()
+        connection.assertValue(PeerConnectionStatus.CONNECTED).assertNotComplete()
 
         verify(stackService, never()).detach()
         verify(bridge, never()).close()
@@ -504,24 +622,25 @@ class StackNodeTest {
 
     @Test
     fun connectionMultipleTimesOnlyConnectsOnce() {
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                peripheralDisconnector = mockPeripheralDisconnector,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            fitbitGatt = fitbitGatt
         )
 
         //Works twice in the same way after disconnecting
@@ -531,8 +650,8 @@ class StackNodeTest {
             val connection1 = connections.first.test()
             val connection2 = connections.second.test()
 
-            connection1.assertValue(NodeConnectionStatus.CONNECTED)
-            connection2.assertValue(NodeConnectionStatus.CONNECTED)
+            connection1.assertValue(PeerConnectionStatus.CONNECTED)
+            connection2.assertValue(PeerConnectionStatus.CONNECTED)
 
             //Connecting only once
             verify(peripheralConnectionHandler, times(n)).connect()
@@ -570,23 +689,24 @@ class StackNodeTest {
             on { invoke(gattConnection) } doAnswer { iterator.next() }
         }
 
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
 
         //Connecting
@@ -596,7 +716,7 @@ class StackNodeTest {
         //The connection should be a new one when trying again
         val connection2 = stackNode.connection()
         assertNotEquals(connection1, connection2)
-        connection2.test().assertValue(NodeConnectionStatus.CONNECTED)
+        connection2.test().assertValue(PeerConnectionStatus.CONNECTED)
     }
 
     @Test
@@ -607,8 +727,9 @@ class StackNodeTest {
             on { invoke(gattConnection) } doAnswer { Observable.never() }
         }
 
-        val connection = StackNode(
+        val connection = StackPeer(
             key,
+            PeerRole.Peripheral,
             stackConfig,
             stackService,
             linkupHandler,
@@ -627,15 +748,16 @@ class StackNodeTest {
         ).connection().test()
 
         //Connected
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
     }
 
     @Test
     fun connectionWhenGattNotConnected() {
         whenever(gattConnection.isConnected).thenReturn(false)
 
-        val connection = StackNode(
+        val connection = StackPeer(
             key,
+            PeerRole.Peripheral,
             stackConfig,
             stackService,
             linkupHandler,
@@ -654,7 +776,7 @@ class StackNodeTest {
         ).connection().test()
 
         //Connected
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
     }
 
     @Test
@@ -665,23 +787,24 @@ class StackNodeTest {
                 emitter.onNext(DtlsProtocolStatus(DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR.ordinal, 0, pskIdentity))
             }
         }
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
 
         //Connecting
@@ -700,56 +823,58 @@ class StackNodeTest {
                 emitter.onNext(DtlsProtocolStatus(DtlsProtocolStatus.TlsProtocolState.TLS_STATE_SESSION.ordinal, 0, pskIdentity))
             }
         }
-        val connection = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val connection = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         ).connection().test()
 
         //Connected
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
         connection.assertNotComplete()
     }
 
     @Test
     fun connectionThrows() {
-        val peripheralConnectionHandler = mock<PeripheralConnector> {
+        val peripheralConnectionHandler = mock<PeerConnector> {
             val iterator = listOf<Single<GattConnection>>(
                     Single.error(RuntimeException()),
                     Single.just(gattConnection)
             ).iterator()
             on { connect() } doAnswer { iterator.next() }
         }
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
 
         //Connecting
@@ -759,7 +884,7 @@ class StackNodeTest {
         //The connection should be a new one when trying again
         val connection2 = stackNode.connection()
         assertNotEquals(connection1, connection2)
-        connection2.test().assertValue(NodeConnectionStatus.CONNECTED)
+        connection2.test().assertValue(PeerConnectionStatus.CONNECTED)
     }
 
     @Test
@@ -772,23 +897,24 @@ class StackNodeTest {
             on { invoke(gattConnection) } doAnswer { iterator.next() }
         }
         val timeout = Random().nextLong()
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         )
 
         //Connecting
@@ -800,45 +926,46 @@ class StackNodeTest {
         //The connection should be a new one when trying again
         val connection2 = stackNode.connection()
         assertNotEquals(connection1, connection2)
-        connection2.test().assertValue(NodeConnectionStatus.CONNECTED)
+        connection2.test().assertValue(PeerConnectionStatus.CONNECTED)
     }
 
     @Test
     fun connectionToNonDtlsStackServiceDoesNotListenToDtlsEvents() {
         val stackConfig = mock<GattlinkStackConfig>()
-        val connection = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
+        val connection = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
         ).connection().test()
 
         //Connected
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
         connection.assertNotComplete()
         val inOrder = inOrder(
-                peripheralConnectionHandler,
-                buildBridge,
-                buildStack,
-                stackService,
-                mtuChangeRequesterProvider,
-                mtuChangeRequester,
-                linkupHandler,
-                connectionStatusProvider,
-                bridge,
-                stack
+            peripheralConnectionHandler,
+            buildBridge,
+            buildStack,
+            stackService,
+            mtuChangeRequesterProvider,
+            mtuChangeRequester,
+            linkupHandler,
+            connectionStatusProvider,
+            bridge,
+            stack
         )
         inOrder.verify(peripheralConnectionHandler, times(1)).connect()
         inOrder.verify(buildBridge, times(1)).invoke(gattConnection)
@@ -857,49 +984,9 @@ class StackNodeTest {
     @Test
     fun requestMtuChange() {
         val newMtu = Random().nextInt()
-        val stackNode = StackNode(
-                key,
-                stackConfig,
-                stackService,
-                linkupHandler,
-                peripheralConnectionHandler,
-                connectionStatusProvider,
-                dtlsEventProvider,
-                peripheralProvider,
-                mtuChangeRequesterProvider,
-                mtu,
-                timeout,
-                buildStack,
-                buildBridge,
-                mtuRequestSubject,
-                mockGattServerMtuChangeListener,
-                fitbitGatt = fitbitGatt
-        )
-        val connection = stackNode.connection().test()
-
-        verifyConnectionSequence()
-
-        //Verify request invoked new mtu change
-        stackNode.requestMtu(newMtu)
-        verify(mtuChangeRequester).requestMtu(peripheral, newMtu)
-
-        //Verify connected only once and not completed
-        connection.assertValue(NodeConnectionStatus.CONNECTED)
-        connection.assertNotComplete()
-    }
-
-    @Test
-    fun connectionMtuChange() {
-        val mockGattServerMtuChangeListener: GattServerMtuChangeListener = mock {
-            on { register(any()) } doReturn PublishSubject.create { emitter ->
-                emitter.onNext(200)
-                emitter.onNext(300)
-                emitter.onNext(400)
-            }
-        }
-
-        StackNode(
+        val stackNode = StackPeer(
             key,
+            PeerRole.Peripheral,
             stackConfig,
             stackService,
             linkupHandler,
@@ -915,7 +1002,49 @@ class StackNodeTest {
             mtuRequestSubject,
             mockGattServerMtuChangeListener,
             fitbitGatt = fitbitGatt
-        ).connection().test().assertValue(NodeConnectionStatus.CONNECTED)
+        )
+        val connection = stackNode.connection().test()
+
+        verifyConnectionSequence()
+
+        //Verify request invoked new mtu change
+        stackNode.requestMtu(newMtu)
+        verify(mtuChangeRequester).requestMtu(peripheral, newMtu)
+
+        //Verify connected only once and not completed
+        connection.assertValue(PeerConnectionStatus.CONNECTED)
+        connection.assertNotComplete()
+    }
+
+    @Test
+    fun connectionMtuChange() {
+        val mockGattServerMtuChangeListener: GattServerMtuChangeListener = mock {
+            on { register(any()) } doReturn PublishSubject.create { emitter ->
+                emitter.onNext(200)
+                emitter.onNext(300)
+                emitter.onNext(400)
+            }
+        }
+
+        StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuRequestSubject,
+            mockGattServerMtuChangeListener,
+            fitbitGatt = fitbitGatt
+        ).connection().test().assertValue(PeerConnectionStatus.CONNECTED)
 
         verify(mtuChangeRequester).updateStackMtu(200)
         verify(mtuChangeRequester).updateStackMtu(300)

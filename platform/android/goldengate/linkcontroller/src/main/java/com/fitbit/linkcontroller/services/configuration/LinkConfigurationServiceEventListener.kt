@@ -94,7 +94,8 @@ class LinkConfigurationServiceEventListener internal constructor(
     ) {
         when (result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid,
-            ClientPreferredConnectionConfigurationCharacteristic.uuid -> handleLinkConfigurationCharacteristicDescriptorWriteRequest(
+            ClientPreferredConnectionConfigurationCharacteristic.uuid,
+            GeneralPurposeCommandCharacteristic.uuid-> handleLinkConfigurationCharacteristicDescriptorWriteRequest(
                 device,
                 result,
                 connection

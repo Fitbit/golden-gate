@@ -64,7 +64,7 @@ class Advertiser(val context: Context, private val bleAdvertiser: BluetoothLeAdv
     }
 
     companion object {
-        fun getAdvertiseSettings():AdvertiseSettings {
+        fun getAdvertiseSettings(): AdvertiseSettings {
             val advertiseSettingsBuilder = AdvertiseSettings.Builder()
             advertiseSettingsBuilder.setConnectable(true)
             advertiseSettingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY)
@@ -73,7 +73,7 @@ class Advertiser(val context: Context, private val bleAdvertiser: BluetoothLeAdv
             return advertiseSettingsBuilder.build()
         }
 
-        fun getAdvertiseData(uuid: String):AdvertiseData {
+        fun getAdvertiseData(uuid: String): AdvertiseData {
             val advertiseDataBuilder = AdvertiseData.Builder()
             advertiseDataBuilder.addServiceUuid(ParcelUuid.fromString(uuid))
             advertiseDataBuilder.setIncludeDeviceName(false)
@@ -81,7 +81,7 @@ class Advertiser(val context: Context, private val bleAdvertiser: BluetoothLeAdv
             return advertiseDataBuilder.build()
         }
 
-        fun getScanResponseData():AdvertiseData {
+        fun getScanResponseData(): AdvertiseData {
             val advertiseDataBuilder = AdvertiseData.Builder()
             advertiseDataBuilder.setIncludeDeviceName(true)
             advertiseDataBuilder.setIncludeTxPowerLevel(true)

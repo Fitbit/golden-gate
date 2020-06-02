@@ -11,10 +11,11 @@ import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
+import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.node.NodeMapper
-import com.fitbit.goldengate.node.stack.RemoteApiStackNodeBuilder
-import com.fitbit.goldengate.node.stack.StackNode
-import com.fitbit.goldengate.node.stack.StackNodeBuilder
+import com.fitbit.goldengate.node.stack.RemoteApiStackPeerBuilder
+import com.fitbit.goldengate.node.stack.StackPeer
+import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import io.reactivex.internal.disposables.DisposableContainer
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
@@ -26,50 +27,51 @@ import timber.log.Timber
  *
  * @param bluetoothProvider the [BluetoothProvider] used to search for devices by peer name
  * @param disposableContainer the [DisposableContainer] used to keep reference to connection subscriptions
- * @param nodeMapper the [NodeMapper] used to hold references to the [StackNode]
+ * @param nodeMapper the [NodeMapper] used to hold references to the [StackPeer]
  * @param defaultConfiguration the default configuration when no other is set for a node
- * @param configurationMap Maps peer names to stack node configurations ([StackNodeBuilder]s)
+ * @param configurationMap Maps peer names to stack peer configurations ([StackPeerBuilder]s)
  * @param bluetoothAddressNodeKeyProvider Scans for the device by name to get the bt address for a BluetoothAddressNodeKey
  * @param lastConnectionHolder holds a reference to the most recently connected StackNode for when a peer param is not used in subsequent commands
  */
 class RemoteApiConfigurationState(
-        private val bluetoothProvider: BluetoothProvider,
-        private val disposableContainer: DisposableContainer,
-        private val nodeMapper: NodeMapper = NodeMapper.instance,
-        private val defaultConfiguration: StackNodeBuilder<*> = RemoteApiStackNodeBuilder(
-                CoapEndpoint::class.java,
-                DtlsSocketNetifGattlink(),
-                CoapEndpointBuilder
-        ),
-        private val configurationMap: MutableMap<String?, StackNodeBuilder<*>> = mutableMapOf(),
-        private val bluetoothAddressNodeKeyProvider: (GattConnection) -> BluetoothAddressNodeKey = {
+    private val bluetoothProvider: BluetoothProvider,
+    private val disposableContainer: DisposableContainer,
+    private val nodeMapper: NodeMapper = NodeMapper.instance,
+    private val defaultConfiguration: StackPeerBuilder<*> = RemoteApiStackPeerBuilder(
+        CoapEndpoint::class.java,
+        PeerRole.Peripheral,
+        DtlsSocketNetifGattlink(),
+        CoapEndpointBuilder
+    ),
+    private val configurationMap: MutableMap<String?, StackPeerBuilder<*>> = mutableMapOf(),
+    private val bluetoothAddressNodeKeyProvider: (GattConnection) -> BluetoothAddressNodeKey = {
             BluetoothAddressNodeKey(it.device.address)
         },
-        private val lastConnectionHolder: LastConnectionHolder = LastConnectionHolder()
+    private val lastConnectionHolder: LastConnectionHolder = LastConnectionHolder()
 ) {
 
     /**
      * Sets a configuration map entry
      *
      * @param macAddress the BTLE name of the device or null
-     * @param stackNodeBuilder a stack node builder including the [StackConfig] and [StackService]
+     * @param stackPeerBuilder a StackPeer builder including the [StackConfig] and [StackService]
      */
-    fun setPeerConfiguration(macAddress: String?, stackNodeBuilder: StackNodeBuilder<*>) {
-        configurationMap[macAddress] = stackNodeBuilder
+    fun setPeerConfiguration(macAddress: String?, stackPeerBuilder: StackPeerBuilder<*>) {
+        configurationMap[macAddress] = stackPeerBuilder
     }
 
     /**
-     * Returns a [StackNode] for a given peer name
+     * Returns a [StackPeer] for a given peer name
      *
      * @param macAddress the BTLE mac address of the device
      * @return
-     *   - If [macAddress] is non-null: a [StackNode] with a configuration previously set by
+     *   - If [macAddress] is non-null: a [StackPeer] with a configuration previously set by
      *   [setPeerConfiguration], or the configuration set with no peer name if one was not set with
      *   this peer name, or the default if non of the former exist
-     *   - If [macAddress] is null: the last connected [StackNode]
+     *   - If [macAddress] is null: the last connected [StackPeer]
      *   - [IllegalStateException] if [peerName] and the last connected node are null
      */
-    fun getNode(context: Context, macAddress: String? = null): StackNode<*> =
+    fun getNode(context: Context, macAddress: String? = null): StackPeer<*> =
         //Asking for a node by peer name?
         macAddress?.let { address ->
             try {
@@ -87,7 +89,7 @@ class RemoteApiConfigurationState(
                                 //No config yet? Use the default one.
                                 ?: defaultConfiguration
                 //Get the node from the NodeMapper using the bt address key
-                nodeMapper.get(it, nodeBuilder) as StackNode<*>
+                nodeMapper.get(it, nodeBuilder) as StackPeer<*>
             }
         }
         //Not using a peer name? Then we are expecting a previous connection
@@ -116,5 +118,5 @@ class RemoteApiConfigurationState(
     fun startPairing(context: Context, macAddress: String) =
             getNode(context, macAddress).also { lastConnectionHolder.lastConnectedNode = it }
 
-    data class LastConnectionHolder(var lastConnectedNode: StackNode<*>? = null)
+    data class LastConnectionHolder(var lastConnectedNode: StackPeer<*>? = null)
 }

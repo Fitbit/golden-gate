@@ -35,7 +35,7 @@ import com.fitbit.bluetooth.fbgatt.rx.CentralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter
 import com.fitbit.bluetooth.fbgatt.rx.server.listeners.ConnectionEvent
 import com.fitbit.goldengate.bindings.GoldenGate
@@ -45,9 +45,10 @@ import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
+import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
-import com.fitbit.goldengate.node.Node
-import com.fitbit.goldengate.node.NodeBuilder
+import com.fitbit.goldengate.node.Peer
+import com.fitbit.goldengate.node.PeerBuilder
 import com.fitbit.goldengate.node.NodeMapper
 import com.fitbit.goldengatehost.scan.EXTRA_DEVICE
 import com.fitbit.linkcontroller.ui.LinkControllerActivity
@@ -57,6 +58,8 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.a_single_message.central_controls
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
 
 const val EXTRA_STACK_CONFIG = "extra_stack_config"
 const val EXTRA_LOCAL_PORT = "extra_local_port"
@@ -66,6 +69,7 @@ const val EXTRA_IS_BLE_CENTRAL_ROLE = "extra_is_ble_central_role"
 const val REQ_ID = 1234
 const val SELECT_DEVICE_REQUEST_CODE = 9123
 const val GGHOST_PARTIAL_WAKELOCK = "goldengatehost:partial_wakelock"
+const val MAX_RETRY_ATTEMPTS = 5
 
 abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
 
@@ -89,19 +93,21 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     private var bluetoothWakeLock: PowerManager.WakeLock? = null
     private var backPressedListener: (() -> Unit)? = null
     private lateinit var nodeKey: BluetoothAddressNodeKey
+    private var isBleCentralRole: Boolean = true
     /**
      * Get the android content view
      */
     abstract fun getContentViewRes(): Int
 
     /**
-     * Get the node builder that can build a node with stack service [T]
+     * Get the peer builder that can build a peer (node or hub) with stack service [T]
      */
-    abstract fun getNodeBuilder(
-            stackConfig: StackConfig,
-            connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-            dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
-    ): NodeBuilder<T, BluetoothAddressNodeKey>
+    abstract fun getPeerBuilder(
+        peerRole: PeerRole,
+        stackConfig: StackConfig,
+        connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
+        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
+    ): PeerBuilder<T, BluetoothAddressNodeKey>
 
     /**
      * Method called when a node reports a successful connection
@@ -134,7 +140,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
 
         val stackConfig = intent.getSerializableExtra(EXTRA_STACK_CONFIG) as StackConfig
 
-        val isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
+        isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
 
         if (isBleCentralRole) {
             val bluetoothDevice = intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
@@ -144,13 +150,13 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                 finish()
                 return
             }
-            val currentDevice = BitGattPeripheral(gattConnection)
+            val currentDevice = BitGattPeer(gattConnection)
             nodeKey = BluetoothAddressNodeKey(bluetoothDevice.address)
             val stackNode = NodeMapper.instance.get(
                 nodeKey,
-                getNodeBuilder(stackConfig, listenToGattlinkStatus, listenToDtlsEvents(stackConfig)),
+                getPeerBuilder(PeerRole.Peripheral, stackConfig, listenToGattlinkStatus, listenToDtlsEvents(stackConfig)),
                 true
-            ) as Node<T>
+            ) as Peer<T>
 
             if (stackConfig is DtlsSocketNetifGattlink) {
                 findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
@@ -158,7 +164,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
             gattlink_status.text = getString(R.string.gattlink_status, PeripheralConnectionStatus.DISCONNECTED)
             handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
 
-            connectCentralMode(stackNode, currentDevice, stackConfig)
+            connectToPeripheral(stackNode, currentDevice, stackConfig)
             linkControllerSetup.setOnClickListener { startLinkControllerActivity(bluetoothDevice) }
 
             slowLogsToggle.setOnCheckedChangeListener { _, isChecked ->
@@ -179,44 +185,41 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                     }
                 }
             }
-
-            wakeLock.setOnCheckedChangeListener { buttonView, isChecked ->
-                if (isChecked) {
-                    acquirePartialWakeLock()
-                } else {
-                    releasePartialWakeLock()
-                }
-            }
         } else {
+            layout.visibility = View.VISIBLE
+            if (stackConfig is DtlsSocketNetifGattlink) {
+                findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
+            }
             central_controls.visibility = View.GONE
-            disposeBag.add(
-                CentralConnectionChangeListener().register().subscribe(
-                    { when (it) {
-                        is ConnectionEvent.Connected -> {
-                            stopAdvertisement()
-                            Timber.d("Connection state update: ${it.centralDevice} connected") }
-                        is ConnectionEvent.Disconnected -> {
-                            Timber.d("Connection state update: ${it.centralDevice} disconnected") } }
-                    },
-                    { Timber.d("Error!") })
-            )
+            gattlink_status.visibility = View.GONE
+            handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
+
+            connectToCentral(stackConfig)
 
             startAdvertisement()
+        }
 
+        wakeLock.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                acquirePartialWakeLock()
+            } else {
+                releasePartialWakeLock()
+            }
         }
     }
 
     private fun startAdvertisement() {
         advertiser = Advertiser(this)
         disposeBag.add(
-            advertiser.startAdvertising(Advertiser.getAdvertiseSettings(),
+            advertiser.startAdvertising(
+                Advertiser.getAdvertiseSettings(),
                 Advertiser.getAdvertiseData(GattlinkService.uuid.toString()),
-                    Advertiser.getScanResponseData())
+                Advertiser.getScanResponseData())
                 .subscribe({
                     Snackbar.make(container, "Start Advertising", Snackbar.LENGTH_SHORT).show()
                     Timber.d("Started advertising")
                 }, {
-                    Timber.e(it, "Womp womp. Didn't start advertising.")
+                    Timber.e(it, "Error! Didn't start advertising.")
                     Snackbar.make(container, "Failed to start Advertising", Snackbar.LENGTH_SHORT).show()
                 })
         )
@@ -234,7 +237,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
             })
     }
 
-        @RequiresApi(O)
+    @RequiresApi(O)
     private fun linkDevice(device: BluetoothDevice?) {
         if (device == null) {
             Timber.d("No device to link")
@@ -371,58 +374,149 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     }
 
     private fun listenToDtlsEvents(stackConfig: StackConfig): (Stack) -> Observable<DtlsProtocolStatus> =
-            when (stackConfig) {
-                is DtlsSocketNetifGattlink -> {
-                    { stack ->
-                        stack.dtlsEventObservable
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .doOnNext {
-                                    if (it.state != DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR) {
-                                        handshake_status.text = getString(R.string.handshake_status, it.state.name)
-                                    } else {
-                                        handshake_status.text = getString(R.string.handshake_status,
-                                                "%s (error code = %d)".format(it.state.name, it.lastError))
-                                    }
-                                }
-                    }
+        when (stackConfig) {
+            is DtlsSocketNetifGattlink -> {
+                { stack ->
+                    stack.dtlsEventObservable
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnNext {
+                            if (it.state != DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR) {
+                                handshake_status.text = getString(R.string.handshake_status, it.state.name)
+                            } else {
+                                handshake_status.text = getString(R.string.handshake_status,
+                                    "%s (error code = %d)".format(it.state.name, it.lastError))
+                            }
+                        }
                 }
-                else ->  { stack -> stack.dtlsEventObservable }
             }
+            else ->  { stack -> stack.dtlsEventObservable }
+        }
 
     private val listenToGattlinkStatus: (GattConnection) -> Observable<PeripheralConnectionStatus> = { connection ->
         PeripheralConnectionChangeListener().register(connection).observeOn(AndroidSchedulers.mainThread())
-                .doOnNext {
-                    gattlink_status.text = getString(R.string.gattlink_status, it)
-                }
+            .doOnNext {
+                gattlink_status.text = getString(R.string.gattlink_status, it)
+            }
     }
 
-    private fun connectCentralMode(stackNode: Node<T>, currentDevice: BitGattPeripheral, stackConfig: StackConfig) {
-        disposeBag.add(stackNode.connection()
+    private fun connectToPeripheral(stackPeer: Peer<T>, currentDevice: BitGattPeer, stackConfig: StackConfig) {
+        disposeBag.add(stackPeer.connection()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                layout.visibility = View.VISIBLE
+                buildmodel.text = String.format("Connecting to %s", currentDevice.fitbitDevice.btDevice.address)
+            }
+            .doFinally { onConnectionLost() }
+            .subscribe({
+                send.visibility = View.VISIBLE
+                buildmodel.text = String.format("Connected to %s", currentDevice.fitbitDevice.btDevice.address)
+
+                disconnect.setOnClickListener { disconnect(stackPeer) }
+                disconnect.visibility = View.VISIBLE
+
+                backPressedListener = {
+                    NodeMapper.instance.removeNode(nodeKey)
+                }
+                onConnected(stackPeer.stackService, stackConfig)
+            }, {
+                Timber.e(it, "Error connecting")
+            }))
+    }
+
+    private fun connectToCentral(stackConfig: StackConfig) {
+        lateinit var currentDevice: BitGattPeer
+        var stackHub: Peer<T>? = null
+
+        disposeBag.add(
+            CentralConnectionChangeListener()
+                .register()
+                .filter { it is ConnectionEvent.Connected }
+                .map {
+                    stopAdvertisement()
+                    it as ConnectionEvent.Connected
+                }
+                .flatMap {
+                    waitForConnectionReady(it.centralDevice)
+                }
+                .flatMap {
+                    currentDevice = BitGattPeer(it)
+                    nodeKey = BluetoothAddressNodeKey(it.device.address)
+                    stackHub = getPeerBuilder(
+                        PeerRole.Central,
+                        stackConfig,
+                        listenToGattlinkStatus,
+                        listenToDtlsEvents(stackConfig)).build(nodeKey)
+                    stackHub?.connection()
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe {
-                    layout.visibility = View.VISIBLE
-                    buildmodel.text = String.format("Connecting to %s", currentDevice.fitbitDevice.btDevice.address)
+                .doFinally {
+                    stackHub?.let {
+                        disconnect(it)
+                    }
+                    onConnectionLost()
                 }
-                .doFinally { onConnectionLost() }
                 .subscribe({
+                    central_controls.visibility = View.VISIBLE
                     send.visibility = View.VISIBLE
                     buildmodel.text = String.format("Connected to %s", currentDevice.fitbitDevice.btDevice.address)
 
-                    disconnect.setOnClickListener { disconnect(stackNode) }
+                    disconnect.setOnClickListener { disconnect(stackHub) }
                     disconnect.visibility = View.VISIBLE
 
                     backPressedListener = {
-                        NodeMapper.instance.removeNode(nodeKey)
+                        disconnect(stackHub)
                     }
-                    onConnected(stackNode.stackService, stackConfig)
-                }, {
-                    Timber.e(it, "Error connecting")
-                }))
+
+                    stackHub?.let{ onConnected(it.stackService, stackConfig) }
+                },
+                    { Timber.d(it, "Fail to set up peripheral mode.") }
+                )
+        )
+
+        disposeBag.add(
+            CentralConnectionChangeListener()
+                .register()
+                .filter { it is ConnectionEvent.Disconnected }
+                .map {
+                    it as ConnectionEvent.Disconnected
+                }
+                .subscribe(
+                    { Timber.d("Disconnect!")
+                        onConnectionLost() },
+                    { Timber.d(it, "Error to handle disconnection!") }
+                )
+        )
     }
 
-    private fun disconnect(node: Node<T>) {
-        node.disconnect()
+    private fun waitForConnectionReady(device: BluetoothDevice): Observable<GattConnection> {
+        val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
+
+        return Observable.create<GattConnection> { emitter ->
+            var connection = fitbitGatt.getConnection(device)
+            if (connection!= null) {
+                emitter.onNext(connection)
+            } else {
+                emitter.onError(RuntimeException("GATT connection has not been added to connection map"))
+            }}
+            .retryWhen { errors ->
+                val counter = AtomicInteger()
+                errors.takeWhile { counter.getAndIncrement() <= MAX_RETRY_ATTEMPTS }
+                    .flatMap { e ->
+                        val retryCount = counter.get()
+                        if (retryCount > MAX_RETRY_ATTEMPTS) {
+                            throw e
+                        }
+                        Observable.timer(retryCount * 1000L, TimeUnit.MILLISECONDS, Schedulers.computation())
+                    }
+            }
+    }
+
+    private fun disconnect(peer: Peer<T>?) {
+        peer?.apply {
+            disconnect()
+        }
         backPressedListener = null
     }
 
@@ -432,17 +526,19 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     }
 
     override fun onStop() {
-        if (Build.VERSION.SDK_INT >= O) {
-            unlinkAllDevices()
+        if (isBleCentralRole) {
+            if (Build.VERSION.SDK_INT >= O) {
+                unlinkAllDevices()
+            }
+        } else {
+            stopAdvertisement()
         }
         releasePartialWakeLock()
-        stopAdvertisement()
         disposeBag.dispose()
         super.onStop()
     }
 
     override fun onBackPressed() {
-
         backPressedListener?.invoke()
         super.onBackPressed()
     }

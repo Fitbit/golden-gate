@@ -4,9 +4,9 @@
 package com.fitbit.linkcontroller
 
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
-import com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber
+import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.bluetooth.fbgatt.rx.client.listeners.GattClientCharacteristicChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
@@ -38,10 +38,10 @@ class LinkController internal constructor(
     private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(
         gattConnection.device.btDevice
     ),
-    private val rxBlePeripheral: BitGattPeripheral = BitGattPeripheral(gattConnection),
+    private val rxBlePeer: BitGattPeer = BitGattPeer(gattConnection),
     private val gattCharacteristicReader: GattCharacteristicReader =  GattCharacteristicReader(gattConnection),
     private val gattClientCharacteristicChangeListener: GattClientCharacteristicChangeListener = GattClientCharacteristicChangeListener(),
-    private val peripheralServiceSubscriber: PeripheralServiceSubscriber = PeripheralServiceSubscriber()
+    private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber()
 ) {
     private var preferredConnectionConfiguration = PreferredConnectionConfiguration()
     private var preferredConnectionMode = DEFAULT_PREFERRED_CONNECTION_MODE
@@ -67,8 +67,8 @@ class LinkController internal constructor(
      * @see observeCurrentConnectionConfiguration
      */
     fun subscribeToCurrentConnectionConfigurationNotifications(): Completable {
-        return peripheralServiceSubscriber.subscribe(
-            rxBlePeripheral,
+        return peerGattServiceSubscriber.subscribe(
+            rxBlePeer,
             LinkStatusService.uuid,
             LinkStatusService.currentConfigurationUuid
         )
@@ -107,8 +107,8 @@ class LinkController internal constructor(
      * @see observeCurrentConnectionStatus
      */
     fun subscribeToCurrentConnectionStatusNotifications(): Completable {
-        return peripheralServiceSubscriber.subscribe(
-            rxBlePeripheral,
+        return peerGattServiceSubscriber.subscribe(
+            rxBlePeer,
             LinkStatusService.uuid,
             LinkStatusService.currentConnectionModeUuid
         )

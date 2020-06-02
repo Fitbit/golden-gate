@@ -12,7 +12,7 @@ import com.nhaarman.mockitokotlin2.verify
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class CoapNodeProviderTest {
+class CoapPeerProviderTest {
 
     private val bluetoothAddress = "bluetoothAddress"
     private val bluetoothAddressNodeKey = mock<BluetoothAddressNodeKey>()
@@ -21,9 +21,9 @@ class CoapNodeProviderTest {
         on { invoke(bluetoothAddress) } doReturn bluetoothAddressNodeKey
     }
 
-    private val stackNode = mock<StackNode<CoapEndpoint>>()
+    private val stackNode = mock<StackPeer<CoapEndpoint>>()
 
-    private val stackNodeBuilder = mock<StackNodeBuilder<CoapEndpoint>> {
+    private val stackNodeBuilder = mock<StackPeerBuilder<CoapEndpoint>> {
         on { build(bluetoothAddressNodeKey) } doReturn stackNode
     }
 

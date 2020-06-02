@@ -4,8 +4,7 @@
 package com.fitbit.goldengate.bt
 
 import android.bluetooth.BluetoothGatt
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
-import com.nhaarman.mockitokotlin2.any
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
@@ -14,15 +13,16 @@ import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
 
-class PeripheralConnectorTest {
+class PeerConnectorTest {
 
     private val mockBluetoothGatt = mock<BluetoothGatt>()
-    private val mockPeripheral = mock<BitGattPeripheral>()
+    private val mockPeripheral = mock<BitGattPeer>()
 
-    private val connection = PeripheralConnector(
-            bluetoothAddress = mockBluetoothAddress,
-            fitbitGatt = mockFitbitGatt,
-            peripheralProvider = { mockPeripheral }
+    private val connection = PeerConnector(
+        bluetoothAddress = mockBluetoothAddress,
+        peerRole = PeerRole.Peripheral,
+        fitbitGatt = mockFitbitGatt,
+        peerProvider = { mockPeripheral }
     )
 
     @Before
@@ -35,8 +35,8 @@ class PeripheralConnectorTest {
         mockFitbitGatt.mockDeviceKnown(true)
 
         connection.connect()
-                .test()
-                .assertValue { it == mockGattConnection }
+            .test()
+            .assertValue { it == mockGattConnection }
 
         verify(mockPeripheral).connect()
     }
@@ -46,8 +46,8 @@ class PeripheralConnectorTest {
         mockFitbitGatt.mockDeviceKnown(false)
 
         connection.connect()
-                .test()
-                .assertError { it is NoSuchElementException }
+            .test()
+            .assertError { it is NoSuchElementException }
 
         verify(mockPeripheral, never()).connect()
         verify(mockPeripheral, never()).requestConnectionPriority(BluetoothGatt.CONNECTION_PRIORITY_HIGH)
@@ -59,8 +59,8 @@ class PeripheralConnectorTest {
         mockConnectFailure()
 
         connection.connect()
-                .test()
-                .assertError { it is Exception }
+            .test()
+            .assertError { it is Exception }
 
         verify(mockPeripheral).connect()
     }

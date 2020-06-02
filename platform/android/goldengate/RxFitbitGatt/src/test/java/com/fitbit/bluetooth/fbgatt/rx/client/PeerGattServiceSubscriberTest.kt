@@ -7,8 +7,6 @@ import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicException
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
-import com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
@@ -19,18 +17,18 @@ import io.reactivex.Single
 import org.junit.Test
 import java.util.UUID
 
-class PeripheralServiceSubscriberTest {
+class PeerGattServiceSubscriberTest {
 
     private val mockServiceId = UUID.fromString("FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF1")
     private val mockCharacteristicId = UUID.fromString("FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFF2")
 
     private val mockBluetoothGattService = mock<BluetoothGattService>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
-    private val mockPeripheral = mock<BitGattPeripheral> {
+    private val mockPeripheral = mock<BitGattPeer> {
         on { setupNotifications(mockBluetoothGattCharacteristic, true) } doReturn Single.just(mockBluetoothGattCharacteristic)
     }
 
-    private val subscriber = PeripheralServiceSubscriber()
+    private val subscriber = PeerGattServiceSubscriber()
 
     @Test
     fun shouldSubscribeIfServiceAndCharacteristicIsNonNull() {

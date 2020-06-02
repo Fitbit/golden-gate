@@ -19,9 +19,10 @@ import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
-import com.fitbit.goldengate.node.NodeBuilder
-import com.fitbit.goldengate.node.stack.StackNode
-import com.fitbit.goldengate.node.stack.StackNodeBuilder
+import com.fitbit.goldengate.bt.PeerRole
+import com.fitbit.goldengate.node.PeerBuilder
+import com.fitbit.goldengate.node.stack.StackPeer
+import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import com.fitbit.goldengatehost.coap.handler.addAllAvailableCoapHandlers
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -37,16 +38,19 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
 
     override fun getContentViewRes(): Int = R.layout.a_single_message
 
-    override fun getNodeBuilder(
+    override fun getPeerBuilder(
+        peerRole: PeerRole,
         stackConfig: StackConfig,
         connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
         dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
-    ): NodeBuilder<CoapEndpoint, BluetoothAddressNodeKey> = StackNodeBuilder(
+    ): PeerBuilder<CoapEndpoint, BluetoothAddressNodeKey> = StackPeerBuilder(
         CoapEndpoint::class.java,
+        peerRole,
         stackConfig
     ) { nodeKey ->
-        StackNode(
+        StackPeer(
             nodeKey,
+            peerRole,
             stackConfig,
             CoapEndpointBuilder(),
             connectionStatus,

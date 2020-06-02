@@ -20,6 +20,6 @@ if (localProperties.exists()) {
             }
         }
     } else {
-        println("Using artifactory FitbitGatt Android library")
+        println("Using Github BitGatt library")
     }
 }

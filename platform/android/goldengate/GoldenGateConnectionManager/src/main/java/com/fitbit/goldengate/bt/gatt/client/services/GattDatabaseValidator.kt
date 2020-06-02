@@ -4,7 +4,7 @@
 package com.fitbit.goldengate.bt.gatt.client.services
 
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicWriter
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseConfirmationService.EphemeralCharacteristicPointer
@@ -26,14 +26,14 @@ class GattDatabaseValidator(
      * The payload will contains the UUID of GATT Ephemeral Characteristic. Second, we write to Ephemeral GATT Characteristic UUID.
      * If the write succeeds within timeout, tracker will not send us the service changed indication and complete the validation process.
      */
-    fun validate(peripheral: BitGattPeripheral): Completable {
-        return readEphemeralPointerCharacteristic(peripheral)
-            .flatMapCompletable { ephemeralCharacteristicUuid -> writeEphemeralCharacteristic(peripheral, ephemeralCharacteristicUuid) }
+    fun validate(peer: BitGattPeer): Completable {
+        return readEphemeralPointerCharacteristic(peer)
+            .flatMapCompletable { ephemeralCharacteristicUuid -> writeEphemeralCharacteristic(peer, ephemeralCharacteristicUuid) }
             .onErrorResumeNext { t -> Completable.error(GattDatabaseValidatorException("Failed to validate GATT database", t)) }
     }
 
-    private fun readEphemeralPointerCharacteristic(peripheral: BitGattPeripheral): Single<UUID> {
-        return gattCharacteristicReaderProvider(peripheral.gattConnection)
+    private fun readEphemeralPointerCharacteristic(peer: BitGattPeer): Single<UUID> {
+        return gattCharacteristicReaderProvider(peer.gattConnection)
             .read(GattDatabaseConfirmationService.uuid, GattDatabaseConfirmationService.EphemeralCharacteristicPointer.uuid)
             .doOnSubscribe { Timber.d("Reading Gatt Database Ephemeral Characteristic ${EphemeralCharacteristicPointer.uuid}") }
             .doOnSuccess { Timber.d("Successfully read ${EphemeralCharacteristicPointer.uuid}") }
@@ -41,8 +41,8 @@ class GattDatabaseValidator(
             .map { data -> data.toUuid() }
     }
 
-    private fun writeEphemeralCharacteristic(peripheral: BitGattPeripheral, ephemeralCharacteristicUuid: UUID): Completable {
-        return gattCharacteristicWriterProvider(peripheral.gattConnection)
+    private fun writeEphemeralCharacteristic(peer: BitGattPeer, ephemeralCharacteristicUuid: UUID): Completable {
+        return gattCharacteristicWriterProvider(peer.gattConnection)
             .write(GattDatabaseConfirmationService.uuid, ephemeralCharacteristicUuid, byteArrayOf(0))
             .doOnSubscribe { Timber.d("Writing to Gatt Database Ephemeral Characteristic $ephemeralCharacteristicUuid") }
             .doOnComplete { Timber.d("Successfully write Gatt Database Ephemeral Characteristic $ephemeralCharacteristicUuid") }

@@ -8,13 +8,13 @@ import com.fitbit.goldengate.bindings.stack.StackService
 import timber.log.Timber
 
 /**
- * Maps a [NodeKey] to a [Node]. Uses a [NodeBuilder] to make the node if it does not exist or if
+ * Maps a [NodeKey] to a [Node]. Uses a [PeerBuilder] to make the node if it does not exist or if
  * the existing [Node] is different than expected
  *
  * @param nodeMap a [MutableMap] mapping a [NodeKey] to a [Node]
  */
 class NodeMapper internal constructor(
-        private val nodeMap: MutableMap<NodeKey<*>, Node<*>> = mutableMapOf()
+        private val nodeMap: MutableMap<NodeKey<*>, Peer<*>> = mutableMapOf()
 ) {
 
     companion object {
@@ -22,30 +22,30 @@ class NodeMapper internal constructor(
     }
 
     /**
-     * Tries to retrieve an existing [Node] with a [NodeKey] or builds one with the given [NodeBuilder]
-     * if it does not exist or the [NodeBuilder] does not [build][NodeBuilder.doesBuild] it.
+     * Tries to retrieve an existing [Node] with a [NodeKey] or builds one with the given [PeerBuilder]
+     * if it does not exist or the [PeerBuilder] does not [build][PeerBuilder.doesBuild] it.
      *
      * @param nodeKey the [NodeKey] associated with the desired [Node]
-     * @param nodeBuilder the [NodeBuilder] used to build the [Node] if necessary a check if it
-     * [builds][NodeBuilder.doesBuild] the same [Node]
+     * @param peerBuilder the [PeerBuilder] used to build the [Node] if necessary a check if it
+     * [builds][PeerBuilder.doesBuild] the same [Node]
      */
     @Synchronized
-    fun <T: StackService, K: NodeKey<*>> get(nodeKey: K, nodeBuilder: NodeBuilder<T, K>, forceRebuild: Boolean = false): Node<*> =
+    fun <T: StackService, K: NodeKey<*>> get(nodeKey: K, peerBuilder: PeerBuilder<T, K>, forceRebuild: Boolean = false): Peer<*> =
         nodeMap[nodeKey].also {
             Timber.i("Looking up node with node key $nodeKey")
         }?.let { existingNode ->
             Timber.i("Node with key $nodeKey found")
             when {
-                nodeBuilder.doesBuild(existingNode) && !forceRebuild -> {
+                peerBuilder.doesBuild(existingNode) && !forceRebuild -> {
                     Timber.i("Node with key $nodeKey has the desired configuration")
                     existingNode
                 }
                 else -> {
                     Timber.i("Node with key $nodeKey has a different configuration than desired")
-                    rebuildNode(existingNode, nodeBuilder, nodeKey)
+                    rebuildNode(existingNode, peerBuilder, nodeKey)
                 }
             }
-        }?: buildNode(nodeBuilder, nodeKey)
+        }?: buildNode(peerBuilder, nodeKey)
 
     /**
      * Removes a [Node] from the map that has the specific [NodeKey],
@@ -66,19 +66,19 @@ class NodeMapper internal constructor(
     /**
      * Build a [Node]
      */
-    private fun <K: NodeKey<*>> buildNode(nodeBuilder: NodeBuilder<*, K>, nodeKey: K): Node<*> {
+    private fun <K: NodeKey<*>> buildNode(peerBuilder: PeerBuilder<*, K>, nodeKey: K): Peer<*> {
         Timber.i("Building node with node key $nodeKey")
-        return nodeBuilder.build(nodeKey).also { nodeMap[nodeKey] = it }
+        return peerBuilder.build(nodeKey).also { nodeMap[nodeKey] = it }
     }
 
     /**
      * Rebuild a [Node]. This is different from [build] as it [closes][Node.close] the
      * [existingNode] before [building][buildNode] a new one
      */
-    private fun <K: NodeKey<*>> rebuildNode(existingNode: Node<*>, nodeBuilder: NodeBuilder<*, K>, nodeKey: K): Node<*> {
+    private fun <K: NodeKey<*>> rebuildNode(existingNode: Peer<*>, peerBuilder: PeerBuilder<*, K>, nodeKey: K): Peer<*> {
         Timber.i("Closing the existing node with key $nodeKey")
         existingNode.close()
         Timber.i("Building new node with key $nodeKey")
-        return buildNode(nodeBuilder, nodeKey)
+        return buildNode(peerBuilder, nodeKey)
     }
 }

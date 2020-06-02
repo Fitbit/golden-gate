@@ -3,6 +3,7 @@
 
 package com.fitbit.goldengate.bt.gatt.util
 
+import java.nio.ByteBuffer
 import java.util.UUID
 
 fun ByteArray.toUuid(): UUID {
@@ -17,4 +18,11 @@ fun ByteArray.toUuid(): UUID {
     }
 
     return UUID(msb, lsb)
+}
+
+fun UUID.toByteArray(): ByteArray {
+    val byteBuffer: ByteBuffer = ByteBuffer.wrap(ByteArray(16))
+    byteBuffer.putLong(this.mostSignificantBits)
+    byteBuffer.putLong(this.leastSignificantBits)
+    return byteBuffer.array()
 }

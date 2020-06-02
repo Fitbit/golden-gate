@@ -24,7 +24,8 @@ apply from: '../gg_lib_android_build.gradle'
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':RxFitbitGatt')
-    implementation "com.github.fitbit:bitgatt:$BITGATT_VERSION"
+
+    implementation "com.github.fitbit:bitgatt:$BITGATT_COMMIT_VERSION"
     implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
     implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"

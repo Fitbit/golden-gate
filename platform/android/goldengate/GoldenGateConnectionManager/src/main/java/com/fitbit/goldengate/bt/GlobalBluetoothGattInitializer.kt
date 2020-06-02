@@ -10,6 +10,7 @@ import com.fitbit.bluetooth.fbgatt.exception.BitGattStartException
 import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
+import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
 import io.reactivex.disposables.CompositeDisposable
@@ -30,7 +31,9 @@ internal class GlobalBluetoothGattInitializer(
     private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
     private val gattServer: BitGattServer = BitGattServer(),
     private val gattServerListenerRegistrar: GattServerListenerRegistrar = GattServerListenerRegistrar,
-    private val linkControllerProvider: LinkControllerProvider = LinkControllerProvider.INSTANCE
+    private val linkControllerProvider: LinkControllerProvider = LinkControllerProvider.INSTANCE,
+    private val gattCacheServiceHandler: GattCacheServiceHandler = GattCacheServiceHandler(),
+    private val gattlinkServiceProvider: () -> GattlinkService = { GattlinkService() }
 ) {
 
     private val disposeBag = CompositeDisposable()
@@ -79,18 +82,19 @@ internal class GlobalBluetoothGattInitializer(
 
     private fun addGattServicesForCentral() {
         disposeBag.add(gattServerListenerRegistrar.registerGattServerListeners(fitbitGatt.server)
-                .andThen(linkControllerProvider.addLinkConfigurationService())
-                .subscribeOn(Schedulers.io())
-                .subscribe(
-                    { EMPTY_ACTION },
-                    { Timber.e(it, "Error handling bluetooth state change") }
-                )
+            .andThen(linkControllerProvider.addLinkConfigurationService())
+            .subscribeOn(Schedulers.io())
+            .subscribe(
+                { EMPTY_ACTION },
+                { Timber.e(it, "Error handling bluetooth state change") }
+            )
         )
     }
 
     private fun addGattServicesForPeripheral() {
         disposeBag.add(gattServerListenerRegistrar.registerGattServerNodeListeners(fitbitGatt.server)
-            .andThen(gattServer.addServices(GattlinkService()))
+            .andThen(gattServer.addServices(gattlinkServiceProvider()))
+            .andThen(gattCacheServiceHandler.addGattCacheService())
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { EMPTY_ACTION },

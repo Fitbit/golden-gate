@@ -23,7 +23,7 @@ apply from: '../gg_lib_android_build.gradle'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "com.github.fitbit:bitgatt:$BITGATT_VERSION"
+    implementation "com.github.fitbit:bitgatt:$BITGATT_COMMIT_VERSION"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
     implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
