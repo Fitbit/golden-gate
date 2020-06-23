@@ -67,16 +67,6 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d(
-            """
-            Handle onServerDescriptorWriteRequest call from
-            device ${device.address},
-            service: ${result.serviceUuid},
-            characteristicUuid: ${result.characteristicUuid},
-            descriptorUuid: ${result.descriptorUuid}
-            """
-        )
-
         when (result.serviceUuid) {
             LinkConfigurationService.uuid -> handleLinkConfigurationServerDescriptorWriteRequest(
                 device,
@@ -92,6 +82,15 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        Timber.d(
+            """
+            Handle handleLinkConfigurationServerDescriptorWriteRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
         when (result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid,
             ClientPreferredConnectionConfigurationCharacteristic.uuid,
@@ -232,16 +231,6 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d(
-            """
-            Handle onServerCharacteristicReadRequest call from
-            device ${device.address},
-            service: ${result.serviceUuid},
-            characteristicUuid: ${result.characteristicUuid},
-            descriptorUuid: ${result.descriptorUuid}
-            """
-        )
-
         when (result.serviceUuid) {
             LinkConfigurationService.uuid -> handleLinkConfigurationServerCharacteristicReadRequest(
                 device,
@@ -257,6 +246,15 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        Timber.d(
+            """
+            Handle handleLinkConfigurationServerCharacteristicReadRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
         when (result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid -> handlePreferredConnectionModeReadRequest(
                 device,

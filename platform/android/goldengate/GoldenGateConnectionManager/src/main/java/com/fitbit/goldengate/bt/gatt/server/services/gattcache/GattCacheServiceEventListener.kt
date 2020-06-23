@@ -24,16 +24,6 @@ class GattCacheServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d(
-            """
-            Handle onServerCharacteristicReadRequest call from
-            device ${device.address},
-            service: ${result.serviceUuid},
-            characteristicUuid: ${result.characteristicUuid},
-            descriptorUuid: ${result.descriptorUuid}
-            """
-        )
-
         when (result.serviceUuid) {
             GattCacheService.uuid -> handleGattCacheServiceCharacteristicReadRequest(device, result, connection)
             else -> Timber.d("Ignoring onServerCharacteristicReadRequest call for unsupported service: ${result.serviceUuid}")
@@ -45,15 +35,6 @@ class GattCacheServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d(
-            """
-            Handle onServerCharacteristicWriteRequest call from
-            device ${device.address},
-            service: ${result.serviceUuid},
-            characteristicUuid: ${result.characteristicUuid},
-            descriptorUuid: ${result.descriptorUuid}
-            """
-        )
         when (result.serviceUuid) {
             GattCacheService.uuid -> handleGattCacheServiceCharacteristicWriteRequest(device, result, connection)
             else -> Timber.d("Ignoring as its not a request for characteristic we listening to, requestId: ${result.requestId} on uuid: ${result.characteristicUuid}")
@@ -65,6 +46,15 @@ class GattCacheServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        Timber.d(
+            """
+            Handle handleGattCacheServiceCharacteristicReadRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
         when (result.characteristicUuid) {
             EphemeralCharacteristicPointer.uuid -> sendResponse(
                 device,
@@ -87,6 +77,15 @@ class GattCacheServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        Timber.d(
+            """
+            Handle handleGattCacheServiceCharacteristicWriteRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
         when (result.characteristicUuid) {
             EphemeralCharacteristic.uuid -> receiveData(device, result, connection)
             else -> {

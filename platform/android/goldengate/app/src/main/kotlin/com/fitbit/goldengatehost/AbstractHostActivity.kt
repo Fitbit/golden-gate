@@ -525,7 +525,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         finish()
     }
 
-    override fun onStop() {
+    override fun onDestroy() {
         if (isBleCentralRole) {
             if (Build.VERSION.SDK_INT >= O) {
                 unlinkAllDevices()
@@ -535,7 +535,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         }
         releasePartialWakeLock()
         disposeBag.dispose()
-        super.onStop()
+        super.onDestroy()
     }
 
     override fun onBackPressed() {

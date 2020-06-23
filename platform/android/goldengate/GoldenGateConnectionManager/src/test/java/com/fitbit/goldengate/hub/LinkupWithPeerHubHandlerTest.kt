@@ -2,15 +2,18 @@ package com.fitbit.goldengate.hub
 
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicSubscriptionStatus
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCharacteristic
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
@@ -31,22 +34,26 @@ class LinkupWithPeerHubHandlerTest {
 
     private val mockFitbitBluetoothDevice = com.fitbit.goldengate.bt.mockFitbitBluetoothDevice
     private val mockBluetoothGatt = mock<BluetoothGatt>()
+    private val mockGattConnection = mock<GattConnection>()
 
     private val mockCentral = mock<BitGattPeer> {
         on { fitbitDevice } doReturn mockFitbitBluetoothDevice
         on { connect() } doReturn Single.just(mockBluetoothGatt)
+        on { gattConnection } doReturn mockGattConnection
     }
 
     private val mockPeerGattServiceSubscriber = mock<PeerGattServiceSubscriber>()
     private val mockTransmitCharacteristicSubscriptionListener = mock< TransmitCharacteristicSubscriptionListener>()
     private val linkUpTimeoutSeconds = 60L
     private val testScheduler = TestScheduler()
+    private val mockGattServiceRefresher = mock<GattServiceRefresher>()
 
     private val handler = LinkupWithPeerHubHandler(
         mockPeerGattServiceSubscriber,
         mockTransmitCharacteristicSubscriptionListener,
         linkUpTimeoutSeconds,
-        timeoutScheduler = testScheduler
+        timeoutScheduler = testScheduler,
+        gattServiceRefresher = mockGattServiceRefresher
     )
 
     @Before
@@ -61,11 +68,13 @@ class LinkupWithPeerHubHandlerTest {
 
     @Test
     fun `complete the linkup procedure`() {
+        mockRefreshServicesSuccess()
         mockDiscoverServicesSuccess()
         mockClientPreferredConnectionConfigurationCharacteristicSubscriptionSuccess()
         mockClientPreferredConnectionModeCharacteristicSubscriptionSuccess()
         mockGeneralPurposeCommandCharacteristicSubscriptionSuccess()
         mockWaitForGattlinkSubscriptionSuccess()
+
 
         val testObserver = handler.link(mockCentral).test()
 
@@ -84,6 +93,7 @@ class LinkupWithPeerHubHandlerTest {
 
     @Test
     fun `should fail if service discovery failed`() {
+        mockRefreshServicesSuccess()
         mockDiscoverServicesFailure()
 
         val testObserver = handler.link(mockCentral).test()
@@ -99,6 +109,7 @@ class LinkupWithPeerHubHandlerTest {
 
     @Test
     fun `should fail if Link configuration service is not found`() {
+        mockRefreshServicesSuccess()
         mockDiscoverServicesSuccess()
         mockLinkConfigurationServiceNotFound()
 
@@ -115,6 +126,7 @@ class LinkupWithPeerHubHandlerTest {
 
     @Test
     fun `fail to wait for gattlink subscription before timeout`() {
+        mockRefreshServicesSuccess()
         mockDiscoverServicesSuccess()
         mockClientPreferredConnectionConfigurationCharacteristicSubscriptionSuccess()
         mockClientPreferredConnectionModeCharacteristicSubscriptionSuccess()
@@ -135,6 +147,30 @@ class LinkupWithPeerHubHandlerTest {
 
         testObserver
             .assertFailure(TimeoutException::class.java)
+            .dispose()
+    }
+
+    @Test
+    fun `still proceed linkup if service refresher returns error`() {
+        mockRefreshServicesFailure()
+        mockDiscoverServicesSuccess()
+        mockClientPreferredConnectionConfigurationCharacteristicSubscriptionSuccess()
+        mockClientPreferredConnectionModeCharacteristicSubscriptionSuccess()
+        mockGeneralPurposeCommandCharacteristicSubscriptionSuccess()
+        mockWaitForGattlinkSubscriptionSuccess()
+
+        val testObserver = handler.link(mockCentral).test()
+
+        verify(mockCentral).discoverServices()
+        verify(mockPeerGattServiceSubscriber)
+            .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        verify(mockPeerGattServiceSubscriber)
+            .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionModeCharacteristic.uuid)
+        verify(mockPeerGattServiceSubscriber)
+            .subscribe(mockCentral, LinkConfigurationService.uuid, GeneralPurposeCommandCharacteristic.uuid)
+
+        testObserver
+            .assertComplete()
             .dispose()
     }
 
@@ -182,4 +218,11 @@ class LinkupWithPeerHubHandlerTest {
             mockCentral.fitbitDevice.btDevice
         )).thenReturn(Observable.just(GattCharacteristicSubscriptionStatus.ENABLED).delay(LINK_UP_TIMEOUT_SECONDS, TimeUnit.SECONDS))
 
+    private fun mockRefreshServicesSuccess() =
+        whenever(mockGattServiceRefresher.refresh(mockCentral.gattConnection))
+            .thenReturn(Completable.complete())
+
+    private fun mockRefreshServicesFailure() =
+        whenever(mockGattServiceRefresher.refresh(mockCentral.gattConnection))
+            .thenReturn(Completable.error(Throwable()))
 }
