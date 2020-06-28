@@ -63,20 +63,10 @@ typedef struct {
 } ResponseListenerBlockwise;
 
 /**
- * Cancel existing/ongoing CoAP request. Must be called from GetLoop thread
- */
-static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
-    ResponseListenerBlockwise *args = (ResponseListenerBlockwise *) _args;
-
-    return GG_CoapEndpoint_CancelBlockwiseRequest(
-            args->endpoint,
-            args->request_handle);
-}
-
-/**
  * Send a blockwise request to coap server. Must be called from GetLoop thread
  *
  * @param _args object on which this method is invoked.
+ * @thread GG Loop
  */
 static GG_Result CoapEndpoint_ResponseFor_Blockwise(void *_args) {
     ResponseListenerBlockwise *args = (ResponseListenerBlockwise *) _args;
@@ -136,12 +126,13 @@ static GG_Result CoapEndpoint_ResponseFor_Blockwise(void *_args) {
  * Helper to free response object
  *
  * @param self object on which this method is invoked.
+ * @thread GG Loop
  */
 static void CoapEndpoint_OnResponseCompleteCleanup_Blockwise(
-        JNIEnv *env,
         ResponseListenerBlockwise *self
 ) {
     if (self) {
+        JNIEnv *env = Loop_GetJNIEnv();
         if (self->request) {
             env->DeleteGlobalRef(self->request);
         }
@@ -156,11 +147,48 @@ static void CoapEndpoint_OnResponseCompleteCleanup_Blockwise(
 }
 
 /**
+ * Helper target for Loop_InvokeSync that runs on the GG Loop thread.
+ *
+ * @param _args the ResponseListenerBlockwise struct to clean up
+ * @return GG_SUCCESS always
+ * @thread GG Loop
+ */
+static GG_Result CoapEndpoint_Cleanup_Wrapper(void *_args) {
+    ResponseListenerBlockwise *args = (ResponseListenerBlockwise *) _args;
+    CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args);
+    return GG_SUCCESS;
+}
+
+/**
+ * Cancel existing/ongoing CoAP request. Must be called from GetLoop thread
+ * @thread GG Loop
+ */
+static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
+    ResponseListenerBlockwise *args = (ResponseListenerBlockwise *) _args;
+
+    // ----------------------------------------------
+    // *args may have been freed. We can check its fields for null, but if that memory has been reused
+    // who knows what might happen.
+    //--------------------------------------------------
+    if (args->endpoint != NULL && args->request_handle != GG_COAP_INVALID_REQUEST_HANDLE) {
+        GG_Result result = GG_CoapEndpoint_CancelBlockwiseRequest(
+            args->endpoint,
+            args->request_handle);
+        if (GG_SUCCEEDED(result)) {
+            CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args);
+        }
+        return result;
+    }
+    return GG_ERROR_INVALID_STATE;
+}
+
+/**
  * Method called when a response is received for blockwise request.
  *
  * @param _self object on which this method is invoked.
  * @param block_info Details about a block of data.
  * @param block_message CoAP message
+ * @thread GG Loop
  */
 static void CoapEndpoint_OnResponse_Blockwise(
         GG_CoapBlockwiseResponseListener *_self,
@@ -184,7 +212,7 @@ static void CoapEndpoint_OnResponse_Blockwise(
                     GG_ERROR_INTERNAL,
                     "Message start block out of order");
             // remove listener and stop listening
-            CoapEndpoint_OnResponseCompleteCleanup_Blockwise(env, self);
+            CoapEndpoint_OnResponseCompleteCleanup_Blockwise(self);
             return;
         }
     }
@@ -196,7 +224,7 @@ static void CoapEndpoint_OnResponse_Blockwise(
         // call onComplete
         CoapEndpoint_OnComplete_Caller(self->listener);
         // clean up only after calling onComplete
-        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(env, self);
+        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(self);
     }
 }
 
@@ -206,6 +234,7 @@ static void CoapEndpoint_OnResponse_Blockwise(
  * @param _self object on which this method is invoked.
  * @param error Error code
  * @param message Error message text (may be NULL).
+ * @thread GG Loop
  */
 static void CoapEndpoint_OnError_Blockwise(
         GG_CoapBlockwiseResponseListener *_self,
@@ -225,11 +254,12 @@ static void CoapEndpoint_OnError_Blockwise(
             error,
             message);
 
-    CoapEndpoint_OnResponseCompleteCleanup_Blockwise(env, self);
+    CoapEndpoint_OnResponseCompleteCleanup_Blockwise(self);
 }
 
 /**
  * Helper to get value of [BlockSize] from given instance of [BlockDataSource]
+ * @thread GG Loop
  */
 static jobject CoapEndpoint_BlockSize_Object_From_BlockSource_Object(
         JNIEnv *env,
@@ -260,6 +290,8 @@ static jobject CoapEndpoint_BlockSize_Object_From_BlockSource_Object(
 
 /**
  * Helper to get value of [BlockSize.size]
+ *
+ * @thread GG Loop
  */
 static int CoapEndpoint_DataSize_From_BlockSource_Object(
         JNIEnv *env,
@@ -279,6 +311,8 @@ static int CoapEndpoint_DataSize_From_BlockSource_Object(
 
 /**
  * Helper to get value of [BlockSize.more]
+ *
+ * @thread GG Loop
  */
 static bool CoapEndpoint_HasMoreData_From_BlockSource_Object(
         JNIEnv *env,
@@ -298,6 +332,8 @@ static bool CoapEndpoint_HasMoreData_From_BlockSource_Object(
 
 /**
  * Helper to get value of [BlockSize.requestInRange]
+ *
+ * @thread GG Loop
  */
 static bool CoapEndpoint_RequestInRange_From_BlockSource_Object(
         JNIEnv *env,
@@ -323,6 +359,7 @@ static bool CoapEndpoint_RequestInRange_From_BlockSource_Object(
  * @param data_size [in,out] data_size The number of bytes to read from that data.
  * @param more [out] more Whether there's more data to read.
  * @return GG_SUCCESS if the requested block was not outside of the range.
+ * @thread GG Loop
  */
 static GG_Result CoapEndpoint_GetDataSize_Blockwise(
         GG_CoapBlockSource *_self,
@@ -366,6 +403,8 @@ static GG_Result CoapEndpoint_GetDataSize_Blockwise(
 
 /**
  * Helper to get requested block data from [BlockSource]
+ *
+ * @thread GG Loop
  */
 static jbyteArray CoapEndpoint_GetBlockBytes_From_BlockSource_Object(
         JNIEnv *env,
@@ -401,6 +440,7 @@ static jbyteArray CoapEndpoint_GetBlockBytes_From_BlockSource_Object(
  * @param data_size The size of the requested block in bytes.
  * @param data Pointer to the buffer in which the block data should be copied.
  * @return GG_SUCCESS if the data for the requested block could be copied, or a negative error code.
+ * @thread GG Loop
  */
 static GG_Result CoapEndpoint_GetData_Blockwise(
         GG_CoapBlockSource *_self,
@@ -433,6 +473,7 @@ static GG_Result CoapEndpoint_GetData_Blockwise(
  * Creates a new global [BlockDataSource] object if a request has body
  *
  * @param self instance of ResponseListenerBlockwise that will get its data source object created
+ * @thread any
  */
 static void CoapEndpoint_BlockSource_From_RequestListener(
         JNIEnv *env,
@@ -493,6 +534,7 @@ GG_IMPLEMENT_INTERFACE(BlockListener, GG_CoapBlockSource) {
  * @param _endpoint reference to native stack service object
  * @param _request coap request object
  * @param _listener response listener on which result will be delivered
+ * @thread any
  */
 JNIEXPORT jobject
 JNICALL
@@ -539,7 +581,8 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseForBlockwise(
                 _listener,
                 result,
                 "Failed to invoke responseFor handler");
-        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(env, request_for_args);
+        GG_Result cleanupResult;
+        Loop_InvokeSync(CoapEndpoint_Cleanup_Wrapper, request_for_args, &cleanupResult);
 
         return CoapEndpoint_ResponseForResult_Object_From_Values(env, result, 0);
     }
@@ -554,6 +597,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseForBlockwise(
  * Cancel any pending Coap request
  *
  * @param _response_listener object holding reference to [CoapResponseListener] creating from responseFor call
+ * @thread any
  */
 JNIEXPORT jint
 JNICALL
@@ -567,9 +611,6 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseForBlockwise
 
     GG_Result result;
     Loop_InvokeSync(CoapEndpoint_CancelResponseFor_Blockwise, response_listener, &result);
-    if (GG_SUCCEEDED(result)) {
-        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(env, response_listener);
-    }
     return result;
 }
 
