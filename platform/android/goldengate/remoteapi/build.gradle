@@ -25,7 +25,7 @@ dependencies {
     // api as cbor is part of external interface
     api "co.nstant.in:cbor:$CBOR_VERSION"
 
-    implementation "com.github.fitbit:bitgatt:$BITGATT_VERSION"
+    implementation "com.github.fitbit:bitgatt:$BITGATT_COMMIT_VERSION"
     implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
     implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"

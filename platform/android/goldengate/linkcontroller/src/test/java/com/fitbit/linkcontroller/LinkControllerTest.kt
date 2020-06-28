@@ -7,9 +7,9 @@ import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
-import com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber
+import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.bluetooth.fbgatt.rx.client.listeners.GattClientCharacteristicChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
@@ -45,11 +45,11 @@ class LinkControllerTest {
         mock<GattCharacteristicNotifier> {
             on { notify(any(), any(), any()) } doReturn Completable.complete()
         }
-    private val mockRxBlePeripheral = mock<BitGattPeripheral> {
+    private val mockRxBlePeripheral = mock<BitGattPeer> {
         on { fitbitDevice } doReturn mockFitbitBluetoothDevice
         on { getService(any()) } doReturn Maybe.just(mockBluetoothGattService)
     }
-    private val mockPeripheralServiceSubscriber = mock<PeripheralServiceSubscriber>()
+    private val mockPeripheralServiceSubscriber = mock<PeerGattServiceSubscriber>()
     private val linkConfigurationSubscriptionObservable =
         BehaviorSubject.createDefault<GattCharacteristicSubscriptionStatus>(GattCharacteristicSubscriptionStatus.ENABLED)
 

@@ -13,7 +13,6 @@ import com.fitbit.bluetooth.fbgatt.rx.CLIENT_CONFIG_UUID
 import com.fitbit.bluetooth.fbgatt.rx.runTxReactive
 import com.fitbit.bluetooth.fbgatt.tx.RequestGattConnectionIntervalTransaction
 import io.reactivex.Maybe
-import io.reactivex.Notification
 import io.reactivex.Single
 import timber.log.Timber
 import java.util.UUID
@@ -28,16 +27,16 @@ internal val gattEnableIndicationValue = byteArrayOf(0x02, 0x00)
 internal val gattDisableNotificationValue = byteArrayOf(0x00, 0x00)
 
 /**
- * Interface representing a BLE peripheral and operations that can be carried on it.
+ * Interface representing a BLE peer (remote) device and operations that can be carried on it.
  */
-class BitGattPeripheral(
+class BitGattPeer(
     val gattConnection: GattConnection,
     private val clientTransactionProvider: ClientTransactionProvider = ClientTransactionProvider()
 ) {
 
     /**
-     * Establishes a BLE connection with a peripheral. Returns a [BluetoothGatt] object.
-     * @return A [Single] that will emit the [BluetoothGatt] instance associated with this peripheral.
+     * Establishes a BLE connection with a peer device. Returns a [BluetoothGatt] object.
+     * @return A [Single] that will emit the [BluetoothGatt] instance associated with this peer.
      */
     fun connect(): Single<BluetoothGatt> = Single.defer {
         if (gattConnection.isConnected) {
@@ -53,7 +52,7 @@ class BitGattPeripheral(
 
     /**
      * Requests connection priority as described in the [BluetoothGatt] object.
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param priority Connection priority [BluetoothGatt.CONNECTION_PRIORITY_LOW_POWER], [BluetoothGatt.CONNECTION_PRIORITY_BALANCED] or [BluetoothGatt.CONNECTION_PRIORITY_HIGH].
      * @return A [Single] emitting a boolean depending with the result of the boolean (true -> success, false -> failure).
      */
@@ -81,7 +80,7 @@ class BitGattPeripheral(
 
     /**
      * Requests an MTU
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param mtu Request an MTU size for the connection
      * @return A [Single] emitting an integer containing the MTU size
      */
@@ -93,8 +92,8 @@ class BitGattPeripheral(
     }
 
     /**
-     * Performs service discovery on the peripheral
-     * This assumes we are connected to the peripheral.
+     * Performs service discovery on the peer
+     * This assumes we are connected to the peer.
      * @return A [Single] containing a [List] of discovered [BluetoothGattService]s
      */
     fun discoverServices(): Single<List<BluetoothGattService>> = Single.defer {
@@ -107,7 +106,7 @@ class BitGattPeripheral(
 
     /**
      * Subscribe to a characteristic
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param characteristic The [BluetoothGattCharacteristic] from which the value should be read
      * @return A [Single] containing the [BluetoothGattCharacteristic] and its value
      */
@@ -124,7 +123,7 @@ class BitGattPeripheral(
 
     /**
      * Unsubscribe to a characteristic
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param characteristic The [BluetoothGattCharacteristic] from which the value should be read
      * @return A [Single] containing the [BluetoothGattCharacteristic] and its value
      */
@@ -141,7 +140,7 @@ class BitGattPeripheral(
 
     /**
      * Write to a descriptor characteristic
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param characteristic The [BluetoothGattCharacteristic] from which the value should be read
      * @param value The value to write to the descriptor characteristic
      * @return A [Single] containing the [BluetoothGattCharacteristic] and its value
@@ -161,7 +160,7 @@ class BitGattPeripheral(
 
     /**
      * Combined operation to set up notifications on a characteristic (enables notifications + writes to descriptor
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param characteristic The [BluetoothGattCharacteristic] on which to enable notifications.
      * @param subscribe true/false, whether we are subscribing from the characteristic or unsubscribing
      * @param isIndication true/false, whether the notification type is indication or notification
@@ -185,7 +184,7 @@ class BitGattPeripheral(
 
     /**
      * Reads the descriptor of a characteristic
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param descriptor The [BluetoothGattDescriptor] from which the value will be read
      * @return A [Single] containing the [BluetoothGattDescriptor] and its value
      */
@@ -198,7 +197,7 @@ class BitGattPeripheral(
 
     /**
      * Gets the service matching a specific UUID. Prior to this service discovery needs to be performed.
-     * This assumes we are connected to the peripheral.
+     * This assumes we are connected to the peer.
      * @param uuid The [UUID] of the [BluetoothGattService] to get.
      * @return A [Maybe] containing [BluetoothGattService] matching the uuid. Empty if not found.
      */
@@ -207,16 +206,16 @@ class BitGattPeripheral(
     }
 
     /**
-     * Gets the list of all services on the peripheral. Prior to this service discovery needs to be performed.
-     * This assumes we are connected to the peripheral.
+     * Gets the list of all services on the peer. Prior to this service discovery needs to be performed.
+     * This assumes we are connected to the peer.
      * @return A [List] of [BluetoothGattService].
      */
     val services: List<BluetoothGattService>?
         get() = gattConnection.gatt?.services
 
     /**
-     * Gets the fitbitDevice associated with the peripheral
-     * This assumes we are connected to the peripheral.
+     * Gets the fitbitDevice associated with the peer
+     * This assumes we are connected to the peer.
      * @return The [FitbitBluetoothDevice] associated with it.
      */
     val fitbitDevice: FitbitBluetoothDevice

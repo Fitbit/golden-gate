@@ -3,7 +3,6 @@
 
 package com.fitbit.goldengate.bindings.coap
 
-import androidx.annotation.VisibleForTesting
 import com.fitbit.goldengate.bindings.DataSinkDataSource
 import com.fitbit.goldengate.bindings.NativeReference
 import com.fitbit.goldengate.bindings.coap.block.BlockwiseCoapResponseListener
@@ -135,7 +134,7 @@ class CoapEndpoint: NativeReference, StackService, Endpoint, DataSinkDataSource 
     override fun getAsDataSourcePointer() = asDataSource()
 
     override fun setFilterGroup(group: CoapGroupRequestFilterMode, key: NodeKey<String>) {
-        Timber.d("StackNode with key $key sets filter group to $group")
+        Timber.d("StackPeer with key $key sets filter group to $group")
         requestFilter.setGroupTo(group)
     }
 

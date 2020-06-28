@@ -10,7 +10,7 @@ import co.nstant.`in`.cbor.model.Map
 import co.nstant.`in`.cbor.model.SimpleValue
 import co.nstant.`in`.cbor.model.UnicodeString
 import co.nstant.`in`.cbor.model.UnsignedInteger
-import com.fitbit.goldengate.node.stack.StackNode
+import com.fitbit.goldengate.node.stack.StackPeer
 import com.fitbit.remoteapi.handlers.ExchangeMtuRpc
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -41,7 +41,7 @@ class ExchangeMtuRpcHandlerTest {
     @Test
     fun testProcessor() {
         val mtu = 1234
-        val node = mock<StackNode<*>> {
+        val node = mock<StackPeer<*>> {
         }
         val remoteApiConfigurationState = mock<RemoteApiConfigurationState> {
             on { getNode(context, null) } doReturn node

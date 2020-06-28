@@ -32,7 +32,7 @@ import org.junit.runners.JUnit4
 import kotlin.test.assertEquals
 
 @RunWith(JUnit4::class)
-class BitGattPeripheralTest {
+class BitGattPeerTest {
 
     private val mockTransaction = mock<GattTransaction>()
     private val mockTransactionProvider = mock<ClientTransactionProvider> {
@@ -47,7 +47,7 @@ class BitGattPeripheralTest {
         on { getUnsubscribeFromGattCharacteristicTransactionFor(any(),any()) } doReturn mockTransaction
     }
 
-    private val peripheral = BitGattPeripheral(mockGattConnection, mockTransactionProvider)
+    private val peripheral = BitGattPeer(mockGattConnection, mockTransactionProvider)
 
     @Test
     fun testConnectSuccess() {
@@ -201,7 +201,7 @@ class BitGattPeripheralTest {
 
         // When
         val testObserver = TestObserver.create<List<BluetoothGattService>>()
-        val peripheral = BitGattPeripheral(mockGattConnectionNullGatt, mockTransactionProvider)
+        val peripheral = BitGattPeer(mockGattConnectionNullGatt, mockTransactionProvider)
         peripheral.discoverServices().subscribe(testObserver)
 
         // Then

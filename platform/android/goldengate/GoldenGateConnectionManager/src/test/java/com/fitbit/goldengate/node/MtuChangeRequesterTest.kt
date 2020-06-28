@@ -3,7 +3,7 @@
 
 package com.fitbit.goldengate.node
 
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bt.mockBluetoothAddress
 import com.nhaarman.mockitokotlin2.mock
@@ -22,7 +22,7 @@ class MtuChangeRequesterTest {
     private val timeoutSeconds = 60L
 
     private val mockStack= mock<Stack>()
-    private val mockPeripheral = mock<BitGattPeripheral>()
+    private val mockPeripheral = mock<BitGattPeer>()
 
     private val testScheduler = TestScheduler()
 

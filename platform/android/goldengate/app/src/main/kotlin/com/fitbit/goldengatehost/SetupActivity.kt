@@ -15,6 +15,7 @@ import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.fitbit.goldengate.GoldenGateConnectionManagerModule
 import com.fitbit.goldengate.bindings.coap.COAP_DEFAULT_PORT
 import com.fitbit.goldengate.bindings.io.EXTRA_BLAST_PACKET_SIZE
 import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
@@ -33,10 +34,12 @@ import kotlinx.android.synthetic.main.a_setup.edit_remote_ip
 import kotlinx.android.synthetic.main.a_setup.edit_remote_port
 import kotlinx.android.synthetic.main.a_setup.packet_size_layout
 import kotlinx.android.synthetic.main.a_setup.packet_size_spinner
+import kotlinx.android.synthetic.main.a_setup.radioGroupBleRole
 import kotlinx.android.synthetic.main.a_setup.radioGroupConfiguration
 import kotlinx.android.synthetic.main.a_setup.radioGroupService
 import kotlinx.android.synthetic.main.a_setup.rb_blaster
 import kotlinx.android.synthetic.main.a_setup.rb_bsd_socket_coap
+import kotlinx.android.synthetic.main.a_setup.rb_central
 import kotlinx.android.synthetic.main.a_setup.rb_coap
 import kotlinx.android.synthetic.main.a_setup.rb_gattlink
 import kotlinx.android.synthetic.main.a_setup.rb_gl_udp
@@ -44,6 +47,7 @@ import kotlinx.android.synthetic.main.a_setup.rb_gl_udp_dtls
 import kotlinx.android.synthetic.main.a_setup.start_button
 import timber.log.Timber
 import java.net.Inet4Address
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * A screen for configuring the Host App
@@ -55,6 +59,8 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         private var packetSizeIndex = packetSizeOptions.lastIndex
     }
 
+    private val initialized = AtomicBoolean()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.a_setup)
@@ -63,6 +69,7 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         radioGroupConfiguration.setOnCheckedChangeListener { _, _ -> respondToSettingsChange() }
         radioGroupService.setOnCheckedChangeListener { _, _ -> respondToSettingsChange() }
+        radioGroupBleRole.setOnCheckedChangeListener { _, _ -> respondToSettingsChange()  }
 
         start_button.setOnClickListener { startMainActivity() }
     }
@@ -104,6 +111,11 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
         }
 
+        radioGroupBleRole.visibility = when {
+            rb_bsd_socket_coap.isChecked -> GONE
+            else -> VISIBLE
+        }
+
         if (rb_gattlink.isChecked) {
             when { rb_coap.isChecked -> rb_blaster.isChecked = true }
             container_edit_ip.visibility = GONE
@@ -118,8 +130,13 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 edit_local_ip.setText(getNetworkInterfaceIpAddress())
                 edit_local_ip.isEnabled = false
             } else {
-                edit_local_ip.setText(DEFAULT_SERVER_ADDRESS)
-                edit_remote_ip.setText(DEFAULT_CLIENT_ADDRESS)
+                if (rb_central.isChecked) {
+                    edit_local_ip.setText(DEFAULT_SERVER_ADDRESS)
+                    edit_remote_ip.setText(DEFAULT_CLIENT_ADDRESS)
+                } else {
+                    edit_local_ip.setText(DEFAULT_CLIENT_ADDRESS)
+                    edit_remote_ip.setText(DEFAULT_SERVER_ADDRESS)
+                }
                 rb_coap.isEnabled = true
             }
         }
@@ -131,31 +148,57 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
 
     private fun startMainActivity() {
-        val i: Intent = when {
-            rb_bsd_socket_coap.isChecked -> {
-                startBsdCoapActivity()
-                return
-            }
-            rb_coap.isChecked -> ScanActivity.getIntent(this).putExtra(EXTRA_LAUNCH_CLASS, CoapActivity::class.java)
-            rb_blaster.isChecked -> {
-                ScanActivity.getIntent(this)
-                        .putExtra(EXTRA_LAUNCH_CLASS, BlastActivity::class.java)
-                        .putExtra(EXTRA_BLAST_PACKET_SIZE, packetSizeOptions[packetSizeIndex].toInt())
-            }
-            else -> throw RuntimeException("Something isn't right here")
+        
+        if (!initialized.getAndSet(true)) {
+            GoldenGateConnectionManagerModule.init(applicationContext, loggingEnabled=true, isBleCentralRole=rb_central.isChecked)
         }
 
-        val config: StackConfig
+        if (rb_bsd_socket_coap.isChecked) {
+            startBsdCoapActivity()
+            return
+        }
+
+        val intent: Intent = when {
+            // central role
+            rb_central.isChecked -> when {
+                rb_coap.isChecked -> ScanActivity.getIntent(this).putExtra(EXTRA_LAUNCH_CLASS, CoapActivity::class.java)
+                rb_blaster.isChecked -> {
+                    ScanActivity.getIntent(this)
+                        .putExtra(EXTRA_LAUNCH_CLASS, BlastActivity::class.java)
+                        .putExtra(EXTRA_BLAST_PACKET_SIZE, packetSizeOptions[packetSizeIndex].toInt())
+                }
+                else -> throw RuntimeException("Something isn't right here")
+            }
+            // peripheral role
+            else -> when {
+                rb_coap.isChecked -> CoapActivity.getIntent(this)
+                rb_blaster.isChecked -> {
+                    BlastActivity.getIntent(this)
+                        .putExtra(EXTRA_BLAST_PACKET_SIZE, packetSizeOptions[packetSizeIndex].toInt())
+                }
+                else -> throw RuntimeException("Something isn't right here")
+            }
+        }
+
+        val stackConfig = getStackConfig()
+
+        intent.putExtra(EXTRA_STACK_CONFIG, stackConfig)
+            .putExtra(EXTRA_IS_BLE_CENTRAL_ROLE, rb_central.isChecked)
+        startActivity(intent)
+    }
+
+    private fun getStackConfig(): StackConfig? {
+        var config: StackConfig? = null
         if (rb_gattlink.isChecked) {
             config = GattlinkStackConfig
         } else {
             if (!verifyIp4Address(edit_local_ip.text.toString())) {
                 Toast.makeText(this, "Please enter valid Local Ip4 address", Toast.LENGTH_LONG).show()
-                return
+                return config
             }
             if (!verifyIp4Address(edit_remote_ip.text.toString())) {
                 Toast.makeText(this, "Please enter valid Remote Ip4 address", Toast.LENGTH_LONG).show()
-                return
+                return config
             }
             val localIp = Inet4Address.getByName(edit_local_ip.text.toString()) as Inet4Address
             val remoteIp = Inet4Address.getByName(edit_remote_ip.text.toString()) as Inet4Address
@@ -166,19 +209,19 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 remotePort = edit_remote_port.text.toString().let { when (it) { "" -> 0 else -> it.toInt()} }
             } catch (e: NumberFormatException) {
                 Toast.makeText(this, "Invalid port number", Toast.LENGTH_LONG).show()
-                return //Don't start the activity if the port is invalid
+                return config
             }
             config = when {
                 rb_gl_udp.isChecked -> SocketNetifGattlink(localIp, localPort, remoteIp, remotePort)
                 rb_gl_udp_dtls.isChecked -> DtlsSocketNetifGattlink(localIp, localPort, remoteIp, remotePort)
                 else -> {
                     Toast.makeText(this, "Add the new stack config!", Toast.LENGTH_LONG).show()
-                    return
+                    null
                 }
             }
         }
-        i.putExtra(EXTRA_STACK_CONFIG, config)
-        startActivity(i)
+
+        return config
     }
 
     private fun addIpAndPort(intent: Intent): Boolean {

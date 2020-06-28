@@ -14,7 +14,7 @@ import timber.log.Timber
 
 class GattServiceRefresher(
     private val refreshTransactionProvider: GattClientRefreshGattTransactionProvider = GattClientRefreshGattTransactionProvider(),
-    private val provideBitGattPeripheral: (GattConnection) -> BitGattPeripheral = { BitGattPeripheral(it) }) {
+    private val provideBitGattPeer: (GattConnection) -> BitGattPeer = { BitGattPeer(it) }) {
 
     /**
      * Performs service refresh on the peripheral
@@ -24,7 +24,7 @@ class GattServiceRefresher(
      * @return A [Completable] that will complete once refresh has been completed.
      */
     fun refresh(gattConnection: GattConnection): Completable {
-        return provideBitGattPeripheral(gattConnection).connect()
+        return provideBitGattPeer(gattConnection).connect()
             .flatMap { refreshTransactionProvider.provide(gattConnection) }
             .flatMap { transaction -> transaction.runTxReactive(gattConnection) }
             .doOnSubscribe { Timber.d("Refreshing services for $gattConnection") }

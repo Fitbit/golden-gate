@@ -5,24 +5,20 @@ package com.fitbit.goldengate.node
 
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattService
-import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicSubscriptionStatus
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
-import com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber
+import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidatorException
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
-import com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener
-import com.fitbit.goldengate.bt.mockBluetoothDevice
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
-import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.TestScheduler
@@ -31,20 +27,19 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.times
 import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
 
-class LinkupHandlerTest {
+class LinkupWithPeerNodeHandlerTest {
 
     private val mockFitbitBluetoothDevice = com.fitbit.goldengate.bt.mockFitbitBluetoothDevice
     private val mockBluetoothGatt = mock<BluetoothGatt>()
 
-    private val mockPeripheral = mock<BitGattPeripheral> {
+    private val mockPeripheral = mock<BitGattPeer> {
         on { fitbitDevice } doReturn mockFitbitBluetoothDevice
         on { connect() } doReturn Single.just(mockBluetoothGatt)
     }
 
-    private val mockPeripheralServiceSubscriber = mock<PeripheralServiceSubscriber>()
+    private val mockPeerGattServiceSubscriber = mock<PeerGattServiceSubscriber>()
     private val mockGattDatabaseValidator = mock<GattDatabaseValidator>()
     private val mockGattServiceRefresher = mock<GattServiceRefresher> {
         on { refresh(mockPeripheral.gattConnection) } doReturn Completable.complete()
@@ -54,8 +49,8 @@ class LinkupHandlerTest {
 
     private val testScheduler = TestScheduler()
 
-    private val handler = LinkupHandler(
-        mockPeripheralServiceSubscriber,
+    private val handler = LinkupWithPeerNodeHandler(
+        mockPeerGattServiceSubscriber,
         mockGattDatabaseValidator,
         mockGattServiceRefresher,
         linkUpTimeoutSeconds = linkUpTimeoutSeconds,
@@ -82,7 +77,7 @@ class LinkupHandlerTest {
             .test()
 
         verify(mockPeripheral, times(1)).discoverServices()
-        verify(mockPeripheralServiceSubscriber)
+        verify(mockPeerGattServiceSubscriber)
             .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
@@ -111,7 +106,7 @@ class LinkupHandlerTest {
         verify(mockPeripheral, times(5)).discoverServices()
         verify(mockGattServiceRefresher, times(1)).refresh(mockPeripheral.gattConnection)
 
-        verify(mockPeripheralServiceSubscriber, never())
+        verify(mockPeerGattServiceSubscriber, never())
             .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
@@ -134,7 +129,7 @@ class LinkupHandlerTest {
         testScheduler.advanceTimeBy(10, TimeUnit.SECONDS)
         verify(mockPeripheral, times(2)).discoverServices()
 
-        verify(mockPeripheralServiceSubscriber)
+        verify(mockPeerGattServiceSubscriber)
             .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
@@ -152,7 +147,7 @@ class LinkupHandlerTest {
             .test()
 
         verify(mockPeripheral, times(1)).discoverServices()
-        verify(mockPeripheralServiceSubscriber)
+        verify(mockPeerGattServiceSubscriber)
             .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
@@ -174,14 +169,14 @@ class LinkupHandlerTest {
             Single.error(RuntimeException("Failed")))
 
     private fun mockRemoteGattlinkSubscriptionSuccess() =
-        whenever(mockPeripheralServiceSubscriber.subscribe(
+        whenever(mockPeerGattServiceSubscriber.subscribe(
             mockPeripheral,
             GattlinkService.uuid,
             TransmitCharacteristic.uuid
         )).thenReturn(Completable.complete())
 
     private fun mockRemoteGattlinkServiceNotFound() =
-        whenever(mockPeripheralServiceSubscriber.subscribe(
+        whenever(mockPeerGattServiceSubscriber.subscribe(
             mockPeripheral,
             GattlinkService.uuid,
             TransmitCharacteristic.uuid

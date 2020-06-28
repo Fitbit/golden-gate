@@ -72,7 +72,7 @@ dependencies {
     implementation project(':GoldenGateConnectionManager')
     implementation project(':remoteapi')
 
-    implementation "com.github.fitbit:bitgatt:$BITGATT_VERSION"
+    implementation "com.github.fitbit:bitgatt:$BITGATT_COMMIT_VERSION"
     implementation "androidx.constraintlayout:constraintlayout:$ANDROIDX_CONSTRAINTLAYOUT_VERSION"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION"

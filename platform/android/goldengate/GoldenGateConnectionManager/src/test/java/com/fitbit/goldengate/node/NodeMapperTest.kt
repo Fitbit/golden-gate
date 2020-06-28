@@ -14,14 +14,14 @@ import kotlin.test.assertEquals
 
 class NodeMapperTest {
 
-    private val node1 = mock<Node<StackService>>()
-    private val node2 = mock<Node<StackService>>()
+    private val node1 = mock<Peer<StackService>>()
+    private val node2 = mock<Peer<StackService>>()
 
     private val nodeKey = mock<NodeKey<Unit>> {
         on { value } doReturn Unit
     }
 
-    private val nodeBuilder1 = mock<NodeBuilder<StackService, NodeKey<Unit>>> {
+    private val nodeBuilder1 = mock<PeerBuilder<StackService, NodeKey<Unit>>> {
         on { build(nodeKey) } doReturn node1
         on { doesBuild(node1) } doReturn true
         on { doesBuild(node2) } doReturn false
@@ -29,7 +29,7 @@ class NodeMapperTest {
 
     @Test
     fun getNodeBuildsNewNodeWhenNoNodes() {
-        val nodeMap = mock<MutableMap<NodeKey<*>, Node<*>>>()
+        val nodeMap = mock<MutableMap<NodeKey<*>, Peer<*>>>()
         assertEquals(node1, NodeMapper(nodeMap).get(nodeKey, nodeBuilder1))
 
         verify(nodeBuilder1, times(0)).doesBuild(node1)
@@ -39,7 +39,7 @@ class NodeMapperTest {
 
     @Test
     fun getNodeRebuildsNodeWhenNotSame() {
-        val nodeMap = mock<MutableMap<NodeKey<*>, Node<*>>> {
+        val nodeMap = mock<MutableMap<NodeKey<*>, Peer<*>>> {
             on { get(nodeKey) } doReturn node2
         }
 
@@ -53,7 +53,7 @@ class NodeMapperTest {
 
     @Test
     fun getNodeDoesNotBuildNewNodeWhenSame() {
-        val nodeMap = mock<MutableMap<NodeKey<*>, Node<*>>> {
+        val nodeMap = mock<MutableMap<NodeKey<*>, Peer<*>>> {
             on { get(nodeKey) } doReturn node1
         }
 
@@ -66,7 +66,7 @@ class NodeMapperTest {
 
     @Test
     fun removeNodeClosesTheNode() {
-        val nodeMap = mock<MutableMap<NodeKey<*>, Node<*>>> {
+        val nodeMap = mock<MutableMap<NodeKey<*>, Peer<*>>> {
             on { get(nodeKey) } doReturn node1
         }
         NodeMapper(nodeMap).removeNode(nodeKey)

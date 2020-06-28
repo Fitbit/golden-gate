@@ -23,16 +23,16 @@ project.afterEvaluate {
 
         def kotlinClassTree = fileTree(dir: "${buildDir}/tmp/kotlin-classes/debug")
 
-        classDirectories = files([javaClassTree], [kotlinClassTree])
+        classDirectories.from = files([javaClassTree], [kotlinClassTree])
 
         def coverageSourceDirs = [
                 "src/main/java",
                 "src/main/kotlin",
                 "src/main/cpp"
         ]
-        additionalSourceDirs = files(coverageSourceDirs)
-        sourceDirectories = files(coverageSourceDirs)
-        executionData = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
+        additionalSourceDirs.from = files(coverageSourceDirs)
+        sourceDirectories.from = files(coverageSourceDirs)
+        executionData.from = files("${project.buildDir}/jacoco/testDebugUnitTest.exec")
 
         reports {
             xml.enabled = true

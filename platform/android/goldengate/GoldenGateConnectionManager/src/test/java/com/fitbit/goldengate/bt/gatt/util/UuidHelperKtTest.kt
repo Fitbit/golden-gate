@@ -38,4 +38,13 @@ class UuidHelperKtTest {
         Assert.assertFalse(sameUuidFromHelper == newUuid)
         Assert.assertTrue(sameUuidFromHelper == uuid)
     }
+
+    @Test
+    fun encode_Decode_Uuid() {
+        val uuid1 = UUID.fromString(uuidString)
+
+        val uuid2 = uuid1.toByteArray().toUuid()
+
+        Assert.assertEquals(uuid1, uuid2)
+    }
 }

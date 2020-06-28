@@ -4,16 +4,14 @@
 package com.fitbit.remoteapi
 
 import android.content.Context
-import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
-import com.fitbit.goldengate.node.NodeConnectionStatus
+import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.node.NodeMapper
-import com.fitbit.goldengate.node.stack.StackNode
-import com.fitbit.goldengate.node.stack.StackNodeBuilder
+import com.fitbit.goldengate.node.stack.StackPeer
+import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.eq
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
@@ -34,21 +32,21 @@ class RemoteApiConfigurationStateTest {
         on { bluetoothDevice(context, peerName) } doReturn gattConnection
     }
     private val disposableContainer = mock<DisposableContainer>()
-    private val stackNodeBuilder = mock<StackNodeBuilder<*>>()
+    private val stackNodeBuilder = mock<StackPeerBuilder<*>>()
     private val disposable = mock<Disposable>()
-    private val asyncConnection = mock<Observable<NodeConnectionStatus>>() {
+    private val asyncConnection = mock<Observable<PeerConnectionStatus>>() {
         on { subscribe(any(), any()) } doReturn disposable
     }
-    private val connection = mock<Observable<NodeConnectionStatus>> {
+    private val connection = mock<Observable<PeerConnectionStatus>> {
         on { subscribeOn(Schedulers.io()) } doReturn asyncConnection
     }
-    private val stackNode = mock<StackNode<*>> {
+    private val stackNode = mock<StackPeer<*>> {
         on { connection() } doReturn connection
     }
     private val bluetoothAddressNodeKey = mock<BluetoothAddressNodeKey>()
     private val nodeMapper = mock<NodeMapper>()
-    private val defaultConfiguration = mock<StackNodeBuilder<*>>()
-    private val configurationMap = mock<MutableMap<String?, StackNodeBuilder<*>>>()
+    private val defaultConfiguration = mock<StackPeerBuilder<*>>()
+    private val configurationMap = mock<MutableMap<String?, StackPeerBuilder<*>>>()
     private val bluetoothAddressNodeKeyProvider = mock<(GattConnection) -> BluetoothAddressNodeKey> {
         on { invoke(gattConnection) } doReturn bluetoothAddressNodeKey
     }
@@ -74,7 +72,7 @@ class RemoteApiConfigurationStateTest {
         val nodeMapper = mock<NodeMapper> {
             on { get(bluetoothAddressNodeKey, stackNodeBuilder) } doReturn stackNode
         }
-        val configurationMap = mock<MutableMap<String?, StackNodeBuilder<*>>> {
+        val configurationMap = mock<MutableMap<String?, StackPeerBuilder<*>>> {
             on { this[peerName] } doReturn stackNodeBuilder
         }
         assertEquals(RemoteApiConfigurationState(
@@ -134,7 +132,7 @@ class RemoteApiConfigurationStateTest {
         val nodeMapper = mock<NodeMapper> {
             on { get(bluetoothAddressNodeKey, stackNodeBuilder) } doReturn stackNode
         }
-        val configurationMap = mock<MutableMap<String?, StackNodeBuilder<*>>> {
+        val configurationMap = mock<MutableMap<String?, StackPeerBuilder<*>>> {
             on { this[peerName] } doReturn stackNodeBuilder
         }
         RemoteApiConfigurationState(

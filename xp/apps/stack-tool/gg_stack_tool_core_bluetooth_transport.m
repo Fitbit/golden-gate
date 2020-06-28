@@ -44,6 +44,7 @@
 #define GG_LINK_CONFIGURATION_SERVICE_UUID                                 @"ABBAFC00-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_LINK_CONFIGURATION_CONNECTION_CONFIGURATION_CHARACTERISTIC_UUID @"ABBAFC01-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_LINK_CONFIGURATION_CONNECTION_MODE_CHARACTERISTIC_UUID          @"ABBAFC02-E56A-484C-B832-8B17CF6CBFE8"
+#define GG_LINK_CONFIGURATION_GENERAL_PURPOSE_COMMAND_CHARACTERISTIC_UUID  @"ABBAFC03-E56A-484C-B832-8B17CF6CBFE8"
 
 // GATT Confirmation Service
 #define GG_GATT_CONFIRMATION_SERVICE_UUID                                  @"AC2F0045-8182-4BE5-91E0-2992E6B40EBB"
@@ -137,6 +138,8 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 @property (strong, nonatomic) CBMutableCharacteristic* linkConfigurationConnectionModeCharacteristic;
 @property (strong, nonatomic) NSData*                  linkConfigurationConnectionModeCharacteristicValue;
 @property (strong, nonatomic) CBCentral*               linkConfigurationConnectionModeSubscriber;
+@property (strong, nonatomic) CBMutableCharacteristic* linkConfigurationGeneralPurposeCommandCharacteristic;
+@property (strong, nonatomic) CBCentral*               linkConfigurationGeneralPurposeCommandSubscriber;
 @property (strong, nonatomic) CBService*               gattConfirmationService;
 @property (strong, nonatomic) CBUUID*                  gattConfirmationServiceEphemeralCharacteristicUuid;
 @property (strong, nonatomic) CBCharacteristic*        gattlinkRxCharacteristic;
@@ -191,9 +194,15 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
         self.linkConfigurationConnectionModeCharacteristicValue =
             [NSData dataWithBytes: GG_LinkConfigurationService_ConnectionMode
                            length: sizeof(GG_LinkConfigurationService_ConnectionMode)];
+        self.linkConfigurationGeneralPurposeCommandCharacteristic = [[CBMutableCharacteristic alloc]
+            initWithType: [CBUUID UUIDWithString: GG_LINK_CONFIGURATION_GENERAL_PURPOSE_COMMAND_CHARACTERISTIC_UUID]
+              properties: CBCharacteristicPropertyNotify
+                   value: nil
+             permissions: 0]; // no attribute read and write permisions; notify only
         self.linkConfigurationService.characteristics = @[
             self.linkConfigurationConnectionConfigurarionCharacteristic,
-            self.linkConfigurationConnectionModeCharacteristic
+            self.linkConfigurationConnectionModeCharacteristic,
+            self.linkConfigurationGeneralPurposeCommandCharacteristic
         ];
     }
 

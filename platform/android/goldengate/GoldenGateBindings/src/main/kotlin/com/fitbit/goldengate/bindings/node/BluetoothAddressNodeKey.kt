@@ -10,7 +10,7 @@ import com.fitbit.goldengate.bindings.util.checkBluetoothAddress
  * Uniquely identifies a Node with a bluetooth address that is connected over BLE
  */
 data class BluetoothAddressNodeKey(
-        override val value: String
+    override val value: String
 ) : NodeKey<String> {
 
     init {

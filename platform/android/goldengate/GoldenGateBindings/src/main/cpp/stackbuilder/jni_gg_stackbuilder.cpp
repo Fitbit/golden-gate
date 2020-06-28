@@ -65,6 +65,14 @@ typedef struct {
  ********/
 #define GG_STACK_DTLS_KEY_SIZE 16
 
+static uint8_t BOOTSTRAP_KEY[16] = {
+    0x81, 0x06, 0x54, 0xe3, 0x36, 0xad, 0xca, 0xb0,
+    0xa0, 0x3c, 0x60, 0xf7, 0x4a, 0xa0, 0xb6, 0xfb
+};
+static uint8_t BOOTSTRAP_KEY_IDENTITY[9] = {
+    'B', 'O', 'O', 'T', 'S', 'T', 'R', 'A', 'P'
+};
+
 typedef struct Psk Psk;
 struct Psk {
     const uint8_t *identity;
@@ -387,28 +395,40 @@ JNICALL Java_com_fitbit_goldengate_bindings_stack_Stack_create(
     parameter_count++;
 
     if (strchr(args->descriptor, 'D')) {
-        // TODO: We are no longer supporting mobile as Node, this assert is to minimize removal of
-        // code for supporting running mobile as Node
-        GG_ASSERT(isNode == JNI_FALSE);
+        if (isNode == JNI_FALSE) { // HUB mode
+            KeyResolver *key_resolver = (KeyResolver *) GG_AllocateZeroMemory(sizeof(KeyResolver));
+            key_resolver->node_key = env->NewGlobalRef(nodeKey);
+            key_resolver->tls_key_resolver = env->NewGlobalRef(tlsKeyResolver);
+            stackWrapper->key_resolver = key_resolver;
 
-        KeyResolver *key_resolver = (KeyResolver *) GG_AllocateZeroMemory(sizeof(KeyResolver));
-        key_resolver->node_key = env->NewGlobalRef(nodeKey);
-        key_resolver->tls_key_resolver = env->NewGlobalRef(tlsKeyResolver);
-        stackWrapper->key_resolver = key_resolver;
+            GG_SET_INTERFACE(key_resolver, TlsKeyResolver, GG_TlsKeyResolver);
 
-        GG_SET_INTERFACE(key_resolver, TlsKeyResolver, GG_TlsKeyResolver);
-
-        options.serverOptions = {
+            options.serverOptions = {
                 .base = {
-                        .cipher_suites       = cipher_suites,
-                        .cipher_suites_count = GG_ARRAY_SIZE(cipher_suites)
+                    .cipher_suites       = cipher_suites,
+                    .cipher_suites_count = GG_ARRAY_SIZE(cipher_suites)
                 },
                 .key_resolver = GG_CAST(key_resolver, GG_TlsKeyResolver)
-        };
-        parameters[parameter_count].element_type = GG_STACK_ELEMENT_TYPE_DTLS_SERVER;
-        parameters[parameter_count].element_parameters = &options.serverOptions;
+            };
+            parameters[parameter_count].element_type = GG_STACK_ELEMENT_TYPE_DTLS_SERVER;
+            parameters[parameter_count].element_parameters = &options.serverOptions;
+            parameter_count++;
+        } else {
+            options.clientOptions = {
+                .base = {
+                    .cipher_suites       = cipher_suites,
+                    .cipher_suites_count = GG_ARRAY_SIZE(cipher_suites)
+                },
+                .psk_identity      = BOOTSTRAP_KEY_IDENTITY,
+                .psk_identity_size = sizeof(BOOTSTRAP_KEY_IDENTITY),
+                .psk               = BOOTSTRAP_KEY,
+                .psk_size          = sizeof(BOOTSTRAP_KEY)
+            };
 
-        parameter_count++;
+            parameters[parameter_count].element_type = GG_STACK_ELEMENT_TYPE_DTLS_CLIENT;
+            parameters[parameter_count].element_parameters = &options.clientOptions;
+            parameter_count++;
+        }
     }
 
     GG_StackElementDatagramSocketParameters socketParameters;

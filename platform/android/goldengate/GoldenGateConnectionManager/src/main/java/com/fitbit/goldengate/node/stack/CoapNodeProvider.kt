@@ -7,24 +7,25 @@ import com.fitbit.goldengate.bindings.coap.CoapEndpoint
 import com.fitbit.goldengate.bindings.coap.CoapEndpointBuilder
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
+import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.node.NodeMapper
 
 /**
- * Utility object for instantiating a [StackNodeBuilder]<[CoapEndpoint], [BluetoothAddressNodeKey]>
+ * Utility object for instantiating a [StackPeerBuilder]<[CoapEndpoint], [BluetoothAddressNodeKey]>
  */
 class CoapNodeProvider(
-        private val nodeMapper: NodeMapper = NodeMapper.instance,
-        private val stackNodeBuilder: StackNodeBuilder<CoapEndpoint> =
-                StackNodeBuilder(CoapEndpoint::class.java, CoapEndpointBuilder, DtlsSocketNetifGattlink()),
-        private val bluetoothAddressNodeKeyProvider: (String) -> BluetoothAddressNodeKey = { BluetoothAddressNodeKey(it) }
+    private val nodeMapper: NodeMapper = NodeMapper.instance,
+    private val stackPeerBuilder: StackPeerBuilder<CoapEndpoint> =
+                StackPeerBuilder(CoapEndpoint::class.java, PeerRole.Peripheral, CoapEndpointBuilder, DtlsSocketNetifGattlink()),
+    private val bluetoothAddressNodeKeyProvider: (String) -> BluetoothAddressNodeKey = { BluetoothAddressNodeKey(it) }
 ) {
 
     /**
-     * @return a [StackNode]<[CoapEndpoint]>
+     * @return a [StackPeer]<[CoapEndpoint]>
      */
     fun getNode(bluetoothAddress: String) = nodeMapper.get(
             bluetoothAddressNodeKeyProvider(bluetoothAddress),
-            stackNodeBuilder
+            stackPeerBuilder
     )
 
     /**

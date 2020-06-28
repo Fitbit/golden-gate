@@ -3,6 +3,8 @@
 
 package com.fitbit.goldengatehost
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.fitbit.bluetooth.fbgatt.GattConnection
@@ -18,9 +20,10 @@ import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.isLwipBased
-import com.fitbit.goldengate.node.NodeBuilder
-import com.fitbit.goldengate.node.stack.StackNode
-import com.fitbit.goldengate.node.stack.StackNodeBuilder
+import com.fitbit.goldengate.bt.PeerRole
+import com.fitbit.goldengate.node.PeerBuilder
+import com.fitbit.goldengate.node.stack.StackPeer
+import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -65,14 +68,16 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
 
     override fun getContentViewRes(): Int = R.layout.a_blast
 
-    override fun getNodeBuilder(
-            stackConfig: StackConfig,
-            connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-            dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
-    ): NodeBuilder<Blaster, BluetoothAddressNodeKey> = StackNodeBuilder(
-            Blaster::class.java,
-            stackConfig
-    ) { nodeKey -> StackNode(nodeKey, stackConfig, Blaster(stackConfig.isLwipBased(), packetSize = packetSize), connectionStatus, dtlsStatus) }
+    override fun getPeerBuilder(
+        peerRole: PeerRole,
+        stackConfig: StackConfig,
+        connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
+        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
+    ): PeerBuilder<Blaster, BluetoothAddressNodeKey> = StackPeerBuilder(
+        Blaster::class.java,
+        peerRole,
+        stackConfig
+    ) { nodeKey -> StackPeer(nodeKey, peerRole, stackConfig, Blaster(stackConfig.isLwipBased(), packetSize = packetSize), connectionStatus, dtlsStatus) }
 
     override fun onConnected(stackService: Blaster, stackConfig: StackConfig) {
         throughput.visibility = View.VISIBLE
@@ -82,15 +87,21 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
         send.setOnClickListener { toggleBlast(stackService, stackConfig) }
         stackService.getStats()
         disposeBag.add(Observable.interval(1000L, TimeUnit.MILLISECONDS, Schedulers.computation())
-                .timeInterval()
-                .flatMapMaybe { stackService.getStats() }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    throughput.text = String.format("Throughput: %d B/s", it.throughput)
-                    packets_received.text = String.format("Packets Rec: %d", it.packetsReceived)
-                    bytes_received.text = String.format("Bytes Rec: %d", it.bytesReceived)
-                }, {
-                    Timber.e(it, "Error getting stats")
-                }))
+            .timeInterval()
+            .flatMapMaybe { stackService.getStats() }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                throughput.text = String.format("Throughput: %d B/s", it.throughput)
+                packets_received.text = String.format("Packets Rec: %d", it.packetsReceived)
+                bytes_received.text = String.format("Bytes Rec: %d", it.bytesReceived)
+            }, {
+                Timber.e(it, "Error getting stats")
+            }))
+    }
+
+    companion object {
+        fun getIntent(context: Context): Intent {
+            return Intent(context, BlastActivity::class.java)
+        }
     }
 }

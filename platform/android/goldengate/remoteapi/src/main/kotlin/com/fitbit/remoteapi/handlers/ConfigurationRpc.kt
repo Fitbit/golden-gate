@@ -14,8 +14,9 @@ import com.fitbit.goldengate.bindings.stack.GattlinkStackConfig
 import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
-import com.fitbit.goldengate.node.stack.RemoteApiStackNodeBuilder
-import com.fitbit.goldengate.node.stack.StackNodeBuilder
+import com.fitbit.goldengate.bt.PeerRole
+import com.fitbit.goldengate.node.stack.RemoteApiStackPeerBuilder
+import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import com.fitbit.remoteapi.RemoteApiConfigurationState
 import com.fitbit.remoteapi.StagedCborHandler
 
@@ -37,19 +38,19 @@ class ConfigurationRpc private constructor() {
             coapServicesProvider: CoapServices.Provider,
             blastServiceProvider: BlastService.Provider
         ): CborHandler = StagedCborHandler(
-                "stack/set_type",
-                StagedCborHandler.Stages(
-                        Parser(coapServicesProvider, blastServiceProvider),
-                        Processor(remoteApiState),
-                        NullResponder()
-                )
+            "stack/set_type",
+            StagedCborHandler.Stages(
+                Parser(coapServicesProvider, blastServiceProvider),
+                Processor(remoteApiState),
+                NullResponder()
+            )
         )
     }
 
     class Parser(
         private val coapServicesProvider: CoapServices.Provider,
         private val blastServiceProvider: BlastService.Provider
-    ) : StagedCborHandler.Parser<StackNodeBuilder<out StackService>> {
+    ) : StagedCborHandler.Parser<StackPeerBuilder<out StackService>> {
 
         enum class Params(val paramName: String) {
             STACK_TYPE("stack_type"),
@@ -62,18 +63,18 @@ class ConfigurationRpc private constructor() {
         private val stackServiceArgumentErrorMessage =
                 "Must pass in a stack service name with the key '${Params.SERVICE.paramName}' and must be '$blastService', '$coapService'"
 
-        override fun parse(dataItems: List<DataItem>): StackNodeBuilder<out StackService> {
+        override fun parse(dataItems: List<DataItem>): StackPeerBuilder<out StackService> {
             val paramsMap = dataItems.firstOrNull { it is Map } as Map?
                     ?: throw IllegalArgumentException("$stackConfigArgumentErrorMessage\n$stackServiceArgumentErrorMessage")
             val stackConfig =
-                    (paramsMap.get(UnicodeString(Params.STACK_TYPE.paramName)) as? UnicodeString)?.string.let {
-                        when (it) {
-                            gattlinkConfig -> GattlinkStackConfig
-                            udpConfig -> SocketNetifGattlink()
-                            dtlsConfig -> DtlsSocketNetifGattlink()
-                            else -> throw IllegalArgumentException(stackConfigArgumentErrorMessage)
-                        }
+                (paramsMap.get(UnicodeString(Params.STACK_TYPE.paramName)) as? UnicodeString)?.string.let {
+                    when (it) {
+                        gattlinkConfig -> GattlinkStackConfig
+                        udpConfig -> SocketNetifGattlink()
+                        dtlsConfig -> DtlsSocketNetifGattlink()
+                        else -> throw IllegalArgumentException(stackConfigArgumentErrorMessage)
                     }
+                }
 
             return (paramsMap.get(UnicodeString(Params.SERVICE.paramName)) as? UnicodeString)?.string.let {
                 when (it) {
@@ -84,15 +85,15 @@ class ConfigurationRpc private constructor() {
             }
         }
 
-        private fun blasterStackNodeBuilder(stackConfig: StackConfig): StackNodeBuilder<BlastService> =
-            RemoteApiStackNodeBuilder(BlastService::class.java, stackConfig) { blastServiceProvider.get() }
+        private fun blasterStackNodeBuilder(stackConfig: StackConfig): StackPeerBuilder<BlastService> =
+            RemoteApiStackPeerBuilder(BlastService::class.java, PeerRole.Peripheral, stackConfig) { blastServiceProvider.get() }
 
         private fun coapStackNodeBuilder(stackConfig: StackConfig) =
-            RemoteApiStackNodeBuilder(CoapServices::class.java, stackConfig) { coapServicesProvider.get() } }
+            RemoteApiStackPeerBuilder(CoapServices::class.java, PeerRole.Peripheral, stackConfig) { coapServicesProvider.get() } }
 
-    class Processor(private val remoteApiConfigurationState: RemoteApiConfigurationState) : StagedCborHandler.Processor<StackNodeBuilder<out StackService>, Unit> {
+    class Processor(private val remoteApiConfigurationState: RemoteApiConfigurationState) : StagedCborHandler.Processor<StackPeerBuilder<out StackService>, Unit> {
 
-        override fun process(parameterObject: StackNodeBuilder<out StackService>) {
+        override fun process(parameterObject: StackPeerBuilder<out StackService>) {
             remoteApiConfigurationState.setPeerConfiguration(null, parameterObject)
         }
     }

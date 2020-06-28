@@ -3,7 +3,7 @@
 
 package com.fitbit.goldengate.node
 
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.goldengate.bindings.stack.Stack
 import io.reactivex.Scheduler
 import io.reactivex.Single
@@ -32,12 +32,12 @@ class MtuChangeRequester(
     /**
      * Request to set MTU for bluetooth connection and stack for connected Node
      *
-     * @param peripheral connected peripheral
+     * @param peer connected peripheral
      * @param mtu MTU request value
      * @return A [Single] emitting an integer containing the MTU size
      */
-    fun requestMtu(peripheral: BitGattPeripheral, mtu: Int): Single<Int> {
-        return updatePeripheralMtu(peripheral, mtu)
+    fun requestMtu(peer: BitGattPeer, mtu: Int): Single<Int> {
+        return updatePeripheralMtu(peer, mtu)
             .onErrorReturn {
                 // use minimum MTU value if there is any error in updating BT MTU for connected device
                 Timber.w(it, "Error updating peripheral MTU value for $bluetoothAddress to $mtu")
@@ -47,8 +47,8 @@ class MtuChangeRequester(
             .timeout(updateMtuTimeoutSeconds, TimeUnit.SECONDS, timeoutScheduler)
     }
 
-    private fun updatePeripheralMtu(peripheral: BitGattPeripheral, mtu: Int): Single<Int> {
-        return peripheral.requestMtu(mtu)
+    private fun updatePeripheralMtu(peer: BitGattPeer, mtu: Int): Single<Int> {
+        return peer.requestMtu(mtu)
                 .doOnSubscribe { Timber.d("Updating peripheral MTU: $bluetoothAddress to $mtu") }
                 .doOnSuccess { Timber.d("Successfully updated peripheral MTU: $bluetoothAddress to $mtu") }
                 .doOnError { Timber.w("Failed to updated peripheral MTU: $bluetoothAddress to $mtu") }

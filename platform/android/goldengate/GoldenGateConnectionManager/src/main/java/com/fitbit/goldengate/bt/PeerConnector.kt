@@ -6,9 +6,8 @@ package com.fitbit.goldengate.bt
 import android.bluetooth.BluetoothGatt
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral
+import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.getGattConnection
-import io.reactivex.Completable
 import io.reactivex.Single
 import timber.log.Timber
 
@@ -18,11 +17,12 @@ import timber.log.Timber
  * @param bluetoothAddress BT address of Peripheral to connect to
  * @param priority connection priority requested (default to High)
  */
-internal class PeripheralConnector(
+internal class PeerConnector(
         private val bluetoothAddress: String,
+        private val peerRole: PeerRole,
         private val priority: Int = BluetoothGatt.CONNECTION_PRIORITY_HIGH,
         private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
-        private val peripheralProvider: (gattConnection: GattConnection) -> BitGattPeripheral = { gattConnection -> BitGattPeripheral(gattConnection) }
+        private val peerProvider: (gattConnection: GattConnection) -> BitGattPeer = { gattConnection -> BitGattPeer(gattConnection) }
 ) {
 
     /**
@@ -42,7 +42,7 @@ internal class PeripheralConnector(
     }
 
     fun connect(gattConnection: GattConnection): Single<GattConnection> {
-        val peripheral = peripheralProvider(gattConnection)
+        val peripheral = peerProvider(gattConnection)
         return peripheral.connect() // will be noop is device already connected
                 .map{ gattConnection }
                 .doOnSubscribe { Timber.d("Connecting to device: $bluetoothAddress GattConnection: $gattConnection") }
