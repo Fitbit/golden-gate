@@ -43,15 +43,14 @@ class MtuChangeRequester(
                 Timber.w(it, "Error updating peripheral MTU value for $bluetoothAddress to $mtu")
                 DEFAULT_MIN_MTU
             }
-            .flatMap { peripheralMtu -> updateStackMtu(peripheralMtu) }
             .timeout(updateMtuTimeoutSeconds, TimeUnit.SECONDS, timeoutScheduler)
     }
 
     private fun updatePeripheralMtu(peer: BitGattPeer, mtu: Int): Single<Int> {
         return peer.requestMtu(mtu)
-                .doOnSubscribe { Timber.d("Updating peripheral MTU: $bluetoothAddress to $mtu") }
-                .doOnSuccess { Timber.d("Successfully updated peripheral MTU: $bluetoothAddress to $mtu") }
-                .doOnError { Timber.w("Failed to updated peripheral MTU: $bluetoothAddress to $mtu") }
+            .doOnSubscribe { Timber.d("Updating peripheral MTU: $bluetoothAddress to $mtu") }
+            .doOnSuccess { Timber.d("Successfully updated peripheral MTU: $bluetoothAddress to $mtu") }
+            .doOnError { Timber.w("Failed to updated peripheral MTU: $bluetoothAddress to $mtu") }
     }
 
     /**
@@ -59,13 +58,13 @@ class MtuChangeRequester(
      */
     fun updateStackMtu(mtu: Int): Single<Int> {
         return Single.fromCallable { stack.updateMtu(mtu) }
-                .doOnSuccess { mtuUpdated ->
-                    if(!mtuUpdated) throw  MtuChangeException("Failed to update stack MTU to $mtu for node: $bluetoothAddress")
-                }
-                .map { mtu }
-                .doOnSubscribe { Timber.d("Updating stack MTU: $mtu") }
-                .doOnSuccess { Timber.d("Successfully updated stack MTU: $mtu") }
-                .doOnError { Timber.w("Failed to updated stack MTU:$mtu") }
+            .doOnSuccess { mtuUpdated ->
+                if(!mtuUpdated) throw MtuChangeException("Failed to update stack MTU to $mtu for node: $bluetoothAddress")
+            }
+            .map { mtu }
+            .doOnSubscribe { Timber.d("Updating stack MTU: $mtu") }
+            .doOnSuccess { Timber.d("Successfully updated stack MTU: $mtu") }
+            .doOnError { Timber.w("Failed to updated stack MTU:$mtu") }
     }
 }
 

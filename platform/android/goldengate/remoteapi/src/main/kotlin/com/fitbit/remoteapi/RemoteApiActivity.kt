@@ -13,7 +13,6 @@ import com.fitbit.linkcontroller.LinkControllerProvider
 import com.fitbit.remoteapi.handlers.ConfigurationRpc
 import com.fitbit.remoteapi.handlers.ConnectRpc
 import com.fitbit.remoteapi.handlers.ConnectionModeRpc
-import com.fitbit.remoteapi.handlers.ExchangeMtuRpc
 import com.fitbit.remoteapi.handlers.SetTlsKeyRpc
 import com.fitbit.remoteapi.handlers.StartPairingRpc
 import com.fitbit.remoteapi.handlers.VersionRpc
@@ -58,7 +57,6 @@ class RemoteApiActivity : AppCompatActivity() {
                 registerHandler(ConnectRpc(applicationContext, remoteApiConfigurationState))
                 registerHandler(StartPairingRpc(applicationContext, remoteApiConfigurationState))
             }
-            registerHandler(ExchangeMtuRpc(applicationContext, remoteApiConfigurationState))
             registerHandler(SetTlsKeyRpc())
             registerHandler(
                 ConnectionModeRpc(

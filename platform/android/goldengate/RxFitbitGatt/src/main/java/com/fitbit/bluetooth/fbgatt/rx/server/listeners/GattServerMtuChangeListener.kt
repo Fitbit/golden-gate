@@ -8,53 +8,49 @@ import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.TransactionResult
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus
+import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import io.reactivex.Emitter
 import io.reactivex.Observable
+import io.reactivex.subjects.BehaviorSubject
+import io.reactivex.subjects.Subject
 import timber.log.Timber
 
 /**
- * GATT server listener that listens to MTU changes with a remote device.
+ * GATT server listener that listens to MTU size changes with a remote device.
  */
-class GattServerMtuChangeListener(
-    private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
-) {
+object GattServerMtuChangeListener : BaseServerConnectionEventListener {
+
+    private val registry = hashMapOf<BluetoothDevice, Subject<Int>>()
 
     /**
-     * Listen to GATT server MTU changes
+     * Observable on which changes to Gatt server MTU changes are available
      *
-     * @param device connected device for which MTU changes result will be available
+     * @param device remote device for which connection state change need to be observer
+     * @return observable to broadcast Gatt server MTU size changes per device
      */
-    fun register(device: BluetoothDevice): Observable<Int> {
-        return Observable.create<Int> { emitter ->
-            val listener = ServerMtuChangeListener(device, emitter)
-            fitbitGatt.server.apply {
-                registerConnectionEventListener(listener)
-                emitter.setCancellable {
-                    unregisterConnectionEventListener(listener)
-                }
-            }
+    fun getMtuSizeObservable(device: BluetoothDevice): Observable<Int> =
+        getMtuSizeSubject(device).hide()
+
+    override fun onServerMtuChanged(device: BluetoothDevice, result: TransactionResult, connection: GattServerConnection) {
+        Timber.d("Got onServerMtuChanged call from device ${device.address}, status: ${result.resultStatus}, mtu: ${result.mtu}")
+        when (result.resultStatus) {
+            TransactionResultStatus.SUCCESS -> handleGattServerMtuSizeChanged(device, result.mtu)
+            else -> Timber.w("onMtuChanged transaction failed for $device")
         }
     }
 
-    internal class ServerMtuChangeListener(
-        private val device: BluetoothDevice,
-        private val emitter: Emitter<Int>
-    ) : BaseServerConnectionEventListener {
-
-        override fun onServerMtuChanged(
-            device: BluetoothDevice,
-            result: TransactionResult,
-            connection: GattServerConnection
-        ) {
-            val registeredDevice = device == this.device
-            Timber.d("Got onServerMtuChanged call from device ${device.address}, registered: $registeredDevice, result: $result")
-            if(registeredDevice) {
-                when (result.resultStatus) {
-                    TransactionResultStatus.SUCCESS -> emitter.onNext(result.mtu)
-                    else -> Timber.w("onMtuChanged transaction failed for $device")
-                }
-            }
-        }
+    @Synchronized
+    private fun getMtuSizeSubject(device: BluetoothDevice): Subject<Int> {
+        return registry[device] ?: add(device)
     }
 
+    @Synchronized
+    private fun add(device: BluetoothDevice): Subject<Int> {
+        val mtuSizeSubject = BehaviorSubject.create<Int>()
+        registry[device] = mtuSizeSubject
+        return mtuSizeSubject
+    }
+
+    private fun handleGattServerMtuSizeChanged(device: BluetoothDevice, mtu: Int) =
+        getMtuSizeSubject(device).onNext(mtu)
 }

@@ -7,11 +7,11 @@ import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.MtuUpdateListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralDisconnector
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
-import com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerMtuChangeListener
 import com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR
@@ -44,7 +44,7 @@ import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-const val STACK_NODE_DEFAULT_MTU = 185
+const val STACK_NODE_DEFAULT_MTU = 247
 const val STACK_NODE_CONNECTION_TIMEOUT_SECONDS: Long = 60
 
 /**
@@ -91,8 +91,7 @@ class StackPeer<T: StackService> internal constructor(
         )
     },
     private val buildBridge: (GattConnection) -> Bridge = { Bridge(it) },
-    private val mtuRequestSubject: PublishSubject<Int> = PublishSubject.create(),
-    private val gattServerMtuChangeListener: GattServerMtuChangeListener = GattServerMtuChangeListener(),
+    private val mtuUpdateListenerProvider: (GattConnection) -> Observable<Int> = { MtuUpdateListener().register(it) },
     private val stackEventHandlerProvider: (Observable<StackEvent>, GattConnection) -> StackEventHandler = { obs, conn -> StackEventHandler(obs, conn) },
     private val stackEventObservableProvider: (Stack) -> Observable<StackEvent> = { it.stackEventObservable },
     fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
@@ -132,12 +131,6 @@ class StackPeer<T: StackService> internal constructor(
             Timber.i("StackPeer with key $key does not have a connection")
         }
 
-    /**
-     * Requests an mtu change
-     */
-    @Synchronized
-    fun requestMtu(mtu: Int) = mtuRequestSubject.onNext(mtu)
-
     @Synchronized
     override fun disconnect() {
         Timber.i("StackPeer with key $key connection is disconnecting")
@@ -154,32 +147,35 @@ class StackPeer<T: StackService> internal constructor(
             peerConnector.connect().flatMapObservable {
                 //2. Build the stack, bridge, and attach the service
                 setupStack(it)
+            }.flatMap { state ->
+                Timber.i("StackPeer with key $key mtuChangedHandler $state")
+                //3. subscribe to MTU update observable
+                mtuUpdateHandler(state)
+                    .startWith(Observable.just(state))
             }.flatMapSingle { state ->
-                //3. Update MTU
-                mtuChangeRequesterProvider(state.stack)
-                    .requestMtu(state.peer, startMtu)
-                    .map { state }
+                //4. Send MTU update request
+                if (peerRole == PeerRole.Peripheral) {
+                    mtuChangeRequesterProvider(state.stack)
+                        .requestMtu(state.peer, startMtu)
+                        .map { state }
+                } else {
+                    Single.just(state)
+                }
             }.flatMapSingle { state ->
-                //4. start link-up procedure
+                //5. start link-up procedure
                 Timber.i("StackPeer with key $key start link up handler")
                 linkupHandler.link(state.peer).andThen(Single.just(state))
             }.flatMap { state ->
-                //5. Start stack
+                //6. Start stack
                 Timber.i("StackPeer with key $key starting stack and bridge")
                 state.bridge.start()
                 state.stack.start()
-                //6. Wait for connected events
+                //7. Wait for connected events
                 waitForConnectedState(state).map { state to it }
             }.flatMap { (state, status) ->
-                listenToConnectionMtuChanges(state).startWith(Observable.just(state to status))
-            }
-            //Once connected, listen to mtu change requests
-            .flatMap { (state, status) ->
-                listenToMtuChangeRequests(state).startWith(Observable.just(state to status))
-            }
-            //Listen to stack events and react to it
-            .flatMap { (state, status) -> listenToStackEvents(state).startWith(Observable.just(status)) }
-            .doOnDispose {
+                //8. Listen to stack events and react to it
+                listenToStackEvents(state).startWith(Observable.just(status))
+            }.doOnDispose {
                 Timber.i("StackPeer with key $key connection is being disposed.")
                 emitter.onComplete()
             }.doFinally {
@@ -221,23 +217,14 @@ class StackPeer<T: StackService> internal constructor(
 
     /**
      * Perform MTU change for Stack only when BT connection MTU changes. Connection MTU can be
-     * changed by connected Node in which case we need to update the stack MTU
+     * changed by connected peer in which case we need to update the stack MTU
      */
-    private fun listenToConnectionMtuChanges(connectionState: ConnectionState): Completable {
-        return gattServerMtuChangeListener.register(
-            connectionState.gattConnection.device.btDevice
-        ).flatMapSingle { mtu ->
+    private fun mtuUpdateHandler(connectionState: ConnectionState): Completable {
+        return Observable.defer {
+            mtuUpdateListenerProvider(connectionState.gattConnection)
+        }.flatMapSingle { mtu ->
+            Timber.d("received new mtu: $mtu")
             mtuChangeRequesterProvider(connectionState.stack).updateStackMtu(mtu)
-        }.ignoreElements()
-    }
-
-    /**
-     * Perform MTU change for complete connection for request made via [requestMtu] call
-     */
-    private fun listenToMtuChangeRequests(connectionState: ConnectionState): Completable {
-        return mtuRequestSubject.flatMapSingle { mtu ->
-            Timber.i("StackPeer with key $key received an mtu change request")
-            mtuChangeRequesterProvider(connectionState.stack).requestMtu(connectionState.peer, mtu)
         }.ignoreElements()
     }
 
