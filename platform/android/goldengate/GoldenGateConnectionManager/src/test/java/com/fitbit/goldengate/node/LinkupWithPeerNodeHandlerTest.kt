@@ -5,12 +5,14 @@ package com.fitbit.goldengate.node
 
 import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidatorException
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
 import com.nhaarman.mockitokotlin2.doReturn
@@ -32,11 +34,17 @@ import java.util.concurrent.TimeUnit
 class LinkupWithPeerNodeHandlerTest {
 
     private val mockFitbitBluetoothDevice = com.fitbit.goldengate.bt.mockFitbitBluetoothDevice
+    private val mockBluetoothGattService = mock<BluetoothGattService>()
     private val mockBluetoothGatt = mock<BluetoothGatt>()
+    private val mockGattConnection = mock<GattConnection>() {
+        on { getRemoteGattService(FitbitGattlinkService.uuid) } doReturn null
+        on { getRemoteGattService(GattlinkService.uuid) } doReturn mockBluetoothGattService
+    }
 
     private val mockPeripheral = mock<BitGattPeer> {
         on { fitbitDevice } doReturn mockFitbitBluetoothDevice
         on { connect() } doReturn Single.just(mockBluetoothGatt)
+        on { gattConnection } doReturn mockGattConnection
     }
 
     private val mockPeerGattServiceSubscriber = mock<PeerGattServiceSubscriber>()
@@ -79,6 +87,25 @@ class LinkupWithPeerNodeHandlerTest {
         verify(mockPeripheral, times(1)).discoverServices()
         verify(mockPeerGattServiceSubscriber)
             .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
+
+        testObserver
+            .assertComplete()
+            .dispose()
+    }
+
+    @Test
+    fun shouldSubscribeToRemoteFitbitGattlinkService() {
+        mockDiscoverServicesSuccess()
+        mockGattDatabaseValidatorSuccess()
+        mockRemoteFitbitGattlinkSubscriptionSuccess()
+        whenever(mockPeripheral.gattConnection.getRemoteGattService(GattlinkService.uuid)).thenReturn(null)
+
+        val testObserver = handler.link(mockPeripheral)
+            .test()
+
+        verify(mockPeripheral, times(1)).discoverServices()
+        verify(mockPeerGattServiceSubscriber)
+            .subscribe(mockPeripheral, FitbitGattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
             .assertComplete()
@@ -138,17 +165,18 @@ class LinkupWithPeerNodeHandlerTest {
     }
 
     @Test
-    fun shouldFailIfRemoteGattlinkServiceNotFound() {
+    fun shouldFailIfRemoteGattlinkServicAndFitbitGattlinkServiceNotFound() {
         mockDiscoverServicesSuccess()
         mockGattDatabaseValidatorSuccess()
-        mockRemoteGattlinkServiceNotFound()
+        mockRemoteFitbitGattlinkServiceNotFound()
+        whenever(mockPeripheral.gattConnection.getRemoteGattService(GattlinkService.uuid)).thenReturn(null)
 
         val testObserver = handler.link(mockPeripheral)
             .test()
 
         verify(mockPeripheral, times(1)).discoverServices()
         verify(mockPeerGattServiceSubscriber)
-            .subscribe(mockPeripheral, GattlinkService.uuid, TransmitCharacteristic.uuid)
+            .subscribe(mockPeripheral, FitbitGattlinkService.uuid, TransmitCharacteristic.uuid)
 
         testObserver
             .assertFailure(GattServiceNotFoundException::class.java)
@@ -175,10 +203,17 @@ class LinkupWithPeerNodeHandlerTest {
             TransmitCharacteristic.uuid
         )).thenReturn(Completable.complete())
 
-    private fun mockRemoteGattlinkServiceNotFound() =
+    private fun mockRemoteFitbitGattlinkSubscriptionSuccess() =
         whenever(mockPeerGattServiceSubscriber.subscribe(
             mockPeripheral,
-            GattlinkService.uuid,
+            FitbitGattlinkService.uuid,
+            TransmitCharacteristic.uuid
+        )).thenReturn(Completable.complete())
+
+    private fun mockRemoteFitbitGattlinkServiceNotFound() =
+        whenever(mockPeerGattServiceSubscriber.subscribe(
+            mockPeripheral,
+            FitbitGattlinkService.uuid,
             TransmitCharacteristic.uuid
         )).thenReturn(Completable.error(GattServiceNotFoundException(GattlinkService.uuid)))
 

@@ -16,6 +16,7 @@ import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicSubscriptionStatus
 import com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSenderProvider
 import com.fitbit.bluetooth.fbgatt.rx.server.listeners.BaseServerConnectionEventListener
 import com.fitbit.goldengate.bindings.util.hexString
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
 import io.reactivex.Observable
@@ -76,7 +77,8 @@ class TransmitCharacteristicSubscriptionListener @VisibleForTesting internal con
             """)
 
         when (result.serviceUuid) {
-            GattlinkService.uuid -> handleGattlinkServerDescriptorWriteRequest(device, result, connection)
+            GattlinkService.uuid,
+            FitbitGattlinkService.uuid -> handleGattlinkServerDescriptorWriteRequest(device, result, connection)
             else -> Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported service: ${result.serviceUuid}")
         }
     }

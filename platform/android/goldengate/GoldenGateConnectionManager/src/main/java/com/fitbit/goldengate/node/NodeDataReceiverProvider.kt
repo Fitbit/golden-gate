@@ -4,6 +4,7 @@
 package com.fitbit.goldengate.node
 
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import timber.log.Timber
 
@@ -16,7 +17,8 @@ class NodeDataReceiverProvider {
      * Provides [NodeDataReceiver] to use given [connection]
      */
     fun provide(connection: GattConnection): NodeDataReceiver {
-        return if (connection.getRemoteGattService(GattlinkService.uuid) != null) {
+        return if (connection.getRemoteGattService(GattlinkService.uuid) != null ||
+            connection.getRemoteGattService(FitbitGattlinkService.uuid) != null) {
             Timber.d("Using GattlinkService hosted from remote device for receiving data")
             RemoteGattlinkNodeDataReceiver(connection)
         } else {

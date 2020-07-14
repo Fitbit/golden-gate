@@ -4,6 +4,7 @@
 package com.fitbit.goldengate.node
 
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.mockBluetoothGattService
 import com.fitbit.goldengate.bt.mockGattConnection
@@ -18,6 +19,15 @@ class NodeDataSenderProviderTest {
     private val provider = NodeDataSenderProvider(fitbitGatt)
 
     @Test
+    fun shouldCreateRemoteSenderIfFitbitGattlinkOnRemoteDevice() {
+        whenever(mockGattConnection.getRemoteGattService(FitbitGattlinkService.uuid)).thenReturn(mockBluetoothGattService)
+
+        val receiver = provider.provide(mockGattConnection)
+
+        assertTrue(receiver is RemoteGattlinkNodeDataSender )
+    }
+
+    @Test
     fun shouldCreateRemoteSenderIfGattlinkOnRemoteDevice() {
         whenever(mockGattConnection.getRemoteGattService(GattlinkService.uuid)).thenReturn(mockBluetoothGattService)
 
@@ -28,6 +38,7 @@ class NodeDataSenderProviderTest {
 
     @Test
     fun shouldCreateLocalReceiverIfGattlinkNotOnRemoteDevice() {
+        whenever(mockGattConnection.getRemoteGattService(FitbitGattlinkService.uuid)).thenReturn(null)
         whenever(mockGattConnection.getRemoteGattService(GattlinkService.uuid)).thenReturn(null)
 
         val receiver = provider.provide(mockGattConnection)

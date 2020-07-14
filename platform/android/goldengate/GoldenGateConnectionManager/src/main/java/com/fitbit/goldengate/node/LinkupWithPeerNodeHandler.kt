@@ -8,6 +8,7 @@ import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator
 import com.fitbit.goldengate.bt.gatt.client.services.GenericAttributeService
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
 import com.fitbit.goldengate.bt.gatt.util.dumpServices
@@ -16,6 +17,7 @@ import io.reactivex.Flowable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
+import java.util.UUID
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -107,10 +109,15 @@ internal class LinkupWithPeerNodeHandler(
         return Completable.defer {
             peerGattServiceSubscriber.subscribe(
                 peer,
-                GattlinkService.uuid,
+                getRemoteGattLinkServiceUUID(peer),
                 TransmitCharacteristic.uuid
             )
         }
+    }
+
+    private fun getRemoteGattLinkServiceUUID(peer: BitGattPeer): UUID {
+        return if (peer.gattConnection.getRemoteGattService(GattlinkService.uuid) != null)
+            GattlinkService.uuid else FitbitGattlinkService.uuid
     }
 
     private fun refreshServices(peer: BitGattPeer): Completable =
