@@ -114,7 +114,7 @@ class Stack constructor(
             return false
         }
         val success = updateMtu(mtu - GATT_HEADER_SIZE, thisPointer)
-        Timber.d("Updated stack MTU. Success?: $success")
+        Timber.d("Updated stack MTU. Success?: $success new stack mtu: $mtu - $GATT_HEADER_SIZE")
         return success
     }
 

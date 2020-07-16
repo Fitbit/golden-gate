@@ -36,14 +36,13 @@ class MtuChangeRequesterTest {
     @Test
     fun shouldUpdatePeripheralAndStackMtu() {
         mockUpdatePeripheralMtuSuccess()
-        mockUpdateStackMtuSuccess()
 
         mtuChangeRequester.requestMtu(mockPeripheral, requestedMtu)
             .test()
             .assertValue { it == requestedMtu }
 
         verify(mockPeripheral).requestMtu(requestedMtu)
-        verify(mockStack).updateMtu(requestedMtu)
+        verify(mockStack, never()).updateMtu(requestedMtu)
     }
 
     @Test
@@ -59,56 +58,64 @@ class MtuChangeRequesterTest {
     }
 
     @Test
-    fun shouldFailIfPeripheralUpdateFails() {
+    fun shouldEmitDefaultMtuIfPeripheralUpdateFails() {
         mockUpdatePeripheralMtuFailure()
-        mockUpdateStackMtuSuccess()
 
         mtuChangeRequester.requestMtu(mockPeripheral, requestedMtu)
-                .test()
-                .assertError { it is Exception }
+            .test()
+            .assertValue { it == DEFAULT_MIN_MTU }
 
         verify(mockPeripheral).requestMtu(requestedMtu)
         verify(mockStack, never()).updateMtu(requestedMtu)
     }
 
     @Test
-    fun shouldFailIfStackUpdateFails() {
-        mockUpdatePeripheralMtuSuccess()
-        mockUpdateStackMtuFailure()
-
-        mtuChangeRequester.requestMtu(mockPeripheral, requestedMtu)
-                .test()
-                .assertError { it is MtuChangeException }
-
-        verify(mockPeripheral).requestMtu(requestedMtu)
-        verify(mockStack).updateMtu(requestedMtu)
-    }
-
-    @Test
-    fun shouldUpdateStackMtuWithActualPeripheralMtu() {
+    fun shouldEmitActualPeripheralMtu() {
         val actualPeripheralMtu = 5
         mockUpdatePeripheralMtuSuccess(actualMtu = actualPeripheralMtu)
-        mockUpdateStackMtuSuccess(actualPeripheralMtu)
 
         mtuChangeRequester.requestMtu(mockPeripheral, requestedMtu)
                 .test()
                 .assertValue { it == actualPeripheralMtu }
 
         verify(mockPeripheral).requestMtu(requestedMtu)
-        verify(mockStack).updateMtu(actualPeripheralMtu)
+        verify(mockStack, never()).updateMtu(requestedMtu)
     }
 
     @Test
     fun shouldResetStackMtuToDefaultIfPeripheralMtuUpdateFails() {
         mockUpdatePeripheralMtuFailure()
-        mockUpdateStackMtuSuccess(DEFAULT_MIN_MTU)
 
         mtuChangeRequester.requestMtu(mockPeripheral, requestedMtu)
                 .test()
                 .assertValue { it == DEFAULT_MIN_MTU }
 
         verify(mockPeripheral).requestMtu(requestedMtu)
-        verify(mockStack).updateMtu(DEFAULT_MIN_MTU)
+        verify(mockStack, never()).updateMtu(requestedMtu)
+    }
+
+    @Test
+    fun shouldUpdateStackMtu() {
+        mockUpdateStackMtuSuccess()
+
+        mtuChangeRequester.updateStackMtu(requestedMtu)
+            .test()
+            .assertValue { it == requestedMtu }
+
+        verify(mockPeripheral, never()).requestMtu(requestedMtu)
+        verify(mockStack).updateMtu(requestedMtu)
+    }
+
+    @Test
+    fun shouldFailToUpdateStackMtu() {
+        mockUpdateStackMtuFailure()
+
+        mtuChangeRequester.updateStackMtu(requestedMtu)
+            .test()
+            .assertError { it is MtuChangeException }
+
+        verify(mockPeripheral, never()).requestMtu(requestedMtu)
+        verify(mockStack).updateMtu(requestedMtu)
     }
 
     private fun mockUpdatePeripheralMtuSuccess(requestedMtu: Int = this.requestedMtu, actualMtu: Int = this.requestedMtu) =
@@ -118,12 +125,12 @@ class MtuChangeRequesterTest {
         whenever(mockPeripheral.requestMtu(requestedMtu)).thenReturn(Single.never())
 
     private fun mockUpdatePeripheralMtuFailure(requestedMtu: Int = this.requestedMtu) =
-            whenever(mockPeripheral.requestMtu(requestedMtu)).thenReturn(Single.error(Exception("Failed")))
+        whenever(mockPeripheral.requestMtu(requestedMtu)).thenReturn(Single.error(Exception("Failed")))
 
     private fun mockUpdateStackMtuSuccess(requestedMtu: Int = this.requestedMtu) =
-            whenever(mockStack.updateMtu(requestedMtu)).thenReturn(true)
+        whenever(mockStack.updateMtu(requestedMtu)).thenReturn(true)
 
     private fun mockUpdateStackMtuFailure(requestedMtu: Int = this.requestedMtu) =
-            whenever(mockStack.updateMtu(requestedMtu)).thenReturn(false)
+        whenever(mockStack.updateMtu(requestedMtu)).thenReturn(false)
 
 }
