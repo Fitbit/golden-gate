@@ -8,9 +8,8 @@ import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.exception.BluetoothNotEnabledException
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
-import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheService
 import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
-import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Completable
@@ -31,7 +30,7 @@ class GlobalBluetoothGattInitializerTest {
     private val callbackCaptor = ArgumentCaptor.forClass(FitbitGatt.FitbitGattCallback::class.java)
     private val mockGattServer = mock<BitGattServer>()
     private val mockGattCacheServiceHandler = mock<GattCacheServiceHandler>()
-    private val mockGattlinkService = mock<GattlinkService>()
+    private val mockFitbitGattlinkService = mock<FitbitGattlinkService>()
 
     private val initializer = GlobalBluetoothGattInitializer(
         fitbitGatt = mockFitbitGatt,
@@ -39,7 +38,7 @@ class GlobalBluetoothGattInitializerTest {
         gattServerListenerRegistrar = mockGattServerListenerRegistrar,
         linkControllerProvider = mockLinkControllerProvider,
         gattCacheServiceHandler = mockGattCacheServiceHandler,
-        gattlinkServiceProvider = { mockGattlinkService }
+        gattlinkServiceProvider = { mockFitbitGattlinkService }
     )
 
     @Before
@@ -104,7 +103,7 @@ class GlobalBluetoothGattInitializerTest {
     private fun verifyInitGattlinkCalled() = verifyInitGattlink(1)
     private fun verifyInitGattlinkNotCalled() = verifyInitGattlink(0)
     private fun verifyInitGattlink(times: Int){
-        verify(mockGattServer, times(times)).addServices(mockGattlinkService)
+        verify(mockGattServer, times(times)).addServices(mockFitbitGattlinkService)
     }
     private fun verifyInitGattCacheServiceCalled() = verifyInitGattCacheService(1)
     private fun verifyInitGattCacheServiceNotCalled() = verifyInitGattCacheService(0)

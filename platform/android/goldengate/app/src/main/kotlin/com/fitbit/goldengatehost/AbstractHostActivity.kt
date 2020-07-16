@@ -46,6 +46,7 @@ import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerRole
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.node.Peer
 import com.fitbit.goldengate.node.PeerBuilder
@@ -213,7 +214,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         disposeBag.add(
             advertiser.startAdvertising(
                 Advertiser.getAdvertiseSettings(),
-                Advertiser.getAdvertiseData(GattlinkService.uuid.toString()),
+                Advertiser.getAdvertiseData(FitbitGattlinkService.uuid.toString()),
                 Advertiser.getScanResponseData())
                 .subscribe({
                     Snackbar.make(container, "Start Advertising", Snackbar.LENGTH_SHORT).show()

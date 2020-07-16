@@ -11,6 +11,9 @@ import java.util.UUID
  * arbitrary data over a BLE connection using the GATT protocol, with support for BLE/GATT stacks
  * that don't always have the necessary support for writing GATT characteristics back-to-back
  * without dropping data
+ *
+ * Note: Fitbit has registered the new public [FitbitGattlinkService] to the bluetooth SIG.
+ * From now on, new trackers will host [FitbitGattlinkService] instead of [GattlinkService]
  */
 class GattlinkService : BluetoothGattService(
         uuid,

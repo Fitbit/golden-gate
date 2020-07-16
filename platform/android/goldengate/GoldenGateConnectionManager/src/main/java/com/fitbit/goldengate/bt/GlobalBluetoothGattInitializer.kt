@@ -11,6 +11,7 @@ import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
 import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
 import io.reactivex.disposables.CompositeDisposable
@@ -33,7 +34,7 @@ internal class GlobalBluetoothGattInitializer(
     private val gattServerListenerRegistrar: GattServerListenerRegistrar = GattServerListenerRegistrar,
     private val linkControllerProvider: LinkControllerProvider = LinkControllerProvider.INSTANCE,
     private val gattCacheServiceHandler: GattCacheServiceHandler = GattCacheServiceHandler(),
-    private val gattlinkServiceProvider: () -> GattlinkService = { GattlinkService() }
+    private val gattlinkServiceProvider: () -> FitbitGattlinkService = { FitbitGattlinkService() }
 ) {
 
     private val disposeBag = CompositeDisposable()

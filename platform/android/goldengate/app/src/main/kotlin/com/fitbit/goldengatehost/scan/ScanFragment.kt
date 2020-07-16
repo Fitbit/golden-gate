@@ -15,11 +15,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.DEFAULT_UUID_MASK
 import com.fitbit.bluetooth.fbgatt.rx.GOLDEN_GATE_SERVICE_UUID_MASK
 import com.fitbit.bluetooth.fbgatt.rx.KnownGattConnectionFinder
 import com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner
 import com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner.ScanEvent.Discovered
 import com.fitbit.bluetooth.fbgatt.rx.scanner.ServiceUuidPeripheralScannerFilter
+import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengatehost.R
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -111,9 +113,12 @@ class ScanFragment : Fragment() {
         )
     }
 
-    private fun scanFilter() = listOf(gattlinkServiceFilter())
+    private fun scanFilter() = listOf(gattlinkServiceFilter(), fitbitGattlinkServiceFilter())
 
     private fun gattlinkServiceFilter() =
         ServiceUuidPeripheralScannerFilter(ParcelUuid(GattlinkService.uuid), ParcelUuid.fromString(GOLDEN_GATE_SERVICE_UUID_MASK))
+
+    private fun fitbitGattlinkServiceFilter() =
+        ServiceUuidPeripheralScannerFilter(ParcelUuid(FitbitGattlinkService.uuid), ParcelUuid.fromString(DEFAULT_UUID_MASK))
 
 }
