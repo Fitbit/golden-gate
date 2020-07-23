@@ -85,7 +85,8 @@ struct GG_CoapResponder {
 /*----------------------------------------------------------------------
 |   forward declarations
 +---------------------------------------------------------------------*/
-static void GG_CoapEndpoint_SendPendingMessages(GG_CoapEndpoint* self);
+static void GG_CoapEndpoint_SendPendingRequests(GG_CoapEndpoint* self);
+static void GG_CoapEndpoint_SendPendingResponses(GG_CoapEndpoint* self);
 static void GG_CoapEndpoint_CleanupCancelledRequests(GG_CoapEndpoint* self);
 
 /*----------------------------------------------------------------------
@@ -295,7 +296,7 @@ GG_CoapRequestContext_OnTimerFired(GG_TimerListener* _self, GG_Timer* timer, uin
         ++self->resend_count;
 
         // try to send now (also give a chance to other pending/ready requests to be sent)
-        GG_CoapEndpoint_SendPendingMessages(self->endpoint);
+        GG_CoapEndpoint_SendPendingRequests(self->endpoint);
     } else {
         // we've reached the max resend count, just give up
         GG_LOG_INFO("max resend count reached, giving up");
@@ -362,9 +363,99 @@ GG_CoapRequestContext_Create(GG_CoapEndpoint*               endpoint,
 }
 
 //----------------------------------------------------------------------
+//  Add a response datagram to the response queue.
+//  When this function returns GG_SUCCESS, ownership of the response
+//  has been transferred, and the metadata has been cloned.
+//----------------------------------------------------------------------
+static GG_Result
+GG_CoapEndpoint_EnqueueResponse(GG_CoapEndpoint* self, GG_Buffer* response, const GG_BufferMetadata* metadata)
+{
+    GG_ASSERT(self->responses.cursor <  GG_ARRAY_SIZE(self->responses.datagrams));
+    GG_ASSERT(self->responses.count  <= GG_ARRAY_SIZE(self->responses.datagrams));
+
+    // check if there's space in the queue
+    if (self->responses.count == GG_ARRAY_SIZE(self->responses.datagrams)) {
+        return GG_ERROR_OUT_OF_RESOURCES;
+    }
+
+    // clone the metadata
+    GG_BufferMetadata* metadata_clone = NULL;
+    GG_Result result = GG_BufferMetadata_Clone(metadata, &metadata_clone);
+    if (GG_FAILED(result)) {
+        return result;
+    }
+
+    // add the response to the circular queue
+    size_t tail = (self->responses.cursor + self->responses.count) %
+                  GG_ARRAY_SIZE(self->responses.datagrams);
+    self->responses.datagrams[tail] = response;
+    self->responses.metadata[tail] = metadata_clone;
+    ++self->responses.count;
+    GG_LOG_FINE("enqued at %u", (int)tail);
+
+    return GG_SUCCESS;
+}
+
+//----------------------------------------------------------------------
+// Send as many queued responses as possible
+//----------------------------------------------------------------------
+static void
+GG_CoapEndpoint_SendPendingResponses(GG_CoapEndpoint* self)
+{
+    while (self->responses.count) {
+        GG_Buffer*         datagram = self->responses.datagrams[self->responses.cursor];
+        GG_BufferMetadata* metadata = self->responses.metadata[self->responses.cursor];
+
+        GG_LOG_FINE("processing queued response %u (count = %u)",
+                    (int)self->responses.cursor,
+                    (int)self->responses.count);
+
+        if (self->connection_sink) {
+            GG_Result result = GG_DataSink_PutData(self->connection_sink, datagram, metadata);
+            if (GG_SUCCEEDED(result)) {
+                GG_LOG_FINE("sent");
+            } else {
+                if (result == GG_ERROR_WOULD_BLOCK) {
+                    // stop trying
+                    GG_LOG_FINE("would block, stopping");
+                    return;
+                } else {
+                    // move on
+                    GG_LOG_FINE("sink error, dropping (%d)", result);
+                }
+            }
+        }
+
+        // remove from the queue
+        --self->responses.count;
+        self->responses.cursor = (self->responses.cursor + 1) % GG_ARRAY_SIZE(self->responses.datagrams);
+        GG_Buffer_Release(datagram);
+        if (metadata) {
+            GG_FreeMemory(metadata);
+        }
+    }
+}
+
+//----------------------------------------------------------------------
+// Try to send a response
+//----------------------------------------------------------------------
 static GG_Result
 GG_CoapEndpoint_SendResponse(GG_CoapEndpoint* self, const GG_CoapMessage* response, const GG_BufferMetadata* metadata)
 {
+#if defined(GG_CONFIG_ENABLE_LOGGING)
+    GG_LOG_FINER("trying to send response (%u in queue)", (int)self->responses.count);
+    GG_CoapEndpoint_LogMessage(response, GG_LOG_LEVEL_FINER);
+#endif
+
+    // first try to send any pending responses
+    GG_CoapEndpoint_SendPendingResponses(self);
+
+    // drop the response if there's no sink
+    if (!self->connection_sink) {
+        GG_LOG_FINE("no sink, dropping");
+        return GG_SUCCESS;
+    }
+
     // convert the message to a datagram
     GG_Buffer* datagram = NULL;
     GG_Result  result   = GG_CoapMessage_ToDatagram(response, &datagram);
@@ -372,15 +463,32 @@ GG_CoapEndpoint_SendResponse(GG_CoapEndpoint* self, const GG_CoapMessage* respon
         return result;
     }
 
-    // send the datagram to the sink
-    if (self->connection_sink) {
-        // TODO: handle GG_ERROR_WOULD_BLOCK (should queue the response)
-#if defined(GG_CONFIG_ENABLE_LOGGING)
-        GG_CoapEndpoint_LogMessage(response, GG_LOG_LEVEL_FINER);
-#endif
-        GG_DataSink_PutData(self->connection_sink, datagram, metadata);
+    // if the queue is empty, try to send right away
+    if (self->responses.count == 0) {
+        result = GG_DataSink_PutData(self->connection_sink, datagram, metadata);
+        if (GG_SUCCEEDED(result)) {
+            // yay! the response was sent
+            GG_LOG_FINE("response sent");
+            GG_Buffer_Release(datagram);
+            return GG_SUCCESS;
+        }
+        if (result != GG_ERROR_WOULD_BLOCK) {
+            // something went wrong, drop the response
+            GG_LOG_WARNING("failed to send to the sink, dropping (%d)", result);
+            GG_Buffer_Release(datagram);
+            return GG_SUCCESS;
+        }
+
+        GG_LOG_FINE("sink would block");
     }
+
+    // we can't send the response at this time, enqueue it, we'll try again later
+    result = GG_CoapEndpoint_EnqueueResponse(self, datagram, metadata);
+    if (GG_FAILED(result)) {
+        GG_LOG_WARNING("failed to enqueue response (%d)", result);
     GG_Buffer_Release(datagram);
+        return result;
+    }
 
     return GG_SUCCESS;
 }
@@ -865,7 +973,16 @@ GG_CoapEndpoint_OnCanPut(GG_DataSinkListener* _self)
 {
     GG_CoapEndpoint* self = GG_SELF(GG_CoapEndpoint, GG_DataSinkListener);
 
-    GG_CoapEndpoint_SendPendingMessages(self);
+    // try sending what's pending, starting with requests or responses
+    // depending on a simple toggle for round-robin
+    if (self->try_responses_first) {
+        GG_CoapEndpoint_SendPendingResponses(self);
+        GG_CoapEndpoint_SendPendingRequests(self);
+    } else {
+        GG_CoapEndpoint_SendPendingRequests(self);
+        GG_CoapEndpoint_SendPendingResponses(self);
+    }
+    self->try_responses_first = !self->try_responses_first;
 }
 
 //----------------------------------------------------------------------
@@ -892,7 +1009,8 @@ GG_CoapEndpoint_SetDataSink(GG_DataSource* _self, GG_DataSink* sink)
         GG_DataSink_SetListener(sink, GG_CAST(self, GG_DataSinkListener));
 
         // try to send anything that's pending
-        GG_CoapEndpoint_SendPendingMessages(self);
+        GG_CoapEndpoint_SendPendingRequests(self);
+        GG_CoapEndpoint_SendPendingResponses(self);
     }
 
     return GG_SUCCESS;
@@ -1153,7 +1271,7 @@ GG_CoapEndpoint_CancelRequest(GG_CoapEndpoint* self, GG_CoapRequestHandle reques
 
 //----------------------------------------------------------------------
 static void
-GG_CoapEndpoint_SendPendingMessages(GG_CoapEndpoint* self)
+GG_CoapEndpoint_SendPendingRequests(GG_CoapEndpoint* self)
 {
     // prepare to iterate
     bool was_locked = self->locked;
@@ -1243,8 +1361,8 @@ GG_CoapEndpoint_SendRequestFromBufferSource(GG_CoapEndpoint*               self,
     // schedule the first resend timer
     GG_CoapRequestContext_ScheduleTimer(request_context);
 
-    // try to send anything that may be pending
-    GG_CoapEndpoint_SendPendingMessages(self);
+    // try to send any request that may be pending
+    GG_CoapEndpoint_SendPendingRequests(self);
 
     return GG_SUCCESS;
 }
