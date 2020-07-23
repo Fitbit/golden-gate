@@ -23,6 +23,7 @@ pkg.ign_files:
 pkg.src_dirs:
     - "cmake_pylon/"
     - "src/common/ports/mynewt/"
+    - "src/remote/transport/serial/ports/mynewt/"
 
 pkg.deps:
     - "@apache-mynewt-core/kernel/os"
