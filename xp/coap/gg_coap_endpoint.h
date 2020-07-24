@@ -34,6 +34,10 @@
 #define GG_COAP_ACK_TIMEOUT_MS      5000 ///< should be 2000 according to RFC 7252, but set it higher for now
 #define GG_COAP_ACK_RANDOM_FACTOR   1.5  ///< Ack Timeout Random Factor (RFC 7252)
 
+#if !defined(GG_CONFIG_COAP_RESPONSE_QUEUE_LENGTH)
+#define GG_CONFIG_COAP_RESPONSE_QUEUE_LENGTH 16
+#endif
+
 /*----------------------------------------------------------------------
 |   types
 +---------------------------------------------------------------------*/
@@ -60,6 +64,13 @@ struct GG_CoapEndpoint {
     GG_CoapRequestHandler* default_handler;
     GG_LinkedList          request_filters;
     bool                   locked; ///< Set to true to prevent mutating lists while iterating
+    struct {
+        GG_Buffer*         datagrams[GG_CONFIG_COAP_RESPONSE_QUEUE_LENGTH];
+        GG_BufferMetadata* metadata[GG_CONFIG_COAP_RESPONSE_QUEUE_LENGTH];
+        size_t             cursor;
+        size_t             count;
+    }                      responses; ///< circular queue of datagrams
+    bool                   try_responses_first; ///< toggle for request/response round-robin priority
 
     // support for keeping track of blockwise requests
     GG_LinkedList          blockwise_requests;
