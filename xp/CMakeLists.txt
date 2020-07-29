@@ -6,12 +6,7 @@
 #############################################################################
 
 # We require some CMake 3.8 features when building frameworks
-# but the Android SDK ships with 3.6 so we can't force it globally (yet).
-if (CMAKE_GENERATOR MATCHES "Xcode")
-    cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
-else ()
-    cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
-endif ()
+cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 
 # The project variant suffix is only in use on platforms
 # that need two versions of golden-gate simultaneously.
