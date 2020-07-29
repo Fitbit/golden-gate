@@ -25,8 +25,6 @@ object CoapEndpointProvider {
     fun <T> getEndpoint(key: NodeKey<T>): Endpoint = getCoapEndpointInternal(key)
 
     /**
-     * For **internal** use only.
-     *
      * Get the the [StackService] for the given node.
      * Used from internal module code for attaching and detaching stack
      *
@@ -36,9 +34,7 @@ object CoapEndpointProvider {
     fun <T> getStackService(key: NodeKey<T>): StackService = getCoapEndpointInternal(key)
 
     /**
-     * For **internal** use only.
-     *
-     * Get the the [CoapEndpoint] for the given node.
+     * Get the [CoapEndpoint] for the given node.
      *
      * @param key unique identifier for a node
      * @return return single [CoapEndpoint] instance for requested node
@@ -51,5 +47,17 @@ object CoapEndpointProvider {
             endpointMap[key] = endpoint
         }
         return endpoint
+    }
+
+    /**
+     * Remove [CoapEndpoint] from the endpoint map if it exists.
+     *
+     * @param key unique identifier for a node
+     */
+    @Synchronized
+    fun <T> removeCoapEndpointInternal(key: NodeKey<T>) {
+        if (endpointMap[key]!= null) {
+            endpointMap.remove(key)
+        }
     }
 }
