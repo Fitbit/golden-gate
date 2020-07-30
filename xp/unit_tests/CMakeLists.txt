@@ -14,9 +14,11 @@ if(NOT DEFINED ENV{CONDA_PREFIX})
     message(FATAL_ERROR "CONDA_PREFIX is not set, but it is required to get CppUTest headers and libraries")
 endif()
 
-set(CPPUTEST_LIBS CppUTestExt CppUTest)
 set(CPPUTEST_LIB_DIR $ENV{CONDA_PREFIX}/lib)
 set(CPPUTEST_INC_DIR $ENV{CONDA_PREFIX}/include)
+find_library(CPPUTEST_LIB_FILE CppUTest PATHS ${CPPUTEST_LIB_DIR} REQUIRED NO_DEFAULT_PATH)
+find_library(CPPUTEST_EXT_LIB_FILE CppUTestExt PATHS ${CPPUTEST_LIB_DIR} REQUIRED NO_DEFAULT_PATH)
+set(CPPUTEST_LIBS ${CPPUTEST_LIB_FILE} ${CPPUTEST_EXT_LIB_FILE})
 
 # Define a function to allow the subdirectories to easily define tests
 function(gg_add_test TEST_SOURCE PRODUCT_LIBS)
@@ -25,7 +27,6 @@ function(gg_add_test TEST_SOURCE PRODUCT_LIBS)
 
   add_executable(${TEST_EXE_NAME} ../test_runner.cpp ${TEST_SOURCE})
   target_include_directories(${TEST_EXE_NAME} PRIVATE ${CPPUTEST_INC_DIR})
-  target_link_directories(${TEST_EXE_NAME} PRIVATE ${CPPUTEST_LIB_DIR})
   target_link_libraries(${TEST_EXE_NAME} PRIVATE ${CPPUTEST_LIBS} ${PRODUCT_LIBS})
 
     if(CMAKE_C_COMPILER_ID MATCHES "Clang")

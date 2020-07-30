@@ -5,8 +5,8 @@
 # Top Level CMake file for the Golden Gate cross-platform library
 #############################################################################
 
-# We require some CMake 3.8 features when building frameworks
-cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
+# We require some CMake >= 3.8 features when building frameworks
+cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 # The project variant suffix is only in use on platforms
 # that need two versions of golden-gate simultaneously.
