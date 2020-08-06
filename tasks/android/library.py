@@ -23,13 +23,6 @@ the SDK manager.
 """)
         raise Exit(1)
 
-    cmake_version = "3.6.4111459"
-    cmake_directory = "{SDK}/cmake/{VERSION}".format(SDK=ctx.android.sdk, VERSION=cmake_version)
-    cmake_bin = "{CMAKE_DIRECTORY}/bin/cmake".format(CMAKE_DIRECTORY=cmake_directory)
-    if not os.path.isdir(cmake_directory):
-        print("Cannot find CMake version:", cmake_version, "from the directory:", cmake_directory)
-        raise Exit(1)
-
     build_dir = os.path.join(ctx.C.BUILD_DIR, "android")
 
     if profile is None:
@@ -38,7 +31,7 @@ the SDK manager.
         profiles = [profile]
 
     toolchain = "{}/ndk-bundle/build/cmake/android.toolchain.cmake".format(ctx.android.sdk)
-    generator = "'Android Gradle - Ninja'"
+    generator = "Ninja"
 
     for arch in profiles:
         profile = "android/{}".format(arch)
@@ -46,7 +39,7 @@ the SDK manager.
         cmake_extras = "-DGG_CONFIG_ENABLE_LOGGING=False" if release else None
         cmake.build(
             ctx, arch_dir, profile, toolchain_file=toolchain,
-            generator=generator, cmake_bin=cmake_bin, cmake_extras=cmake_extras,
+            generator=generator, cmake_extras=cmake_extras,
             cmake_verbose=cmake_verbose
         )
         ctx.run("cmake --build {build}".format(build=arch_dir), pty=True)
