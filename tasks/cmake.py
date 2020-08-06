@@ -8,12 +8,12 @@ import subprocess
 def build(ctx, build_dir, profile, toolchain_file=None,
           generator=None, tests=False, debug=False, coverage=False, sanitize=False,
           docs=False,
-          cmake_bin="cmake", cmake_verbose=None, cmake_wrapper=None, cmake_extras=None):
+          cmake_verbose=None, cmake_wrapper=None, cmake_extras=None):
     '''Build Golden Gate using CMake'''
     if not os.path.exists(build_dir):
         os.makedirs(build_dir)
 
-    cmd = [cmake_bin]
+    cmd = ["cmake"]
     if cmake_wrapper:
         cmd = [cmake_wrapper] + cmd
 
