@@ -28,7 +28,7 @@ class SinkSourceAdapterTest: BaseTest()  {
         on { dataObservable } doReturn transmitSubject
     }
     private val mockDataSender: SinkSourceAdapterDataSender = mock {
-        on { putData(com.nhaarman.mockitokotlin2.any()) } doReturn Completable.complete()
+        on { send(com.nhaarman.mockitokotlin2.any()) } doReturn Completable.complete()
     }
     private val mockDataSenderProvider: SinkSourceAdapterSendProvider = mock {
         on { provide() } doReturn mockDataSender
@@ -40,7 +40,7 @@ class SinkSourceAdapterTest: BaseTest()  {
         on { thisPointer } doReturn 2
     }
     private val mockDataReceiver: SinkSourceAdapterDataReceiver = mock {
-        on { receive() } doReturn receiveSubject
+        on { subscribe() } doReturn receiveSubject
     }
     private val mockDataReceiverProvider: SinkSourceAdapterReceiveProvider = mock {
         on { provide() } doReturn mockDataReceiver
@@ -82,7 +82,7 @@ class SinkSourceAdapterTest: BaseTest()  {
     fun shouldForwardDataReceivedOnTxSinkToTransmitCharacteristic() {
         transmitSubject.onNext(data)
 
-        verify(mockDataSender).putData(data)
+        verify(mockDataSender).send(data)
     }
 
     @Test
