@@ -105,12 +105,12 @@ class SinkSourceAdapter(
     }
 
     /**
-     * This method will listen to the [SinkSourceAdapterDataReceiver.subscribe] which is posted to from the system binder thread.
+     * This method will listen to the [SinkSourceAdapterDataReceiver.observe] which is posted to from the system binder thread.
      * It will then call [RxSource.receiveData] which will switch to the GG thread.
      */
     private fun sinkSourceAdapterReceive() {
         // will only get data over Rx if there a connection with Node
-        disposeBag.add(dataReceiver.subscribe()
+        disposeBag.add(dataReceiver.observe()
             .doOnNext { data -> Timber.d("Received data SinkSourceAdapter ${data.hexString()}") }
             .flatMapCompletable { data -> sendToJNI(data) }
             .subscribeOn(Schedulers.io())

@@ -10,7 +10,7 @@ import timber.log.Timber
  */
 interface SinkSourceAdapterDataReceiver {
 
-    fun subscribe(): Observable<ByteArray>
+    fun observe(): Observable<ByteArray>
 
     fun receive(data: ByteArray, callerPackageName: String)
 }

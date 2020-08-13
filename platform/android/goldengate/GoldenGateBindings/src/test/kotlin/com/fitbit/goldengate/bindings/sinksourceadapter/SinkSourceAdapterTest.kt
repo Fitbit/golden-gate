@@ -14,7 +14,6 @@ import io.reactivex.subjects.PublishSubject
 import org.junit.After
 import org.junit.Before
 
-import org.junit.Assert.*
 import org.junit.Test
 
 class SinkSourceAdapterTest: BaseTest()  {
@@ -40,7 +39,7 @@ class SinkSourceAdapterTest: BaseTest()  {
         on { thisPointer } doReturn 2
     }
     private val mockDataReceiver: SinkSourceAdapterDataReceiver = mock {
-        on { subscribe() } doReturn receiveSubject
+        on { observe() } doReturn receiveSubject
     }
     private val mockDataReceiverProvider: SinkSourceAdapterReceiveProvider = mock {
         on { provide() } doReturn mockDataReceiver
