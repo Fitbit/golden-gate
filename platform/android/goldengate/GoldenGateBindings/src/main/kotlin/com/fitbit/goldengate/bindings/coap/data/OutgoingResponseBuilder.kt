@@ -10,6 +10,8 @@ class OutgoingResponseBuilder : BaseOutgoingMessageBuilder<OutgoingResponse>() {
 
     internal var responseCode = ResponseCode.created
 
+    internal var forceNonBlockwise = false
+
     /**
      * Set the [ResponseCode] to build a response with (e.g. 2.01, 4.04)
      *
@@ -17,6 +19,16 @@ class OutgoingResponseBuilder : BaseOutgoingMessageBuilder<OutgoingResponse>() {
      */
     fun responseCode(code: ResponseCode): OutgoingResponseBuilder {
         responseCode = code
+        return this
+    }
+
+    /**
+     * Flag to send the response as non-blockwise. In a blockwise request data is sent in chuncks(blocks)
+     * of fixed size. In GG we use 1024 bytes. For the AOSP peripheral role, some Coap resources accept
+     * larger data payloads in a single block. In this case we need to send a non-blockwise response.
+     */
+    fun forceNonBlockwise(value: Boolean): OutgoingResponseBuilder {
+        forceNonBlockwise = value
         return this
     }
 
@@ -30,6 +42,9 @@ class OutgoingResponseBuilder : BaseOutgoingMessageBuilder<OutgoingResponse>() {
 
             override val options: Options
                 get() = this@OutgoingResponseBuilder.options
+
+            override val forceNonBlockwise: Boolean
+                get() = this@OutgoingResponseBuilder.forceNonBlockwise
         }
     }
 }

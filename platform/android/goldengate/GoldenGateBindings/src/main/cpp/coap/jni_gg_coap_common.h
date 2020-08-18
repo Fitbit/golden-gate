@@ -55,6 +55,7 @@ extern "C" {
 #define COAP_REQUEST_GET_MAX_RESEND_COUNT_NAME "getMaxResendCount"
 #define COAP_OUTGOING_BODY_GET_DATA_NAME "getData"
 #define COAP_METHOD_FROM_VALUE_NAME "fromValue"
+#define COAP_RESPONSE_GET_FORCE_NONBLOCKWISE_NAME "getForceNonBlockwise"
 #define COAP_RESPONSE_LISTENER_ON_ACK_NAME "onAck"
 #define COAP_RESPONSE_LISTENER_ON_ERROR_NAME "onError"
 #define COAP_RESPONSE_LISTENER_ON_NEXT_NAME "onNext"
@@ -79,6 +80,7 @@ extern "C" {
 #define COAP_BYTE_ARRAY_OUTGOING_BODY_GET_DATA_SIG "()[B"
 #define COAP_METHOD_GET_VALUE_SIG "()B"
 #define COAP_METHOD_FROM_VALUE_SIG "(B)L" COAP_METHOD_CLASS_NAME ";"
+#define COAP_RESPONSE_GET_FORCE_NONBLOCKWISE_SIG "()Z"
 #define COAP_RESPONSE_LISTENER_ON_ACK_SIG "()V"
 #define COAP_RESPONSE_LISTENER_ON_ERROR_SIG "(IL" JAVA_STRING_CLASS_NAME ";)V"
 #define COAP_RESPONSE_LISTENER_ON_NEXT_SIG "(L" COAP_RAW_RESPONSE_MESSAGE_CLASS_NAME ";)V"
@@ -214,6 +216,14 @@ jobject CoapEndpoint_RawResponseMessage_Object_From_GG_CoapMessage(
  * @return uint8_t response code value
  */
 uint8_t CoapEndpoint_ResponseCode_From_Response_Object(jobject response);
+
+/**
+ * Get force Non-blockwise flag from [ResponseCode] object
+ *
+ * @param response [ResponseCode] object
+ * @return jboolean true if non-blockwise response is forced
+ */
+jboolean CoapEndpoint_ForceNonBlockwise_From_Response_Object(jobject response);
 
 /**
  * Create [Options] object from given GG_CoapMessage

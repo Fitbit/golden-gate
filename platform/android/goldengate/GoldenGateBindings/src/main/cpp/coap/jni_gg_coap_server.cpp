@@ -10,20 +10,11 @@
 #include <xp/coap/gg_coap.h>
 #include <xp/common/gg_memory.h>
 #include <xp/coap/gg_coap_filters.h>
+#include <xp/coap/gg_coap_blockwise.h>
+#include "jni_gg_coap_server.h"
+#include "jni_gg_coap_server_block.h"
 
 extern "C" {
-
-/**
- * struct that implements GG_CoapRequestHandler which is invoked when a there is a new request for
- * registered endpoint path
- */
-typedef struct {
-    GG_IMPLEMENTS(GG_CoapRequestHandler);
-    GG_CoapEndpoint *endpoint;
-    const char *path;
-    jobject response_handler;
-    jbyte request_filter_group;
-} RequestHandler;
 
 /**
  * Helper to free RequestHandler object
@@ -138,7 +129,7 @@ static GG_Result CoapEndpoint_OnRequest(
         const GG_BufferMetadata* transport_metadata,
         GG_CoapMessage **response
 ) {
-    GG_COMPILER_UNUSED(endpoint);
+//    GG_COMPILER_UNUSED(endpoint);
     GG_COMPILER_UNUSED(responder);
     GG_COMPILER_UNUSED(transport_metadata);
 
@@ -159,37 +150,56 @@ static GG_Result CoapEndpoint_OnRequest(
     GG_ASSERT(outgoing_response_object);
     // get response code
     uint8_t code = CoapEndpoint_ResponseCode_From_Response_Object(outgoing_response_object);
-    // get options params
-    unsigned int options_count = CoapEndpoint_OptionSize_From_Message_Object(env, outgoing_response_object);
-    GG_CoapMessageOptionParam options[options_count];
-    CoapEndpoint_GG_CoapMessageOptionParam_From_Message_Object(env, outgoing_response_object, options, options_count);
-    // get payload
-    // TODO: FC-1303 - Read data from stream/ByteArray (Currently this assumes body is ByteArray)
-    jbyteArray body_byte_array = CoapEndpoint_Body_ByteArray_From_OutgoingMessage_Object(
-            outgoing_response_object);
-    GG_ASSERT(body_byte_array);
-    jbyte *payload = env->GetByteArrayElements(body_byte_array, NULL);
-    GG_ASSERT(payload);
-    int payload_size = env->GetArrayLength(body_byte_array);
 
-    // create response GG_CoapMessage
-    GG_Result result = GG_CoapMessage_Create(
-            code,
-            GG_COAP_MESSAGE_TYPE_ACK,
-            options,
-            options_count,
-            GG_CoapMessage_GetMessageId(request),
-            token,
-            token_length,
-            (const uint8_t *) payload,
-            (unsigned int) payload_size,
-            response);
+    // get forceNonBlockwise flag
+    jboolean  force_non_blockwise = CoapEndpoint_ForceNonBlockwise_From_Response_Object(outgoing_response_object);
+    GG_Result result = GG_SUCCESS;
+
+    if (force_non_blockwise) {
+        // get options params
+        unsigned int options_count = CoapEndpoint_OptionSize_From_Message_Object(env,
+                                                                                 outgoing_response_object);
+        GG_CoapMessageOptionParam options[options_count];
+        CoapEndpoint_GG_CoapMessageOptionParam_From_Message_Object(env, outgoing_response_object,
+                                                                   options, options_count);
+        // get payload
+        jbyteArray body_byte_array = CoapEndpoint_Body_ByteArray_From_OutgoingMessage_Object(
+                outgoing_response_object);
+        GG_ASSERT(body_byte_array);
+        jbyte *payload = env->GetByteArrayElements(body_byte_array, NULL);
+        GG_ASSERT(payload);
+        int payload_size = env->GetArrayLength(body_byte_array);
+
+        // create response GG_CoapMessage
+        result = GG_CoapMessage_Create(
+                code,
+                GG_COAP_MESSAGE_TYPE_ACK,
+                options,
+                options_count,
+                GG_CoapMessage_GetMessageId(request),
+                token,
+                token_length,
+                (const uint8_t *) payload,
+                (unsigned int) payload_size,
+                response);
+
+        env->ReleaseByteArrayElements(body_byte_array, payload, JNI_ABORT);
+        env->DeleteLocalRef(body_byte_array);
+        CoapEndpoint_ReleaseOptionParam(options, options_count);
+    } else {
+        // creates blockwise coap response
+        result = CoapEndpoint_CreateBlockwiseResponseFromBlockSource(
+                env,
+                endpoint,
+                self,
+                outgoing_response_object,
+                request,
+                response);
+    }
 
     env->DeleteLocalRef(raw_request_object);
     env->DeleteLocalRef(outgoing_response_object);
-    env->ReleaseByteArrayElements(body_byte_array, payload, JNI_ABORT);
-    env->DeleteLocalRef(body_byte_array);
-    CoapEndpoint_ReleaseOptionParam(options, options_count);
+
 
     return result;
 }
