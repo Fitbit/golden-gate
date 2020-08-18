@@ -16,7 +16,7 @@
 extern "C" {
 
 // class names
-#define BLOCK_DATA_SOURCE_CREATOR_CLASSNAME "com/fitbit/goldengate/bindings/coap/block/BlockDataSourceCreator"
+#define COAP_REQUEST_BLOCK_DATA_SOURCE_CREATOR_CLASSNAME "com/fitbit/goldengate/bindings/coap/block/CoapRequestBlockDataSourceCreator"
 #define BLOCK_DATA_SOURCE_CLASS_NAME "com/fitbit/goldengate/bindings/coap/block/BlockDataSource"
 #define BLOCK_SIZE_CLASS_NAME "com/fitbit/goldengate/bindings/coap/block/BlockDataSource$BlockSize"
 
@@ -88,7 +88,7 @@ static GG_Result CoapEndpoint_ResponseFor_Blockwise(void *_args) {
     /**
      * payload_source is generally NULL for GET method or when user does not provide it. This check
      * here is to ensure that we pass NULL to Coap send(which is a requirement for that call) with
-     * assumption that upstream always send NULL payload for GET call (see [BlockDataSourceCreator])
+     * assumption that upstream always send NULL payload for GET call (see [CoapRequestBlockDataSourceCreator])
      */
     GG_CoapBlockSource *payload_source = NULL;
     if (args->block_source) {
@@ -481,7 +481,7 @@ static void CoapEndpoint_BlockSource_From_RequestListener(
 ) {
     GG_ASSERT(self->request);
 
-    jclass block_source_creator_class = env->FindClass(BLOCK_DATA_SOURCE_CREATOR_CLASSNAME);
+    jclass block_source_creator_class = env->FindClass(COAP_REQUEST_BLOCK_DATA_SOURCE_CREATOR_CLASSNAME);
     GG_ASSERT(block_source_creator_class);
     jclass block_source_class = env->FindClass(BLOCK_DATA_SOURCE_CLASS_NAME);
     GG_ASSERT(block_source_class);

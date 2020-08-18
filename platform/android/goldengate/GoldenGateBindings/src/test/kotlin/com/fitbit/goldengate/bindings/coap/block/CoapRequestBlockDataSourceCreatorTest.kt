@@ -14,7 +14,7 @@ import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Test
 
-class BlockDataSourceCreatorTest {
+class CoapRequestBlockDataSourceCreatorTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldThrowExceptionForGetRequestWithNonEmptyBody() {
@@ -64,7 +64,7 @@ class BlockDataSourceCreatorTest {
         whenever(mockRequest.body).thenReturn(body)
         whenever(mockRequest.progressObserver).thenReturn(mock())
 
-        return BlockDataSourceCreator().create(mockRequest)
+        return CoapRequestBlockDataSourceCreator().create(mockRequest)
     }
 
 }

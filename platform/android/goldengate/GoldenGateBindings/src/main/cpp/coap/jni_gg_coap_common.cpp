@@ -895,6 +895,29 @@ jobject CoapEndpoint_Option_Object_From_GG_CoapMessage(const GG_CoapMessage *res
     return options_object;
 }
 
+jboolean CoapEndpoint_ForceNonBlockwise_From_Response_Object(jobject response) {
+    GG_ASSERT(response);
+
+    JNIEnv *env = Loop_GetJNIEnv();
+
+    jclass response_class = env->FindClass(COAP_OUTGOING_RESPONSE_CLASS_NAME);
+    GG_ASSERT(response_class);
+
+    jmethodID get_force_nonblockwise = env->GetMethodID(
+            response_class,
+            COAP_RESPONSE_GET_FORCE_NONBLOCKWISE_NAME,
+            COAP_RESPONSE_GET_FORCE_NONBLOCKWISE_SIG);
+    GG_ASSERT(get_force_nonblockwise);
+
+    jboolean force_nonblockwise = env->CallBooleanMethod(
+            response,
+            get_force_nonblockwise);
+
+    env->DeleteLocalRef(response_class);
+
+    return force_nonblockwise;
+}
+
 jstring Jstring_From_NonNull_Terminated_String(
         JNIEnv *env,
         const char *source,

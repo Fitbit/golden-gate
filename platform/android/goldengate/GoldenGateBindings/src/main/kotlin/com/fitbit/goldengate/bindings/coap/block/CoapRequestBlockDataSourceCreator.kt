@@ -11,9 +11,9 @@ import com.fitbit.goldengate.bindings.coap.data.OutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 
 /**
- * Helper called from JNI to provide a convenient way of creating [BlockDataSource]
+ * Helper called from JNI to provide a convenient way of creating [BlockDataSource] for CoAP request
  */
-internal class BlockDataSourceCreator {
+internal class CoapRequestBlockDataSourceCreator {
 
     /**
      * Create a new instance of [BlockDataSource] from given message
