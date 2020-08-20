@@ -5,6 +5,7 @@
 #include <jni_gg_loop.h>
 #include <string.h>
 #include <xp/coap/gg_coap_blockwise.h>
+#include <platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h>
 #include "jni_gg_coap_server.h"
 
 extern "C" {
@@ -172,7 +173,7 @@ static jbyteArray CoapEndpoint_GetBlockBytes_From_BlockSource_Object(
             block_source_get_data_id,
             offset,
             data_size);
-    GG_ASSERT(block_data_object);
+//    GG_ASSERT(block_data_object);
 
     env->DeleteLocalRef(block_source_class);
 
@@ -203,15 +204,18 @@ static GG_Result CoapEndpoint_GetData_Blockwise(
             self->block_source,
             offset,
             data_size);
-    jbyte *block_byte_array = env->GetByteArrayElements(block_data_object, NULL);
-    GG_ASSERT(block_byte_array);
-    int block_byte_array_size = env->GetArrayLength(block_data_object);
 
-    // return requested block data
-    data = memcpy(data, block_byte_array, (size_t) block_byte_array_size);
+    if (block_data_object) {
+        jbyte *block_byte_array = env->GetByteArrayElements(block_data_object, NULL);
+        GG_ASSERT(block_byte_array);
+        int block_byte_array_size = env->GetArrayLength(block_data_object);
 
-    env->ReleaseByteArrayElements(block_data_object, block_byte_array, JNI_ABORT);
-    env->DeleteLocalRef(block_data_object);
+        // return requested block data
+        data = memcpy(data, block_byte_array, (size_t) block_byte_array_size);
+
+        env->ReleaseByteArrayElements(block_data_object, block_byte_array, JNI_ABORT);
+        env->DeleteLocalRef(block_data_object);
+    }
 
     return GG_SUCCESS;
 }
@@ -257,6 +261,8 @@ static void CoapEndpoint_BlockSource_From_Response_Object(
 
     if (block_source_object) {
         self->block_source = env->NewGlobalRef(block_source_object);
+    } else {
+        self->block_source = nullptr;
     }
 
     env->DeleteLocalRef(block_source_creator_class);
@@ -270,27 +276,30 @@ GG_IMPLEMENT_INTERFACE(BlockSource, GG_CoapBlockSource) {
         .GetData = CoapEndpoint_GetData_Blockwise};
 }
 
+/**
+ * Helper method to create the block source object from response object and
+ * then create blockwise response for Block2 with payload supplied by the block source
+ *
+ * @param endpoint The endpoint that creates the response.
+ * @param request_handler The request handler structure
+ * @param outgoing_response_object The response object which is returned from request handler
+ * @param request The request for which the response is created.
+ * @param block_info Details about the block.
+ * @param response Pointer to the variable in which the object will be returned.
+ * @return GG_SUCCESS if the object could be created, or a negative error code.
+ */
 GG_Result CoapEndpoint_CreateBlockwiseResponseFromBlockSource(
         JNIEnv *env,
         GG_CoapEndpoint *endpoint,
         RequestHandler *request_handler,
         jobject outgoing_response_object,
         const GG_CoapMessage *request,
+        GG_CoapMessageBlockInfo *block_info,
         GG_CoapMessage **response
 ) {
     // create a data source if the response has body
     CoapEndpoint_BlockSource_From_Response_Object(env, request_handler, outgoing_response_object);
     GG_SET_INTERFACE(request_handler, BlockSource, GG_CoapBlockSource);
-    GG_CoapMessageBlockInfo block_info;
-    GG_Result result = GG_CoapMessage_GetBlockInfo(
-            request,
-            GG_COAP_MESSAGE_OPTION_BLOCK2,
-            &block_info,
-            GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE);
-
-    if (GG_FAILED(result)) {
-        return result;
-    }
 
     GG_CoapBlockSource *payload_source = NULL;
 
@@ -306,7 +315,46 @@ GG_Result CoapEndpoint_CreateBlockwiseResponseFromBlockSource(
             0,
             payload_source,
             GG_COAP_MESSAGE_OPTION_BLOCK2,
-            &block_info,
+            block_info,
             response);
+}
 
+/**
+ * Helper method to use GG_CoapBlockwiseServerHelper object to support blockwise transfers and
+ * create blockwise response for Block2
+ *
+ * @param endpoint The endpoint that creates the response.
+ * @param request_handler The request handler structure
+ * @param request The request for which the response is created.
+ * @param response Pointer to the variable in which the object will be returned.
+ * @return GG_SUCCESS if the object could be created, or a negative error code.
+ */
+GG_Result CoapEndpoint_CreateBlockwiseResponseWithServerHelper(
+        GG_CoapEndpoint *endpoint,
+        RequestHandler *request_handler,
+        const GG_CoapMessage *request,
+        GG_CoapMessage **response
+) {
+
+    bool request_was_resent = false;
+    GG_Result result = GG_CoapBlockwiseServerHelper_OnRequest(&request_handler->block1_helper,
+                                                              request,
+                                                              &request_was_resent);
+
+    if (result != GG_SUCCESS) {
+        return result;
+    }
+
+    return GG_CoapBlockwiseServerHelper_CreateResponse(
+            &request_handler->block1_helper,
+            endpoint,
+            request,
+            request_handler->block1_helper.block_info.more ?
+            GG_COAP_MESSAGE_CODE_CONTINUE :
+            GG_COAP_MESSAGE_CODE_CHANGED,
+            NULL,
+            0,
+            NULL,
+            0,
+            response);
 }
