@@ -22,6 +22,9 @@ typedef struct {
     jobject response_handler;
     jbyte request_filter_group;
     jobject block_source;
+
+    GG_CoapBlockwiseServerHelper block1_helper;
+
 } RequestHandler;
 
 };

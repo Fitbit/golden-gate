@@ -129,7 +129,6 @@ static GG_Result CoapEndpoint_OnRequest(
         const GG_BufferMetadata* transport_metadata,
         GG_CoapMessage **response
 ) {
-//    GG_COMPILER_UNUSED(endpoint);
     GG_COMPILER_UNUSED(responder);
     GG_COMPILER_UNUSED(transport_metadata);
 
@@ -140,6 +139,11 @@ static GG_Result CoapEndpoint_OnRequest(
     uint8_t token[GG_COAP_MESSGAGE_MAX_TOKEN_LENGTH];
     size_t token_length = GG_CoapMessage_GetToken(request, token);
 
+    // get block info
+    GG_CoapMessageBlockInfo block_info;
+
+    GG_Result result;
+
     // Delegate to response handler to get the response
     JNIEnv *env = Loop_GetJNIEnv();
     jobject raw_request_object = CoapEndpoint_RawRequestMessage_Object_From_GG_CoapMessage(request);
@@ -148,20 +152,54 @@ static GG_Result CoapEndpoint_OnRequest(
             self->response_handler,
             raw_request_object);
     GG_ASSERT(outgoing_response_object);
-    // get response code
-    uint8_t code = CoapEndpoint_ResponseCode_From_Response_Object(outgoing_response_object);
+
+    uint8_t request_code =GG_CoapMessage_GetCode(request);
 
     // get forceNonBlockwise flag
     jboolean  force_non_blockwise = CoapEndpoint_ForceNonBlockwise_From_Response_Object(outgoing_response_object);
-    GG_Result result = GG_SUCCESS;
 
-    if (force_non_blockwise) {
+    if (request_code == GG_COAP_METHOD_PUT || request_code == GG_COAP_METHOD_POST){
+        GG_CoapMessage_GetBlockInfo(
+                request,
+                GG_COAP_MESSAGE_OPTION_BLOCK1,
+                &block_info,
+                GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE);
+
+        // creates coap response with Block1 option
+        result = CoapEndpoint_CreateBlockwiseResponseWithServerHelper(
+                endpoint,
+                self,
+                request,
+                response);
+
+    } else if (request_code == GG_COAP_METHOD_GET && !force_non_blockwise)  {
+        GG_CoapMessage_GetBlockInfo(
+                request,
+                GG_COAP_MESSAGE_OPTION_BLOCK2,
+                &block_info,
+                GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE);
+
+        // creates coap response with Block2 option
+        result = CoapEndpoint_CreateBlockwiseResponseFromBlockSource(
+                env,
+                endpoint,
+                self,
+                outgoing_response_object,
+                request,
+                &block_info,
+                response);
+
+    } else {
         // get options params
         unsigned int options_count = CoapEndpoint_OptionSize_From_Message_Object(env,
                                                                                  outgoing_response_object);
         GG_CoapMessageOptionParam options[options_count];
         CoapEndpoint_GG_CoapMessageOptionParam_From_Message_Object(env, outgoing_response_object,
                                                                    options, options_count);
+
+        // get response code
+        uint8_t response_code = CoapEndpoint_ResponseCode_From_Response_Object(outgoing_response_object);
+
         // get payload
         jbyteArray body_byte_array = CoapEndpoint_Body_ByteArray_From_OutgoingMessage_Object(
                 outgoing_response_object);
@@ -172,7 +210,7 @@ static GG_Result CoapEndpoint_OnRequest(
 
         // create response GG_CoapMessage
         result = GG_CoapMessage_Create(
-                code,
+                response_code,
                 GG_COAP_MESSAGE_TYPE_ACK,
                 options,
                 options_count,
@@ -186,15 +224,6 @@ static GG_Result CoapEndpoint_OnRequest(
         env->ReleaseByteArrayElements(body_byte_array, payload, JNI_ABORT);
         env->DeleteLocalRef(body_byte_array);
         CoapEndpoint_ReleaseOptionParam(options, options_count);
-    } else {
-        // creates blockwise coap response
-        result = CoapEndpoint_CreateBlockwiseResponseFromBlockSource(
-                env,
-                endpoint,
-                self,
-                outgoing_response_object,
-                request,
-                response);
     }
 
     env->DeleteLocalRef(raw_request_object);
@@ -278,6 +307,11 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_addResourceHandler(
     add_resource_args->request_filter_group = _group;
 
     GG_SET_INTERFACE(add_resource_args, CoapRequestHandler, GG_CoapRequestHandler);
+
+
+    // only for block1 handler?
+    GG_CoapBlockwiseServerHelper_Init(&add_resource_args->block1_helper, GG_COAP_MESSAGE_OPTION_BLOCK1, 0);
+
 
     GG_Result result;
     Loop_InvokeSync(CoapEndpoint_AddResourceHandler, add_resource_args, &result);
