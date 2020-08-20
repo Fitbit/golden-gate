@@ -44,7 +44,7 @@ import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-const val STACK_NODE_DEFAULT_MTU = 247
+const val STACK_NODE_DEFAULT_MTU = 185
 const val STACK_NODE_CONNECTION_TIMEOUT_SECONDS: Long = 60
 
 /**
