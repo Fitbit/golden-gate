@@ -29,6 +29,11 @@ data class StringOptionValue(val value: String) : OptionValue()
 class OpaqueOptionValue(val value: Opaque) : OptionValue()
 
 /**
+ * Option value with [BlockInfo] type
+ */
+data class BlockOptionValue(val value: BlockInfo) : OptionValue()
+
+/**
  * The Content-Format Option indicates the representation format of the message payload.
  * These are the supported value for [ContentFormatOption] and [AcceptOption] coap options
  */

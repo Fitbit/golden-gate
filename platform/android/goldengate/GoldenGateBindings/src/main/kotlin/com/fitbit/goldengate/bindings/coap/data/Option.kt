@@ -4,16 +4,17 @@
 package com.fitbit.goldengate.bindings.coap.data
 
 import com.fitbit.goldengate.bindings.coap.data.OptionNumber.ETAG
+import com.fitbit.goldengate.bindings.util.toBlockInfo
 import java.util.Arrays
 
 /**
  * Individual Coap option
  */
 sealed class Option(
-        /** [OptionNumber] for this option */
-        val number: OptionNumber,
-        /** [OptionValue] for this option */
-        val value: OptionValue
+    /** [OptionNumber] for this option */
+    val number: OptionNumber,
+    /** [OptionValue] for this option */
+    val value: OptionValue
 )
 
 /**
@@ -111,3 +112,13 @@ data class StartOffset(private val intValue: Int): Option(OptionNumber.START_OFF
  * <b>Note:</b> New Coap Request should use [OutgoingRequestBuilder] for supplying uri path
  */
 internal data class UriPathOption(private val stringValue: String) : Option(OptionNumber.URI_PATH, StringOptionValue(stringValue))
+
+/**
+ * This option is used to indicate the block transfer info for BLOCK1.
+ */
+data class Block1Option(private val intValue: Int) : Option(OptionNumber.BLOCK1, BlockOptionValue(intValue.toBlockInfo()))
+
+/**
+ * This option is used to indicate the block transfer info for BLOCK2.
+ */
+data class Block2Option(private val intValue: Int) : Option(OptionNumber.BLOCK2, BlockOptionValue(intValue.toBlockInfo()))
