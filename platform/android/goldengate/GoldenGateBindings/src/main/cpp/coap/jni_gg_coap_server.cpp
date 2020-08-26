@@ -158,7 +158,7 @@ static GG_Result CoapEndpoint_OnRequest(
     // get forceNonBlockwise flag
     jboolean  force_non_blockwise = CoapEndpoint_ForceNonBlockwise_From_Response_Object(outgoing_response_object);
 
-    if (request_code == GG_COAP_METHOD_PUT || request_code == GG_COAP_METHOD_POST){
+    if ((request_code == GG_COAP_METHOD_PUT || request_code == GG_COAP_METHOD_POST) && !force_non_blockwise){
         GG_CoapMessage_GetBlockInfo(
                 request,
                 GG_COAP_MESSAGE_OPTION_BLOCK1,
