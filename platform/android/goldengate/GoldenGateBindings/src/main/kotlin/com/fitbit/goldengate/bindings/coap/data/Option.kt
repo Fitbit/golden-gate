@@ -116,9 +116,9 @@ internal data class UriPathOption(private val stringValue: String) : Option(Opti
 /**
  * This option is used to indicate the block transfer info for BLOCK1.
  */
-data class Block1Option(private val intValue: Int) : Option(OptionNumber.BLOCK1, BlockOptionValue(intValue.toBlockInfo()))
+data class Block1Option(private val intValue: Int) : Option(OptionNumber.BLOCK1, IntOptionValue(intValue))
 
 /**
  * This option is used to indicate the block transfer info for BLOCK2.
  */
-data class Block2Option(private val intValue: Int) : Option(OptionNumber.BLOCK2, BlockOptionValue(intValue.toBlockInfo()))
+data class Block2Option(private val intValue: Int) : Option(OptionNumber.BLOCK2, IntOptionValue(intValue))

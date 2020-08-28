@@ -11,6 +11,7 @@
 #include <xp/coap/gg_coap.h>
 #include <xp/common/gg_memory.h>
 #include <xp/common/gg_strings.h>
+#include <platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h>
 
 extern "C" {
 
@@ -880,6 +881,8 @@ jobject CoapEndpoint_Option_Object_From_GG_CoapMessage(const GG_CoapMessage *res
                         option_iterator.option.number);
                 break;
             }
+            default:
+                break;
         }
         GG_CoapMessage_StepOptionIterator(response, &option_iterator);
     }
