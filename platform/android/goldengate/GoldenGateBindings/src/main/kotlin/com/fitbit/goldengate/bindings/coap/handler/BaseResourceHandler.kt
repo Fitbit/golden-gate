@@ -16,21 +16,22 @@ import io.reactivex.Single
 open class BaseResourceHandler : ResourceHandler {
 
     override fun onGet(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            methodNotAllowedResponse(responseBuilder)
+        methodNotAllowedResponse(responseBuilder)
 
     override fun onPost(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            methodNotAllowedResponse(responseBuilder)
+        methodNotAllowedResponse(responseBuilder)
 
     override fun onPut(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            methodNotAllowedResponse(responseBuilder)
+        methodNotAllowedResponse(responseBuilder)
 
     override fun onDelete(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            methodNotAllowedResponse(responseBuilder)
+        methodNotAllowedResponse(responseBuilder)
 
     private fun methodNotAllowedResponse(responseBuilder: OutgoingResponseBuilder): Single<OutgoingResponse> =
-            Single.just(
-                    responseBuilder
-                            .responseCode(ResponseCode.methodNotAllowed)
-                            .build()
-            )
+        Single.just(
+            responseBuilder
+                .forceNonBlockwise(true)
+                .responseCode(ResponseCode.methodNotAllowed)
+                .build()
+        )
 }
