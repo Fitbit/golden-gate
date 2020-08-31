@@ -39,8 +39,8 @@ class CoapStreamingMessageBodySpec: QuickSpec {
                     .toBlocking()
 
             producerDispatchQueue.async {
-                for number in 0...1000 {
-                    let encodedData = Data(number.encode())
+                for var number in 0...1000 {
+                    let encodedData = Data(bytes: &number, count: MemoryLayout.size(ofValue: number))
                     coapStreamingMessage.onNext(encodedData)
 
                     sentData.append(encodedData)
@@ -66,8 +66,8 @@ class CoapStreamingMessageBodySpec: QuickSpec {
                 .toBlocking()
 
             producerDispatchQueue.async {
-                for number in 0...1000 {
-                    let encodedData = Data(number.encode())
+                for var number in 0...1000 {
+                    let encodedData = Data(bytes: &number, count: MemoryLayout.size(ofValue: number))
                     coapStreamingMessage.onNext(encodedData)
 
                     sentData.append(encodedData)
