@@ -74,7 +74,7 @@ public class CentralManager {
     ///   - Complete: Never
     public func peripheralConnectionStatus(for identifier: UUID) -> Observable<PeripheralConnectionStatus> {
         return manager
-            .observeState()
+            .observeStateWithInitialValue()
             .distinctUntilChanged()
             .subscribeOn(scheduler)
             .do(onNext: { [weak self] state in

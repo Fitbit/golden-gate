@@ -87,7 +87,7 @@ class ComponentBase {
     }()
 
     private lazy var bluetoothAvailable: Observable<Bool> = {
-        rxCentralManager.observeState()
+        rxCentralManager.observeStateWithInitialValue()
             .map { ![.unsupported, .unauthorized, .poweredOff].contains($0) }
     }()
 
@@ -188,7 +188,7 @@ class ComponentBase {
         let resetFailureHistory = PublishSubject<Void>()
         let reconnectStrategy = BluetoothReconnectStrategy(
             resumeTrigger: self.appDidBecomeActiveSubject,
-            bluetoothState: self.rxCentralManager.observeState(),
+            bluetoothState: self.rxCentralManager.observeStateWithInitialValue(),
             resetFailureHistory: resetFailureHistory
         )
 
