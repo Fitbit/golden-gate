@@ -10,6 +10,8 @@ plugins {
 def hostVersionCode = System.getenv("BUILD_NUMBER") != null ? System.getenv("BUILD_NUMBER").toInteger() : DEV_VERSION.toInteger()
 def hostVersionName = sprintf("$HOST_VERSION", hostVersionCode)
 
+apply from: project.SDK_VERSIONS_GRADLE
+
 android {
     signingConfigs {
         release {
@@ -19,13 +21,8 @@ android {
             keyPassword 'android'
         }
     }
-    compileSdkVersion 28
-    buildToolsVersion "$BUILD_TOOLS_VERSION"
     defaultConfig {
         applicationId "com.fitbit.goldengatehost"
-        minSdkVersion 21
-        targetSdkVersion 28
-        ndkVersion "21.0.6113669"
         ext.code = System.getenv("BUILD_NUMBER")
         versionCode hostVersionCode
         versionName hostVersionName
