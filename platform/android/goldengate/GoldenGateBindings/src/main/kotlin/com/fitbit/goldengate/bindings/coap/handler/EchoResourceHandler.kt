@@ -27,7 +27,6 @@ class EchoResourceHandler : BaseResourceHandler() {
             .map { data ->
                 Timber.i("Request body size: ${data.size}")
                 responseBuilder
-                    .forceNonBlockwise(true)
                     .addAll(request.options)
                     .body(data)
                     .build()
