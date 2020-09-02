@@ -30,7 +30,6 @@ open class BaseResourceHandler : ResourceHandler {
     private fun methodNotAllowedResponse(responseBuilder: OutgoingResponseBuilder): Single<OutgoingResponse> =
         Single.just(
             responseBuilder
-                .forceNonBlockwise(true)
                 .responseCode(ResponseCode.methodNotAllowed)
                 .build()
         )
