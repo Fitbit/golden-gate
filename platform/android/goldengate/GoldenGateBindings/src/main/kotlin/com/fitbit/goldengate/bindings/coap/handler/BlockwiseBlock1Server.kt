@@ -23,7 +23,10 @@ interface BlockwiseBlock1Server {
      *
      * If the resource handler has identified any issues (i.g. data validation failure) and
      * would like to cancel the blockwise request. It can construct an OutgoingResponse with error
-     * code. Otherwise, it can return null, and gg xp lib will autogenerate the 2.31(Continue)
+     * code. In this early termination scenario, onEnd() might not be invoked if it is not the last
+     * block. Resource handler should reset the internal state before it returns the response.
+     *
+     * In normal scenario, it can just return null, and gg xp lib will autogenerate the 2.31(Continue)
      * blockwise response for the resource handler.
      *
      * @param data The block data in request body
