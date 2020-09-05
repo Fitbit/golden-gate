@@ -1,5 +1,6 @@
 package com.fitbit.goldengate.bindings.coap.handler
 
+import com.fitbit.goldengate.bindings.coap.data.BlockInfo
 import com.fitbit.goldengate.bindings.coap.data.Data
 import com.fitbit.goldengate.bindings.coap.data.IncomingRequest
 import com.fitbit.goldengate.bindings.coap.data.IntOptionValue
@@ -17,8 +18,11 @@ import io.reactivex.disposables.Disposable
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
+/**
+ * Implementation of resource handler to handle the request with block1 option with Post method
+ * The subclass needs to implement [BlockwiseBlock1Server] to receive blockwise request payload
+ */
 abstract class BlockwisePostResourceHandler: BaseResourceHandler(), BlockwiseBlock1Server {
-
     private var isStarted = false
     private var currentOffset = 0
     private var expectedNextOffset = 0
@@ -33,11 +37,11 @@ abstract class BlockwisePostResourceHandler: BaseResourceHandler(), BlockwiseBlo
         return request.body.asData()
             .map { data ->
                 requestOptions = request.options
-                processBlock1Data(requestOptions, data, responseBuilder)
+                processBlock1Request(requestOptions, data, responseBuilder)
             }
     }
 
-    private fun processBlock1Data(
+    private fun processBlock1Request(
         requestOptions: Options,
         data: Data,
         responseBuilder: OutgoingResponseBuilder
@@ -50,64 +54,72 @@ abstract class BlockwisePostResourceHandler: BaseResourceHandler(), BlockwiseBlo
 
             // handle the first block
             if (blockInfo.startOffset == 0) {
-
-                // if the previous request has not finished, terminate it first
-                if (isStarted) {
-                    resetState()
-                    onEnd(requestOptions, false)
-                }
-
-                onStart(requestOptions)
-                isStarted = true
+                handleFirstBlock()
             }
-
-            var response: OutgoingResponse? = null
 
             // process data from each block
-            when (blockInfo.startOffset) {
-                expectedNextOffset -> {
-                    response = onData(requestOptions, data)
-                    currentOffset = blockInfo.startOffset
-                    expectedNextOffset += data.size
-                    startNewTimer()
-                }
-                currentOffset -> {
-                    // skip the duplicated block
-                }
-                else -> {
-                    // terminate the quest, if the incorrect offset has been received
-                    Timber.d("Incorrect start offset, expected: $expectedNextOffset, actual: ${blockInfo.startOffset}")
-                    response = onEnd(requestOptions, false) ?: OutgoingResponseBuilder()
-                        .responseCode(badOption)
-                        .build()
-                }
-            }
+            var response = processData(blockInfo, data)
 
+            // check the response to see if the blockwise transfer should be early terminated
             if (response != null && response.responseCode.error()) {
+                resetTimer()
                 resetState()
             }
 
-            // handle the last block
-            if ((!blockInfo.moreBlock && isStarted)) {
-                response = onEnd(requestOptions, true)
-                resetState()
+            // handle the last block (the first block could be the last block)
+            if (!blockInfo.moreBlock && isStarted) {
+                response = handleLastBlock()
             }
 
             return response ?: responseBuilder.autogenerateBlockwiseConfig(true).build()
 
         } else {
+            // return error response if the request doesn't contain block1 option
             return responseBuilder
                 .responseCode(badRequest)
                 .build()
         }
     }
 
-    /**
-     * reset the CoAP request timer
-     */
-    private fun cleanupTimer() {
-        // clean up the old timer
-        timerDisposable?.dispose()
+    private fun handleFirstBlock() {
+        // if the previous request has not finished, terminate it first
+        if (isStarted) {
+            resetTimer()
+            resetState()
+            onEnd(requestOptions, false)
+        }
+
+        onStart(requestOptions)
+        isStarted = true
+    }
+
+    private fun processData(blockInfo: BlockInfo, data: Data): OutgoingResponse? {
+        var response: OutgoingResponse? = null
+        when (blockInfo.startOffset) {
+            expectedNextOffset -> {
+                response = onData(requestOptions, data)
+                currentOffset = blockInfo.startOffset
+                expectedNextOffset += data.size
+                startNewTimer()
+            }
+            currentOffset -> {
+                // skip the duplicated block
+            }
+            else -> {
+                // terminate the quest, if the incorrect offset has been received
+                Timber.d("Incorrect start offset, expected: $expectedNextOffset, actual: ${blockInfo.startOffset}")
+                response = onEnd(requestOptions, false) ?: OutgoingResponseBuilder()
+                    .responseCode(badOption)
+                    .build()
+            }
+        }
+        return response
+    }
+
+    private fun handleLastBlock(): OutgoingResponse? {
+        resetTimer()
+        resetState()
+        return onEnd(requestOptions, true)
     }
 
     /**
@@ -115,7 +127,7 @@ abstract class BlockwisePostResourceHandler: BaseResourceHandler(), BlockwiseBlo
      */
     private fun startNewTimer() {
         // clean up the old timer
-        cleanupTimer()
+        timerDisposable?.dispose()
 
         // start a new timer
         timerDisposable = Completable
@@ -123,16 +135,23 @@ abstract class BlockwisePostResourceHandler: BaseResourceHandler(), BlockwiseBlo
             .subscribe(
                 {
                     Timber.d("Coap request timer expired")
-                    onEnd(requestOptions, false)
+                    if (isStarted) {
+                        resetState()
+                        onEnd(requestOptions, false)
+                    }
                 },
                 { Timber.e("$it") }
             )
+    }
+
+    private fun resetTimer() {
+        // clean up the old timer
+        timerDisposable?.dispose()
     }
 
     private fun resetState() {
         expectedNextOffset = 0
         currentOffset = 0
         isStarted = false
-        cleanupTimer()
     }
 }
