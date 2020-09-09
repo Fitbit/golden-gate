@@ -173,7 +173,7 @@ static jbyteArray CoapEndpoint_GetBlockBytes_From_BlockSource_Object(
             block_source_get_data_id,
             offset,
             data_size);
-//    GG_ASSERT(block_data_object);
+    GG_ASSERT(block_data_object);
 
     env->DeleteLocalRef(block_source_class);
 
