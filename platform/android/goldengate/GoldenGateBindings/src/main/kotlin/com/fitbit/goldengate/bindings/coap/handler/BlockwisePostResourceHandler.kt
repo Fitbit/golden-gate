@@ -8,9 +8,11 @@ import io.reactivex.Single
 /**
  * Implementation of resource handler to handle the request with block1 option with Post method
  * The subclass needs to implement [BlockwiseBlock1Server] to receive blockwise request payload
+ *
+ * @thread GG Loop
  */
 abstract class BlockwisePostResourceHandler(
-    val helper: Block1RequestProcessHelper = Block1RequestProcessHelper()
+    private val helper: Block1RequestProcessHelper = Block1RequestProcessHelper()
 ): BaseResourceHandler(), BlockwiseBlock1Server {
 
     override fun onPost(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder): Single<OutgoingResponse> {

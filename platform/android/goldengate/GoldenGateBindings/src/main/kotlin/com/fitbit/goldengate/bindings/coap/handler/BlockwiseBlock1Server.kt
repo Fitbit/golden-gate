@@ -14,6 +14,8 @@ interface BlockwiseBlock1Server {
      * been received
      *
      * @param options The option list from the request
+     *
+     * @thread GG Loop
      */
     fun onStart(options: Options)
 
@@ -36,21 +38,25 @@ interface BlockwiseBlock1Server {
      *         otherwise, OutgoingResponse object can be returned
      *         If this is the last block, the return object from onEnd() will be used instead and
      *         this return object will be ignored
+     *
+     * @thread GG Loop
      */
     fun onData(options: Options, data: Data): OutgoingResponse?
 
     /**
-     * This resource handler callback will be invoked when each block of blockwise request has been
+     * This resource handler callback will be invoked when the last block of blockwise request has been
      * received
      *
      * @param options The option list from the request
-     * @param isComplete true if the blockwise transfer is complete; false otherwise.
+     * @param result reports block1 request status from [Block1ProcessResult]
      *
      *
      * @return OutgoingResponse object if resource handler would like to customize the response
      *         message field (adding error code or new option field)
      *         if it returns null, gg xp lib will autogenerate a 2.04 response
+     *
+     * @thread GG Loop
      */
-    fun onEnd(options: Options, isComplete: Boolean): OutgoingResponse?
+    fun onEnd(options: Options, result: Block1ProcessResult): OutgoingResponse?
 }
 

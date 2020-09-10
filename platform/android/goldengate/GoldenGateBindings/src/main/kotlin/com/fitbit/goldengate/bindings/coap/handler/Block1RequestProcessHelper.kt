@@ -90,7 +90,7 @@ class Block1RequestProcessHelper {
         if (isStarted) {
             clearTimer()
             resetState()
-            block1Server.onEnd(requestOptions, false)
+            block1Server.onEnd(requestOptions, Block1ProcessResult.INCORRECT_OFFSET)
         }
 
         block1Server.onStart(requestOptions)
@@ -117,9 +117,8 @@ class Block1RequestProcessHelper {
             else -> {
                 // terminate the quest, if the incorrect offset has been received
                 Timber.d("Incorrect start offset, expected: $expectedNextOffset, actual: ${blockInfo.startOffset}")
-                response = block1Server.onEnd(requestOptions, false) ?: OutgoingResponseBuilder()
-                    .responseCode(ResponseCode.badOption)
-                    .build()
+                response = block1Server.onEnd(requestOptions, Block1ProcessResult.INCORRECT_OFFSET) ?:
+                    OutgoingResponseBuilder().responseCode(ResponseCode.badOption).build()
             }
         }
         return response
@@ -131,7 +130,7 @@ class Block1RequestProcessHelper {
     ): OutgoingResponse? {
         clearTimer()
         resetState()
-        return block1Server.onEnd(requestOptions, true)
+        return block1Server.onEnd(requestOptions, Block1ProcessResult.COMPLETED)
     }
 
     /**
@@ -149,7 +148,7 @@ class Block1RequestProcessHelper {
                     Timber.d("Coap request timer expired")
                     if (isStarted) {
                         resetState()
-                        block1Server.onEnd(requestOptions, false)
+                        block1Server.onEnd(requestOptions, Block1ProcessResult.TIMEOUT)
                     }
                 },
                 { Timber.e("$it") }
