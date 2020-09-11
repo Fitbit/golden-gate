@@ -34,6 +34,7 @@ target_sources( # Sets the name of the library.
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_client_block.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_client_common.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_server.cpp
+             ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_server_block.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_extended_error.cpp
              ${CMAKE_CURRENT_LIST_DIR}/sinksourceadapter/jni_gg_sinksourceadapter.cpp
              ${CMAKE_CURRENT_LIST_DIR}/sockets/jni_gg_socket_address.cpp
