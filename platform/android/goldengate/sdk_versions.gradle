@@ -1,0 +1,10 @@
+android {
+    compileSdkVersion project.COMPILE_SDK_VERSION.toInteger()
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion project.MIN_SDK_VERSION.toInteger()
+        targetSdkVersion project.COMPILE_SDK_VERSION.toInteger()
+        ndkVersion project.NDK_VERSION
+    }
+}
