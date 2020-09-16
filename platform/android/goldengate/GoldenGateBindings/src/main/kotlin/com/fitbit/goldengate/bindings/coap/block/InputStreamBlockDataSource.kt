@@ -5,6 +5,7 @@ package com.fitbit.goldengate.bindings.coap.block
 
 import com.fitbit.goldengate.bindings.coap.data.Data
 import io.reactivex.Observer
+import timber.log.Timber
 import java.io.InputStream
 
 /**
@@ -25,6 +26,7 @@ internal class InputStreamBlockDataSource(
         val availableBytes = dataStream.available()
         val sizeAvailableToRead = Math.min(availableBytes, size)
         val more = sizeAvailableToRead < availableBytes
+
         return BlockDataSource.BlockSize(size = sizeAvailableToRead, more = more)
     }
 
@@ -34,6 +36,12 @@ internal class InputStreamBlockDataSource(
         progressObserver?.onNext(offset)
         val data = ByteArray(size)
         dataStream.read(data)
+
+        if (dataStream.available() == 0) {
+            dataStream.close()
+            Timber.d("close input stream")
+        }
+
         return data
     }
 }
