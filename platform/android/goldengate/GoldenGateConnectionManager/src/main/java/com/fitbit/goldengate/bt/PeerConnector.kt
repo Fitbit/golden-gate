@@ -19,7 +19,6 @@ import timber.log.Timber
  */
 internal class PeerConnector(
         private val bluetoothAddress: String,
-        private val peerRole: PeerRole,
         private val priority: Int = BluetoothGatt.CONNECTION_PRIORITY_HIGH,
         private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
         private val peerProvider: (gattConnection: GattConnection) -> BitGattPeer = { gattConnection -> BitGattPeer(gattConnection) }

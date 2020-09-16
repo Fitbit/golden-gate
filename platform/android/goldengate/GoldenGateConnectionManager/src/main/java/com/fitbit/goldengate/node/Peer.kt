@@ -42,7 +42,7 @@ abstract class Peer<T: StackService>(val stackService: T, val peerRole: PeerRole
      * should not be used after this is called.
      */
     @Synchronized
-    internal fun close() {
+    fun close() {
         disconnect()
         stackService.close()
     }
