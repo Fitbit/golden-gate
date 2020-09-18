@@ -5,6 +5,7 @@ package com.fitbit.goldengate.bindings.coap.data
 
 import io.reactivex.Observer
 import java.io.InputStream
+import java.net.URI
 
 /**
  * A MessageBuilder is used for constructing Message objects. This interface contains the shared components of
@@ -32,6 +33,13 @@ interface OutgoingMessageBuilder<T : Message> {
      * @param stream stream containing coap message body
      */
     fun body(stream: InputStream): OutgoingMessageBuilder<T>
+
+    /**
+     * Body of the coap message
+     *
+     * @param fileUri file containing coap message body
+     */
+    fun body(fileUri: URI): OutgoingMessageBuilder<T>
 
     /**
      * Progress Observer of the coap message

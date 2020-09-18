@@ -5,6 +5,7 @@ package com.fitbit.goldengate.bindings.coap.block
 
 import com.fitbit.goldengate.bindings.coap.data.BytesArrayOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.EmptyOutgoingBody
+import com.fitbit.goldengate.bindings.coap.data.FileUriOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.InputStreamOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.Method
 import com.fitbit.goldengate.bindings.coap.data.OutgoingBody
@@ -45,6 +46,10 @@ internal class CoapRequestBlockDataSourceCreator {
                 request.progressObserver
             )
             is BytesArrayOutgoingBody -> BytesArrayBlockDataSource(
+                body.data,
+                request.progressObserver
+            )
+            is FileUriOutgoingBody -> FileUriBlockDataSource(
                 body.data,
                 request.progressObserver
             )
