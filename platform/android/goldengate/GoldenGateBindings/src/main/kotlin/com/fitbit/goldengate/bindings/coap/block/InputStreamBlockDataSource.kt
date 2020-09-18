@@ -37,11 +37,6 @@ internal class InputStreamBlockDataSource(
         val data = ByteArray(size)
         dataStream.read(data)
 
-        if (dataStream.available() == 0) {
-            dataStream.close()
-            Timber.d("close input stream")
-        }
-
         return data
     }
 }
