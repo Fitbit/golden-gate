@@ -26,7 +26,7 @@ class StackPeerBuilder<T: StackService>(
     /**
      * Utility constructor providing a default function to build a stack
      */
-    internal constructor(
+    constructor(
         clazz: Class<in T>,
         peerRole: PeerRole,
         stackServiceProvider: () -> T,

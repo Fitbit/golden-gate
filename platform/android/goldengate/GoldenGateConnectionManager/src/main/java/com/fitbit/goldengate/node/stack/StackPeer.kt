@@ -22,12 +22,12 @@ import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackEvent
 import com.fitbit.goldengate.bindings.stack.StackService
-import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.bt.PeerConnector
+import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.node.Bridge
 import com.fitbit.goldengate.node.Linkup
-import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.LinkupHandlerProvider
+import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.MtuChangeRequester
 import com.fitbit.goldengate.node.Peer
 import com.fitbit.goldengate.node.PeerConnectionStatus
@@ -40,7 +40,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.PublishSubject
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
@@ -64,7 +63,7 @@ const val STACK_NODE_CONNECTION_TIMEOUT_SECONDS: Long = 60
  * @param connectTimeout timeout in [TimeUnit.SECONDS] when connecting
  * @param buildStack builds a [Stack] when provided a [Bridge]
  * @param buildBridge builds a [Bridge] when provided a [BluetoothDevice]
- * @param mtuRequestSubject used to inform an active connection of a desired mtu
+ * @param mtuUpdateListenerProvider used to inform an active connection of a desired mtu
  * @param stackEventObservableProvider provides an Observable stream which emits [StackEvent] updates when provided a [Stack]
  * @param stackEventHandlerProvider provides a [StackEvent] dispatcher for a given [Stack] and [GattConnection]
  */
@@ -74,7 +73,7 @@ class StackPeer<T: StackService> internal constructor(
     val stackConfig: StackConfig,
     stackService: T,
     private val linkupHandler: Linkup = LinkupHandlerProvider.getHandler(peerRole),
-    private val peerConnector: PeerConnector = PeerConnector(key.value, peerRole),
+    private val peerConnector: PeerConnector = PeerConnector(key.value),
     private val connectionStatusProvider: (GattConnection) -> Observable<PeripheralConnectionStatus> = { PeripheralConnectionChangeListener().register(it) },
     private val dtlsEventObservableProvider: (stack: Stack) -> Observable<DtlsProtocolStatus> = { it.dtlsEventObservable },
     private val peerProvider: (gattConnection: GattConnection) -> BitGattPeer = { gattConnection -> BitGattPeer(gattConnection) },
@@ -115,7 +114,7 @@ class StackPeer<T: StackService> internal constructor(
         stackConfig,
         stackService,
         LinkupHandlerProvider.getHandler(peerRole),
-        PeerConnector(key.value, peerRole),
+        PeerConnector(key.value),
         connectionStatusProvider,
         dtlsEventObservableProvider
     )
