@@ -20,7 +20,6 @@ class PeerConnectorTest {
 
     private val connection = PeerConnector(
         bluetoothAddress = mockBluetoothAddress,
-        peerRole = PeerRole.Peripheral,
         fitbitGatt = mockFitbitGatt,
         peerProvider = { mockPeripheral }
     )
