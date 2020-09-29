@@ -31,7 +31,7 @@ internal class InputStreamBlockDataSource(
     }
 
     override fun getData(offset: Int, size: Int): Data {
-        require(offset >= 0) { "offset should be positive" }
+        require(offset >= 0) { "offset should be non-negative" }
         require(size <= dataStream.available()) { "requested size out of range" }
         progressObserver?.onNext(offset)
         val data = ByteArray(size)
