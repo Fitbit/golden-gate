@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus.FAILURE
@@ -34,7 +35,7 @@ import kotlin.test.assertEquals
 @RunWith(JUnit4::class)
 class BitGattPeerTest {
 
-    private val mockTransaction = mock<GattTransaction>()
+    private val mockTransaction = mock<GattClientTransaction>()
     private val mockTransactionProvider = mock<ClientTransactionProvider> {
         on { getConnectTransactionFor(any()) } doReturn mockTransaction
         on { getDisconnectTransactionFor(any()) } doReturn mockTransaction

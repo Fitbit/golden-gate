@@ -3,6 +3,7 @@
 
 package com.fitbit.bluetooth.fbgatt.rx.client
 
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
@@ -35,6 +36,6 @@ class GattServiceRefresher(
 }
 
 class GattClientRefreshGattTransactionProvider {
-    fun provide(gattConnection: GattConnection) : Single<GattTransaction> =
+    fun provide(gattConnection: GattConnection) : Single<GattClientTransaction> =
         Single.fromCallable { GattClientRefreshGattTransaction(gattConnection, GattState.REFRESH_GATT_SUCCESS) }
 }
