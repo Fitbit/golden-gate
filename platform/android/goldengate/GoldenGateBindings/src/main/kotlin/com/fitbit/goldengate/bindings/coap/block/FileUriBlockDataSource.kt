@@ -25,6 +25,7 @@ internal class FileUriBlockDataSource(
         var more = false
         var requestInRange = false
 
+        // Room for improvement: opening this file once and reusing it for the entire operation.
         try {
             File(fileUri).inputStream().use { dataStream ->
                 if (dataStream.available() >= offset) {
@@ -43,7 +44,7 @@ internal class FileUriBlockDataSource(
     }
 
     override fun getData(offset: Int, size: Int): Data {
-        require(offset >= 0) { "offset should be positive" }
+        require(offset >= 0) { "offset should be non-negative" }
         var data = ByteArray(0)
 
         try {
