@@ -3,6 +3,7 @@
 
 package com.fitbit.bluetooth.fbgatt.rx.client
 
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
@@ -37,6 +38,6 @@ class GattClientConnectionStateSetter(
 }
 
 class SetClientConnectionStateTransactionProvider {
-    fun provide(gattConnection: GattConnection, destinationState: GattState): Single<GattTransaction> =
+    fun provide(gattConnection: GattConnection, destinationState: GattState): Single<GattClientTransaction> =
         Single.fromCallable { SetClientConnectionStateTransaction(gattConnection, GattState.GATT_CONNECTION_STATE_SET_SUCCESSFULLY, destinationState) }
 }

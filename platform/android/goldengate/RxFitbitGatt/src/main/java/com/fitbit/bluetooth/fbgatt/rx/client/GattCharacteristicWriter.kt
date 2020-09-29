@@ -4,6 +4,7 @@
 package com.fitbit.bluetooth.fbgatt.rx.client
 
 import android.bluetooth.BluetoothGattCharacteristic
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
@@ -137,6 +138,6 @@ class GattCharacteristicWriter constructor(
 }
 
 class WriteGattCharacteristicTransactionProvider {
-    fun provide(gattConnection: GattConnection, gattCharacteristic: BluetoothGattCharacteristic) : Single<GattTransaction> =
+    fun provide(gattConnection: GattConnection, gattCharacteristic: BluetoothGattCharacteristic) : Single<GattClientTransaction> =
         Single.fromCallable { WriteGattCharacteristicTransaction(gattConnection, GattState.WRITE_CHARACTERISTIC_SUCCESS, gattCharacteristic) }
 }
