@@ -2,6 +2,7 @@ package com.fitbit.goldengate.bindings.coap.block
 
 import com.fitbit.goldengate.bindings.coap.data.BytesArrayOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.EmptyOutgoingBody
+import com.fitbit.goldengate.bindings.coap.data.FileUriOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.InputStreamOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.OutgoingResponse
 
@@ -20,6 +21,7 @@ internal class CoapResponseBlockDataSourceCreator {
         return when (body) {
             is InputStreamOutgoingBody -> InputStreamBlockDataSource(body.data)
             is BytesArrayOutgoingBody -> BytesArrayBlockDataSource(body.data)
+            is FileUriOutgoingBody -> FileUriBlockDataSource(body.data)
             is EmptyOutgoingBody -> BytesArrayBlockDataSource(body.data)
         }
     }

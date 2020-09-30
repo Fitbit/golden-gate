@@ -28,7 +28,7 @@ internal class BytesArrayBlockDataSource(
     }
 
     override fun getData(offset: Int, size: Int): Data {
-        require(offset >= 0) { "offset should be positive" }
+        require(offset >= 0) { "offset should be non-negative" }
         require(offset < data.size) { "offset out of range $offset ${data.size}" }
         require((offset + size) <= data.size) { "requested size out of range" }
         progressObserver?.onNext(offset)

@@ -6,6 +6,7 @@ package com.fitbit.goldengate.bindings.coap.data
 import io.reactivex.Observer
 import io.reactivex.internal.util.EmptyComponent
 import java.io.InputStream
+import java.net.URI
 
 /**
  * Base class for [MessageBuilder] providing common implementation
@@ -28,6 +29,11 @@ abstract class BaseOutgoingMessageBuilder<T : Message> : OutgoingMessageBuilder<
 
     override fun body(stream: InputStream): OutgoingMessageBuilder<T> {
         body = InputStreamOutgoingBody(stream)
+        return this
+    }
+
+    override fun body(fileUri: URI): OutgoingMessageBuilder<T> {
+        body = FileUriOutgoingBody(fileUri)
         return this
     }
 
