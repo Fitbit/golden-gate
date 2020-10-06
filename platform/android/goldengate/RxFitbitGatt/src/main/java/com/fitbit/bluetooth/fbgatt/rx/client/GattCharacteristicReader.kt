@@ -4,6 +4,7 @@
 package com.fitbit.bluetooth.fbgatt.rx.client
 
 import android.bluetooth.BluetoothGattCharacteristic
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
@@ -64,7 +65,7 @@ class GattCharacteristicReader constructor(
     private fun read(gattCharacteristic: BluetoothGattCharacteristic): Single<ByteArray> {
         return readTransactionProvider.provide(gattConnection, gattCharacteristic)
             .doOnSuccess { Timber.d("Reading ${gattCharacteristic.uuid} characteristic value") }
-            .flatMap { transaction -> transaction.runTxReactive(gattConnection) }
+            .flatMap { transaction: GattClientTransaction -> transaction.runTxReactive(gattConnection) }
             .onErrorResumeNext { error ->
                 /**
                  * To recover from the error state of GattTransaction, we need to
@@ -79,6 +80,6 @@ class GattCharacteristicReader constructor(
 }
 
 class ReadGattCharacteristicTransactionProvider {
-    fun provide(gattConnection: GattConnection, gattCharacteristic: BluetoothGattCharacteristic) : Single<GattTransaction> =
+    fun provide(gattConnection: GattConnection, gattCharacteristic: BluetoothGattCharacteristic) : Single<GattClientTransaction> =
         Single.fromCallable { ReadGattCharacteristicTransaction(gattConnection, GattState.READ_CHARACTERISTIC_SUCCESS, gattCharacteristic) }
 }

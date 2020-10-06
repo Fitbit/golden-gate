@@ -144,10 +144,10 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
 
         if (isBleCentralRole) {
-            val bluetoothDevice = intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
+            val bluetoothDevice  = intent.getParcelableExtra<BluetoothDevice>(EXTRA_DEVICE)
             val gattConnection = FitbitGatt.getInstance().getConnection(bluetoothDevice)
-            if (gattConnection == null) {
-                Toast.makeText(this, "Device ${bluetoothDevice.address} not known to bitgatt", Toast.LENGTH_LONG).show()
+            if (gattConnection == null || bluetoothDevice == null) {
+                Toast.makeText(this, "Device ${bluetoothDevice?.address} not known to bitgatt", Toast.LENGTH_LONG).show()
                 finish()
                 return
             }

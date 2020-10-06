@@ -5,6 +5,7 @@ package com.fitbit.bluetooth.fbgatt.rx.client
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult
@@ -31,7 +32,7 @@ class GattCharacteristicReaderTest {
 
     private val mockBluetoothGattService = mock<BluetoothGattService>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
-    private val mockGattTransaction: GattTransaction = mock()
+    private val mockGattTransaction: GattClientTransaction = mock()
     private val mockTransactionProvider: ReadGattCharacteristicTransactionProvider = mock {
         on { provide(any(), any()) } doReturn Single.just(mockGattTransaction)
     }

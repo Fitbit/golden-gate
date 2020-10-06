@@ -40,7 +40,7 @@ private fun getDeviceIpAddress(context: Context): String {
     val connManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)
     if (connManager is ConnectivityManager) {
         val wifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-        if (wifi.isConnected) {
+        if (wifi?.isConnected == true) {
             actualConnectedToNetwork = getWifiIpAddress(context)
         }
     }

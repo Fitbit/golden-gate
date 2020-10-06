@@ -5,6 +5,7 @@ package com.fitbit.bluetooth.fbgatt.rx.client
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
@@ -27,14 +28,14 @@ class ClientTransactionProvider {
      * Provides a bitgatt connect transaction
      * @param gattConnection The connection on which the transaction will run.
      */
-    fun getConnectTransactionFor(gattConnection: GattConnection): GattTransaction
+    fun getConnectTransactionFor(gattConnection: GattConnection): GattClientTransaction
         = GattConnectTransaction(gattConnection, GattState.CONNECTED)
 
     /**
      * Provides a bitgatt disconnect transaction
      * @param gattConnection The connection on which the transaction will run.
      */
-    fun getDisconnectTransactionFor(gattConnection: GattConnection): GattTransaction
+    fun getDisconnectTransactionFor(gattConnection: GattConnection): GattClientTransaction
         = GattDisconnectTransaction(gattConnection, GattState.DISCONNECTED)
 
     /**
@@ -42,7 +43,7 @@ class ClientTransactionProvider {
      * @param gattConnection The connection on which the transaction will run.
      * @param speed The connection priority
      */
-    fun getRequestConnectionIntervalTransactionFor(gattConnection: GattConnection, speed: RequestGattConnectionIntervalTransaction.Speed): GattTransaction
+    fun getRequestConnectionIntervalTransactionFor(gattConnection: GattConnection, speed: RequestGattConnectionIntervalTransaction.Speed): GattClientTransaction
         = RequestGattConnectionIntervalTransaction(gattConnection, GattState.REQUEST_CONNECTION_INTERVAL_SUCCESS, speed)
 
     /**
@@ -50,21 +51,21 @@ class ClientTransactionProvider {
      * @param gattConnection The connection on which the transaction will run.
      * @param mtu the MTU
      */
-    fun getRequestMtuTransactionFor(gattConnection: GattConnection, mtu: Int): GattTransaction
+    fun getRequestMtuTransactionFor(gattConnection: GattConnection, mtu: Int): GattClientTransaction
         = RequestMtuGattTransaction(gattConnection, GattState.REQUEST_MTU_SUCCESS, mtu)
 
     /**
      * Provides a bitgatt discover services transaction
      * @param gattConnection The connection on which the transaction will run.
      */
-    fun getDiscoverServicesTransactionFor(gattConnection: GattConnection): GattTransaction
+    fun getDiscoverServicesTransactionFor(gattConnection: GattConnection): GattClientTransaction
         = GattClientDiscoverServicesTransaction(gattConnection, GattState.DISCOVERY_SUCCESS)
 
     /**
      * Provides a bitgatt read descriptor transaction
      * @param gattConnection The connection on which the transaction will run.
      */
-    fun getReadDescriptorTransactionFor(gattConnection: GattConnection, descriptor: BluetoothGattDescriptor): GattTransaction
+    fun getReadDescriptorTransactionFor(gattConnection: GattConnection, descriptor: BluetoothGattDescriptor): GattClientTransaction
         = ReadGattDescriptorTransaction(gattConnection, GattState.READ_DESCRIPTOR_SUCCESS, descriptor)
 
     /**
@@ -73,7 +74,7 @@ class ClientTransactionProvider {
      * @param gattConnection The connection on which the transaction will run.
      * @param bluetoothGattCharacteristic The characteristic on which we want to receive notifications.
      */
-    fun getSubscribeToGattCharacteristicTransactionFor(gattConnection: GattConnection, bluetoothGattCharacteristic: BluetoothGattCharacteristic): GattTransaction
+    fun getSubscribeToGattCharacteristicTransactionFor(gattConnection: GattConnection, bluetoothGattCharacteristic: BluetoothGattCharacteristic): GattClientTransaction
         = SubscribeToCharacteristicNotificationsTransaction(gattConnection, GattState.ENABLE_CHARACTERISTIC_NOTIFICATION_SUCCESS, bluetoothGattCharacteristic)
 
     /**
@@ -82,7 +83,7 @@ class ClientTransactionProvider {
      * @param gattConnection The connection on which the transaction will run.
      * @param bluetoothGattCharacteristic The characteristic for which we want to unsubscribe.
      */
-    fun getUnsubscribeFromGattCharacteristicTransactionFor(gattConnection: GattConnection, bluetoothGattCharacteristic: BluetoothGattCharacteristic):GattTransaction
+    fun getUnsubscribeFromGattCharacteristicTransactionFor(gattConnection: GattConnection, bluetoothGattCharacteristic: BluetoothGattCharacteristic):GattClientTransaction
         = UnSubscribeToGattCharacteristicNotificationsTransaction(gattConnection, GattState.DISABLE_CHARACTERISTIC_NOTIFICATION_SUCCESS, bluetoothGattCharacteristic)
 
     /**
@@ -90,7 +91,7 @@ class ClientTransactionProvider {
      * @param gattConnection The connection on which the transaction will run.
      * @param descriptor The descriptor with [descriptor.value] we want to write to it.
      */
-    fun getWriteDescriptorTransaction(gattConnection: GattConnection, descriptor: BluetoothGattDescriptor): GattTransaction
+    fun getWriteDescriptorTransaction(gattConnection: GattConnection, descriptor: BluetoothGattDescriptor): GattClientTransaction
         = WriteGattDescriptorTransaction(gattConnection, GattState.WRITE_DESCRIPTOR_SUCCESS, descriptor)
 
 }
