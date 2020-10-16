@@ -5,7 +5,6 @@ package com.fitbit.goldengate.bindings.coap
 
 import com.fitbit.goldengate.bindings.BaseTest
 import com.fitbit.goldengate.bindings.coap.data.Block1Option
-import com.fitbit.goldengate.bindings.coap.data.BlockInfo
 import com.fitbit.goldengate.bindings.coap.data.ContentFormatOption
 import com.fitbit.goldengate.bindings.coap.data.EtagOption
 import com.fitbit.goldengate.bindings.coap.data.FormatOptionValue
@@ -22,13 +21,14 @@ import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Observer
 import io.reactivex.schedulers.Schedulers
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Test
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 class CoapEndpointTest : BaseTest() {
@@ -88,6 +88,35 @@ class CoapEndpointTest : BaseTest() {
          * objects/data from jni code
          */
         endpoint1!!.responseFor(request).test()
+    }
+
+    @Test
+    fun shouldRespondOnGivenScheduler() {
+        val latch = CountDownLatch(1)
+        val scheduler = Schedulers.from(Executors.newSingleThreadExecutor {
+            Thread {
+                latch.countDown()
+                it.run()
+            }
+        })
+
+        endpoint1 = CoapEndpoint(scheduler)
+        endpoint2 = CoapEndpoint()
+        endpoint1!!.attach(endpoint2!!)
+
+        // building max/full request object fully test jni bindings
+        val request = OutgoingRequestBuilder("echo", Method.POST)
+            .forceNonBlockwise(true)
+            .option(ContentFormatOption(FormatOptionValue.TEXT_PLAIN))
+            .option(MaxAgeOption(1))
+            .option(UriQueryOption("query_1=value_1"))
+            .option(EtagOption("etag".toByteArray()))
+            .option(IfNoneMatchOption)
+            .body("hello".toByteArray())
+            .build()
+
+        endpoint1!!.responseFor(request).subscribe()
+        assertTrue(latch.await(50, TimeUnit.MILLISECONDS))
     }
 
     private fun shouldSuccessfullySendRequestWithProgressObserver() {
