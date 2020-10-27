@@ -12,6 +12,7 @@ import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralDisconnector
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.getGattConnection
 import com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR
@@ -33,6 +34,9 @@ import com.fitbit.goldengate.node.Peer
 import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.node.StackEventHandler
 import com.fitbit.goldengate.peripheral.NodeDisconnectedException
+import com.fitbit.linkcontroller.LinkController
+import com.fitbit.linkcontroller.LinkControllerProvider
+import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -93,8 +97,9 @@ class StackPeer<T: StackService> internal constructor(
     private val mtuUpdateListenerProvider: (GattConnection) -> Observable<Int> = { MtuUpdateListener().register(it) },
     private val stackEventHandlerProvider: (Observable<StackEvent>, GattConnection) -> StackEventHandler = { obs, conn -> StackEventHandler(obs, conn) },
     private val stackEventObservableProvider: (Stack) -> Observable<StackEvent> = { it.stackEventObservable },
-    fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
-    private val peripheralDisconnector: PeripheralDisconnector = PeripheralDisconnector(fitbitGatt)
+    private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
+    private val peripheralDisconnector: PeripheralDisconnector = PeripheralDisconnector(fitbitGatt),
+    private val linkControllerProvider: (GattConnection) -> LinkController = { LinkControllerProvider.INSTANCE.getLinkController(it) }
 ): Peer<T>(stackService, peerRole) {
 
     /**
@@ -131,8 +136,16 @@ class StackPeer<T: StackService> internal constructor(
         }
 
     @Synchronized
-    override fun disconnect() {
+    override fun disconnect(notifyPeerToDisconnect: Boolean) {
         Timber.i("StackPeer with key $key connection is disconnecting")
+        if (notifyPeerToDisconnect) {
+            Timber.i("notify peer ${key.value} to trigger BLE disconnection")
+            requestTrackerDisconnect(key.value)
+                .toObservable<Nothing>()
+                .publish()
+                .connect()
+        }
+
         disposable?.dispose()
         disconnectPeripheral()
     }
@@ -337,6 +350,16 @@ class StackPeer<T: StackService> internal constructor(
                 { Timber.d("We disconnected from the device") },
                 { Timber.w(it, "Error disconnecting from device") }
             )
+    }
+
+    private fun requestTrackerDisconnect(bluetoothAddress: String): Completable {
+        return fitbitGatt.getGattConnection(bluetoothAddress)
+            .toSingle()
+            .flatMapCompletable {
+                linkControllerProvider(it)
+                    .setGeneralPurposeCommand(GeneralPurposeCommandCode.DISCONNECT)
+                    .onErrorComplete()
+            }.onErrorComplete()
     }
 
     private data class ConnectionState(val bridge: Bridge, val stack: Stack, val peer: BitGattPeer, val gattConnection: GattConnection)
