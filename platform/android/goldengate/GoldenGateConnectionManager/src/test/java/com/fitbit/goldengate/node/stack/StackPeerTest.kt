@@ -10,6 +10,7 @@ import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralDisconnector
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.getGattConnection
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
@@ -19,12 +20,17 @@ import com.fitbit.goldengate.bindings.stack.StackEvent
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerConnector
 import com.fitbit.goldengate.bt.PeerRole
+import com.fitbit.goldengate.bt.mockGattConnection
 import com.fitbit.goldengate.node.Bridge
 import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.MtuChangeRequester
 import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.peripheral.NodeDisconnectedException
+import com.fitbit.linkcontroller.LinkController
+import com.fitbit.linkcontroller.LinkControllerProvider
+import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
 import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.anyOrNull
 import com.nhaarman.mockitokotlin2.doAnswer
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.inOrder
@@ -34,6 +40,7 @@ import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
+import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.plugins.RxJavaPlugins
@@ -122,7 +129,16 @@ class StackPeerTest {
     }
 
     private val testScheduler = TestScheduler()
-    private val fitbitGatt = mock<FitbitGatt>()
+
+    private val mockGattConnection = mock<GattConnection>()
+
+    private val fitbitGatt = mock<FitbitGatt> {
+        on { getConnectionForBluetoothAddress(any()) } doReturn mockGattConnection
+    }
+
+    private val linkController = mock<LinkController> {
+        on { setGeneralPurposeCommand(any()) } doReturn Completable.complete()
+    }
 
     @Before
     fun setup() {
@@ -1019,5 +1035,47 @@ class StackPeerTest {
         verify(mtuChangeRequester).updateStackMtu(200)
         verify(mtuChangeRequester).updateStackMtu(300)
         verify(mtuChangeRequester).updateStackMtu(400)
+    }
+
+    @Test
+    fun `disconnect with a remote Node with notification`() {
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
+            linkControllerProvider = { linkController }
+        )
+
+        //Works twice in the same way after disconnecting
+        (1..2).forEach { n ->
+            //Connecting
+            val connection = stackNode.connection().test().assertNotComplete()
+
+            //Disconnecting
+            stackNode.disconnect(true)
+
+            connection.assertValue(PeerConnectionStatus.CONNECTED)
+            connection.assertComplete()
+
+            verify(linkController, times(n)).setGeneralPurposeCommand(GeneralPurposeCommandCode.DISCONNECT)
+            verify(stackService, times(n)).detach()
+            verify(bridge, times(n)).close()
+            verify(stack, times(n)).close()
+
+            connection.assertComplete()
+        }
     }
 }
