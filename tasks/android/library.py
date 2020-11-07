@@ -44,10 +44,3 @@ the SDK manager.
             cmake_verbose=cmake_verbose
         )
         ctx.run("cmake --build {build}".format(build=arch_dir), pty=True)
-        # Gradle doesn't know how to find this .so when it's in the subdirectory
-        symlink_dest = os.path.join(arch_dir, "libgg.so")
-        ctx.run("test -f {symlink_dest} && rm {symlink_dest} || true".format(
-            symlink_dest=symlink_dest))
-        ctx.run("ln -s {source} {dest}".format(
-            source=os.path.join(arch_dir, "bundle", "libgg.so"),
-            dest=symlink_dest))
