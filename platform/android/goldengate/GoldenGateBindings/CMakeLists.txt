@@ -81,7 +81,7 @@ set_target_properties(libgg PROPERTIES IMPORTED_LOCATION
     ${gg_DIR}/xp/build/cmake/native/bundle/libgg.${library_extension})
 else()
 set_target_properties(libgg PROPERTIES IMPORTED_LOCATION
-    ${gg_DIR}/xp/build/cmake/android/${ANDROID_ABI}/libgg.so)
+    ${gg_DIR}/xp/build/cmake/android/${ANDROID_ABI}/bundle/libgg.so)
 endif()
 
 # build application's shared lib

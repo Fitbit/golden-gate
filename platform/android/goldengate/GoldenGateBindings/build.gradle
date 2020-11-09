@@ -42,6 +42,13 @@ android {
             test.jniLibs.srcDirs = ['../../../../xp/build/cmake/native/']
         }
     }
+
+    packagingOptions {
+        pickFirst 'lib/x86_64/libgg.so'
+        pickFirst 'lib/x86/libgg.so'
+        pickFirst 'lib/armeabi-v7a/libgg.so'
+        pickFirst 'lib/arm64-v8a/libgg.so'
+    }
 }
 
 def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/unix/'
