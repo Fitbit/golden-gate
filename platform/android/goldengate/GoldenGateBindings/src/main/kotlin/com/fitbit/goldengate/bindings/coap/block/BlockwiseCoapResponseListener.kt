@@ -36,6 +36,7 @@ internal class BlockwiseCoapResponseListener(
     private var completed: Boolean = false
     private var started = false
     private var data = Data(0)
+    private var cancelable = {}
 
     private val bodyBehaviorSubject = BehaviorSubject.create<Data>()
     private val bodySingle = Single.fromObservable(bodyBehaviorSubject.take(1))
@@ -107,6 +108,13 @@ internal class BlockwiseCoapResponseListener(
 
     override fun isComplete() = completed
 
+    /**
+     * Sets a Cancellable for incoming coap response body stream
+     */
+    fun setCancellable(cancellable: () -> Unit) {
+        this.cancelable = cancellable
+    }
+
     private fun createIncomingResponse(message: RawResponseMessage): IncomingResponse {
         return object : IncomingResponse {
             override val responseCode: ResponseCode
@@ -122,6 +130,10 @@ internal class BlockwiseCoapResponseListener(
                 get() = object : IncomingBody {
                     override fun asData(): Single<Data> {
                         return bodySingle
+                            .doOnDispose {
+                                cancelable()
+                                Timber.d("cancel ongoing blockwise coap request")
+                            }
                     }
                 }
         }
