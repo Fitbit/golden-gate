@@ -173,7 +173,7 @@ static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
 
     if (args->needCancelOngoingRequest){
         // ----------------------------------------------
-        // *args may have been freed. We can check its fields for null, but if that memory has been reused
+        // args->responseListener may have been freed. We can check its fields for null, but if that memory has been reused
         // who knows what might happen.
         //--------------------------------------------------
         if (args->responseListener->endpoint != NULL &&
