@@ -76,11 +76,6 @@ internal class BlockwiseCoapResponseListener(
         }
         if (!started) {
             started = true
-
-            /**
-             * TODO: FC-1525 - setting complete here means we can only cancel blockwise coap request
-             * before first block is received and after first block is received canceling will not work.
-             */
             completed = true
 
             if (exception != null) {
