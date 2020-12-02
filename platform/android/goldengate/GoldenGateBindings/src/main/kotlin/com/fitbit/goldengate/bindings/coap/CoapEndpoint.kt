@@ -35,6 +35,8 @@ class CoapEndpoint(
     Endpoint,
     DataSinkDataSource
 {
+    @get:Synchronized
+    @set:Synchronized
     override var thisPointerWrapper: Long = 0
     override fun onFree() {
         thisPointerWrapper = 0
