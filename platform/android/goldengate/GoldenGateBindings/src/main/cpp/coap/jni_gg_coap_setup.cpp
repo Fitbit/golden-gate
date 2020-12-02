@@ -95,10 +95,9 @@ static void CoapEndpoint_Destroy(void *_args) {
             COAP_ENDPOINT_CLASS_NAME,
             endpointWrapper->java_object);
 
-    env->DeleteGlobalRef(endpointWrapper->java_object);
-
     GG_CoapEndpoint_Destroy((GG_CoapEndpoint*)endpointWrapper->pointer);
-    GG_FreeMemory(endpointWrapper);
+
+    freeNativeReferenceWrapper(env, endpointWrapper);
 }
 
 JNIEXPORT jlong JNICALL
@@ -116,10 +115,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_create(
         return create_result;
     }
 
-    NativeReferenceWrapper* wrapper = (NativeReferenceWrapper*) GG_AllocateMemory(sizeof(NativeReferenceWrapper));
-    wrapper->pointer = create_args.endpoint;
-    wrapper->java_object = env->NewGlobalRef(thiz);
-    return (jlong) (intptr_t) wrapper;
+    return (jlong) (intptr_t) createNativeReferenceWrapper(env, create_args.endpoint, thiz);
 }
 
 JNIEXPORT void JNICALL
