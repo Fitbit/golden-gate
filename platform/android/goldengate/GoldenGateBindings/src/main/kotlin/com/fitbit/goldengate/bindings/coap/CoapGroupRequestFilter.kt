@@ -15,6 +15,8 @@ import java.io.Closeable
  */
 class CoapGroupRequestFilter : NativeReferenceWithCallback, Closeable {
 
+    @get:Synchronized
+    @set:Synchronized
     override var thisPointerWrapper: Long = 0
 
     override fun onFree() {
