@@ -3,7 +3,9 @@
 
 package com.fitbit.goldengate.bindings.coap
 
-import com.fitbit.goldengate.bindings.NativeReference
+import com.fitbit.goldengate.bindings.NativeReferenceWithCallback
+import com.fitbit.goldengate.bindings.util.isNotNull
+import timber.log.Timber
 import java.io.Closeable
 
 /**
@@ -11,12 +13,17 @@ import java.io.Closeable
  * group #1 is used for non-authenticated connections,
  * and group #0 (i.e. no filtering) is used for authenticated states.
  */
-class CoapGroupRequestFilter: NativeReference, Closeable {
+class CoapGroupRequestFilter : NativeReferenceWithCallback, Closeable {
 
-    override val thisPointer: Long
+    override var thisPointerWrapper: Long = 0
+
+    override fun onFree() {
+        thisPointerWrapper = 0
+        Timber.d("free the native reference")
+    }
 
     init {
-        thisPointer = create()
+        thisPointerWrapper = create()
         this.setGroupTo(CoapGroupRequestFilterMode.GROUP_1)
     }
 
@@ -25,16 +32,20 @@ class CoapGroupRequestFilter: NativeReference, Closeable {
      * @param CoapGroupRequestFilterMode group number
      */
     fun setGroupTo(group: CoapGroupRequestFilterMode) {
-        setGroup(thisPointer, group.value)
+        if (thisPointerWrapper.isNotNull()) {
+            setGroup(thisPointerWrapper, group.value)
+        }
     }
 
     override fun close() {
-        destroy(thisPointer)
+        if (thisPointerWrapper.isNotNull()) {
+            destroy(thisPointerWrapper)
+        }
     }
 
     private external fun create(): Long
 
-    private external fun setGroup(selfPtr: Long = thisPointer, group: Byte)
+    private external fun setGroup(selfPtr: Long, group: Byte)
 
-    private external fun destroy(selfPtr: Long = thisPointer)
+    private external fun destroy(selfPtr: Long)
 }
