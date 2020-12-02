@@ -3,6 +3,18 @@
 
 #include <util/jni_gg_native_reference.h>
 #include <xp/common/gg_port.h>
+#include <xp/common/gg_memory.h>
+
+NativeReferenceWrapper* createNativeReferenceWrapper(
+        JNIEnv* env,
+        void* pointer,
+        jobject java_object
+) {
+    NativeReferenceWrapper* wrapper = (NativeReferenceWrapper*) GG_AllocateMemory(sizeof(NativeReferenceWrapper));
+    wrapper->pointer = pointer;
+    wrapper->java_object = env->NewGlobalRef(java_object);
+    return wrapper;
+}
 
 void callJavaObjectOnFreeMethod(
         JNIEnv* env,
@@ -20,3 +32,9 @@ void callJavaObjectOnFreeMethod(
 
     env->CallVoidMethod(java_object, on_free_method_id);
 }
+
+void freeNativeReferenceWrapper(JNIEnv* env, NativeReferenceWrapper* wrapper) {
+    env->DeleteGlobalRef(wrapper->java_object);
+    GG_FreeMemory(wrapper);
+}
+

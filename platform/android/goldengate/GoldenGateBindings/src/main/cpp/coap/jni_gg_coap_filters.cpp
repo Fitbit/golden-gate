@@ -48,10 +48,9 @@ static void CoapGroupRequestFilter_Destroy(void *_args) {
             COAP_GROUP_REQUEST_FILTER_CLASS_NAME,
             filterWrapper->java_object);
 
-    env->DeleteGlobalRef(filterWrapper->java_object);
-
     GG_CoapGroupRequestFilter_Destroy((GG_CoapGroupRequestFilter*)filterWrapper->pointer);
-    GG_FreeMemory(filterWrapper);
+
+    freeNativeReferenceWrapper(env, filterWrapper);
 }
 
 JNIEXPORT jlong JNICALL
@@ -69,11 +68,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapGroupRequestFilter_create(
         return create_result;
     }
 
-    NativeReferenceWrapper* wrapper = (NativeReferenceWrapper*) GG_AllocateMemory(sizeof(NativeReferenceWrapper));
-    wrapper->pointer = create_args.filter;
-    wrapper->java_object = env->NewGlobalRef(thiz);
-
-    return (jlong) (intptr_t) wrapper;
+    return (jlong) (intptr_t) createNativeReferenceWrapper(env, create_args.filter, thiz);
 }
 
 JNIEXPORT void JNICALL
