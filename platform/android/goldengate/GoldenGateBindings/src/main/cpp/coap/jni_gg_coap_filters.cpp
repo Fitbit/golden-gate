@@ -9,8 +9,12 @@
 #include <xp/coap/gg_coap.h>
 #include <xp/common/gg_memory.h>
 #include <xp/coap/gg_coap_filters.h>
+#include <util/jni_gg_native_reference.h>
 
 extern "C" {
+
+// class names
+#define COAP_GROUP_REQUEST_FILTER_CLASS_NAME "com/fitbit/goldengate/bindings/coap/CoapGroupRequestFilter"
 
 typedef struct {
     GG_CoapGroupRequestFilter *filter;
@@ -34,8 +38,20 @@ static int CoapGroupRequestFilter_SetGroup(void *_args) {
 }
 
 static void CoapGroupRequestFilter_Destroy(void *_args) {
-    GG_CoapGroupRequestFilter *filter = (GG_CoapGroupRequestFilter *) _args;
-    GG_CoapGroupRequestFilter_Destroy(filter);
+    NativeReferenceWrapper *filterWrapper = (NativeReferenceWrapper *) _args;
+
+    //we're running on the GG Loop thread
+    JNIEnv* env = Loop_GetJNIEnv();
+
+    callJavaObjectOnFreeMethod(
+            env,
+            COAP_GROUP_REQUEST_FILTER_CLASS_NAME,
+            filterWrapper->java_object);
+
+    env->DeleteGlobalRef(filterWrapper->java_object);
+
+    GG_CoapGroupRequestFilter_Destroy((GG_CoapGroupRequestFilter*)filterWrapper->pointer);
+    GG_FreeMemory(filterWrapper);
 }
 
 JNIEXPORT jlong JNICALL
@@ -53,18 +69,27 @@ Java_com_fitbit_goldengate_bindings_coap_CoapGroupRequestFilter_create(
         return create_result;
     }
 
-    return (jlong) (intptr_t) create_args.filter;
+    NativeReferenceWrapper* wrapper = (NativeReferenceWrapper*) GG_AllocateMemory(sizeof(NativeReferenceWrapper));
+    wrapper->pointer = create_args.filter;
+    wrapper->java_object = env->NewGlobalRef(thiz);
+
+    return (jlong) (intptr_t) wrapper;
 }
 
 JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapGroupRequestFilter_setGroup(
         JNIEnv *env,
         jobject thiz,
-        jlong _filter,
+        jlong _filter_wrapper,
         jbyte _group
 ) {
+    NativeReferenceWrapper *filter_wrapper = (NativeReferenceWrapper *) (intptr_t) _filter_wrapper;
+    if (!filter_wrapper || !filter_wrapper->pointer) {
+        return;
+    }
+
     CoapGroupRequestFilter_SetGroupArgs setGroup_args = (CoapGroupRequestFilter_SetGroupArgs) {
-                .filter = (GG_CoapGroupRequestFilter *) (intptr_t)_filter,
+                .filter = (GG_CoapGroupRequestFilter *)filter_wrapper->pointer,
                 .group = (uint8_t) _group
         };
 
@@ -84,12 +109,14 @@ JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapGroupRequestFilter_destroy(
         JNIEnv *env,
         jobject thiz,
-        jlong _filter
+        jlong _filter_wrapper
 ) {
-    GG_CoapGroupRequestFilter *filter = (GG_CoapGroupRequestFilter *) (intptr_t) _filter;
-    GG_ASSERT(filter);
+    NativeReferenceWrapper *filter_wrapper = (NativeReferenceWrapper *) (intptr_t) _filter_wrapper;
+    if (!filter_wrapper || !filter_wrapper->pointer) {
+        return;
+    }
 
-    Loop_InvokeAsync(CoapGroupRequestFilter_Destroy, filter);
+    Loop_InvokeAsync(CoapGroupRequestFilter_Destroy, filter_wrapper);
 }
 
 }

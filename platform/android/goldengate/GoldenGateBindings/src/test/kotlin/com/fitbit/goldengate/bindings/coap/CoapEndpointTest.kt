@@ -48,7 +48,7 @@ class CoapEndpointTest : BaseTest() {
     @Test
     fun canCreate() {
         endpoint1 = CoapEndpoint()
-        assertTrue(endpoint1!!.thisPointer > 0)
+        assertTrue(endpoint1!!.thisPointerWrapper > 0)
     }
 
     @Test

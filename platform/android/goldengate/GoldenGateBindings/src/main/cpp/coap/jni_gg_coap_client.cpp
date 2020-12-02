@@ -6,6 +6,7 @@
 #include <jni_gg_loop.h>
 #include <string.h>
 #include <logging/jni_gg_logging.h>
+#include <util/jni_gg_native_reference.h>
 #include <util/jni_gg_utils.h>
 #include <xp/loop/gg_loop.h>
 #include <xp/coap/gg_coap.h>
@@ -206,14 +207,18 @@ JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseFor(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint,
+        jlong _endpoint_wrapper,
         jobject _request,
         jobject _listener
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
+    GG_ASSERT(_endpoint_wrapper);
     GG_ASSERT(_request);
     GG_ASSERT(_listener);
+
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    GG_ASSERT(endpoint_wrapper);
+    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint*)endpoint_wrapper->pointer;
+    GG_ASSERT(endpoint);
 
     SingleCoapResponseListener *request_for_args = (SingleCoapResponseListener *) GG_AllocateZeroMemory(
             sizeof(SingleCoapResponseListener));
