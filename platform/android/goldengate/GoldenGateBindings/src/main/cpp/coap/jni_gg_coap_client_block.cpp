@@ -64,7 +64,7 @@ typedef struct {
 
 typedef struct {
     ResponseListenerBlockwise *responseListener;
-    jboolean needCancelOngoingRequest;
+    jboolean canceled;
 } CancelResponseForBlockwiseArgs;
 
 /**
@@ -171,7 +171,7 @@ static GG_Result CoapEndpoint_Cleanup_Wrapper(void *_args) {
 static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
     CancelResponseForBlockwiseArgs *args = (CancelResponseForBlockwiseArgs *) _args;
 
-    if (args->needCancelOngoingRequest){
+    if (!args->canceled){
         // ----------------------------------------------
         // args->responseListener may have been freed. We can check its fields for null, but if that memory has been reused
         // who knows what might happen.
@@ -608,7 +608,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseForBlockwise(
  * Cancel any pending Coap request
  *
  * @param _response_listener object holding reference to [CoapResponseListener] creating from responseFor call
- * @param _need_cancel_ongoing_request set to true if the ongoing blockwise coap request need to be canceled
+ * @param _canceled set to true if the ongoing blockwise coap request has been canceled
  * @thread any
  */
 JNIEXPORT jint
@@ -617,14 +617,14 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseForBlockwise
         JNIEnv *env,
         jobject thiz,
         jlong _response_listener,
-        jboolean _need_cancel_ongoing_request
+        jboolean _canceled
 ) {
     ResponseListenerBlockwise *response_listener = (ResponseListenerBlockwise *) (intptr_t) _response_listener;
     GG_ASSERT(response_listener);
 
     CancelResponseForBlockwiseArgs args = {
             .responseListener = response_listener,
-            .needCancelOngoingRequest = _need_cancel_ongoing_request
+            .canceled = _canceled
     };
 
     GG_Result result;
