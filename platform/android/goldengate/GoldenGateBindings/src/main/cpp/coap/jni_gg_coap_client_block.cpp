@@ -62,6 +62,11 @@ typedef struct {
     GG_CoapRequestHandle request_handle;
 } ResponseListenerBlockwise;
 
+typedef struct {
+    ResponseListenerBlockwise *responseListener;
+    jboolean canceled;
+} CancelResponseForBlockwiseArgs;
+
 /**
  * Send a blockwise request to coap server. Must be called from GetLoop thread
  *
@@ -164,22 +169,28 @@ static GG_Result CoapEndpoint_Cleanup_Wrapper(void *_args) {
  * @thread GG Loop
  */
 static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
-    ResponseListenerBlockwise *args = (ResponseListenerBlockwise *) _args;
+    CancelResponseForBlockwiseArgs *args = (CancelResponseForBlockwiseArgs *) _args;
 
-    // ----------------------------------------------
-    // *args may have been freed. We can check its fields for null, but if that memory has been reused
-    // who knows what might happen.
-    //--------------------------------------------------
-    if (args->endpoint != NULL && args->request_handle != GG_COAP_INVALID_REQUEST_HANDLE) {
-        GG_Result result = GG_CoapEndpoint_CancelBlockwiseRequest(
-            args->endpoint,
-            args->request_handle);
-        if (GG_SUCCEEDED(result)) {
-            CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args);
+    if (!args->canceled){
+        // ----------------------------------------------
+        // args->responseListener may have been freed. We can check its fields for null, but if that memory has been reused
+        // who knows what might happen.
+        //--------------------------------------------------
+        if (args->responseListener->endpoint != NULL &&
+            args->responseListener->request_handle != GG_COAP_INVALID_REQUEST_HANDLE) {
+            GG_Result result = GG_CoapEndpoint_CancelBlockwiseRequest(
+                    args->responseListener->endpoint,
+                    args->responseListener->request_handle);
+            if (GG_SUCCEEDED(result)) {
+                CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args->responseListener);
+            }
+            return result;
         }
-        return result;
+        return GG_ERROR_INVALID_STATE;
+    } else {
+        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args->responseListener);
+        return GG_SUCCESS;
     }
-    return GG_ERROR_INVALID_STATE;
 }
 
 /**
@@ -597,6 +608,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseForBlockwise(
  * Cancel any pending Coap request
  *
  * @param _response_listener object holding reference to [CoapResponseListener] creating from responseFor call
+ * @param _canceled set to true if the ongoing blockwise coap request has been canceled
  * @thread any
  */
 JNIEXPORT jint
@@ -604,13 +616,19 @@ JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseForBlockwise(
         JNIEnv *env,
         jobject thiz,
-        jlong _response_listener
+        jlong _response_listener,
+        jboolean _canceled
 ) {
     ResponseListenerBlockwise *response_listener = (ResponseListenerBlockwise *) (intptr_t) _response_listener;
     GG_ASSERT(response_listener);
 
+    CancelResponseForBlockwiseArgs args = {
+            .responseListener = response_listener,
+            .canceled = _canceled
+    };
+
     GG_Result result;
-    Loop_InvokeSync(CoapEndpoint_CancelResponseFor_Blockwise, response_listener, &result);
+    Loop_InvokeSync(CoapEndpoint_CancelResponseFor_Blockwise, &args, &result);
     return result;
 }
 

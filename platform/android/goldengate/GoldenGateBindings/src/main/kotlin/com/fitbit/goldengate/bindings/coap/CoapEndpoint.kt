@@ -61,8 +61,12 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
                 responseForBlockwise(
                     selfPtr = thisPointer,
                     request = request,
-                    responseListener = coapResponseListener
-                )
+                    responseListener = coapResponseListener)
+                    .also {
+                        coapResponseListener.setCancellable {
+                            cancelResponseForBlockwise(it.nativeResponseListenerReference, !initialized.get())
+                        }
+                    }
             } else {
                 coapResponseListener = SingleCoapResponseListener(request, emitter)
                 responseFor(
@@ -78,7 +82,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
                  */
                 if (initialized.get() && responseForResult.resultCode >= 0 && !coapResponseListener.isComplete()) {
                     if (!request.forceNonBlockwise) {
-                        cancelResponseForBlockwise(responseForResult.nativeResponseListenerReference)
+                        cancelResponseForBlockwise(responseForResult.nativeResponseListenerReference, canceled = false)
                     } else {
                         cancelResponseFor(responseForResult.nativeResponseListenerReference)
                     }
@@ -218,7 +222,10 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
         responseListener: CoapResponseListener
     ): ResponseForResult
 
-    private external fun cancelResponseForBlockwise(nativeResponseListenerReference: Long)
+    private external fun cancelResponseForBlockwise(
+        nativeResponseListenerReference: Long,
+        canceled: Boolean
+    )
 
     private external fun addResourceHandler(
         selfPtr: Long,
