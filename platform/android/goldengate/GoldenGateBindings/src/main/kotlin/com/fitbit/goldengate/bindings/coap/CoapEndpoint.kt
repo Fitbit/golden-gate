@@ -4,13 +4,14 @@
 package com.fitbit.goldengate.bindings.coap
 
 import com.fitbit.goldengate.bindings.DataSinkDataSource
-import com.fitbit.goldengate.bindings.NativeReference
+import com.fitbit.goldengate.bindings.NativeReferenceWithCallback
 import com.fitbit.goldengate.bindings.coap.block.BlockwiseCoapResponseListener
 import com.fitbit.goldengate.bindings.coap.data.IncomingResponse
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.handler.ResourceHandler
 import com.fitbit.goldengate.bindings.node.NodeKey
 import com.fitbit.goldengate.bindings.stack.StackService
+import com.fitbit.goldengate.bindings.util.isNotNull
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single
@@ -27,9 +28,20 @@ import java.util.concurrent.atomic.AtomicBoolean
  *
  * Use [CoapEndpointProvider] for creating an instance
  */
-class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, StackService, Endpoint, DataSinkDataSource {
-
-    override val thisPointer: Long
+class CoapEndpoint(
+    customScheduler : Scheduler? = null
+) : NativeReferenceWithCallback,
+    StackService,
+    Endpoint,
+    DataSinkDataSource
+{
+    @get:Synchronized
+    @set:Synchronized
+    override var thisPointerWrapper: Long = 0
+    override fun onFree() {
+        thisPointerWrapper = 0
+        Timber.d("free the native reference")
+    }
 
     internal var dataSinkDataSource: DataSinkDataSource? = null
     private val resourceHandlerMap = mutableMapOf<String, Long>()
@@ -48,9 +60,11 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
     )
 
     init {
-        thisPointer = create()
-        attachFilter(thisPointer, requestFilter.thisPointer)
-        initialized.set(true)
+        thisPointerWrapper = create()
+        if (thisPointerWrapper.isNotNull()) {
+            attachFilter(thisPointerWrapper, requestFilter.thisPointerWrapper)
+            initialized.set(true)
+        }
     }
 
     override fun responseFor(request: OutgoingRequest): Single<IncomingResponse> {
@@ -59,7 +73,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
             val responseForResult = if (!request.forceNonBlockwise) {
                 coapResponseListener = BlockwiseCoapResponseListener(request, emitter)
                 responseForBlockwise(
-                    selfPtr = thisPointer,
+                    selfPtr = thisPointerWrapper,
                     request = request,
                     responseListener = coapResponseListener)
                     .also {
@@ -70,7 +84,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
             } else {
                 coapResponseListener = SingleCoapResponseListener(request, emitter)
                 responseFor(
-                    selfPtr = thisPointer,
+                    selfPtr = thisPointerWrapper,
                     request = request,
                     responseListener = coapResponseListener
                 )
@@ -103,7 +117,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
                     return@create
                 }
                 val result = addResourceHandler(
-                    selfPtr = thisPointer,
+                    selfPtr = thisPointerWrapper,
                     path = path,
                     handler = handler,
                     filterGroup = configuration.filterGroup.value
@@ -135,9 +149,10 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
     }
 
     override fun attach(dataSinkDataSource: DataSinkDataSource) {
-        if (this.dataSinkDataSource == null) {
+        if (this.dataSinkDataSource == null && thisPointerWrapper.isNotNull()) {
             this.dataSinkDataSource = dataSinkDataSource
             attach(
+                selfPtr = thisPointerWrapper,
                 sourcePtr = dataSinkDataSource.getAsDataSourcePointer(),
                 sinkPtr = dataSinkDataSource.getAsDataSinkPointer()
             )
@@ -149,7 +164,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
     override fun detach() {
         this.dataSinkDataSource?.let {
             detach(
-                selfPtr = thisPointer,
+                selfPtr = thisPointerWrapper,
                 sourcePtr = it.getAsDataSourcePointer()
             )
             this.dataSinkDataSource = null
@@ -171,7 +186,9 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
         resourceHandlerMap.clear()
         requestFilter.close()
         detach()
-        destroy()
+        if (thisPointerWrapper.isNotNull()) {
+            destroy(thisPointerWrapper)
+        }
     }
 
     /**
@@ -198,15 +215,15 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
 
     private external fun create(): Long
 
-    private external fun attach(selfPtr: Long = thisPointer, sourcePtr: Long, sinkPtr: Long)
+    private external fun attach(selfPtr: Long, sourcePtr: Long, sinkPtr: Long)
 
-    private external fun detach(selfPtr: Long = thisPointer, sourcePtr: Long)
+    private external fun detach(selfPtr: Long, sourcePtr: Long)
 
-    private external fun asDataSource(selfPtr: Long = thisPointer): Long
+    private external fun asDataSource(selfPtr: Long = thisPointerWrapper): Long
 
-    private external fun asDataSink(selfPtr: Long = thisPointer): Long
+    private external fun asDataSink(selfPtr: Long = thisPointerWrapper): Long
 
-    private external fun destroy(selfPtr: Long = thisPointer)
+    private external fun destroy(selfPtr: Long)
 
     private external fun responseFor(
         selfPtr: Long,
@@ -214,7 +231,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
         responseListener: CoapResponseListener
     ): ResponseForResult
 
-    private external fun cancelResponseFor(nativeResponseListenerReference: Long)
+    private external fun cancelResponseFor(nativeResponseListenerReference: Long): Int
 
     private external fun responseForBlockwise(
         selfPtr: Long,
@@ -225,7 +242,7 @@ class CoapEndpoint(customScheduler : Scheduler? = null) : NativeReference, Stack
     private external fun cancelResponseForBlockwise(
         nativeResponseListenerReference: Long,
         canceled: Boolean
-    )
+    ): Int
 
     private external fun addResourceHandler(
         selfPtr: Long,

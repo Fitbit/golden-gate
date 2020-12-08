@@ -20,8 +20,8 @@ class CoapServices private constructor(
     private val testService:CoapTestService = testServiceProvider(endpoint)
 
     class Provider(private val remoteShellThread: RemoteShellThread) {
-        fun get(endPoint: CoapEndpoint = CoapEndpointBuilder()) =
-            CoapServices(endPoint, remoteShellThread)
+        fun get(endpoint: CoapEndpoint = CoapEndpointBuilder()) =
+            CoapServices(endpoint, remoteShellThread)
     }
 
     override fun attach(dataSinkDataSource: DataSinkDataSource) {

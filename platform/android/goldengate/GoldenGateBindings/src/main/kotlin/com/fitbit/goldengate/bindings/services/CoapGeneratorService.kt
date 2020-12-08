@@ -26,15 +26,15 @@ class CoapGeneratorService private constructor(
     }
 
     class Provider(private val remoteShellThread: RemoteShellThread) {
-        fun get(endPoint: CoapEndpoint = CoapEndpointBuilder()) =
-            CoapGeneratorService(remoteShellThread, endPoint)
+        fun get(endpoint: CoapEndpoint = CoapEndpointBuilder()) =
+            CoapGeneratorService(remoteShellThread, endpoint)
     }
 
     override fun close() {
         destroy()
     }
 
-    private external fun create(endPointPtr: Long = endPoint.thisPointer): Long
+    private external fun create(endpointPtrWrapper: Long = endPoint.thisPointerWrapper): Long
 
     private external fun register(selfPtr: Long = thisPointer, shellPtr: Long = remoteShellThread.thisPointer)
 
