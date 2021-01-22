@@ -19,7 +19,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-#include "xp/common/gg_common.h"
 #include "xp/gattlink/gg_gattlink_generic_client.h"
 #include "xp/sockets/gg_sockets.h"
 #include "xp/tls/gg_tls.h"

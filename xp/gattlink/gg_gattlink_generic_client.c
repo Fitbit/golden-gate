@@ -16,7 +16,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_logging.h"
+#include "xp/common/gg_utils.h"
 #include "xp/common/gg_system.h"
 #include "xp/gattlink/gg_gattlink.h"
 #include "xp/gattlink/gg_gattlink_generic_client.h"
