@@ -16,8 +16,8 @@
 +---------------------------------------------------------------------*/
 #include <string.h>
 
-#include "xp/common/gg_common.h"
 #include "xp/common/gg_ring_buffer.h"
+#include "xp/common/gg_utils.h"
 
 /*----------------------------------------------------------------------
 |   functions

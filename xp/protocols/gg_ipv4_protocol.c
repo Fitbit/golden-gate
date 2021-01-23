@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "xp/annotations/gg_annotations.h"
+#include "xp/common/gg_bitstream.h"
 #include "xp/common/gg_logging.h"
 #include "xp/common/gg_memory.h"
 #include "xp/common/gg_port.h"

@@ -22,7 +22,10 @@
 +---------------------------------------------------------------------*/
 #include <stdint.h>
 
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_timer.h"
+#include "xp/common/gg_inspect.h"
+#include "xp/common/gg_io.h"
+#include "xp/common/gg_lists.h"
 
 //! @addtogroup Loop Loop
 //! Loop functionality

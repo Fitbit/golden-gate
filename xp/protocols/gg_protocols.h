@@ -27,8 +27,10 @@ extern "C" {
 +---------------------------------------------------------------------*/
 #include <stdint.h>
 
-#include "xp/common/gg_common.h"
-
+#include "xp/common/gg_buffer.h"
+#include "xp/common/gg_results.h"
+#include "xp/common/gg_ring_buffer.h"
+#include "xp/common/gg_types.h"
 /*----------------------------------------------------------------------
 |   types
 +---------------------------------------------------------------------*/

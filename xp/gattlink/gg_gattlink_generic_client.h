@@ -24,6 +24,7 @@
 #include "xp/common/gg_timer.h"
 #include "xp/common/gg_io.h"
 #include "xp/common/gg_events.h"
+#include "xp/common/gg_inspect.h"
 #include "xp/gattlink/gg_gattlink.h"
 #include "xp/protocols/gg_protocols.h"
 

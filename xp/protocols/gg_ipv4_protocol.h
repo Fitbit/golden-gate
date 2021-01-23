@@ -23,7 +23,6 @@ extern "C" {
 +---------------------------------------------------------------------*/
 #include <stdint.h>
 
-#include "xp/common/gg_common.h"
 #include "xp/protocols/gg_protocols.h"
 #include "xp/sockets/gg_sockets.h"
 
