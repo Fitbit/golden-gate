@@ -177,7 +177,18 @@ There are two options available
 
 ##### Generating An XCode Project Using CMake
 
-Start by generating the XCode project by running
+First, ensure that you have the XCode command line developer tools installed.
+If you're not sure, run:
+``` bash
+xcode-select --install
+```
+If the tools were not already installed, you will see something like:
+```
+xcode-select: note: install requested for command line developer tools
+```
+And the installer will kick in (it may take a while).
+
+Then generate the XCode project by running
 ``` bash
 $ inv apple.macos.xp.gen
 ```
@@ -189,7 +200,11 @@ debug right from within XCode.
 !!! tip
 If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
 ``` bash
-$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+$ sudo xcode-select --reset
+```
+or, if you want a non-default version of Xcode, use
+``` bash
+$ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
 ```
 
 ##### Using The Pre-generated XCode Project
