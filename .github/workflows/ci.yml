@@ -31,9 +31,9 @@ jobs:
 
       # Runs a single command using the runners shell (so that conda can be properyl activated)
       - shell: bash -l {0}
-        name: Bulid native targets
+        name: Build and test native targets
         run: |
           conda info
           conda list
           inv native.build
-          inv native.test
+          GG_LOG_CONFIG=plist:.level=WARNING inv native.test
