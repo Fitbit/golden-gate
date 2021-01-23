@@ -149,6 +149,7 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 @property (nonatomic)         BOOL                     rxReady;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
+@property (nonatomic)         BOOL                     connected;
 
 @property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
@@ -389,6 +390,14 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 
     GG_LOG_INFO("connected!");
 
+    // ignore this if we're already connected (it happens sometimes that Core Bluetooth will
+    // call this delegate method more than once)
+    if (self.connected) {
+        GG_LOG_FINE("already connected, ignoring");
+        return;
+    }
+    self.connected = TRUE;
+
     // stop scanning
     [self.centralManager stopScan];
 
@@ -412,6 +421,7 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     GG_COMPILER_UNUSED(error);
 
     GG_LOG_INFO("disconnected!");
+    self.connected = FALSE;
 
     // cleanup
     self.linkConfigurationConnectionModeSubscriber = nil;
@@ -421,7 +431,7 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
     self.gattlinkRxOk = false;
-    self.peripheral= nil;
+    self.peripheral = nil;
 
     [self startScanning];
 }
@@ -887,7 +897,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
     self.gattlinkRxOk = false;
-    self.peripheral= nil;
+    self.peripheral = nil;
 }
 
 // Release peripheral resources that were obtained
@@ -930,6 +940,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 @property (nonatomic)         BOOL                     txReady;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
+@property (nonatomic)         BOOL                     connected;
 
 @property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
@@ -1279,6 +1290,14 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
     GG_COMPILER_UNUSED(peripheral);
 
     GG_LOG_INFO("connected!");
+
+    // ignore this if we're already connected (it happens sometimes that Core Bluetooth will
+    // call this delegate method more than once)
+    if (self.connected) {
+        GG_LOG_FINE("already connected, ignoring");
+        return;
+    }
+    self.connected = TRUE;
 
     // register as a delegate for the peripheral
     peripheral.delegate = self;
