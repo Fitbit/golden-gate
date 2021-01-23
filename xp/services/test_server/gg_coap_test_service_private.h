@@ -14,6 +14,7 @@
 #include "xp/common/gg_lists.h"
 #include "xp/common/gg_utils.h"
 #include "xp/common/gg_types.h"
+#include "xp/remote/gg_remote.h"
 
 /*----------------------------------------------------------------------
 |   constants

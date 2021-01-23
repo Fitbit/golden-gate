@@ -16,10 +16,12 @@
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
+#include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
 
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_results.h"
+#include "xp/common/gg_types.h"
 
 #if defined(__cplusplus)
 extern "C" {

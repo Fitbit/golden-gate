@@ -17,7 +17,8 @@
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_logging.h"
+#include "xp/common/gg_threads.h"
 #include "xp/coap/gg_coap.h"
 #include "gg_coap_event_emitter.h"
 

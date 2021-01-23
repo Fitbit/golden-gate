@@ -20,7 +20,7 @@
 |   includes
 +---------------------------------------------------------------------*/
 #include "gg_stack_builder.h"
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_threads.h"
 #include "xp/loop/gg_loop.h"
 #include "xp/gattlink/gg_gattlink_generic_client.h"
 #include "xp/protocols/gg_ipv4_protocol.h"

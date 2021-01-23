@@ -21,7 +21,9 @@
 #include <stdio.h>
 
 #include "gg_inspect.h"
+#include "gg_logging.h"
 #include "gg_port.h"
+#include "gg_utils.h"
 
 #if defined(GG_CONFIG_ENABLE_INSPECTION)
 

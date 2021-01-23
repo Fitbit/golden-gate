@@ -47,7 +47,11 @@
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
-#include "xp/common/gg_common.h"
+#include "xp/common/gg_io.h"
+#include "xp/common/gg_inspect.h"
+#include "xp/common/gg_lists.h"
+#include "xp/common/gg_timer.h"
+#include "xp/common/gg_types.h"
 
 //! @addtogroup CoAP CoAP
 //! CoAP client and server library

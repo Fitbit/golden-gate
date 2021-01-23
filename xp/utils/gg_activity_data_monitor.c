@@ -22,9 +22,9 @@
 #include "xp/common/gg_logging.h"
 #include "xp/common/gg_memory.h"
 #include "xp/common/gg_port.h"
+#include "xp/common/gg_system.h"
 #include "xp/common/gg_types.h"
 #include "xp/common/gg_utils.h"
-#include "xp/stack_builder/gg_stack_builder.h"
 #include "gg_activity_data_monitor.h"
 
 /*----------------------------------------------------------------------

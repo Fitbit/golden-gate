@@ -23,6 +23,7 @@
 +---------------------------------------------------------------------*/
 
 #include "xp/common/gg_types.h"
+#include "xp/common/gg_results.h"
 
 //! @addtogroup Diagnostics Diagnostics
 //! Device Diagnostics interface

@@ -103,7 +103,7 @@ extension Hub {
                 }
 
             return centralManager
-                .observeState()
+                .observeStateWithInitialValue()
                 .distinctUntilChanged()
                 .flatMapLatest { [isScanning] state -> Observable<[DiscoveredBluetoothPeer]> in
                     guard state == .poweredOn else { return .just([]) }

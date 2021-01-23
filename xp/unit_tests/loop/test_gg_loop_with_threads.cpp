@@ -148,11 +148,14 @@ TEST(GG_LOOP_WITH_THREADS, Test_LoopMessage) {
     CHECK_EQUAL(0, presult);
 
     // check that the time measured by the test timer is close to 1 second
+    // NOTE: unfortunately, this test may fail if the host on which the test
+    // is run is extremely loaded and the text process gets preempted for long
+    // periods of time
     GG_TimeInterval elapsed = end_time - start_time;
     GG_TimeInterval diff = elapsed > GG_NANOSECONDS_PER_SECOND ?
                            (elapsed - GG_NANOSECONDS_PER_SECOND) :
                            (GG_NANOSECONDS_PER_SECOND - elapsed);
-    CHECK_TRUE(diff < GG_NANOSECONDS_PER_SECOND / 10);
+    CHECK_TRUE(diff < GG_NANOSECONDS_PER_SECOND);
 
     CHECK_FALSE(GG_ThreadGuard_CheckCurrentThreadIsMainLoop(NULL));
 

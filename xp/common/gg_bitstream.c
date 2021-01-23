@@ -16,8 +16,9 @@
 +---------------------------------------------------------------------*/
 #include <string.h>
 
-#include "xp/common/gg_common.h"
 #include "xp/common/gg_bitstream.h"
+#include "xp/common/gg_port.h"
+#include "xp/common/gg_utils.h"
 
 /*----------------------------------------------------------------------
 |       macros
