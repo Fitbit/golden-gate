@@ -20,19 +20,20 @@ jobs:
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE, so that the job can access it
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       # Needed for Conda
-      - uses: goanpeca/setup-miniconda@v1
+      - uses: conda-incubator/setup-miniconda@v2
         with:
            activate-environment: gg
            environment-file: environment.yml
            auto-activate-base: false
-                   
+
       # Runs a single command using the runners shell (so that conda can be properyl activated)
       - shell: bash -l {0}
-        name: Run a multi-line script
+        name: Build and test native targets
         run: |
-          echo Hello, world!
-          echo Line two
           conda info
           conda list
-          inv -l
+          inv native.build
+          GG_LOG_CONFIG=plist:.level=WARNING inv native.test
