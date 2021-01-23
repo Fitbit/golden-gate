@@ -36,3 +36,4 @@ jobs:
           conda info
           conda list
           inv native.build
+          inv native.test
