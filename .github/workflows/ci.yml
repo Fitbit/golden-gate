@@ -31,8 +31,6 @@ jobs:
       - shell: bash -l {0}
         name: Run a multi-line script
         run: |
-          echo Hello, world!
-          echo Line two
           conda info
           conda list
-          inv -l
+          inv native.build
