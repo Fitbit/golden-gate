@@ -21,7 +21,7 @@ jobs:
       # Checks-out the repository under $GITHUB_WORKSPACE, so that the job can access it
       - uses: actions/checkout@v2
       # Needed for Conda
-      - uses: goanpeca/setup-miniconda@v2
+      - uses: conda-incubator/setup-miniconda@v2
         with:
            activate-environment: gg
            environment-file: environment.yml
