@@ -1774,17 +1774,6 @@ In a shell window, from the top-level directory of the project, first install
 the homebrew packages by running
 <div class="highlight"><pre><span></span><code>$ brew bundle
 </code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">Updating you environment</p>
-<p>On macOS Big Sur and later, running applications that use Bluetooth need to be 
-granted permissions to do so. When running the <code>gg-stack-tool</code> command line application,
-if your terminal is permissions-aware, like the macOS built-in terminal app, the system
-should prompt you the first time you run <code>gg-stack-tool</code>. For other terminals, like iTerm
-for instance, you may need to grant the permission manually, using the system preferences:
-System Preference -&gt; Security &amp; Privacy -&gt; (Privacy Tab) -&gt; (BlueTooth on the left), 
-add/select your terminal application.
-<img alt="macOS Bluetooth Permissions" src="macos-bluetooth-permissions.jpg" /></p>
-</div>
 <p>Then continue with the instructions for <a href="getting_started.html#setting-up-a-conda-environment">setting up a <code>conda</code> environment</a>, below</p>
 <h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
 <p>A Linux host can be used to build all the targets, except iOS.
@@ -1946,6 +1935,17 @@ example apps, you can come up with many more ways to setup pairs of communicatin
 endpoints.<br />
 Also, you can start building your own applications and devices, then many more
 options are available to you.</p>
+<div class="admonition tip">
+<p class="admonition-title">Bluetooth Permissions on macOS</p>
+<p>On macOS Big Sur and later, applications that use Bluetooth need to be 
+granted permissions to do so. When running the <code>gg-stack-tool</code> command line application,
+if your terminal is permissions-aware, like the macOS built-in terminal app, the system
+should prompt you the first time you run <code>gg-stack-tool</code>. For other terminals, like iTerm
+for instance, you may need to grant the permission manually, using the system preferences:
+System Preferences -&gt; Security &amp; Privacy -&gt; (Privacy Tab) -&gt; (BlueTooth selection on the left), 
+add/enable your terminal application.
+<img align="right" alt="macOS Bluetooth Permissions" src="macos-bluetooth-permissions.jpg" /></p>
+</div>
 <h3 id="host-only">Host Only<a class="headerlink" href="#host-only" title="Permanent link">&para;</a></h3>
 <p>This is the simplest way to start running two instances of a Golden Gate stack
 on a single Mac or Linux host, without any dependency on a "real" transport like 
