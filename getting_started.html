@@ -1774,6 +1774,17 @@ In a shell window, from the top-level directory of the project, first install
 the homebrew packages by running
 <div class="highlight"><pre><span></span><code>$ brew bundle
 </code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Updating you environment</p>
+<p>On macOS Big Sur and later, running applications that use Bluetooth need to be 
+granted permissions to do so. When running the <code>gg-stack-tool</code> command line application,
+if your terminal is permissions-aware, like the macOS built-in terminal app, the system
+should prompt you the first time you run <code>gg-stack-tool</code>. For other terminals, like iTerm
+for instance, you may need to grant the permission manually, using the system preferences:
+System Preference -&gt; Security &amp; Privacy -&gt; (Privacy Tab) -&gt; (BlueTooth on the left), 
+add/select your terminal application.
+<img alt="macOS Bluetooth Permissions" src="macos-bluetooth-permissions.jpg" /></p>
+</div>
 <p>Then continue with the instructions for <a href="getting_started.html#setting-up-a-conda-environment">setting up a <code>conda</code> environment</a>, below</p>
 <h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
 <p>A Linux host can be used to build all the targets, except iOS.
@@ -1877,7 +1888,15 @@ recommended way to work interactively with the project on a mac when you want
 to edit/compile/run/debug.</p>
 <p>There are two options available</p>
 <h5 id="generating-an-xcode-project-using-cmake">Generating An XCode Project Using CMake<a class="headerlink" href="#generating-an-xcode-project-using-cmake" title="Permanent link">&para;</a></h5>
-<p>Start by generating the XCode project by running
+<p>First, ensure that you have the XCode command line developer tools installed.
+If you're not sure, run:
+<div class="highlight"><pre><span></span><code>xcode-select --install
+</code></pre></div>
+If the tools were not already installed, you will see something like:
+<div class="highlight"><pre><span></span><code>xcode-select: note: install requested for command line developer tools
+</code></pre></div>
+And the installer will kick in (it may take a while).</p>
+<p>Then generate the XCode project by running
 <div class="highlight"><pre><span></span><code>$ inv apple.macos.xp.gen
 </code></pre></div>
 This will generate an XCode project at <code>xp/build/cmake/xcode-macOS/golden-gate-macos.xcodeproj</code>.
@@ -1886,10 +1905,13 @@ the command-line tools, the examples, and the unit tests. You can build, run and
 debug right from within XCode.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-</div>
 <p>If you get a CMake error saying <code>No CMAKE_C_COMPILER could be found</code>, try 
-<div class="highlight"><pre><span></span><code>$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+<div class="highlight"><pre><span></span><code>$ sudo xcode-select --reset
+</code></pre></div>
+or, if you want a non-default version of Xcode, use
+<div class="highlight"><pre><span></span><code>$ sudo xcode-select -s /Applications/&lt;Xcode-version&gt;.app&gt;/Contents/Developer
 </code></pre></div></p>
+</div>
 <h5 id="using-the-pre-generated-xcode-project">Using The Pre-generated XCode Project<a class="headerlink" href="#using-the-pre-generated-xcode-project" title="Permanent link">&para;</a></h5>
 <p>A hand-made XCode project is used to build the framework as well as the 
 so-called "Host Application", which is a sample application that illustrates how
