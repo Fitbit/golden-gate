@@ -208,14 +208,14 @@ the command-line tools, the examples, and the unit tests. You can build, run and
 debug right from within XCode.
 
 !!! tip
-If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
-``` bash
-$ sudo xcode-select --reset
-```
-or, if you want a non-default version of Xcode, use
-``` bash
-$ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
-```
+    If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
+    ``` bash
+    $ sudo xcode-select --reset
+    ```
+    or, if you want a non-default version of Xcode, use
+    ``` bash
+    $ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
+    ```
 
 ##### Using The Pre-generated XCode Project
 
