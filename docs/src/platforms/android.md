@@ -41,6 +41,9 @@ Platform-Tools, Android Support Library, LLDB, CMake, Android SDK
 Build-Tools, and everything under the Support Library header. You can skip
 the emulator images to save some disk space.
 
+Check the project's gradle files to see which version of the NDK is referenced
+(the current version should be: 21.0.6113669)
+
 Alternatively, on Linux, you can install the SDK components from the command line:
 
 ```bash
@@ -52,7 +55,7 @@ $ sdk/tools/bin/sdkmanager \
     'platforms;android-27' \
     'platforms;android-28' \
     'platforms;android-29' \
-    'ndk-bundle' \
+    'ndk;21.0.6113669' \
     'cmake;3.6.4111459' \
     'lldb;3.0' \
     'build-tools;27.0.3' \
