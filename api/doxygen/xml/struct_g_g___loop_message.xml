@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="71" column="85" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="74" column="85" bodyfile="xp/loop/gg_loop.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -34,7 +34,7 @@
         <link refid="struct_g_g___loop_message_interface"/>
       </node>
     </collaborationgraph>
-    <location file="xp/loop/gg_loop.h" line="71" column="54" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="71"/>
+    <location file="xp/loop/gg_loop.h" line="74" column="54" bodyfile="xp/loop/gg_loop.h" bodystart="74" bodyend="74"/>
     <listofallmembers>
       <member refid="struct_g_g___loop_message_1a049be64dbe3cf446e28f7d453fb89eb5" prot="public" virt="non-virtual"><scope>GG_LoopMessage</scope><name>vtable</name></member>
     </listofallmembers>

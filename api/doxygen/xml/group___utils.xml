@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="44" column="14" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="44" bodyend="49"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="45" column="14" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="45" bodyend="50"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="79" column="5" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="39" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="79" column="5" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___utils_1ga0479f5bb25078ca756410a85d3d70c5d" prot="public" static="no">
         <type>struct <ref refid="group___utils_1ga0479f5bb25078ca756410a85d3d70c5d" kindref="member">GG_CoapEventEmitter</ref></type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="60" column="21" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="56" bodyend="-1"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="61" column="21" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -1138,7 +1138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="95" column="11" declfile="xp/utils/gg_activity_data_monitor.h" declline="95" declcolumn="11"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="96" column="11" declfile="xp/utils/gg_activity_data_monitor.h" declline="96" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gaaec5f987e1bc3e4c8597ef79e2cd64c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1166,7 +1166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="105" column="6" declfile="xp/utils/gg_activity_data_monitor.h" declline="105" declcolumn="6"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="106" column="6" declfile="xp/utils/gg_activity_data_monitor.h" declline="106" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga9ebdaa3d3e59687ea60638f614bbb0c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
@@ -1196,7 +1196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="114" column="15" declfile="xp/utils/gg_activity_data_monitor.h" declline="114" declcolumn="15"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="115" column="15" declfile="xp/utils/gg_activity_data_monitor.h" declline="115" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gabe7f9254cc374c8e07c6e3ef541df7fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -1226,7 +1226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="123" column="13" declfile="xp/utils/gg_activity_data_monitor.h" declline="123" declcolumn="13"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="124" column="13" declfile="xp/utils/gg_activity_data_monitor.h" declline="124" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gad98f5695a33590f39c597c0ba6214e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref> *</type>
@@ -1256,7 +1256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="133" column="17" declfile="xp/utils/gg_activity_data_monitor.h" declline="133" declcolumn="17"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="134" column="17" declfile="xp/utils/gg_activity_data_monitor.h" declline="134" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga6a6a5afe6e0228909bf99b86b8fc80d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -1286,7 +1286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="142" column="16" declfile="xp/utils/gg_activity_data_monitor.h" declline="142" declcolumn="16"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="143" column="16" declfile="xp/utils/gg_activity_data_monitor.h" declline="143" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga33f3ee3b77130278eace73ca140591e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1388,7 +1388,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="88" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="88" declcolumn="11"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="87" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="87" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga44e1ddeed1be00070bc1e725380ddb7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1416,7 +1416,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="101" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="101" declcolumn="6"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="100" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="100" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gaab5117676706da99c6d22fe7f5b20f2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1470,7 +1470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="113" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="113" declcolumn="11"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="112" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="112" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gadf42b5a127000be18c5704d8f0a27ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1512,7 +1512,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="125" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="125" declcolumn="11"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="124" column="11" declfile="xp/utils/gg_coap_event_emitter.h" declline="124" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga5ac962fae54b6968f24dda7bb1dc1a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1554,7 +1554,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="135" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="135" declcolumn="6"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="134" column="6" declfile="xp/utils/gg_coap_event_emitter.h" declline="134" declcolumn="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -1639,7 +1639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="73" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="74" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1gac3a6a2e61368de7660793a87d2a5f57c" prot="public" static="no">
         <name>GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP</name>
@@ -1651,7 +1651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="75" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="75" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="76" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1ga2149055dcf69821bdfda8b493f73a211" prot="public" static="no">
         <name>GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM</name>
@@ -1663,7 +1663,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="76" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="76" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="77" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1gad60f0d7a77645ed308ee676eb7328265" prot="public" static="no">
         <name>GG_COAP_EVENT_EMITTER_MAX_PATH_SEGMENTS</name>
@@ -1674,7 +1674,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="62" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="62" bodyend="-1"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="61" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1gaf8c46018bbe62d28eb1ef3fc3c99d6f9" prot="public" static="no">
         <name>GG_COAP_EVENT_EMITTER_DEFAULT_RETRY_DELAY</name>
@@ -1685,7 +1685,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="65" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="65" bodyend="-1"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="64" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1ga03cbe415afc38bda88c542b7693c993a" prot="public" static="no">
         <name>GG_COAP_EVENT_EMITTER_DEFAULT_MIN_REQUEST_AGE</name>
@@ -1696,7 +1696,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_coap_event_emitter.h" line="68" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="68" bodyend="-1"/>
+        <location file="xp/utils/gg_coap_event_emitter.h" line="67" column="9" bodyfile="xp/utils/gg_coap_event_emitter.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="60" column="26" bodyfile="xp/loop/gg_loop_base.h" bodystart="60" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="61" column="26" bodyfile="xp/loop/gg_loop_base.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_invoke_async_message_1a03b9b244bfecc6a4d014d0aecfc38d02" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="61" column="25" bodyfile="xp/loop/gg_loop_base.h" bodystart="61" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="62" column="25" bodyfile="xp/loop/gg_loop_base.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -45,14 +45,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="59" column="5"/>
+        <location file="xp/loop/gg_loop_base.h" line="60" column="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="xp/loop/gg_loop_base.h" line="58" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="58" bodyend="62"/>
+    <location file="xp/loop/gg_loop_base.h" line="59" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="59" bodyend="63"/>
     <listofallmembers>
       <member refid="struct_g_g___loop_invoke_async_message_1af8dc41da64bb5b2afd665fa385d9a1b7" prot="public" virt="non-virtual"><scope>GG_LoopInvokeAsyncMessage</scope><name>function</name></member>
       <member refid="struct_g_g___loop_invoke_async_message_1a03b9b244bfecc6a4d014d0aecfc38d02" prot="public" virt="non-virtual"><scope>GG_LoopInvokeAsyncMessage</scope><name>function_argument</name></member>

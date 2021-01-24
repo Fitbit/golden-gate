@@ -22,37 +22,30 @@
 </tr>
 <tr>
 <td>
+<p><a href="-linkup/index.html">Linkup</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">Linkup</span></code>
+<p>Interface for Golden Gate link-up process</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-linkup-handler-provider/index.html">LinkupHandlerProvider</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">LinkupHandlerProvider</span></code>
+<p>Helper object to return the linkup handler based upon connection role (node or hub)</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="-mtu-change-requester/index.html">MtuChangeRequester</a></p>
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">MtuChangeRequester</span></code>
 <p>Class to request MTU change for a CONNECTED Node</p>
 </td>
-</tr>
-<tr>
-<td>
-<p><a href="-node/index.html">Node</a></p>
-</td>
-<td>
-<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Node</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span></code>
-<p>Interface for Golden Gate Nodes. Used to represent a connection and encapsulates the protocol</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-node-builder/index.html">NodeBuilder</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">NodeBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-<p>Builds a <a href="-node/index.html">Node</a> with <a href="#">StackService</a> of type <a href="-node-builder/index.html#S">S</a> and key of type <a href="-node-builder/index.html#K">K</a> and determines if an existing <a href="-node/index.html">Node</a> is the same as the one's it builds</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="-node-connection-status/index.html">NodeConnectionStatus</a></p>
-</td>
-<td>
-<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">NodeConnectionStatus</span></code></td>
 </tr>
 <tr>
 <td>
@@ -96,9 +89,34 @@
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">NodeMapper</span></code>
-<p>Maps a <a href="#">NodeKey</a> to a <a href="-node/index.html">Node</a>. Uses a <a href="-node-builder/index.html">NodeBuilder</a> to make the node if it does not exist or if
-the existing <a href="-node/index.html">Node</a> is different than expected</p>
+<p>Maps a <a href="#">NodeKey</a> to a <a href="#">Node</a>. Uses a <a href="-peer-builder/index.html">PeerBuilder</a> to make the node if it does not exist or if
+the existing <a href="#">Node</a> is different than expected</p>
 </td>
+</tr>
+<tr>
+<td>
+<p><a href="-peer/index.html">Peer</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">Peer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span></code>
+<p>Interface for Golden Gate Nodes. Used to represent a connection and encapsulates the protocol</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-peer-builder/index.html">PeerBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PeerBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Builds a <a href="-peer/index.html">Peer</a> with <a href="#">StackService</a> of type <a href="-peer-builder/index.html#S">S</a> and key of type <a href="-peer-builder/index.html#K">K</a> and determines if an existing <a href="-peer/index.html">Peer</a> is the same as the one's it builds</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="-peer-connection-status/index.html">PeerConnectionStatus</a></p>
+</td>
+<td>
+<code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">PeerConnectionStatus</span></code></td>
 </tr>
 <tr>
 <td>

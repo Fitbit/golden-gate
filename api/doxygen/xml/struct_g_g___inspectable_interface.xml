@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="143" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="143" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="145" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="145" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="xp/common/gg_inspect.h" line="130" column="30" bodyfile="xp/common/gg_inspect.h" bodystart="130" bodyend="144"/>
+    <location file="xp/common/gg_inspect.h" line="132" column="30" bodyfile="xp/common/gg_inspect.h" bodystart="132" bodyend="146"/>
     <listofallmembers>
       <member refid="struct_g_g___inspectable_interface_1a686c90f2185f391650f346af0d3551fe" prot="public" virt="non-virtual"><scope>GG_InspectableInterface</scope><name>Inspect</name></member>
     </listofallmembers>

@@ -25,7 +25,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="189" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="189" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="193" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_response_listener_interface_1aff53f72ed274e9175229776c825511df" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="197" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="197" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="201" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_response_listener_interface_1aa7cc48b0e6f8ccf0506783267cf787c4" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="208" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="208" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="212" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="212" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,7 +100,7 @@
 <para>Interface implemented by listeners that want to be notified of CoAP responses.</para>
 <para>An <computeroutput>OnAck</computeroutput> always arrives before <computeroutput>OnResponse</computeroutput>. If <computeroutput>OnError</computeroutput> is called, no other method will be called subsequently. </para>
     </detaileddescription>
-    <location file="xp/coap/gg_coap.h" line="183" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="183" bodyend="209"/>
+    <location file="xp/coap/gg_coap.h" line="187" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="187" bodyend="213"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_response_listener_interface_1a9ae4aabc6691e1ec4f6026f0b4e32c03" prot="public" virt="non-virtual"><scope>GG_CoapResponseListenerInterface</scope><name>OnAck</name></member>
       <member refid="struct_g_g___coap_response_listener_interface_1aff53f72ed274e9175229776c825511df" prot="public" virt="non-virtual"><scope>GG_CoapResponseListenerInterface</scope><name>OnError</name></member>

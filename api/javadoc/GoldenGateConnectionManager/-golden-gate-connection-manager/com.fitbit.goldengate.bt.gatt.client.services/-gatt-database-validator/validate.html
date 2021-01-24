@@ -8,8 +8,8 @@
 <a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.bt.gatt.client.services</a>&nbsp;/&nbsp;<a href="index.html">GattDatabaseValidator</a>&nbsp;/&nbsp;<a href="./validate.html">validate</a><br/>
 <br/>
 <h1>validate</h1>
-<a name="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$validate(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral)"></a>
-<code><span class="keyword">fun </span><span class="identifier">validate</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$validate(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral)/peripheral">peripheral</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattPeripheral</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
+<a name="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$validate(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer)"></a>
+<code><span class="keyword">fun </span><span class="identifier">validate</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator$validate(com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer)/peer">peer</span><span class="symbol">:</span>&nbsp;<span class="identifier">BitGattPeer</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code>
 <p>To validate the GATT Database version, first read the payload of Ephemeral Pointer Characteristic from <a href="../-gatt-database-confirmation-service/index.html">GattDatabaseConfirmationService</a>
 The payload will contains the UUID of GATT Ephemeral Characteristic. Second, we write to Ephemeral GATT Characteristic UUID.
 If the write succeeds within timeout, tracker will not send us the service changed indication and complete the validation process.</p>

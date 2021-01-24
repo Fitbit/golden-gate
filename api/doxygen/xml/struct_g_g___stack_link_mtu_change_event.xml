@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="184" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="184" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="183" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" prot="public" static="no" mutable="no">
         <type>unsigned int</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="185" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="185" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="184" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="184" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -51,7 +51,7 @@
         <link refid="struct_g_g___event"/>
       </node>
     </collaborationgraph>
-    <location file="xp/stack_builder/gg_stack_builder.h" line="183" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="183" bodyend="186"/>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="182" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="182" bodyend="185"/>
     <listofallmembers>
       <member refid="struct_g_g___stack_link_mtu_change_event_1a9050cafa5f3190a1e73643e5cf4b2a32" prot="public" virt="non-virtual"><scope>GG_StackLinkMtuChangeEvent</scope><name>base</name></member>
       <member refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" prot="public" virt="non-virtual"><scope>GG_StackLinkMtuChangeEvent</scope><name>link_mtu</name></member>

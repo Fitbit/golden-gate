@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="46" column="23" bodyfile="xp/loop/gg_loop_base.h" bodystart="46" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="47" column="23" bodyfile="xp/loop/gg_loop_base.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_message_item_1a8a0a1923720077e655b3eb445e2c8eda" prot="public" static="no" mutable="no">
         <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="47" column="22" bodyfile="xp/loop/gg_loop_base.h" bodystart="47" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="48" column="22" bodyfile="xp/loop/gg_loop_base.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -67,7 +67,7 @@
         <link refid="struct_g_g___loop_message_interface"/>
       </node>
     </collaborationgraph>
-    <location file="xp/loop/gg_loop_base.h" line="45" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="45" bodyend="48"/>
+    <location file="xp/loop/gg_loop_base.h" line="46" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="46" bodyend="49"/>
     <listofallmembers>
       <member refid="struct_g_g___loop_message_item_1abef0046b2bd0533ea60e8344af0b8d5d" prot="public" virt="non-virtual"><scope>GG_LoopMessageItem</scope><name>list_node</name></member>
       <member refid="struct_g_g___loop_message_item_1a8a0a1923720077e655b3eb445e2c8eda" prot="public" virt="non-virtual"><scope>GG_LoopMessageItem</scope><name>message</name></member>

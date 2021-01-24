@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="174" column="21" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="174" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="173" column="21" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" prot="public" static="no" mutable="no">
         <type>const <ref refid="struct_g_g___event" kindref="compound">GG_Event</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="175" column="20" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="175" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="174" column="20" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -52,7 +52,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/stack_builder/gg_stack_builder.h" line="173" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="173" bodyend="176"/>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="172" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="172" bodyend="175"/>
     <listofallmembers>
       <member refid="struct_g_g___stack_forward_event_1acdb530c1e252935b29196e7c0e182672" prot="public" virt="non-virtual"><scope>GG_StackForwardEvent</scope><name>base</name></member>
       <member refid="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" prot="public" virt="non-virtual"><scope>GG_StackForwardEvent</scope><name>forwarded</name></member>

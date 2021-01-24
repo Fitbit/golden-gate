@@ -9,6 +9,9 @@
       <node id="5">
         <label>stdbool.h</label>
       </node>
+      <node id="9">
+        <label>assert.h</label>
+      </node>
       <node id="6">
         <label>xp/common/gg_memory.h</label>
         <link refid="gg__memory_8h"/>
@@ -18,9 +21,6 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-      </node>
-      <node id="9">
-        <label>assert.h</label>
       </node>
       <node id="2">
         <label>stdint.h</label>
@@ -52,10 +52,6 @@
       <node id="7">
         <label>stddef.h</label>
       </node>
-      <node id="3">
-        <label>xp/common/gg_results.h</label>
-        <link refid="gg__results_8h"/>
-      </node>
       <node id="10">
         <label>xp/common/gg_types.h</label>
         <link refid="gg__types_8h"/>
@@ -63,6 +59,10 @@
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
       </node>
       <node id="8">
         <label>xp/common/gg_port.h</label>

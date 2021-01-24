@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="70" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="70" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="71" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1a4884410e0f27daf407cd0a7fd436b2b0" prot="public" static="no" mutable="no">
         <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="71" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="71" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="72" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1a3fe92dbe99bc8eee096f062c4ee7eb80" prot="public" static="no" mutable="no">
         <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="72" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="72" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="73" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1aaeaa8645624ef9ac1b6bab571ca56855" prot="public" static="no" mutable="no">
         <type><ref refid="group___queues_1gab7255e6be8d33853c76d8fdf8d43f31e" kindref="member">GG_SharedQueue</ref> *</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="73" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="74" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1a529ee37945a4981e3c2122246c01e7df" prot="public" static="no" mutable="no">
         <type><ref refid="struct_g_g___loop_message_item" kindref="compound">GG_LoopMessageItem</ref></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="74" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="74" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="75" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" prot="public" static="no" mutable="no">
         <type><ref refid="class_g_g___mutex" kindref="compound">GG_Mutex</ref> *</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="75" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="75" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="76" column="29" bodyfile="xp/loop/gg_loop_base.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" prot="public" static="no" mutable="no">
         <type><ref refid="struct_g_g___loop_invoke_sync_message" kindref="compound">GG_LoopInvokeSyncMessage</ref></type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="76" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="76" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="77" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1ac836a0ab7bf3e32b9dfcbb6643b280d5" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="77" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="77" bodyend="-1"/>
+        <location file="xp/loop/gg_loop_base.h" line="78" column="30" bodyfile="xp/loop/gg_loop_base.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___loop_base_1adeeccf3a529fbe0f214c119a20ee1b92" prot="public" static="no" mutable="no">
         <type>struct GG_LoopBase::@6</type>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop_base.h" line="80" column="48"/>
+        <location file="xp/loop/gg_loop_base.h" line="81" column="48"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -189,7 +189,7 @@
         <link refid="struct_g_g___loop_message_interface"/>
       </node>
     </collaborationgraph>
-    <location file="xp/loop/gg_loop_base.h" line="67" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="67" bodyend="83"/>
+    <location file="xp/loop/gg_loop_base.h" line="68" column="15" bodyfile="xp/loop/gg_loop_base.h" bodystart="68" bodyend="84"/>
     <listofallmembers>
       <member refid="struct_g_g___loop_base_1aa7e3a04583567d1ed2da8d3d78e3e93a" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>invoke_message</name></member>
       <member refid="struct_g_g___loop_base_1a0b63f49c9487b29597d437eabfb76282" prot="public" virt="non-virtual"><scope>GG_LoopBase</scope><name>invoke_mutex</name></member>

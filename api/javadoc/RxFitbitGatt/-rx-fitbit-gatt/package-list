@@ -9,6 +9,7 @@ $dokka.location:com.fitbit.bluetooth.fbgatt.rx$resetGattStateIfNecessary(com.fit
 $dokka.location:com.fitbit.bluetooth.fbgatt.rx$runTxReactive(com.fitbit.bluetooth.fbgatt.GattTransaction, com.fitbit.bluetooth.fbgatt.GattConnection)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-transaction/run-tx-reactive.html
 $dokka.location:com.fitbit.bluetooth.fbgatt.rx$runTxReactive(com.fitbit.bluetooth.fbgatt.GattTransaction, com.fitbit.bluetooth.fbgatt.GattServerConnection)com.fitbit.bluetooth.fbgatt.rx/com.fitbit.bluetooth.fbgatt.-gatt-transaction/run-tx-reactive.html
 com.fitbit.bluetooth.fbgatt.rx
+com.fitbit.bluetooth.fbgatt.rx.advertiser
 com.fitbit.bluetooth.fbgatt.rx.client
 com.fitbit.bluetooth.fbgatt.rx.client.listeners
 com.fitbit.bluetooth.fbgatt.rx.scanner

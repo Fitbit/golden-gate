@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="111" column="5" bodyfile="xp/tls/gg_tls.h" bodystart="111" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="115" column="5" bodyfile="xp/tls/gg_tls.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -68,7 +68,7 @@
     <detaileddescription>
 <para>Virtual function table for the <ref refid="struct_g_g___tls_key_resolver" kindref="compound">GG_TlsKeyResolver</ref> interface </para>
     </detaileddescription>
-    <location file="xp/tls/gg_tls.h" line="95" column="91" bodyfile="xp/tls/gg_tls.h" bodystart="95" bodyend="116"/>
+    <location file="xp/tls/gg_tls.h" line="99" column="91" bodyfile="xp/tls/gg_tls.h" bodystart="99" bodyend="120"/>
     <listofallmembers>
       <member refid="struct_g_g___tls_key_resolver_interface_1aadb8b7416690ab407e03fba60cc17ab7" prot="public" virt="non-virtual"><scope>GG_TlsKeyResolverInterface</scope><name>ResolveKey</name></member>
     </listofallmembers>

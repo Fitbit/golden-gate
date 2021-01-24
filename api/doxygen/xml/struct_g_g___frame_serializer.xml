@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="110" column="93" bodyfile="xp/protocols/gg_protocols.h" bodystart="110" bodyend="-1"/>
+        <location file="xp/protocols/gg_protocols.h" line="112" column="93" bodyfile="xp/protocols/gg_protocols.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="related">
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="136" column="11" declfile="xp/protocols/gg_protocols.h" declline="136" declcolumn="11"/>
+        <location file="xp/protocols/gg_protocols.h" line="138" column="11" declfile="xp/protocols/gg_protocols.h" declline="138" declcolumn="11"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -104,7 +104,7 @@
         <link refid="struct_g_g___frame_serializer_interface"/>
       </node>
     </collaborationgraph>
-    <location file="xp/protocols/gg_protocols.h" line="110" column="58" bodyfile="xp/protocols/gg_protocols.h" bodystart="110" bodyend="110"/>
+    <location file="xp/protocols/gg_protocols.h" line="112" column="58" bodyfile="xp/protocols/gg_protocols.h" bodystart="112" bodyend="112"/>
     <listofallmembers>
       <member refid="group___protocol_helpers_1ga81d1c8770d526ac11e216ae8276a1d69" prot="public" virt="non-virtual"><scope>GG_FrameSerializer</scope><name>GG_FrameSerializer_SerializeFrame</name></member>
       <member refid="struct_g_g___frame_serializer_1ac8061db7bc7410c44d96bae8964a9d4a" prot="public" virt="non-virtual"><scope>GG_FrameSerializer</scope><name>vtable</name></member>

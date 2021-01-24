@@ -3,51 +3,18 @@
   <compounddef id="gg__protocols_8h" kind="file" language="C++">
     <compoundname>gg_protocols.h</compoundname>
     <includes local="no">stdint.h</includes>
-    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
+    <includes refid="gg__buffer_8h" local="yes">xp/common/gg_buffer.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__ring__buffer_8h" local="yes">xp/common/gg_ring_buffer.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
     <includedby refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includedby>
     <includedby refid="gg__ipv4__protocol_8h" local="yes">xp/protocols/gg_ipv4_protocol.h</includedby>
     <incdepgraph>
-      <node id="5">
+      <node id="4">
         <label>stdbool.h</label>
       </node>
-      <node id="13">
-        <label>xp/common/gg_memory.h</label>
-        <link refid="gg__memory_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>assert.h</label>
-      </node>
-      <node id="23">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
+      <node id="2">
+        <label>stdint.h</label>
       </node>
       <node id="1">
         <label>xp/protocols/gg_protocols.h</label>
@@ -56,245 +23,61 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>stdint.h</label>
-      </node>
-      <node id="12">
-        <label>xp/common/gg_strings.h</label>
-        <link refid="gg__strings_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
-      </node>
-      <node id="16">
-        <label>xp/common/gg_lists.h</label>
-        <link refid="gg__lists_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>xp/common/gg_crc32.h</label>
-        <link refid="gg__crc32_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>xp/common/gg_threads.h</label>
-        <link refid="gg__threads_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
+      <node id="8">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="7">
-        <label>stddef.h</label>
-      </node>
-      <node id="8">
         <label>xp/common/gg_results.h</label>
         <link refid="gg__results_8h"/>
       </node>
-      <node id="20">
-        <label>xp/common/gg_system.h</label>
-        <link refid="gg__system_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>xp/common/gg_logging.h</label>
-        <link refid="gg__logging_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
+      <node id="3">
         <label>xp/common/gg_buffer.h</label>
         <link refid="gg__buffer_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>xp/common/gg_utils.h</label>
-        <link refid="gg__utils_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>xp/common/gg_io.h</label>
-        <link refid="gg__io_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>xp/common/gg_version.h</label>
-        <link refid="gg__version_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>xp/common/gg_ring_buffer.h</label>
-        <link refid="gg__ring__buffer_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>xp/common/gg_types.h</label>
-        <link refid="gg__types_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>xp/common/gg_port.h</label>
-        <link refid="gg__port_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>xp/common/gg_queues.h</label>
-        <link refid="gg__queues_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>xp/common/gg_bitstream.h</label>
-        <link refid="gg__bitstream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>stdio.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="4">
-        <label>xp/protocols/gg_ipv4_protocol.h</label>
-        <link refid="gg__ipv4__protocol_8h"/>
+      <node id="3">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
+      </node>
+      <node id="1">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>xp/gattlink/gg_gattlink_generic_client.h</label>
@@ -302,17 +85,9 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="1">
-        <label>xp/protocols/gg_protocols.h</label>
-        <link refid="gg__protocols_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>xp/stack_builder/gg_stack_builder.h</label>
-        <link refid="gg__stack__builder_8h"/>
+      <node id="4">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
       </node>
     </invincdepgraph>
     <innerclass refid="struct_g_g___frame_assembler" prot="public">GG_FrameAssembler</innerclass>
@@ -344,50 +119,52 @@
 <codeline lineno="27"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="33"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
-<codeline lineno="34"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="45"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46" refid="struct_g_g___frame_assembler_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="56" refid="struct_g_g___frame_assembler_interface_1a95ce8112f466a0d2c63eb32960f3b5f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*GetFeedBuffer)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t**<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>buffer_size);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="struct_g_g___frame_assembler_interface_1aa8bf04fb20652c61fd90f5293900db58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Feed)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>data_size,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>**<sp/>frame);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80" refid="struct_g_g___frame_assembler_interface_1abc5d8a942485e607b1179ea434b682b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Reset)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"></codeline>
-<codeline lineno="88"></codeline>
-<codeline lineno="91"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___protocol_helpers_1ga2d634ba48e120afc68c99029e017f7ee" kindref="member">GG_FrameAssembler_GetFeedBuffer</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t**<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>buffer_size);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___protocol_helpers_1ga78d26c8e71bc32ca0fd7480adb108684" kindref="member">GG_FrameAssembler_Feed</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>data_size,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>**<sp/>frame);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___protocol_helpers_1gad356b534e5856d6d172a365f0e6c38c3" kindref="member">GG_FrameAssembler_Reset</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="109"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110" refid="struct_g_g___frame_serializer_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="122" refid="struct_g_g___frame_serializer_interface_1ab4772862a56c9665c68c0e426f888d6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*SerializeFrame)(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/>frame,</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame_size,</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>output);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"></codeline>
-<codeline lineno="133"></codeline>
-<codeline lineno="136"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___protocol_helpers_1ga81d1c8770d526ac11e216ae8276a1d69" kindref="member">GG_FrameSerializer_SerializeFrame</ref>(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/>frame,</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame_size,</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>output);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__buffer_8h" kindref="compound">xp/common/gg_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__ring__buffer_8h" kindref="compound">xp/common/gg_ring_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="struct_g_g___frame_assembler_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="58" refid="struct_g_g___frame_assembler_interface_1a95ce8112f466a0d2c63eb32960f3b5f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*GetFeedBuffer)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t**<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>buffer_size);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="struct_g_g___frame_assembler_interface_1aa8bf04fb20652c61fd90f5293900db58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*Feed)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>data_size,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>**<sp/>frame);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_g_g___frame_assembler_interface_1abc5d8a942485e607b1179ea434b682b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*Reset)(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"></codeline>
+<codeline lineno="90"></codeline>
+<codeline lineno="93"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___protocol_helpers_1ga2d634ba48e120afc68c99029e017f7ee" kindref="member">GG_FrameAssembler_GetFeedBuffer</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t**<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>buffer_size);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___protocol_helpers_1ga78d26c8e71bc32ca0fd7480adb108684" kindref="member">GG_FrameAssembler_Feed</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>data_size,<sp/><ref refid="interface_g_g___buffer" kindref="compound">GG_Buffer</ref>**<sp/>frame);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___protocol_helpers_1gad356b534e5856d6d172a365f0e6c38c3" kindref="member">GG_FrameAssembler_Reset</ref>(<ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="struct_g_g___frame_serializer_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="124" refid="struct_g_g___frame_serializer_interface_1ab4772862a56c9665c68c0e426f888d6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*SerializeFrame)(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/>frame,</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame_size,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>output);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"></codeline>
+<codeline lineno="135"></codeline>
+<codeline lineno="138"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___protocol_helpers_1ga81d1c8770d526ac11e216ae8276a1d69" kindref="member">GG_FrameSerializer_SerializeFrame</ref>(<ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/>frame,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame_size,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ring_buffer" kindref="compound">GG_RingBuffer</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>output);</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="xp/protocols/gg_protocols.h"/>
   </compounddef>

@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="122" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="122" bodyend="-1"/>
+        <location file="xp/protocols/gg_protocols.h" line="124" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="124" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -60,7 +60,7 @@
     <detaileddescription>
 <para>Virtual function table for the <ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref> interface </para>
     </detaileddescription>
-    <location file="xp/protocols/gg_protocols.h" line="110" column="93" bodyfile="xp/protocols/gg_protocols.h" bodystart="110" bodyend="126"/>
+    <location file="xp/protocols/gg_protocols.h" line="112" column="93" bodyfile="xp/protocols/gg_protocols.h" bodystart="112" bodyend="128"/>
     <listofallmembers>
       <member refid="struct_g_g___frame_serializer_interface_1ab4772862a56c9665c68c0e426f888d6a" prot="public" virt="non-virtual"><scope>GG_FrameSerializerInterface</scope><name>SerializeFrame</name></member>
     </listofallmembers>

@@ -22,91 +22,9 @@
     <includes refid="gg__version_8h" local="yes">xp/common/gg_version.h</includes>
     <includes refid="gg__inspect_8h" local="yes">xp/common/gg_inspect.h</includes>
     <includes refid="gg__bitstream_8h" local="yes">xp/common/gg_bitstream.h</includes>
-    <includedby refid="gg__inspect_8h" local="yes">xp/common/gg_inspect.h</includedby>
-    <includedby refid="gg__protocols_8h" local="yes">xp/protocols/gg_protocols.h</includedby>
-    <includedby refid="gg__ipv4__protocol_8h" local="yes">xp/protocols/gg_ipv4_protocol.h</includedby>
-    <includedby refid="gg__loop_8h" local="yes">xp/loop/gg_loop.h</includedby>
-    <includedby refid="gg__tls_8h" local="yes">xp/tls/gg_tls.h</includedby>
-    <includedby refid="gg__coap_8h" local="yes">xp/coap/gg_coap.h</includedby>
-    <includedby refid="gg__coap__message_8h" local="yes">xp/coap/gg_coap_message.h</includedby>
-    <includedby refid="gg__stack__builder_8h" local="yes">xp/stack_builder/gg_stack_builder.h</includedby>
-    <includedby refid="gg__loop__base_8h" local="yes">xp/loop/gg_loop_base.h</includedby>
-    <includedby refid="gg__coap__event__emitter_8h" local="yes">xp/utils/gg_coap_event_emitter.h</includedby>
     <incdepgraph>
       <node id="4">
         <label>stdbool.h</label>
-      </node>
-      <node id="12">
-        <label>xp/common/gg_memory.h</label>
-        <link refid="gg__memory_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>assert.h</label>
-      </node>
-      <node id="22">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>stdint.h</label>
-      </node>
-      <node id="11">
-        <label>xp/common/gg_strings.h</label>
-        <link refid="gg__strings_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>xp/common/gg_lists.h</label>
-        <link refid="gg__lists_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>xp/common/gg_crc32.h</label>
-        <link refid="gg__crc32_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
       <node id="20">
         <label>xp/common/gg_threads.h</label>
@@ -122,67 +40,26 @@
         <childnode refid="21" relation="include">
         </childnode>
       </node>
-      <node id="6">
-        <label>stddef.h</label>
+      <node id="14">
+        <label>assert.h</label>
       </node>
-      <node id="7">
-        <label>xp/common/gg_results.h</label>
-        <link refid="gg__results_8h"/>
-      </node>
-      <node id="19">
-        <label>xp/common/gg_system.h</label>
-        <link refid="gg__system_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
+      <node id="12">
+        <label>xp/common/gg_memory.h</label>
+        <link refid="gg__memory_8h"/>
         <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>xp/common/gg_logging.h</label>
-        <link refid="gg__logging_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>xp/common/gg_buffer.h</label>
-        <link refid="gg__buffer_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="21">
-        <label>xp/common/gg_utils.h</label>
-        <link refid="gg__utils_8h"/>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="24">
+        <label>xp/common/gg_version.h</label>
+        <link refid="gg__version_8h"/>
         <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -229,6 +106,77 @@
         <childnode refid="26" relation="include">
         </childnode>
       </node>
+      <node id="11">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/common/gg_lists.h</label>
+        <link refid="gg__lists_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stddef.h</label>
+      </node>
+      <node id="19">
+        <label>xp/common/gg_system.h</label>
+        <link refid="gg__system_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_crc32.h</label>
+        <link refid="gg__crc32_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>xp/common/gg_bitstream.h</label>
+        <link refid="gg__bitstream_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
       <node id="10">
         <label>xp/common/gg_io.h</label>
         <link refid="gg__io_8h"/>
@@ -241,30 +189,6 @@
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="24">
-        <label>xp/common/gg_version.h</label>
-        <link refid="gg__version_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>xp/common/gg_ring_buffer.h</label>
-        <link refid="gg__ring__buffer_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
       <node id="5">
         <label>xp/common/gg_types.h</label>
         <link refid="gg__types_8h"/>
@@ -273,10 +197,12 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="13">
-        <label>xp/common/gg_port.h</label>
-        <link refid="gg__port_8h"/>
-        <childnode refid="14" relation="include">
+      <node id="18">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="17">
@@ -293,12 +219,80 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="26">
-        <label>xp/common/gg_bitstream.h</label>
-        <link refid="gg__bitstream_8h"/>
+      <node id="25">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="16">
+        <label>xp/common/gg_logging.h</label>
+        <link refid="gg__logging_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>xp/common/gg_utils.h</label>
+        <link refid="gg__utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
@@ -309,156 +303,6 @@
         <label>stdio.h</label>
       </node>
     </incdepgraph>
-    <invincdepgraph>
-      <node id="6">
-        <label>xp/protocols/gg_ipv4_protocol.h</label>
-        <link refid="gg__ipv4__protocol_8h"/>
-      </node>
-      <node id="13">
-        <label>xp/loop/gg_loop_base.h</label>
-        <link refid="gg__loop__base_8h"/>
-      </node>
-      <node id="4">
-        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
-        <link refid="gg__gattlink__generic__client_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>xp/protocols/gg_protocols.h</label>
-        <link refid="gg__protocols_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>xp/stack_builder/gg_stack_builder.h</label>
-        <link refid="gg__stack__builder_8h"/>
-      </node>
-      <node id="19">
-        <label>xp/coap/gg_coap_message.h</label>
-        <link refid="gg__coap__message_8h"/>
-      </node>
-      <node id="16">
-        <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
-        <link refid="gg__mbedtls__tls_8h"/>
-      </node>
-      <node id="12">
-        <label>xp/nip/gg_nip.h</label>
-        <link refid="gg__nip_8h"/>
-      </node>
-      <node id="15">
-        <label>xp/tls/gg_tls.h</label>
-        <link refid="gg__tls_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>xp/loop/gg_loop.h</label>
-        <link refid="gg__loop_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>xp/coap/gg_coap_blockwise.h</label>
-        <link refid="gg__coap__blockwise_8h"/>
-      </node>
-      <node id="21">
-        <label>xp/coap/gg_coap_filters.h</label>
-        <link refid="gg__coap__filters_8h"/>
-      </node>
-      <node id="8">
-        <label>xp/sockets/gg_sockets.h</label>
-        <link refid="gg__sockets_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
-        <link refid="gg__bsd__sockets_8h"/>
-      </node>
-      <node id="11">
-        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
-        <link refid="gg__nip__sockets_8h"/>
-      </node>
-      <node id="17">
-        <label>xp/coap/gg_coap.h</label>
-        <link refid="gg__coap_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>xp/utils/gg_coap_event_emitter.h</label>
-        <link refid="gg__coap__event__emitter_8h"/>
-      </node>
-      <node id="18">
-        <label>xp/coap/gg_coap_endpoint.h</label>
-        <link refid="gg__coap__endpoint_8h"/>
-      </node>
-      <node id="14">
-        <label>xp/loop/extensions/gg_loop_fd.h</label>
-        <link refid="gg__loop__fd_8h"/>
-      </node>
-      <node id="2">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="1" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
-        <link refid="gg__lwip__sockets_8h"/>
-      </node>
-    </invincdepgraph>
     <briefdescription>
 <para>Convenience include file. </para>
     </briefdescription>

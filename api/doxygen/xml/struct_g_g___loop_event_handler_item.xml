@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="79" column="23" bodyfile="xp/loop/gg_loop.h" bodystart="79" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="82" column="23" bodyfile="xp/loop/gg_loop.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="77" column="5"/>
+        <location file="xp/loop/gg_loop.h" line="80" column="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -56,7 +56,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/loop/gg_loop.h" line="76" column="15" bodyfile="xp/loop/gg_loop.h" bodystart="76" bodyend="80"/>
+    <location file="xp/loop/gg_loop.h" line="79" column="15" bodyfile="xp/loop/gg_loop.h" bodystart="79" bodyend="83"/>
     <listofallmembers>
       <member refid="struct_g_g___loop_event_handler_item_1a0534cda6e13c9c4bd6fa9ee4bd369b1c" prot="public" virt="non-virtual"><scope>GG_LoopEventHandlerItem</scope><name>GG_IMPLEMENTS</name></member>
       <member refid="struct_g_g___loop_event_handler_item_1a62cbdfa9e73e7e41ffbabb3076357217" prot="public" virt="non-virtual"><scope>GG_LoopEventHandlerItem</scope><name>list_node</name></member>

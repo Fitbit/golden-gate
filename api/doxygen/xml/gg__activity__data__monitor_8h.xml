@@ -8,9 +8,13 @@
     <includes refid="gg__io_8h" local="yes">xp/common/gg_io.h</includes>
     <includes refid="gg__events_8h" local="yes">xp/common/gg_events.h</includes>
     <includes refid="gg__timer_8h" local="yes">xp/common/gg_timer.h</includes>
+    <includes refid="gg__inspect_8h" local="yes">xp/common/gg_inspect.h</includes>
     <incdepgraph>
       <node id="8">
         <label>stdbool.h</label>
+      </node>
+      <node id="12">
+        <label>assert.h</label>
       </node>
       <node id="10">
         <label>xp/common/gg_memory.h</label>
@@ -20,35 +24,6 @@
         <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>assert.h</label>
-      </node>
-      <node id="15">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -76,9 +51,6 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="4">
-        <label>stddef.h</label>
-      </node>
       <node id="1">
         <label>xp/utils/gg_activity_data_monitor.h</label>
         <link refid="gg__activity__data__monitor_8h"/>
@@ -94,21 +66,24 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
-      <node id="5">
-        <label>xp/common/gg_results.h</label>
-        <link refid="gg__results_8h"/>
+      <node id="4">
+        <label>stddef.h</label>
       </node>
-      <node id="7">
-        <label>xp/common/gg_buffer.h</label>
-        <link refid="gg__buffer_8h"/>
+      <node id="13">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -131,10 +106,52 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="16">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
       <node id="11">
         <label>xp/common/gg_port.h</label>
         <link refid="gg__port_8h"/>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -151,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="73" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="74" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1gac3a6a2e61368de7660793a87d2a5f57c" prot="public" static="no">
         <name>GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP</name>
@@ -163,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="75" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="75" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="76" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___utils_1ga2149055dcf69821bdfda8b493f73a211" prot="public" static="no">
         <name>GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM</name>
@@ -175,7 +192,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="76" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="76" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="77" column="9" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -217,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="44" column="14" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="44" bodyend="49"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="45" column="14" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="45" bodyend="50"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -232,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="79" column="5" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="39" bodyend="-1"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="79" column="5" bodyfile="xp/utils/gg_activity_data_monitor.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -300,7 +317,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="95" column="11" declfile="xp/utils/gg_activity_data_monitor.h" declline="95" declcolumn="11"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="96" column="11" declfile="xp/utils/gg_activity_data_monitor.h" declline="96" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gaaec5f987e1bc3e4c8597ef79e2cd64c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -328,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="105" column="6" declfile="xp/utils/gg_activity_data_monitor.h" declline="105" declcolumn="6"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="106" column="6" declfile="xp/utils/gg_activity_data_monitor.h" declline="106" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga9ebdaa3d3e59687ea60638f614bbb0c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
@@ -358,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="114" column="15" declfile="xp/utils/gg_activity_data_monitor.h" declline="114" declcolumn="15"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="115" column="15" declfile="xp/utils/gg_activity_data_monitor.h" declline="115" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gabe7f9254cc374c8e07c6e3ef541df7fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -388,7 +405,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="123" column="13" declfile="xp/utils/gg_activity_data_monitor.h" declline="123" declcolumn="13"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="124" column="13" declfile="xp/utils/gg_activity_data_monitor.h" declline="124" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1gad98f5695a33590f39c597c0ba6214e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref> *</type>
@@ -418,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="133" column="17" declfile="xp/utils/gg_activity_data_monitor.h" declline="133" declcolumn="17"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="134" column="17" declfile="xp/utils/gg_activity_data_monitor.h" declline="134" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group___utils_1ga6a6a5afe6e0228909bf99b86b8fc80d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -448,7 +465,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/utils/gg_activity_data_monitor.h" line="142" column="16" declfile="xp/utils/gg_activity_data_monitor.h" declline="142" declcolumn="16"/>
+        <location file="xp/utils/gg_activity_data_monitor.h" line="143" column="16" declfile="xp/utils/gg_activity_data_monitor.h" declline="143" declcolumn="16"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -481,58 +498,59 @@
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__io_8h" kindref="compound">xp/common/gg_io.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__events_8h" kindref="compound">xp/common/gg_events.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__timer_8h" kindref="compound">xp/common/gg_timer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="37"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
-<codeline lineno="38"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">GG_ActivityDataMonitor<sp/>GG_ActivityDataMonitor;</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="group___utils_1ga2c99dca0535371bead118a8bfbf3d837" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_ACTIVE,</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_INACTIVE,</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_ACTIVE,</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_INACTIVE</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}<sp/><ref refid="group___utils_1ga2c99dca0535371bead118a8bfbf3d837" kindref="member">GG_ActivityMonitorChangeType</ref>;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="struct_g_g___activity_monitor_change_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
-<codeline lineno="58" refid="struct_g_g___activity_monitor_change_event_1ac27bb62b4a5f16ddbd92ec5785875a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1ac27bb62b4a5f16ddbd92ec5785875a14" kindref="member">direction</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="59" refid="struct_g_g___activity_monitor_change_event_1a19783abd327457afbd44a1ab42533e1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1a19783abd327457afbd44a1ab42533e1c" kindref="member">active</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="60" refid="struct_g_g___activity_monitor_change_event_1a45f3165935325091af05cca77dbb82bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1a45f3165935325091af05cca77dbb82bd" kindref="member">detected_time</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="struct_g_g___activity_monitor_change_event" kindref="compound">GG_ActivityMonitorChangeEvent</ref>;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="64"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
-<codeline lineno="65"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
-<codeline lineno="73" refid="group___utils_1ga722daf97e317ba894d0eb680fab00f11" refkind="member"><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_ACTIVITY_MONITOR_CHANGE<sp/>GG_4CC(&apos;a&apos;,<sp/>&apos;m&apos;,<sp/>&apos;o&apos;,<sp/>&apos;c&apos;)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75" refid="group___utils_1gac3a6a2e61368de7660793a87d2a5f57c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP<sp/>0<sp/></highlight></codeline>
-<codeline lineno="76" refid="group___utils_1ga2149055dcf69821bdfda8b493f73a211" refkind="member"><highlight class="preprocessor">#define<sp/>GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM<sp/>1<sp/></highlight></codeline>
-<codeline lineno="77"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="79"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
-<codeline lineno="80"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utils_1gab3629d3e1125ae7a059d91f54d4877ea" kindref="member">GG_ActivityDataMonitor_Create</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>scheduler,</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>direction,</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inactivity_timeout,</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_ActivityDataMonitor**<sp/>source);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utils_1gaaec5f987e1bc3e4c8597ef79e2cd64c0" kindref="member">GG_ActivityDataMonitor_Destroy</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="group___utils_1ga9ebdaa3d3e59687ea60638f614bbb0c0" kindref="member">GG_ActivityDataMonitor_AsDataSource</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="group___utils_1gabe7f9254cc374c8e07c6e3ef541df7fe" kindref="member">GG_ActivityDataMonitor_AsDataSink</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__inspect_8h" kindref="compound">xp/common/gg_inspect.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">GG_ActivityDataMonitor<sp/>GG_ActivityDataMonitor;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="group___utils_1ga2c99dca0535371bead118a8bfbf3d837" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_ACTIVE,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_BOTTOM_TO_TOP_INACTIVE,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_ACTIVE,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_ACTIVITY_MONITOR_CHANGE_TYPE_TOP_TO_BOTTOM_INACTIVE</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}<sp/><ref refid="group___utils_1ga2c99dca0535371bead118a8bfbf3d837" kindref="member">GG_ActivityMonitorChangeType</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="struct_g_g___activity_monitor_change_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
+<codeline lineno="59" refid="struct_g_g___activity_monitor_change_event_1ac27bb62b4a5f16ddbd92ec5785875a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1ac27bb62b4a5f16ddbd92ec5785875a14" kindref="member">direction</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60" refid="struct_g_g___activity_monitor_change_event_1a19783abd327457afbd44a1ab42533e1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1a19783abd327457afbd44a1ab42533e1c" kindref="member">active</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61" refid="struct_g_g___activity_monitor_change_event_1a45f3165935325091af05cca77dbb82bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___types_1ga6afe6f3df5618ce439d329175c5b9de6" kindref="member">GG_Timestamp</ref><sp/><sp/><sp/><sp/><ref refid="struct_g_g___activity_monitor_change_event_1a45f3165935325091af05cca77dbb82bd" kindref="member">detected_time</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}<sp/><ref refid="struct_g_g___activity_monitor_change_event" kindref="compound">GG_ActivityMonitorChangeEvent</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="65"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="66"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="74" refid="group___utils_1ga722daf97e317ba894d0eb680fab00f11" refkind="member"><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_ACTIVITY_MONITOR_CHANGE<sp/>GG_4CC(&apos;a&apos;,<sp/>&apos;m&apos;,<sp/>&apos;o&apos;,<sp/>&apos;c&apos;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="group___utils_1gac3a6a2e61368de7660793a87d2a5f57c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_ACTIVITY_MONITOR_DIRECTION_BOTTOM_TO_TOP<sp/>0<sp/></highlight></codeline>
+<codeline lineno="77" refid="group___utils_1ga2149055dcf69821bdfda8b493f73a211" refkind="member"><highlight class="preprocessor">#define<sp/>GG_ACTIVITY_MONITOR_DIRECTION_TOP_TO_BOTTOM<sp/>1<sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="80"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="81"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___utils_1gab3629d3e1125ae7a059d91f54d4877ea" kindref="member">GG_ActivityDataMonitor_Create</ref>(<ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>scheduler,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>direction,</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inactivity_timeout,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_ActivityDataMonitor**<sp/>source);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___utils_1gaaec5f987e1bc3e4c8597ef79e2cd64c0" kindref="member">GG_ActivityDataMonitor_Destroy</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="group___utils_1ga9ebdaa3d3e59687ea60638f614bbb0c0" kindref="member">GG_ActivityDataMonitor_AsDataSource</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><ref refid="group___utils_1gabe7f9254cc374c8e07c6e3ef541df7fe" kindref="member">GG_ActivityDataMonitor_AsDataSink</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref>*<sp/><ref refid="group___utils_1gad98f5695a33590f39c597c0ba6214e3f" kindref="member">GG_ActivityDataMonitor_AsEventEmitter</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="group___utils_1ga6a6a5afe6e0228909bf99b86b8fc80d2" kindref="member">GG_ActivityDataMonitor_AsInspectable</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref>*<sp/><ref refid="group___utils_1gad98f5695a33590f39c597c0ba6214e3f" kindref="member">GG_ActivityDataMonitor_AsEventEmitter</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="group___utils_1ga6a6a5afe6e0228909bf99b86b8fc80d2" kindref="member">GG_ActivityDataMonitor_AsInspectable</ref>(GG_ActivityDataMonitor*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="xp/utils/gg_activity_data_monitor.h"/>
   </compounddef>

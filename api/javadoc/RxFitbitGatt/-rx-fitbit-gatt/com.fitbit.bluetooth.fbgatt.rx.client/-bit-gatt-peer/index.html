@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BitGattPeer - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="./index.html">BitGattPeer</a><br/>
+<br/>
+<h1>BitGattPeer</h1>
+<code><span class="keyword">class </span><span class="identifier">BitGattPeer</span></code>
+<p>Interface representing a BLE peer (remote) device and operations that can be carried on it.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">BitGattPeer</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider)/gattConnection">gattConnection</span><span class="symbol">:</span>&nbsp;<span class="identifier">GattConnection</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$<init>(com.fitbit.bluetooth.fbgatt.GattConnection, com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider)/clientTransactionProvider">clientTransactionProvider</span><span class="symbol">:</span>&nbsp;<a href="../-client-transaction-provider/index.html"><span class="identifier">ClientTransactionProvider</span></a>&nbsp;<span class="symbol">=</span>&nbsp;ClientTransactionProvider()<span class="symbol">)</span></code>
+<p>Interface representing a BLE peer (remote) device and operations that can be carried on it.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="fitbit-device.html">fitbitDevice</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">fitbitDevice</span><span class="symbol">: </span><span class="identifier">FitbitBluetoothDevice</span></code>
+<p>Gets the fitbitDevice associated with the peer
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="gatt-connection.html">gattConnection</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">gattConnection</span><span class="symbol">: </span><span class="identifier">GattConnection</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="is-connected.html">isConnected</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">isConnected</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Whether or not the <a href="#">GattConnection</a> is <a href="#">connected</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="services.html">services</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">services</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span><span class="symbol">?</span></code>
+<p>Gets the list of all services on the peer. Prior to this service discovery needs to be performed.
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="connect.html">connect</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">connect</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html"><span class="identifier">BluetoothGatt</span></a><span class="symbol">&gt;</span></code>
+<p>Establishes a BLE connection with a peer device. Returns a <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html">BluetoothGatt</a> object.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="discover-services.html">discoverServices</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">discoverServices</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Performs service discovery on the peer
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-service.html">getService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getService</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$getService(java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Maybe</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattService.html"><span class="identifier">BluetoothGattService</span></a><span class="symbol">&gt;</span></code>
+<p>Gets the service matching a specific UUID. Prior to this service discovery needs to be performed.
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="read-descriptor.html">readDescriptor</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">readDescriptor</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$readDescriptor(android.bluetooth.BluetoothGattDescriptor)/descriptor">descriptor</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html"><span class="identifier">BluetoothGattDescriptor</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattDescriptor.html"><span class="identifier">BluetoothGattDescriptor</span></a><span class="symbol">&gt;</span></code>
+<p>Reads the descriptor of a characteristic
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="request-connection-priority.html">requestConnectionPriority</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">requestConnectionPriority</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$requestConnectionPriority(kotlin.Int)/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Requests connection priority as described in the <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html">BluetoothGatt</a> object.
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="request-mtu.html">requestMtu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">requestMtu</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$requestMtu(kotlin.Int)/mtu">mtu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code>
+<p>Requests an MTU
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="setup-notifications.html">setupNotifications</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setupNotifications</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/characteristic">characteristic</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/subscribe">subscribe</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$setupNotifications(android.bluetooth.BluetoothGattCharacteristic, kotlin.Boolean, kotlin.Boolean)/isIndication">isIndication</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/android/bluetooth/BluetoothGattCharacteristic.html"><span class="identifier">BluetoothGattCharacteristic</span></a><span class="symbol">&gt;</span></code>
+<p>Combined operation to set up notifications on a characteristic (enables notifications + writes to descriptor
+This assumes we are connected to the peer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="91" column="6" declfile="xp/protocols/gg_protocols.h" declline="91" declcolumn="6"/>
+        <location file="xp/protocols/gg_protocols.h" line="93" column="6" declfile="xp/protocols/gg_protocols.h" declline="93" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___protocol_helpers_1ga78d26c8e71bc32ca0fd7480adb108684" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="95" column="11" declfile="xp/protocols/gg_protocols.h" declline="95" declcolumn="11"/>
+        <location file="xp/protocols/gg_protocols.h" line="97" column="11" declfile="xp/protocols/gg_protocols.h" declline="97" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___protocol_helpers_1gad356b534e5856d6d172a365f0e6c38c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="99" column="6" declfile="xp/protocols/gg_protocols.h" declline="99" declcolumn="6"/>
+        <location file="xp/protocols/gg_protocols.h" line="101" column="6" declfile="xp/protocols/gg_protocols.h" declline="101" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___protocol_helpers_1ga81d1c8770d526ac11e216ae8276a1d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -206,7 +206,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="136" column="11" declfile="xp/protocols/gg_protocols.h" declline="136" declcolumn="11"/>
+        <location file="xp/protocols/gg_protocols.h" line="138" column="11" declfile="xp/protocols/gg_protocols.h" declline="138" declcolumn="11"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="95" column="91" bodyfile="xp/tls/gg_tls.h" bodystart="95" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="99" column="91" bodyfile="xp/tls/gg_tls.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="related">
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="126" column="11" declfile="xp/tls/gg_tls.h" declline="126" declcolumn="11"/>
+        <location file="xp/tls/gg_tls.h" line="130" column="11" declfile="xp/tls/gg_tls.h" declline="130" declcolumn="11"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -116,7 +116,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/tls/gg_tls.h" line="95" column="57" bodyfile="xp/tls/gg_tls.h" bodystart="95" bodyend="95"/>
+    <location file="xp/tls/gg_tls.h" line="99" column="57" bodyfile="xp/tls/gg_tls.h" bodystart="99" bodyend="99"/>
     <listofallmembers>
       <member refid="group___t_l_s_1gad93673136f2d0f30c1c0c883c13d2fb7" prot="public" virt="non-virtual"><scope>GG_TlsKeyResolver</scope><name>GG_TlsKeyResolver_ResolveKey</name></member>
       <member refid="struct_g_g___tls_key_resolver_1a640dadb78cedcdab589ec1c98db82e7a" prot="public" virt="non-virtual"><scope>GG_TlsKeyResolver</scope><name>vtable</name></member>

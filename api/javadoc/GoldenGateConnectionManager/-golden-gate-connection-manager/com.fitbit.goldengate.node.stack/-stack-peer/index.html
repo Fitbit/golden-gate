@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>StackPeer - GoldenGateConnectionManager</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">GoldenGateConnectionManager</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.goldengate.node.stack</a>&nbsp;/&nbsp;<a href="./index.html">StackPeer</a><br/>
+<br/>
+<h1>StackPeer</h1>
+<code><span class="keyword">class </span><span class="identifier">StackPeer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.node/-peer/index.html"><span class="identifier">Peer</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>A <a href="../../com.fitbit.goldengate.node/-peer/index.html">Peer</a> (hub or node) that encapsulates a connection via a <a href="#">Stack</a> including the <a href="#">StackConfig</a>,
+<a href="#">StackService</a>, <a href="#">Stack</a>, and <a href="../../com.fitbit.goldengate.node/-bridge/index.html">Bridge</a></p>
+<h3>Parameters</h3>
+<p><a name="key"></a>
+<code>key</code> - the <a href="#">BluetoothAddressNodeKey</a> to use for this <a href="./index.html">StackPeer</a></p>
+<p><a name="stackConfig"></a>
+<code>stackConfig</code> - the <a href="#">StackConfig</a> of the <a href="#">Stack</a></p>
+<p><a name="stackService"></a>
+<code>stackService</code> - the <a href="#">StackService</a> at the top of the <a href="#">Stack</a></p>
+<p><a name="linkupHandler"></a>
+<code>linkupHandler</code> - the <a href="#">LinkupWithPeerNodeHandler</a> used to link up the stack to golden gate stack services</p>
+<p><a name="peerConnector"></a>
+<code>peerConnector</code> - the <a href="#">PeerConnector</a> used to connect the stack to the gatt layer</p>
+<p><a name="connectionStatusProvider"></a>
+<code>connectionStatusProvider</code> - provides an Observable stream which emits <a href="#">PeripheralConnectionStatus</a> updates when provided a <a href="#">GattConnection</a></p>
+<p><a name="dtlsEventObservableProvider"></a>
+<code>dtlsEventObservableProvider</code> - provides an Observable stream which emits <a href="#">DtlsProtocolStatus</a> updates when provided a <a href="#">Stack</a></p>
+<p><a name="peerProvider"></a>
+<code>peerProvider</code> - a function which returns a <a href="#">BitGattPeer</a> for a given <a href="#">GattConnection</a></p>
+<p><a name="mtuChangeRequesterProvider"></a>
+<code>mtuChangeRequesterProvider</code> - provides and <a href="../../com.fitbit.goldengate.node/-mtu-change-requester/index.html">MtuChangeRequester</a> when provided an <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> and a <a href="#">Stack</a></p>
+<p><a name="startMtu"></a>
+<code>startMtu</code> - the default mtu used when connecting</p>
+<p><a name="connectTimeout"></a>
+<code>connectTimeout</code> - timeout in <a href="https://developer.android.com/reference/java/util/concurrent/TimeUnit.html#SECONDS">TimeUnit.SECONDS</a> when connecting</p>
+<p><a name="buildStack"></a>
+<code>buildStack</code> - builds a <a href="#">Stack</a> when provided a <a href="../../com.fitbit.goldengate.node/-bridge/index.html">Bridge</a></p>
+<p><a name="buildBridge"></a>
+<code>buildBridge</code> - builds a <a href="../../com.fitbit.goldengate.node/-bridge/index.html">Bridge</a> when provided a <a href="https://developer.android.com/reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></p>
+<p><a name="mtuRequestSubject"></a>
+<code>mtuRequestSubject</code> - used to inform an active connection of a desired mtu</p>
+<p><a name="stackEventObservableProvider"></a>
+<code>stackEventObservableProvider</code> - provides an Observable stream which emits <a href="#">StackEvent</a> updates when provided a <a href="#">Stack</a></p>
+<p><a name="stackEventHandlerProvider"></a>
+<code>stackEventHandlerProvider</code> - provides a <a href="#">StackEvent</a> dispatcher for a given <a href="#">Stack</a> and <a href="#">GattConnection</a></p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">StackPeer</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/key">key</span><span class="symbol">:</span>&nbsp;<span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/peerRole">peerRole</span><span class="symbol">:</span>&nbsp;<a href="../../com.fitbit.goldengate.bt/-peer-role/index.html"><span class="identifier">PeerRole</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/stackConfig">stackConfig</span><span class="symbol">:</span>&nbsp;<span class="identifier">StackConfig</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/stackService">stackService</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/connectionStatusProvider">connectionStatusProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">GattConnection</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">PeripheralConnectionStatus</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/dtlsEventObservableProvider">dtlsEventObservableProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">stack</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stack</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">&lt;</span><span class="identifier">DtlsProtocolStatus</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Utility constructor for injecting <a href="-init-.html#com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/connectionStatusProvider">connectionStatusProvider</a> and <a href="-init-.html#com.fitbit.goldengate.node.stack.StackPeer$<init>(com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey, com.fitbit.goldengate.bt.PeerRole, com.fitbit.goldengate.bindings.stack.StackConfig, com.fitbit.goldengate.node.stack.StackPeer.T, kotlin.Function1((com.fitbit.bluetooth.fbgatt.GattConnection, io.reactivex.Observable((com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus)))), kotlin.Function1((com.fitbit.goldengate.bindings.stack.Stack, io.reactivex.Observable((com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus)))))/dtlsEventObservableProvider">dtlsEventObservableProvider</a>
+used for status messages in the Host app</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="key.html">key</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">key</span><span class="symbol">: </span><span class="identifier">BluetoothAddressNodeKey</span></code>
+<p>the <a href="#">BluetoothAddressNodeKey</a> to use for this <a href="./index.html">StackPeer</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stack-config.html">stackConfig</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">stackConfig</span><span class="symbol">: </span><span class="identifier">StackConfig</span></code>
+<p>the <a href="#">StackConfig</a> of the <a href="#">Stack</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.node/-peer/peer-role.html">peerRole</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">peerRole</span><span class="symbol">: </span><a href="../../com.fitbit.goldengate.bt/-peer-role/index.html"><span class="identifier">PeerRole</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../../com.fitbit.goldengate.node/-peer/stack-service.html">stackService</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">stackService</span><span class="symbol">: </span><a href="../../com.fitbit.goldengate.node/-peer/index.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="connection.html">connection</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">connection</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Observable</span><span class="symbol">&lt;</span><a href="../../com.fitbit.goldengate.node/-peer-connection-status/index.html"><span class="identifier">PeerConnectionStatus</span></a><span class="symbol">&gt;</span></code>
+<p>Get a reference to the connection of the <a href="../../com.fitbit.goldengate.node/-peer/index.html">Peer</a>. If the <a href="../../com.fitbit.goldengate.node/-peer/index.html">Peer</a> is not yet connected,
+it will connect upon <a href="#">subscription</a>. The returned <a href="#">Observable</a> will
+be shared for all callers <a href="../../com.fitbit.goldengate.node/-peer/connection.html">connection</a> until the connection is lost or
+<a href="../../com.fitbit.goldengate.node/-peer/disconnect.html">disconnected</a>. A successive call after <a href="../../com.fitbit.goldengate.node/-peer/disconnect.html">disconnected</a> will return a
+new <a href="#">Observable</a>. <a href="#">Disposing</a> the returned <a href="#">Observable</a> will <strong>NOT</strong>
+<a href="../../com.fitbit.goldengate.node/-peer/disconnect.html">disconnect</a> the connection. This method should be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html">Synchronized</a> with <a href="../../com.fitbit.goldengate.node/-peer/disconnect.html">disconnect</a> and <a href="#">close</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="disconnect.html">disconnect</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">disconnect</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Disconnects the <a href="../../com.fitbit.goldengate.node/-peer/index.html">Peer</a> if currently connected. All subscribers of the current connection will
+have their disposables <a href="#">disposed</a>. This method should be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html">Synchronized</a>
+with <a href="../../com.fitbit.goldengate.node/-peer/connection.html">connection</a> and <a href="#">close</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

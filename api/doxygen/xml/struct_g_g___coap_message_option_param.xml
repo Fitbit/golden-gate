@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="142" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="142" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="146" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_message_option_param_1a61e7b6ab7c561654950a45823440fa24" prot="public" static="no" mutable="no">
         <type>struct <ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="149" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="149" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="153" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_message_option_param_1a90d6f716fe46f27ce6d63f8303a3be93" prot="public" static="no" mutable="no">
         <type>struct <ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="158" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="158" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="162" column="37" bodyfile="xp/coap/gg_coap.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -69,7 +69,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/coap/gg_coap.h" line="141" column="40" bodyfile="xp/coap/gg_coap.h" bodystart="141" bodyend="159"/>
+    <location file="xp/coap/gg_coap.h" line="145" column="40" bodyfile="xp/coap/gg_coap.h" bodystart="145" bodyend="163"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_message_option_param_1a61e7b6ab7c561654950a45823440fa24" prot="public" virt="non-virtual"><scope>GG_CoapMessageOptionParam</scope><name>next</name></member>
       <member refid="struct_g_g___coap_message_option_param_1a2a558190c62b370954358b8d5cba7391" prot="public" virt="non-virtual"><scope>GG_CoapMessageOptionParam</scope><name>option</name></member>

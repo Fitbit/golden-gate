@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="273" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="273" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="277" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="277" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ad09c768bf8fc30daa925a91d068940f8" prot="public" static="no" mutable="no">
         <type>const char *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="274" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="274" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="278" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="278" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1abdf0a4f903f1530fc37a3a41bc87f001" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="275" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="275" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="279" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="279" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ad98a2b6c751e8e5b4e7b71a88175e7bf" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="276" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="276" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="280" column="28" bodyfile="xp/coap/gg_coap.h" bodystart="280" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_handler_node_1ac7694a6bb8327b9c34b449a2ede623cc" prot="public" static="no" mutable="no">
         <type><ref refid="struct_g_g___coap_request_handler" kindref="compound">GG_CoapRequestHandler</ref> *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="278" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="278" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="282" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="282" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -111,7 +111,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/coap/gg_coap.h" line="272" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="272" bodyend="279"/>
+    <location file="xp/coap/gg_coap.h" line="276" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="276" bodyend="283"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_request_handler_node_1ad98a2b6c751e8e5b4e7b71a88175e7bf" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>auto_release</name></member>
       <member refid="struct_g_g___coap_request_handler_node_1abdf0a4f903f1530fc37a3a41bc87f001" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerNode</scope><name>flags</name></member>

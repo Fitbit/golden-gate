@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1211" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1211" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="1215" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1215" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_extended_error_1a8205896aae718a8fbc2d10eabf97bac1" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1212" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1212" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="1216" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1216" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_extended_error_1a9a846ae16cd1fcc5b54f7b9d9f2e380a" prot="public" static="no" mutable="no">
         <type>int32_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1213" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1213" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="1217" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1217" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_extended_error_1a4c9e9fabfa2e0c828f83c8ad9db20d28" prot="public" static="no" mutable="no">
         <type>const char *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1214" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1214" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="1218" column="16" bodyfile="xp/coap/gg_coap.h" bodystart="1218" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_extended_error_1a97079e78736bf9bd1d003f75c0bb282f" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1215" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1215" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="1219" column="17" bodyfile="xp/coap/gg_coap.h" bodystart="1219" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -84,7 +84,7 @@
 <para>This data is designed to be encoded to and decoded from a protobuf message with the following schema:</para>
 <para>message Error { optional string namespace = 1; optional sint32 code = 2; optional string message = 3; } </para>
     </detaileddescription>
-    <location file="xp/coap/gg_coap.h" line="1210" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="1210" bodyend="1216"/>
+    <location file="xp/coap/gg_coap.h" line="1214" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="1214" bodyend="1220"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_extended_error_1a9a846ae16cd1fcc5b54f7b9d9f2e380a" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>code</name></member>
       <member refid="struct_g_g___coap_extended_error_1a4c9e9fabfa2e0c828f83c8ad9db20d28" prot="public" virt="non-virtual"><scope>GG_CoapExtendedError</scope><name>message</name></member>

@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="290" column="97" bodyfile="xp/coap/gg_coap.h" bodystart="290" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="294" column="97" bodyfile="xp/coap/gg_coap.h" bodystart="294" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="related">
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="325" column="29" declfile="xp/coap/gg_coap.h" declline="325" declcolumn="29"/>
+        <location file="xp/coap/gg_coap.h" line="329" column="29" declfile="xp/coap/gg_coap.h" declline="329" declcolumn="29"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -118,7 +118,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/coap/gg_coap.h" line="290" column="60" bodyfile="xp/coap/gg_coap.h" bodystart="290" bodyend="290"/>
+    <location file="xp/coap/gg_coap.h" line="294" column="60" bodyfile="xp/coap/gg_coap.h" bodystart="294" bodyend="294"/>
     <listofallmembers>
       <member refid="group___co_a_p_1ga7cf647ace7a2b7a99324ea3702c5a17c" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilter</scope><name>GG_CoapRequestFilter_FilterRequest</name></member>
       <member refid="struct_g_g___coap_request_filter_1a47ec0a5e632d8305dc8ab19dfd6dcb60" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilter</scope><name>vtable</name></member>

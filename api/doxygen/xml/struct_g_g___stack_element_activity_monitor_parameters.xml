@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="129" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="129" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="128" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -24,7 +24,7 @@
     <detaileddescription>
 <para>Construction parameters for an Activity Monitor element </para>
     </detaileddescription>
-    <location file="xp/stack_builder/gg_stack_builder.h" line="128" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="128" bodyend="130"/>
+    <location file="xp/stack_builder/gg_stack_builder.h" line="127" column="15" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="127" bodyend="129"/>
     <listofallmembers>
       <member refid="struct_g_g___stack_element_activity_monitor_parameters_1a4a0367c2da7fde22b2c7591229205367" prot="public" virt="non-virtual"><scope>GG_StackElementActivityMonitorParameters</scope><name>inactivity_timeout</name></member>
     </listofallmembers>

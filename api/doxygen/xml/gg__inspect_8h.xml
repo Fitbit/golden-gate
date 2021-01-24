@@ -2,358 +2,97 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.16">
   <compounddef id="gg__inspect_8h" kind="file" language="C++">
     <compoundname>gg_inspect.h</compoundname>
+    <includes local="no">stdbool.h</includes>
     <includes local="no">stdint.h</includes>
     <includes local="no">stddef.h</includes>
-    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
+    <includes refid="gg__results_8h" local="yes">xp/common/gg_results.h</includes>
+    <includes refid="gg__types_8h" local="yes">xp/common/gg_types.h</includes>
     <includedby refid="gg__common_8h" local="yes">xp/common/gg_common.h</includedby>
+    <includedby refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includedby>
+    <includedby refid="gg__loop_8h" local="yes">xp/loop/gg_loop.h</includedby>
+    <includedby refid="gg__tls_8h" local="yes">xp/tls/gg_tls.h</includedby>
+    <includedby refid="gg__coap_8h" local="yes">xp/coap/gg_coap.h</includedby>
+    <includedby refid="gg__activity__data__monitor_8h" local="yes">xp/utils/gg_activity_data_monitor.h</includedby>
     <incdepgraph>
-      <node id="6">
+      <node id="2">
         <label>stdbool.h</label>
       </node>
-      <node id="13">
-        <label>xp/common/gg_memory.h</label>
-        <link refid="gg__memory_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>assert.h</label>
-      </node>
-      <node id="23">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
+      <node id="3">
         <label>stdint.h</label>
       </node>
-      <node id="12">
-        <label>xp/common/gg_strings.h</label>
-        <link refid="gg__strings_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>xp/common/gg_lists.h</label>
-        <link refid="gg__lists_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>xp/common/gg_crc32.h</label>
-        <link refid="gg__crc32_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>xp/common/gg_threads.h</label>
-        <link refid="gg__threads_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
+      <node id="4">
         <label>stddef.h</label>
       </node>
-      <node id="8">
+      <node id="6">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
         <label>xp/common/gg_results.h</label>
         <link refid="gg__results_8h"/>
       </node>
-      <node id="20">
-        <label>xp/common/gg_system.h</label>
-        <link refid="gg__system_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="10">
+        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
+        <link refid="gg__nip__sockets_8h"/>
       </node>
-      <node id="17">
-        <label>xp/common/gg_logging.h</label>
-        <link refid="gg__logging_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>xp/common/gg_buffer.h</label>
-        <link refid="gg__buffer_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>xp/common/gg_utils.h</label>
-        <link refid="gg__utils_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
+      <node id="16">
+        <label>xp/coap/gg_coap.h</label>
+        <link refid="gg__coap_8h"/>
         <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="1" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
       </node>
-      <node id="11">
-        <label>xp/common/gg_io.h</label>
-        <link refid="gg__io_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>xp/common/gg_version.h</label>
-        <link refid="gg__version_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>xp/common/gg_ring_buffer.h</label>
-        <link refid="gg__ring__buffer_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>xp/common/gg_types.h</label>
-        <link refid="gg__types_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>xp/common/gg_port.h</label>
-        <link refid="gg__port_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>xp/common/gg_queues.h</label>
-        <link refid="gg__queues_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>xp/common/gg_bitstream.h</label>
-        <link refid="gg__bitstream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>stdio.h</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="6">
-        <label>xp/protocols/gg_ipv4_protocol.h</label>
-        <link refid="gg__ipv4__protocol_8h"/>
-      </node>
-      <node id="13">
-        <label>xp/loop/gg_loop_base.h</label>
-        <link refid="gg__loop__base_8h"/>
-      </node>
-      <node id="4">
-        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
-        <link refid="gg__gattlink__generic__client_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>xp/protocols/gg_protocols.h</label>
-        <link refid="gg__protocols_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>xp/stack_builder/gg_stack_builder.h</label>
-        <link refid="gg__stack__builder_8h"/>
-      </node>
-      <node id="19">
-        <label>xp/coap/gg_coap_message.h</label>
-        <link refid="gg__coap__message_8h"/>
-      </node>
-      <node id="16">
+      <node id="15">
         <label>xp/tls/ports/mbedtls/gg_mbedtls_tls.h</label>
         <link refid="gg__mbedtls__tls_8h"/>
       </node>
-      <node id="12">
-        <label>xp/nip/gg_nip.h</label>
-        <link refid="gg__nip_8h"/>
-      </node>
-      <node id="15">
-        <label>xp/tls/gg_tls.h</label>
-        <link refid="gg__tls_8h"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>xp/loop/gg_loop.h</label>
-        <link refid="gg__loop_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
+      <node id="19">
         <label>xp/coap/gg_coap_blockwise.h</label>
         <link refid="gg__coap__blockwise_8h"/>
       </node>
-      <node id="21">
-        <label>xp/coap/gg_coap_filters.h</label>
-        <link refid="gg__coap__filters_8h"/>
+      <node id="4">
+        <label>xp/stack_builder/gg_stack_builder.h</label>
+        <link refid="gg__stack__builder_8h"/>
       </node>
-      <node id="8">
+      <node id="2">
+        <label>xp/common/gg_common.h</label>
+        <link refid="gg__common_8h"/>
+      </node>
+      <node id="6">
         <label>xp/sockets/gg_sockets.h</label>
         <link refid="gg__sockets_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
@@ -361,76 +100,90 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="2">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="1" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
+      <node id="11">
+        <label>xp/nip/gg_nip.h</label>
+        <link refid="gg__nip_8h"/>
       </node>
-      <node id="9">
+      <node id="8">
         <label>xp/sockets/ports/bsd/gg_bsd_sockets.h</label>
         <link refid="gg__bsd__sockets_8h"/>
       </node>
-      <node id="11">
-        <label>xp/sockets/ports/nip/gg_nip_sockets.h</label>
-        <link refid="gg__nip__sockets_8h"/>
-      </node>
-      <node id="17">
-        <label>xp/coap/gg_coap.h</label>
-        <link refid="gg__coap_8h"/>
-        <childnode refid="18" relation="include">
+      <node id="14">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="22">
-        <label>xp/utils/gg_coap_event_emitter.h</label>
-        <link refid="gg__coap__event__emitter_8h"/>
+        <label>xp/utils/gg_activity_data_monitor.h</label>
+        <link refid="gg__activity__data__monitor_8h"/>
       </node>
-      <node id="18">
-        <label>xp/coap/gg_coap_endpoint.h</label>
-        <link refid="gg__coap__endpoint_8h"/>
+      <node id="3">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
-      <node id="14">
-        <label>xp/loop/extensions/gg_loop_fd.h</label>
-        <link refid="gg__loop__fd_8h"/>
+      <node id="9">
+        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
+        <link refid="gg__lwip__sockets_8h"/>
+      </node>
+      <node id="7">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
+      </node>
+      <node id="12">
+        <label>xp/loop/gg_loop_base.h</label>
+        <link refid="gg__loop__base_8h"/>
       </node>
       <node id="1">
         <label>xp/common/gg_inspect.h</label>
         <link refid="gg__inspect_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
       </node>
-      <node id="10">
-        <label>xp/sockets/ports/lwip/gg_lwip_sockets.h</label>
-        <link refid="gg__lwip__sockets_8h"/>
+      <node id="5">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>xp/coap/gg_coap_endpoint.h</label>
+        <link refid="gg__coap__endpoint_8h"/>
+      </node>
+      <node id="20">
+        <label>xp/coap/gg_coap_filters.h</label>
+        <link refid="gg__coap__filters_8h"/>
+      </node>
+      <node id="18">
+        <label>xp/coap/gg_coap_message.h</label>
+        <link refid="gg__coap__message_8h"/>
+      </node>
+      <node id="13">
+        <label>xp/loop/extensions/gg_loop_fd.h</label>
+        <link refid="gg__loop__fd_8h"/>
+      </node>
+      <node id="21">
+        <label>xp/utils/gg_coap_event_emitter.h</label>
+        <link refid="gg__coap__event__emitter_8h"/>
       </node>
     </invincdepgraph>
     <innerclass refid="struct_g_g___inspection_options" prot="public">GG_InspectionOptions</innerclass>
@@ -448,7 +201,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="35" column="10" bodyfile="xp/common/gg_inspect.h" bodystart="35" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="37" column="10" bodyfile="xp/common/gg_inspect.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -486,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="45" column="14" bodyfile="xp/common/gg_inspect.h" bodystart="45" bodyend="49"/>
+        <location file="xp/common/gg_inspect.h" line="47" column="14" bodyfile="xp/common/gg_inspect.h" bodystart="47" bodyend="51"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -502,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="146" column="11" bodyfile="xp/common/gg_inspect.h" bodystart="152" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="148" column="11" bodyfile="xp/common/gg_inspect.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -525,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="103" column="6" declfile="xp/common/gg_inspect.h" declline="103" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="105" column="6" declfile="xp/common/gg_inspect.h" declline="105" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1gaa55d42add72dbf74fdaf8f2b22106b07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -542,7 +295,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="104" column="6" declfile="xp/common/gg_inspect.h" declline="104" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="106" column="6" declfile="xp/common/gg_inspect.h" declline="106" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga0b69a058988ff9613cc62ccb5b3c4a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -563,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="105" column="6" declfile="xp/common/gg_inspect.h" declline="105" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="107" column="6" declfile="xp/common/gg_inspect.h" declline="107" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga66a6900ca26115c5e510897d014ece79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -580,7 +333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="106" column="6" declfile="xp/common/gg_inspect.h" declline="106" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="108" column="6" declfile="xp/common/gg_inspect.h" declline="108" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga310097aa0fec31d0dbb5fbe9eaa1c4a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -605,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="107" column="6" declfile="xp/common/gg_inspect.h" declline="107" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="109" column="6" declfile="xp/common/gg_inspect.h" declline="109" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga46fb11e8cfdac58f1eff90cbabd34bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -630,7 +383,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="108" column="6" declfile="xp/common/gg_inspect.h" declline="108" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="110" column="6" declfile="xp/common/gg_inspect.h" declline="110" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga02e3d53abc19bd3942a7681c3abc0c29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -655,7 +408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="109" column="6" declfile="xp/common/gg_inspect.h" declline="109" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="111" column="6" declfile="xp/common/gg_inspect.h" declline="111" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1gaaa252f847e2df984fc5c1cdc3043b0d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -684,7 +437,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="110" column="6" declfile="xp/common/gg_inspect.h" declline="110" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="112" column="6" declfile="xp/common/gg_inspect.h" declline="112" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga03fba2ed7cdec535f2bf60dd66373d50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -709,7 +462,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="114" column="6" declfile="xp/common/gg_inspect.h" declline="114" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="116" column="6" declfile="xp/common/gg_inspect.h" declline="116" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga6074bc928edde4d494179f827e7a4669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -738,7 +491,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="115" column="6" declfile="xp/common/gg_inspect.h" declline="115" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="117" column="6" declfile="xp/common/gg_inspect.h" declline="117" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga69c583b19b993b878fabad7bc121e927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -771,7 +524,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="119" column="6" declfile="xp/common/gg_inspect.h" declline="119" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="121" column="6" declfile="xp/common/gg_inspect.h" declline="121" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1ga14750d8e8399709bed51ddf9cf2de94b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -796,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="146" column="11" declfile="xp/common/gg_inspect.h" declline="146" declcolumn="11"/>
+        <location file="xp/common/gg_inspect.h" line="148" column="11" declfile="xp/common/gg_inspect.h" declline="148" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1gaf879844eb2bc275ad1ae07ea5cff631f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -850,7 +603,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="167" column="11" declfile="xp/common/gg_inspect.h" declline="167" declcolumn="11"/>
+        <location file="xp/common/gg_inspect.h" line="169" column="11" declfile="xp/common/gg_inspect.h" declline="169" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1gafb879785c014d754a0b549e98a0949c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -878,7 +631,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="176" column="6" declfile="xp/common/gg_inspect.h" declline="176" declcolumn="6"/>
+        <location file="xp/common/gg_inspect.h" line="178" column="6" declfile="xp/common/gg_inspect.h" declline="178" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___inspection_1gaaba079d01c49a96015bc535a192120cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref> *</type>
@@ -906,7 +659,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="183" column="14" declfile="xp/common/gg_inspect.h" declline="183" declcolumn="14"/>
+        <location file="xp/common/gg_inspect.h" line="185" column="14" declfile="xp/common/gg_inspect.h" declline="185" declcolumn="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -928,112 +681,114 @@
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
 <codeline lineno="17"><highlight class="comment">|<sp/><sp/><sp/>includes</highlight></codeline>
 <codeline lineno="18"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(GG_CONFIG_ENABLE_INSPECTION)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IF_INSPECTION_ENABLED(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IF_INSPECTION_ENABLED(x)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="39"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
-<codeline lineno="40"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
-<codeline lineno="45" refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="46" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a38a63fe8d990204abe90f590717a6559" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a38a63fe8d990204abe90f590717a6559" kindref="member">GG_INSPECTOR_FORMAT_HINT_NONE</ref>,<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="47" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a82c83c1c10eb952543e79110b6244893" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a82c83c1c10eb952543e79110b6244893" kindref="member">GG_INSPECTOR_FORMAT_HINT_HEX</ref>,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="48" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2af2f47308aea5c1ffae3d3fdd00032501" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2af2f47308aea5c1ffae3d3fdd00032501" kindref="member">GG_INSPECTOR_FORMAT_HINT_UNSIGNED</ref><sp/></highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}<sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref>;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="54" refid="struct_g_g___inspection_options" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="60" refid="struct_g_g___inspection_options_1a68a155dafdc1b712eec5576035bf68a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options_1a68a155dafdc1b712eec5576035bf68a1" kindref="member">verbosity</ref>;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="67"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref><sp/><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref>;</highlight></codeline>
-<codeline lineno="69" refid="struct_g_g___inspectable" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref>*<sp/>vtable;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal">}<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="78"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="79" refid="struct_g_g___inspector_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnObjectStart)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnObjectEnd)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnArrayStart)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnArrayEnd)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnInspectable)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/>inspectable);</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnString)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>value);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnBoolean)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnInteger)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value,</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref><sp/>format_hint);</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnFloat)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnBytes)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnExtensible)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/>data_type,</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/>data,</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnObjectStart(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnObjectEnd(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnArrayStart(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnArrayEnd(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnInspectable(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/>inspectable);</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnString(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>value);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnBoolean(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnInteger(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value,</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref><sp/>format_hint);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnFloat(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnBytes(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnExtensible(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>name,</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/>data_type,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/>data,</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="129"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130" refid="struct_g_g___inspectable_interface" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref><sp/>{</highlight></codeline>
-<codeline lineno="143" refid="struct_g_g___inspectable_interface_1a686c90f2185f391650f346af0d3551fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*<ref refid="struct_g_g___inspectable_interface_1a686c90f2185f391650f346af0d3551fe" kindref="member">Inspect</ref>)(<ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/>inspector,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>*<sp/>options);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_Inspectable_Inspect(<ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/>inspector,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>*<sp/>options);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__results_8h" kindref="compound">xp/common/gg_results.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__types_8h" kindref="compound">xp/common/gg_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(GG_CONFIG_ENABLE_INSPECTION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IF_INSPECTION_ENABLED(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IF_INSPECTION_ENABLED(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="47" refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="48" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a38a63fe8d990204abe90f590717a6559" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a38a63fe8d990204abe90f590717a6559" kindref="member">GG_INSPECTOR_FORMAT_HINT_NONE</ref>,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a82c83c1c10eb952543e79110b6244893" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2a82c83c1c10eb952543e79110b6244893" kindref="member">GG_INSPECTOR_FORMAT_HINT_HEX</ref>,<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50" refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2af2f47308aea5c1ffae3d3fdd00032501" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___inspection_1gga7b8172d107319cc55a968cc52978c8d2af2f47308aea5c1ffae3d3fdd00032501" kindref="member">GG_INSPECTOR_FORMAT_HINT_UNSIGNED</ref><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}<sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_g_g___inspection_options" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62" refid="struct_g_g___inspection_options_1a68a155dafdc1b712eec5576035bf68a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options_1a68a155dafdc1b712eec5576035bf68a1" kindref="member">verbosity</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}<sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref><sp/><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref>;</highlight></codeline>
+<codeline lineno="71" refid="struct_g_g___inspectable" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref>*<sp/>vtable;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="struct_g_g___inspector_interface" refkind="compound"><highlight class="normal"><ref refid="group___interfaces_1ga8f7027840366e425586829a75c1bfb30" kindref="member">GG_DECLARE_INTERFACE</ref>(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnObjectStart)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnObjectEnd)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnArrayStart)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnArrayEnd)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnInspectable)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/>inspectable);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnString)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>value);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnBoolean)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnInteger)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref><sp/>format_hint);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnFloat)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnBytes)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*OnExtensible)(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/>data_type,</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/>data,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnObjectStart(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnObjectEnd(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnArrayStart(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnArrayEnd(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnInspectable(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/>inspectable);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnString(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>value);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnBoolean(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnInteger(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>value,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga7b8172d107319cc55a968cc52978c8d2" kindref="member">GG_InspectorFormatHint</ref><sp/>format_hint);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnFloat(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnBytes(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GG_Inspector_OnExtensible(<ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/>name,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/>data_type,</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/>data,</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data_size);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"></highlight><highlight class="comment">//----------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="struct_g_g___inspectable_interface" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_g___inspectable_interface" kindref="compound">GG_InspectableInterface</ref><sp/>{</highlight></codeline>
+<codeline lineno="145" refid="struct_g_g___inspectable_interface_1a686c90f2185f391650f346af0d3551fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>(*<ref refid="struct_g_g___inspectable_interface_1a686c90f2185f391650f346af0d3551fe" kindref="member">Inspect</ref>)(<ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/>inspector,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>*<sp/>options);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="152" refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref><sp/><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>;</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___inspection_1gaf879844eb2bc275ad1ae07ea5cff631f" kindref="member">GG_LoggingInspector_Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger_name,</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logging_level,</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>**<sp/>inspector);</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___inspection_1gafb879785c014d754a0b549e98a0949c8" kindref="member">GG_LoggingInspector_Destroy</ref>(<ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><ref refid="group___inspection_1gaaba079d01c49a96015bc535a192120cb" kindref="member">GG_LoggingInspector_AsInspector</ref>(<ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/>GG_Inspectable_Inspect(<ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/>inspector,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___inspection_options" kindref="compound">GG_InspectionOptions</ref>*<sp/>options);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref><sp/><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___inspection_1gaf879844eb2bc275ad1ae07ea5cff631f" kindref="member">GG_LoggingInspector_Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logger_name,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>logging_level,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>**<sp/>inspector);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___inspection_1gafb879785c014d754a0b549e98a0949c8" kindref="member">GG_LoggingInspector_Destroy</ref>(<ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><ref refid="struct_g_g___inspector" kindref="compound">GG_Inspector</ref>*<sp/><ref refid="group___inspection_1gaaba079d01c49a96015bc535a192120cb" kindref="member">GG_LoggingInspector_AsInspector</ref>(<ref refid="group___inspection_1ga71d0c1a8195213f1fa8c2cc37e459ac0" kindref="member">GG_LoggingInspector</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="186"><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="xp/common/gg_inspect.h"/>
   </compounddef>

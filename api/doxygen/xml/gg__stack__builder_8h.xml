@@ -4,97 +4,24 @@
     <compoundname>gg_stack_builder.h</compoundname>
     <includes local="no">stdint.h</includes>
     <includes local="no">stddef.h</includes>
-    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
     <includes refid="gg__gattlink__generic__client_8h" local="yes">xp/gattlink/gg_gattlink_generic_client.h</includes>
     <includes refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includes>
     <includes refid="gg__tls_8h" local="yes">xp/tls/gg_tls.h</includes>
     <incdepgraph>
-      <node id="6">
+      <node id="5">
         <label>stdbool.h</label>
       </node>
-      <node id="29">
-        <label>xp/gattlink/gg_gattlink.h</label>
-        <link refid="gg__gattlink_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
+      <node id="14">
+        <label>assert.h</label>
       </node>
-      <node id="13">
+      <node id="12">
         <label>xp/common/gg_memory.h</label>
         <link refid="gg__memory_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>assert.h</label>
-      </node>
-      <node id="28">
-        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
-        <link refid="gg__gattlink__generic__client_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>xp/protocols/gg_protocols.h</label>
-        <link refid="gg__protocols_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -109,25 +36,83 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>xp/common/gg_strings.h</label>
-        <link refid="gg__strings_8h"/>
+      <node id="21">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>xp/protocols/gg_protocols.h</label>
+        <link refid="gg__protocols_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/gattlink/gg_gattlink.h</label>
+        <link refid="gg__gattlink_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+      </node>
+      <node id="23">
+        <label>xp/tls/gg_tls.h</label>
+        <link refid="gg__tls_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_strings.h</label>
+        <link refid="gg__strings_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="16">
@@ -138,202 +123,60 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="9">
-        <label>xp/common/gg_crc32.h</label>
-        <link refid="gg__crc32_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
+      <node id="4">
+        <label>xp/gattlink/gg_gattlink_generic_client.h</label>
+        <link refid="gg__gattlink__generic__client_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="21">
-        <label>xp/common/gg_threads.h</label>
-        <link refid="gg__threads_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-      </node>
-      <node id="33">
-        <label>xp/tls/gg_tls.h</label>
-        <link refid="gg__tls_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-      </node>
-      <node id="32">
-        <label>xp/loop/gg_loop.h</label>
-        <link refid="gg__loop_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="3">
         <label>stddef.h</label>
       </node>
-      <node id="8">
-        <label>xp/common/gg_results.h</label>
-        <link refid="gg__results_8h"/>
-      </node>
-      <node id="20">
-        <label>xp/common/gg_system.h</label>
-        <link refid="gg__system_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>xp/common/gg_logging.h</label>
-        <link refid="gg__logging_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>xp/sockets/gg_sockets.h</label>
-        <link refid="gg__sockets_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>xp/common/gg_buffer.h</label>
-        <link refid="gg__buffer_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
-        <label>xp/common/gg_utils.h</label>
-        <link refid="gg__utils_8h"/>
+      <node id="15">
+        <label>xp/common/gg_events.h</label>
+        <link refid="gg__events_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
         <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
       </node>
-      <node id="11">
+      <node id="9">
         <label>xp/common/gg_io.h</label>
         <link refid="gg__io_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>xp/common/gg_version.h</label>
-        <link refid="gg__version_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="26">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>xp/common/gg_ring_buffer.h</label>
-        <link refid="gg__ring__buffer_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
+      <node id="6">
         <label>xp/common/gg_types.h</label>
         <link refid="gg__types_8h"/>
         <childnode refid="3" relation="include">
@@ -341,40 +184,75 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="14">
-        <label>xp/common/gg_port.h</label>
-        <link refid="gg__port_8h"/>
-        <childnode refid="15" relation="include">
+      <node id="20">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="18">
-        <label>xp/common/gg_queues.h</label>
-        <link refid="gg__queues_8h"/>
+      <node id="17">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
+      <node id="22">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="27">
-        <label>xp/common/gg_bitstream.h</label>
-        <link refid="gg__bitstream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+      <node id="13">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="10">
-        <label>stdio.h</label>
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
     <innerclass refid="struct_g_g___stack_element_info" prot="public">GG_StackElementInfo</innerclass>
@@ -397,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="191" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="191" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="190" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga95b3cb211edbd43a40affa40d3f5551f" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_GATTLINK</name>
@@ -409,7 +287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="192" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="192" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="191" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="191" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gae0e13fffc83aae0b56c2ec64a3393ef8" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_IP_NETWORK_INTERFACE</name>
@@ -421,7 +299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="193" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="193" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="192" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="192" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga13610d02a9724e6bcf1931e85e344bb9" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET</name>
@@ -433,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="194" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="194" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="193" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga8a273e348f4f074008c8cce5c65c0fcf" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT</name>
@@ -445,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="195" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="195" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="194" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gafb5a0ae7182e1afd858fcb6956953171" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DTLS_SERVER</name>
@@ -457,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="196" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="196" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="195" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="195" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga0dfabc6c8dd122b149fc9be4abceaa81" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ID_TOP</name>
@@ -469,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="198" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="198" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="197" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="197" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga2bbbf6c5839acc0fe28127ae75b8c463" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ID_BOTTOM</name>
@@ -481,7 +359,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="199" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="199" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="198" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gac9503bdd8b6817408a848d2e7deab3e1" prot="public" static="no">
         <name>GG_STACK_PORT_ID_TOP</name>
@@ -493,7 +371,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="201" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="201" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="200" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga6670e8e81c1e1cd0ae89285c935a37e2" prot="public" static="no">
         <name>GG_STACK_PORT_ID_BOTTOM</name>
@@ -505,7 +383,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="202" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="202" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="201" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gacfaaa039172c279002e59132206226cf" prot="public" static="no">
         <name>GG_EVENT_TYPE_STACK_EVENT_FORWARD</name>
@@ -519,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="204" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="204" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="203" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="203" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga7196f24e47fb5fc175652a07fecb72a2" prot="public" static="no">
         <name>GG_EVENT_TYPE_LINK_MTU_CHANGE</name>
@@ -533,7 +411,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="205" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="205" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="204" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="204" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga3d0822cf2dbf6a690666e173ef388971" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ACTIVITY_MONITOR_DEFAULT_TIMEOUT</name>
@@ -544,7 +422,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="207" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="207" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="206" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="206" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gab5687a4196f4c6bde7caddfc8952a217" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_GATTLINK_ONLY</name>
@@ -573,7 +451,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="234" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="234" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="233" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga120798858e7101bfd37fbb65dd597bd2" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_NETIF_GATTLINK</name>
@@ -612,7 +490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="267" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="267" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="266" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="266" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga5184c436a89fa187281986be9f09db91" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK</name>
@@ -657,7 +535,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="306" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="306" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="305" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="305" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga428779bc41545f7d92b0aa762785d56d" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK</name>
@@ -710,7 +588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="353" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="353" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="352" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="352" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gaae74b02462b6e88f505b1335c71cf7f1" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET</name>
@@ -750,7 +628,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="387" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="387" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="386" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="386" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga0ca6f2adb853ef431ff8c9cd8bf6a41b" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_NETIF</name>
@@ -783,7 +661,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="414" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="414" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="413" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="413" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga44f890474fe46e816d20bf02d1bb4a69" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK_ACTIVITY</name>
@@ -843,7 +721,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="468" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="468" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="467" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="467" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="enum">
@@ -871,7 +749,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="120" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="120" bodyend="123"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="119" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="119" bodyend="122"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -892,7 +770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="108" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="62" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="108" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1ga6fb996726e8286250237d87718835809" prot="public" static="no">
         <type>uint32_t</type>
@@ -906,7 +784,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="68" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="68" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="67" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" prot="public" static="no">
         <type>uint32_t</type>
@@ -920,7 +798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="73" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="72" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" prot="public" static="no">
         <type>uint32_t</type>
@@ -934,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="78" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="78" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="77" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -1063,7 +941,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="495" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="495" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="494" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="494" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga993367b16ecf0de6e75d41943ca959d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1081,7 +959,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="508" column="6" declfile="xp/stack_builder/gg_stack_builder.h" declline="508" declcolumn="6"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="507" column="6" declfile="xp/stack_builder/gg_stack_builder.h" declline="507" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga92ce18062ea3f502fff2310426a49427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1112,7 +990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="521" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="521" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="520" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="520" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga0ca78f6091b08b531d4ffa062cfd3629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1142,7 +1020,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="530" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="530" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="529" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="529" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga83d234dd3513856a8e80b51bd3f63c72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref> *</type>
@@ -1172,7 +1050,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="539" column="17" declfile="xp/stack_builder/gg_stack_builder.h" declline="539" declcolumn="17"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="538" column="17" declfile="xp/stack_builder/gg_stack_builder.h" declline="538" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1gaa65e38def48dab3619a3a1b9ecd2f65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref> *</type>
@@ -1203,7 +1081,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="550" column="18" declfile="xp/stack_builder/gg_stack_builder.h" declline="550" declcolumn="18"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="549" column="18" declfile="xp/stack_builder/gg_stack_builder.h" declline="549" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1gac6d2ac9b2717e8c135623260f553a603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -1233,7 +1111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="559" column="16" declfile="xp/stack_builder/gg_stack_builder.h" declline="559" declcolumn="16"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="558" column="16" declfile="xp/stack_builder/gg_stack_builder.h" declline="558" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga423a8e6c521e3f91efa591633f22d0b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1267,7 +1145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="569" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="569" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="568" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="568" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga99d04f523d13aaf71b6026556b8dac60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1309,7 +1187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="580" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="580" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="579" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="579" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga0e5caa1e16bfacc9d12eb2c5abfe1997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1375,7 +1253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="592" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="592" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="591" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="591" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga710dba4df7f7630acc4b53a1fa327381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -1396,7 +1274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="599" column="8" declfile="xp/stack_builder/gg_stack_builder.h" declline="599" declcolumn="8"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="598" column="8" declfile="xp/stack_builder/gg_stack_builder.h" declline="598" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga6126bb14accea6145ef110b554d8fdbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1450,7 +1328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="612" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="612" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="611" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="611" declcolumn="11"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -1475,171 +1353,170 @@
 <codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__gattlink__generic__client_8h" kindref="compound">xp/gattlink/gg_gattlink_generic_client.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__sockets_8h" kindref="compound">xp/sockets/gg_sockets.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__tls_8h" kindref="compound">xp/tls/gg_tls.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="36"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
-<codeline lineno="37"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62" refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref><sp/><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68" refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref>;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" kindref="member">GG_StackElementId</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" kindref="member">GG_StackPortId</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="struct_g_g___stack_element_info" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="84" refid="struct_g_g___stack_element_info_1a64d166cf45d5a12414c1ffbf19d16912" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" kindref="member">GG_StackElementId</ref><sp/><sp/><sp/><ref refid="struct_g_g___stack_element_info_1a64d166cf45d5a12414c1ffbf19d16912" kindref="member">id</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="85" refid="struct_g_g___stack_element_info_1a7139cc2faa447a94aa311573bd6ada36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref><sp/><ref refid="struct_g_g___stack_element_info_1a7139cc2faa447a94aa311573bd6ada36" kindref="member">type</ref>;<sp/></highlight></codeline>
-<codeline lineno="86"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_info" kindref="compound">GG_StackElementInfo</ref>;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92" refid="struct_g_g___stack_element_port_info" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="93" refid="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" kindref="member">GG_StackPortId</ref><sp/><ref refid="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="94" refid="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" kindref="member">source</ref>;<sp/></highlight></codeline>
-<codeline lineno="95" refid="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><ref refid="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" kindref="member">sink</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="96"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_port_info" kindref="compound">GG_StackElementPortInfo</ref>;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101" refid="struct_g_g___stack_ip_configuration" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="102" refid="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" kindref="member">local_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="103" refid="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" kindref="member">remote_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="104" refid="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" kindref="member">if_netmask</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="105" refid="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" kindref="member">ip_mtu</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="107" refid="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" kindref="member">enabled</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="108" refid="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" kindref="member">default_udp_port</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>header_compression;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enabled;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="112" refid="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" kindref="member">source_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="113" refid="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" kindref="member">destination_address</ref>;<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inbound_address_remapping;<sp/></highlight></codeline>
-<codeline lineno="115"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120" refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_STACK_ROLE_HUB,</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_STACK_ROLE_NODE</highlight></codeline>
-<codeline lineno="123"><highlight class="normal">}<sp/><ref refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" kindref="member">GG_StackRole</ref>;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128" refid="struct_g_g___stack_element_activity_monitor_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="129" refid="struct_g_g___stack_element_activity_monitor_parameters_1a4a0367c2da7fde22b2c7591229205367" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___stack_element_activity_monitor_parameters_1a4a0367c2da7fde22b2c7591229205367" kindref="member">inactivity_timeout</ref>;<sp/></highlight></codeline>
-<codeline lineno="130"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_activity_monitor_parameters" kindref="compound">GG_StackElementActivityMonitorParameters</ref>;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="135" refid="struct_g_g___stack_element_gattlink_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="136" refid="struct_g_g___stack_element_gattlink_parameters_1ace11f531da7d498a3bbfea63e4f612fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1ace11f531da7d498a3bbfea63e4f612fe" kindref="member">rx_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="137" refid="struct_g_g___stack_element_gattlink_parameters_1a4945468b24c6260de24d954b67ae7565" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a4945468b24c6260de24d954b67ae7565" kindref="member">tx_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="138" refid="struct_g_g___stack_element_gattlink_parameters_1a044d9311e10d394c6d672dbb5a4cb1c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a044d9311e10d394c6d672dbb5a4cb1c0" kindref="member">buffer_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="139" refid="struct_g_g___stack_element_gattlink_parameters_1a9626b24b06e2e54e4baa5652c13f7276" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a9626b24b06e2e54e4baa5652c13f7276" kindref="member">initial_max_fragment_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="140" refid="struct_g_g___stack_element_gattlink_parameters_1abd2615351184cf98a87226c0651b37dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___gattlink_probe_config" kindref="compound">GG_GattlinkProbeConfig</ref>*<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1abd2615351184cf98a87226c0651b37dc" kindref="member">probe_config</ref>;<sp/></highlight></codeline>
-<codeline lineno="141"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters" kindref="compound">GG_StackElementGattlinkParameters</ref>;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146" refid="struct_g_g___stack_element_datagram_socket_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="147" refid="struct_g_g___stack_element_datagram_socket_parameters_1a5b0a168cce61591c6138f6624b1ea4e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters_1a5b0a168cce61591c6138f6624b1ea4e4" kindref="member">local_port</ref>;<sp/><sp/></highlight></codeline>
-<codeline lineno="148" refid="struct_g_g___stack_element_datagram_socket_parameters_1a6af5a15114183e55a3be00c5212212e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters_1a6af5a15114183e55a3be00c5212212e9" kindref="member">remote_port</ref>;<sp/></highlight></codeline>
-<codeline lineno="149"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref>;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162" refid="struct_g_g___stack_builder_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="163" refid="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref><sp/><ref refid="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" kindref="member">element_type</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="164" refid="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" kindref="member">element_parameters</ref>;<sp/></highlight></codeline>
-<codeline lineno="165"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_builder_parameters" kindref="compound">GG_StackBuilderParameters</ref>;</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173" refid="struct_g_g___stack_forward_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
-<codeline lineno="175" refid="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref>*<sp/><ref refid="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" kindref="member">forwarded</ref>;<sp/></highlight></codeline>
-<codeline lineno="176"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_forward_event" kindref="compound">GG_StackForwardEvent</ref>;</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
-<codeline lineno="183" refid="struct_g_g___stack_link_mtu_change_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
-<codeline lineno="185" refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" kindref="member">link_mtu</ref>;<sp/></highlight></codeline>
-<codeline lineno="186"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_link_mtu_change_event" kindref="compound">GG_StackLinkMtuChangeEvent</ref>;</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="189"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
-<codeline lineno="190"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191" refid="group___stack_builder_1ga578c5bfefadc2fd48e113b2b03b6a776" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_ACTIVITY_MONITOR<sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;a&apos;,<sp/>&apos;m&apos;,<sp/>&apos;o&apos;,<sp/>&apos;n&apos;)<sp/></highlight></codeline>
-<codeline lineno="192" refid="group___stack_builder_1ga95b3cb211edbd43a40affa40d3f5551f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_GATTLINK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;g&apos;,<sp/>&apos;l&apos;,<sp/>&apos;n&apos;,<sp/>&apos;k&apos;)<sp/></highlight></codeline>
-<codeline lineno="193" refid="group___stack_builder_1gae0e13fffc83aae0b56c2ec64a3393ef8" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_IP_NETWORK_INTERFACE<sp/>GG_4CC(&apos;n&apos;,<sp/>&apos;e&apos;,<sp/>&apos;t&apos;,<sp/>&apos;i&apos;)<sp/></highlight></codeline>
-<codeline lineno="194" refid="group___stack_builder_1ga13610d02a9724e6bcf1931e85e344bb9" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET<sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;u&apos;,<sp/>&apos;d&apos;,<sp/>&apos;p&apos;,<sp/>&apos;s&apos;)<sp/></highlight></codeline>
-<codeline lineno="195" refid="group___stack_builder_1ga8a273e348f4f074008c8cce5c65c0fcf" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;t&apos;,<sp/>&apos;l&apos;,<sp/>&apos;s&apos;,<sp/>&apos;c&apos;)<sp/></highlight></codeline>
-<codeline lineno="196" refid="group___stack_builder_1gafb5a0ae7182e1afd858fcb6956953171" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DTLS_SERVER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;t&apos;,<sp/>&apos;l&apos;,<sp/>&apos;s&apos;,<sp/>&apos;s&apos;)<sp/></highlight></codeline>
-<codeline lineno="197"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="198" refid="group___stack_builder_1ga0dfabc6c8dd122b149fc9be4abceaa81" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ID_TOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight></codeline>
-<codeline lineno="199" refid="group___stack_builder_1ga2bbbf6c5839acc0fe28127ae75b8c463" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ID_BOTTOM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/><sp/></highlight></codeline>
-<codeline lineno="200"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="201" refid="group___stack_builder_1gac9503bdd8b6817408a848d2e7deab3e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_PORT_ID_TOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight></codeline>
-<codeline lineno="202" refid="group___stack_builder_1ga6670e8e81c1e1cd0ae89285c935a37e2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_PORT_ID_BOTTOM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/><sp/></highlight></codeline>
-<codeline lineno="203"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="204" refid="group___stack_builder_1gacfaaa039172c279002e59132206226cf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_STACK_EVENT_FORWARD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;s&apos;,<sp/>&apos;t&apos;,<sp/>&apos;k&apos;,<sp/>&apos;f&apos;)<sp/></highlight></codeline>
-<codeline lineno="205" refid="group___stack_builder_1ga7196f24e47fb5fc175652a07fecb72a2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_LINK_MTU_CHANGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;m&apos;,<sp/>&apos;t&apos;,<sp/>&apos;u&apos;,<sp/>&apos;c&apos;)<sp/></highlight></codeline>
-<codeline lineno="206"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ACTIVITY_MONITOR_DEFAULT_TIMEOUT<sp/>30000</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="210"><highlight class="comment">|<sp/><sp/><sp/>standard<sp/>stack<sp/>configurations</highlight></codeline>
-<codeline lineno="211"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="234" refid="group___stack_builder_1gab5687a4196f4c6bde7caddfc8952a217" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_GATTLINK_ONLY<sp/>&quot;G&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"></highlight></codeline>
-<codeline lineno="267" refid="group___stack_builder_1ga120798858e7101bfd37fbb65dd597bd2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_NETIF_GATTLINK<sp/>&quot;NG&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="268"><highlight class="normal"></highlight></codeline>
-<codeline lineno="306" refid="group___stack_builder_1ga5184c436a89fa187281986be9f09db91" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK<sp/>&quot;SNG&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="307"><highlight class="normal"></highlight></codeline>
-<codeline lineno="353" refid="group___stack_builder_1ga428779bc41545f7d92b0aa762785d56d" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK<sp/><sp/>&quot;DSNG&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="354"><highlight class="normal"></highlight></codeline>
-<codeline lineno="387" refid="group___stack_builder_1gaae74b02462b6e88f505b1335c71cf7f1" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET<sp/>&quot;DS&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="388"><highlight class="normal"></highlight></codeline>
-<codeline lineno="414" refid="group___stack_builder_1ga0ca6f2adb853ef431ff8c9cd8bf6a41b" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_NETIF<sp/>&quot;N&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="415"><highlight class="normal"></highlight></codeline>
-<codeline lineno="468" refid="group___stack_builder_1ga44f890474fe46e816d20bf02d1bb4a69" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK_ACTIVITY<sp/>&quot;DSNGA&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="469"><highlight class="normal"></highlight></codeline>
-<codeline lineno="470"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="471"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
-<codeline lineno="472"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="473"><highlight class="normal"></highlight></codeline>
-<codeline lineno="495"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga8dac1f419fb84dd511d1002608bd0202" kindref="member">GG_StackBuilder_BuildStack</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>descriptor,</highlight></codeline>
-<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_builder_parameters" kindref="compound">GG_StackBuilderParameters</ref>*<sp/>parameters,</highlight></codeline>
-<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameter_count,</highlight></codeline>
-<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" kindref="member">GG_StackRole</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>role,</highlight></codeline>
-<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>*<sp/><sp/><sp/>ip_configuration,</highlight></codeline>
-<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loop,</highlight></codeline>
-<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source,</highlight></codeline>
-<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sink,</highlight></codeline>
-<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack);</highlight></codeline>
-<codeline lineno="504"><highlight class="normal"></highlight></codeline>
-<codeline lineno="508"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___stack_builder_1ga993367b16ecf0de6e75d41943ca959d3" kindref="member">GG_Stack_Destroy</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="509"><highlight class="normal"></highlight></codeline>
-<codeline lineno="521"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga92ce18062ea3f502fff2310426a49427" kindref="member">GG_Stack_Start</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="522"><highlight class="normal"></highlight></codeline>
-<codeline lineno="530"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga0ca78f6091b08b531d4ffa062cfd3629" kindref="member">GG_Stack_Reset</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="531"><highlight class="normal"></highlight></codeline>
-<codeline lineno="539"><highlight class="normal"><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref>*<sp/><ref refid="group___stack_builder_1ga83d234dd3513856a8e80b51bd3f63c72" kindref="member">GG_Stack_AsEventEmitter</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="540"><highlight class="normal"></highlight></codeline>
-<codeline lineno="550"><highlight class="normal"><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><ref refid="group___stack_builder_1gaa65e38def48dab3619a3a1b9ecd2f65a" kindref="member">GG_Stack_AsEventListener</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="551"><highlight class="normal"></highlight></codeline>
-<codeline lineno="559"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="group___stack_builder_1gac6d2ac9b2717e8c135623260f553a603" kindref="member">GG_Stack_AsInspectable</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="560"><highlight class="normal"></highlight></codeline>
-<codeline lineno="569"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga423a8e6c521e3f91efa591633f22d0b7" kindref="member">GG_Stack_GetIpConfiguration</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>*<sp/>ip_configuration);</highlight></codeline>
-<codeline lineno="570"><highlight class="normal"></highlight></codeline>
-<codeline lineno="580"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga99d04f523d13aaf71b6026556b8dac60" kindref="member">GG_Stack_GetDtlsProtocolStatus</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___dtls_protocol_status" kindref="compound">GG_DtlsProtocolStatus</ref>*<sp/>status);</highlight></codeline>
-<codeline lineno="581"><highlight class="normal"></highlight></codeline>
-<codeline lineno="592"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga0e5caa1e16bfacc9d12eb2c5abfe1997" kindref="member">GG_Stack_GetPortById</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t<sp/>element_id,<sp/>uint32_t<sp/>port_id,<sp/><ref refid="struct_g_g___stack_element_port_info" kindref="compound">GG_StackElementPortInfo</ref>*<sp/>port);</highlight></codeline>
-<codeline lineno="593"><highlight class="normal"></highlight></codeline>
-<codeline lineno="599"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___stack_builder_1ga710dba4df7f7630acc4b53a1fa327381" kindref="member">GG_Stack_GetElementCount</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="600"><highlight class="normal"></highlight></codeline>
-<codeline lineno="612"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga6126bb14accea6145ef110b554d8fdbc" kindref="member">GG_Stack_GetElementByIndex</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>element_index,<sp/><ref refid="struct_g_g___stack_element_info" kindref="compound">GG_StackElementInfo</ref>*<sp/>element_info);</highlight></codeline>
-<codeline lineno="613"><highlight class="normal"></highlight></codeline>
-<codeline lineno="615"><highlight class="normal"></highlight></codeline>
-<codeline lineno="616"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="617"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="618"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__gattlink__generic__client_8h" kindref="compound">xp/gattlink/gg_gattlink_generic_client.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__sockets_8h" kindref="compound">xp/sockets/gg_sockets.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__tls_8h" kindref="compound">xp/tls/gg_tls.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref><sp/><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" kindref="member">GG_StackElementId</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" kindref="member">GG_StackPortId</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_g_g___stack_element_info" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83" refid="struct_g_g___stack_element_info_1a64d166cf45d5a12414c1ffbf19d16912" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" kindref="member">GG_StackElementId</ref><sp/><sp/><sp/><ref refid="struct_g_g___stack_element_info_1a64d166cf45d5a12414c1ffbf19d16912" kindref="member">id</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="84" refid="struct_g_g___stack_element_info_1a7139cc2faa447a94aa311573bd6ada36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref><sp/><ref refid="struct_g_g___stack_element_info_1a7139cc2faa447a94aa311573bd6ada36" kindref="member">type</ref>;<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_info" kindref="compound">GG_StackElementInfo</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="struct_g_g___stack_element_port_info" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92" refid="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" kindref="member">GG_StackPortId</ref><sp/><ref refid="struct_g_g___stack_element_port_info_1a81e706e942dc8b6f64fd01e9eb7b1b5a" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93" refid="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><ref refid="struct_g_g___stack_element_port_info_1a21ddff2bd87fd9e015762d29081dd563" kindref="member">source</ref>;<sp/></highlight></codeline>
+<codeline lineno="94" refid="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><ref refid="struct_g_g___stack_element_port_info_1a8307b5bc664d9c7b8894187236de388b" kindref="member">sink</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_port_info" kindref="compound">GG_StackElementPortInfo</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="struct_g_g___stack_ip_configuration" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101" refid="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1ac0fd02523134c4e2450935b35f40280e" kindref="member">local_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102" refid="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a14b28dd9fa3de224ef83d9ef2fd19be3" kindref="member">remote_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103" refid="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1ab917c15132ab58678cf341df14289938" kindref="member">if_netmask</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104" refid="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_ip_configuration_1aad34a1ecbc83254919b36467ceb59edb" kindref="member">ip_mtu</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106" refid="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_ip_configuration_1a7126fca27487531ffe1f5c4e2aea9622" kindref="member">enabled</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107" refid="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_ip_configuration_1a00869c68c85f361a0ab5a51da26a02de" kindref="member">default_udp_port</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>header_compression;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>enabled;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111" refid="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a500a9340141bcc9c8d1f49d8ff1e1b91" kindref="member">source_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___ip_address" kindref="compound">GG_IpAddress</ref><sp/><ref refid="struct_g_g___stack_ip_configuration_1a6e18e17c1cef04bd9347ae3c09db2e4b" kindref="member">destination_address</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inbound_address_remapping;<sp/></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_STACK_ROLE_HUB,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>GG_STACK_ROLE_NODE</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}<sp/><ref refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" kindref="member">GG_StackRole</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="struct_g_g___stack_element_activity_monitor_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128" refid="struct_g_g___stack_element_activity_monitor_parameters_1a4a0367c2da7fde22b2c7591229205367" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___stack_element_activity_monitor_parameters_1a4a0367c2da7fde22b2c7591229205367" kindref="member">inactivity_timeout</ref>;<sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_activity_monitor_parameters" kindref="compound">GG_StackElementActivityMonitorParameters</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="struct_g_g___stack_element_gattlink_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135" refid="struct_g_g___stack_element_gattlink_parameters_1ace11f531da7d498a3bbfea63e4f612fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1ace11f531da7d498a3bbfea63e4f612fe" kindref="member">rx_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136" refid="struct_g_g___stack_element_gattlink_parameters_1a4945468b24c6260de24d954b67ae7565" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a4945468b24c6260de24d954b67ae7565" kindref="member">tx_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="137" refid="struct_g_g___stack_element_gattlink_parameters_1a044d9311e10d394c6d672dbb5a4cb1c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a044d9311e10d394c6d672dbb5a4cb1c0" kindref="member">buffer_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="struct_g_g___stack_element_gattlink_parameters_1a9626b24b06e2e54e4baa5652c13f7276" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1a9626b24b06e2e54e4baa5652c13f7276" kindref="member">initial_max_fragment_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139" refid="struct_g_g___stack_element_gattlink_parameters_1abd2615351184cf98a87226c0651b37dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___gattlink_probe_config" kindref="compound">GG_GattlinkProbeConfig</ref>*<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters_1abd2615351184cf98a87226c0651b37dc" kindref="member">probe_config</ref>;<sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_gattlink_parameters" kindref="compound">GG_StackElementGattlinkParameters</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="struct_g_g___stack_element_datagram_socket_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146" refid="struct_g_g___stack_element_datagram_socket_parameters_1a5b0a168cce61591c6138f6624b1ea4e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters_1a5b0a168cce61591c6138f6624b1ea4e4" kindref="member">local_port</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="147" refid="struct_g_g___stack_element_datagram_socket_parameters_1a6af5a15114183e55a3be00c5212212e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters_1a6af5a15114183e55a3be00c5212212e9" kindref="member">remote_port</ref>;<sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_element_datagram_socket_parameters" kindref="compound">GG_StackElementDatagramSocketParameters</ref>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="struct_g_g___stack_builder_parameters" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="162" refid="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga6fb996726e8286250237d87718835809" kindref="member">GG_StackElementType</ref><sp/><ref refid="struct_g_g___stack_builder_parameters_1a969e6366a4d9a5581d7494332defe8dd" kindref="member">element_type</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="163" refid="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___stack_builder_parameters_1a2f62fbfa67899eda7a2c8a96653f2af6" kindref="member">element_parameters</ref>;<sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_builder_parameters" kindref="compound">GG_StackBuilderParameters</ref>;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="struct_g_g___stack_forward_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
+<codeline lineno="174" refid="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref>*<sp/><ref refid="struct_g_g___stack_forward_event_1aa25739069936d1cc274f23f868242b72" kindref="member">forwarded</ref>;<sp/></highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_forward_event" kindref="compound">GG_StackForwardEvent</ref>;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="struct_g_g___stack_link_mtu_change_event" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_g___event" kindref="compound">GG_Event</ref><sp/><sp/><sp/><sp/><sp/>base;</highlight></codeline>
+<codeline lineno="184" refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_link_mtu_change_event_1a52695b98cc26d639c126ca4bd3fdfa33" kindref="member">link_mtu</ref>;<sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}<sp/><ref refid="struct_g_g___stack_link_mtu_change_event" kindref="compound">GG_StackLinkMtuChangeEvent</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="188"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="189"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="group___stack_builder_1ga578c5bfefadc2fd48e113b2b03b6a776" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_ACTIVITY_MONITOR<sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;a&apos;,<sp/>&apos;m&apos;,<sp/>&apos;o&apos;,<sp/>&apos;n&apos;)<sp/></highlight></codeline>
+<codeline lineno="191" refid="group___stack_builder_1ga95b3cb211edbd43a40affa40d3f5551f" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_GATTLINK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;g&apos;,<sp/>&apos;l&apos;,<sp/>&apos;n&apos;,<sp/>&apos;k&apos;)<sp/></highlight></codeline>
+<codeline lineno="192" refid="group___stack_builder_1gae0e13fffc83aae0b56c2ec64a3393ef8" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_IP_NETWORK_INTERFACE<sp/>GG_4CC(&apos;n&apos;,<sp/>&apos;e&apos;,<sp/>&apos;t&apos;,<sp/>&apos;i&apos;)<sp/></highlight></codeline>
+<codeline lineno="193" refid="group___stack_builder_1ga13610d02a9724e6bcf1931e85e344bb9" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET<sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;u&apos;,<sp/>&apos;d&apos;,<sp/>&apos;p&apos;,<sp/>&apos;s&apos;)<sp/></highlight></codeline>
+<codeline lineno="194" refid="group___stack_builder_1ga8a273e348f4f074008c8cce5c65c0fcf" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;t&apos;,<sp/>&apos;l&apos;,<sp/>&apos;s&apos;,<sp/>&apos;c&apos;)<sp/></highlight></codeline>
+<codeline lineno="195" refid="group___stack_builder_1gafb5a0ae7182e1afd858fcb6956953171" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_TYPE_DTLS_SERVER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;t&apos;,<sp/>&apos;l&apos;,<sp/>&apos;s&apos;,<sp/>&apos;s&apos;)<sp/></highlight></codeline>
+<codeline lineno="196"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="group___stack_builder_1ga0dfabc6c8dd122b149fc9be4abceaa81" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ID_TOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight></codeline>
+<codeline lineno="198" refid="group___stack_builder_1ga2bbbf6c5839acc0fe28127ae75b8c463" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ID_BOTTOM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/><sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200" refid="group___stack_builder_1gac9503bdd8b6817408a848d2e7deab3e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_PORT_ID_TOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/></highlight></codeline>
+<codeline lineno="201" refid="group___stack_builder_1ga6670e8e81c1e1cd0ae89285c935a37e2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_PORT_ID_BOTTOM<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1<sp/><sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="group___stack_builder_1gacfaaa039172c279002e59132206226cf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_STACK_EVENT_FORWARD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;s&apos;,<sp/>&apos;t&apos;,<sp/>&apos;k&apos;,<sp/>&apos;f&apos;)<sp/></highlight></codeline>
+<codeline lineno="204" refid="group___stack_builder_1ga7196f24e47fb5fc175652a07fecb72a2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_EVENT_TYPE_LINK_MTU_CHANGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_4CC(&apos;m&apos;,<sp/>&apos;t&apos;,<sp/>&apos;u&apos;,<sp/>&apos;c&apos;)<sp/></highlight></codeline>
+<codeline lineno="205"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_STACK_ELEMENT_ACTIVITY_MONITOR_DEFAULT_TIMEOUT<sp/>30000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="209"><highlight class="comment">|<sp/><sp/><sp/>standard<sp/>stack<sp/>configurations</highlight></codeline>
+<codeline lineno="210"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="group___stack_builder_1gab5687a4196f4c6bde7caddfc8952a217" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_GATTLINK_ONLY<sp/>&quot;G&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="group___stack_builder_1ga120798858e7101bfd37fbb65dd597bd2" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_NETIF_GATTLINK<sp/>&quot;NG&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305" refid="group___stack_builder_1ga5184c436a89fa187281986be9f09db91" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK<sp/>&quot;SNG&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352" refid="group___stack_builder_1ga428779bc41545f7d92b0aa762785d56d" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK<sp/><sp/>&quot;DSNG&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386" refid="group___stack_builder_1gaae74b02462b6e88f505b1335c71cf7f1" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET<sp/>&quot;DS&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="413" refid="group___stack_builder_1ga0ca6f2adb853ef431ff8c9cd8bf6a41b" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_NETIF<sp/>&quot;N&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467" refid="group___stack_builder_1ga44f890474fe46e816d20bf02d1bb4a69" refkind="member"><highlight class="preprocessor">#define<sp/>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK_ACTIVITY<sp/>&quot;DSNGA&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="470"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="471"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="472"><highlight class="normal"></highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga8dac1f419fb84dd511d1002608bd0202" kindref="member">GG_StackBuilder_BuildStack</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>descriptor,</highlight></codeline>
+<codeline lineno="495"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_builder_parameters" kindref="compound">GG_StackBuilderParameters</ref>*<sp/>parameters,</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>parameter_count,</highlight></codeline>
+<codeline lineno="497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga9fa40d505d8bab0a27fd1a65d9bd215a" kindref="member">GG_StackRole</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>role,</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>*<sp/><sp/><sp/>ip_configuration,</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GG_Loop*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loop,</highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source,</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sink,</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stack);</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group___stack_builder_1ga993367b16ecf0de6e75d41943ca959d3" kindref="member">GG_Stack_Destroy</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga92ce18062ea3f502fff2310426a49427" kindref="member">GG_Stack_Start</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="521"><highlight class="normal"></highlight></codeline>
+<codeline lineno="529"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga0ca78f6091b08b531d4ffa062cfd3629" kindref="member">GG_Stack_Reset</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="530"><highlight class="normal"></highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref>*<sp/><ref refid="group___stack_builder_1ga83d234dd3513856a8e80b51bd3f63c72" kindref="member">GG_Stack_AsEventEmitter</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"></highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref>*<sp/><ref refid="group___stack_builder_1gaa65e38def48dab3619a3a1b9ecd2f65a" kindref="member">GG_Stack_AsEventListener</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"></highlight></codeline>
+<codeline lineno="558"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="group___stack_builder_1gac6d2ac9b2717e8c135623260f553a603" kindref="member">GG_Stack_AsInspectable</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="559"><highlight class="normal"></highlight></codeline>
+<codeline lineno="568"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga423a8e6c521e3f91efa591633f22d0b7" kindref="member">GG_Stack_GetIpConfiguration</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___stack_ip_configuration" kindref="compound">GG_StackIpConfiguration</ref>*<sp/>ip_configuration);</highlight></codeline>
+<codeline lineno="569"><highlight class="normal"></highlight></codeline>
+<codeline lineno="579"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga99d04f523d13aaf71b6026556b8dac60" kindref="member">GG_Stack_GetDtlsProtocolStatus</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/><ref refid="struct_g_g___dtls_protocol_status" kindref="compound">GG_DtlsProtocolStatus</ref>*<sp/>status);</highlight></codeline>
+<codeline lineno="580"><highlight class="normal"></highlight></codeline>
+<codeline lineno="591"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga0e5caa1e16bfacc9d12eb2c5abfe1997" kindref="member">GG_Stack_GetPortById</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint32_t<sp/>element_id,<sp/>uint32_t<sp/>port_id,<sp/><ref refid="struct_g_g___stack_element_port_info" kindref="compound">GG_StackElementPortInfo</ref>*<sp/>port);</highlight></codeline>
+<codeline lineno="592"><highlight class="normal"></highlight></codeline>
+<codeline lineno="598"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group___stack_builder_1ga710dba4df7f7630acc4b53a1fa327381" kindref="member">GG_Stack_GetElementCount</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="599"><highlight class="normal"></highlight></codeline>
+<codeline lineno="611"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="group___stack_builder_1ga6126bb14accea6145ef110b554d8fdbc" kindref="member">GG_Stack_GetElementByIndex</ref>(<ref refid="group___stack_builder_1ga437701a67f9693703a6bddd2d50923ea" kindref="member">GG_Stack</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>element_index,<sp/><ref refid="struct_g_g___stack_element_info" kindref="compound">GG_StackElementInfo</ref>*<sp/>element_info);</highlight></codeline>
+<codeline lineno="612"><highlight class="normal"></highlight></codeline>
+<codeline lineno="614"><highlight class="normal"></highlight></codeline>
+<codeline lineno="615"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="616"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="xp/stack_builder/gg_stack_builder.h"/>
   </compounddef>

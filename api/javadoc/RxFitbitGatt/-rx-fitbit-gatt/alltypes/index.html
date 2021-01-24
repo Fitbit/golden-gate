@@ -10,6 +10,13 @@
 <tbody>
 <tr>
 <td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.advertiser/-advertiser/index.html">com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser</a></td>
+<td>
+<p>Utility class wrapping framework gattServer and rxGattServerCallback</p>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.client.listeners/-base-connection-event-listener/index.html">com.fitbit.bluetooth.fbgatt.rx.client.listeners.BaseConnectionEventListener</a></td>
 <td>
 <p>Base <a href="#">ConnectionEventListener</a> that provides no operations when one of the callback is called</p>
@@ -33,9 +40,9 @@ specific callback method</p>
 </tr>
 <tr>
 <td>
-<a href="../com.fitbit.bluetooth.fbgatt.rx.client/-bit-gatt-peripheral/index.html">com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeripheral</a></td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.client/-bit-gatt-peer/index.html">com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer</a></td>
 <td>
-<p>Interface representing a BLE peripheral and operations that can be carried on it.</p>
+<p>Interface representing a BLE peer (remote) device and operations that can be carried on it.</p>
 </td>
 </tr>
 <tr>
@@ -53,9 +60,21 @@ specific callback method</p>
 </tr>
 <tr>
 <td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx/-central-connection-change-listener/index.html">com.fitbit.bluetooth.fbgatt.rx.CentralConnectionChangeListener</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.client/-client-transaction-provider/index.html">com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider</a></td>
 <td>
 <p>Implementers of this interface can provide alternative implementations of the bitgatt transactions, like mocking in tests.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.server.listeners/-connection-event/index.html">com.fitbit.bluetooth.fbgatt.rx.server.listeners.ConnectionEvent</a></td>
+<td>
 </td>
 </tr>
 <tr>
@@ -138,6 +157,14 @@ Connection changes are available per remote device</p>
 </tr>
 <tr>
 <td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.client.listeners/-gatt-client-mtu-change-listener/index.html">com.fitbit.bluetooth.fbgatt.rx.client.listeners.GattClientMtuChangeListener</a></td>
+<td>
+<p>GATT client listener that listens to MTU changes with a remote device.
+Connection changes are available per remote device</p>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.client/-gatt-client-refresh-gatt-transaction-provider/index.html">com.fitbit.bluetooth.fbgatt.rx.client.GattClientRefreshGattTransactionProvider</a></td>
 <td>
 </td>
@@ -164,9 +191,15 @@ Connection changes are available per remote device</p>
 </tr>
 <tr>
 <td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.server.listeners/-gatt-server-connection-change-listener-for-peripheral-mode/index.html">com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerConnectionChangeListenerForPeripheralMode</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.server.listeners/-gatt-server-mtu-change-listener/index.html">com.fitbit.bluetooth.fbgatt.rx.server.listeners.GattServerMtuChangeListener</a></td>
 <td>
-<p>GATT server listener that listens to MTU changes with a remote device.</p>
+<p>GATT server listener that listens to MTU size changes with a remote device.</p>
 </td>
 </tr>
 <tr>
@@ -225,8 +258,22 @@ Connection changes are available per remote device</p>
 </tr>
 <tr>
 <td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx/-mtu-update-listener/index.html">com.fitbit.bluetooth.fbgatt.rx.MtuUpdateListener</a></td>
+<td>
+<p>Listener to observe MTU changes from <a href="#">BitGatt</a> callbacks</p>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.server/-notify-gatt-server-characteristic-transaction-provider/index.html">com.fitbit.bluetooth.fbgatt.rx.server.NotifyGattServerCharacteristicTransactionProvider</a></td>
 <td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.bluetooth.fbgatt.rx.client/-peer-gatt-service-subscriber/index.html">com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber</a></td>
+<td>
+<p>Helper to subscribe to GATT characteristic on CONNECTED peer (remote) device</p>
 </td>
 </tr>
 <tr>
@@ -262,13 +309,6 @@ Connection changes are available per remote device</p>
 <a href="../com.fitbit.bluetooth.fbgatt.rx.scanner/-peripheral-scanner-filter/index.html">com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScannerFilter</a></td>
 <td>
 <p>Filter to add before starting next scan</p>
-</td>
-</tr>
-<tr>
-<td>
-<a href="../com.fitbit.bluetooth.fbgatt.rx.client/-peripheral-service-subscriber/index.html">com.fitbit.bluetooth.fbgatt.rx.client.PeripheralServiceSubscriber</a></td>
-<td>
-<p>Helper to subscribe to GATT characteristic on CONNECTED remote peripheral</p>
 </td>
 </tr>
 <tr>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="335" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="335" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="339" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="339" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_filter_node_1a0400a431a062bd7e2edda5b371764cd1" prot="public" static="no" mutable="no">
         <type><ref refid="struct_g_g___coap_request_filter" kindref="compound">GG_CoapRequestFilter</ref> *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="336" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="336" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="340" column="26" bodyfile="xp/coap/gg_coap.h" bodystart="340" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___coap_request_filter_node_1a023214d7e94a68b79f577761be33b3d9" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="337" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="337" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="341" column="27" bodyfile="xp/coap/gg_coap.h" bodystart="341" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -83,7 +83,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/coap/gg_coap.h" line="334" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="334" bodyend="339"/>
+    <location file="xp/coap/gg_coap.h" line="338" column="15" bodyfile="xp/coap/gg_coap.h" bodystart="338" bodyend="343"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_request_filter_node_1a023214d7e94a68b79f577761be33b3d9" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterNode</scope><name>auto_release</name></member>
       <member refid="struct_g_g___coap_request_filter_node_1a0400a431a062bd7e2edda5b371764cd1" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterNode</scope><name>filter</name></member>

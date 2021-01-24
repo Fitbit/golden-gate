@@ -11,6 +11,9 @@
       <node id="8">
         <label>stdbool.h</label>
       </node>
+      <node id="12">
+        <label>assert.h</label>
+      </node>
       <node id="10">
         <label>xp/common/gg_memory.h</label>
         <link refid="gg__memory_8h"/>
@@ -21,25 +24,8 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>assert.h</label>
-      </node>
       <node id="2">
         <label>stdint.h</label>
-      </node>
-      <node id="1">
-        <label>xp/utils/gg_memory_data_source.h</label>
-        <link refid="gg__memory__data__source_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
       <node id="9">
         <label>xp/common/gg_strings.h</label>
@@ -57,22 +43,6 @@
       </node>
       <node id="4">
         <label>stddef.h</label>
-      </node>
-      <node id="5">
-        <label>xp/common/gg_results.h</label>
-        <link refid="gg__results_8h"/>
-      </node>
-      <node id="7">
-        <label>xp/common/gg_buffer.h</label>
-        <link refid="gg__buffer_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
       </node>
       <node id="6">
         <label>xp/common/gg_io.h</label>
@@ -94,10 +64,40 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="5">
+        <label>xp/common/gg_results.h</label>
+        <link refid="gg__results_8h"/>
+      </node>
       <node id="11">
         <label>xp/common/gg_port.h</label>
         <link refid="gg__port_8h"/>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>xp/common/gg_buffer.h</label>
+        <link refid="gg__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>xp/utils/gg_memory_data_source.h</label>
+        <link refid="gg__memory__data__source_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
     </incdepgraph>

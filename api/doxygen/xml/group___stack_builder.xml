@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="120" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="120" bodyend="123"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="119" column="14" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="119" bodyend="122"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="108" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="62" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="108" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1ga6fb996726e8286250237d87718835809" prot="public" static="no">
         <type>uint32_t</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="68" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="68" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="67" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1gad6cfc1cb4baae50296445f8a3679d222" prot="public" static="no">
         <type>uint32_t</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="73" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="72" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___stack_builder_1gaa986fcaaad456ca027496d21ac04e7cc" prot="public" static="no">
         <type>uint32_t</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="78" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="78" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="77" column="18" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -229,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="495" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="495" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="494" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="494" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga993367b16ecf0de6e75d41943ca959d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -247,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="508" column="6" declfile="xp/stack_builder/gg_stack_builder.h" declline="508" declcolumn="6"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="507" column="6" declfile="xp/stack_builder/gg_stack_builder.h" declline="507" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga92ce18062ea3f502fff2310426a49427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -278,7 +278,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="521" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="521" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="520" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="520" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga0ca78f6091b08b531d4ffa062cfd3629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="530" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="530" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="529" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="529" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga83d234dd3513856a8e80b51bd3f63c72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref> *</type>
@@ -338,7 +338,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="539" column="17" declfile="xp/stack_builder/gg_stack_builder.h" declline="539" declcolumn="17"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="538" column="17" declfile="xp/stack_builder/gg_stack_builder.h" declline="538" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1gaa65e38def48dab3619a3a1b9ecd2f65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_listener" kindref="compound">GG_EventListener</ref> *</type>
@@ -369,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="550" column="18" declfile="xp/stack_builder/gg_stack_builder.h" declline="550" declcolumn="18"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="549" column="18" declfile="xp/stack_builder/gg_stack_builder.h" declline="549" declcolumn="18"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1gac6d2ac9b2717e8c135623260f553a603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -399,7 +399,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="559" column="16" declfile="xp/stack_builder/gg_stack_builder.h" declline="559" declcolumn="16"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="558" column="16" declfile="xp/stack_builder/gg_stack_builder.h" declline="558" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga423a8e6c521e3f91efa591633f22d0b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -433,7 +433,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="569" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="569" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="568" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="568" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga99d04f523d13aaf71b6026556b8dac60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -475,7 +475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="580" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="580" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="579" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="579" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga0e5caa1e16bfacc9d12eb2c5abfe1997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -541,7 +541,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="592" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="592" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="591" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="591" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga710dba4df7f7630acc4b53a1fa327381" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -562,7 +562,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="599" column="8" declfile="xp/stack_builder/gg_stack_builder.h" declline="599" declcolumn="8"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="598" column="8" declfile="xp/stack_builder/gg_stack_builder.h" declline="598" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group___stack_builder_1ga6126bb14accea6145ef110b554d8fdbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -616,7 +616,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="612" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="612" declcolumn="11"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="611" column="11" declfile="xp/stack_builder/gg_stack_builder.h" declline="611" declcolumn="11"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -630,7 +630,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="191" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="191" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="190" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga95b3cb211edbd43a40affa40d3f5551f" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_GATTLINK</name>
@@ -642,7 +642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="192" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="192" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="191" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="191" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gae0e13fffc83aae0b56c2ec64a3393ef8" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_IP_NETWORK_INTERFACE</name>
@@ -654,7 +654,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="193" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="193" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="192" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="192" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga13610d02a9724e6bcf1931e85e344bb9" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DATAGRAM_SOCKET</name>
@@ -666,7 +666,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="194" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="194" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="193" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga8a273e348f4f074008c8cce5c65c0fcf" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DTLS_CLIENT</name>
@@ -678,7 +678,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="195" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="195" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="194" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gafb5a0ae7182e1afd858fcb6956953171" prot="public" static="no">
         <name>GG_STACK_ELEMENT_TYPE_DTLS_SERVER</name>
@@ -690,7 +690,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="196" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="196" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="195" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="195" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga0dfabc6c8dd122b149fc9be4abceaa81" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ID_TOP</name>
@@ -702,7 +702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="198" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="198" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="197" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="197" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga2bbbf6c5839acc0fe28127ae75b8c463" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ID_BOTTOM</name>
@@ -714,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="199" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="199" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="198" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gac9503bdd8b6817408a848d2e7deab3e1" prot="public" static="no">
         <name>GG_STACK_PORT_ID_TOP</name>
@@ -726,7 +726,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="201" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="201" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="200" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga6670e8e81c1e1cd0ae89285c935a37e2" prot="public" static="no">
         <name>GG_STACK_PORT_ID_BOTTOM</name>
@@ -738,7 +738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="202" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="202" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="201" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="201" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gacfaaa039172c279002e59132206226cf" prot="public" static="no">
         <name>GG_EVENT_TYPE_STACK_EVENT_FORWARD</name>
@@ -752,7 +752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="204" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="204" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="203" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="203" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga7196f24e47fb5fc175652a07fecb72a2" prot="public" static="no">
         <name>GG_EVENT_TYPE_LINK_MTU_CHANGE</name>
@@ -766,7 +766,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="205" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="205" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="204" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="204" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga3d0822cf2dbf6a690666e173ef388971" prot="public" static="no">
         <name>GG_STACK_ELEMENT_ACTIVITY_MONITOR_DEFAULT_TIMEOUT</name>
@@ -777,7 +777,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="207" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="207" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="206" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="206" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gab5687a4196f4c6bde7caddfc8952a217" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_GATTLINK_ONLY</name>
@@ -806,7 +806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="234" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="234" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="233" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="233" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga120798858e7101bfd37fbb65dd597bd2" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_NETIF_GATTLINK</name>
@@ -845,7 +845,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="267" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="267" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="266" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="266" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga5184c436a89fa187281986be9f09db91" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_SOCKET_NETIF_GATTLINK</name>
@@ -890,7 +890,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="306" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="306" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="305" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="305" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga428779bc41545f7d92b0aa762785d56d" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK</name>
@@ -943,7 +943,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="353" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="353" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="352" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="352" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1gaae74b02462b6e88f505b1335c71cf7f1" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET</name>
@@ -983,7 +983,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="387" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="387" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="386" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="386" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga0ca6f2adb853ef431ff8c9cd8bf6a41b" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_NETIF</name>
@@ -1016,7 +1016,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="414" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="414" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="413" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="413" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___stack_builder_1ga44f890474fe46e816d20bf02d1bb4a69" prot="public" static="no">
         <name>GG_STACK_DESCRIPTOR_DTLS_SOCKET_NETIF_GATTLINK_ACTIVITY</name>
@@ -1076,7 +1076,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/stack_builder/gg_stack_builder.h" line="468" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="468" bodyend="-1"/>
+        <location file="xp/stack_builder/gg_stack_builder.h" line="467" column="9" bodyfile="xp/stack_builder/gg_stack_builder.h" bodystart="467" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -14,14 +14,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="68" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="68" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="71" column="5" bodyfile="xp/loop/gg_loop.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="xp/loop/gg_loop.h" line="67" column="79" bodyfile="xp/loop/gg_loop.h" bodystart="67" bodyend="69"/>
+    <location file="xp/loop/gg_loop.h" line="70" column="79" bodyfile="xp/loop/gg_loop.h" bodystart="70" bodyend="72"/>
     <listofallmembers>
       <member refid="struct_g_g___runnable_interface_1aa415c88ab97e62edbb5096a147aa82b9" prot="public" virt="non-virtual"><scope>GG_RunnableInterface</scope><name>Run</name></member>
     </listofallmembers>

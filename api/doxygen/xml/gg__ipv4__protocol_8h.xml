@@ -3,24 +3,14 @@
   <compounddef id="gg__ipv4__protocol_8h" kind="file" language="C++">
     <compoundname>gg_ipv4_protocol.h</compoundname>
     <includes local="no">stdint.h</includes>
-    <includes refid="gg__common_8h" local="yes">xp/common/gg_common.h</includes>
     <includes refid="gg__protocols_8h" local="yes">xp/protocols/gg_protocols.h</includes>
     <includes refid="gg__sockets_8h" local="yes">xp/sockets/gg_sockets.h</includes>
     <incdepgraph>
       <node id="5">
         <label>stdbool.h</label>
       </node>
-      <node id="1">
-        <label>xp/protocols/gg_ipv4_protocol.h</label>
-        <link refid="gg__ipv4__protocol_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
+      <node id="15">
+        <label>assert.h</label>
       </node>
       <node id="13">
         <label>xp/common/gg_memory.h</label>
@@ -32,45 +22,36 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="15">
-        <label>assert.h</label>
+      <node id="2">
+        <label>stdint.h</label>
       </node>
-      <node id="23">
-        <label>xp/common/gg_timer.h</label>
-        <link refid="gg__timer_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
+      <node id="10">
+        <label>xp/sockets/gg_sockets.h</label>
+        <link refid="gg__sockets_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="24">
-        <label>xp/common/gg_events.h</label>
-        <link refid="gg__events_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="3">
         <label>xp/protocols/gg_protocols.h</label>
         <link refid="gg__protocols_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="2">
-        <label>stdint.h</label>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="12">
         <label>xp/common/gg_strings.h</label>
@@ -86,7 +67,7 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="19">
         <label>xp/common/gg_lists.h</label>
         <link refid="gg__lists_8h"/>
         <childnode refid="2" relation="include">
@@ -94,83 +75,83 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="9">
-        <label>xp/common/gg_crc32.h</label>
-        <link refid="gg__crc32_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="11">
+        <label>xp/common/gg_io.h</label>
+        <link refid="gg__io_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="21">
-        <label>xp/common/gg_threads.h</label>
-        <link refid="gg__threads_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="30">
-        <label>xp/loop/gg_loop.h</label>
-        <link refid="gg__loop_8h"/>
+      <node id="1">
+        <label>xp/protocols/gg_ipv4_protocol.h</label>
+        <link refid="gg__ipv4__protocol_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
-      <node id="7">
-        <label>stddef.h</label>
+      <node id="6">
+        <label>xp/common/gg_types.h</label>
+        <link refid="gg__types_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>xp/common/gg_ring_buffer.h</label>
+        <link refid="gg__ring__buffer_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>xp/common/gg_inspect.h</label>
+        <link refid="gg__inspect_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>xp/common/gg_results.h</label>
         <link refid="gg__results_8h"/>
       </node>
-      <node id="20">
-        <label>xp/common/gg_system.h</label>
-        <link refid="gg__system_8h"/>
+      <node id="16">
+        <label>xp/loop/gg_loop.h</label>
+        <link refid="gg__loop_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>xp/common/gg_logging.h</label>
-        <link refid="gg__logging_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>xp/sockets/gg_sockets.h</label>
-        <link refid="gg__sockets_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="30" relation="include">
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>xp/common/gg_port.h</label>
+        <link refid="gg__port_8h"/>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -185,144 +166,17 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>xp/common/gg_utils.h</label>
-        <link refid="gg__utils_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
+      <node id="17">
+        <label>xp/common/gg_timer.h</label>
+        <link refid="gg__timer_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>xp/common/gg_common.h</label>
-        <link refid="gg__common_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>xp/common/gg_io.h</label>
-        <link refid="gg__io_8h"/>
         <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>xp/common/gg_version.h</label>
-        <link refid="gg__version_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>xp/common/gg_inspect.h</label>
-        <link refid="gg__inspect_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>xp/common/gg_ring_buffer.h</label>
-        <link refid="gg__ring__buffer_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>xp/common/gg_types.h</label>
-        <link refid="gg__types_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>xp/common/gg_port.h</label>
-        <link refid="gg__port_8h"/>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>xp/common/gg_queues.h</label>
-        <link refid="gg__queues_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>xp/common/gg_bitstream.h</label>
-        <link refid="gg__bitstream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>stdio.h</label>
       </node>
     </incdepgraph>
     <innerclass refid="struct_g_g___ipv4_packet_header" prot="public">GG_Ipv4PacketHeader</innerclass>
@@ -339,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="33" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="33" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="32" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1a244d68d722722e334d083fb8b7c2972b" prot="public" static="no">
         <name>GG_IPV4_MAX_IP_HEADER_SIZE</name>
@@ -350,7 +204,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="34" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="34" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="33" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1a876968a8c26e821db4a9bd9dc5a18546" prot="public" static="no">
         <name>GG_UDP_HEADER_SIZE</name>
@@ -361,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="35" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="35" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="34" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1a45ed6ec86ecb3ae4abc20f61e150d281" prot="public" static="no">
         <name>GG_IPV4_PROTOCOL_ICMP</name>
@@ -372,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="37" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="37" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="36" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1af3922d9ac2482dba5145c158110f52f8" prot="public" static="no">
         <name>GG_IPV4_PROTOCOL_TCP</name>
@@ -383,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="38" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="38" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="37" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1a2c3a7f53a594f77e43ba16fe4c87717f" prot="public" static="no">
         <name>GG_IPV4_PROTOCOL_UDP</name>
@@ -394,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="39" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="39" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="38" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1ad5f769f9e459f2d0c08fa3920d28697b" prot="public" static="no">
         <name>GG_IPV4_HEADER_SOURCE_ADDRESS_OFFSET</name>
@@ -405,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="42" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="42" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="41" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="gg__ipv4__protocol_8h_1a56533b8cce2dde5548a1062363e48d67" prot="public" static="no">
         <name>GG_IPV4_HEADER_DESTINATION_ADDRESS_OFFSET</name>
@@ -416,7 +270,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="44" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="44" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="43" column="9" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -432,7 +286,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="122" column="5" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="53" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="124" column="5" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" prot="public" static="no">
         <type>struct <ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref></type>
@@ -446,7 +300,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="122" column="5" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="58" bodyend="-1"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="124" column="5" bodyfile="xp/protocols/gg_ipv4_protocol.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -514,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="127" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="127" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="126" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="126" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1a98b8adca3ae10bacf6007a171f37e168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -542,7 +396,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="137" column="6" declfile="xp/protocols/gg_ipv4_protocol.h" declline="137" declcolumn="6"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="136" column="6" declfile="xp/protocols/gg_ipv4_protocol.h" declline="136" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1a6141fae47d25ba36b137da3da6daf9bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref> *</type>
@@ -572,7 +426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="145" column="19" declfile="xp/protocols/gg_ipv4_protocol.h" declline="145" declcolumn="19"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="144" column="19" declfile="xp/protocols/gg_ipv4_protocol.h" declline="144" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1acf76ec0929e5995479f555919c887388" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -602,7 +456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="153" column="16" declfile="xp/protocols/gg_ipv4_protocol.h" declline="153" declcolumn="16"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="152" column="16" declfile="xp/protocols/gg_ipv4_protocol.h" declline="152" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1adfa325325b427106a104baeaa9827fc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -644,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="163" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="163" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="162" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="162" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1ad7ccc7dc1c55f22e8302d78ef65e31d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref> *</type>
@@ -674,7 +528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="172" column="20" declfile="xp/protocols/gg_ipv4_protocol.h" declline="172" declcolumn="20"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="171" column="20" declfile="xp/protocols/gg_ipv4_protocol.h" declline="171" declcolumn="20"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1a79937b7b0d7ebfeab0738cc66cafad62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -702,7 +556,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="179" column="6" declfile="xp/protocols/gg_ipv4_protocol.h" declline="179" declcolumn="6"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="178" column="6" declfile="xp/protocols/gg_ipv4_protocol.h" declline="178" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1aca500d7525463e65bf8282134e9d81d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint16_t</type>
@@ -744,7 +598,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="189" column="10" declfile="xp/protocols/gg_ipv4_protocol.h" declline="189" declcolumn="10"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="188" column="10" declfile="xp/protocols/gg_ipv4_protocol.h" declline="188" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1a5c4761f77dd97a78d8b9627b1dd467fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -811,7 +665,7 @@ NOTE: this method does not fully validate that the fields of the packet header a
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="208" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="208" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="207" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="207" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1aef879200f2c2961eb1ab845ed97ab347" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -865,7 +719,7 @@ NOTE: this method does not fully validate that the fields of the packet header a
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="222" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="222" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="221" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="221" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1aae5a345e18adf82acfcb3f27d8435f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -907,7 +761,7 @@ NOTE: this method does not fully validate that the fields of the packet header a
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="233" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="233" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="232" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="232" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="gg__ipv4__protocol_8h_1ae5a68c64819e4b72b770c3315c90d9c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -961,7 +815,7 @@ NOTE: this method does not fully validate that the fields of the packet header a
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_ipv4_protocol.h" line="244" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="244" declcolumn="11"/>
+        <location file="xp/protocols/gg_ipv4_protocol.h" line="243" column="11" declfile="xp/protocols/gg_ipv4_protocol.h" declline="243" declcolumn="11"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -988,109 +842,108 @@ NOTE: this method does not fully validate that the fields of the packet header a
 <codeline lineno="23"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__common_8h" kindref="compound">xp/common/gg_common.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__protocols_8h" kindref="compound">xp/protocols/gg_protocols.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__sockets_8h" kindref="compound">xp/sockets/gg_sockets.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="31"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
-<codeline lineno="32"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_MIN_IP_HEADER_SIZE<sp/>20</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_MAX_IP_HEADER_SIZE<sp/>60</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_UDP_HEADER_SIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_ICMP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_TCP<sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_UDP<sp/><sp/>17</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Offset<sp/>of<sp/>the<sp/>Source<sp/>IP<sp/>Address<sp/>field</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_HEADER_SOURCE_ADDRESS_OFFSET<sp/>12</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Offset<sp/>of<sp/>the<sp/>Destination<sp/>IP<sp/>Address<sp/>field</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_HEADER_DESTINATION_ADDRESS_OFFSET<sp/>16</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="47"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
-<codeline lineno="48"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58" refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref><sp/><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="63" refid="struct_g_g___ipv4_packet_header" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>version;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ihl;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>dscp;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ecn;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>total_length;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>identification;</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>flags;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>fragment_offset;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ttl;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>protocol;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>checksum;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>src_address;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>dst_address;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>options[40];</highlight></codeline>
-<codeline lineno="78"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="struct_g_g___udp_packet_header" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>src_port;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>dst_port;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>length;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>checksum;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal">}<sp/><ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="96" refid="struct_g_g___ipv4_frame_serialization_ip_config" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="97" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0f3d93084fa63fdb9d7f84244e53b3c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0f3d93084fa63fdb9d7f84244e53b3c9" kindref="member">default_src_address</ref>;<sp/></highlight></codeline>
-<codeline lineno="98" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a6c50f9fcefef12ce27bc3c87e326df64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config_1a6c50f9fcefef12ce27bc3c87e326df64" kindref="member">default_dst_address</ref>;<sp/></highlight></codeline>
-<codeline lineno="99" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0ebb2840c270d8bf06f2892cb4546dcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>udp_src_ports[3];<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="100" refid="struct_g_g___ipv4_frame_serialization_ip_config_1acffab5246b44946b3ced5692de8069df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>udp_dst_ports[3];<sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107" refid="struct_g_g___ipv4_frame_assembler_ip_map" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="108" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a022d3e122b7e3441a708a42b19cd5d12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a022d3e122b7e3441a708a42b19cd5d12" kindref="member">src_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="109" refid="struct_g_g___ipv4_frame_assembler_ip_map_1af87a2711576c6f2e4c7d57902bbe2fe5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1af87a2711576c6f2e4c7d57902bbe2fe5" kindref="member">remapped_src_address</ref>;<sp/></highlight></codeline>
-<codeline lineno="110" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a2554fe73901bac04956288efea7270b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a2554fe73901bac04956288efea7270b5" kindref="member">dst_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="111" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a09f6e0aecc53c6be44fd85d1856d8426" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a09f6e0aecc53c6be44fd85d1856d8426" kindref="member">remapped_dst_address</ref>;<sp/></highlight></codeline>
-<codeline lineno="112"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map" kindref="compound">GG_Ipv4FrameAssemblerIpMap</ref>;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
-<codeline lineno="115"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
-<codeline lineno="116"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1a0c7f116332bdbaf036da305fe8319459" kindref="member">GG_Ipv4FrameAssembler_Create</ref>(uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_packet_size,</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>*<sp/>ip_config,</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map" kindref="compound">GG_Ipv4FrameAssemblerIpMap</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ip_map,</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assembler);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__ipv4__protocol_8h_1a98b8adca3ae10bacf6007a171f37e168" kindref="member">GG_Ipv4FrameAssembler_Destroy</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1a6141fae47d25ba36b137da3da6daf9bb" kindref="member">GG_Ipv4FrameAssembler_AsFrameAssembler</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1acf76ec0929e5995479f555919c887388" kindref="member">GG_Ipv4FrameAssembler_AsInspectable</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1adfa325325b427106a104baeaa9827fc4" kindref="member">GG_Ipv4FrameSerializer_Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>*<sp/>ip_config,</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>serializer);</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1ad7ccc7dc1c55f22e8302d78ef65e31d5" kindref="member">GG_Ipv4FrameSerializer_AsFrameSerializer</ref>(<ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__ipv4__protocol_8h_1a79937b7b0d7ebfeab0738cc66cafad62" kindref="member">GG_Ipv4FrameSerializer_Destroy</ref>(<ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal">uint16_t<sp/><ref refid="gg__ipv4__protocol_8h_1aca500d7525463e65bf8282134e9d81d5" kindref="member">GG_Ipv4Checksum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"></highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1a5c4761f77dd97a78d8b9627b1dd467fa" kindref="member">GG_Ipv4PacketHeader_Serialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_size,</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>compute_checksum);</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aef879200f2c2961eb1ab845ed97ab347" kindref="member">GG_Ipv4PacketHeader_Parse</ref>(<ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>packet,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>packet_size);</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aae5a345e18adf82acfcb3f27d8435f72" kindref="member">GG_UdpPacketHeader_Serialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t*<sp/>buffer);</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1ae5a68c64819e4b72b770c3315c90d9c1" kindref="member">GG_UdpPacketHeader_Parse</ref>(<ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>packet,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>packet_size);</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="246"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="247"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__protocols_8h" kindref="compound">xp/protocols/gg_protocols.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gg__sockets_8h" kindref="compound">xp/sockets/gg_sockets.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">|<sp/><sp/><sp/>constants</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_MIN_IP_HEADER_SIZE<sp/>20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_MAX_IP_HEADER_SIZE<sp/>60</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_UDP_HEADER_SIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_ICMP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_TCP<sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_PROTOCOL_UDP<sp/><sp/>17</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Offset<sp/>of<sp/>the<sp/>Source<sp/>IP<sp/>Address<sp/>field</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_HEADER_SOURCE_ADDRESS_OFFSET<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Offset<sp/>of<sp/>the<sp/>Destination<sp/>IP<sp/>Address<sp/>field</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GG_IPV4_HEADER_DESTINATION_ADDRESS_OFFSET<sp/>16</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">|<sp/><sp/><sp/>types</highlight></codeline>
+<codeline lineno="47"><highlight class="comment">+---------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref><sp/><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="struct_g_g___ipv4_packet_header" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>version;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ihl;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>dscp;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ecn;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>total_length;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>identification;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>flags;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>fragment_offset;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>ttl;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>protocol;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>checksum;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>src_address;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>dst_address;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>options[40];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_g_g___udp_packet_header" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>src_port;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>dst_port;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>length;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>checksum;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/><ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="struct_g_g___ipv4_frame_serialization_ip_config" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0f3d93084fa63fdb9d7f84244e53b3c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0f3d93084fa63fdb9d7f84244e53b3c9" kindref="member">default_src_address</ref>;<sp/></highlight></codeline>
+<codeline lineno="97" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a6c50f9fcefef12ce27bc3c87e326df64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config_1a6c50f9fcefef12ce27bc3c87e326df64" kindref="member">default_dst_address</ref>;<sp/></highlight></codeline>
+<codeline lineno="98" refid="struct_g_g___ipv4_frame_serialization_ip_config_1a0ebb2840c270d8bf06f2892cb4546dcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>udp_src_ports[3];<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99" refid="struct_g_g___ipv4_frame_serialization_ip_config_1acffab5246b44946b3ced5692de8069df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/>udp_dst_ports[3];<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="struct_g_g___ipv4_frame_assembler_ip_map" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a022d3e122b7e3441a708a42b19cd5d12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a022d3e122b7e3441a708a42b19cd5d12" kindref="member">src_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108" refid="struct_g_g___ipv4_frame_assembler_ip_map_1af87a2711576c6f2e4c7d57902bbe2fe5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1af87a2711576c6f2e4c7d57902bbe2fe5" kindref="member">remapped_src_address</ref>;<sp/></highlight></codeline>
+<codeline lineno="109" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a2554fe73901bac04956288efea7270b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a2554fe73901bac04956288efea7270b5" kindref="member">dst_address</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="struct_g_g___ipv4_frame_assembler_ip_map_1a09f6e0aecc53c6be44fd85d1856d8426" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map_1a09f6e0aecc53c6be44fd85d1856d8426" kindref="member">remapped_dst_address</ref>;<sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}<sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map" kindref="compound">GG_Ipv4FrameAssemblerIpMap</ref>;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="114"><highlight class="comment">|<sp/><sp/><sp/>functions</highlight></codeline>
+<codeline lineno="115"><highlight class="comment">+---------------------------------------------------------------------*/</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1a0c7f116332bdbaf036da305fe8319459" kindref="member">GG_Ipv4FrameAssembler_Create</ref>(uint16_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_packet_size,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>*<sp/>ip_config,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_assembler_ip_map" kindref="compound">GG_Ipv4FrameAssemblerIpMap</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ip_map,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assembler);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__ipv4__protocol_8h_1a98b8adca3ae10bacf6007a171f37e168" kindref="member">GG_Ipv4FrameAssembler_Destroy</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1a6141fae47d25ba36b137da3da6daf9bb" kindref="member">GG_Ipv4FrameAssembler_AsFrameAssembler</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1acf76ec0929e5995479f555919c887388" kindref="member">GG_Ipv4FrameAssembler_AsInspectable</ref>(<ref refid="gg__ipv4__protocol_8h_1aeb4a58be024071e9c0e735dc387610cc" kindref="member">GG_Ipv4FrameAssembler</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1adfa325325b427106a104baeaa9827fc4" kindref="member">GG_Ipv4FrameSerializer_Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_frame_serialization_ip_config" kindref="compound">GG_Ipv4FrameSerializationIpConfig</ref>*<sp/>ip_config,</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>serializer);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><ref refid="struct_g_g___frame_serializer" kindref="compound">GG_FrameSerializer</ref>*<sp/><ref refid="gg__ipv4__protocol_8h_1ad7ccc7dc1c55f22e8302d78ef65e31d5" kindref="member">GG_Ipv4FrameSerializer_AsFrameSerializer</ref>(<ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gg__ipv4__protocol_8h_1a79937b7b0d7ebfeab0738cc66cafad62" kindref="member">GG_Ipv4FrameSerializer_Destroy</ref>(<ref refid="gg__ipv4__protocol_8h_1ae0261e2d623800aab230b81550c7aebc" kindref="member">GG_Ipv4FrameSerializer</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal">uint16_t<sp/><ref refid="gg__ipv4__protocol_8h_1aca500d7525463e65bf8282134e9d81d5" kindref="member">GG_Ipv4Checksum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_size);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1a5c4761f77dd97a78d8b9627b1dd467fa" kindref="member">GG_Ipv4PacketHeader_Serialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_size,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>compute_checksum);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aef879200f2c2961eb1ab845ed97ab347" kindref="member">GG_Ipv4PacketHeader_Parse</ref>(<ref refid="struct_g_g___ipv4_packet_header" kindref="compound">GG_Ipv4PacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>packet,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>packet_size);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1aae5a345e18adf82acfcb3f27d8435f72" kindref="member">GG_UdpPacketHeader_Serialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>uint8_t*<sp/>buffer);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref><sp/><ref refid="gg__ipv4__protocol_8h_1ae5a68c64819e4b72b770c3315c90d9c1" kindref="member">GG_UdpPacketHeader_Parse</ref>(<ref refid="struct_g_g___udp_packet_header" kindref="compound">GG_UdpPacketHeader</ref>*<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>packet,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>packet_size);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="xp/protocols/gg_ipv4_protocol.h"/>
   </compounddef>

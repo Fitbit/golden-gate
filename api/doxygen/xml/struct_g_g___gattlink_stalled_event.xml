@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="91" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="91" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="92" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___gattlink_stalled_event_1a554db05b5c7fde7c92f7341ba82936ba" prot="public" static="no" mutable="no">
         <type>uint32_t</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="92" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="92" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="93" column="14" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -51,7 +51,7 @@
         <link refid="struct_g_g___event"/>
       </node>
     </collaborationgraph>
-    <location file="xp/gattlink/gg_gattlink_generic_client.h" line="90" column="15" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="90" bodyend="93"/>
+    <location file="xp/gattlink/gg_gattlink_generic_client.h" line="91" column="15" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="91" bodyend="94"/>
     <listofallmembers>
       <member refid="struct_g_g___gattlink_stalled_event_1ae8dc92c43e8fe55cf17ee054a11335dd" prot="public" virt="non-virtual"><scope>GG_GattlinkStalledEvent</scope><name>base</name></member>
       <member refid="struct_g_g___gattlink_stalled_event_1a554db05b5c7fde7c92f7341ba82936ba" prot="public" virt="non-virtual"><scope>GG_GattlinkStalledEvent</scope><name>stalled_time</name></member>

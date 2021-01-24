@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="91" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="91" bodyend="96"/>
+        <location file="xp/coap/gg_coap.h" line="95" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="95" bodyend="100"/>
       </memberdef>
       <memberdef kind="enum" id="group___co_a_p_1gab00f564a93ded3e1ee5dd1546ba2640c" prot="public" static="no" strong="no">
         <type></type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="371" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="371" bodyend="376"/>
+        <location file="xp/coap/gg_coap.h" line="375" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="375" bodyend="380"/>
       </memberdef>
       <memberdef kind="enum" id="group___co_a_p_1ga3c8a4734141e0af67b89ac049c5544fa" prot="public" static="no" strong="no">
         <type></type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="381" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="381" bodyend="386"/>
+        <location file="xp/coap/gg_coap.h" line="385" column="14" bodyfile="xp/coap/gg_coap.h" bodystart="385" bodyend="390"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="168" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="67" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="172" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" prot="public" static="no">
         <type>struct <ref refid="group___co_a_p_1ga503e861afa7a81ea05f35da9eea44b69" kindref="member">GG_CoapEndpoint</ref></type>
@@ -186,7 +186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="168" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="72" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="172" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___co_a_p_1ga1ab8c7d03b4e867ce05c9ace23e7a3df" prot="public" static="no">
         <type>struct <ref refid="group___co_a_p_1ga1ab8c7d03b4e867ce05c9ace23e7a3df" kindref="member">GG_CoapResponder</ref></type>
@@ -200,7 +200,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="168" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="77" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="172" column="25" bodyfile="xp/coap/gg_coap.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___co_a_p_1ga24904756d572f1366d2ed28f76718e7c" prot="public" static="no">
         <type>uint64_t</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="86" column="18" bodyfile="xp/coap/gg_coap.h" bodystart="86" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="90" column="18" bodyfile="xp/coap/gg_coap.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___co_a_p_1ga0ce36b755c0a0257e71b873d71a7947b" prot="public" static="no">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -227,7 +227,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="215" column="19" bodyfile="xp/coap/gg_coap.h" bodystart="215" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="219" column="19" bodyfile="xp/coap/gg_coap.h" bodystart="219" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" prot="public" static="no">
         <type>struct <ref refid="group___co_a_p_1ga0ae8314f969e4e25c0774ec3f5f7b8bd" kindref="member">GG_CoapGroupRequestFilter</ref></type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="211" column="6" declfile="xp/coap/gg_coap.h" declline="211" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="215" column="6" declfile="xp/coap/gg_coap.h" declline="215" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gae325cf4b64c7cff54d2cebce5ccebbc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -287,7 +287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="212" column="6" declfile="xp/coap/gg_coap.h" declline="212" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="216" column="6" declfile="xp/coap/gg_coap.h" declline="216" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gafee5e3a4e42bfa5d4acfa3ffa5a9d773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -308,7 +308,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="213" column="6" declfile="xp/coap/gg_coap.h" declline="213" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="217" column="6" declfile="xp/coap/gg_coap.h" declline="217" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga3ee241533342de9ce056e352fbdfcc10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -345,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="262" column="11" declfile="xp/coap/gg_coap.h" declline="262" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="266" column="11" declfile="xp/coap/gg_coap.h" declline="266" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaf356cd5aeaf1551b5475316671f33f3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -497,7 +497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="627" column="11" declfile="xp/coap/gg_coap.h" declline="627" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="631" column="11" declfile="xp/coap/gg_coap.h" declline="631" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gacc6e540f4d39c010040d5e1198e60af8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -525,7 +525,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="643" column="6" declfile="xp/coap/gg_coap.h" declline="643" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="647" column="6" declfile="xp/coap/gg_coap.h" declline="647" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaa8b013b55bccc2cd9c2c6e65995baca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -567,7 +567,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="653" column="11" declfile="xp/coap/gg_coap.h" declline="653" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="657" column="11" declfile="xp/coap/gg_coap.h" declline="657" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gad032149516c537166c8406d64546f56e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -600,7 +600,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="661" column="11" declfile="xp/coap/gg_coap.h" declline="661" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="665" column="11" declfile="xp/coap/gg_coap.h" declline="665" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga35d82a49f33e8a779e8c0cbb177aa579" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -618,7 +618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="667" column="16" declfile="xp/coap/gg_coap.h" declline="667" declcolumn="16"/>
+        <location file="xp/coap/gg_coap.h" line="671" column="16" declfile="xp/coap/gg_coap.h" declline="671" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga8f29f5ff32b29affaacf9ee8d29facdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___co_a_p_1ga3c8a4734141e0af67b89ac049c5544fa" kindref="member">GG_CoapMessageType</ref></type>
@@ -648,7 +648,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="676" column="20" declfile="xp/coap/gg_coap.h" declline="676" declcolumn="20"/>
+        <location file="xp/coap/gg_coap.h" line="680" column="20" declfile="xp/coap/gg_coap.h" declline="680" declcolumn="20"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaa46a3b15af1ac447e50fd739dd8ed417" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t</type>
@@ -680,7 +680,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="690" column="9" declfile="xp/coap/gg_coap.h" declline="690" declcolumn="9"/>
+        <location file="xp/coap/gg_coap.h" line="694" column="9" declfile="xp/coap/gg_coap.h" declline="694" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga30444e1f683c220eed1d375846f34ac0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -722,7 +722,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="702" column="8" declfile="xp/coap/gg_coap.h" declline="702" declcolumn="8"/>
+        <location file="xp/coap/gg_coap.h" line="706" column="8" declfile="xp/coap/gg_coap.h" declline="706" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gac6d5f1397d7cb1ec9893b75996e612b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint16_t</type>
@@ -752,7 +752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="711" column="10" declfile="xp/coap/gg_coap.h" declline="711" declcolumn="10"/>
+        <location file="xp/coap/gg_coap.h" line="715" column="10" declfile="xp/coap/gg_coap.h" declline="715" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga4f1555346d764a27cab6adbf488d06b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -782,7 +782,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="720" column="8" declfile="xp/coap/gg_coap.h" declline="720" declcolumn="8"/>
+        <location file="xp/coap/gg_coap.h" line="724" column="8" declfile="xp/coap/gg_coap.h" declline="724" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gab715e4f393f7a3d4e8f81ecdcb08eac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const uint8_t *</type>
@@ -812,7 +812,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="729" column="15" declfile="xp/coap/gg_coap.h" declline="729" declcolumn="15"/>
+        <location file="xp/coap/gg_coap.h" line="733" column="15" declfile="xp/coap/gg_coap.h" declline="733" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga85a6f1a935a4875569b1369a27b0a16c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>uint8_t *</type>
@@ -842,7 +842,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="738" column="9" declfile="xp/coap/gg_coap.h" declline="738" declcolumn="9"/>
+        <location file="xp/coap/gg_coap.h" line="742" column="9" declfile="xp/coap/gg_coap.h" declline="742" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga8858736a08ab2dbb1e69631813620bb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -910,7 +910,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="757" column="11" declfile="xp/coap/gg_coap.h" declline="757" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="761" column="11" declfile="xp/coap/gg_coap.h" declline="761" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga14c9affbb14b09c056c9ff84285eefd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -963,7 +963,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="772" column="6" declfile="xp/coap/gg_coap.h" declline="772" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="776" column="6" declfile="xp/coap/gg_coap.h" declline="776" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gadc17bf3879b3b616dd7f10e3b94e083f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1003,7 +1003,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="784" column="6" declfile="xp/coap/gg_coap.h" declline="784" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="788" column="6" declfile="xp/coap/gg_coap.h" declline="788" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gafc138e789f333c968b72bb7314ef9525" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1070,7 +1070,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="803" column="11" declfile="xp/coap/gg_coap.h" declline="803" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="807" column="11" declfile="xp/coap/gg_coap.h" declline="807" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga02d0eb73628d85d3fceec1def16fa02c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1098,7 +1098,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="813" column="6" declfile="xp/coap/gg_coap.h" declline="813" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="817" column="6" declfile="xp/coap/gg_coap.h" declline="817" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaf9ca7a8ae21d716d1aaa6aa0f71b6715" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -1128,7 +1128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="822" column="13" declfile="xp/coap/gg_coap.h" declline="822" declcolumn="13"/>
+        <location file="xp/coap/gg_coap.h" line="826" column="13" declfile="xp/coap/gg_coap.h" declline="826" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaff86696ce9377811814b614c3757e567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
@@ -1158,7 +1158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="831" column="15" declfile="xp/coap/gg_coap.h" declline="831" declcolumn="15"/>
+        <location file="xp/coap/gg_coap.h" line="835" column="15" declfile="xp/coap/gg_coap.h" declline="835" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gabe7ef09d645ba3860b190d40e64d5d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -1188,7 +1188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="839" column="16" declfile="xp/coap/gg_coap.h" declline="839" declcolumn="16"/>
+        <location file="xp/coap/gg_coap.h" line="843" column="16" declfile="xp/coap/gg_coap.h" declline="843" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga37b2f47edb61cbfb2eef3f85d46cb2d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1314,7 +1314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="859" column="11" declfile="xp/coap/gg_coap.h" declline="859" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="863" column="11" declfile="xp/coap/gg_coap.h" declline="863" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga2b1d91cf968235a613f44d93a68cd9a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1428,7 +1428,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="885" column="11" declfile="xp/coap/gg_coap.h" declline="885" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="889" column="11" declfile="xp/coap/gg_coap.h" declline="889" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gadc031ebad3d1d6b00e50d7831bb421df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1542,7 +1542,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="910" column="11" declfile="xp/coap/gg_coap.h" declline="910" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="914" column="11" declfile="xp/coap/gg_coap.h" declline="914" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga887442caad86339e8a9f52f5447e6bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1576,7 +1576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="929" column="11" declfile="xp/coap/gg_coap.h" declline="929" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="933" column="11" declfile="xp/coap/gg_coap.h" declline="933" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga4651aba4e26b1d91d2ac76a661dd3a02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1643,7 +1643,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="953" column="11" declfile="xp/coap/gg_coap.h" declline="953" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="957" column="11" declfile="xp/coap/gg_coap.h" declline="957" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gad15d2e487f72c852754da43626b2e8c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1711,7 +1711,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="977" column="11" declfile="xp/coap/gg_coap.h" declline="977" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="981" column="11" declfile="xp/coap/gg_coap.h" declline="981" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gad81c4e92c9ff117ffb153eaf47f5b172" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1765,7 +1765,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="993" column="11" declfile="xp/coap/gg_coap.h" declline="993" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="997" column="11" declfile="xp/coap/gg_coap.h" declline="997" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga2d0813472b7761da33f24b2c60bed5aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1807,7 +1807,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1007" column="11" declfile="xp/coap/gg_coap.h" declline="1007" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1011" column="11" declfile="xp/coap/gg_coap.h" declline="1011" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga0f06244ac9eb54c100f7af9585eab871" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1849,7 +1849,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1020" column="11" declfile="xp/coap/gg_coap.h" declline="1020" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1024" column="11" declfile="xp/coap/gg_coap.h" declline="1024" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga524018008a287d1431b6b302fb633928" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1893,7 +1893,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1036" column="11" declfile="xp/coap/gg_coap.h" declline="1036" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1040" column="11" declfile="xp/coap/gg_coap.h" declline="1040" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga7175508c71a6d79c163261fe83f26866" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1935,7 +1935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1047" column="11" declfile="xp/coap/gg_coap.h" declline="1047" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1051" column="11" declfile="xp/coap/gg_coap.h" declline="1051" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga824d9e484837d65e1e5268e75c699add" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -1989,7 +1989,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1061" column="11" declfile="xp/coap/gg_coap.h" declline="1061" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1065" column="11" declfile="xp/coap/gg_coap.h" declline="1065" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga32fad85095d110909bf6a5d01a07c48b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const uint8_t *</type>
@@ -2031,7 +2031,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1071" column="15" declfile="xp/coap/gg_coap.h" declline="1071" declcolumn="15"/>
+        <location file="xp/coap/gg_coap.h" line="1075" column="15" declfile="xp/coap/gg_coap.h" declline="1075" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaf7a39d9dbe033a5650ff2a4cb1a4d74d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2133,7 +2133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1092" column="11" declfile="xp/coap/gg_coap.h" declline="1092" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1096" column="11" declfile="xp/coap/gg_coap.h" declline="1096" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga59c44945da160b8fc11b9141bb8d3980" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2175,7 +2175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1108" column="11" declfile="xp/coap/gg_coap.h" declline="1108" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1112" column="11" declfile="xp/coap/gg_coap.h" declline="1112" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gad06b247bcac368b0be0a5b1fe8e6d5ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2257,7 +2257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1123" column="11" declfile="xp/coap/gg_coap.h" declline="1123" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1127" column="11" declfile="xp/coap/gg_coap.h" declline="1127" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaa4e53d3971089e2b8e2e87519b667981" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2285,7 +2285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1138" column="6" declfile="xp/coap/gg_coap.h" declline="1138" declcolumn="6"/>
+        <location file="xp/coap/gg_coap.h" line="1142" column="6" declfile="xp/coap/gg_coap.h" declline="1142" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga68b86532b373893763f1de5829f1b220" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2364,7 +2364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1171" column="11" declfile="xp/coap/gg_coap.h" declline="1171" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1175" column="11" declfile="xp/coap/gg_coap.h" declline="1175" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaf82ee47e35f1202d04ba8db083fd5276" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___coap_message_option_param" kindref="compound">GG_CoapMessageOptionParam</ref> *</type>
@@ -2406,7 +2406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1188" column="1" declfile="xp/coap/gg_coap.h" declline="1188" declcolumn="1"/>
+        <location file="xp/coap/gg_coap.h" line="1192" column="1" declfile="xp/coap/gg_coap.h" declline="1192" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaead11cc8c32d7908538b674542b23a44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -2434,7 +2434,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1223" column="8" declfile="xp/coap/gg_coap.h" declline="1223" declcolumn="8"/>
+        <location file="xp/coap/gg_coap.h" line="1227" column="8" declfile="xp/coap/gg_coap.h" declline="1227" declcolumn="8"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga92cfd047cb4d1f01c0775a8e274aa4db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2476,7 +2476,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1235" column="11" declfile="xp/coap/gg_coap.h" declline="1235" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1239" column="11" declfile="xp/coap/gg_coap.h" declline="1239" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1gaa59c6e2177a44db2b2559a53ad04d519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -2531,7 +2531,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="1255" column="11" declfile="xp/coap/gg_coap.h" declline="1255" declcolumn="11"/>
+        <location file="xp/coap/gg_coap.h" line="1259" column="11" declfile="xp/coap/gg_coap.h" declline="1259" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga521a012d2a7454af9e2d69f003c472ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -3785,7 +3785,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="325" column="29" declfile="xp/coap/gg_coap.h" declline="325" declcolumn="29"/>
+        <location file="xp/coap/gg_coap.h" line="329" column="29" declfile="xp/coap/gg_coap.h" declline="329" declcolumn="29"/>
       </memberdef>
       <memberdef kind="function" id="group___co_a_p_1ga9281806f762c5b57036f6d341457ac8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -3907,7 +3907,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="388" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="388" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="392" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="392" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gab81d3df1a8c0bcbaa54b9c6fe27363de" prot="public" static="no">
         <name>GG_COAP_DEFAULT_PORT_SECURE</name>
@@ -3919,7 +3919,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="389" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="389" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="393" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="393" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga31063d6b747d2a86e98fe8136827b2aa" prot="public" static="no">
         <name>GG_COAP_MESSGAGE_MAX_TOKEN_LENGTH</name>
@@ -3931,7 +3931,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="390" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="390" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="394" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="394" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga6db330786e5d2e6170bba149e5f4d7e1" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_ITERATOR_FILTER_ANY</name>
@@ -3943,7 +3943,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="391" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="391" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="395" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="395" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga4adf7d011188505747dece10900816fa" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET</name>
@@ -3955,7 +3955,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="394" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="394" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="398" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="398" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga43f0f48858ff767661f391e83ca44aca" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_POST</name>
@@ -3967,7 +3967,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="395" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="395" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="399" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="399" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga55e831d8603d1cc8f712af50f6fc1318" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_PUT</name>
@@ -3979,7 +3979,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="396" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="396" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="400" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="400" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gab3adf11a2965e7a5a533c3a52f03fe93" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_DELETE</name>
@@ -3991,7 +3991,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="397" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="397" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="401" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="401" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga7708b94352683faeb734822e109fe34f" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAGS_ALLOW_ALL</name>
@@ -4003,7 +4003,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="398" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="398" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="402" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="402" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga80d2af5422d81b36da9ad475b80d513b" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_ENABLE_ASYNC</name>
@@ -4015,7 +4015,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="401" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="401" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="405" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="405" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gab086318cbb34e1799de388330be8d0b9" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_GROUP</name>
@@ -4027,7 +4027,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="407" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="407" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="411" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="411" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga304797f55aa9ce9cfb8492929dab3451" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_GROUP_1</name>
@@ -4039,7 +4039,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="408" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="408" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="412" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="412" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga82bfaa9d87c3fa56c36c0f7ce7a38775" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_GROUP_2</name>
@@ -4051,7 +4051,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="409" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="409" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="413" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="413" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga445eba4071e94b3af879755ccf72726b" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_GROUP_3</name>
@@ -4063,7 +4063,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="410" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="410" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="414" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="414" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaed05a9d3e7399a69b1c9170c500f6ad2" prot="public" static="no">
         <name>GG_COAP_REQUEST_HANDLER_FLAG_GROUP_4</name>
@@ -4075,7 +4075,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="411" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="411" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="415" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="415" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaece20f1cfdde873c615e1410ff048d39" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CLASS</name>
@@ -4087,7 +4087,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="414" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="414" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="418" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="418" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga96e7b489a79c6b36cf7d066520b91a6e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_DETAIL</name>
@@ -4099,7 +4099,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="415" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="415" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="419" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="419" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga681eb1a195eee259ea693bb88df0a196" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE</name>
@@ -4111,7 +4111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="416" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="416" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="420" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="420" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga12582af0f1df2c3af0fb0be123dcfdf0" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CREATED</name>
@@ -4122,7 +4122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="417" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="417" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="421" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="421" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga691165eff139103c289b8a4b9fd2522a" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_DELETED</name>
@@ -4133,7 +4133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="418" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="418" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="422" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="422" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga33935c5b5a69938deada746939616368" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_VALID</name>
@@ -4144,7 +4144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="419" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="419" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="423" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="423" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga7319619e1d4814d89f01d785e7c994d5" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CHANGED</name>
@@ -4155,7 +4155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="420" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="420" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="424" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="424" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gae149ead450becdab4fabaa1aaa88879f" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CONTENT</name>
@@ -4166,7 +4166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="421" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="421" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="425" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="425" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga184966107aaeaf7b6bae4b3bf25d7b87" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CONTINUE</name>
@@ -4177,7 +4177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="422" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="422" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="426" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="426" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga5f751c76eaf24e2e9f0fc9e0b6cc4629" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_BAD_REQUEST</name>
@@ -4188,7 +4188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="423" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="423" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="427" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="427" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga486f014a6c973f43c25b867f1e154c1f" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_UNAUTHORIZED</name>
@@ -4199,7 +4199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="424" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="424" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="428" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="428" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga3555380c941404a79a8900ca7bd63f3a" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_BAD_OPTION</name>
@@ -4210,7 +4210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="425" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="425" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="429" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="429" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga9b3cbd5c263e0a7e9820351bcfdb9b5e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_FORBIDDEN</name>
@@ -4221,7 +4221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="426" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="426" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="430" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="430" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga755ee0516dad3c7e201ee28b0f518330" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_NOT_FOUND</name>
@@ -4232,7 +4232,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="427" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="427" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="431" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="431" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga760c1381c893413766045bcbbd71301c" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_METHOD_NOT_ALLOWED</name>
@@ -4243,7 +4243,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="428" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="428" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="432" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="432" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gadf165503d800aee454254677d702b481" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_NOT_ACCEPTABLE</name>
@@ -4254,7 +4254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="429" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="429" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="433" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="433" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga869f1092334e0199c39ae14f99e6a660" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_REQUEST_ENTITY_INCOMPLETE</name>
@@ -4265,7 +4265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="430" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="430" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="434" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="434" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga55cd279e7872df1bbdf678e695cea030" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_PRECONDITION_FAILED</name>
@@ -4276,7 +4276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="431" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="431" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="435" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="435" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga57744526faa36b7f481cc0e4788df9f1" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_REQUEST_ENTITY_TOO_LARGE</name>
@@ -4287,7 +4287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="432" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="432" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="436" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="436" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gae4578526d7ea5520b3549cc84fb1af0b" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_UNSUPPORTED_CONTENT_FORMAT</name>
@@ -4298,7 +4298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="433" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="433" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="437" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="437" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gade29eb6e3e4fe657679a93ba10cd0ae7" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_INTERNAL_SERVER_ERROR</name>
@@ -4309,7 +4309,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="434" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="434" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="438" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="438" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga65e8262022cd20ba735b63b1406abff6" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_NOT_IMPLEMENTED</name>
@@ -4320,7 +4320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="435" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="435" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="439" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="439" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga30d31bf5c12e4e4fa73db836b81ea098" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_BAD_GATEWAY</name>
@@ -4331,7 +4331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="436" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="436" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="440" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="440" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga882b73e8601ddbb97e985b9828183512" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_SERVICE_UNAVAILABLE</name>
@@ -4342,7 +4342,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="437" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="437" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="441" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="441" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga33252bdcb76be8abb6d04bd9412badb9" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_GATEWAY_TIMEOUT</name>
@@ -4353,7 +4353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="438" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="438" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="442" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="442" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga2a1f62128a613d428605a5d88791b05d" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_PROXYING_NOT_SUPPORTED</name>
@@ -4364,7 +4364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="439" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="439" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="443" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="443" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga0f9479411f12060d7c7fccca57db7c8e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CLASS_REQUEST</name>
@@ -4375,7 +4375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="447" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="447" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="451" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="451" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga24750d78d99b8e500558ef1e751d0601" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CLASS_SUCCESS_RESPONSE</name>
@@ -4386,7 +4386,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="448" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="448" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="452" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="452" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga19cbe1a4f6699a7d8023029646a09a8c" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CLASS_CLIENT_ERROR_RESPONSE</name>
@@ -4397,7 +4397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="449" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="449" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="453" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="453" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga861bd525ba7100d1d14ef01840bd0b26" prot="public" static="no">
         <name>GG_COAP_MESSAGE_CODE_CLASS_SERVER_ERROR_RESPONSE</name>
@@ -4408,7 +4408,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="450" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="450" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="454" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="454" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga11108bf60375f3614ee9597f62639fb5" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_NONE</name>
@@ -4420,7 +4420,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="453" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="453" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="457" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="457" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaffb199b118ce2dce8d2050c067ba1a1f" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_IF_MATCH</name>
@@ -4431,7 +4431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="454" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="454" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="458" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="458" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga855de57bc39bd45dcd4ef5b77b214094" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_URI_HOST</name>
@@ -4442,7 +4442,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="455" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="455" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="459" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="459" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga224a3fef18a42f26150ab3287d7883b2" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_ETAG</name>
@@ -4453,7 +4453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="456" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="456" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="460" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="460" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gafe8fc89aedc3e9738fb2002b950f8870" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_IF_NONE_MATCH</name>
@@ -4464,7 +4464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="457" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="457" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="461" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="461" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga1a2e7a904bfb73822efecc290a2fdb02" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_URI_PORT</name>
@@ -4475,7 +4475,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="458" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="458" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="462" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="462" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga1588ed2afaba6b05165701b4a0d9d66e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_LOCATION_PATH</name>
@@ -4486,7 +4486,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="459" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="459" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="463" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="463" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaf96b2979535e8e1e9b9f80c2fa89bf53" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_URI_PATH</name>
@@ -4497,7 +4497,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="460" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="460" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="464" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="464" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga0b44a7636ab7c441ea061dd7755512d8" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_CONTENT_FORMAT</name>
@@ -4508,7 +4508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="461" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="461" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="465" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="465" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga55342cd50ac04b14b37fa2d58f191e1d" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_MAX_AGE</name>
@@ -4519,7 +4519,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="462" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="462" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="466" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="466" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga18731b78523b3032702749ca1d3e23ee" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_URI_QUERY</name>
@@ -4530,7 +4530,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="463" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="463" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="467" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="467" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga55f304ae573b8f7f9aecd632f4cfc665" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_ACCEPT</name>
@@ -4541,7 +4541,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="464" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="464" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="468" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="468" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gad1ca18cb3375a71bc7ecd2d7b7c281a5" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_LOCATION_QUERY</name>
@@ -4552,7 +4552,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="465" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="465" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="469" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="469" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga2f68ecf1d1119410cf81a9cc27513bdf" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PROXY_URI</name>
@@ -4563,7 +4563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="466" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="466" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="470" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="470" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga012bb0efd86bb48061713b57f833bdab" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PROXY_SCHEME</name>
@@ -4574,7 +4574,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="467" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="467" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="471" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="471" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gabbb576baba2fdc6cf6ccea53bf75f2c1" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_SIZE1</name>
@@ -4585,7 +4585,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="468" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="468" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="472" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="472" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga8ca3af431a8589ee5c0a2a39052d34b0" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_SIZE2</name>
@@ -4596,7 +4596,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="469" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="469" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="473" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="473" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gae68c5ec5b8a92b9dc65e8b1d366fbb83" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_BLOCK1</name>
@@ -4607,7 +4607,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="470" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="470" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="474" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="474" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gad68f8beadacd41926448739835246bfd" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_BLOCK2</name>
@@ -4618,7 +4618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="471" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="471" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="475" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="475" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga1df2ab59c9ade515856c678be7ed57bb" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_START_OFFSET</name>
@@ -4630,7 +4630,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="472" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="472" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="476" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="476" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga894635aaf8305f82a9d1ea8b1d10b828" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_EXTENDED_ERROR</name>
@@ -4642,7 +4642,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="473" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="473" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="477" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="477" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga0a06f9516b2b2160a31b175c9468785c" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_TEXT_PLAIN</name>
@@ -4653,7 +4653,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="476" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="476" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="480" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="480" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga86573f76a4ae632e58760abfe65eecd1" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_LINK_FORMAT</name>
@@ -4664,7 +4664,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="477" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="477" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="481" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="481" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga28dfbcf1c273f0be845de1193f94f3d6" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_XML</name>
@@ -4675,7 +4675,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="478" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="478" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="482" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="482" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga4f336e82321c1fb001ccd4d46ee1e23a" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_OCTET_STREAM</name>
@@ -4686,7 +4686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="479" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="479" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="483" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="483" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gadc548f3ba766ae31809db9a9c0d72ee4" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_EXI</name>
@@ -4697,7 +4697,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="480" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="480" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="484" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="484" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga363c30f0158e387c1ea64d0b28b5fee3" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_JSON</name>
@@ -4708,7 +4708,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="481" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="481" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="485" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="485" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga4cf83904869ed1ab4216d2a496362d9e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_FORMAT_ID_CBOR</name>
@@ -4719,7 +4719,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="482" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="482" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="486" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="486" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga646e60910938e3e1b75d96bbc102123a" prot="public" static="no">
         <name>GG_ERROR_COAP_UNSUPPORTED_VERSION</name>
@@ -4730,7 +4730,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="485" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="485" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="489" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="489" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga46db4c807a793b7cb64444af5b6fa3af" prot="public" static="no">
         <name>GG_ERROR_COAP_RESET</name>
@@ -4741,7 +4741,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="486" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="486" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="490" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="490" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gae4037ccbc713cce5a3fe4640256c468b" prot="public" static="no">
         <name>GG_ERROR_COAP_UNEXPECTED_MESSAGE</name>
@@ -4752,7 +4752,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="487" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="487" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="491" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="491" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaa725f61d1e89742d4021551529417f7f" prot="public" static="no">
         <name>GG_ERROR_COAP_SEND_FAILURE</name>
@@ -4763,7 +4763,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="488" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="488" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="492" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="492" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaeaad186bde035e0bb406e2e9c132b87a" prot="public" static="no">
         <name>GG_ERROR_COAP_UNEXPECTED_BLOCK</name>
@@ -4774,7 +4774,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="489" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="489" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="493" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="493" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaf076add8eda74222329381fd22b382c8" prot="public" static="no">
         <name>GG_ERROR_COAP_INVALID_RESPONSE</name>
@@ -4785,7 +4785,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="490" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="490" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="494" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="494" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga606314eecf7ecf23696a978370679bb0" prot="public" static="no">
         <name>GG_ERROR_COAP_ETAG_MISMATCH</name>
@@ -4796,7 +4796,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="491" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="491" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="495" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="495" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga2ebd3162a7f040da84a2921eb1c3ff24" prot="public" static="no">
         <name>GG_COAP_MESSAGE_MAX_OPTION_COUNT</name>
@@ -4808,7 +4808,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="494" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="494" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="498" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="498" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaff0549ce4eec0fea22ab1a2a02e5272e" prot="public" static="no">
         <name>GG_COAP_MESSAGE_MAX_OPTION_SIZE</name>
@@ -4820,7 +4820,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="495" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="495" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="499" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="499" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaa4f5ba5ff2d6f69943d26ce6ee233f44" prot="public" static="no">
         <name>GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE</name>
@@ -4832,7 +4832,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="496" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="496" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="500" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="500" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga471fcd17b8dbbf921ef31240edc67dba" prot="public" static="no">
         <name>GG_COAP_EXTENDED_ERROR_OPTION_SIZE</name>
@@ -4843,7 +4843,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="499" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="499" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="503" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="503" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga0949b2c97a3ef7afde6f93fc113691c9" prot="public" static="no">
         <name>GG_COAP_DEFAULT_MAX_RETRANSMIT</name>
@@ -4855,7 +4855,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="501" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="501" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="505" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="505" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga5213f173b1655bc3d6ba62511f44c481" prot="public" static="no">
         <name>GG_COAP_INVALID_REQUEST_HANDLE</name>
@@ -4866,7 +4866,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="504" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="504" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="508" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="508" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga9c86ccf44b9e0fce954109191ebdc1c0" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_EMPTY_N</name>
@@ -4878,7 +4878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="509" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="509" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="513" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="513" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga42c2bd384fb0f45b0d322073eec20167" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_EMPTY</name>
@@ -4900,7 +4900,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="516" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="516" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="520" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="520" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga6df069a40ec91cf42c1f542ea2bbafe5" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_UINT_N</name>
@@ -4913,7 +4913,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="519" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="519" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="523" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="523" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga826886c7a8708763fe7a705b10a7dba7" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_UINT</name>
@@ -4945,7 +4945,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="529" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="529" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="533" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="533" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gac3c9f535a5aaf7b1e2091ab3f2db7164" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_STRING_NL</name>
@@ -4959,7 +4959,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="532" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="532" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="536" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="536" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga916ca1e998f7dc94a811dd46996da86a" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_STRING_L</name>
@@ -5000,7 +5000,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="543" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="543" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="547" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="547" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga5d4f26511b1c31269d42fcdc76d0b6c0" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_STRING_N</name>
@@ -5013,7 +5013,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="546" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="546" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="550" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="550" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga09ac51f227d5f94f18c8cbd8840b1c0f" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_STRING</name>
@@ -5045,7 +5045,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="556" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="556" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="560" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="560" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1gaa8ab6d01229c74cd9020de44181b2b70" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_OPAQUE_N</name>
@@ -5059,7 +5059,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="559" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="559" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="563" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="563" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga86d85946d0cb9e64f58035805cca81e4" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_OPAQUE</name>
@@ -5100,7 +5100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="570" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="570" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="574" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="574" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga29bb8ed12ae4d33b66f773417b8205fd" prot="public" static="no">
         <name>GG_COAP_MESSAGE_OPTION_PARAM_NEXT</name>
@@ -5113,7 +5113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="576" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="576" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="580" column="9" bodyfile="xp/coap/gg_coap.h" bodystart="580" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___co_a_p_1ga000454047f6425498162c53f1dfd861f" prot="public" static="no">
         <name>GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE</name>

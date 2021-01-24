@@ -58,7 +58,7 @@
 <td>
 <a href="../com.fitbit.goldengate.node.stack/-coap-node-provider/index.html">com.fitbit.goldengate.node.stack.CoapNodeProvider</a></td>
 <td>
-<p>Utility object for instantiating a <a href="../com.fitbit.goldengate.node.stack/-stack-node-builder/index.html">StackNodeBuilder</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt;</p>
+<p>Utility object for instantiating a <a href="../com.fitbit.goldengate.node.stack/-stack-peer-builder/index.html">StackPeerBuilder</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt;</p>
 </td>
 </tr>
 <tr>
@@ -66,7 +66,50 @@
 <a href="../com.fitbit.goldengate.stackservice/-coap-stack-service-provider/index.html">com.fitbit.goldengate.stackservice.CoapStackServiceProvider</a></td>
 <td>
 <p>Utility object for encapsulating dependencies. When <a href="../com.fitbit.goldengate.stackservice/-coap-stack-service-provider/invoke.html">invoked</a> returns a
-<a href="../com.fitbit.goldengate.stackservice/-stack-service-mapper/index.html">StackServiceMapper</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt; using a <a href="../com.fitbit.goldengate.node.stack/-stack-node-builder/index.html">StackNodeBuilder</a>&lt;<a href="#">CoapEndpoint</a>&gt;</p>
+<a href="../com.fitbit.goldengate.stackservice/-stack-service-mapper/index.html">StackServiceMapper</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt; using a <a href="../com.fitbit.goldengate.node.stack/-stack-peer-builder/index.html">StackPeerBuilder</a>&lt;<a href="#">CoapEndpoint</a>&gt;</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattcache/-ephemeral-characteristic/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattcache.EphemeralCharacteristic</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattcache/-ephemeral-characteristic-pointer/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattcache.EphemeralCharacteristicPointer</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattlink/-fitbit-gattlink-service/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService</a></td>
+<td>
+<p>Represents the Gattlink Service hosted on mobile that allows reliable streaming of
+arbitrary data over a BLE connection using the GATT protocol, with support for BLE/GATT stacks
+that don't always have the necessary support for writing GATT characteristics back-to-back
+without dropping data</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattcache/-gatt-cache-service/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheService</a></td>
+<td>
+<p>Fitbit GATT cache service, hosted by node; Hub uses this service to verify if
+cached peer GATT service database is up-to-date.
+https://wiki.fitbit.com/display/firmware/GATT+Service+Change+Indication</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattcache/-gatt-cache-service-event-listener/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceEventListener</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.server.services.gattcache/-gatt-cache-service-handler/index.html">com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler</a></td>
+<td>
 </td>
 </tr>
 <tr>
@@ -123,6 +166,20 @@ Mainly for receiving service changed indication</p>
 </tr>
 <tr>
 <td>
+<a href="../com.fitbit.goldengate.node/-linkup/index.html">com.fitbit.goldengate.node.Linkup</a></td>
+<td>
+<p>Interface for Golden Gate link-up process</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.node/-linkup-handler-provider/index.html">com.fitbit.goldengate.node.LinkupHandlerProvider</a></td>
+<td>
+<p>Helper object to return the linkup handler based upon connection role (node or hub)</p>
+</td>
+</tr>
+<tr>
+<td>
 <a href="../com.fitbit.goldengate.node/-mtu-change-exception/index.html">com.fitbit.goldengate.node.MtuChangeException</a></td>
 <td>
 <p>Exception thrown when failed to update MTU</p>
@@ -133,26 +190,6 @@ Mainly for receiving service changed indication</p>
 <a href="../com.fitbit.goldengate.node/-mtu-change-requester/index.html">com.fitbit.goldengate.node.MtuChangeRequester</a></td>
 <td>
 <p>Class to request MTU change for a CONNECTED Node</p>
-</td>
-</tr>
-<tr>
-<td>
-<a href="../com.fitbit.goldengate.node/-node/index.html">com.fitbit.goldengate.node.Node</a></td>
-<td>
-<p>Interface for Golden Gate Nodes. Used to represent a connection and encapsulates the protocol</p>
-</td>
-</tr>
-<tr>
-<td>
-<a href="../com.fitbit.goldengate.node/-node-builder/index.html">com.fitbit.goldengate.node.NodeBuilder</a></td>
-<td>
-<p>Builds a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> with <a href="#">StackService</a> of type <a href="../com.fitbit.goldengate.node/-node-builder/index.html#S">S</a> and key of type <a href="../com.fitbit.goldengate.node/-node-builder/index.html#K">K</a> and determines if an existing <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> is the same as the one's it builds</p>
-</td>
-</tr>
-<tr>
-<td>
-<a href="../com.fitbit.goldengate.node/-node-connection-status/index.html">com.fitbit.goldengate.node.NodeConnectionStatus</a></td>
-<td>
 </td>
 </tr>
 <tr>
@@ -193,8 +230,35 @@ Mainly for receiving service changed indication</p>
 <td>
 <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">com.fitbit.goldengate.node.NodeMapper</a></td>
 <td>
-<p>Maps a <a href="#">NodeKey</a> to a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a>. Uses a <a href="../com.fitbit.goldengate.node/-node-builder/index.html">NodeBuilder</a> to make the node if it does not exist or if
-the existing <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> is different than expected</p>
+<p>Maps a <a href="#">NodeKey</a> to a <a href="#">Node</a>. Uses a <a href="../com.fitbit.goldengate.node/-peer-builder/index.html">PeerBuilder</a> to make the node if it does not exist or if
+the existing <a href="#">Node</a> is different than expected</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.node/-peer/index.html">com.fitbit.goldengate.node.Peer</a></td>
+<td>
+<p>Interface for Golden Gate Nodes. Used to represent a connection and encapsulates the protocol</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.node/-peer-builder/index.html">com.fitbit.goldengate.node.PeerBuilder</a></td>
+<td>
+<p>Builds a <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> with <a href="#">StackService</a> of type <a href="../com.fitbit.goldengate.node/-peer-builder/index.html#S">S</a> and key of type <a href="../com.fitbit.goldengate.node/-peer-builder/index.html#K">K</a> and determines if an existing <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> is the same as the one's it builds</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.node/-peer-connection-status/index.html">com.fitbit.goldengate.node.PeerConnectionStatus</a></td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt/-peer-role/index.html">com.fitbit.goldengate.bt.PeerRole</a></td>
+<td>
+<p>presents different roles of BLE peer (remote) devices</p>
 </td>
 </tr>
 <tr>
@@ -206,7 +270,7 @@ the existing <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> i
 </tr>
 <tr>
 <td>
-<a href="../com.fitbit.goldengate.node.stack/-remote-api-stack-node-builder/index.html">com.fitbit.goldengate.node.stack.RemoteApiStackNodeBuilder</a></td>
+<a href="../com.fitbit.goldengate.node.stack/-remote-api-stack-peer-builder/index.html">com.fitbit.goldengate.node.stack.RemoteApiStackPeerBuilder</a></td>
 <td>
 <p>Used to expose building a stack for use with the Remote API</p>
 </td>
@@ -221,25 +285,25 @@ gattlink buffer events.</p>
 </tr>
 <tr>
 <td>
-<a href="../com.fitbit.goldengate.node.stack/-stack-node/index.html">com.fitbit.goldengate.node.stack.StackNode</a></td>
+<a href="../com.fitbit.goldengate.node.stack/-stack-peer/index.html">com.fitbit.goldengate.node.stack.StackPeer</a></td>
 <td>
-<p>A <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> that encapsulates a connection via a <a href="#">Stack</a> including the <a href="#">StackConfig</a>,
+<p>A <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> (hub or node) that encapsulates a connection via a <a href="#">Stack</a> including the <a href="#">StackConfig</a>,
 <a href="#">StackService</a>, <a href="#">Stack</a>, and <a href="../com.fitbit.goldengate.node/-bridge/index.html">Bridge</a></p>
 </td>
 </tr>
 <tr>
 <td>
-<a href="../com.fitbit.goldengate.node.stack/-stack-node-builder/index.html">com.fitbit.goldengate.node.stack.StackNodeBuilder</a></td>
+<a href="../com.fitbit.goldengate.node.stack/-stack-peer-builder/index.html">com.fitbit.goldengate.node.stack.StackPeerBuilder</a></td>
 <td>
-<p>Builds a <a href="../com.fitbit.goldengate.node.stack/-stack-node/index.html">StackNode</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
+<p>Builds a <a href="../com.fitbit.goldengate.node.stack/-stack-peer/index.html">StackPeer</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
 </td>
 </tr>
 <tr>
 <td>
 <a href="../com.fitbit.goldengate.stackservice/-stack-service-mapper/index.html">com.fitbit.goldengate.stackservice.StackServiceMapper</a></td>
 <td>
-<p>Retrieves a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> from a <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> for a given <a href="#">NodeKey</a> and extracts the <a href="#">StackService</a> with <a href="../com.fitbit.goldengate.stackservice/-stack-service-mapper/get.html">get</a>.
-The <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> will build a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> with the <a href="../com.fitbit.goldengate.node/-node-builder/index.html">NodeBuilder</a> given by <a href="#">nodeBuilderProvider</a> if necessary</p>
+<p>Retrieves a <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> from a <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> for a given <a href="#">NodeKey</a> and extracts the <a href="#">StackService</a> with <a href="../com.fitbit.goldengate.stackservice/-stack-service-mapper/get.html">get</a>.
+The <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> will build a <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> with the <a href="../com.fitbit.goldengate.node/-peer-builder/index.html">PeerBuilder</a> given by <a href="#">nodeBuilderProvider</a> if necessary</p>
 </td>
 </tr>
 <tr>
@@ -255,6 +319,12 @@ The <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</
 <td>
 <p>GATT service listener that listens to subscription changes to Gattlink service Tx characteristic.
 Subscription changes are available per remote connected device</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="../com.fitbit.goldengate.bt.gatt.util/java.util.-u-u-i-d/index.html">java.util.UUID</a> (extensions in package com.fitbit.goldengate.bt.gatt.util)</td>
+<td>
 </td>
 </tr>
 </tbody>

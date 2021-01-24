@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="185" column="13" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="82" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="185" column="13" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -548,7 +548,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="175" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="175" declcolumn="11"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="176" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="176" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga4354844985eeae3119de99b4c0f46459" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -576,7 +576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="190" column="6" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="190" declcolumn="6"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="191" column="6" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="191" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1gacc066c88e476f1a80ba6ccb44188ebf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___event_emitter" kindref="compound">GG_EventEmitter</ref> *</type>
@@ -606,7 +606,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="199" column="17" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="199" declcolumn="17"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="200" column="17" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="200" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1gaadc0c625962a75b5640f0c05585099ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -636,7 +636,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="208" column="16" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="208" declcolumn="16"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="209" column="16" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="209" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga5f0ad10f8fcf2e7121201c382d99ae50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -666,7 +666,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="217" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="217" declcolumn="11"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="218" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="218" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga9a38916c39abb3cddb3fa21114cc2e98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -696,7 +696,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="227" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="227" declcolumn="11"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="228" column="11" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="228" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga355a9c353e9ecc61af25d3b06c995920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -738,7 +738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="242" column="1" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="242" declcolumn="1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="243" column="1" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="243" declcolumn="1"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga607de2cece2e56af59b3102d849efe2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -755,7 +755,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="245" column="13" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="245" declcolumn="13"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="246" column="13" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="246" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga366d05f7fb779dbb75410868ac287154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
@@ -772,7 +772,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="246" column="15" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="246" declcolumn="15"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="247" column="15" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="247" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga842510db0e04defdb166db61109a32f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -789,7 +789,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="247" column="13" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="247" declcolumn="13"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="248" column="13" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="248" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga4c7c85f3a2db690ee088a2eade0eefe0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_source" kindref="compound">GG_DataSource</ref> *</type>
@@ -806,7 +806,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="248" column="15" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="248" declcolumn="15"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="249" column="15" declfile="xp/gattlink/gg_gattlink_generic_client.h" declline="249" declcolumn="15"/>
       </memberdef>
       <memberdef kind="function" id="group___gattlink_1ga629d5aa0c9eb366e48613df1415aa6fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>size_t</type>
@@ -1189,7 +1189,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="105" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="105" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="106" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1gadea2e9838c20a15ac3da756e885e4e46" prot="public" static="no">
         <name>GG_GENERIC_GATTLINK_CLIENT_DEFAULT_MAX_RX_WINDOW_SIZE</name>
@@ -1200,7 +1200,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="106" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="106" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="107" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1ga100130c45e89c7b5f18d51a810331e30" prot="public" static="no">
         <name>GG_GENERIC_GATTLINK_CLIENT_OUTPUT_BUFFER_MONITOR_TIMEOUT</name>
@@ -1211,7 +1211,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="107" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="107" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="108" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1ga695462c58990b7ee7559aa9b65367c1c" prot="public" static="no">
         <name>GG_GENERIC_GATTLINK_CLIENT_OUTPUT_BUFFER_OVER_THRESHOLD</name>
@@ -1224,7 +1224,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="117" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="117" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="118" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="118" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1ga53353b957f144348bcfeb0723d221742" prot="public" static="no">
         <name>GG_GENERIC_GATTLINK_CLIENT_OUTPUT_BUFFER_UNDER_THRESHOLD</name>
@@ -1237,7 +1237,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="127" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="127" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="128" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1gadb9c5889cd1bd77baf705d6fb628b875" prot="public" static="no">
         <name>GG_EVENT_TYPE_GATTLINK_SESSION_READY</name>
@@ -1250,7 +1250,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="135" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="135" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="136" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1ga51e83425fbbd12017b09c986f85a4d3f" prot="public" static="no">
         <name>GG_EVENT_TYPE_GATTLINK_SESSION_RESET</name>
@@ -1263,7 +1263,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="143" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="143" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="144" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group___gattlink_1gaa90fd283977c25d4206f42633bf66a3c" prot="public" static="no">
         <name>GG_EVENT_TYPE_GATTLINK_SESSION_STALLED</name>
@@ -1276,7 +1276,7 @@ Overview&quot; in doc linked in header details. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="152" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="152" bodyend="-1"/>
+        <location file="xp/gattlink/gg_gattlink_generic_client.h" line="153" column="9" bodyfile="xp/gattlink/gg_gattlink_generic_client.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

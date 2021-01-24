@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.0.0">
     
     
       
@@ -1463,6 +1463,8 @@ Android 8.0, Android 5.0, Android 7.1, NDK, Android SDK Tools, Android SDK
 Platform-Tools, Android Support Library, LLDB, CMake, Android SDK
 Build-Tools, and everything under the Support Library header. You can skip
 the emulator images to save some disk space.</p>
+<p>Check the project's gradle files to see which version of the NDK is referenced
+(the current version should be: 21.0.6113669)</p>
 <p>Alternatively, on Linux, you can install the SDK components from the command line:</p>
 <div class="highlight"><pre><span></span><code>$ sdk/tools/bin/sdkmanager <span class="se">\</span>
     <span class="s1">&#39;platforms;android-26&#39;</span> <span class="se">\</span>
@@ -1472,7 +1474,7 @@ the emulator images to save some disk space.</p>
     <span class="s1">&#39;platforms;android-27&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;platforms;android-28&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;platforms;android-29&#39;</span> <span class="se">\</span>
-    <span class="s1">&#39;ndk-bundle&#39;</span> <span class="se">\</span>
+    <span class="s1">&#39;ndk;21.0.6113669&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;cmake;3.6.4111459&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;lldb;3.0&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;build-tools;27.0.3&#39;</span> <span class="se">\</span>
@@ -1482,7 +1484,6 @@ the emulator images to save some disk space.</p>
     <span class="s1">&#39;extras;android;m2repository&#39;</span> <span class="se">\</span>
     <span class="s1">&#39;extras;google;m2repository&#39;</span>
 </code></pre></div>
-
 <h3 id="setup-you-environment">Setup You Environment<a class="headerlink" href="#setup-you-environment" title="Permanent link">&para;</a></h3>
 <p>Set the <code>ANDROID_HOME</code> environment variable to point to the SDK directory (eg
 <code>export ANDROID_HOME=~/android-sdk</code> in your <code>~/.bashrc</code>)</p>

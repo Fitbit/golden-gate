@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="56" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="56" bodyend="-1"/>
+        <location file="xp/protocols/gg_protocols.h" line="58" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___frame_assembler_interface_1aa8bf04fb20652c61fd90f5293900db58" prot="public" static="no" mutable="no">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref>(*</type>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="73" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="73" bodyend="-1"/>
+        <location file="xp/protocols/gg_protocols.h" line="75" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___frame_assembler_interface_1abc5d8a942485e607b1179ea434b682b7" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/protocols/gg_protocols.h" line="80" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="80" bodyend="-1"/>
+        <location file="xp/protocols/gg_protocols.h" line="82" column="5" bodyfile="xp/protocols/gg_protocols.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -116,7 +116,7 @@
     <detaileddescription>
 <para>Virtual function table for the <ref refid="struct_g_g___frame_assembler" kindref="compound">GG_FrameAssembler</ref> interface </para>
     </detaileddescription>
-    <location file="xp/protocols/gg_protocols.h" line="46" column="91" bodyfile="xp/protocols/gg_protocols.h" bodystart="46" bodyend="81"/>
+    <location file="xp/protocols/gg_protocols.h" line="48" column="91" bodyfile="xp/protocols/gg_protocols.h" bodystart="48" bodyend="83"/>
     <listofallmembers>
       <member refid="struct_g_g___frame_assembler_interface_1aa8bf04fb20652c61fd90f5293900db58" prot="public" virt="non-virtual"><scope>GG_FrameAssemblerInterface</scope><name>Feed</name></member>
       <member refid="struct_g_g___frame_assembler_interface_1a95ce8112f466a0d2c63eb32960f3b5f0" prot="public" virt="non-virtual"><scope>GG_FrameAssemblerInterface</scope><name>GetFeedBuffer</name></member>

@@ -17,35 +17,35 @@
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">CoapNodeProvider</span></code>
-<p>Utility object for instantiating a <a href="-stack-node-builder/index.html">StackNodeBuilder</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt;</p>
+<p>Utility object for instantiating a <a href="-stack-peer-builder/index.html">StackPeerBuilder</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt;</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="-remote-api-stack-node-builder/index.html">RemoteApiStackNodeBuilder</a></p>
+<p><a href="-remote-api-stack-peer-builder/index.html">RemoteApiStackPeerBuilder</a></p>
 </td>
 <td>
-<code><span class="keyword">object </span><span class="identifier">RemoteApiStackNodeBuilder</span></code>
+<code><span class="keyword">object </span><span class="identifier">RemoteApiStackPeerBuilder</span></code>
 <p>Used to expose building a stack for use with the Remote API</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="-stack-node/index.html">StackNode</a></p>
+<p><a href="-stack-peer/index.html">StackPeer</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">StackNode</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.node/-node/index.html"><span class="identifier">Node</span></a><span class="symbol">&lt;</span><a href="-stack-node/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
-<p>A <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> that encapsulates a connection via a <a href="#">Stack</a> including the <a href="#">StackConfig</a>,
+<code><span class="keyword">class </span><span class="identifier">StackPeer</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.node/-peer/index.html"><span class="identifier">Peer</span></a><span class="symbol">&lt;</span><a href="-stack-peer/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p>A <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> (hub or node) that encapsulates a connection via a <a href="#">Stack</a> including the <a href="#">StackConfig</a>,
 <a href="#">StackService</a>, <a href="#">Stack</a>, and <a href="../com.fitbit.goldengate.node/-bridge/index.html">Bridge</a></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="-stack-node-builder/index.html">StackNodeBuilder</a></p>
+<p><a href="-stack-peer-builder/index.html">StackPeerBuilder</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">StackNodeBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.node/-node-builder/index.html"><span class="identifier">NodeBuilder</span></a><span class="symbol">&lt;</span><a href="-stack-node-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">&gt;</span></code>
-<p>Builds a <a href="-stack-node/index.html">StackNode</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
+<code><span class="keyword">class </span><span class="identifier">StackPeerBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../com.fitbit.goldengate.node/-peer-builder/index.html"><span class="identifier">PeerBuilder</span></a><span class="symbol">&lt;</span><a href="-stack-peer-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">BluetoothAddressNodeKey</span><span class="symbol">&gt;</span></code>
+<p>Builds a <a href="-stack-peer/index.html">StackPeer</a> with a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> key</p>
 </td>
 </tr>
 </tbody>

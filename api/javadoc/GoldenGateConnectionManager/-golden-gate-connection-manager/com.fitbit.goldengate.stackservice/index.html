@@ -18,7 +18,7 @@
 <td>
 <code><span class="keyword">object </span><span class="identifier">CoapStackServiceProvider</span></code>
 <p>Utility object for encapsulating dependencies. When <a href="-coap-stack-service-provider/invoke.html">invoked</a> returns a
-<a href="-stack-service-mapper/index.html">StackServiceMapper</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt; using a <a href="../com.fitbit.goldengate.node.stack/-stack-node-builder/index.html">StackNodeBuilder</a>&lt;<a href="#">CoapEndpoint</a>&gt;</p>
+<a href="-stack-service-mapper/index.html">StackServiceMapper</a>&lt;<a href="#">CoapEndpoint</a>, <a href="#">BluetoothAddressNodeKey</a>&gt; using a <a href="../com.fitbit.goldengate.node.stack/-stack-peer-builder/index.html">StackPeerBuilder</a>&lt;<a href="#">CoapEndpoint</a>&gt;</p>
 </td>
 </tr>
 <tr>
@@ -27,8 +27,8 @@
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">StackServiceMapper</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackService</span><span class="symbol">, </span><span class="identifier">K</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NodeKey</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
-<p>Retrieves a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> from a <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> for a given <a href="#">NodeKey</a> and extracts the <a href="#">StackService</a> with <a href="-stack-service-mapper/get.html">get</a>.
-The <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> will build a <a href="../com.fitbit.goldengate.node/-node/index.html">Node</a> with the <a href="../com.fitbit.goldengate.node/-node-builder/index.html">NodeBuilder</a> given by <a href="#">nodeBuilderProvider</a> if necessary</p>
+<p>Retrieves a <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> from a <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> for a given <a href="#">NodeKey</a> and extracts the <a href="#">StackService</a> with <a href="-stack-service-mapper/get.html">get</a>.
+The <a href="../com.fitbit.goldengate.node/-node-mapper/index.html">NodeMapper</a> will build a <a href="../com.fitbit.goldengate.node/-peer/index.html">Peer</a> with the <a href="../com.fitbit.goldengate.node/-peer-builder/index.html">PeerBuilder</a> given by <a href="#">nodeBuilderProvider</a> if necessary</p>
 </td>
 </tr>
 </tbody>

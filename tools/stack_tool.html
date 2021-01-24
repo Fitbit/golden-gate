@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.0.0">
     
     
       
@@ -1598,7 +1598,6 @@ NOTES:
   * Specify a port number of 0 for the receive port of the top or bottom to indicate
     that the network stack should pick any available port number.
 </code></pre></div>
-
 <h2 id="bluetooth">Bluetooth<a class="headerlink" href="#bluetooth" title="Permanent link">&para;</a></h2>
 <p>On macOS, the tool can interface directly with the operating system's Bluetooth stack.</p>
 <h3 id="bluetooth-as-a-hub">Bluetooth as a Hub<a class="headerlink" href="#bluetooth-as-a-hub" title="Permanent link">&para;</a></h3>
@@ -1718,7 +1717,6 @@ device.</p>
  |        |&lt;--[any ]---|            |&lt;--|           |&lt;-----| server    |
  +--------+            +------------+   |           |      +-----------+
 </code></pre></div>
-
 <p>Run:
 <div class="highlight"><pre><span></span><code>$ gg-stack-tool --trace --top coap <span class="m">127</span>.0.0.1 <span class="m">0</span> <span class="m">5683</span> --bottom bluetooth DB147848-D227-43A8-A7A7-3AF2530BABC5 hub DSNG
 </code></pre></div></p>
@@ -1756,7 +1754,6 @@ local CoAP server that is listening on port 6683.</p>
  |        |&lt;----[any ]----|            |&lt;--|           |&lt;-----| server    |
  +--------+               +------------+   |           |      +-----------+
 </code></pre></div>
-
 <p>Run:
 <div class="highlight"><pre><span></span><code>$ gg-stack-tool --trace --bottom bluetooth node:Jiji --top <span class="m">127</span>.0.0.1 <span class="m">0</span>/6683 <span class="m">5683</span> node DSNG
 </code></pre></div></p>

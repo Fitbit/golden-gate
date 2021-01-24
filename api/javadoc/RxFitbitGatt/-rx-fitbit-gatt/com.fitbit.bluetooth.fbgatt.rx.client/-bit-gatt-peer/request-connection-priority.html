@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>BitGattPeer.requestConnectionPriority - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.client</a>&nbsp;/&nbsp;<a href="index.html">BitGattPeer</a>&nbsp;/&nbsp;<a href="./request-connection-priority.html">requestConnectionPriority</a><br/>
+<br/>
+<h1>requestConnectionPriority</h1>
+<a name="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$requestConnectionPriority(kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">requestConnectionPriority</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer$requestConnectionPriority(kotlin.Int)/priority">priority</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Single</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span></code>
+<p>Requests connection priority as described in the <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html">BluetoothGatt</a> object.
+This assumes we are connected to the peer.</p>
+<h3>Parameters</h3>
+<p><a name="priority"></a>
+<code>priority</code> - Connection priority <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html#CONNECTION_PRIORITY_LOW_POWER">BluetoothGatt.CONNECTION_PRIORITY_LOW_POWER</a>, <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html#CONNECTION_PRIORITY_BALANCED">BluetoothGatt.CONNECTION_PRIORITY_BALANCED</a> or <a href="https://developer.android.com/reference/android/bluetooth/BluetoothGatt.html#CONNECTION_PRIORITY_HIGH">BluetoothGatt.CONNECTION_PRIORITY_HIGH</a>.</p>
+<p><strong>Return</strong><br/>
+A <a href="#">Single</a> emitting a boolean depending with the result of the boolean (true -&gt; success, false -&gt; failure).</p>
+</BODY>
+</HTML>

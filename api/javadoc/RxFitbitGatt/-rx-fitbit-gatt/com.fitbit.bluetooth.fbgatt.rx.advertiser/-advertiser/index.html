@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Advertiser - RxFitbitGatt</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RxFitbitGatt</a>&nbsp;/&nbsp;<a href="../index.html">com.fitbit.bluetooth.fbgatt.rx.advertiser</a>&nbsp;/&nbsp;<a href="./index.html">Advertiser</a><br/>
+<br/>
+<h1>Advertiser</h1>
+<code><span class="keyword">class </span><span class="identifier">Advertiser</span></code>
+<p>Utility class wrapping framework gattServer and rxGattServerCallback</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Advertiser</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser$<init>(android.content.Context, android.bluetooth.le.BluetoothLeAdvertiser)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser$<init>(android.content.Context, android.bluetooth.le.BluetoothLeAdvertiser)/bleAdvertiser">bleAdvertiser</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/le/BluetoothLeAdvertiser.html"><span class="identifier">BluetoothLeAdvertiser</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BluetoothAdapter.getDefaultAdapter().bluetoothLeAdvertiser<span class="symbol">)</span></code>
+<p>Utility class wrapping framework gattServer and rxGattServerCallback</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="context.html">context</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">context</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="start-advertising.html">startAdvertising</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">startAdvertising</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser$startAdvertising(android.bluetooth.le.AdvertiseSettings, android.bluetooth.le.AdvertiseData, android.bluetooth.le.AdvertiseData)/advertiseSettings">advertiseSettings</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseSettings.html"><span class="identifier">AdvertiseSettings</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser$startAdvertising(android.bluetooth.le.AdvertiseSettings, android.bluetooth.le.AdvertiseData, android.bluetooth.le.AdvertiseData)/advertiseData">advertiseData</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseData.html"><span class="identifier">AdvertiseData</span></a><span class="symbol">, </span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser$startAdvertising(android.bluetooth.le.AdvertiseSettings, android.bluetooth.le.AdvertiseData, android.bluetooth.le.AdvertiseData)/scanResponse">scanResponse</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseData.html"><span class="identifier">AdvertiseData</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="stop-advertising.html">stopAdvertising</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stopAdvertising</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Completable</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-advertise-data.html">getAdvertiseData</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAdvertiseData</span><span class="symbol">(</span><span class="identifier" id="com.fitbit.bluetooth.fbgatt.rx.advertiser.Advertiser.Companion$getAdvertiseData(kotlin.String)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseData.html"><span class="identifier">AdvertiseData</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-advertise-settings.html">getAdvertiseSettings</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAdvertiseSettings</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseSettings.html"><span class="identifier">AdvertiseSettings</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-scan-response-data.html">getScanResponseData</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getScanResponseData</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/bluetooth/le/AdvertiseData.html"><span class="identifier">AdvertiseData</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

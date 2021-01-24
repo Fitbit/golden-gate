@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.0.0">
     
     
       
@@ -1439,40 +1439,36 @@ submodules...)</p>
     <span class="n">GG_PACKET_TYPE_BAR</span>
 <span class="p">}</span> <span class="n">GG_PacketType</span><span class="p">;</span>
 </code></pre></div>
-
 <h2 id="object-oriented-c">Object-Oriented C<a class="headerlink" href="#object-oriented-c" title="Permanent link">&para;</a></h2>
 <h3 id="simple-classes">Simple Classes<a class="headerlink" href="#simple-classes" title="Permanent link">&para;</a></h3>
 <p>For code modules that implement class-like types, with encapsulated data and methods, the recommended naming convention for structs and functions is like this:</p>
 <p><code>GG_&lt;class_name&gt;_&lt;method_name&gt;</code></p>
 <p>where `<method_name>`` should read like an action performed on the type.</p>
 <p>Examples</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="n">GG_Socket</span> <span class="n">GG_Socket</span><span class="p">;</span> <span class="c1">// opaque type for GG_Socket class</span>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">GG_Socket</span> <span class="n">GG_Socket</span><span class="p">;</span> <span class="c1">// opaque type for GG_Socket class</span>
 
 <span class="n">GG_Result</span> <span class="nf">GG_Socket_SendDatagram</span><span class="p">(</span><span class="n">GG_Socket</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="k">const</span> <span class="n">GG_Datagram</span><span class="o">*</span> <span class="n">datagram</span><span class="p">);</span>
 </code></pre></div>
-
 <h3 id="virtual-methods">Virtual Methods<a class="headerlink" href="#virtual-methods" title="Permanent link">&para;</a></h3>
 <p>For classes that are designed to have a shared abstract class and multiple concrete implementations, the recommendation is to define an abstract object base which consists of a named structure whose first field is a pointer to a function table.
 The pattern looks like this for an interface named GG_Foobar:</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="n">GG_FoobarInterface</span> <span class="n">GG_FoobarInterface</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">GG_FoobarInterface</span> <span class="n">GG_FoobarInterface</span><span class="p">;</span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
     <span class="k">const</span> <span class="n">GG_FoobarInterface</span><span class="o">*</span> <span class="n">iface</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">GG_Foobar</span><span class="p">;</span>
-<span class="k">struct</span> <span class="n">GG_FoobarInterface</span> <span class="p">{</span>
-    <span class="n">GG_Result</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">GG_Foobar</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param</span><span class="p">);</span>
+<span class="k">struct</span> <span class="nc">GG_FoobarInterface</span> <span class="p">{</span>
+    <span class="n">GG_Result</span> <span class="nf">SomeMethod</span><span class="p">(</span><span class="n">GG_Foobar</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
-
 <p>To simplify the boilerplate, use the macro GG_DECLARE_INTERFACE, like this:
 (which is equivalent to the above)</p>
 <div class="highlight"><pre><span></span><code><span class="n">GG_DECLARE_INTERFACE</span><span class="p">(</span><span class="n">GG_Foobar</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">GG_Result</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="n">GG_Foobar</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param</span><span class="p">);</span>
+    <span class="n">GG_Result</span> <span class="nf">SomeMethod</span><span class="p">(</span><span class="n">GG_Foobar</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="c1">// Typical implementation of the method</span>
 </code></pre></div>
-
 <h3 id="polymorphism">Polymorphism<a class="headerlink" href="#polymorphism" title="Permanent link">&para;</a></h3>
 <p>For classes that implement multiple interfaces, the pattern is to embed multiple
 abstract base class structures in the implemented class structure, and use
@@ -1486,23 +1482,21 @@ declared like this:</p>
     <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">my_member_variable</span><span class="p">;</span>
 <span class="p">}</span> <span class="n">MyFoobarImplementation</span><span class="p">;</span>
 </code></pre></div>
-
 <p>supposing that the <code>GG_Foo</code> and <code>GG_Bar</code> interfaces are declared like this:</p>
 <div class="highlight"><pre><span></span><code><span class="n">GG_DECLARE_INTERFACE</span><span class="p">(</span><span class="n">GG_Foo</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">GG_Result</span> <span class="n">DoSomething1</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param1</span><span class="p">);</span>
+    <span class="n">GG_Result</span> <span class="nf">DoSomething1</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param1</span><span class="p">);</span>
     <span class="n">GG_Result</span> <span class="nf">DoSomething2</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">param2</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="n">GG_DECLARE_INTERFACE</span><span class="p">(</span><span class="n">GG_Bar</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">GG_Result</span> <span class="n">WorkOnSomething</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">param</span><span class="p">);</span>
+    <span class="n">GG_Result</span> <span class="nf">WorkOnSomething</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">param</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div>
-
 <p>Then in the implementation for <code>MyFooBarImplementation</code> may look like:</p>
 <div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="n">GG_Result</span>
-<span class="nf">MyFoobarImplementation_DoSomething1</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param1</span><span class="p">)</span>
+<span class="n">MyFoobarImplementation_DoSomething1</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">param1</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">MyFoobarImplementation</span><span class="o">*</span> <span class="n">self</span> <span class="o">=</span> <span class="n">GG_SELF</span><span class="p">(</span><span class="n">MyFoobarImplementation</span><span class="p">,</span> <span class="n">GG_Foo</span><span class="p">);</span>
 
@@ -1510,7 +1504,7 @@ declared like this:</p>
 <span class="p">}</span>
 
 <span class="k">static</span> <span class="n">GG_Result</span>
-<span class="nf">MyFoobarImplementation_DoSomething2</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">param2</span><span class="p">)</span>
+<span class="n">MyFoobarImplementation_DoSomething2</span><span class="p">(</span><span class="n">GG_Foo</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">param2</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">MyFoobarImplementation</span><span class="o">*</span> <span class="n">self</span> <span class="o">=</span> <span class="n">GG_SELF</span><span class="p">(</span><span class="n">MyFoobarImplementation</span><span class="p">,</span> <span class="n">GG_Bar</span><span class="p">);</span>
 
@@ -1518,14 +1512,13 @@ declared like this:</p>
 <span class="p">}</span>
 
 <span class="k">static</span> <span class="n">GG_Result</span>
-<span class="nf">MyFoobarImplementation_WorkOnSomething</span><span class="p">(</span><span class="n">GG_Bar</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span>
+<span class="n">MyFoobarImplementation_WorkOnSomething</span><span class="p">(</span><span class="n">GG_Bar</span><span class="o">*</span> <span class="n">_self</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">MyFoobarImplementation</span><span class="o">*</span> <span class="n">self</span> <span class="o">=</span> <span class="n">GG_SELF</span><span class="p">(</span><span class="n">MyFoobarImplementation</span><span class="p">,</span> <span class="n">GG_Bar</span><span class="p">);</span>
 
     <span class="c1">// ...</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Setting up the function table pointers can also be done easily using the
 <code>GG_SET_INTERFACE</code> macro:</p>
 <div class="highlight"><pre><span></span><code><span class="n">GG_IMPLEMENT_INTERFACE</span><span class="p">(</span><span class="n">GG_Foo</span><span class="p">,</span> <span class="n">MyFoobarImplementation</span><span class="p">)</span>
@@ -1540,7 +1533,7 @@ declared like this:</p>
 <span class="p">};</span>
 
 <span class="k">static</span> <span class="kt">void</span>
-<span class="nf">MyFoobarImplementation_Init</span><span class="p">(</span><span class="n">MyFoobarImplementation</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
+<span class="n">MyFoobarImplementation_Init</span><span class="p">(</span><span class="n">MyFoobarImplementation</span><span class="o">*</span> <span class="n">self</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="c1">// init the class members</span>
     <span class="p">...</span>
@@ -1551,7 +1544,6 @@ declared like this:</p>
     <span class="n">GG_SET_INTERFACE</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">MyFoobarImplementation</span><span class="p">,</span> <span class="n">GG_Bar</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h2 id="file-names">File Names<a class="headerlink" href="#file-names" title="Permanent link">&para;</a></h2>
 <p>While not strictly necessary, it is recommended that file names be prefixed
 as well.

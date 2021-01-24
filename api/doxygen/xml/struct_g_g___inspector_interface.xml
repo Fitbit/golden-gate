@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="80" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="80" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="82" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1ab86633e580ac4c9d33621ccbe6ad292c" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="81" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="81" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="83" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1abc746f0476331675722211a11ea93d65" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="82" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="82" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="84" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1ac8c5732c7725702799c7060291a302f1" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="83" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="83" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="85" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1a5ef7a045ca708a06be01d00306a6fc95" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="84" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="84" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="86" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1ab98bbed9ba7e655d7c9d5c95815bce41" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="85" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="85" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="87" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1ab769276ea3e5771f227702fa83ccf8b5" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="86" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="86" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="88" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1a523b97fc332ddab2eb15f82c4d1d109e" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="87" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="87" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="89" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1a4a70bf22f4ad63331504b8523779fdbc" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -118,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="91" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="91" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="93" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1a6b0f7499a495cc3677c36bf9a3e1f9f2" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="92" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="92" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="94" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___inspector_interface_1aa4c9c95511690054ac6cd41a37c3381c" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -144,14 +144,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="96" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="96" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="98" column="5" bodyfile="xp/common/gg_inspect.h" bodystart="98" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="xp/common/gg_inspect.h" line="79" column="81" bodyfile="xp/common/gg_inspect.h" bodystart="79" bodyend="101"/>
+    <location file="xp/common/gg_inspect.h" line="81" column="81" bodyfile="xp/common/gg_inspect.h" bodystart="81" bodyend="103"/>
     <listofallmembers>
       <member refid="struct_g_g___inspector_interface_1ac8c5732c7725702799c7060291a302f1" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnArrayEnd</name></member>
       <member refid="struct_g_g___inspector_interface_1abc746f0476331675722211a11ea93d65" prot="public" virt="non-virtual"><scope>GG_InspectorInterface</scope><name>OnArrayStart</name></member>

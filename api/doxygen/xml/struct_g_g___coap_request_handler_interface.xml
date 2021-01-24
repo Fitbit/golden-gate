@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="254" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="254" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="258" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="258" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -76,7 +76,7 @@
     <detaileddescription>
 <para>Interface implemented by request handlers that may be registered with an endpoint. </para>
     </detaileddescription>
-    <location file="xp/coap/gg_coap.h" line="220" column="99" bodyfile="xp/coap/gg_coap.h" bodystart="220" bodyend="260"/>
+    <location file="xp/coap/gg_coap.h" line="224" column="99" bodyfile="xp/coap/gg_coap.h" bodystart="224" bodyend="264"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_request_handler_interface_1aef7557f1cc5a3cadda5e8010f9789e1a" prot="public" virt="non-virtual"><scope>GG_CoapRequestHandlerInterface</scope><name>OnRequest</name></member>
     </listofallmembers>

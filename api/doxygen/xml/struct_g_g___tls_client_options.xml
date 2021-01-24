@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="144" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="144" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="148" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1a667089e354f83030adafd162d4ea010d" prot="public" static="no" mutable="no">
         <type>const uint8_t *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="145" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="145" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="149" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="149" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1a01d53d2cbd4ca3326adafac3f5f37136" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="146" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="146" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="150" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1aa00e95ffa8f872818a78e8a72b388f32" prot="public" static="no" mutable="no">
         <type>const uint8_t *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="147" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="147" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="151" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1a050ebe7dc88657915da12bbccbbc1f26" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="148" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="148" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="152" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="152" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1af10913b9b95facb347a4eb3110966a8b" prot="public" static="no" mutable="no">
         <type>const uint8_t *</type>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="149" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="149" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="153" column="19" bodyfile="xp/tls/gg_tls.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_g_g___tls_client_options_1a49c0a8a7a975e15b257f21ff6d1759a4" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/tls/gg_tls.h" line="150" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="150" bodyend="-1"/>
+        <location file="xp/tls/gg_tls.h" line="154" column="20" bodyfile="xp/tls/gg_tls.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -121,7 +121,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/tls/gg_tls.h" line="143" column="15" bodyfile="xp/tls/gg_tls.h" bodystart="143" bodyend="151"/>
+    <location file="xp/tls/gg_tls.h" line="147" column="15" bodyfile="xp/tls/gg_tls.h" bodystart="147" bodyend="155"/>
     <listofallmembers>
       <member refid="struct_g_g___tls_client_options_1a1cdac8b424edb05f4316f8df5f019d5e" prot="public" virt="non-virtual"><scope>GG_TlsClientOptions</scope><name>base</name></member>
       <member refid="struct_g_g___tls_client_options_1aa00e95ffa8f872818a78e8a72b388f32" prot="public" virt="non-virtual"><scope>GG_TlsClientOptions</scope><name>psk</name></member>

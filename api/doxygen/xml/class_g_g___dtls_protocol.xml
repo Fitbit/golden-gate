@@ -23,7 +23,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+</highlight></codeline>
 </programlisting> </para>
     </detaileddescription>
-    <location file="xp/tls/gg_tls.h" line="40" column="1"/>
+    <location file="xp/tls/gg_tls.h" line="44" column="1"/>
     <listofallmembers>
     </listofallmembers>
   </compounddef>

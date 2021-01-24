@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="43" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="184" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___loop_1gadf77ff6c7157f786c22128e8412914a0" prot="public" static="no">
         <type>struct <ref refid="group___loop_1gadf77ff6c7157f786c22128e8412914a0" kindref="member">GG_LoopDataSinkProxy</ref></type>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="52" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="184" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___loop_1gad1a9063479ee10b07fc53937b037607b" prot="public" static="no">
         <type>struct <ref refid="group___loop_1gad1a9063479ee10b07fc53937b037607b" kindref="member">GG_LoopDataSinkListenerProxy</ref></type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="185" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="61" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="184" column="18" bodyfile="xp/loop/gg_loop.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___loop_1ga55c408181efb3d48770428074b68b80c" prot="public" static="no">
         <type>int(*</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="85" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="85" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="88" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group___loop_1ga0f50a62f46582c9747cb7f5746609fb8" prot="public" static="no">
         <type>void(*</type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="90" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="90" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="93" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="102" column="11" declfile="xp/loop/gg_loop.h" declline="102" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="105" column="11" declfile="xp/loop/gg_loop.h" declline="105" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga84ed09e89ba6c2f6938dcea7d9b791e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="109" column="6" declfile="xp/loop/gg_loop.h" declline="109" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="112" column="6" declfile="xp/loop/gg_loop.h" declline="112" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga2bd9e1ba0384bdfdbfdeb73431653450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="120" column="11" declfile="xp/loop/gg_loop.h" declline="120" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="123" column="11" declfile="xp/loop/gg_loop.h" declline="123" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gad45a36c13c3dd1fbcd83dac121124865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="131" column="11" declfile="xp/loop/gg_loop.h" declline="131" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="134" column="11" declfile="xp/loop/gg_loop.h" declline="134" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga03ade7492e185da9e0bef00ce6d3861d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -252,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="147" column="11" declfile="xp/loop/gg_loop.h" declline="147" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="150" column="11" declfile="xp/loop/gg_loop.h" declline="150" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gaf23f2cd34e2a2879953ea48722c9701c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="154" column="6" declfile="xp/loop/gg_loop.h" declline="154" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="157" column="6" declfile="xp/loop/gg_loop.h" declline="157" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gab610f19b1184fdae8e63d44f9175144f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___loop_message" kindref="compound">GG_LoopMessage</ref> *</type>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="164" column="16" declfile="xp/loop/gg_loop.h" declline="164" declcolumn="16"/>
+        <location file="xp/loop/gg_loop.h" line="167" column="16" declfile="xp/loop/gg_loop.h" declline="167" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga19b7a9b6a1e69056f86308763bd51a82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___timers_1ga6ff5e8533aca5a1fef6894a2fb8bcfa5" kindref="member">GG_TimerScheduler</ref> *</type>
@@ -340,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="173" column="19" declfile="xp/loop/gg_loop.h" declline="173" declcolumn="19"/>
+        <location file="xp/loop/gg_loop.h" line="176" column="19" declfile="xp/loop/gg_loop.h" declline="176" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gae51bd8737723caa5c3bce55ed74e3d8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -394,7 +394,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="189" column="11" declfile="xp/loop/gg_loop.h" declline="189" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="192" column="11" declfile="xp/loop/gg_loop.h" declline="192" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gad7285430b55e05e8128155414576910f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -460,7 +460,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="205" column="11" declfile="xp/loop/gg_loop.h" declline="205" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="208" column="11" declfile="xp/loop/gg_loop.h" declline="208" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga7ebfcd7c29b3fb91fec7322f898c196f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -514,7 +514,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="228" column="11" declfile="xp/loop/gg_loop.h" declline="228" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="231" column="11" declfile="xp/loop/gg_loop.h" declline="231" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga32c0dc2b6969d1da52eaa9214b7ebb62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -580,7 +580,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="241" column="11" declfile="xp/loop/gg_loop.h" declline="241" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="244" column="11" declfile="xp/loop/gg_loop.h" declline="244" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga8c0da111d0c1b18e3b241a7f91f8ed6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___inspectable" kindref="compound">GG_Inspectable</ref> *</type>
@@ -610,7 +610,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="252" column="16" declfile="xp/loop/gg_loop.h" declline="252" declcolumn="16"/>
+        <location file="xp/loop/gg_loop.h" line="255" column="16" declfile="xp/loop/gg_loop.h" declline="255" declcolumn="16"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga49dbed26d691141bc66940052fd91730" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -638,7 +638,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="259" column="6" declfile="xp/loop/gg_loop.h" declline="259" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="262" column="6" declfile="xp/loop/gg_loop.h" declline="262" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga385ee5822bd6111792a84a890cfeacbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink" kindref="compound">GG_DataSink</ref> *</type>
@@ -668,7 +668,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="267" column="13" declfile="xp/loop/gg_loop.h" declline="267" declcolumn="13"/>
+        <location file="xp/loop/gg_loop.h" line="270" column="13" declfile="xp/loop/gg_loop.h" declline="270" declcolumn="13"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga77684360d791ca5776ee3977e4692350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="group___errors_1gacf7401469f33ad0744f7f1f7006fd021" kindref="member">GG_Result</ref></type>
@@ -722,7 +722,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="277" column="11" declfile="xp/loop/gg_loop.h" declline="277" declcolumn="11"/>
+        <location file="xp/loop/gg_loop.h" line="280" column="11" declfile="xp/loop/gg_loop.h" declline="280" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gab63bf7b6c843ead7279c390bee138e2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -750,7 +750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="286" column="6" declfile="xp/loop/gg_loop.h" declline="286" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="289" column="6" declfile="xp/loop/gg_loop.h" declline="289" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gafca2d5e87e9d5930c05194910c69f642" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_g_g___data_sink_listener" kindref="compound">GG_DataSinkListener</ref> *</type>
@@ -780,7 +780,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="294" column="21" declfile="xp/loop/gg_loop.h" declline="294" declcolumn="21"/>
+        <location file="xp/loop/gg_loop.h" line="297" column="21" declfile="xp/loop/gg_loop.h" declline="297" declcolumn="21"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gad9c1c71d7a839a4b59d54de592f400b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -820,7 +820,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="302" column="6" declfile="xp/loop/gg_loop.h" declline="302" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="305" column="6" declfile="xp/loop/gg_loop.h" declline="305" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1gad129c1de50a4280f27b031a3a9b8d5fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -848,7 +848,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="309" column="6" declfile="xp/loop/gg_loop.h" declline="309" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="312" column="6" declfile="xp/loop/gg_loop.h" declline="312" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="group___loop_1ga0ef8a869e782e3b33bd76510f900459b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -876,7 +876,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="316" column="6" declfile="xp/loop/gg_loop.h" declline="316" declcolumn="6"/>
+        <location file="xp/loop/gg_loop.h" line="319" column="6" declfile="xp/loop/gg_loop.h" declline="319" declcolumn="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -889,7 +889,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/loop/gg_loop.h" line="38" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="38" bodyend="-1"/>
+        <location file="xp/loop/gg_loop.h" line="41" column="9" bodyfile="xp/loop/gg_loop.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

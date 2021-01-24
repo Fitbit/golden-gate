@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="183" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="183" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="187" column="103" bodyfile="xp/coap/gg_coap.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -34,7 +34,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="xp/coap/gg_coap.h" line="183" column="63" bodyfile="xp/coap/gg_coap.h" bodystart="183" bodyend="183"/>
+    <location file="xp/coap/gg_coap.h" line="187" column="63" bodyfile="xp/coap/gg_coap.h" bodystart="187" bodyend="187"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_response_listener_1a44e73121b6e48f388c23697f8fd5253c" prot="public" virt="non-virtual"><scope>GG_CoapResponseListener</scope><name>vtable</name></member>
     </listofallmembers>

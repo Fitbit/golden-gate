@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/coap/gg_coap.h" line="310" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="310" bodyend="-1"/>
+        <location file="xp/coap/gg_coap.h" line="314" column="5" bodyfile="xp/coap/gg_coap.h" bodystart="314" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -74,7 +74,7 @@
 <para>Interface implemented by request filters.</para>
 <para>Request filters may be registered with a CoAP endpoint. The CoAP endpoint iterates over all the registered filters, sequentially, giving each filter an opportunity to inspect the request, as well as the flags associated with the handler for the request, and either let the iteration continue on to the next step, or cause it to terminate by providing a CoAP response or a CoAP result code from which the CoAP endpoint can synthesize a CoAP response on its behalf. </para>
     </detaileddescription>
-    <location file="xp/coap/gg_coap.h" line="290" column="97" bodyfile="xp/coap/gg_coap.h" bodystart="290" bodyend="315"/>
+    <location file="xp/coap/gg_coap.h" line="294" column="97" bodyfile="xp/coap/gg_coap.h" bodystart="294" bodyend="319"/>
     <listofallmembers>
       <member refid="struct_g_g___coap_request_filter_interface_1a20219bbe0577934846fcf47eaf399fad" prot="public" virt="non-virtual"><scope>GG_CoapRequestFilterInterface</scope><name>FilterRequest</name></member>
     </listofallmembers>

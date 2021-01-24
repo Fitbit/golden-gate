@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="xp/common/gg_inspect.h" line="60" column="18" bodyfile="xp/common/gg_inspect.h" bodystart="60" bodyend="-1"/>
+        <location file="xp/common/gg_inspect.h" line="62" column="18" bodyfile="xp/common/gg_inspect.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -24,7 +24,7 @@
     <detaileddescription>
 <para>Options that may be passed when inspecting an object. </para>
     </detaileddescription>
-    <location file="xp/common/gg_inspect.h" line="54" column="15" bodyfile="xp/common/gg_inspect.h" bodystart="54" bodyend="61"/>
+    <location file="xp/common/gg_inspect.h" line="56" column="15" bodyfile="xp/common/gg_inspect.h" bodystart="56" bodyend="63"/>
     <listofallmembers>
       <member refid="struct_g_g___inspection_options_1a68a155dafdc1b712eec5576035bf68a1" prot="public" virt="non-virtual"><scope>GG_InspectionOptions</scope><name>verbosity</name></member>
     </listofallmembers>
