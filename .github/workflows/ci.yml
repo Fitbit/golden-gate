@@ -37,3 +37,11 @@ jobs:
           conda list
           inv native.build
           GG_LOG_CONFIG=plist:.level=WARNING inv native.test
+
+      # macOS-specific step
+      - shell: bash -l {0}
+        name: Build macOS XCode project
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: |
+          inv apple.macos.xp.gen
+          xcodebuild -project xp/build/cmake/xcode-macOS/golden-gate-macos.xcodeproj
