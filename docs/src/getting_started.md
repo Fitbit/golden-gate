@@ -45,16 +45,6 @@ the homebrew packages by running
 $ brew bundle
 ```
 
-!!! tip "Updating you environment"
-    On macOS Big Sur and later, running applications that use Bluetooth need to be 
-    granted permissions to do so. When running the `gg-stack-tool` command line application,
-    if your terminal is permissions-aware, like the macOS built-in terminal app, the system
-    should prompt you the first time you run `gg-stack-tool`. For other terminals, like iTerm
-    for instance, you may need to grant the permission manually, using the system preferences:
-    System Preference -> Security & Privacy -> (Privacy Tab) -> (BlueTooth on the left), 
-    add/select your terminal application.
-    ![macOS Bluetooth Permissions](macos-bluetooth-permissions.jpg)
-
 Then continue with the instructions for [setting up a `conda` environment](getting_started.md#setting-up-a-conda-environment), below
 
 #### Linux
@@ -208,14 +198,14 @@ the command-line tools, the examples, and the unit tests. You can build, run and
 debug right from within XCode.
 
 !!! tip
-If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
-``` bash
-$ sudo xcode-select --reset
-```
-or, if you want a non-default version of Xcode, use
-``` bash
-$ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
-```
+    If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
+    ``` bash
+    $ sudo xcode-select --reset
+    ```
+    or, if you want a non-default version of Xcode, use
+    ``` bash
+    $ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
+    ```
 
 ##### Using The Pre-generated XCode Project
 
@@ -268,6 +258,16 @@ example apps, you can come up with many more ways to setup pairs of communicatin
 endpoints.  
 Also, you can start building your own applications and devices, then many more
 options are available to you.
+
+!!! tip "Bluetooth Permissions on macOS"
+    On macOS Big Sur and later, applications that use Bluetooth need to be 
+    granted permissions to do so. When running the `gg-stack-tool` command line application,
+    if your terminal is permissions-aware, like the macOS built-in terminal app, the system
+    should prompt you the first time you run `gg-stack-tool`. For other terminals, like iTerm
+    for instance, you may need to grant the permission manually, using the system preferences:
+    System Preferences -> Security & Privacy -> (Privacy Tab) -> (BlueTooth selection on the left), 
+    add/enable your terminal application.
+    ![macOS Bluetooth Permissions](macos-bluetooth-permissions.jpg){: align=right }
 
 ### Host Only
 
