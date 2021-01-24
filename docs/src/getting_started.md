@@ -45,6 +45,16 @@ the homebrew packages by running
 $ brew bundle
 ```
 
+!!! tip "Updating you environment"
+    On macOS Big Sur and later, running applications that use Bluetooth need to be 
+    granted permissions to do so. When running the `gg-stack-tool` command line application,
+    if your terminal is permissions-aware, like the macOS built-in terminal app, the system
+    should prompt you the first time you run `gg-stack-tool`. For other terminals, like iTerm
+    for instance, you may need to grant the permission manually, using the system preferences:
+    System Preference -> Security & Privacy -> (Privacy Tab) -> (BlueTooth on the left), 
+    add/select your terminal application.
+    ![macOS Bluetooth Permissions](macos-bluetooth-permissions.jpg)
+
 Then continue with the instructions for [setting up a `conda` environment](getting_started.md#setting-up-a-conda-environment), below
 
 #### Linux
