@@ -273,6 +273,36 @@ class LinkConfigurationServiceEventListener internal constructor(
         }
     }
 
+    override fun onServerDescriptorReadRequest(
+        device: BluetoothDevice,
+        result: TransactionResult,
+        connection: GattServerConnection
+    ) {
+        when (result.serviceUuid) {
+            LinkConfigurationService.uuid -> handleLinkConfigurationServerDescriptorReadRequest(
+                device,
+                result,
+                connection
+            )
+            else -> Timber.d("Ignoring onServerDescriptorReadRequest call for unsupported service: ${result.serviceUuid}")
+        }
+    }
+
+    private fun handleLinkConfigurationServerDescriptorReadRequest(device: BluetoothDevice, result: TransactionResult, connection: GattServerConnection) {
+        Timber.d(
+            """
+            Handle handleLinkConfigurationServerDescriptorReadRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
+        Timber.d("Ignoring onServerDescriptorReadRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
+        sendFailureResponseIfRequested(device, result, connection)
+    }
+
+
     private fun handlePreferredConnectionModeReadRequest(
         device: BluetoothDevice,
         result: TransactionResult,
