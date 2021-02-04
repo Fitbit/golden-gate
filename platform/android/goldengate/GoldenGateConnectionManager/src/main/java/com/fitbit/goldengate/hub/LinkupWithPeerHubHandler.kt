@@ -6,7 +6,7 @@ import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener
-import com.fitbit.goldengate.bt.gatt.util.dumpServices
+import com.fitbit.bluetooth.fbgatt.rx.dumpServices
 import com.fitbit.goldengate.node.Linkup
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
