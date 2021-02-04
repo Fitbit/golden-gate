@@ -11,7 +11,7 @@ import com.fitbit.goldengate.bt.gatt.client.services.GenericAttributeService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
-import com.fitbit.goldengate.bt.gatt.util.dumpServices
+import com.fitbit.bluetooth.fbgatt.rx.dumpServices
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Scheduler

@@ -7,10 +7,10 @@ import android.bluetooth.BluetoothGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
-import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicException
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
+import com.fitbit.bluetooth.fbgatt.rx.dumpServicesWarning
 import com.fitbit.bluetooth.fbgatt.rx.getGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.rx.getRemoteGattServiceSingle
 import com.fitbit.bluetooth.fbgatt.rx.hexString
@@ -79,7 +79,12 @@ class GattCharacteristicWriter constructor(
                     Timber.v("Success writing to $characteristicId characteristic with data: ${data.hexString()}")
                 }
             }
-            .doOnError { t -> Timber.w(t, "Failed writing to $characteristicId characteristic with data: ${data.hexString()}") }
+            .doOnError { t ->
+                Timber.w(t, "Failed writing to $characteristicId characteristic with data: ${data.hexString()}")
+                if (t is GattServiceNotFoundException) {
+                    dumpServicesWarning(gattConnection.gatt?.services)
+                }
+            }
     }
 
     /**
