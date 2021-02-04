@@ -84,7 +84,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 result,
                 connection
             )
-            else -> Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported service: ${result.serviceUuid}")
+            else -> Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
         }
     }
 
@@ -112,7 +112,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
         }
@@ -132,7 +132,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported descriptor: ${result.descriptorUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported descriptor: ${result.descriptorUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
         }
@@ -159,7 +159,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                     connection
                 )
                 else -> {
-                    Timber.w("Ignoring descriptor write request ")
+                    Timber.w("Rejecting descriptor write request ")
                     sendFailureResponseIfRequested(device, result, connection)
                 }
             }
@@ -199,10 +199,12 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d("Ignoring requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
         if (result.isResponseRequired) {
             // By default we do nothing when null data is received and just send success response
+            Timber.d("Rejecting requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
             sendResponse(device, connection, result.requestId, BluetoothGatt.GATT_FAILURE)
+        } else {
+            Timber.d("Ignoring requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
         }
     }
 
@@ -262,7 +264,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 result,
                 connection
             )
-            else -> Timber.d("Ignoring onServerCharacteristicReadRequest call for unsupported service: ${result.serviceUuid}")
+            else -> Timber.d("Ignoring onServerCharacteristicReadRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
         }
     }
 
@@ -292,7 +294,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
         }
@@ -309,7 +311,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 result,
                 connection
             )
-            else -> Timber.d("Ignoring onServerDescriptorReadRequest call for unsupported service: ${result.serviceUuid}")
+            else -> Timber.d("Ignoring onServerDescriptorReadRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
         }
     }
 
