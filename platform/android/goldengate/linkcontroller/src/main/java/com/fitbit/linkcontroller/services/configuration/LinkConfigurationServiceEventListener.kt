@@ -362,7 +362,8 @@ class LinkConfigurationServiceEventListener internal constructor(
                     it
                 )
             } ?: sendFailureResponseIfRequested(device, result, connection)
-
+        } else {
+            sendFailureResponseIfRequested(device, result, connection)
         }
     }
 
