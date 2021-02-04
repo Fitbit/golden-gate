@@ -66,7 +66,7 @@ class LinkConfigurationServiceEventListenerTest {
                 result = mockTransactionResult(value = gattServiceSubscribedValue)
         )
 
-        listener.getDataObservable(device1)
+        listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
                 .test()
                 .assertValue { it == GattCharacteristicSubscriptionStatus.ENABLED }
     }
@@ -79,14 +79,14 @@ class LinkConfigurationServiceEventListenerTest {
                 result = mockTransactionResult(value = gattServiceUnSubscribedValue)
         )
 
-        listener.getDataObservable(device1)
+        listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
                 .test()
                 .assertValue { it == GattCharacteristicSubscriptionStatus.DISABLED }
     }
 
     @Test
     fun shouldIgnoreIfRequestNotForGattlinkService() {
-        val tester = listener.getDataObservable(device1)
+        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
@@ -100,7 +100,7 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureIfRequestNotForTransmitCharacteristic() {
-        val tester = listener.getDataObservable(device1)
+        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
@@ -115,7 +115,7 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureIfRequestNotForConfigurationDescriptor() {
-        val tester = listener.getDataObservable(device1)
+        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
@@ -131,7 +131,7 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldIgnoreAndSendFailureResponseIfRequestHasUnknownValue() {
         val unknownValue = byteArrayOf(0x10, 0x00)
-        val tester = listener.getDataObservable(device1)
+        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
@@ -145,7 +145,7 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureResponseIfRequestHasNullValue() {
-        val tester = listener.getDataObservable(device1)
+        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(

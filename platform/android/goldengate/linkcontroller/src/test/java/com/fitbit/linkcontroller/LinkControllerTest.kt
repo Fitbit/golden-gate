@@ -56,6 +56,8 @@ class LinkControllerTest {
     private val linkController = LinkController(
         mockGattConnection,
         linkConfigurationSubscriptionObservable,
+        linkConfigurationSubscriptionObservable,
+        linkConfigurationSubscriptionObservable,
         mockLinkConfigurationCharacteristicNotifier,
         mockRxBlePeripheral,
         mockGattCharacteristicReader,
