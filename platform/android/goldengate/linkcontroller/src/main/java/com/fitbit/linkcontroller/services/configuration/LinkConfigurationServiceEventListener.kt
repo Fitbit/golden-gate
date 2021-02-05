@@ -18,7 +18,6 @@ import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
 import timber.log.Timber
 import java.util.UUID
 
@@ -58,7 +57,7 @@ class LinkConfigurationServiceEventListener internal constructor(
     private fun getDataSubject(
         device: BluetoothDevice,
         characteristicUuid: UUID
-    ): Subject<GattCharacteristicSubscriptionStatus> {
+    ): BehaviorSubject<GattCharacteristicSubscriptionStatus> {
         return registry[Pair(device, characteristicUuid)] ?: add(device, characteristicUuid)
     }
 
@@ -66,7 +65,7 @@ class LinkConfigurationServiceEventListener internal constructor(
     private fun add(
         device: BluetoothDevice,
         characteristicUuid: UUID
-    ): Subject<GattCharacteristicSubscriptionStatus> {
+    ): BehaviorSubject<GattCharacteristicSubscriptionStatus> {
         val dataSubject =
             BehaviorSubject.createDefault(GattCharacteristicSubscriptionStatus.DISABLED)
         registry[Pair(device, characteristicUuid)] = dataSubject
@@ -349,8 +348,7 @@ class LinkConfigurationServiceEventListener internal constructor(
         connection: GattServerConnection
     ) {
         if (result.descriptorUuid == CLIENT_CONFIG_UUID) {
-            val enabledStatus = registry[Pair(device, characteristicUuid)]?.value
-            val enabledValue = when (enabledStatus) {
+            val enabledValue = when (getDataSubject(device, characteristicUuid).value) {
                 GattCharacteristicSubscriptionStatus.ENABLED -> gattServiceSubscribedValue
                 GattCharacteristicSubscriptionStatus.DISABLED -> gattServiceUnSubscribedValue
                 null -> null

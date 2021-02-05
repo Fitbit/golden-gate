@@ -20,13 +20,7 @@ import com.fitbit.linkcontroller.services.configuration.PreferredConnectionConfi
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
 import com.fitbit.linkcontroller.services.configuration.gattServiceSubscribedValue
 import com.fitbit.linkcontroller.services.configuration.gattServiceUnSubscribedValue
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.anyOrNull
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before
@@ -48,8 +42,8 @@ class LinkConfigurationServiceEventListenerTest {
     private val mockLinkControllerProvider = mock<LinkControllerProvider>()
 
     private val listener = LinkConfigurationServiceEventListener(
-            Schedulers.trampoline(),
-            mockGattServerResponseSenderProvider
+        Schedulers.trampoline(),
+        mockGattServerResponseSenderProvider
     )
 
     @Before
@@ -61,38 +55,52 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldReceiveSubscriptionEnabledStatusOnListener() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceSubscribedValue)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = gattServiceSubscribedValue)
         )
 
-        listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
-                .test()
-                .assertValue { it == GattCharacteristicSubscriptionStatus.ENABLED }
+        listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
+            .test()
+            .assertValue { it == GattCharacteristicSubscriptionStatus.ENABLED }
+
+        //Also verify that the characteristic that was not subscribed to is not marked as subscribed.
+        listener.getDataObservable(device1, ClientPreferredConnectionModeCharacteristic.uuid)
+            .test()
+            .assertValue { it == GattCharacteristicSubscriptionStatus.DISABLED }
     }
 
     @Test
     fun shouldReceiveUnSubscriptionEnabledStatusOnListener() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceUnSubscribedValue)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = gattServiceUnSubscribedValue)
         )
 
-        listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
-                .test()
-                .assertValue { it == GattCharacteristicSubscriptionStatus.DISABLED }
+        listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
+            .test()
+            .assertValue { it == GattCharacteristicSubscriptionStatus.DISABLED }
     }
 
     @Test
     fun shouldIgnoreIfRequestNotForGattlinkService() {
-        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        val tester = listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(serviceId = unknownUuid)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(serviceId = unknownUuid)
         )
 
         tester.assertValueCount(1)
@@ -100,13 +108,16 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureIfRequestNotForTransmitCharacteristic() {
-        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        val tester = listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(characteristicId = unknownUuid)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(characteristicId = unknownUuid)
         )
 
         tester.assertValueCount(1)
@@ -115,13 +126,16 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureIfRequestNotForConfigurationDescriptor() {
-        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        val tester = listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(descriptorId = unknownUuid)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(descriptorId = unknownUuid)
         )
 
         tester.assertValueCount(1)
@@ -131,13 +145,16 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldIgnoreAndSendFailureResponseIfRequestHasUnknownValue() {
         val unknownValue = byteArrayOf(0x10, 0x00)
-        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        val tester = listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = unknownValue)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = unknownValue)
         )
         tester.assertValueCount(1)
         verifyFailureSent()
@@ -145,13 +162,16 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldIgnoreAndSendFailureResponseIfRequestHasNullValue() {
-        val tester = listener.getDataObservable(device1, ClientPreferredConnectionConfigurationCharacteristic.uuid)
+        val tester = listener.getDataObservable(
+            device1,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid
+        )
             .test()
         tester.assertValueCount(1)
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = null)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = null)
         )
 
         tester.assertValueCount(1)
@@ -161,9 +181,9 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldSendSuccessIfRequiredAndSubscribed() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceSubscribedValue)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = gattServiceSubscribedValue)
         )
 
         verifySuccessSent()
@@ -172,9 +192,9 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldSendSuccessIfRequiredAndUnSubscribed() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceUnSubscribedValue)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = gattServiceUnSubscribedValue)
         )
 
         verifySuccessSent()
@@ -183,9 +203,12 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldNotSendSuccessIfNotRequiredAndSubscribed() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceSubscribedValue, responseNeeded = false)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(
+                value = gattServiceSubscribedValue,
+                responseNeeded = false
+            )
         )
 
         verifyNoResponseSent()
@@ -194,9 +217,12 @@ class LinkConfigurationServiceEventListenerTest {
     @Test
     fun shouldNotSendSuccessIfNotRequiredAndUnSubscribed() {
         listener.onServerDescriptorWriteRequest(
-                device = device1,
-                connection = mockGattServerConnection,
-                result = mockTransactionResult(value = gattServiceUnSubscribedValue, responseNeeded = false)
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(
+                value = gattServiceUnSubscribedValue,
+                responseNeeded = false
+            )
         )
 
         verifyNoResponseSent()
@@ -204,27 +230,64 @@ class LinkConfigurationServiceEventListenerTest {
 
     @Test
     fun shouldReadPreferredConfigurationWhenRequested() {
-        doReturn(mockLinkControllerResult()).whenever(mockLinkControllerProvider).getLinkController(device1)
+        doReturn(mockLinkControllerResult()).whenever(mockLinkControllerProvider)
+            .getLinkController(device1)
         listener.onServerCharacteristicReadRequest(
             device1,
             mockTransactionResult(),
             mockGattServerConnection
         )
-        verifyResponseSent(mockLinkControllerProvider.getLinkController(device1)!!.getPreferredConnectionConfiguration().toByteArray())
+        verifyResponseSent(
+            mockLinkControllerProvider.getLinkController(device1)!!
+                .getPreferredConnectionConfiguration().toByteArray()
+        )
     }
+
     @Test
     fun shouldReadPreferredConnectionModeWhenRequested() {
-        doReturn(mockLinkControllerResult()).whenever(mockLinkControllerProvider).getLinkController(device1)
+        doReturn(mockLinkControllerResult()).whenever(mockLinkControllerProvider)
+            .getLinkController(device1)
         listener.onServerCharacteristicReadRequest(
             device1,
             mockTransactionResult(characteristicId = ClientPreferredConnectionModeCharacteristic.uuid),
             mockGattServerConnection
         )
-        verifyResponseSent(mockLinkControllerProvider.getLinkController(device1)!!.getPreferredConnectionMode().toByteArray())
+        verifyResponseSent(
+            mockLinkControllerProvider.getLinkController(device1)!!.getPreferredConnectionMode()
+                .toByteArray()
+        )
     }
 
+    @Test
+    fun shouldRespondCorrectlyToDescriptorRead() {
 
-    private fun verifyResponseSent(byteArray: ByteArray){
+        //First, read before ever subscribing. Should return the unsubscribed value.
+        listener.onServerDescriptorReadRequest(
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult()
+        )
+
+        verifyResponseSent(gattServiceUnSubscribedValue)
+
+        //Fake a subscribe
+        listener.onServerDescriptorWriteRequest(
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult(value = gattServiceSubscribedValue)
+        )
+
+        //Send another read request and verify that it is the subscribed value.
+        listener.onServerDescriptorReadRequest(
+            device = device1,
+            connection = mockGattServerConnection,
+            result = mockTransactionResult()
+        )
+
+        verifyResponseSent(gattServiceSubscribedValue)
+    }
+
+    private fun verifyResponseSent(byteArray: ByteArray) {
         verify(mockGattServerResponseSender).send(
             device = FitbitBluetoothDevice(device1),
             requestId = 1,
@@ -234,28 +297,35 @@ class LinkConfigurationServiceEventListenerTest {
     }
 
     private fun verifyNoResponseSent() {
-        verify(mockGattServerResponseSender, never()).send(any(), any(), any(), any(), any(), anyOrNull())
+        verify(mockGattServerResponseSender, never()).send(
+            any(),
+            any(),
+            any(),
+            any(),
+            any(),
+            anyOrNull()
+        )
     }
 
     private fun verifyFailureSent() {
         verify(mockGattServerResponseSender).send(
-                device = FitbitBluetoothDevice(device1),
-                requestId = 1,
-                status = BluetoothGatt.GATT_FAILURE
+            device = FitbitBluetoothDevice(device1),
+            requestId = 1,
+            status = BluetoothGatt.GATT_FAILURE
         )
     }
 
     private fun verifySuccessSent() {
         verify(mockGattServerResponseSender).send(
-                device = FitbitBluetoothDevice(device1),
-                requestId = 1,
-                status = BluetoothGatt.GATT_SUCCESS
+            device = FitbitBluetoothDevice(device1),
+            requestId = 1,
+            status = BluetoothGatt.GATT_SUCCESS
         )
     }
 
     private fun mockGattServerResponse() {
         whenever(mockGattServerResponseSender.send(any(), any(), any(), any(), any(), anyOrNull()))
-                .thenReturn(Completable.complete())
+            .thenReturn(Completable.complete())
     }
 
     private fun mockTransactionResult(
@@ -268,17 +338,21 @@ class LinkConfigurationServiceEventListenerTest {
         return mock {
             on { requestId } doReturn 1
             on { serviceUuid } doReturn serviceId
-            on { characteristicUuid} doReturn characteristicId
-            on { descriptorUuid} doReturn descriptorId
+            on { characteristicUuid } doReturn characteristicId
+            on { descriptorUuid } doReturn descriptorId
             on { isResponseRequired } doReturn responseNeeded
             on { data } doReturn value
         }
     }
+
     private fun mockLinkControllerResult(
-        preferredConnectionConfiguration: PreferredConnectionConfiguration= PreferredConnectionConfiguration.Builder().build(),
-        preferredConnectionMode: PreferredConnectionMode = PreferredConnectionMode.SLOW): LinkController{
+        preferredConnectionConfiguration: PreferredConnectionConfiguration = PreferredConnectionConfiguration.Builder()
+            .build(),
+        preferredConnectionMode: PreferredConnectionMode = PreferredConnectionMode.SLOW
+    ): LinkController {
         val mockLinkController = mock<LinkController>()
-        doReturn(preferredConnectionConfiguration).whenever(mockLinkController).getPreferredConnectionConfiguration()
+        doReturn(preferredConnectionConfiguration).whenever(mockLinkController)
+            .getPreferredConnectionConfiguration()
         doReturn(preferredConnectionMode).whenever(mockLinkController).getPreferredConnectionMode()
         return mockLinkController
     }
