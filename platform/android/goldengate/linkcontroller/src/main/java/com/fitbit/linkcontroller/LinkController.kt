@@ -34,7 +34,9 @@ private val DEFAULT_PREFERRED_CONNECTION_MODE = PreferredConnectionMode.SLOW
  */
 class LinkController internal constructor(
     private val gattConnection: GattConnection,
-    private val linkConfigurationSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
+    private val connectionModeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
+    private val connectionConfigurationSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
+    private val generalPurposeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
     private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(
         gattConnection.device.btDevice
     ),
@@ -142,7 +144,7 @@ class LinkController internal constructor(
     fun setPreferredConnectionConfiguration(preferredConnectionConfiguration: PreferredConnectionConfiguration): Completable {
         //notify server characteristics
         this.preferredConnectionConfiguration = preferredConnectionConfiguration
-        return linkConfigurationSubscriptionObservable.take(1).flatMapCompletable {
+        return connectionConfigurationSubscriptionObservable.take(1).flatMapCompletable {
             if (it == GattCharacteristicSubscriptionStatus.ENABLED) {
                 linkConfigurationCharacteristicNotifier.notify(
                     LinkConfigurationService.uuid,
@@ -165,7 +167,7 @@ class LinkController internal constructor(
     fun setPreferredConnectionMode(connectionMode: PreferredConnectionMode): Completable {
         Timber.d("Setting preferred connection mode to $connectionMode")
         this.preferredConnectionMode = connectionMode
-        return linkConfigurationSubscriptionObservable.take(1).flatMapCompletable {
+        return connectionModeSubscriptionObservable.take(1).flatMapCompletable {
             if (it == GattCharacteristicSubscriptionStatus.ENABLED) {
                 linkConfigurationCharacteristicNotifier.notify(
                     LinkConfigurationService.uuid,
@@ -200,15 +202,15 @@ class LinkController internal constructor(
     fun setGeneralPurposeCommand(commandCode: GeneralPurposeCommandCode): Completable {
         Timber.w("Set General Purpose Command: $commandCode")
         this.generalPurposeCommand = commandCode
-        return linkConfigurationSubscriptionObservable.take(1).flatMapCompletable {
-            if (this.generalPurposeCommand == GeneralPurposeCommandCode.DISCONNECT) {
+        return generalPurposeSubscriptionObservable.take(1).flatMapCompletable {
+            if (this.generalPurposeCommand == GeneralPurposeCommandCode.DISCONNECT && it == GattCharacteristicSubscriptionStatus.ENABLED) {
                 linkConfigurationCharacteristicNotifier.notify(
                     LinkConfigurationService.uuid,
                     GeneralPurposeCommandCharacteristic.uuid,
                     commandCode.toByteArray()
                 )
             } else {
-                Completable.error(IllegalStateException("Device not subscribed to the Link Configuration Service"))
+                Completable.error(IllegalStateException("Device not subscribed to the General Purpose Command characteristic or invalid command given"))
             }
         }
     }

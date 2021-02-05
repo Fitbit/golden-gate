@@ -51,10 +51,14 @@ class LinkControllerTest {
     }
     private val mockPeripheralServiceSubscriber = mock<PeerGattServiceSubscriber>()
     private val linkConfigurationSubscriptionObservable =
-        BehaviorSubject.createDefault<GattCharacteristicSubscriptionStatus>(GattCharacteristicSubscriptionStatus.ENABLED)
+        BehaviorSubject.createDefault<GattCharacteristicSubscriptionStatus>(
+            GattCharacteristicSubscriptionStatus.ENABLED
+        )
 
     private val linkController = LinkController(
         mockGattConnection,
+        linkConfigurationSubscriptionObservable,
+        linkConfigurationSubscriptionObservable,
         linkConfigurationSubscriptionObservable,
         mockLinkConfigurationCharacteristicNotifier,
         mockRxBlePeripheral,
