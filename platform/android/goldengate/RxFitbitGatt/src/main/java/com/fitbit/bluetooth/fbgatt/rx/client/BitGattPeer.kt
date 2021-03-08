@@ -95,7 +95,9 @@ class BitGattPeer(
      * Performs service discovery on the peer
      * This assumes we are connected to the peer.
      * @return A [Single] containing a [List] of discovered [BluetoothGattService]s
+     *
      */
+    @Deprecated("Use [GattServiceDiscoverer]")
     fun discoverServices(): Single<List<BluetoothGattService>> = Single.defer {
         Timber.d("Discovering services...")
         val transaction =
