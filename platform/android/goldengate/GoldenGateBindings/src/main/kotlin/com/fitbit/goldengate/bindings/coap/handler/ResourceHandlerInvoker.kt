@@ -22,7 +22,8 @@ import java.util.concurrent.TimeUnit
  * Helper method used in JNI server binding code to call appropriate requested method
  */
 internal class ResourceHandlerInvoker(
-        private val resourceHandler: ResourceHandler
+        private val resourceHandler: ResourceHandler,
+        private val elapsedRealtimeProvider: () -> Long = { SystemClock.elapsedRealtime() }
 ) {
     fun invoke(rawRequestMessage: RawRequestMessage): OutgoingResponse {
         val request = object : IncomingRequest {
@@ -49,9 +50,9 @@ internal class ResourceHandlerInvoker(
         }
 
         // TODO: making a blocking call right now but this should instead support sending response back to jni asynchronously
-        val startTime = SystemClock.elapsedRealtime()
+        val startTime = elapsedRealtimeProvider()
         val response = responseSingle.blockingGet()
-        val timeBlocked = SystemClock.elapsedRealtime() - startTime
+        val timeBlocked = elapsedRealtimeProvider() - startTime
         if (timeBlocked > TimeUnit.MILLISECONDS.convert(1, TimeUnit.SECONDS)) {
             Timber.e("GG Thread blocked on handler response from ${resourceHandler.javaClass.name} for $timeBlocked milliseconds!")
         }
