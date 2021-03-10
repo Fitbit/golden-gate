@@ -3,6 +3,7 @@
 
 package com.fitbit.goldengate.bindings.coap.handler
 
+import android.os.SystemClock
 import com.fitbit.goldengate.bindings.coap.data.Data
 import com.fitbit.goldengate.bindings.coap.data.IncomingBody
 import com.fitbit.goldengate.bindings.coap.data.IncomingRequest
@@ -14,6 +15,8 @@ import com.fitbit.goldengate.bindings.coap.data.RawRequestMessage
 import io.reactivex.Observer
 import io.reactivex.Single
 import io.reactivex.internal.util.EmptyComponent
+import timber.log.Timber
+import java.util.concurrent.TimeUnit
 
 /**
  * Helper method used in JNI server binding code to call appropriate requested method
@@ -38,7 +41,7 @@ internal class ResourceHandlerInvoker(
                 get() = EmptyComponent.asObserver()
         }
 
-        val response = when (request.method) {
+        val responseSingle = when (request.method) {
             Method.GET -> resourceHandler.onGet(request, OutgoingResponseBuilder())
             Method.PUT -> resourceHandler.onPut(request, OutgoingResponseBuilder())
             Method.POST -> resourceHandler.onPost(request, OutgoingResponseBuilder())
@@ -46,6 +49,12 @@ internal class ResourceHandlerInvoker(
         }
 
         // TODO: making a blocking call right now but this should instead support sending response back to jni asynchronously
-        return response.blockingGet()
+        val startTime = SystemClock.elapsedRealtime()
+        val response = responseSingle.blockingGet()
+        val timeBlocked = SystemClock.elapsedRealtime() - startTime
+        if (timeBlocked > TimeUnit.MILLISECONDS.convert(1, TimeUnit.SECONDS)) {
+            Timber.e("GG Thread blocked on handler response from ${resourceHandler.javaClass.name} for $timeBlocked milliseconds!")
+        }
+        return response
     }
 }
