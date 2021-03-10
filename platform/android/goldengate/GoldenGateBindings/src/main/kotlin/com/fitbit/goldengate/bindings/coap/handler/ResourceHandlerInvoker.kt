@@ -53,7 +53,7 @@ internal class ResourceHandlerInvoker(
         val response = responseSingle.blockingGet()
         val timeBlocked = SystemClock.elapsedRealtime() - startTime
         if (timeBlocked > TimeUnit.MILLISECONDS.convert(1, TimeUnit.SECONDS)) {
-            Timber.e("GG Thread blocked on handler response from ${resourceHandler.javaClass.name} for more than 1 second!")
+            Timber.e("GG Thread blocked on handler response from ${resourceHandler.javaClass.name} for $timeBlocked milliseconds!")
         }
         return response
     }
