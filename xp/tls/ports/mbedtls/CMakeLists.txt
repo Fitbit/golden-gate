@@ -32,4 +32,6 @@ if (GG_PORTS_ENABLE_MBEDTLS)
 
     # add a dependency to the local mbedtls library
     target_link_libraries(gg-tls PRIVATE gg-mbedtls)
+else ()
+    target_compile_definitions(gg-tls PRIVATE MBEDTLS_CONFIG_FILE=\"${GG_MBEDTLS_CONFIG}\")
 endif()
