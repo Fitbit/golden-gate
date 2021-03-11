@@ -22,9 +22,12 @@ import java.util.concurrent.TimeUnit
  * Helper method used in JNI server binding code to call appropriate requested method
  */
 internal class ResourceHandlerInvoker(
-        private val resourceHandler: ResourceHandler,
-        private val elapsedRealtimeProvider: () -> Long = { SystemClock.elapsedRealtime() }
+    private val resourceHandler: ResourceHandler,
+    private val elapsedRealtimeProvider: () -> Long
 ) {
+    @Suppress("unused") // This is called from JNI; don't believe the IDE telling you it's unused.
+    constructor(resourceHandler: ResourceHandler) : this(resourceHandler, { SystemClock.elapsedRealtime() })
+
     fun invoke(rawRequestMessage: RawRequestMessage): OutgoingResponse {
         val request = object : IncomingRequest {
             override val method: Method

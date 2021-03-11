@@ -49,6 +49,10 @@ android {
         pickFirst 'lib/armeabi-v7a/libgg.so'
         pickFirst 'lib/arm64-v8a/libgg.so'
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/unix/'
