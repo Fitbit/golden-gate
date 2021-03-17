@@ -177,7 +177,18 @@ There are two options available
 
 ##### Generating An XCode Project Using CMake
 
-Start by generating the XCode project by running
+First, ensure that you have the XCode command line developer tools installed.
+If you're not sure, run:
+``` bash
+xcode-select --install
+```
+If the tools were not already installed, you will see something like:
+```
+xcode-select: note: install requested for command line developer tools
+```
+And the installer will kick in (it may take a while).
+
+Then generate the XCode project by running
 ``` bash
 $ inv apple.macos.xp.gen
 ```
@@ -187,10 +198,14 @@ the command-line tools, the examples, and the unit tests. You can build, run and
 debug right from within XCode.
 
 !!! tip
-If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
-``` bash
-$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
-```
+    If you get a CMake error saying `No CMAKE_C_COMPILER could be found`, try 
+    ``` bash
+    $ sudo xcode-select --reset
+    ```
+    or, if you want a non-default version of Xcode, use
+    ``` bash
+    $ sudo xcode-select -s /Applications/<Xcode-version>.app>/Contents/Developer
+    ```
 
 ##### Using The Pre-generated XCode Project
 
@@ -243,6 +258,16 @@ example apps, you can come up with many more ways to setup pairs of communicatin
 endpoints.  
 Also, you can start building your own applications and devices, then many more
 options are available to you.
+
+!!! tip "Bluetooth Permissions on macOS"
+    On macOS Big Sur and later, applications that use Bluetooth need to be 
+    granted permissions to do so. When running the `gg-stack-tool` command line application,
+    if your terminal is permissions-aware, like the macOS built-in terminal app, the system
+    should prompt you the first time you run `gg-stack-tool`. For other terminals, like iTerm
+    for instance, you may need to grant the permission manually, using the system preferences:
+    System Preferences -> Security & Privacy -> (Privacy Tab) -> (BlueTooth selection on the left), 
+    add/enable your terminal application.
+    ![macOS Bluetooth Permissions](macos-bluetooth-permissions.jpg){: align=right }
 
 ### Host Only
 

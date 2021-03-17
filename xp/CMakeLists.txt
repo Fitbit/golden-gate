@@ -5,8 +5,13 @@
 # Top Level CMake file for the Golden Gate cross-platform library
 #############################################################################
 
-# We require some CMake >= 3.8 features when building frameworks
-cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+# We require some CMake 3.19 when building with XCode 12
+# but the Android SDK ships with its own CMake so we can't force it globally (yet).
+if (CMAKE_GENERATOR MATCHES "Xcode")
+    cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
+else ()
+    cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
+endif ()
 
 # The project variant suffix is only in use on platforms
 # that need two versions of golden-gate simultaneously.

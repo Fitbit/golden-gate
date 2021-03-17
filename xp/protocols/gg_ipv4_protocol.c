@@ -647,8 +647,11 @@ GG_Ipv4FrameAssembler_DecompressAndEmitPacket(GG_Ipv4FrameAssembler* self, GG_Bu
         GG_LOG_WARNING("header decompression failed (%d)", result);
         return result;
     }
+
+#if defined(GG_CONFIG_ENABLE_LOGGING)
     size_t decompressed_header_size = ip_header.ihl * 4 + (ip_header.protocol == GG_IPV4_PROTOCOL_UDP ? 8 : 0);
     GG_LOG_FINER("decompressed header: %u -> %u", (int)compressed_header_size, (int)decompressed_header_size);
+#endif
 
     // compute the final packet size
     GG_ASSERT(compressed_header_size <= self->packet_size);
