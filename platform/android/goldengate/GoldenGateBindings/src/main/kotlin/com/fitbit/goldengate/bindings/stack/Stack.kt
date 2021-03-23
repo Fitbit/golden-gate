@@ -70,7 +70,7 @@ class Stack constructor(
         )
         if(stackCreationResult.result < 0 ) {
             val error = GoldenGateNativeResult.getNativeResultFrom(stackCreationResult.result)
-            throw GoldenGateNativeException(error.title, stackCreationResult.result, error.nameSpace)
+            throw GoldenGateNativeException(error.title, stackCreationResult.result)
         } else {
             return stackCreationResult.stackPointer
         }

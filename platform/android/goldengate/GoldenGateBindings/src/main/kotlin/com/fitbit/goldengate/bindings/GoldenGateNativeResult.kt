@@ -31,8 +31,6 @@ enum class GoldenGateNativeResult(val code: Int, val title: String) {
     GG_ERROR_BASE_GATTLINK         ((GG_ERROR_BASE - 500), "Gattlink related error"),
     GG_ERROR_BASE_TLS              ((GG_ERROR_BASE - 600), "TLS related error");
 
-    val nameSpace = "gg.result"
-
     companion object {
         fun getNativeResultFrom(code: Int): GoldenGateNativeResult{
             return when(code) {
