@@ -8,10 +8,10 @@ import android.bluetooth.BluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.MtuUpdateListener
-import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralDisconnector
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.client.listeners.GattClientConnectionChangeListener
 import com.fitbit.bluetooth.fbgatt.rx.getGattConnection
 import com.fitbit.goldengate.bindings.coap.CoapGroupRequestFilterMode
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
@@ -78,7 +78,7 @@ class StackPeer<T: StackService> internal constructor(
     stackService: T,
     private val linkupHandler: Linkup = LinkupHandlerProvider.getHandler(peerRole),
     private val peerConnector: PeerConnector = PeerConnector(key.value),
-    private val connectionStatusProvider: (GattConnection) -> Observable<PeripheralConnectionStatus> = { PeripheralConnectionChangeListener().register(it) },
+    private val connectionStatusProvider: (GattConnection) -> Observable<PeripheralConnectionStatus> = { GattClientConnectionChangeListener().register(it) },
     private val dtlsEventObservableProvider: (stack: Stack) -> Observable<DtlsProtocolStatus> = { it.dtlsEventObservable },
     private val peerProvider: (gattConnection: GattConnection) -> BitGattPeer = { gattConnection -> BitGattPeer(gattConnection) },
     private val mtuChangeRequesterProvider: (Stack) -> MtuChangeRequester = { stack -> MtuChangeRequester(key.value, stack) },
