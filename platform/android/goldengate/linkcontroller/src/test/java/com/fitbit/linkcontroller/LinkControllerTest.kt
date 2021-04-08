@@ -15,6 +15,7 @@ import com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
 import com.fitbit.linkcontroller.services.configuration.GattCharacteristicSubscriptionStatus
+import com.fitbit.linkcontroller.services.configuration.LinkConfigurationPeerRequestListener
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionConfiguration
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
@@ -29,6 +30,8 @@ import io.reactivex.Single
 import io.reactivex.subjects.BehaviorSubject
 import org.junit.Test
 import java.nio.BufferUnderflowException
+import java.util.concurrent.ConcurrentHashMap
+import kotlin.test.assertEquals
 
 class LinkControllerTest {
 
@@ -195,5 +198,31 @@ class LinkControllerTest {
         val connectionConfiguration = PreferredConnectionConfiguration.Builder().build()
         linkController.setPreferredConnectionConfiguration(connectionConfiguration).test()
             .assertError(IllegalStateException::class.java)
+    }
+
+    @Test
+    fun `verify LinkConfigurationPeerRequestListeners register and unregister operations`() {
+        val listener1 = mock<LinkConfigurationPeerRequestListener>()
+        val listener2 = mock<LinkConfigurationPeerRequestListener>()
+        val listener3 = mock<LinkConfigurationPeerRequestListener>()
+
+        linkController.unregisterLinkConfigurationPeerRequestListener(listener1)
+        assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 0)
+
+        linkController.registerLinkConfigurationPeerRequestListener(listener1)
+        linkController.registerLinkConfigurationPeerRequestListener(listener1)
+        assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 1)
+
+        linkController.registerLinkConfigurationPeerRequestListener(listener2)
+        linkController.registerLinkConfigurationPeerRequestListener(listener3)
+        assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 3)
+
+        linkController.unregisterLinkConfigurationPeerRequestListener(listener1)
+        linkController.unregisterLinkConfigurationPeerRequestListener(listener1)
+        assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 2)
+
+        linkController.unregisterLinkConfigurationPeerRequestListener(listener2)
+        linkController.unregisterLinkConfigurationPeerRequestListener(listener3)
+        assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 0)
     }
 }

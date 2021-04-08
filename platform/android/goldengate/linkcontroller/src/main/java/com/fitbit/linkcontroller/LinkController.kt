@@ -14,6 +14,7 @@ import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectio
 import com.fitbit.linkcontroller.services.configuration.GattCharacteristicSubscriptionStatus
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCharacteristic
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
+import com.fitbit.linkcontroller.services.configuration.LinkConfigurationPeerRequestListener
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionConfiguration
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
@@ -24,6 +25,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import timber.log.Timber
+import java.util.concurrent.ConcurrentHashMap
 
 private val DEFAULT_PREFERRED_CONNECTION_MODE = PreferredConnectionMode.SLOW
 
@@ -43,12 +45,12 @@ class LinkController internal constructor(
     private val rxBlePeer: BitGattPeer = BitGattPeer(gattConnection),
     private val gattCharacteristicReader: GattCharacteristicReader =  GattCharacteristicReader(gattConnection),
     private val gattClientCharacteristicChangeListener: GattClientCharacteristicChangeListener = GattClientCharacteristicChangeListener(),
-    private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber()
+    private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber(),
 ) {
     private var preferredConnectionConfiguration = PreferredConnectionConfiguration()
     private var preferredConnectionMode = DEFAULT_PREFERRED_CONNECTION_MODE
     private var generalPurposeCommand = GeneralPurposeCommandCode.RESERVED
-
+    private val linkConfigurationPeerRequestListeners: ConcurrentHashMap<LinkConfigurationPeerRequestListener, Boolean> = ConcurrentHashMap()
 
     // Link Status Service - hosted on the Tracker
 
@@ -213,6 +215,32 @@ class LinkController internal constructor(
                 Completable.error(IllegalStateException("Device not subscribed to the General Purpose Command characteristic or invalid command given"))
             }
         }
+    }
+
+    /**
+     * Registers a event listener when Link Configuration Service receives a GATT request operation from peer
+     */
+    fun registerLinkConfigurationPeerRequestListener(peerRequestListener: LinkConfigurationPeerRequestListener) {
+        if (linkConfigurationPeerRequestListeners.putIfAbsent(peerRequestListener, true) != null) {
+            Timber.v("$peerRequestListener has been registered successfully")
+        }
+    }
+
+    /**
+     * Unregisters a event listener when Link Configuration Service receives a GATT request operation from peer
+     */
+    fun unregisterLinkConfigurationPeerRequestListener(peerRequestListener: LinkConfigurationPeerRequestListener) {
+        val previousValue = linkConfigurationPeerRequestListeners.remove(peerRequestListener)
+        if (previousValue == null) {
+            Timber.v("$peerRequestListener is no found")
+        }
+    }
+
+    /**
+     * Returns the list of [LinkConfigurationPeerRequestListener]
+     */
+    fun getLinkConfigurationPeerRequestListeners(): ArrayList<LinkConfigurationPeerRequestListener> {
+        return ArrayList(linkConfigurationPeerRequestListeners.keys)
     }
 
 }

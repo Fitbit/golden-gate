@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include "jni_gg.h"
+#include "jni_gg_loop.h"
 #include <xp/module/gg_module.h>
 #include <xp/common/gg_common.h>
 
@@ -38,4 +39,20 @@ Java_com_fitbit_goldengate_bindings_GoldenGate_getVersionJNI(
                           env->NewStringUTF(branch_name),
                           env->NewStringUTF(build_date),
                           env->NewStringUTF(build_time));
+}
+
+static int pingGG(void* args) {
+    static int counter = 0;
+    return counter++;
+}
+
+extern "C"
+JNIEXPORT jint
+JNICALL
+Java_com_fitbit_goldengate_bindings_GoldenGate_pingJNI(
+        JNIEnv *env,
+        jobject /* this */) {
+    int counter;
+    Loop_InvokeSync(pingGG, NULL, &counter);
+    return counter;
 }

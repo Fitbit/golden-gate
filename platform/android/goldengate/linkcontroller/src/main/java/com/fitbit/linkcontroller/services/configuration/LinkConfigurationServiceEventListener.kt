@@ -34,7 +34,7 @@ internal val gattServiceUnSubscribedValue = byteArrayOf(0x00, 0x00)
  */
 class LinkConfigurationServiceEventListener internal constructor(
     private val responseScheduler: Scheduler = Schedulers.io(),
-    private val gattServerResponseSenderProvider: GattServerResponseSenderProvider = GattServerResponseSenderProvider()
+    private val gattServerResponseSenderProvider: GattServerResponseSenderProvider = GattServerResponseSenderProvider(),
 ) : BaseServerConnectionEventListener {
 
     lateinit var linkControllerProvider: LinkControllerProvider
@@ -272,6 +272,11 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        // notify listeners there is a GATT read request from peer
+        linkControllerProvider.getLinkController(device)?.getLinkConfigurationPeerRequestListeners()?.forEach {
+            it.onPeerReadRequest()
+        }
+
         Timber.d(
             """
             Handle handleLinkConfigurationServerCharacteristicReadRequest call from
@@ -281,6 +286,7 @@ class LinkConfigurationServiceEventListener internal constructor(
             descriptorUuid: ${result.descriptorUuid}
             """
         )
+
         when (result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid -> handlePreferredConnectionModeReadRequest(
                 device,
@@ -382,6 +388,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 BluetoothGatt.GATT_SUCCESS,
                 linkController.getPreferredConnectionMode().toByteArray()
             )
+            Timber.w("handlePreferredConnectionModeReadRequest ${linkController.getPreferredConnectionMode()}")
         } ?: sendResponse(
             device,
             connection,
