@@ -143,6 +143,7 @@ MapErrorCode(int ssl_result)
             return GG_ERROR_TLS_BAD_SERVER_HELLO;
 
         default:
+            GG_LOG_FINER("GG_FAILURE shadowing finer error: %d", ssl_result);
             return GG_FAILURE;
     }
 }
