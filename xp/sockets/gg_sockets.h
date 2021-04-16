@@ -187,6 +187,8 @@ extern const GG_IpAddress GG_IpAddress_Any;
 #define GG_ERROR_NETWORK_UNREACHABLE   (GG_ERROR_BASE_SOCKET - 14)
 #define GG_ERROR_HOST_UNREACHABLE      (GG_ERROR_BASE_SOCKET - 15)
 #define GG_ERROR_NOT_CONNECTED         (GG_ERROR_BASE_SOCKET - 16)
+#define GG_ERROR_UNMAPPED_STACK_ERROR  (GG_ERROR_BASE_SOCKET - 17)
+
 
 /*----------------------------------------------------------------------
 |   functions
