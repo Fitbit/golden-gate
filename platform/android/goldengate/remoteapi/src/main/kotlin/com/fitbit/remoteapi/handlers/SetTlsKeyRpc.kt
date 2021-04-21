@@ -52,7 +52,7 @@ class SetTlsKeyRpc private constructor() {
             require(keyIdentity.isNotEmpty()) { keyIdArgumentErrorMessage }
             require(key.length == TLS_KEY_INPUT_LENGTH) { keyArgumentErrorMessage }
 
-            Timber.i("test mode key_id: $keyIdentity, key: $key")
+            Timber.w("test mode key_id: $keyIdentity, key: $key")
 
             return Pair(keyIdentity, key)
         }
