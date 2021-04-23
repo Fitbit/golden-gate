@@ -311,7 +311,7 @@ static GG_CoapMessageOption CoapEndpoint_GG_CoapMessageOption_Opaque_From_Values
      * Creating a copy of opaque value, options param should release this when its is no
      * longer needed (see: CoapEndpoint_ReleaseOptionParam)
      */
-    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(option_value_size);
+    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(option_value_size * sizeof(jbyte));
     GG_ASSERT(option_value_byte);
     env->GetByteArrayRegion(
             option_value,
