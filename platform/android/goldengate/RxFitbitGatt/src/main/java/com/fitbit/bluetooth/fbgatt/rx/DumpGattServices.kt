@@ -32,5 +32,5 @@ fun dumpServices(
                 }
             }
         }
-    } ?: Timber.d("No services.")
+    } ?: Timber.w("No services.")
 }

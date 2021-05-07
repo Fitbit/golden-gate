@@ -13,9 +13,9 @@ import io.reactivex.Observable
  */
 internal class RemoteGattlinkNodeDataReceiver(
     private val connection: GattConnection,
-    private val gattClientCharacteristicChangeListener: GattClientCharacteristicChangeListener = GattClientCharacteristicChangeListener()
+    private val gattClientCharacteristicChangeListener: GattClientCharacteristicChangeListener = GattClientCharacteristicChangeListener(connection)
 ) : NodeDataReceiver {
 
     override fun receive(): Observable<ByteArray> =
-        gattClientCharacteristicChangeListener.register(connection, TransmitCharacteristic.uuid)
+        gattClientCharacteristicChangeListener.register(TransmitCharacteristic.uuid)
 }

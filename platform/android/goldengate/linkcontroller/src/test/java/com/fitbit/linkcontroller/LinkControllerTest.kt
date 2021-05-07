@@ -3,10 +3,10 @@
 
 package com.fitbit.linkcontroller
 
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
-import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
@@ -30,7 +30,6 @@ import io.reactivex.Single
 import io.reactivex.subjects.BehaviorSubject
 import org.junit.Test
 import java.nio.BufferUnderflowException
-import java.util.concurrent.ConcurrentHashMap
 import kotlin.test.assertEquals
 
 class LinkControllerTest {
@@ -38,8 +37,8 @@ class LinkControllerTest {
     private val mockGattClientCharacteristicChangeListener =
         mock<GattClientCharacteristicChangeListener>()
     private val mockGattCharacteristicReader = mock<GattCharacteristicReader>()
+    private val mockBluetoothDevice = mock<BluetoothDevice>()
     private val mockFitbitBluetoothDevice = mock<FitbitBluetoothDevice>()
-    private val mockGattConnection = mock<GattConnection>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
     private val mockBluetoothGattService = mock<BluetoothGattService> {
         on { getCharacteristic(any()) } doReturn mockBluetoothGattCharacteristic
@@ -54,19 +53,19 @@ class LinkControllerTest {
     }
     private val mockPeripheralServiceSubscriber = mock<PeerGattServiceSubscriber>()
     private val linkConfigurationSubscriptionObservable =
-        BehaviorSubject.createDefault<GattCharacteristicSubscriptionStatus>(
+        BehaviorSubject.createDefault(
             GattCharacteristicSubscriptionStatus.ENABLED
         )
 
     private val linkController = LinkController(
-        mockGattConnection,
+        mockBluetoothDevice,
         linkConfigurationSubscriptionObservable,
         linkConfigurationSubscriptionObservable,
         linkConfigurationSubscriptionObservable,
         mockLinkConfigurationCharacteristicNotifier,
-        mockRxBlePeripheral,
-        mockGattCharacteristicReader,
-        mockGattClientCharacteristicChangeListener,
+        { mockRxBlePeripheral } ,
+        { mockGattCharacteristicReader },
+        { mockGattClientCharacteristicChangeListener },
         mockPeripheralServiceSubscriber
     )
 
@@ -127,7 +126,6 @@ class LinkControllerTest {
     fun observeCurrentConfigurationTest() {
         whenever(
             mockGattClientCharacteristicChangeListener.register(
-                mockGattConnection,
                 LinkStatusService.currentConfigurationUuid
             )
         )
@@ -147,7 +145,6 @@ class LinkControllerTest {
     fun observeCurrentConnectionStatusTest() {
         whenever(
             mockGattClientCharacteristicChangeListener.register(
-                mockGattConnection,
                 LinkStatusService.currentConnectionModeUuid
             )
         )
