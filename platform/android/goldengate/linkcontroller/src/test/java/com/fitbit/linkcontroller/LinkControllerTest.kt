@@ -7,6 +7,8 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
+import com.fitbit.bluetooth.fbgatt.FitbitGatt
+import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
@@ -34,11 +36,15 @@ import kotlin.test.assertEquals
 
 class LinkControllerTest {
 
+    private val testAddress = "1"
     private val mockGattClientCharacteristicChangeListener =
         mock<GattClientCharacteristicChangeListener>()
     private val mockGattCharacteristicReader = mock<GattCharacteristicReader>()
-    private val mockBluetoothDevice = mock<BluetoothDevice>()
+    private val mockBluetoothDevice = mock<BluetoothDevice> {
+        on {  address } doReturn testAddress
+    }
     private val mockFitbitBluetoothDevice = mock<FitbitBluetoothDevice>()
+    private val mockGattConnection = mock<GattConnection>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
     private val mockBluetoothGattService = mock<BluetoothGattService> {
         on { getCharacteristic(any()) } doReturn mockBluetoothGattCharacteristic
@@ -56,6 +62,9 @@ class LinkControllerTest {
         BehaviorSubject.createDefault(
             GattCharacteristicSubscriptionStatus.ENABLED
         )
+    private val mockFitbitGatt = mock<FitbitGatt> {
+        on { getConnectionForBluetoothAddress(testAddress) } doReturn mockGattConnection
+    }
 
     private val linkController = LinkController(
         mockBluetoothDevice,
@@ -66,7 +75,8 @@ class LinkControllerTest {
         { mockRxBlePeripheral } ,
         { mockGattCharacteristicReader },
         { mockGattClientCharacteristicChangeListener },
-        mockPeripheralServiceSubscriber
+        mockPeripheralServiceSubscriber,
+        mockFitbitGatt
     )
 
     @Test
