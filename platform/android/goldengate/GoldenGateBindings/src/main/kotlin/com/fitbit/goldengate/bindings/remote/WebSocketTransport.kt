@@ -9,6 +9,7 @@ import okhttp3.Response
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 import okio.ByteString
+import okio.ByteString.Companion.toByteString
 import timber.log.Timber
 import java.nio.ByteBuffer
 import java.util.concurrent.ArrayBlockingQueue
@@ -38,7 +39,7 @@ class WebSocketTransport(url: String, private val ignoreFailure: Boolean = false
     fun send(data: ByteArray) : Boolean {
         Timber.v("Sending message of size ${data.size}")
         val buffer = ByteBuffer.wrap(data)
-        return webSocket.send(ByteString.of(buffer))
+        return webSocket.send(buffer.toByteString())
     }
 
     /**
@@ -61,7 +62,7 @@ class WebSocketTransport(url: String, private val ignoreFailure: Boolean = false
         Timber.d("WebSocketTransport native side cleaned up")
     }
 
-    override fun onFailure(webSocket: WebSocket?, t: Throwable?, response: Response?) {
+    override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
         if (ignoreFailure) {
             //This is for tests when we don't want to have the websocket actually connect to anything.
             return;
@@ -71,17 +72,17 @@ class WebSocketTransport(url: String, private val ignoreFailure: Boolean = false
         holder.offer(ByteString.EMPTY)
     }
 
-    override fun onMessage(webSocket: WebSocket?, text: String?) {
+    override fun onMessage(webSocket: WebSocket, text: String) {
         throw IllegalArgumentException("Unexpected string message from websocket")
     }
 
-    override fun onMessage(webSocket: WebSocket?, bytes: ByteString?) {
+    override fun onMessage(webSocket: WebSocket, bytes: ByteString) {
         if (!holder.offer(bytes) && !shouldClose) {
             throw IllegalStateException("Two messages sent over websocket without a response")
         }
     }
 
-    override fun onClosed(webSocket: WebSocket?, code: Int, reason: String?) {
+    override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
         shouldClose = true
         holder.offer(ByteString.EMPTY)
         Timber.d("WebSocket closed")

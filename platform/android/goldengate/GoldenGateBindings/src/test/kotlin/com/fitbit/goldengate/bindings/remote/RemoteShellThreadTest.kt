@@ -6,7 +6,9 @@ package com.fitbit.goldengate.bindings.remote
 import com.fitbit.goldengate.bindings.BaseTest
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
+import okhttp3.WebSocket
 import okio.ByteString
+import okio.ByteString.Companion.toByteString
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -18,8 +20,10 @@ import java.util.concurrent.TimeUnit
 
 class RemoteShellThreadTest: BaseTest() {
 
-    val callTestNameBytes = Base64.getDecoder().decode("omZtZXRob2RodGVzdE5hbWViaWQB")
-    val callTestName = ByteString.of(callTestNameBytes, 0, callTestNameBytes.size) // {"method":"testName", "id":1}
+    private val callTestNameBytes = Base64.getDecoder().decode("omZtZXRob2RodGVzdE5hbWViaWQB")
+    private val callTestName = callTestNameBytes.toByteString(0, callTestNameBytes.size) // {"method":"testName", "id":1}
+
+    private val mockWebSocket: WebSocket = mock()
 
     @Test
     fun testRemoteShellInit() {
@@ -61,9 +65,9 @@ class RemoteShellThreadTest: BaseTest() {
         }
         shellThread.registerHandler(handler)
         shellThread.start()
-        webSocketTransport.onMessage(null, callTestName)
+        webSocketTransport.onMessage(mockWebSocket, callTestName)
         assertTrue("Timed out waiting for handler to be called", latch.await(50, TimeUnit.MILLISECONDS))
-        webSocketTransport.onClosed(null, 0, "")
+        webSocketTransport.onClosed(mockWebSocket, 0, "")
     }
 
     @Test
@@ -81,9 +85,9 @@ class RemoteShellThreadTest: BaseTest() {
         }
         shellThread.registerHandler(handler)
         shellThread.start()
-        webSocketTransport.onMessage(null, callTestName)
+        webSocketTransport.onMessage(mockWebSocket, callTestName)
         assertFalse("Handler was called despite a name mismatch", latch.await(50, TimeUnit.MILLISECONDS))
-        webSocketTransport.onClosed(null, 0, "")
+        webSocketTransport.onClosed(mockWebSocket, 0, "")
     }
 
     @Test
@@ -96,7 +100,7 @@ class RemoteShellThreadTest: BaseTest() {
         shellThread.registerHandler(handler)
         Assert.assertEquals("Handler set size not 1", 1, shellThread.getHandlers().size)
         shellThread.start()
-        webSocketTransport.onClosed(null, 0, null)
+        webSocketTransport.onClosed(mockWebSocket, 0, "")
         val waitForThreadToDieTimeout = 300L
         shellThread.join(waitForThreadToDieTimeout)
         assertFalse("Shell thread did not die within $waitForThreadToDieTimeout ms", shellThread.isAlive)
