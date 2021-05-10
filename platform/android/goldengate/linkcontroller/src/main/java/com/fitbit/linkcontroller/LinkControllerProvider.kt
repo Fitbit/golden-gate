@@ -46,28 +46,19 @@ class LinkControllerProvider private constructor(
      * Get the Link controller for a specific peripheral device
      */
     @Synchronized
-    fun getLinkController(device: BluetoothDevice): LinkController? {
+    fun getLinkController(device: BluetoothDevice): LinkController {
         return linkControllersMap[device] ?: add(device)
     }
 
     @Synchronized
     fun getLinkController(gattConnection: GattConnection): LinkController {
-        return linkControllersMap[gattConnection.device.btDevice] ?: add(gattConnection)
+        return linkControllersMap[gattConnection.device.btDevice] ?: add(gattConnection.device.btDevice)
     }
 
     @Synchronized
-    private fun add(bluetoothDevice: BluetoothDevice): LinkController? {
-        val gattConnection = fitbitGatt.getConnection(bluetoothDevice)
-        return gattConnection?.let {
-            add(it)
-        }
-    }
-
-    @Synchronized
-    private fun add(gattConnection: GattConnection): LinkController {
-        val bluetoothDevice = gattConnection.device.btDevice
+    private fun add(bluetoothDevice: BluetoothDevice): LinkController {
         val linkController = LinkController(
-            gattConnection,
+            bluetoothDevice,
             linkConfigurationServiceEventListener.getDataObservable(
                 bluetoothDevice,
                 ClientPreferredConnectionModeCharacteristic.uuid

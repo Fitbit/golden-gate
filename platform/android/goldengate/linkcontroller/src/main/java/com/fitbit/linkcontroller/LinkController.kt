@@ -3,11 +3,14 @@
 
 package com.fitbit.linkcontroller
 
+import android.bluetooth.BluetoothDevice
+import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattCharacteristicReader
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.bluetooth.fbgatt.rx.client.listeners.GattClientCharacteristicChangeListener
+import com.fitbit.bluetooth.fbgatt.rx.getGattConnection
 import com.fitbit.bluetooth.fbgatt.rx.server.GattCharacteristicNotifier
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
@@ -35,17 +38,16 @@ private val DEFAULT_PREFERRED_CONNECTION_MODE = PreferredConnectionMode.SLOW
  * getting the current connection configuration and status between the mobile app and peripheral
  */
 class LinkController internal constructor(
-    private val gattConnection: GattConnection,
+    private val device: BluetoothDevice,
     private val connectionModeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
     private val connectionConfigurationSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
     private val generalPurposeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
-    private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(
-        gattConnection.device.btDevice
-    ),
-    private val rxBlePeer: BitGattPeer = BitGattPeer(gattConnection),
-    private val gattCharacteristicReader: GattCharacteristicReader =  GattCharacteristicReader(gattConnection),
-    private val gattClientCharacteristicChangeListener: GattClientCharacteristicChangeListener = GattClientCharacteristicChangeListener(),
+    private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(device),
+    private val rxBlePeerProvider: (GattConnection) -> BitGattPeer = { BitGattPeer(it) },
+    private val gattCharacteristicReaderProvider: (GattConnection) -> GattCharacteristicReader =  { GattCharacteristicReader(it) },
+    private val gattClientCharacteristicChangeListenerProvider: (GattConnection) -> GattClientCharacteristicChangeListener = { GattClientCharacteristicChangeListener(it) },
     private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber(),
+    private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
 ) {
     private var preferredConnectionConfiguration = PreferredConnectionConfiguration()
     private var preferredConnectionMode = DEFAULT_PREFERRED_CONNECTION_MODE
@@ -61,7 +63,12 @@ class LinkController internal constructor(
      * @return a single with the [CurrentConnectionConfiguration]
      */
     fun getCurrentConnectionConfiguration(): Single<CurrentConnectionConfiguration> {
-        return gattCharacteristicReader.read(LinkStatusService.uuid, LinkStatusService.currentConfigurationUuid)
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMap { connection ->
+                gattCharacteristicReaderProvider(connection)
+                    .read(LinkStatusService.uuid, LinkStatusService.currentConfigurationUuid)
+            }
             .map { data -> CurrentConnectionConfiguration.parseFromByteArray(data) }
     }
 
@@ -71,14 +78,18 @@ class LinkController internal constructor(
      * @see observeCurrentConnectionConfiguration
      */
     fun subscribeToCurrentConnectionConfigurationNotifications(): Completable {
-        return peerGattServiceSubscriber.subscribe(
-            rxBlePeer,
-            LinkStatusService.uuid,
-            LinkStatusService.currentConfigurationUuid
-        )
-            .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionConfiguration for $gattConnection") }
-            .doOnComplete { Timber.i("Subscribed to CurrentConnectionConfiguration for $gattConnection") }
-            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionConfiguration for $gattConnection") }
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMapCompletable { connection ->
+                peerGattServiceSubscriber.subscribe(
+                    rxBlePeerProvider(connection),
+                    LinkStatusService.uuid,
+                    LinkStatusService.currentConfigurationUuid
+                )
+            }
+            .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionConfiguration for ${device.address}") }
+            .doOnComplete { Timber.i("Subscribed to CurrentConnectionConfiguration for ${device.address}") }
+            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionConfiguration for ${device.address}") }
     }
 
     /**
@@ -88,10 +99,13 @@ class LinkController internal constructor(
      * @see getCurrentConnectionConfiguration
      */
     fun observeCurrentConnectionConfiguration(): Observable<CurrentConnectionConfiguration> {
-        return gattClientCharacteristicChangeListener.register(
-            gattConnection,
-            LinkStatusService.currentConfigurationUuid
-        ).map { data -> CurrentConnectionConfiguration.parseFromByteArray(data) }
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMapObservable { connection ->
+                gattClientCharacteristicChangeListenerProvider(connection).register(LinkStatusService.currentConfigurationUuid)
+            }.map { data ->
+                CurrentConnectionConfiguration.parseFromByteArray(data)
+            }
     }
 
     /**
@@ -101,7 +115,14 @@ class LinkController internal constructor(
      * @return a single with the [CurrentConnectionStatus]
      */
     fun getCurrentConnectionStatus(): Single<CurrentConnectionStatus> {
-        return gattCharacteristicReader.read(LinkStatusService.uuid, LinkStatusService.currentConnectionModeUuid)
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMap { connection ->
+                gattCharacteristicReaderProvider(connection).read(
+                    LinkStatusService.uuid,
+                    LinkStatusService.currentConnectionModeUuid
+                )
+            }
             .map { data -> CurrentConnectionStatus.parseFromByteArray(data) }
     }
 
@@ -111,14 +132,18 @@ class LinkController internal constructor(
      * @see observeCurrentConnectionStatus
      */
     fun subscribeToCurrentConnectionStatusNotifications(): Completable {
-        return peerGattServiceSubscriber.subscribe(
-            rxBlePeer,
-            LinkStatusService.uuid,
-            LinkStatusService.currentConnectionModeUuid
-        )
-            .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionStatus for $gattConnection") }
-            .doOnComplete { Timber.i("Subscribed to CurrentConnectionStatus for $gattConnection") }
-            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionStatus for $gattConnection") }
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMapCompletable { connection ->
+                peerGattServiceSubscriber.subscribe(
+                    rxBlePeerProvider(connection),
+                    LinkStatusService.uuid,
+                    LinkStatusService.currentConnectionModeUuid
+                )
+            }
+            .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionStatus for ${device.address}") }
+            .doOnComplete { Timber.i("Subscribed to CurrentConnectionStatus for ${device.address}") }
+            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionStatus for ${device.address}") }
     }
 
     /**
@@ -128,10 +153,13 @@ class LinkController internal constructor(
      * @see getCurrentConnectionStatus
      */
     fun observeCurrentConnectionStatus(): Observable<CurrentConnectionStatus> {
-        return gattClientCharacteristicChangeListener.register(
-            gattConnection,
-            LinkStatusService.currentConnectionModeUuid
-        ).map { data -> CurrentConnectionStatus.parseFromByteArray(data) }
+        return fitbitGatt.getGattConnection(device.address)
+            .toSingle()
+            .flatMapObservable { connection ->
+                gattClientCharacteristicChangeListenerProvider(connection)
+                    .register(LinkStatusService.currentConnectionModeUuid)
+            }
+            .map { data -> CurrentConnectionStatus.parseFromByteArray(data) }
     }
 
     // Link Configuration Service - hosted on the mobile app
