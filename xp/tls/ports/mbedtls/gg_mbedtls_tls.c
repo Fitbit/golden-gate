@@ -108,6 +108,9 @@ struct GG_DtlsProtocol {
 /*----------------------------------------------------------------------
 |   forward declarations
 +---------------------------------------------------------------------*/
+#ifndef MBEDTLS_DEPRECATED_REMOVED
+#define mbedtls_ssl_get_output_max_frag_len mbedtls_ssl_get_max_frag_len
+#endif
 static void GG_DtlsProtocol_AdvanceHandshake(GG_DtlsProtocol* self);
 static void GG_DtlsProtocol_TransportSide_TryToFlush(GG_DtlsProtocol* self);
 
@@ -387,7 +390,7 @@ GG_DtlsProtocol_UserSide_PutData(GG_DataSink* _self, GG_Buffer* data, const GG_B
     }
 
     // check that we can write this buffer
-    if (GG_Buffer_GetDataSize(data) > mbedtls_ssl_get_max_frag_len(&self->ssl_context)) {
+    if (GG_Buffer_GetDataSize(data) > mbedtls_ssl_get_output_max_frag_len(&self->ssl_context)) {
         return GG_ERROR_OUT_OF_RANGE;
     }
 
