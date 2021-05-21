@@ -5,9 +5,11 @@
 Carthage Tasks
 """
 import os
+import signal
 
 from invoke import task
 from invoke.exceptions import Exit
+from tempfile import NamedTemporaryFile
 
 from ..deps import version_check, build_instructions, run_and_extract_version
 from . import xcodebuild
@@ -77,10 +79,31 @@ def _rome_upload_cmd(ctx, platform):
             --platform {} \
             --cache-prefix {}".format(platform, _rome_prefix(ctx))
 
+def _carthage_setup_environment():
+    # Applying Carthage build workaround to exclude Apple Silicon binaries.
+    # See https://github.com/Carthage/Carthage/issues/3019 for more details
+    fp = NamedTemporaryFile(delete=False, prefix='static.xcconfig.')
+    fp.write(b'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8\n')
+    fp.write(b'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))')
+    fp.close()
+
+    handler = lambda a, b: os.unlink(fp.name)
+
+    signal.signal(signal.SIGINT, handler)
+    signal.signal(signal.SIGTERM, handler)
+    signal.signal(signal.SIGHUP, handler)
+    signal.signal(signal.SIGQUIT, handler)
+
+    os.environ['XCODE_XCCONFIG_FILE'] = fp.name
+
 def _carthage_bootstrap_cmd():
+    _carthage_setup_environment()
+
     return "carthage bootstrap --platform ios,macos --cache-builds"
 
 def _carthage_build_cmd(ctx):
+    _carthage_setup_environment()
+
     # Carthage 0.29.0 moved the `--no-use-binaries` to the `build` command.
     if version_check(ctx, "carthage version", min_version="0.29.0"):
         return "carthage build --cache-builds --no-use-binaries"
@@ -198,7 +221,7 @@ def bootstrap(ctx, platform="ios,macos"):
     # available as a Git repo, so instead we bootstrap it manually here
     # instead of through a Cartfile reference
     with ctx.cd("{}/external/Rxbit".format(ctx.C.ROOT_DIR)):
-        ctx.run("carthage bootstrap --platform ios,macos --cache-builds")
+        ctx.run(_carthage_bootstrap_cmd())
 
 @task(_precheck)
 def build(ctx, dependencies, platform="ios,macos", configuration="Release"):
