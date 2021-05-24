@@ -22,6 +22,8 @@ enum SomeError: Error, Equatable {
 
 class InheritErrorSpec: QuickSpec {
 	override func spec() {
+		let disposeBag = DisposeBag()
+
 		describe("inheritError") {
 			it("completes if first observable completes") {
 				let first = Observable<Void>.empty()
@@ -32,7 +34,7 @@ class InheritErrorSpec: QuickSpec {
 					.subscribe(onCompleted: {
 						completed = true
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(completed).to(beTrue())
 			}
@@ -46,7 +48,7 @@ class InheritErrorSpec: QuickSpec {
 					.subscribe(onError: { error in
 						expectedError = error as? SomeError
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(expectedError).to(equal(SomeError.invalid))
 			}
@@ -61,7 +63,7 @@ class InheritErrorSpec: QuickSpec {
 					.subscribe(onError: { error in
 						expectedError = error as? SomeError
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(expectedError).to(equal(SomeError.invalid))
 			}
@@ -79,7 +81,7 @@ class InheritErrorSpec: QuickSpec {
 					.subscribe(onNext: { element in
 						expectedElements.append(element)
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(expectedElements).toEventually(equal([1, 2, 3]))
 				expect(completed).toEventually(beTrue())

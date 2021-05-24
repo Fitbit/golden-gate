@@ -110,7 +110,7 @@ private class UIApplicationSpec: QuickSpec {
 			applicationStateProvider.applicationState = .active
 			applicationStateProvider.applicationState = .active
 			applicationBecameActive.on(.completed)
-			let states = try! applicationBecameActive.asObservable().toBlocking().toArray()
+			let states: [Void] = try! applicationBecameActive.asObservable().toBlocking().toArray()
 
 			expect(states.count) == 1
 		}

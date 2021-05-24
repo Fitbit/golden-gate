@@ -101,9 +101,10 @@ extension RetryStrategyAction {
 			}
 
 			// calculate delay
-			let timeinterval = Int(configuration.interval.timeInterval * pow(1 + configuration.multiplier, Double(attempt)))
+			let timeInterval = configuration.interval.timeInterval * pow(1 + configuration.multiplier, Double(attempt))
+			
 			return Observable.merge(
-				Observable.just(()).delay(.seconds(timeinterval), scheduler: scheduler),
+				Observable.just(()).delay(.milliseconds(Int(timeInterval * 1000.0)), scheduler: scheduler),
 				configuration.resume ?? Observable.never()
 			)
 			.take(1)

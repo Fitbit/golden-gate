@@ -17,6 +17,8 @@ import RxTest
 
 class ReactiveLockSpec: QuickSpec {
 	override func spec() {
+		let disposeBag = DisposeBag()
+
 		describe("acquiring reactiveLock") {
 			it("successfully acquires the lock when no one is on it") {
 				let scheduler = TestScheduler(initialClock: 0)
@@ -27,7 +29,7 @@ class ReactiveLockSpec: QuickSpec {
 					.subscribe(onNext: { _ in
 						subscribed = true
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				scheduler.start()
 				expect(subscribed).to(beTrue())
@@ -40,13 +42,13 @@ class ReactiveLockSpec: QuickSpec {
 
 				reactiveLock.acquire()
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				reactiveLock.acquire()
 					.subscribe(onNext: { _ in
 						subscribed = true
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				scheduler.start()
 				expect(subscribed).to(beFalse())
@@ -71,7 +73,7 @@ class ReactiveLockSpec: QuickSpec {
 					.subscribe(onNext: { _ in
 						subscribed = 3
 					})
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(subscribed).toEventually(equal(1))
 				disposable1.dispose()
@@ -97,7 +99,7 @@ class ReactiveLockSpec: QuickSpec {
 					})
 					.synchronized(using: reactiveLock)
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				subject2
 					.asObservable()
@@ -106,7 +108,7 @@ class ReactiveLockSpec: QuickSpec {
 					})
 					.synchronized(using: reactiveLock)
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(subscribed1).toEventually(beTrue())
 				expect(subscribed2).to(beFalse())
@@ -125,7 +127,7 @@ class ReactiveLockSpec: QuickSpec {
 						completed = true
 					})
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				expect(completed).toEventually(beTrue())
 			}
@@ -149,7 +151,7 @@ class ReactiveLockSpec: QuickSpec {
 					})
 					.synchronized(using: reactiveLock)
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				subject2
 					.asObservable()
@@ -158,7 +160,7 @@ class ReactiveLockSpec: QuickSpec {
 					})
 					.synchronized(using: reactiveLock)
 					.subscribe()
-					.disposed(by: self.disposeBag)
+					.disposed(by: disposeBag)
 
 				let disposable3 = subject3
 					.asObservable()
