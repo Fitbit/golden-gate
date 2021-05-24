@@ -8,11 +8,10 @@
 //
 
 import Foundation
-import GoldenGate
 import RxCocoa
 import RxSwift
 
-protocol DatabaseContext: class {
+protocol DatabaseContext: AnyObject {
     func recordDidChange()
 }
 

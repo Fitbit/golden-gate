@@ -7,8 +7,8 @@
 //  Created by Marcel Jackwerth on 11/3/17.
 //
 
+import BluetoothConnection
 import Foundation
-import GoldenGate
 import RxCocoa
 import RxSwift
 
@@ -16,9 +16,6 @@ import RxSwift
 protocol ManagedPeerType {
     /// The record representation of the peer.
     var record: PeerRecord { get }
-
-    /// The connection controller of the peer.
-    var connectionController: DefaultConnectionController { get }
 }
 
 /// Manages multiple peers and loads/stores them into a database.
@@ -58,19 +55,19 @@ class PeerManager<Peer: ManagedPeerType> {
 }
 
 extension PeerManager {
-    /// Retrieves a peer for a given bluetooth peer descriptor.
-    func get(bluetoothPeerDescriptor: BluetoothPeerDescriptor) -> Peer? {
-        return peers.value.first(where: { $0.record.bluetoothPeerDescriptor == bluetoothPeerDescriptor })
+    /// Retrieves a peer for a given peer descriptor.
+    func get(peerDescriptor: PeerDescriptor) -> Peer? {
+        return peers.value.first(where: { $0.record.peerDescriptor == peerDescriptor })
     }
 
-    /// Retrieves or creates a peer for a given bluetooth peer descriptor.
-    func getOrCreate(bluetoothPeerDescriptor: BluetoothPeerDescriptor, name: String) -> Peer {
-        if let peer = get(bluetoothPeerDescriptor: bluetoothPeerDescriptor) {
+    /// Retrieves or creates a peer for a given peer descriptor.
+    func getOrCreate(peerDescriptor: PeerDescriptor, name: String) -> Peer {
+        if let peer = get(peerDescriptor: peerDescriptor) {
             return peer
         }
 
         let record = database.create(name: name)
-        record.bluetoothPeerDescriptor = bluetoothPeerDescriptor
+        record.peerDescriptor = peerDescriptor
         return ensurePeer(for: record)
     }
 }

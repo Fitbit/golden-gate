@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 4/4/18.
 //
 
+import BluetoothConnection
 import Cocoa
 import GoldenGate
 import RxCocoa
@@ -24,6 +25,8 @@ class MainViewController: NSViewController {
 
     fileprivate var menuActionRow = -1
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         simulator = Component.instance.nodeSimulator
         peerManager = Component.instance.peerManager
@@ -31,13 +34,13 @@ class MainViewController: NSViewController {
         // Setup stackComboBoxController
         let globalStackDescriptor = Component.instance.globalStackDescriptor
         stackComboBoxController = ComboBoxController(viewModel: ComboBoxViewModel<StackDescriptor>(
-            elements: [
+            elements: .just([
                 .dtlsSocketNetifGattlinkActivity,
                 .dtlsSocketNetifGattlink,
                 .socketNetifGattlink,
                 .netifGattlink,
                 .gattlink
-            ],
+            ]),
             selectedElement: globalStackDescriptor.asObservable().distinctUntilChanged(==),
             setSelectedElement: globalStackDescriptor.accept
         ))
@@ -46,11 +49,11 @@ class MainViewController: NSViewController {
         // Setup globalServiceDescriptor
         let globalServiceDescriptor = Component.instance.globalServiceDescriptor
         serviceComboBoxController = ComboBoxController(viewModel: ComboBoxViewModel<ServiceDescriptor>(
-            elements: [
+            elements: .just([
                 .none,
                 .coap,
                 .blasting
-            ],
+            ]),
             selectedElement: globalServiceDescriptor.asObservable().distinctUntilChanged(==),
             setSelectedElement: globalServiceDescriptor.accept
         ))
@@ -77,7 +80,7 @@ class MainViewController: NSViewController {
 
     @IBAction func disconnect(_ sender: Any?) {
         guard let peer = peer(at: menuActionRow) else { return }
-        peer.connectionController.forceDisconnect()
+        peer.connectionController.disconnect(trigger: "admin")
     }
 
     @IBAction func forget(_ sender: Any?) {
@@ -107,6 +110,10 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
             let tableColumn = tableColumn,
             let cell = tableView.makeView(withIdentifier: tableColumn.identifier, owner: nil) as? NSTableCellView
         else { return nil }
+        
+        let connection = peer.connectionController.connectionStatus
+            .catchErrorJustReturn(.disconnected)
+            .map { $0.connection }
 
         switch tableColumn.identifier {
         case .nameColumn:
@@ -121,7 +128,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .stateColumn:
-            _ = peer.state
+            _ = peer.connectionController.connectionStatus
                 .map { $0.cellDescription }
                 .takeUntil(cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
@@ -134,7 +141,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .preferredConnectionConfigColumn:
-            _ = peer.connection
+            _ = connection
                 .flatMapLatest { $0?.remotePreferredConnectionConfiguration.asObservable() ?? .just(nil) }
                 .map { $0?.description ?? "n/a" }
                 .startWith("n/a")
@@ -142,7 +149,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .preferredConnectionModeColumn:
-            _ = peer.connection
+            _ = connection
                 .flatMapLatest { $0?.remotePreferredConnectionMode.asObservable() ?? .just(nil) }
                 .map {
                     $0?.description ?? "n/a"
@@ -187,22 +194,4 @@ private extension NSUserInterfaceItemIdentifier {
     static let blasterStatsColumn = NSUserInterfaceItemIdentifier(rawValue: "blasterStats")
     static let preferredConnectionConfigColumn = NSUserInterfaceItemIdentifier(rawValue: "preferredConnectionConfig")
     static let preferredConnectionModeColumn = NSUserInterfaceItemIdentifier(rawValue: "preferredConnectionMode")
-}
-
-private extension CommonPeer.State {
-    var cellDescription: String {
-        switch self {
-        case .disconnected: return "Not Connected"
-        case .connecting: return "Connecting…"
-        case .connected: return "Connected"
-        }
-    }
-}
-
-private extension ManagedHub {
-    var connection: Observable<Node.Connection?> {
-        return connectionController.connection
-            .catchErrorJustReturn(nil)
-            .map { $0 as? Node.Connection }
-    }
 }

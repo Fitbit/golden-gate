@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 11/1/17.
 //
 
+import BluetoothConnection
 import CoreBluetooth
 import GoldenGate
 import GoldenGateXP
@@ -28,10 +29,21 @@ class ComponentBase {
     let runLoop = GoldenGate.RunLoop.shared
     let appDidBecomeActiveSubject = PublishSubject<Void>()
     let bluetoothConfiguration = BluetoothConfiguration.default
+    let nodeLinkServiceConfiguration = BluetoothConfiguration.LinkServiceConfiguration.default
     let disposeBag = DisposeBag()
 
     init(dependencies: ComponentBaseDependencies) {
         self.dependencies = dependencies
+
+        ErrorTrackers.default = LoggingErrorTracker()
+
+        // Publish the LinkConfigurationService if the current role is `Hub`.
+        if dependencies.role == .hub {
+            peripheralManager
+                .publish(service: linkConfigurationService)
+                .subscribe()
+                .disposed(by: disposeBag)
+        }
 
         do {
             try GoldenGateInitializer.initialize()
@@ -43,8 +55,9 @@ class ComponentBase {
     }
 
     lazy var bluetoothQueue = DispatchQueue(label: "bluetooth")
+    lazy var bluetoothScheduler = SerialDispatchQueueScheduler(queue: bluetoothQueue, internalSerialQueueName: bluetoothQueue.label)
 
-    lazy var rxCentralManager: RxBluetoothKit.CentralManager = {
+    lazy var centralManager: CentralManager = {
         let restoreIdentifier = UUID(uuidString: "1e5c8785-2f5c-4e87-9101-c7df1ebe75a6")!
 
         var options: [String: AnyObject] = [
@@ -55,20 +68,13 @@ class ComponentBase {
              options[CBCentralManagerOptionRestoreIdentifierKey] = restoreIdentifier.uuidString as NSString
          #endif
 
-        return RxBluetoothKit.CentralManager(
+        return CentralManager(
             queue: bluetoothQueue,
             options: options
         )
     }()
 
-    lazy var centralManager: GoldenGate.CentralManager = {
-        GoldenGate.CentralManager(
-            manager: rxCentralManager,
-            queue: bluetoothQueue
-        )
-    }()
-
-    lazy var peripheralManager: GoldenGate.PeripheralManager = {
+    lazy var peripheralManager: BluetoothConnection.PeripheralManager = {
         let restoreIdentifier = UUID(uuidString: "2dae1d80-b261-4dd5-863c-6b813f3306ba")!
 
         var options: [String: AnyObject] = [
@@ -79,21 +85,21 @@ class ComponentBase {
 //            options[CBCentralManagerOptionRestoreIdentifierKey] = restoreIdentifier.uuidString as NSString
         #endif
 
-        return GoldenGate.PeripheralManager(
+        return BluetoothConnection.PeripheralManager(
             queue: bluetoothQueue,
             options: options,
-            configuration: bluetoothConfiguration
+            name: bluetoothConfiguration.name
         )
     }()
 
     private lazy var bluetoothAvailable: Observable<Bool> = {
-        rxCentralManager.observeStateWithInitialValue()
+        centralManager.observeStateWithInitialValue()
             .map { ![.unsupported, .unauthorized, .poweredOff].contains($0) }
     }()
 
-    lazy var gattlinkService: GattlinkService = {
-        let service = GattlinkService(
-            configuration: bluetoothConfiguration,
+    lazy var gattlinkService: LinkService = {
+        let service = LinkService(
+            configuration: nodeLinkServiceConfiguration,
             peripheralManager: peripheralManager
         )
 
@@ -108,7 +114,7 @@ class ComponentBase {
 
     lazy var linkStatusService: LinkStatusService = {
         let service = LinkStatusService(
-            configuration: bluetoothConfiguration,
+            configuration: bluetoothConfiguration.linkStatusService,
             peripheralManager: peripheralManager
         )
 
@@ -123,38 +129,43 @@ class ComponentBase {
 
     lazy var node: Node = {
         Node(
-            runLoop: runLoop,
-            centralManager: centralManager,
+            bluetoothScheduler: bluetoothScheduler,
+            protocolScheduler: runLoop,
             peripheralManager: peripheralManager,
-            gattlinkService: gattlinkService,
-            configuration: bluetoothConfiguration
+            linkService: gattlinkService,
+            configuration: bluetoothConfiguration,
+            dataSinkBufferSize: UInt(GG_GENERIC_GATTLINK_CLIENT_DEFAULT_MAX_TX_WINDOW_SIZE)
         )
     }()
 
-    lazy var linkConfigurationService: LinkConfigurationService = {
-        return hub.linkConfigurationService
+    lazy var linkConfigurationService: LinkConfigurationServiceType & PeripheralManagerService = {
+        LinkConfigurationService(
+            configuration: bluetoothConfiguration.linkConfigurationService,
+            peripheralManager: peripheralManager
+        )
     }()
 
     lazy var hub: Hub = {
         Hub(
-            runLoop: runLoop,
+            bluetoothScheduler: bluetoothScheduler,
+            protocolScheduler: runLoop,
+            configuration: bluetoothConfiguration
+        )
+    }()
+
+    lazy var scanner: BluetoothScanner = {
+        BluetoothScanner(
             centralManager: centralManager,
-            peripheralManager: peripheralManager,
-            configuration: bluetoothConfiguration
+            // Scan for multiple UUIDs, as the link service supports multiple configurations
+            services: bluetoothConfiguration.linkService.map { $0.serviceUUID },
+            bluetoothScheduler: bluetoothScheduler
         )
     }()
 
-    lazy var scanner: Hub.Scanner = {
-        Hub.Scanner(
-            centralManager: rxCentralManager
-        )
-    }()
-
-    lazy var advertiser: Node.Advertiser = {
-        Node.Advertiser(
+    lazy var advertiser: BluetoothAdvertiser = {
+        BluetoothAdvertiser(
             peripheralManager: peripheralManager,
-            gattlinkService: gattlinkService,
-            configuration: bluetoothConfiguration
+            linkService: gattlinkService
         )
     }()
 
@@ -170,50 +181,42 @@ class ComponentBase {
         return database
     }()
 
-    func makeDefaultConnectionController(descriptor: Observable<StackDescriptor>) -> DefaultConnectionController {
-        let connector: AnyBluetoothPeerConnector
+    func makeConnectionController<R: ConnectionResolver>(resolver: R) -> ConnectionController<R.ConnectionType> {
+        // Emit a value whenever we observe * -> PoweredOn
+        // which might indicate the user power-cycling iOS's Bluetooth.
+        let didEnableBluetooth = centralManager.observeState()
+            .map { $0 == .poweredOn }
+            .distinctUntilChanged()
+            .filter { $0 }
 
-        switch dependencies.role {
-        case .hub: connector = AnyBluetoothPeerConnector(hub)
-        case .node: connector = AnyBluetoothPeerConnector(node)
-        }
+        let reconnectStrategy = BluetoothReconnectStrategy(
+            resumeTrigger: Observable.merge(
+                appDidBecomeActiveSubject.map { _ in "Application did become active" },
+                didEnableBluetooth.map { _ in "Bluetooth was powered on" }
+            )
+        )
 
-        let stackBuilder = StackBuilder(
-            runLoop: runLoop,
+        return ConnectionController(
+            connector: ConnectionResolvingConnector(
+                connector: BluetoothConnector(centralManager: centralManager, scheduler: bluetoothScheduler),
+                resolver: resolver
+            ),
+            descriptor: nil,
+            reconnectStrategy: reconnectStrategy,
+            scheduler: bluetoothScheduler
+        )
+    }
+
+    func makeStackBuilder(descriptor: Observable<StackDescriptor>) -> StackBuilderType {
+        return StackBuilder(
+            protocolScheduler: runLoop,
             descriptor: descriptor,
             role: dependencies.role,
             stackProvider: makeStack
         )
-
-        let resetFailureHistory = PublishSubject<Void>()
-        let reconnectStrategy = BluetoothReconnectStrategy(
-            resumeTrigger: self.appDidBecomeActiveSubject,
-            bluetoothState: self.rxCentralManager.observeStateWithInitialValue(),
-            resetFailureHistory: resetFailureHistory
-        )
-
-        // swiftlint:disable:next force_try
-        let reconnectingController = try! ReconnectingConnectionController(
-            ConnectionController(
-                runLoop: self.runLoop,
-                connector: connector,
-                stackBuilder: stackBuilder,
-                descriptor: nil
-            ),
-            reconnectStrategy: reconnectStrategy
-        )
-
-        _ = reconnectingController.state
-            .asObservable()
-            .filter { $0 == .connected }
-            .subscribe(onNext: { _ in
-                resetFailureHistory.onNext(())
-            })
-
-        return reconnectingController
     }
 
-    func makeStack(descriptor: StackDescriptor, role: Role, link: NetworkLink) throws -> Stack {
+    func makeStack(descriptor: StackDescriptor, role: Role, link: NetworkLink) throws -> StackType {
         Log("Creating new stack for \(link) with \(descriptor)", .info)
         return try Stack(
             runLoop: runLoop,
@@ -223,7 +226,7 @@ class ComponentBase {
             elementConfigurationProvider: self
         )
     }
-
+ 
     lazy var helloPsk: (identity: Data, key: Data) = {
         let identity = "hello".data(using: .utf8)!
 
@@ -234,15 +237,15 @@ class ComponentBase {
 
         return (identity, key)
     }()
-
+    
     lazy var bootstrapPsk: (identity: Data, key: Data) = {
         let identity = "BOOTSTRAP".data(using: .utf8)!
-
+        
         let key = Data([
             0x81, 0x06, 0x54, 0xE3, 0x36, 0xAD, 0xCA, 0xB0,
             0xA0, 0x3C, 0x60, 0xF7, 0x4A, 0xA0, 0xB6, 0xFB
             ])
-
+        
         return (identity, key)
     }()
 
@@ -267,38 +270,17 @@ class ComponentBase {
 
     let globalBlasterConfiguration = BehaviorRelay(value: BlasterService.Configuration.default)
 
-    lazy var commonPeerParameters: CommonPeer.Parameters = { [rxCentralManager] in
+    lazy var peerParameters: PeerParameters = { [centralManager] in
         let transportReadiness: Observable<TransportReadiness> = bluetoothAvailable
-            .map { $0 ? .ready : .notReady(reason: BluetoothError(state: rxCentralManager.state) ?? RxError.unknown) }
+            .map { $0 ? .ready : .notReady(reason: BluetoothError(state: centralManager.state) ?? RxError.unknown) }
 
-        return CommonPeer.Parameters(
-            runLoop: runLoop,
-            globalStackDescriptor: globalStackDescriptor.asObservable(),
-            globalServiceDescriptor: globalServiceDescriptor.asObservable(),
-            globalBlasterConfiguration: globalBlasterConfiguration.asObservable(),
+        return PeerParameters(
+            stackDescriptor: globalStackDescriptor.asObservable(),
+            serviceDescriptor: globalServiceDescriptor.asObservable(),
             defaultPortTransportReadiness: transportReadiness,
-            connectionControllerProvider: makeDefaultConnectionController
+            stackBuilderProvider: makeStackBuilder
         )
     }()
-}
-
-extension BluetoothError {
-    init?(state: BluetoothState) {
-        switch state {
-        case .unsupported:
-            self = .bluetoothUnsupported
-        case .unauthorized:
-            self = .bluetoothUnauthorized
-        case .poweredOff:
-            self = .bluetoothPoweredOff
-        case .unknown:
-            self = .bluetoothInUnknownState
-        case .resetting:
-            self = .bluetoothResetting
-        default:
-            return nil
-        }
-    }
 }
 
 extension ComponentBase: StackElementConfigurationProvider {
@@ -319,22 +301,5 @@ extension ComponentBase: StackElementConfigurationProvider {
 
     func gattlinkConfiguration() -> GattlinkParameters? {
         return nil
-    }
-}
-
-/// Type-erased Connector
-private class AnyBluetoothPeerConnector: Connector {
-    typealias Descriptor = BluetoothPeerDescriptor
-    typealias ConnectionType = Connection
-
-    // swiftlint:disable:next identifier_name
-    let _establishConnection: (Descriptor) -> Observable<ConnectionType>
-
-    init<C: Connector>(_ connector: C) where C.Descriptor == Descriptor, C.ConnectionType == ConnectionType {
-        self._establishConnection = connector.establishConnection
-    }
-
-    func establishConnection(with descriptor: Descriptor) -> Observable<ConnectionType> {
-        return _establishConnection(descriptor)
     }
 }

@@ -7,25 +7,36 @@
 //  Created by Marcel Jackwerth on 11/20/17.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 import RxCocoa
 import RxSwift
 
-class ManagedNode: ManagedPeer {
+class ManagedNode: ManagedPeer<HubConnection> {
     private let disposeBag = DisposeBag()
 
     public let preferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>(value: .default)
     public let preferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>(value: .default)
 
-    init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters, linkConfigurationService: LinkConfigurationService) {
+    init(
+        connectionController: ConnectionController<HubConnection>,
+        record: PeerRecord,
+        peerParameters: PeerParameters,
+        runLoop: GoldenGate.RunLoop,
+        globalBlasterConfiguration: Observable<BlasterService.Configuration>,
+        linkConfigurationService: LinkConfigurationServiceType
+    ) {
         super.init(
+            connectionController: connectionController,
             record: record,
-            commonPeerParameters: commonPeerParameters
+            peerParameters: peerParameters,
+            runLoop: runLoop,
+            globalBlasterConfiguration: globalBlasterConfiguration
         )
 
-        // Handle gattlink session stall event
-        setupGattlinkSessionStallHandling(linkConfigurationService: linkConfigurationService)
+        // Handle disconnection requirements (i.e. when gattlink session stalls)
+        setupDisconnectionRequiredHandling(linkConfigurationService: linkConfigurationService)
 
         // Handle transport activity monitor logging
         setupTransportActivityMonitor()
@@ -39,10 +50,10 @@ class ManagedNode: ManagedPeer {
         preferredConnectionMode.asObservable()
             .skip(1)
             .subscribe(onNext: { [linkConfigurationService] in
-                if let bluetoothPeerDescriptor = record.bluetoothPeerDescriptor {
+                if let peerDescriptor = record.peerDescriptor {
                     linkConfigurationService.update(
                         preferredConnectionModeValue: $0,
-                        onSubscribedCentral: bluetoothPeerDescriptor.identifier
+                        onSubscribedCentralUuid: peerDescriptor.identifier
                     )
                 }
                 record.preferredConnectionMode = $0
@@ -54,10 +65,10 @@ class ManagedNode: ManagedPeer {
         preferredConnectionConfiguration.asObservable()
             .skip(1)
             .subscribe(onNext: { [linkConfigurationService] in
-                if let bluetoothPeerDescriptor = record.bluetoothPeerDescriptor {
+                if let peerDescriptor = record.peerDescriptor {
                     linkConfigurationService.update(
                         preferredConnectionConfigurationValue: $0,
-                        onSubscribedCentral: bluetoothPeerDescriptor.identifier
+                        onSubscribedCentralUuid: peerDescriptor.identifier
                     )
                 }
                 record.preferredConnectionConfiguration = $0
@@ -67,7 +78,7 @@ class ManagedNode: ManagedPeer {
         // Handle Preferred Connection Configuration read requests
         linkConfigurationService.preferredConnectionConfigurationReadRequests
             .filter {
-                $0.central.identifier == record.bluetoothPeerDescriptor?.identifier
+                $0.central.identifier == record.peerDescriptor?.identifier
             }
             .subscribe(onNext: { [preferredConnectionConfiguration] in
                 $0.respond(withResult: .success(preferredConnectionConfiguration.value.rawValue))
@@ -77,7 +88,7 @@ class ManagedNode: ManagedPeer {
         // Handle Preferred Connection Mode read requests
         linkConfigurationService.preferredConnectionModeReadRequests
             .filter {
-                $0.central.identifier == record.bluetoothPeerDescriptor?.identifier
+                $0.central.identifier == record.peerDescriptor?.identifier
             }
             .subscribe(onNext: { [preferredConnectionMode] in
                 $0.respond(withResult: .success(preferredConnectionMode.value.rawValue))
@@ -93,16 +104,16 @@ class ManagedNode: ManagedPeer {
             .disposed(by: disposeBag)
     }
 
-    private func setupGattlinkSessionStallHandling(linkConfigurationService: LinkConfigurationService) {
-        // Force disconnect on gattlink session stall event
-        gattlinkSessionStalled.withLatestFrom(connectionController.descriptor)
+    private func setupDisconnectionRequiredHandling(linkConfigurationService: LinkConfigurationServiceType) {
+        // Force disconnect when required
+        disconnectionRequired.withLatestFrom(connectionController.descriptor)
             .filterNil()
             .subscribe(onNext: { bluetoothDescriptor in
-                Log("Gattlink session stalled. Sending a force disconnect command...", .warning)
+                Log("Disconnection required. Sending a force disconnect command...", .warning)
 
                 linkConfigurationService.send(
                     command: .init(code: .disconnect),
-                    onSubscribedCentral: bluetoothDescriptor.identifier
+                    onSubscribedCentralUuid: bluetoothDescriptor.identifier
                 )
             })
             .disposed(by: disposeBag)

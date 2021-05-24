@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42FAE7E726123AC0005E6500 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */; };
+		42FAE7E826123ACA005E6500 /* BluetoothConnectionObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4814FA2B2212405A00552D38 /* GoldenGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81102220E89920067A593 /* GoldenGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4828B6FB220E8AC5005377DA /* RxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B6FA220E8AC5005377DA /* RxBluetoothKit.framework */; };
 		4828B6FF220E8B88005377DA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B6FE220E8B88005377DA /* RxSwift.framework */; };
@@ -16,7 +18,6 @@
 		4828B709220E8DDC005377DA /* RxBluetoothKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B6FA220E8AC5005377DA /* RxBluetoothKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4828B70A220E8DE3005377DA /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B700220E8B8F005377DA /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4828B70B220E8DE7005377DA /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B6FE220E8B88005377DA /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4830C6BB221F5EA000AFF465 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4830C6BA221F5EA000AFF465 /* Starscream.framework */; };
 		4830C6BC221F5ED100AFF465 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4830C6BA221F5EA000AFF465 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4830DEEC224ACB4400FEA458 /* NSLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48492DE0220EDB9800C67916 /* NSLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4830DEEE224ACB4900FEA458 /* RxBluetoothKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810FC220E894B0067A593 /* RxBluetoothKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -24,7 +25,6 @@
 		4830DEF0224ACB5200FEA458 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810F0220E89190067A593 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4830DEF1224ACB5600FEA458 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 48492DE3220EDCFB00C67916 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		48492DE1220EDB9800C67916 /* NSLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48492DE0220EDB9800C67916 /* NSLogger.framework */; };
-		48492DE4220EDCFB00C67916 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48492DE3220EDCFB00C67916 /* Starscream.framework */; };
 		486134F6213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
 		486134F7213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
 		4887255D203662E600A3F15E /* NSLoggerLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887255C203662E600A3F15E /* NSLoggerLogger.swift */; };
@@ -39,13 +39,12 @@
 		48BC7D541FFF302F0036B18D /* CoAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC7D531FFF302F0036B18D /* CoAPTests.swift */; };
 		48C39498204A6D2000576D8C /* UIApplication+BSMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C39496204A6D1F00576D8C /* UIApplication+BSMobileProvision.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D6B11DB1FC0D49E00FA0841 /* NodeSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B11DA1FC0D49E00FA0841 /* NodeSimulator.swift */; };
+		6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E02074E2B50096FD0C /* HubComponent.swift */; };
 		6D9484E32074E2DD0096FD0C /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E22074E2DD0096FD0C /* NodeComponent.swift */; };
 		6D9484E42074E8C30096FD0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB3DA02074C32D0056173A /* Main.storyboard */; };
 		6D9484F52074F3E40096FD0C /* ManagedPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484F42074F3E40096FD0C /* ManagedPeer.swift */; };
 		6D9484F62074F3E40096FD0C /* ManagedPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484F42074F3E40096FD0C /* ManagedPeer.swift */; };
-		6D9485002077903A0096FD0C /* ConnectionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484FF2077903A0096FD0C /* ConnectionRegistry.swift */; };
-		6D9485012077903A0096FD0C /* ConnectionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484FF2077903A0096FD0C /* ConnectionRegistry.swift */; };
 		6D9485062077A1C00096FD0C /* ComboBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9485052077A1C00096FD0C /* ComboBoxController.swift */; };
 		6D9485092077A4F20096FD0C /* ViewReusing+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9485082077A4F20096FD0C /* ViewReusing+Rx.swift */; };
 		6DAB3DA32074C5760056173A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAB3DA22074C5760056173A /* AppDelegate.swift */; };
@@ -68,8 +67,14 @@
 		6DFCA5F41FAC79970022F4DB /* PeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFCA5F31FAC79970022F4DB /* PeerManager.swift */; };
 		750C2A85233B92BC0060F24D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
 		751A7CBB2329306000087BFB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
-		AF8260DA2447726C00EE499A /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; };
-		AF8260DB2447726C00EE499A /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260D72447726500EE499A /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */; };
+		75D399FA2578FF940028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399F92578FF940028BD1D /* Starscream.framework */; };
+		75D399FC2578FF9C0028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399FB2578FF9C0028BD1D /* Starscream.framework */; };
+		75DCC4D7250BA894005883C4 /* LoggingErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */; };
+		75DCC4D8250BA8DE005883C4 /* LoggingErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */; };
+		75E49EA024C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */; };
+		75E49EA124C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */; };
+		91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553A1F78532D003EC08B /* AppDelegate.swift */; };
 		BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553C1F78532D003EC08B /* RootViewController.swift */; };
 		BF6A55401F78532D003EC08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A553E1F78532D003EC08B /* Main.storyboard */; };
@@ -77,21 +82,27 @@
 		BF6A55451F78532D003EC08B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */; };
 		BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
 		BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
+		FD2B6E46234F6F1400765D7B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E45234F6F1400765D7B /* Rxbit.framework */; };
+		FD2B6E47234F6F1400765D7B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E45234F6F1400765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD2B6E49234F6F2500765D7B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; };
 		FD2B6E4A234F6F2500765D7B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD594EF4248FB60C00011AD2 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD594EF3248FB60C00011AD2 /* BluetoothConnection.framework */; };
+		FD594EF5248FB60C00011AD2 /* BluetoothConnection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD594EF3248FB60C00011AD2 /* BluetoothConnection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD751EEE24900E1500ABF320 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD751EED24900E1500ABF320 /* BluetoothConnection.framework */; };
+		FD751EEF24900E1500ABF320 /* BluetoothConnection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD751EED24900E1500ABF320 /* BluetoothConnection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AF8260D62447726500EE499A /* PBXContainerItemProxy */ = {
+		81690E55265BCF610055813C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+			containerPortal = 81690E50265BCF610055813C /* Rxbit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F159C2D11FB4DEC000E59A95;
 			remoteInfo = Rxbit;
 		};
-		AF8260D82447726500EE499A /* PBXContainerItemProxy */ = {
+		81690E57265BCF610055813C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+			containerPortal = 81690E50265BCF610055813C /* Rxbit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F159C2D91FB4DEC000E59A95;
 			remoteInfo = RxbitTests;
@@ -105,11 +116,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				42FAE7E826123ACA005E6500 /* BluetoothConnectionObjC.framework in Embed Frameworks */,
+				FD594EF5248FB60C00011AD2 /* BluetoothConnection.framework in Embed Frameworks */,
 				4814FA2B2212405A00552D38 /* GoldenGate.framework in Embed Frameworks */,
 				4830DEEC224ACB4400FEA458 /* NSLogger.framework in Embed Frameworks */,
+				FD2B6E47234F6F1400765D7B /* Rxbit.framework in Embed Frameworks */,
 				4830DEEE224ACB4900FEA458 /* RxBluetoothKit.framework in Embed Frameworks */,
 				4830DEEF224ACB4D00FEA458 /* RxCocoa.framework in Embed Frameworks */,
-				AF8260DB2447726C00EE499A /* Rxbit.framework in Embed Frameworks */,
 				48AE718922820F6D00DE90AD /* RxRelay.framework in Embed Frameworks */,
 				4830DEF0224ACB5200FEA458 /* RxSwift.framework in Embed Frameworks */,
 				4830DEF1224ACB5600FEA458 /* Starscream.framework in Embed Frameworks */,
@@ -123,6 +136,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FD751EEF24900E1500ABF320 /* BluetoothConnection.framework in Embed Frameworks */,
 				4828B707220E8DCE005377DA /* GoldenGate.framework in Embed Frameworks */,
 				FD2B6E4A234F6F2500765D7B /* Rxbit.framework in Embed Frameworks */,
 				4828B709220E8DDC005377DA /* RxBluetoothKit.framework in Embed Frameworks */,
@@ -137,7 +151,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4817C6902209160600FA68B5 /* RxAtomic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = RxAtomic.framework; path = "/Users/srebaud/dev/fitbit/golden-gate/platform/apple/apps/host/build/Debug-iphoneos/RxAtomic.framework"; sourceTree = "<absolute>"; };
+		42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnectionObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4828B6F1220E89E2005377DA /* HockeySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4828B6FA220E8AC5005377DA /* RxBluetoothKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxBluetoothKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4828B6FE220E8B88005377DA /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,9 +163,6 @@
 		48492DE3220EDCFB00C67916 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		486134F5213309B200E29452 /* OptionalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalType.swift; sourceTree = "<group>"; };
 		4887255C203662E600A3F15E /* NSLoggerLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLoggerLogger.swift; sourceTree = "<group>"; };
-		48A810BA220E58C20067A593 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewCell.swift; sourceTree = "<group>"; };
-		48A810BB220E58C20067A593 /* UITableViewCell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Rx.swift"; sourceTree = "<group>"; };
-		48A810BC220E58C20067A593 /* UILabel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Rx.swift"; sourceTree = "<group>"; };
 		48A810F0220E89190067A593 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A810F2220E89190067A593 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A810F4220E89190067A593 /* RxAtomic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxAtomic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +179,6 @@
 		6D9484E02074E2B50096FD0C /* HubComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HubComponent.swift; sourceTree = "<group>"; };
 		6D9484E22074E2DD0096FD0C /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		6D9484F42074F3E40096FD0C /* ManagedPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedPeer.swift; sourceTree = "<group>"; };
-		6D9484FF2077903A0096FD0C /* ConnectionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionRegistry.swift; sourceTree = "<group>"; };
 		6D9485052077A1C00096FD0C /* ComboBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboBoxController.swift; sourceTree = "<group>"; };
 		6D9485082077A4F20096FD0C /* ViewReusing+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewReusing+Rx.swift"; sourceTree = "<group>"; };
 		6DAB3DA02074C32D0056173A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -185,15 +195,21 @@
 		6DFCA5EF1FAB658B0022F4DB /* PeerRecordDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerRecordDatabase.swift; sourceTree = "<group>"; };
 		6DFCA5F31FAC79970022F4DB /* PeerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerManager.swift; sourceTree = "<group>"; };
 		751A7CB92329306000087BFB /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		AC4ACFE7243D47830088C55C /* macOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Application.xcconfig"; sourceTree = "<group>"; };
-		AC4ACFE8243D47830088C55C /* macOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Framework.xcconfig"; sourceTree = "<group>"; };
-		AC4ACFE9243D47830088C55C /* macOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
-		AC4ACFEA243D47830088C55C /* macOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Base.xcconfig"; sourceTree = "<group>"; };
-		AC4ACFEB243D47830088C55C /* macOS-XCTest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-XCTest.xcconfig"; sourceTree = "<group>"; };
-		AC4ACFEC243D47830088C55C /* macOS-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerWrapper.swift; sourceTree = "<group>"; };
+		75D399F92578FF940028BD1D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75D399FB2578FF9C0028BD1D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingErrorTracker.swift; sourceTree = "<group>"; };
+		75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BluetoothConfiguration+Defaults.swift"; sourceTree = "<group>"; };
+		81690E50265BCF610055813C /* Rxbit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rxbit.xcodeproj; path = ../../../../external/rxbit/Rxbit.xcodeproj; sourceTree = "<group>"; };
+		81690E5C265BD0B90055813C /* macOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Application.xcconfig"; sourceTree = "<group>"; };
+		81690E5D265BD0B90055813C /* macOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Framework.xcconfig"; sourceTree = "<group>"; };
+		81690E5E265BD0B90055813C /* macOS-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
+		81690E5F265BD0B90055813C /* macOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Base.xcconfig"; sourceTree = "<group>"; };
+		81690E60265BD0B90055813C /* macOS-XCTest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-XCTest.xcconfig"; sourceTree = "<group>"; };
+		81690E61265BD0B90055813C /* macOS-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
+		91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostVersion.swift; sourceTree = "<group>"; };
 		AF076410237DA4670036EE60 /* AppCenterDistribute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenterDistribute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF51C14D237DA2B40006A0C8 /* AppCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF8260D12447726500EE499A /* Rxbit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rxbit.xcodeproj; path = ../../../../external/rxbit/Rxbit.xcodeproj; sourceTree = "<group>"; };
 		BF6A55381F78532D003EC08B /* GGHost-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GGHost-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A553A1F78532D003EC08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF6A553C1F78532D003EC08B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +237,8 @@
 		BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldCoAPClient.swift; sourceTree = "<group>"; };
 		FD2B6E45234F6F1400765D7B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2B6E48234F6F2500765D7B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD594EF3248FB60C00011AD2 /* BluetoothConnection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD751EED24900E1500ABF320 /* BluetoothConnection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,13 +246,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D399FC2578FF9C0028BD1D /* Starscream.framework in Frameworks */,
+				FD751EEE24900E1500ABF320 /* BluetoothConnection.framework in Frameworks */,
 				4828B705220E8BA2005377DA /* GoldenGate.framework in Frameworks */,
 				FD2B6E49234F6F2500765D7B /* Rxbit.framework in Frameworks */,
 				4828B6FB220E8AC5005377DA /* RxBluetoothKit.framework in Frameworks */,
 				4828B701220E8B8F005377DA /* RxCocoa.framework in Frameworks */,
 				48AE718A22820F8D00DE90AD /* RxRelay.framework in Frameworks */,
 				4828B6FF220E8B88005377DA /* RxSwift.framework in Frameworks */,
-				4830C6BB221F5EA000AFF465 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,14 +261,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FAE7E726123AC0005E6500 /* BluetoothConnectionObjC.framework in Frameworks */,
+				75D399FA2578FF940028BD1D /* Starscream.framework in Frameworks */,
+				FD594EF4248FB60C00011AD2 /* BluetoothConnection.framework in Frameworks */,
 				48A81103220E89920067A593 /* GoldenGate.framework in Frameworks */,
 				48492DE1220EDB9800C67916 /* NSLogger.framework in Frameworks */,
+				FD2B6E46234F6F1400765D7B /* Rxbit.framework in Frameworks */,
 				48A810FD220E894B0067A593 /* RxBluetoothKit.framework in Frameworks */,
 				48A810F3220E89190067A593 /* RxCocoa.framework in Frameworks */,
-				AF8260DA2447726C00EE499A /* Rxbit.framework in Frameworks */,
 				48AE718822820F6800DE90AD /* RxRelay.framework in Frameworks */,
 				48A810F1220E89190067A593 /* RxSwift.framework in Frameworks */,
-				48492DE4220EDCFB00C67916 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,38 +280,29 @@
 		48037DDF1F8DD1AC002BECFD /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				751F29AE24D9EE84003E845F /* Log */,
+				751F29AD24D9EE58003E845F /* PeerDatabase */,
 				486134F1213308F500E29452 /* Rx */,
+				75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */,
 				6DFCA5EB1FAA39380022F4DB /* ComponentBase.swift */,
-				6D9484FF2077903A0096FD0C /* ConnectionRegistry.swift */,
 				BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */,
 				6DAB3DAF2074D92D0056173A /* HelloWorldResource.swift */,
 				6D9484E02074E2B50096FD0C /* HubComponent.swift */,
-				751A7CB92329306000087BFB /* Log.swift */,
-				6D9484F42074F3E40096FD0C /* ManagedPeer.swift */,
 				6D9484E22074E2DD0096FD0C /* NodeComponent.swift */,
-				4887255C203662E600A3F15E /* NSLoggerLogger.swift */,
-				6DFCA5F31FAC79970022F4DB /* PeerManager.swift */,
-				6DAB3DA72074D7520056173A /* PeerRecord.swift */,
-				6DFCA5EF1FAB658B0022F4DB /* PeerRecordDatabase.swift */,
-				6DAB3DAA2074D7600056173A /* PeerRecordHandle.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		4828B6F0220E89AE005377DA /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				4817C6902209160600FA68B5 /* RxAtomic.framework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF8260D12447726500EE499A /* Rxbit.xcodeproj */,
-				AF076410237DA4670036EE60 /* AppCenterDistribute.framework */,
+				42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */,
+				75D399FB2578FF9C0028BD1D /* Starscream.framework */,
+				75D399F92578FF940028BD1D /* Starscream.framework */,
 				AF51C14D237DA2B40006A0C8 /* AppCenter.framework */,
+				AF076410237DA4670036EE60 /* AppCenterDistribute.framework */,
+				FD594EF3248FB60C00011AD2 /* BluetoothConnection.framework */,
+				FD751EED24900E1500ABF320 /* BluetoothConnection.framework */,
 				4828B704220E8BA2005377DA /* GoldenGate.framework */,
 				48A81102220E89920067A593 /* GoldenGate.framework */,
 				4828B6F1220E89E2005377DA /* HockeySDK.framework */,
@@ -344,47 +356,67 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		6DEDA45C207E0B3F008861F5 /* GoldenGate-UI-Internal */ = {
+		751F29AD24D9EE58003E845F /* PeerDatabase */ = {
 			isa = PBXGroup;
 			children = (
-				48A810BA220E58C20067A593 /* ReusableTableViewCell.swift */,
-				48A810BC220E58C20067A593 /* UILabel+Rx.swift */,
-				48A810BB220E58C20067A593 /* UITableViewCell+Rx.swift */,
+				6D9484F42074F3E40096FD0C /* ManagedPeer.swift */,
+				6DFCA5F31FAC79970022F4DB /* PeerManager.swift */,
+				6DAB3DA72074D7520056173A /* PeerRecord.swift */,
+				6DFCA5EF1FAB658B0022F4DB /* PeerRecordDatabase.swift */,
+				6DAB3DAA2074D7600056173A /* PeerRecordHandle.swift */,
 			);
-			name = "GoldenGate-UI-Internal";
-			path = ../../../bindings/GoldenGate/UI/Internal;
+			path = PeerDatabase;
 			sourceTree = "<group>";
 		};
-		AC4ACFE6243D47830088C55C /* macOS */ = {
+		751F29AE24D9EE84003E845F /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				AC4ACFE7243D47830088C55C /* macOS-Application.xcconfig */,
-				AC4ACFE8243D47830088C55C /* macOS-Framework.xcconfig */,
-				AC4ACFE9243D47830088C55C /* macOS-StaticLibrary.xcconfig */,
-				AC4ACFEA243D47830088C55C /* macOS-Base.xcconfig */,
-				AC4ACFEB243D47830088C55C /* macOS-XCTest.xcconfig */,
-				AC4ACFEC243D47830088C55C /* macOS-DynamicLibrary.xcconfig */,
+				751A7CB92329306000087BFB /* Log.swift */,
+				75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */,
+				4887255C203662E600A3F15E /* NSLoggerLogger.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		81690E4F265BCF4C0055813C /* External */ = {
+			isa = PBXGroup;
+			children = (
+				81690E50265BCF610055813C /* Rxbit.xcodeproj */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		81690E51265BCF610055813C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81690E56265BCF610055813C /* Rxbit.framework */,
+				81690E58265BCF610055813C /* RxbitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81690E5B265BD0B80055813C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				81690E5C265BD0B90055813C /* macOS-Application.xcconfig */,
+				81690E5D265BD0B90055813C /* macOS-Framework.xcconfig */,
+				81690E5E265BD0B90055813C /* macOS-StaticLibrary.xcconfig */,
+				81690E5F265BD0B90055813C /* macOS-Base.xcconfig */,
+				81690E60265BD0B90055813C /* macOS-XCTest.xcconfig */,
+				81690E61265BD0B90055813C /* macOS-DynamicLibrary.xcconfig */,
 			);
 			name = macOS;
 			path = ../../../../external/xcconfigs/macOS;
 			sourceTree = "<group>";
 		};
-		AF8260D22447726500EE499A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AF8260D72447726500EE499A /* Rxbit.framework */,
-				AF8260D92447726500EE499A /* RxbitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		BF6A55391F78532D003EC08B /* GoldenGate-Host-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				6DEDA45C207E0B3F008861F5 /* GoldenGate-UI-Internal */,
 				BF6A553A1F78532D003EC08B /* AppDelegate.swift */,
 				BF6A55411F78532D003EC08B /* Assets.xcassets */,
+				75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */,
 				48C39495204A6D1E00576D8C /* GoldenGateHost-iOS-Bridging-Header.h */,
+				91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */,
 				BF6A55461F78532D003EC08B /* Info.plist */,
 				BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */,
 				BF6A553E1F78532D003EC08B /* Main.storyboard */,
@@ -401,12 +433,12 @@
 		BFCB98E51F7542B800F979B9 = {
 			isa = PBXGroup;
 			children = (
+				81690E4F265BCF4C0055813C /* External */,
 				BFCB99C51F754B1800F979B9 /* Configurations */,
 				484F88261F8590370014A037 /* Frameworks */,
 				BF6A55391F78532D003EC08B /* GoldenGate-Host-iOS */,
 				48EB8C801F86039900B2ED7B /* GoldenGate-Host-macOS */,
 				BFCB98EF1F7542B800F979B9 /* Products */,
-				4828B6F0220E89AE005377DA /* Recovered References */,
 				48037DDF1F8DD1AC002BECFD /* Source */,
 			);
 			indentWidth = 4;
@@ -426,10 +458,10 @@
 		BFCB99C51F754B1800F979B9 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				81690E5B265BD0B80055813C /* macOS */,
 				BFCB99CA1F754B5400F979B9 /* Base */,
 				BFCB99D51F754B5400F979B9 /* iOS */,
 				BFCB99DA1F754B5400F979B9 /* Mac OS X */,
-				AC4ACFE6243D47830088C55C /* macOS */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -500,6 +532,7 @@
 			buildPhases = (
 				48492DE6220EDE6200C67916 /* Carthage Sync */,
 				48EB8C7B1F86039900B2ED7B /* Sources */,
+				48434E581FA01767000B7C34 /* SwiftLint */,
 				48EB8C7C1F86039900B2ED7B /* Frameworks */,
 				48EB8C7D1F86039900B2ED7B /* Resources */,
 				4828B706220E8DB7005377DA /* Embed Frameworks */,
@@ -519,6 +552,7 @@
 			buildPhases = (
 				48492DDF220ED58E00C67916 /* Carthage Sync */,
 				BF6A55341F78532D003EC08B /* Sources */,
+				48434E591FA0177C000B7C34 /* SwiftLint */,
 				BF6A55351F78532D003EC08B /* Frameworks */,
 				BF6A55361F78532D003EC08B /* Resources */,
 				4814FA2A22123FE600552D38 /* Embed Frameworks */,
@@ -567,8 +601,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AF8260D22447726500EE499A /* Products */;
-					ProjectRef = AF8260D12447726500EE499A /* Rxbit.xcodeproj */;
+					ProductGroup = 81690E51265BCF610055813C /* Products */;
+					ProjectRef = 81690E50265BCF610055813C /* Rxbit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -580,18 +614,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AF8260D72447726500EE499A /* Rxbit.framework */ = {
+		81690E56265BCF610055813C /* Rxbit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Rxbit.framework;
-			remoteRef = AF8260D62447726500EE499A /* PBXContainerItemProxy */;
+			remoteRef = 81690E55265BCF610055813C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AF8260D92447726500EE499A /* RxbitTests.xctest */ = {
+		81690E58265BCF610055813C /* RxbitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RxbitTests.xctest;
-			remoteRef = AF8260D82447726500EE499A /* PBXContainerItemProxy */;
+			remoteRef = 81690E57265BCF610055813C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -618,6 +652,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		48434E581FA01767000B7C34 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../../../../tools/arcanist/linting/linters/swiftlint/.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		48434E591FA0177C000B7C34 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../../../../tools/arcanist/linting/linters/swiftlint/.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		48492DDF220ED58E00C67916 /* Carthage Sync */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -662,14 +724,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DAB3DA32074C5760056173A /* AppDelegate.swift in Sources */,
+				75E49EA124C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */,
 				48BC7D541FFF302F0036B18D /* CoAPTests.swift in Sources */,
 				6D9485062077A1C00096FD0C /* ComboBoxController.swift in Sources */,
 				6DFCA5F21FAC74ED0022F4DB /* ComponentBase.swift in Sources */,
-				6D9485012077903A0096FD0C /* ConnectionRegistry.swift in Sources */,
 				BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB02074D92D0056173A /* HelloWorldResource.swift in Sources */,
+				6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */,
 				751A7CBB2329306000087BFB /* Log.swift in Sources */,
 				6DAB3DA52074C87B0056173A /* MainViewController.swift in Sources */,
+				75DCC4D8250BA8DE005883C4 /* LoggingErrorTracker.swift in Sources */,
 				6DAB3DAE2074D90A0056173A /* ManagedHub.swift in Sources */,
 				6D9484F62074F3E40096FD0C /* ManagedPeer.swift in Sources */,
 				6D9484E32074E2DD0096FD0C /* NodeComponent.swift in Sources */,
@@ -688,10 +752,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */,
+				75E49EA024C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */,
+				75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */,
+				75DCC4D7250BA894005883C4 /* LoggingErrorTracker.swift in Sources */,
 				6DFCA5EC1FAA39380022F4DB /* ComponentBase.swift in Sources */,
-				6D9485002077903A0096FD0C /* ConnectionRegistry.swift in Sources */,
 				BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB12074DBAC0056173A /* HelloWorldResource.swift in Sources */,
+				91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */,
 				6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */,
 				750C2A85233B92BC0060F24D /* Log.swift in Sources */,
 				6DAE28961FC3E69000DB872B /* ManagedNode.swift in Sources */,
@@ -733,31 +800,45 @@
 /* Begin XCBuildConfiguration section */
 		48EB8C8B1F86039900B2ED7B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC4ACFE7243D47830088C55C /* macOS-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../xp/generated/",
+					"$(SRCROOT)/../../xp/generated/GoldenGateXP",
+					"$(SRCROOT)/../../xp/generated/config",
+				);
 				INFOPLIST_FILE = "GoldenGate-Host-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/GoldenGate.framework/Versions/Current/Frameworks @executable_path/.";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fitbit.GoldenGate-Host-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../xp/generated/ $(SRCROOT)/../../xp/generated/GoldenGateXP $(SRCROOT)/../../xp/generated/config";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		48EB8C8C1F86039900B2ED7B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC4ACFE7243D47830088C55C /* macOS-Application.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../xp/generated/",
+					"$(SRCROOT)/../../xp/generated/GoldenGateXP",
+					"$(SRCROOT)/../../xp/generated/config",
+				);
 				INFOPLIST_FILE = "GoldenGate-Host-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/GoldenGate.framework/Versions/Current/Frameworks @executable_path/.";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fitbit.GoldenGate-Host-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../xp/generated/ $(SRCROOT)/../../xp/generated/GoldenGateXP $(SRCROOT)/../../xp/generated/config";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -771,14 +852,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q8LG6VQH8H;
 				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../xp/generated/GoldenGateXP",
+					"$(SRCROOT)/../../xp/generated/config",
+					"$(SRCROOT)/../../xp/generated/",
+				);
 				INFOPLIST_FILE = "GoldenGate-Host-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fitbit.GoldenGate-Host-iOS";
 				PRODUCT_NAME = "GGHost-Dev";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../xp/generated/ $(SRCROOT)/../../xp/generated/GoldenGateXP $(SRCROOT)/../../xp/generated/config";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenGate-Host-iOS/GoldenGateHost-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -792,13 +880,20 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q8LG6VQH8H;
 				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../xp/generated/GoldenGateXP",
+					"$(SRCROOT)/../../xp/generated/config",
+					"$(SRCROOT)/../../xp/generated/",
+				);
 				INFOPLIST_FILE = "GoldenGate-Host-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fitbit.GoldenGate-Host-iOS";
 				PRODUCT_NAME = "GGHost-Dev";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../../xp/generated/ $(SRCROOT)/../../xp/generated/GoldenGateXP $(SRCROOT)/../../xp/generated/config";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenGate-Host-iOS/GoldenGateHost-iOS-Bridging-Header.h";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};

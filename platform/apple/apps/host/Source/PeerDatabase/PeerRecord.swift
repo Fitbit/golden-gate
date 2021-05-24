@@ -7,16 +7,16 @@
 //  Created by Marcel Jackwerth on 4/4/18.
 //
 
+import BluetoothConnection
 import Foundation
-import GoldenGate
 
 class PeerRecord: Codable {
     let handle: PeerRecordHandle
     let name: String
 
-    var bluetoothPeerDescriptor: BluetoothPeerDescriptor? {
+    var peerDescriptor: PeerDescriptor? {
         didSet {
-            if oldValue != bluetoothPeerDescriptor {
+            if oldValue != peerDescriptor {
                 context?.recordDidChange()
             }
         }
@@ -49,7 +49,7 @@ class PeerRecord: Codable {
     enum CodingKeys: CodingKey {
         case handle
         case name
-        case bluetoothPeerDescriptor
+        case peerDescriptor
         case preferredConnectionConfiguration
         case preferredConnectionMode
     }
