@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:connection/BluetoothConnection.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:xp/GoldenGateXP.xcodeproj">
    </FileRef>
    <FileRef
