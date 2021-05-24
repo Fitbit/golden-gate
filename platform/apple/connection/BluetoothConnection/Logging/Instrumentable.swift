@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  Instrumentable.swift
 //  BluetoothConnection
 //
 //  Created by Emanuel Jarnea on 25/01/2021.
-//  Copyright © 2021 Fitbit. All rights reserved.
 //
 
 import RxSwift

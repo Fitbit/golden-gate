@@ -28,9 +28,6 @@
 		486134F6213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
 		486134F7213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
 		4887255D203662E600A3F15E /* NSLoggerLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887255C203662E600A3F15E /* NSLoggerLogger.swift */; };
-		48A810BD220E58C20067A593 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810BA220E58C20067A593 /* ReusableTableViewCell.swift */; };
-		48A810BE220E58C20067A593 /* UITableViewCell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810BB220E58C20067A593 /* UITableViewCell+Rx.swift */; };
-		48A810BF220E58C20067A593 /* UILabel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810BC220E58C20067A593 /* UILabel+Rx.swift */; };
 		48A810F1220E89190067A593 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810F0220E89190067A593 /* RxSwift.framework */; };
 		48A810F3220E89190067A593 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810F2220E89190067A593 /* RxCocoa.framework */; };
 		48A810FD220E894B0067A593 /* RxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810FC220E894B0067A593 /* RxBluetoothKit.framework */; };
@@ -707,11 +704,8 @@
 				6DAB3DA82074D7520056173A /* PeerRecord.swift in Sources */,
 				6DFCA5F01FAB658B0022F4DB /* PeerRecordDatabase.swift in Sources */,
 				6DAB3DAB2074D7600056173A /* PeerRecordHandle.swift in Sources */,
-				48A810BD220E58C20067A593 /* ReusableTableViewCell.swift in Sources */,
 				BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */,
 				48C39498204A6D2000576D8C /* UIApplication+BSMobileProvision.m in Sources */,
-				48A810BF220E58C20067A593 /* UILabel+Rx.swift in Sources */,
-				48A810BE220E58C20067A593 /* UITableViewCell+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

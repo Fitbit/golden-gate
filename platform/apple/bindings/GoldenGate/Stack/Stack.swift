@@ -7,75 +7,12 @@
 //  Created by Marcel Jackwerth on 3/22/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
-import Rxbit
 import RxCocoa
 import RxSwift
 
-public protocol StackBuilderType {
-    associatedtype Stack
-
-    /// Build (and destroys) stacks from a changing link.
-    ///
-    /// - Parameter link: The link to be used as the transport under the stack.
-    /// - Returns: The current stack, or nil (if no link is present).
-    func build(link: Observable<NetworkLink?>) -> Observable<Stack?>
-}
-
-/// Maintains one stack and destroys the old one before creating
-/// a new stack when the link is changed.
-public class StackBuilder: StackBuilderType {
-    public typealias Stack = GoldenGate.Stack
-
-    private let runLoop: RunLoop
-    private let descriptor: Observable<StackDescriptor>
-    private let role: Role
-    private let stackProvider: Stack.Provider
-    private let disposeBag = DisposeBag()
-
-    /// Creates a StackBuilder.
-    ///
-    /// - Parameters:
-    ///   - runLoop: The run loop of for the stack builder and its stacks.
-    ///   - descriptor: The descriptor for the stack.
-    ///   - role: The role of this device.
-    ///   - stackProvider: A `Stack` provider.
-    public init(
-        runLoop: RunLoop,
-        descriptor: Observable<StackDescriptor>,
-        role: Role,
-        stackProvider: @escaping Stack.Provider
-    ) {
-        self.runLoop = runLoop
-        self.descriptor = descriptor.distinctUntilChanged(==)
-        self.role = role
-        self.stackProvider = stackProvider
-    }
-
-    public func build(link: Observable<NetworkLink?>) -> Observable<Stack?> {
-        return Observable
-            // Depends on descriptor and link
-            .combineLatest(
-                descriptor,
-                link
-            )
-            .observeOn(runLoop)
-            .do(onNext: { [weak self] tuple in
-                LogBindingsVerbose("\(self ??? "StackBuilder").build: \(tuple)")
-            })
-            // Use scan so that we can destroy the previous stack
-            // before allocating a new one
-            .scan(nil as Stack?, accumulator: { [stackProvider, role] previous, element -> Stack? in
-                previous?.destroy()
-                guard case let (descriptor, link?) = element else { return nil }
-                return try stackProvider(descriptor, role, link)
-            })
-            .do(onNext: { [weak self] stack in
-                LogBindingsInfo("\(self ??? "StackBuilder").build: \(stack ??? "nil")")
-            })
-            .do(onNext: { $0?.start() })
-    }
-}
+// swiftlint:disable file_length
 
 /// Wrapper for `GG_ACTIVITY_MONITOR_DIRECTION_*` values.
 public struct ActivityMonitorDirection: Equatable, RawRepresentable {
@@ -154,9 +91,6 @@ extension StackEvent {
     }
 }
 
-/// A stack that is likely to be a network stack.
-public protocol StackType { }
-
 /// A protocol for emitting stack events.
 public protocol StackEventEmitter {
     /// Observable that will emit all the states of the stack.
@@ -171,8 +105,6 @@ public protocol StackDtlsStateReporter {
 
 /// A configurable default stack.
 public class Stack: StackType, StackEventEmitter, StackDtlsStateReporter {
-    public typealias Provider = (StackDescriptor, Role, NetworkLink) throws -> Stack
-
     /// Observable that will emit all the states of the stack.
     public let event: Observable<StackEvent>
 
@@ -244,8 +176,6 @@ public class Stack: StackType, StackEventEmitter, StackDtlsStateReporter {
         self.gg.value.register(eventListener: eventListener)
     }
 
-    /// Provides access to the top most socket of the stack
-    /// depending on the stack configuration.
     public private(set) lazy var topPort: Port? = {
         guard
             let port = try? gg.value.port(.top, element: .top)
@@ -255,12 +185,12 @@ public class Stack: StackType, StackEventEmitter, StackDtlsStateReporter {
     }()
 
     /// - See also: `GG_Stack_Start`
-    fileprivate func start() {
+    public func start() {
         gg.value.start()
     }
 
     /// - See also: `GG_Stack_Destroy`
-    fileprivate func destroy() {
+    public func destroy() {
         gg.value.destroy()
     }
 
@@ -325,7 +255,7 @@ private class GGStack {
         let linkDataSource = link.dataSource.gg
         self.linkDataSource = linkDataSource
 
-        let linkDataSink = link.dataSink.gg
+        let linkDataSink = GGErrorMappingDataSink(link.dataSink).gg
         self.linkDataSink = linkDataSink
 
         self.ref = try self.configuration.withParameters { parameters in

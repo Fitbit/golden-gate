@@ -11,11 +11,12 @@ import Foundation
 import GoldenGateXP
 
 public struct GoldenGateInitializer {
-    private static var initialized: Bool = false
+    private static var initialized = false
+    private static let lock = NSLock()
 
     static public func initialize() throws {
-        objc_sync_enter(self)
-        defer { objc_sync_exit(self) }
+        lock.lock()
+        defer { lock.unlock() }
 
         // Exit if already initialized
         guard initialized == false else { return }
@@ -27,7 +28,7 @@ public struct GoldenGateInitializer {
         if getenv("GG_LOG_CONFIG") == nil {
             setenv("GG_LOG_CONFIG", "plist:.level=INFO", 0)
         }
-
+        
         LogBindingsVerbose("Initializing GoldenGate \(GoldenGateVersion.shared)...")
 
         // Initialize GoldenGate sub system

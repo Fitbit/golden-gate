@@ -14,17 +14,23 @@ public class CoapTestService {
     typealias Ref = OpaquePointer
 
     private var ref: Ref
+    private let runLoop: RunLoop
     private let coapEndpoint: CoapEndpointRefType
 
-    init(coapEndpoint: CoapEndpointRefType) throws {
-        self.coapEndpoint = coapEndpoint
+    init(runLoop: RunLoop, coapEndpoint: CoapEndpointRefType) throws {
+        runLoopPrecondition(condition: .onRunLoop)
 
+        self.runLoop = runLoop
+        self.coapEndpoint = coapEndpoint
+        
         var ref: Ref?
         try GG_CoapTestService_Create(coapEndpoint.ref, &ref).rethrow()
         self.ref = ref!
     }
 
     deinit {
-        GG_CoapTestService_Destroy(ref)
+        runLoop.async { [ref] in
+            GG_CoapTestService_Destroy(ref)
+        }
     }
 }

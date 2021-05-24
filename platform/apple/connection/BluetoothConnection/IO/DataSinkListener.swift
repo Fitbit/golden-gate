@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  DataSinkListener.swift
 //  GoldenGate
 //
 //  Created by Vlad Corneci on 03/06/2020.
-//  Copyright © 2020 Fitbit. All rights reserved.
 //
 
 public protocol DataSinkListener: class {

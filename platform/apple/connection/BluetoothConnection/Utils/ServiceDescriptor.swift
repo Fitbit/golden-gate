@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ServiceDescriptor.swift
 //  BluetoothConnection
 //
 //  Created by Emanuel Jarnea on 02/07/2020.
-//  Copyright © 2020 Fitbit. All rights reserved.
 //
 
 /// Describes the services that should be launched on a peer's port.

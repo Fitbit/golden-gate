@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "424104E824A4D3C100C9491D"
+               BuildableName = "SwiftCBOR.framework"
+               BlueprintName = "SwiftCBOR-Framework"
+               ReferencedContainer = "container:../../../external/smo/swift/FbSmo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "020000000000000000000506"
+               BuildableName = "GoldenGateXP.framework"
+               BlueprintName = "GoldenGateXP"
+               ReferencedContainer = "container:../xp/GoldenGateXP.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -20,14 +48,68 @@
                ReferencedContainer = "container:GoldenGate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4241050524A4D42F00C9491D"
+               BuildableName = "FbSmoUtils.framework"
+               BlueprintName = "FbSmo-Framework"
+               ReferencedContainer = "container:../../../external/smo/swift/FbSmo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "48A80FBA220E07680067A593"
+            BuildableName = "GoldenGate.framework"
+            BlueprintName = "GoldenGate"
+            ReferencedContainer = "container:GoldenGate.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "48A80FBA220E07680067A593"
+            BuildableName = "GoldenGate.framework"
+            BlueprintName = "GoldenGate"
+            ReferencedContainer = "container:GoldenGate.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48A80FC2220E07690067A593"
+               BuildableName = "GoldenGateTests.xctest"
+               BlueprintName = "GoldenGateTests"
+               ReferencedContainer = "container:GoldenGate.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FD1D222D248F797500F85400"
+               BuildableName = "BluetoothConnectionTests.xctest"
+               BlueprintName = "BluetoothConnectionTests"
+               ReferencedContainer = "container:../connection/BluetoothConnection.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -40,6 +122,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "48A80FBA220E07680067A593"
+            BuildableName = "GoldenGate.framework"
+            BlueprintName = "GoldenGate"
+            ReferencedContainer = "container:GoldenGate.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

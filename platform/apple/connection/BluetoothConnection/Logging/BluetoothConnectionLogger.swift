@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  BluetoothConnectionLogger.swift
 //  GoldenGate
 //
 //  Created by Sylvain Rebaud on 11/17/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
 import Foundation

@@ -18,7 +18,8 @@ func assertLogBluetoothError(
     assertLogError(message(), file: file, function: function, line: line, domain: .bluetooth)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBluetoothError(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -28,7 +29,8 @@ func LogBluetoothError(
     LogError(message(), file: file, function: function, line: line, domain: .bluetooth)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBluetoothWarning(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -38,7 +40,8 @@ func LogBluetoothWarning(
     LogWarning(message(), file: file, function: function, line: line, domain: .bluetooth)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBluetoothInfo(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -48,7 +51,8 @@ func LogBluetoothInfo(
     LogInfo(message(), file: file, function: function, line: line, domain: .bluetooth)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBluetoothDebug(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -58,7 +62,8 @@ func LogBluetoothDebug(
     LogDebug(message(), file: file, function: function, line: line, domain: .bluetooth)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBluetoothVerbose(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,

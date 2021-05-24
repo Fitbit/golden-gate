@@ -17,7 +17,7 @@ class CoapResponseMessageBuilderSpec: QuickSpec {
     func testX() {
         // This is here because otherwise Quick tests don't appear in Test Navigator
     }
-
+    
     // swiftlint:disable function_body_length
     override func spec() {
         var request: CoapMessage!
@@ -33,7 +33,7 @@ class CoapResponseMessageBuilderSpec: QuickSpec {
                 messageId: 0
             )
         }
-
+        
         it("has the same token and token length as the request") {
             let responseBuilder = CoapResponseBuilder(request: request)
                 .responseCode(CoapCode.successfulResponse(.changed))

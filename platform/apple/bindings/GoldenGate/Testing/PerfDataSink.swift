@@ -86,76 +86,11 @@ public struct PerfDataSinkOption: OptionSet {
 
     /// When this flag is set in the options, the stats will be printed on the console
     public static let printStatsToConsole = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE))
-
+    
     /// When this flag is set in the options, the stats will be logged with level INFO
     public static let printStatsToLog = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG))
-
+    
     public init(rawValue: UInt32) {
         self.rawValue = rawValue
-    }
-}
-
-/// Data sink that can be used for performance measurements.
-public class PerfDataSink: DataSource, DataSink {
-    typealias Ref = OpaquePointer
-
-    private let ref: Ref
-    private let runLoop: GoldenGate.RunLoop
-    private var passthroughTarget: ManagedDataSink?
-
-    public init(
-        runLoop: GoldenGate.RunLoop,
-        mode: PerfDataSinkMode = .basicOrIP,
-        options: PerfDataSinkOption = .printStatsToLog,
-        statsPrintTimeInterval: UInt32 = 5
-    ) throws {
-        var ref: Ref?
-        try GG_PerfDataSink_Create(
-            GG_PerfDataSinkMode(mode.rawValue),
-            options.rawValue,
-            statsPrintTimeInterval,
-            &ref
-        ).rethrow()
-        self.ref = ref!
-
-        self.runLoop = runLoop
-    }
-
-    deinit {
-        runLoop.async { [ref] in
-            GG_PerfDataSink_Destroy(ref)
-        }
-    }
-
-    /// The last stats recorded by the performance data sink.
-    public var stats: TrafficPerformanceStats {
-        return TrafficPerformanceStats(
-            rawValue: GG_PerfDataSink_GetStats(ref)!.pointee
-        )
-    }
-
-    private lazy var dataSink: DataSink = {
-        return UnmanagedDataSink(GG_PerfDataSink_AsDataSink(ref))
-    }()
-
-    public func put(_ buffer: Buffer, metadata: DataSink.Metadata?) throws {
-        try dataSink.put(buffer, metadata: metadata)
-    }
-
-    public func setDataSinkListener(_ dataSinkListener: DataSinkListener?) throws {
-        try dataSink.setDataSinkListener(dataSinkListener)
-    }
-
-    public func setDataSink(_ dataSink: DataSink?) throws {
-        runLoopPrecondition(condition: .onRunLoop)
-        self.passthroughTarget = dataSink.map(ManagedDataSink.init)
-        GG_PerfDataSink_SetPassthroughTarget(ref, self.passthroughTarget?.ref)
-    }
-
-    /// Stats will be reset asynchronously on the RunLoop's thread.
-    func resetStats() {
-        runLoop.async { [ref] in
-            GG_PerfDataSink_ResetStats(ref)
-        }
     }
 }

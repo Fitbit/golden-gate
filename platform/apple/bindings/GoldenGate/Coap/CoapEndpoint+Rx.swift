@@ -10,7 +10,7 @@
 import RxSwift
 
 public extension ObservableConvertibleType where E == CoapEndpoint.Response {
-
+    
     /// An operator that skips the ACK from the CoAP Response.
     ///
     /// - Returns: An Observable that ignores the CoAP ack.

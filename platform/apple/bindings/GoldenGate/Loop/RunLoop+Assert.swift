@@ -59,7 +59,7 @@ private func runLoopPreconditionEpilog() -> String {
     if !isDebuggerAttached() {
         tail = "\n" + Thread.callStackSymbols.joined(separator: "\n")
     }
-
+    
     return "be called from a GoldenGate run loop, but was called from \(name)\(tail)"
 }
 

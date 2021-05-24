@@ -1,12 +1,12 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  DiscoveredBluetoothPeer.swift
 //  BluetoothConnection
 //
 //  Created by Marcel Jackwerth on 11/6/17.
-//  Copyright © 2017 Fitbit. All rights reserved.
 //
 
-import BluetoothConnection
 import CoreBluetooth
 import Foundation
 import RxBluetoothKit

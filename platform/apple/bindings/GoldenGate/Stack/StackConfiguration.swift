@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 3/28/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
 
 /// Utility that holds strong references to objects
@@ -22,7 +23,7 @@ public struct StackConfiguration {
     private let gattlinkParameters: GattlinkParametersContainer?
     private let dtlsClientParameters: SecureDatagramClient.OptionsContainer?
     private let dtlsServerParameters: SecureDatagramServer.OptionsContainer?
-
+    
     init(
         role: Role,
         descriptor: StackDescriptor,

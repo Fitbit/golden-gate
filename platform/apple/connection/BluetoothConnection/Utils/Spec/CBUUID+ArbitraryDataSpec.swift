@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  CBUUID+ArbitraryDataSpec.swift
 //  BluetoothConnectionTests
 //
 //  Created by Emanuel Jarnea on 13/11/2020.
-//  Copyright © 2020 Fitbit. All rights reserved.
 //
 
 import BluetoothConnectionObjC

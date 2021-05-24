@@ -15,7 +15,7 @@ public class CoapMessage {
     public let options: [CoapOption]
     public let body: CoapMessageBody
 
-    init(code: CoapCode, options: [CoapOption], body: CoapMessageBody) {
+    public init(code: CoapCode, options: [CoapOption], body: CoapMessageBody) {
         self.code = code
         self.options = options
         self.body = body
@@ -116,7 +116,7 @@ public struct CoapExtendedError: Equatable {
         }
 
         ref.deallocate()
-
+        
         return ggResult == GG_SUCCESS ? data : nil
     }
 }

@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  ReconnectStrategy.swift
 //  GoldenGate
 //
 //  Created by Marcel Jackwerth on 8/6/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 import Foundation

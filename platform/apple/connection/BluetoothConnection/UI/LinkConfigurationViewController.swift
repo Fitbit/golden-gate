@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  LinkConfigurationViewController.swift
 //  BluetoothConnection
 //
 //  Created by Sylvain Rebaud on 10/21/18.
-//  Copyright © 2018 Fitbit. All rights reserved.
 //
 
 #if os(iOS)

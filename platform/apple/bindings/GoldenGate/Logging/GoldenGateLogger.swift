@@ -78,7 +78,8 @@ private struct SimplePrintLogger: Logger {
         }
         output += message()
 
-        // swiftlint:disable:next no_print Only instance of print allowed in the framework
+        // Only instance of print allowed in the framework
+        // swiftlint:disable:next no_print
         print("\(output)")
     }
 

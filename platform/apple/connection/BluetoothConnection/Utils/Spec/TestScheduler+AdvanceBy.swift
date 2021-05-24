@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  TestScheduler+AdvanceBy.swift
 //  BluetoothConnectionTests
 //
 //  Created by Emanuel Jarnea on 2/25/21.
-//  Copyright © 2021 Fitbit. All rights reserved.
 //
 
 import RxTest
