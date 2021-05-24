@@ -273,9 +273,10 @@ class LinkConfigurationServiceEventListener internal constructor(
         connection: GattServerConnection
     ) {
         // notify listeners there is a GATT read request from peer
-        linkControllerProvider.getLinkController(device)?.getLinkConfigurationPeerRequestListeners()?.forEach {
-            it.onPeerReadRequest()
-        }
+        linkControllerProvider.getLinkController(device).getLinkConfigurationPeerRequestListeners()
+            .forEach {
+                it.onPeerReadRequest()
+            }
 
         Timber.d(
             """
@@ -379,22 +380,14 @@ class LinkConfigurationServiceEventListener internal constructor(
         connection: GattServerConnection
     ) {
         val linkController = linkControllerProvider.getLinkController(device)
-
-        linkController?.let {
-            sendResponse(
-                device,
-                connection,
-                result.requestId,
-                BluetoothGatt.GATT_SUCCESS,
-                linkController.getPreferredConnectionMode().toByteArray()
-            )
-            Timber.w("handlePreferredConnectionModeReadRequest ${linkController.getPreferredConnectionMode()}")
-        } ?: sendResponse(
+        sendResponse(
             device,
             connection,
             result.requestId,
-            BluetoothGatt.GATT_FAILURE
+            BluetoothGatt.GATT_SUCCESS,
+            linkController.getPreferredConnectionMode().toByteArray()
         )
+        Timber.w("handlePreferredConnectionModeReadRequest ${linkController.getPreferredConnectionMode()}")
     }
 
     private fun handlePreferredConnectionConfigurationReadRequest(
@@ -402,21 +395,13 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        val linkController =
-            linkControllerProvider.getLinkController(device)
-        linkController?.let {
-            sendResponse(
-                device,
-                connection,
-                result.requestId,
-                BluetoothGatt.GATT_SUCCESS,
-                linkController.getPreferredConnectionConfiguration().toByteArray()
-            )
-        } ?: sendResponse(
+        val linkController = linkControllerProvider.getLinkController(device)
+        sendResponse(
             device,
             connection,
             result.requestId,
-            BluetoothGatt.GATT_FAILURE
+            BluetoothGatt.GATT_SUCCESS,
+            linkController.getPreferredConnectionConfiguration().toByteArray()
         )
     }
 

@@ -248,7 +248,7 @@ class LinkConfigurationServiceEventListenerTest {
             mockGattServerConnection
         )
         verifyResponseSent(
-            mockLinkControllerProvider.getLinkController(device1)!!
+            mockLinkControllerProvider.getLinkController(device1)
                 .getPreferredConnectionConfiguration().toByteArray()
         )
     }
@@ -261,7 +261,7 @@ class LinkConfigurationServiceEventListenerTest {
             mockGattServerConnection
         )
         verifyResponseSent(
-            mockLinkControllerProvider.getLinkController(device1)!!.getPreferredConnectionMode()
+            mockLinkControllerProvider.getLinkController(device1).getPreferredConnectionMode()
                 .toByteArray()
         )
     }

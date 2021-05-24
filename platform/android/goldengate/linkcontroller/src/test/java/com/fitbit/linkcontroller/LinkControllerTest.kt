@@ -232,4 +232,28 @@ class LinkControllerTest {
         linkController.unregisterLinkConfigurationPeerRequestListener(listener3)
         assertEquals(linkController.getLinkConfigurationPeerRequestListeners().size, 0)
     }
+
+    @Test
+    fun shouldResetToSlowModeOnDisconnection() {
+        assertEquals(PreferredConnectionMode.SLOW, linkController.getPreferredConnectionMode())
+        linkController.setPreferredConnectionMode(PreferredConnectionMode.FAST)
+        assertEquals(PreferredConnectionMode.FAST, linkController.getPreferredConnectionMode())
+        linkController.handleDisconnection()
+        assertEquals(PreferredConnectionMode.SLOW, linkController.getPreferredConnectionMode())
+    }
+
+    @Test
+    fun shouldResetToDefaultConfigurationOnDisconnection() {
+        val defaultConfig = PreferredConnectionConfiguration()
+        assertEquals(defaultConfig, linkController.getPreferredConnectionConfiguration())
+
+        val config = PreferredConnectionConfiguration.Builder()
+            .setFastModeConfig(1000f, 1000f, 0, 6000)
+            .build()
+        linkController.setPreferredConnectionConfiguration(config)
+        assertEquals(config, linkController.getPreferredConnectionConfiguration())
+
+        linkController.handleDisconnection()
+        assertEquals(defaultConfig, linkController.getPreferredConnectionConfiguration())
+    }
 }
