@@ -86,10 +86,10 @@ public struct PerfDataSinkOption: OptionSet {
 
     /// When this flag is set in the options, the stats will be printed on the console
     public static let printStatsToConsole = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_CONSOLE))
-    
+
     /// When this flag is set in the options, the stats will be logged with level INFO
     public static let printStatsToLog = PerfDataSinkOption(rawValue: UInt32(GG_PERF_DATA_SINK_OPTION_PRINT_STATS_TO_LOG))
-    
+
     public init(rawValue: UInt32) {
         self.rawValue = rawValue
     }

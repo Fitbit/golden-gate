@@ -78,7 +78,7 @@ extension Peripheral: PeripheralType {
 #endif
     }
 
-    public func establishConnection(options: [String : Any]? = nil) -> Observable<PeripheralType> {
+    public func establishConnection(options: [String: Any]? = nil) -> Observable<PeripheralType> {
         let connection: Observable<Peripheral> = establishConnection(options: options)
         return connection.map { $0 as PeripheralType }
     }
@@ -101,6 +101,7 @@ extension Peripheral: PeripheralType {
     ) -> Single<CharacteristicType> {
         let write: Single<Characteristic> = writeValue(
             data,
+            // swiftlint:disable:next force_cast
             for: characteristic as! Characteristic,
             type: type,
             canSendWriteWithoutResponseCheckEnabled: canSendWriteWithoutResponseCheckEnabled

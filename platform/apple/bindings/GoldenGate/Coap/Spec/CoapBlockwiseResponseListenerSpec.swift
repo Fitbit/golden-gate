@@ -115,7 +115,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
                 blockInfo: GG_CoapMessageBlockInfo(data: Data(), offset: 0, more: false)!,
                 messageRef: messageRef!
             )
-            
+
             // Release listener eagerly
             let response = listener.response(using: disposable)
             listener = nil

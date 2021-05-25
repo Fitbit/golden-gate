@@ -24,7 +24,7 @@ final class CoapResponseListener: GGAdaptable {
     let adapter: Adapter
 
     private static var interface = GG_CoapResponseListenerInterface(
-        OnAck: { ref in
+        OnAck: { _ in
             // ignore
         },
         OnError: { ref, result, messageRef in

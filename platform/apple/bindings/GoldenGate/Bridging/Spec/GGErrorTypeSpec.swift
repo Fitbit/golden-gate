@@ -26,7 +26,7 @@ class GGErrorTypeSpec: QuickSpec {
                 expect(error.errorUserInfo).to(beEmpty())
             }
         }
-        
+
         describe("GG_Result") {
             describe("rethrow()") {
                 it("do nothing if result is GG_SUCCESS") {

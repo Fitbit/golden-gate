@@ -13,6 +13,8 @@ import RxCocoa
 import RxSwift
 import UIKit
 
+// swiftlint:disable file_length
+
 public protocol PeerViewControllerViewModel {
     associatedtype ConnectionType: LinkConnection
 

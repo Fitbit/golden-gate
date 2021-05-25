@@ -36,7 +36,7 @@ public class SecureDatagramClient {
             let pskIdentityRef = self.options.pskIdentity.bytes.assumingMemoryBound(to: UInt8.self)
             let pskRef = self.options.psk.bytes.assumingMemoryBound(to: UInt8.self)
             let ticket = self.options.ticket?.bytes.assumingMemoryBound(to: UInt8.self)
-    
+
             self.gg = UnsafeHeapAllocatedValue(
                 GG_TlsClientOptions(
                     base: self.options.base.gg,

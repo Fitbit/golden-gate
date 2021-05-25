@@ -23,7 +23,7 @@ public struct StackConfiguration {
     private let gattlinkParameters: GattlinkParametersContainer?
     private let dtlsClientParameters: SecureDatagramClient.OptionsContainer?
     private let dtlsServerParameters: SecureDatagramServer.OptionsContainer?
-    
+
     init(
         role: Role,
         descriptor: StackDescriptor,

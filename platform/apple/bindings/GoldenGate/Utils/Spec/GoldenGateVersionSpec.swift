@@ -25,7 +25,7 @@ class GoldenGateVersionSpec: QuickSpec {
                     min.pointee = 2
                     patch.pointee = 3
                     commitCount.pointee = 100
-                    commitHash.pointee = UnsafePointer<Int8>(strdup("9b5178e3"))//_convertConstStringToUTF8PointerArgument(strdup("9b5178e3")).1
+                    commitHash.pointee = UnsafePointer<Int8>(strdup("9b5178e3"))// _convertConstStringToUTF8PointerArgument(strdup("9b5178e3")).1
                     branchName.pointee = UnsafePointer<Int8>(strdup("master"))
                     buildDate.pointee = UnsafePointer<Int8>(strdup("7 20 2017"))
                     buildTime.pointee = UnsafePointer<Int8>(strdup("10:07:46"))

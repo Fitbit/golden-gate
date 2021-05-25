@@ -20,7 +20,7 @@ extension TestScheduler {
 
     /// Execute the specified action and advance the scheduler's clock by a predefined time step.
     @discardableResult
-    static func ~~><T>(action: @autoclosure () throws -> T, scheduler: TestScheduler) rethrows -> T {
+    static func ~~> <T>(action: @autoclosure () throws -> T, scheduler: TestScheduler) rethrows -> T {
         let result = try action()
         scheduler.advance()
         return result

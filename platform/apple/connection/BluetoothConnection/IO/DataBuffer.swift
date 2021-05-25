@@ -69,7 +69,6 @@ public class DataBuffer: DataSource, DataSink, DataSinkListener {
                 queue.removeFirst()
             } catch BluetoothConnectionError.wouldBlock {
                 canPut = false
-                break
             }
         }
 

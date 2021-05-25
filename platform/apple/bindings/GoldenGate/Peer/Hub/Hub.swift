@@ -70,7 +70,7 @@ public class Hub: ConnectionResolver {
                 self.createConnection(characteristics: characteristics, descriptor: descriptor)
             }
     }
-
+    // swiftlint:disable:next function_body_length
     private func createConnection(
         characteristics: ExpectedCharacteristics,
         descriptor: PeerDescriptor

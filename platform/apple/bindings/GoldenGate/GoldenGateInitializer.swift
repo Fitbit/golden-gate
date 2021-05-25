@@ -28,7 +28,7 @@ public struct GoldenGateInitializer {
         if getenv("GG_LOG_CONFIG") == nil {
             setenv("GG_LOG_CONFIG", "plist:.level=INFO", 0)
         }
-        
+
         LogBindingsVerbose("Initializing GoldenGate \(GoldenGateVersion.shared)...")
 
         // Initialize GoldenGate sub system

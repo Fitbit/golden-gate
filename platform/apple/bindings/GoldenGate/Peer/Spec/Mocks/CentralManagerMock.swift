@@ -24,7 +24,7 @@ final class CentralManagerMock: CentralManagerType {
     }
 
     let scannedPeripherals = PublishSubject<ScannedPeripheralType>()
-    func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String : Any]?) -> Observable<ScannedPeripheralType> {
+    func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String: Any]?) -> Observable<ScannedPeripheralType> {
         scannedPeripherals.asObservable()
     }
 

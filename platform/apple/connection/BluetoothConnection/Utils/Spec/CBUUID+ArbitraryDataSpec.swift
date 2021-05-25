@@ -7,8 +7,8 @@
 //  Created by Emanuel Jarnea on 13/11/2020.
 //
 
-import BluetoothConnectionObjC
 import BluetoothConnection
+import BluetoothConnectionObjC
 import CoreBluetooth
 import Nimble
 import Quick

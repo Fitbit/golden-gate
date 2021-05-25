@@ -81,7 +81,6 @@ struct BuildVersionInfo: Encodable {
     }
 }
 
-
 protocol HostVersionProvider {
     var hostVersion: BuildVersionInfo { get }
     var hardwareInfo: HardwareInfo { get }

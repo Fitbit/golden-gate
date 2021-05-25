@@ -15,6 +15,8 @@ import RxRelay
 import RxSwift
 import RxTest
 
+// swiftlint:disable file_length
+
 private final class MockReconnectStrategy: ReconnectStrategy {
     let resetFailureHistory = PublishRelay<Void>()
 
@@ -23,6 +25,7 @@ private final class MockReconnectStrategy: ReconnectStrategy {
 }
 
 final class ConnectionControllerSpec: QuickSpec {
+    // swiftlint:disable:next function_body_length
     override func spec() {
         let descriptor = PeerDescriptor(identifier: UUID(uuidString: "6B66A7A9-C4F3-4C2A-811A-79EFB7B8A85F")!)
         let anotherDescriptor = PeerDescriptor(identifier: UUID(uuidString: "15e35044-8f44-4ae8-b949-b1a019ea35c5")!)

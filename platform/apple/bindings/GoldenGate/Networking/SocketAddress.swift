@@ -16,7 +16,7 @@ import GoldenGateXP
 
 public struct SocketAddress {
     internal let gg: GG_SocketAddress
-    
+
     public init(_ gg: GG_SocketAddress) {
         self.gg = gg
     }

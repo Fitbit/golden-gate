@@ -226,7 +226,7 @@ class ComponentBase {
             elementConfigurationProvider: self
         )
     }
- 
+
     lazy var helloPsk: (identity: Data, key: Data) = {
         let identity = "hello".data(using: .utf8)!
 
@@ -237,15 +237,15 @@ class ComponentBase {
 
         return (identity, key)
     }()
-    
+
     lazy var bootstrapPsk: (identity: Data, key: Data) = {
         let identity = "BOOTSTRAP".data(using: .utf8)!
-        
+
         let key = Data([
             0x81, 0x06, 0x54, 0xE3, 0x36, 0xAD, 0xCA, 0xB0,
             0xA0, 0x3C, 0x60, 0xF7, 0x4A, 0xA0, 0xB6, 0xFB
             ])
-        
+
         return (identity, key)
     }()
 

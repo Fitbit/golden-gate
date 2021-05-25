@@ -62,8 +62,15 @@ extension CentralManager: CentralManagerType {
         retrievePeripherals(withIdentifiers: identifiers) as [Peripheral] as [PeripheralType]
     }
 
-    public func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String : Any]?) -> Observable<ScannedPeripheralType> {
-        let peripherals: Observable<ScannedPeripheral> = scanForPeripherals(withServices: serviceUUIDs, options: options)
+    public func scanForPeripherals(
+        withServices serviceUUIDs: [CBUUID]?,
+        options: [String: Any]?
+    ) -> Observable<ScannedPeripheralType> {
+        let peripherals: Observable<ScannedPeripheral> = scanForPeripherals(
+            withServices: serviceUUIDs,
+            options: options
+        )
+
         return peripherals.map { $0 as ScannedPeripheralType }
     }
 }

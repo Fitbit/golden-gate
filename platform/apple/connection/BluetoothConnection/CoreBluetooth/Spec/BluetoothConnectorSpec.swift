@@ -14,6 +14,7 @@ import RxSwift
 import RxTest
 
 final class BluetoothConnectorSpec: QuickSpec {
+    // swiftlint:disable:next function_body_length
     override func spec() {
         let descriptor = PeerDescriptor(identifier: UUID())
         var centralManager: CentralManagerMock!

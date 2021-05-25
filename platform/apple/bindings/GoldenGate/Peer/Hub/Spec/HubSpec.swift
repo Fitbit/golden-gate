@@ -7,6 +7,7 @@
 //  Created by Emanuel Jarnea on 12/01/2021.
 //
 
+// swiftlint:disable file_length
 // swiftlint:disable function_body_length
 // swiftlint:disable identifier_name
 

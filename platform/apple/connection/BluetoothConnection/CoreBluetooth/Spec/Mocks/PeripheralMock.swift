@@ -27,7 +27,7 @@ final class PeripheralMock: PeripheralType {
     var isANCSAuthorized: Observable<Bool> { isANCSAuthorizedSubject.asObservable() }
 
     let connectablePeripheral = PublishSubject<PeripheralType>()
-    func establishConnection(options: [String : Any]?) -> Observable<PeripheralType> {
+    func establishConnection(options: [String: Any]?) -> Observable<PeripheralType> {
         connectablePeripheral.asObservable()
     }
 

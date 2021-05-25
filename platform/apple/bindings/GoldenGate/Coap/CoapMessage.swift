@@ -116,7 +116,7 @@ public struct CoapExtendedError: Equatable {
         }
 
         ref.deallocate()
-        
+
         return ggResult == GG_SUCCESS ? data : nil
     }
 }
