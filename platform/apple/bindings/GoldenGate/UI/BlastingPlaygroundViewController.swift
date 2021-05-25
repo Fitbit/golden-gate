@@ -5,7 +5,6 @@
 //  GoldenGate
 //
 //  Created by Emanuel Jarnea on 27/07/2020.
-//  Copyright © 2020 Fitbit. All rights reserved.
 //
 
 #if os(iOS)

@@ -5,7 +5,6 @@
 //  Rxbit
 //
 //  Created by Emanuel Jarnea on 21/07/2020.
-//  Copyright © 2020 Fitbit, Inc. All rights reserved.
 //
 
 import Foundation

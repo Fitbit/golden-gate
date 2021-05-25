@@ -1,9 +1,10 @@
+//  Copyright 2017-2020 Fitbit, Inc
+//  SPDX-License-Identifier: Apache-2.0
 //
 //  BluetoothConnectionObjC.h
 //  BluetoothConnectionObjC
 //
 //  Created by Denis Cioata on 29.03.2021.
-//  Copyright © 2021 Fitbit. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

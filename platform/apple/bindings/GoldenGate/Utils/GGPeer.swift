@@ -71,9 +71,6 @@ open class GGPeer: Peer {
         globalBlasterConfiguration: Observable<BlasterService.Configuration>
     ) {
         self.runLoop = runLoop
-//        self.remoteTestServer = remoteTestServer
-
-//        LogBindingsInfo("Creating a GGPeer with Remote Api enabled: \(remoteTestServer != nil)")
 
         if let urlString = ProcessInfo.processInfo.environment["GG_TOP_PORT"] {
             customPortUrlRelay.accept(URL(string: urlString))
