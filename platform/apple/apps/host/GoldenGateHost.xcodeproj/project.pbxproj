@@ -39,7 +39,6 @@
 		48BC7D541FFF302F0036B18D /* CoAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC7D531FFF302F0036B18D /* CoAPTests.swift */; };
 		48C39498204A6D2000576D8C /* UIApplication+BSMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C39496204A6D1F00576D8C /* UIApplication+BSMobileProvision.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6D6B11DB1FC0D49E00FA0841 /* NodeSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6B11DA1FC0D49E00FA0841 /* NodeSimulator.swift */; };
-		6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E02074E2B50096FD0C /* HubComponent.swift */; };
 		6D9484E32074E2DD0096FD0C /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484E22074E2DD0096FD0C /* NodeComponent.swift */; };
 		6D9484E42074E8C30096FD0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DAB3DA02074C32D0056173A /* Main.storyboard */; };
@@ -73,7 +72,6 @@
 		75DCC4D8250BA8DE005883C4 /* LoggingErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */; };
 		75E49EA024C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */; };
 		75E49EA124C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */; };
-		91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */; };
 		BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553A1F78532D003EC08B /* AppDelegate.swift */; };
 		BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553C1F78532D003EC08B /* RootViewController.swift */; };
 		BF6A55401F78532D003EC08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A553E1F78532D003EC08B /* Main.storyboard */; };
@@ -205,7 +203,6 @@
 		81690E5F265BD0B90055813C /* macOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-Base.xcconfig"; sourceTree = "<group>"; };
 		81690E60265BD0B90055813C /* macOS-XCTest.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-XCTest.xcconfig"; sourceTree = "<group>"; };
 		81690E61265BD0B90055813C /* macOS-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
-		91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostVersion.swift; sourceTree = "<group>"; };
 		AF076410237DA4670036EE60 /* AppCenterDistribute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenterDistribute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF51C14D237DA2B40006A0C8 /* AppCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A55381F78532D003EC08B /* GGHost-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GGHost-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,7 +410,6 @@
 				BF6A553A1F78532D003EC08B /* AppDelegate.swift */,
 				BF6A55411F78532D003EC08B /* Assets.xcassets */,
 				48C39495204A6D1E00576D8C /* GoldenGateHost-iOS-Bridging-Header.h */,
-				91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */,
 				BF6A55461F78532D003EC08B /* Info.plist */,
 				BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */,
 				BF6A553E1F78532D003EC08B /* Main.storyboard */,
@@ -697,7 +693,6 @@
 				6DFCA5F21FAC74ED0022F4DB /* ComponentBase.swift in Sources */,
 				BFF7C2751FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB02074D92D0056173A /* HelloWorldResource.swift in Sources */,
-				6D721BC821105F9100A48F1F /* HostVersion.swift in Sources */,
 				751A7CBB2329306000087BFB /* Log.swift in Sources */,
 				6DAB3DA52074C87B0056173A /* MainViewController.swift in Sources */,
 				75DCC4D8250BA8DE005883C4 /* LoggingErrorTracker.swift in Sources */,
@@ -724,7 +719,6 @@
 				6DFCA5EC1FAA39380022F4DB /* ComponentBase.swift in Sources */,
 				BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,
 				6DAB3DB12074DBAC0056173A /* HelloWorldResource.swift in Sources */,
-				91ABBDE720B2D8B5003FFBAE /* HostVersion.swift in Sources */,
 				6D9484E12074E2B50096FD0C /* HubComponent.swift in Sources */,
 				750C2A85233B92BC0060F24D /* Log.swift in Sources */,
 				6DAE28961FC3E69000DB872B /* ManagedNode.swift in Sources */,
