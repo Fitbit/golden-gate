@@ -720,7 +720,6 @@
 				48A80FB8220E07680067A593 /* Frameworks */,
 				48A80FB6220E07680067A593 /* Headers */,
 				48A80FB9220E07680067A593 /* Resources */,
-				48A8109F220E492D0067A593 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -824,24 +823,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd $SOURCE_ROOT/../../..\nplatform/apple/scripts/carthage-copy-and-verify\n";
-		};
-		48A8109F220E492D0067A593 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "EXTRA_SWIFTLINT_PARAMS=$([[ -z $EXTRA_SWIFTLINT_PARAMS ]] && echo \"\" || $EXTRA_SWIFTLINT_PARAMS)\n\n../scripts/swiftlint.py --config ../../../tools/arcanist/linting/linters/swiftlint/.swiftlint.yml ${EXTRA_SWIFTLINT_PARAMS}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

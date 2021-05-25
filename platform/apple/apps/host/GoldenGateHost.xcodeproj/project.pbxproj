@@ -529,7 +529,6 @@
 			buildPhases = (
 				48492DE6220EDE6200C67916 /* Carthage Sync */,
 				48EB8C7B1F86039900B2ED7B /* Sources */,
-				48434E581FA01767000B7C34 /* SwiftLint */,
 				48EB8C7C1F86039900B2ED7B /* Frameworks */,
 				48EB8C7D1F86039900B2ED7B /* Resources */,
 				4828B706220E8DB7005377DA /* Embed Frameworks */,
@@ -549,7 +548,6 @@
 			buildPhases = (
 				48492DDF220ED58E00C67916 /* Carthage Sync */,
 				BF6A55341F78532D003EC08B /* Sources */,
-				48434E591FA0177C000B7C34 /* SwiftLint */,
 				BF6A55351F78532D003EC08B /* Frameworks */,
 				BF6A55361F78532D003EC08B /* Resources */,
 				4814FA2A22123FE600552D38 /* Embed Frameworks */,
@@ -649,34 +647,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48434E581FA01767000B7C34 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../../../../tools/arcanist/linting/linters/swiftlint/.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		48434E591FA0177C000B7C34 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint --config ../../../../tools/arcanist/linting/linters/swiftlint/.swiftlint.yml\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 		48492DDF220ED58E00C67916 /* Carthage Sync */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
