@@ -14,6 +14,9 @@ import Foundation
 import RxBluetoothKit
 import RxSwift
 
+// swiftlint:disable nesting
+// swiftlint:disable identifier_name
+
 public enum HubError: Error {
     case illegalConnectionConfiguration
     case illegalConnectionStatus

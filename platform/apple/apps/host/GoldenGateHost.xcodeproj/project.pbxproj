@@ -67,7 +67,6 @@
 		6DFCA5F41FAC79970022F4DB /* PeerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFCA5F31FAC79970022F4DB /* PeerManager.swift */; };
 		750C2A85233B92BC0060F24D /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
 		751A7CBB2329306000087BFB /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7CB92329306000087BFB /* Log.swift */; };
-		75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */; };
 		75D399FA2578FF940028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399F92578FF940028BD1D /* Starscream.framework */; };
 		75D399FC2578FF9C0028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399FB2578FF9C0028BD1D /* Starscream.framework */; };
 		75DCC4D7250BA894005883C4 /* LoggingErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */; };
@@ -195,7 +194,6 @@
 		6DFCA5EF1FAB658B0022F4DB /* PeerRecordDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerRecordDatabase.swift; sourceTree = "<group>"; };
 		6DFCA5F31FAC79970022F4DB /* PeerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerManager.swift; sourceTree = "<group>"; };
 		751A7CB92329306000087BFB /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManagerWrapper.swift; sourceTree = "<group>"; };
 		75D399F92578FF940028BD1D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D399FB2578FF9C0028BD1D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DCC4D6250BA894005883C4 /* LoggingErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingErrorTracker.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 			children = (
 				BF6A553A1F78532D003EC08B /* AppDelegate.swift */,
 				BF6A55411F78532D003EC08B /* Assets.xcassets */,
-				75B1BF22232679980062510D /* BluetoothManagerWrapper.swift */,
 				48C39495204A6D1E00576D8C /* GoldenGateHost-iOS-Bridging-Header.h */,
 				91ABBDE620B2D8B5003FFBAE /* HostVersion.swift */,
 				BF6A55461F78532D003EC08B /* Info.plist */,
@@ -753,7 +750,6 @@
 			files = (
 				BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */,
 				75E49EA024C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */,
-				75B1BF23232679980062510D /* BluetoothManagerWrapper.swift in Sources */,
 				75DCC4D7250BA894005883C4 /* LoggingErrorTracker.swift in Sources */,
 				6DFCA5EC1FAA39380022F4DB /* ComponentBase.swift in Sources */,
 				BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */,

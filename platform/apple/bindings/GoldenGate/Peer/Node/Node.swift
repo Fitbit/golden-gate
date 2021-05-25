@@ -93,6 +93,8 @@ public class Node: ConnectionResolver {
     }
 }
 
+// swiftlint:disable nesting
+
 private extension Node {
     /// A collection of all the required and optional characteristics needed to resolve a node connection.
     struct ExpectedCharacteristics {
