@@ -42,17 +42,27 @@ class LinkController internal constructor(
     private val connectionModeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
     private val connectionConfigurationSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
     private val generalPurposeSubscriptionObservable: Observable<GattCharacteristicSubscriptionStatus>,
-    private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(device),
+    private val linkConfigurationCharacteristicNotifier: GattCharacteristicNotifier = GattCharacteristicNotifier(
+        device
+    ),
     private val rxBlePeerProvider: (GattConnection) -> BitGattPeer = { BitGattPeer(it) },
-    private val gattCharacteristicReaderProvider: (GattConnection) -> GattCharacteristicReader =  { GattCharacteristicReader(it) },
-    private val gattClientCharacteristicChangeListenerProvider: (GattConnection) -> GattClientCharacteristicChangeListener = { GattClientCharacteristicChangeListener(it) },
+    private val gattCharacteristicReaderProvider: (GattConnection) -> GattCharacteristicReader = {
+        GattCharacteristicReader(
+            it
+        )
+    },
+    private val gattClientCharacteristicChangeListenerProvider: (GattConnection) -> GattClientCharacteristicChangeListener = {
+        GattClientCharacteristicChangeListener(
+            it
+        )
+    },
     private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber(),
     private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
 ) {
     private var preferredConnectionConfiguration = PreferredConnectionConfiguration()
     private var preferredConnectionMode = DEFAULT_PREFERRED_CONNECTION_MODE
-    private var generalPurposeCommand = GeneralPurposeCommandCode.RESERVED
-    private val linkConfigurationPeerRequestListeners: ConcurrentHashMap<LinkConfigurationPeerRequestListener, Boolean> = ConcurrentHashMap()
+    private val linkConfigurationPeerRequestListeners: ConcurrentHashMap<LinkConfigurationPeerRequestListener, Boolean> =
+        ConcurrentHashMap()
 
     // Link Status Service - hosted on the Tracker
 
@@ -89,7 +99,12 @@ class LinkController internal constructor(
             }
             .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionConfiguration for ${device.address}") }
             .doOnComplete { Timber.i("Subscribed to CurrentConnectionConfiguration for ${device.address}") }
-            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionConfiguration for ${device.address}") }
+            .doOnError { t ->
+                Timber.e(
+                    t,
+                    "Error subscribing to CurrentConnectionConfiguration for ${device.address}"
+                )
+            }
     }
 
     /**
@@ -102,7 +117,9 @@ class LinkController internal constructor(
         return fitbitGatt.getGattConnection(device.address)
             .toSingle()
             .flatMapObservable { connection ->
-                gattClientCharacteristicChangeListenerProvider(connection).register(LinkStatusService.currentConfigurationUuid)
+                gattClientCharacteristicChangeListenerProvider(connection).register(
+                    LinkStatusService.currentConfigurationUuid
+                )
             }.map { data ->
                 CurrentConnectionConfiguration.parseFromByteArray(data)
             }
@@ -143,7 +160,12 @@ class LinkController internal constructor(
             }
             .doOnSubscribe { Timber.i("Subscribing to CurrentConnectionStatus for ${device.address}") }
             .doOnComplete { Timber.i("Subscribed to CurrentConnectionStatus for ${device.address}") }
-            .doOnError { t -> Timber.e(t, "Error subscribing to CurrentConnectionStatus for ${device.address}") }
+            .doOnError { t ->
+                Timber.e(
+                    t,
+                    "Error subscribing to CurrentConnectionStatus for ${device.address}"
+                )
+            }
     }
 
     /**
@@ -231,9 +253,8 @@ class LinkController internal constructor(
      */
     fun setGeneralPurposeCommand(commandCode: GeneralPurposeCommandCode): Completable {
         Timber.w("Set General Purpose Command: $commandCode")
-        this.generalPurposeCommand = commandCode
         return generalPurposeSubscriptionObservable.take(1).flatMapCompletable {
-            if (this.generalPurposeCommand == GeneralPurposeCommandCode.DISCONNECT && it == GattCharacteristicSubscriptionStatus.ENABLED) {
+            if (commandCode == GeneralPurposeCommandCode.DISCONNECT && it == GattCharacteristicSubscriptionStatus.ENABLED) {
                 linkConfigurationCharacteristicNotifier.notify(
                     LinkConfigurationService.uuid,
                     GeneralPurposeCommandCharacteristic.uuid,
@@ -271,4 +292,16 @@ class LinkController internal constructor(
         return ArrayList(linkConfigurationPeerRequestListeners.keys)
     }
 
+    /**
+     * Handle Bluetooth Disconnection
+     */
+    fun handleDisconnection() {
+        // Reset to default mode on BT disconnection
+        setDefaultMode()
+    }
+
+    private fun setDefaultMode() {
+        preferredConnectionConfiguration = PreferredConnectionConfiguration()
+        preferredConnectionMode = DEFAULT_PREFERRED_CONNECTION_MODE
+    }
 }

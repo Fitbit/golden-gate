@@ -221,7 +221,7 @@ class StackPeer<T: StackService> internal constructor(
     }
 
     private fun setupStack(connection: GattConnection): Observable<ConnectionState> {
-        return Observable.create<ConnectionState> { stackEmitter ->
+        return Observable.create { stackEmitter ->
             synchronized(this@StackPeer) {
                 Timber.i("StackPeer with key $key building stack and bridge and is attaching it to the service")
                 val bridge = buildBridge(connection)
@@ -344,6 +344,7 @@ class StackPeer<T: StackService> internal constructor(
     private fun tearDown(connection: GattConnection, connectionState: ConnectionState) {
         Timber.i("StackPeer with key $key is detaching its service and tearing down its stack, bridge")
         linkControllerProvider(connection).unregisterLinkConfigurationPeerRequestListener(linkConfigurationPeerRequestListener)
+        linkControllerProvider(connection).handleDisconnection()
         connectionState.bridge.suspend()
         stackService.detach()
         stackService.setFilterGroup(CoapGroupRequestFilterMode.GROUP_1, key)

@@ -52,7 +52,7 @@ class LinkControllerProvider private constructor(
 
     @Synchronized
     fun getLinkController(gattConnection: GattConnection): LinkController {
-        return linkControllersMap[gattConnection.device.btDevice] ?: add(gattConnection.device.btDevice)
+        return getLinkController(gattConnection.device.btDevice)
     }
 
     @Synchronized
