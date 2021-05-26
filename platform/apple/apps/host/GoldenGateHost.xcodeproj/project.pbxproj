@@ -573,7 +573,6 @@
 					};
 					BF6A55371F78532D003EC08B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Q8LG6VQH8H;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -798,7 +797,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q8LG6VQH8H;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
 				INFOPLIST_FILE = "GoldenGate-Host-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -808,6 +807,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenGate-Host-iOS/GoldenGateHost-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -819,7 +819,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q8LG6VQH8H;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../../../../Carthage/Build/**";
 				INFOPLIST_FILE = "GoldenGate-Host-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -828,6 +828,7 @@
 				PRODUCT_NAME = "GGHost-Dev";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenGate-Host-iOS/GoldenGateHost-iOS-Bridging-Header.h";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
