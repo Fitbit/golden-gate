@@ -7,6 +7,7 @@
 //  Created by Bogdan Vlad on 9/24/17.
 //
 
+import BluetoothConnection
 import GoldenGate
 import RxSwift
 import UIKit
@@ -25,13 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         requestNotificationAuthorization()
-        notifyIfRelaunchedByBLE(launchOptions: launchOptions)
-
-        let component = Component.instance
-
-        didBecomeActiveSubject
-            .subscribe(component.appDidBecomeActiveSubject)
-            .disposed(by: disposeBag)
 
         return true
     }
@@ -50,13 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    private func notifyIfRelaunchedByBLE(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+    private func notifyIfRelaunchedByBluetooth(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         guard launchOptions?[.bluetoothCentrals] != nil || launchOptions?[.bluetoothPeripherals] != nil else { return }
 
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "App relaunched in background by BLE."
+        notificationContent.title = "App relaunched in background by Bluetooth."
 
-        let notificationRequest = UNNotificationRequest(identifier: "gg.host.relaunched.ble", content: notificationContent, trigger: nil)
+        let notificationRequest = UNNotificationRequest(identifier: "gg.host.relaunched.bluetooth", content: notificationContent, trigger: nil)
         UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: nil)
     }
 
@@ -74,11 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
-    private let didBecomeActiveSubject = PublishSubject<Void>()
-
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        didBecomeActiveSubject.on(.next(()))
+        Component.instance.appDidBecomeActiveSubject.onNext(())
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 4/4/18.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 import RxSwift
@@ -26,15 +27,17 @@ class NodeComponent: ComponentBase {
 
     func makeManagedHub(record: PeerRecord) -> ManagedHub {
         return ManagedHub(
+            connectionController: makeConnectionController(resolver: node),
             record: record,
-            commonPeerParameters: commonPeerParameters
+            peerParameters: peerParameters,
+            runLoop: runLoop,
+            globalBlasterConfiguration: globalBlasterConfiguration.asObservable()
         )
     }
 
     lazy var nodeSimulator: NodeSimulator = {
         NodeSimulator(
-            node: node,
-            defaultConnectionControllerProvider: makeDefaultConnectionController,
+            connectionController: makeConnectionController(resolver: node),
             advertiser: advertiser,
             peerManager: peerManager
         )

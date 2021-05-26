@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48015F542279515500D27365 /* RxNimbleRxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48015F532279515500D27365 /* RxNimbleRxBlocking.framework */; };
-		48015F562279515500D27365 /* RxNimbleRxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48015F552279515500D27365 /* RxNimbleRxTest.framework */; };
+		42FAE85D26123D85005E6500 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */; };
 		4830C6BD221F60D100AFF465 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A8109D220E48F80067A593 /* Starscream.framework */; };
-		4830C7872224FAE100AFF465 /* Hub+NetworkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C7862224FAE100AFF465 /* Hub+NetworkLink.swift */; };
-		483F84BC22C4B8BB000155FD /* Node+NetworkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F84BB22C4B8BB000155FD /* Node+NetworkLink.swift */; };
-		48555F342229B978000A0828 /* Hub+LinkStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48555F332229B978000A0828 /* Hub+LinkStatusService.swift */; };
-		48555F362229BA29000A0828 /* Hub+BatteryLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48555F352229BA29000A0828 /* Hub+BatteryLevel.swift */; };
-		486851082216619E0026781D /* BatteryServiceLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486851072216619E0026781D /* BatteryServiceLevel.swift */; };
 		48A80FC4220E07690067A593 /* GoldenGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A80FBB220E07680067A593 /* GoldenGate.framework */; };
 		48A80FD2220E07E40067A593 /* GGAdaptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E081F9E30BA004919AC /* GGAdaptable.swift */; };
 		48A80FD3220E07E40067A593 /* GGAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2DF81F9E2E76004919AC /* GGAdapter.swift */; };
@@ -45,37 +39,6 @@
 		48A80FEC220E08150067A593 /* GGEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C1500213D37C0005B702D /* GGEventListener.swift */; };
 		48A80FED220E08150067A593 /* GGFourCharCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131843206B8D89002AA4C8 /* GGFourCharCode.swift */; };
 		48A80FEE220E08150067A593 /* UnsafeHeapAllocatedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC83AB20C1CC300089E247 /* UnsafeHeapAllocatedValue.swift */; };
-		48A80FEF220E081E0067A593 /* BluetoothConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE28041FC3B58B00DB872B /* BluetoothConfiguration.swift */; };
-		48A80FF0220E081E0067A593 /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27FE1FC3B58A00DB872B /* BluetoothConnection.swift */; };
-		48A80FF1220E081E0067A593 /* BluetoothPeerDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27F71FC3B58A00DB872B /* BluetoothPeerDescriptor.swift */; };
-		48A80FF2220E081E0067A593 /* BluetoothReconnectStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF2111204460A100BAC2A7 /* BluetoothReconnectStrategy.swift */; };
-		48A80FF3220E081E0067A593 /* CentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE28011FC3B58B00DB872B /* CentralManager.swift */; };
-		48A80FF5220E081E0067A593 /* LinkConfigurationService+PreferredConnectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48255B2021E80CD400F42606 /* LinkConfigurationService+PreferredConnectionConfiguration.swift */; };
-		48A80FF6220E081E0067A593 /* LinkConfigurationService+PreferredConnectionMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898BB94217ADE9200ADFEDF /* LinkConfigurationService+PreferredConnectionMode.swift */; };
-		48A80FF7220E081E0067A593 /* LinkStatusService+ConnectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48255B2321E8100500F42606 /* LinkStatusService+ConnectionConfiguration.swift */; };
-		48A80FF8220E081E0067A593 /* LinkStatusService+ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48255B2521E8144400F42606 /* LinkStatusService+ConnectionStatus.swift */; };
-		48A80FF9220E081E0067A593 /* Peripheral+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27FC1FC3B58A00DB872B /* Peripheral+GG.swift */; };
-		48A80FFA220E081E0067A593 /* PeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27FD1FC3B58A00DB872B /* PeripheralManager.swift */; };
-		48A80FFB220E081E0067A593 /* ReadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E5303C217D5AF9008CEC8D /* ReadRequest.swift */; };
-		48A80FFC220E081E0067A593 /* Service+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27F61FC3B58A00DB872B /* Service+GG.swift */; };
-		48A80FFD220E081E0067A593 /* WriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA3E6F41FCFF3B20058E7B9 /* WriteRequest.swift */; };
-		48A80FFE220E08250067A593 /* DiscoveredBluetoothPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27F81FC3B58A00DB872B /* DiscoveredBluetoothPeer.swift */; };
-		48A80FFF220E08250067A593 /* GattlinkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A17E2065518900E865FA /* GattlinkService.swift */; };
-		48A81000220E08250067A593 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27FA1FC3B58A00DB872B /* Hub.swift */; };
-		48A81001220E08250067A593 /* Hub+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE28031FC3B58B00DB872B /* Hub+Connection.swift */; };
-		48A81002220E08250067A593 /* Hub+Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE28051FC3B58B00DB872B /* Hub+Scanner.swift */; };
-		48A81003220E08250067A593 /* LinkConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B6BE9217AAA400071C0B5 /* LinkConfigurationService.swift */; };
-		48A81004220E08250067A593 /* PeripheralManagerSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E4E1F9F9FD3004919AC /* PeripheralManagerSink.swift */; };
-		48A81005220E08250067A593 /* PeripheralManagerSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E741F9FF2DF004919AC /* PeripheralManagerSource.swift */; };
-		48A81006220E08360067A593 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D529A412090A04100649FFB /* Buffer.swift */; };
-		48A81007220E08360067A593 /* DataBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA3E6F71FD000DA0058E7B9 /* DataBuffer.swift */; };
-		48A81008220E08360067A593 /* DataSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48037DA41F8D732A002BECFD /* DataSink.swift */; };
-		48A81009220E08360067A593 /* DataSink+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC5F1FD98FAE00913C10 /* DataSink+Rx.swift */; };
-		48A8100A220E08360067A593 /* DataSinkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E481F9F8856004919AC /* DataSinkListener.swift */; };
-		48A8100B220E08360067A593 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E451F9F7A45004919AC /* DataSource.swift */; };
-		48A8100C220E08360067A593 /* DataSource+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC5C1FD98EB300913C10 /* DataSource+Rx.swift */; };
-		48A8100D220E08360067A593 /* Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5E30D22059B43900A5FA83 /* Port.swift */; };
-		48A8100E220E08360067A593 /* VoidDataSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6749DD1FCC6D5100979BDE /* VoidDataSink.swift */; };
 		48A8100F220E08410067A593 /* GoldenGateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DC0521FBFA87F008B4F5E /* GoldenGateLogger.swift */; };
 		48A81010220E08410067A593 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DC09B1FC3BCE8008B4F5E /* Log.swift */; };
 		48A81011220E08410067A593 /* Log+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF143C2F1FD9A00600183AE0 /* Log+Rx.swift */; };
@@ -87,15 +50,8 @@
 		48A81017220E08480067A593 /* RunLoop+Ownership.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7BC94B2063B98C0039A371 /* RunLoop+Ownership.swift */; };
 		48A81018220E08480067A593 /* RunLoop+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0409181FCED1F000D875BA /* RunLoop+Rx.swift */; };
 		48A81019220E08480067A593 /* RunLoop+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7BC9422063B78F0039A371 /* RunLoop+Timer.swift */; };
-		48A8101A220E085D0067A593 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE282D1FC3B60300DB872B /* Connection.swift */; };
-		48A8101B220E085D0067A593 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE282B1FC3B60300DB872B /* ConnectionController.swift */; };
-		48A8101C220E085D0067A593 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3EFA620052145004E42DF /* Connector.swift */; };
 		48A8101D220E085D0067A593 /* DtlsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAB3D9820743CCC0056173A /* DtlsOptions.swift */; };
 		48A8101E220E085D0067A593 /* IpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131849206BA9C6002AA4C8 /* IpAddress.swift */; };
-		48A8101F220E085D0067A593 /* NetworkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAF210420402BE300BAC2A7 /* NetworkLink.swift */; };
-		48A81020220E085D0067A593 /* ReconnectingConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC891FDA9A0600913C10 /* ReconnectingConnectionController.swift */; };
-		48A81021220E085D0067A593 /* ReconnectStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD6BCF211887E600FD00D3 /* ReconnectStrategy.swift */; };
-		48A81022220E085D0067A593 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3EFA12003A052004E42DF /* Role.swift */; };
 		48A81023220E085D0067A593 /* SecureDatagramClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5392C41FEBD1820059C3B3 /* SecureDatagramClient.swift */; };
 		48A81024220E085D0067A593 /* SecureDatagramServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAB3D9520743C9E0056173A /* SecureDatagramServer.swift */; };
 		48A81025220E085D0067A593 /* SocketAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1BB9B1FD0335200192B6E /* SocketAddress.swift */; };
@@ -104,39 +60,18 @@
 		48A81036220E08A20067A593 /* GattlinkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131852206BE8B5002AA4C8 /* GattlinkParameters.swift */; };
 		48A81037220E08A20067A593 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7BC9582063F8B30039A371 /* Stack.swift */; };
 		48A81038220E08A20067A593 /* StackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13184F206BE6FC002AA4C8 /* StackConfiguration.swift */; };
-		48A81039220E08A20067A593 /* StackDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7259BD2073B56B006AEE06 /* StackDescriptor.swift */; };
 		48A8103A220E08A20067A593 /* StackElementId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131855206BE914002AA4C8 /* StackElementId.swift */; };
 		48A8103B220E08A20067A593 /* StackElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9484FC20775BFC0096FD0C /* StackElementType.swift */; };
 		48A8103C220E08A20067A593 /* StackPortId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13185B206C02A0002AA4C8 /* StackPortId.swift */; };
 		48A8103E220E08AB0067A593 /* GGBsdDatagramSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD36D8620CBF41D00CB3B21 /* GGBsdDatagramSocket.swift */; };
 		48A8103F220E08AB0067A593 /* PerfDataSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE757D2200CC466003D49E0 /* PerfDataSink.swift */; };
-		48A81040220E08F70067A593 /* ReusableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA45A207E0AF1008861F5 /* ReusableTableViewCell.swift */; };
-		48A81041220E08F70067A593 /* UILabel+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA451207E0A68008861F5 /* UILabel+Rx.swift */; };
-		48A81042220E08F70067A593 /* UITableViewCell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA450207E0A67008861F5 /* UITableViewCell+Rx.swift */; };
-		48A81043220E08F70067A593 /* ComboBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA427207E08FE008861F5 /* ComboBoxViewController.swift */; };
-		48A81044220E08F70067A593 /* ComboBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA425207E07FB008861F5 /* ComboBoxViewModel.swift */; };
-		48A81045220E08F70067A593 /* CommonPeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA41F207E06DB008861F5 /* CommonPeerViewController.swift */; };
-		48A81046220E08F70067A593 /* CommonPeerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30545220EFA2B500DDE271 /* CommonPeerViewModel.swift */; };
-		48A81047220E08F70067A593 /* ConfigureStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC2334E20E10861006CC8D9 /* ConfigureStackViewController.swift */; };
-		48A81048220E08F70067A593 /* LinkConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E5303F217D9257008CEC8D /* LinkConfigurationViewController.swift */; };
-		48A81049220E08F70067A593 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483C2BC6209897C5003D489A /* PickerViewController.swift */; };
-		48A8104A220E08F70067A593 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D529A472091D7F100649FFB /* ServiceViewController.swift */; };
 		48A8104C220E09090067A593 /* CoapClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51255521807614005A7B37 /* CoapClientService.swift */; };
 		48A8104D220E09090067A593 /* CoapTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD56580D219AF63200C91C29 /* CoapTestService.swift */; };
-		48A8104E220E09090067A593 /* CommonPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA417207DEBD2008861F5 /* CommonPeer.swift */; };
-		48A8104F220E09090067A593 /* CommonPeer+UserControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD6BCC2111DDFF00FD00D3 /* CommonPeer+UserControllable.swift */; };
-		48A81050220E09090067A593 /* Data+NetworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B6BF0217AD0440071C0B5 /* Data+NetworkExtensions.swift */; };
-		48A81051220E09090067A593 /* DefaultConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D131858206C0210002AA4C8 /* DefaultConnectionController.swift */; };
-		48A81053220E09090067A593 /* ServiceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA41B207DECCE008861F5 /* ServiceDescriptor.swift */; };
+		48A8104E220E09090067A593 /* GGPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA417207DEBD2008861F5 /* GGPeer.swift */; };
+		48A81053220E09090067A593 /* ServiceDescriptor+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDA41B207DECCE008861F5 /* ServiceDescriptor+GG.swift */; };
 		48A81054220E09120067A593 /* GoldenGateInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DC0631FBFCC6E008B4F5E /* GoldenGateInitializer.swift */; };
 		48A81055220E09120067A593 /* GoldenGateVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13184020696F45002AA4C8 /* GoldenGateVersion.swift */; };
 		48A81056220E095D0067A593 /* CoapMessageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF00AE8B207393A100B00C3E /* CoapMessageBuilder.swift */; };
-		48A81057220E09960067A593 /* CentralManagerSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E6E1F9FE72D004919AC /* CentralManagerSink.swift */; };
-		48A81058220E09960067A593 /* CentralManagerSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD2E711F9FEF1C004919AC /* CentralManagerSource.swift */; };
-		48A8105A220E09960067A593 /* LinkStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A1802065529100E865FA /* LinkStatusService.swift */; };
-		48A8105B220E09960067A593 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE28001FC3B58A00DB872B /* Node.swift */; };
-		48A8105C220E09960067A593 /* Node+Advertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE29561FC6401900DB872B /* Node+Advertiser.swift */; };
-		48A8105D220E09960067A593 /* Node+Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE27FB1FC3B58A00DB872B /* Node+Connection.swift */; };
 		48A81060220E0CA30067A593 /* CoapBlockwiseResponseListenerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D529B7720BF199100649FFB /* CoapBlockwiseResponseListenerSpec.swift */; };
 		48A81061220E0CA30067A593 /* CoapCodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EDBE092171B2800057B7B3 /* CoapCodeSpec.swift */; };
 		48A81062220E0CA30067A593 /* CoapEndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD36D7520C7D87000CB3B21 /* CoapEndpointSpec.swift */; };
@@ -147,30 +82,14 @@
 		48A81067220E0CA30067A593 /* CoapStaticBlockSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D94016020C16E5100DC05E5 /* CoapStaticBlockSourceSpec.swift */; };
 		48A81068220E0CA30067A593 /* CoapStreamingMessageBodySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09E03721F22A6100BBD13A /* CoapStreamingMessageBodySpec.swift */; };
 		48A81069220E0CA30067A593 /* RawCoapMessageSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D529B6820BE1E7D00649FFB /* RawCoapMessageSpec.swift */; };
-		48A8106A220E0CB00067A593 /* MockDataSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC741FD9AA4C00913C10 /* MockDataSink.swift */; };
-		48A8106B220E0CB00067A593 /* MockDataSinkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC771FD9AA6600913C10 /* MockDataSinkListener.swift */; };
-		48A8106C220E0CB00067A593 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC711FD9A9CC00913C10 /* MockDataSource.swift */; };
 		48A8106D220E0CB60067A593 /* BufferSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D529A442091AE9500649FFB /* BufferSpec.swift */; };
-		48A8106E220E0CB60067A593 /* DataSink+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E750E1FE184F300F00EF4 /* DataSink+RxSpec.swift */; };
-		48A8106F220E0CB60067A593 /* DataSource+RxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6E75111FE186C500F00EF4 /* DataSource+RxSpec.swift */; };
-		48A81070220E0CB60067A593 /* VoidDataSinkSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC621FD9917400913C10 /* VoidDataSinkSpec.swift */; };
 		48A81071220E0CBF0067A593 /* RunLoopSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C92391FD80B86006E9551 /* RunLoopSpec.swift */; };
-		48A81072220E0CC60067A593 /* MockConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC931FDAAC9C00913C10 /* MockConnection.swift */; };
-		48A81073220E0CC60067A593 /* MockConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC991FDAADC000913C10 /* MockConnectionController.swift */; };
-		48A81074220E0CC60067A593 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC901FDAAC1D00913C10 /* MockConnector.swift */; };
-		48A81075220E0CC60067A593 /* MockStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAB3D9B207440880056173A /* MockStack.swift */; };
-		48A81076220E0CCE0067A593 /* ConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF08601FD84730007388A1 /* ConnectionControllerSpec.swift */; };
-		48A81077220E0CCE0067A593 /* ReconnectingConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7EBC8C1FDAA4E300913C10 /* ReconnectingConnectionControllerSpec.swift */; };
 		48A81078220E0CCE0067A593 /* SocketAddressSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D41E10320CED8FC00CAC73D /* SocketAddressSpec.swift */; };
 		48A81088220E0D090067A593 /* GGBsdDatagramSocketSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D41E10620D0042D00CAC73D /* GGBsdDatagramSocketSpec.swift */; };
-		48A81089220E0D160067A593 /* Data+NetworkExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898BB99217AF4E100ADFEDF /* Data+NetworkExtensionsSpec.swift */; };
 		48A8108A220E0D1E0067A593 /* GoldenGatePrincipalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3C92471FD82B60006E9551 /* GoldenGatePrincipalClass.swift */; };
-		48A8108B220E0D220067A593 /* GoldenGateVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */; };
-		48A81092220E488F0067A593 /* libSwiftCBOR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81091220E488F0067A593 /* libSwiftCBOR.a */; };
 		48A81094220E48A60067A593 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81093220E48A60067A593 /* RxSwift.framework */; };
 		48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81095220E48A60067A593 /* RxCocoa.framework */; };
 		48A81098220E48BD0067A593 /* RxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A81097220E48BD0067A593 /* RxBluetoothKit.framework */; };
-		48A8109E220E48F80067A593 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A8109D220E48F80067A593 /* Starscream.framework */; };
 		48A810A3220E49640067A593 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810A2220E49640067A593 /* Nimble.framework */; };
 		48A810A5220E496F0067A593 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810A4220E496F0067A593 /* Quick.framework */; };
 		48A810A7220E497F0067A593 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810A6220E497F0067A593 /* RxSwift.framework */; };
@@ -179,28 +98,40 @@
 		48A810B0220E50DB0067A593 /* GoldenGate.h in Headers */ = {isa = PBXBuildFile; fileRef = BF3E74AD1F755DB9009FA8FF /* GoldenGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48A810B3220E52190067A593 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A810B2220E52190067A593 /* RxBlocking.framework */; };
 		48A810D9220E6C630067A593 /* GoldenGateXP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */; };
-		48A810DB220E715A0067A593 /* Blaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810DA220E715A0067A593 /* Blaster.swift */; };
 		48A810DD220E71830067A593 /* BlasterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A810DC220E71830067A593 /* BlasterService.swift */; };
 		48AE718022820EBF00DE90AD /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AE717F22820EBF00DE90AD /* RxRelay.framework */; };
 		48AE718222820ECD00DE90AD /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48AE718122820ECD00DE90AD /* RxRelay.framework */; };
-		48BAB3F4224F033E007A3F3D /* DataProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAB3F3224F033E007A3F3D /* DataProbe.swift */; };
 		751A7A942328FF6800087BFB /* Log+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7A932328FF6800087BFB /* Log+Bindings.swift */; };
 		751A7A962328FF7500087BFB /* Log+Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751A7A952328FF7500087BFB /* Log+Bluetooth.swift */; };
-		75651C34222769810076AD25 /* RetryingWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75651C33222769810076AD25 /* RetryingWriter.swift */; };
-		75651C36222769ED0076AD25 /* CharacteristicUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75651C35222769ED0076AD25 /* CharacteristicUpdater.swift */; };
-		75860A842244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75860A832244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift */; };
+		755F34C424C6E23500877754 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC76775248F608100855742 /* BluetoothConnection.framework */; };
+		75610D90254B25D8001E2BE5 /* GoldenGateVersionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */; };
+		757DC62824CF3C0D002FFE52 /* CoapPlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DC62724CF3C0C002FFE52 /* CoapPlaygroundViewController.swift */; };
+		757DC62A24CF3CFE002FFE52 /* BlastingPlaygroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DC62924CF3CFD002FFE52 /* BlastingPlaygroundViewController.swift */; };
+		75A646C52488E74F00B47E0A /* StackDescriptor+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A646C42488E74F00B47E0A /* StackDescriptor+GG.swift */; };
 		75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */; };
-		75BD2C452227706F0067C7E0 /* RetryingWriterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */; };
-		75F6F9782327E2C600F4C207 /* TransportReadiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6F9772327E2C600F4C207 /* TransportReadiness.swift */; };
-		AF8260E8244772A900EE499A /* libFbSmo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8260E5244772A300EE499A /* libFbSmo.a */; };
+		75D399F12578FDCD0028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399F02578FDCD0028BD1D /* Starscream.framework */; };
 		AF8F0940224281D300FF5604 /* GGCoapRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */; };
-		AFF076372462D1E400E04F2B /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF076362462D1E400E04F2B /* Rxbit.framework */; };
-		AFF076382462D1E400E04F2B /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFF076362462D1E400E04F2B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FD05DC6522AF9E70002AB750 /* NilComparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD05DC6422AF9E6F002AB750 /* NilComparer.swift */; };
 		FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
 		FD6FB79C22A9015F000EFB76 /* CoapGroupRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */; };
-		FDCC7CB72364377900910311 /* OptionalStringInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCC7CB62364377900910311 /* OptionalStringInterpolation.swift */; };
+		FDBE5B8F2628457D00EFAB58 /* Node+NetworkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B822628457D00EFAB58 /* Node+NetworkLink.swift */; };
+		FDBE5B912628457D00EFAB58 /* NodeConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B842628457D00EFAB58 /* NodeConnection.swift */; };
+		FDBE5B922628457D00EFAB58 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B852628457D00EFAB58 /* Node.swift */; };
+		FDBE5B932628457D00EFAB58 /* HubConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B872628457D00EFAB58 /* HubConnection.swift */; };
+		FDBE5B942628457D00EFAB58 /* Hub+NetworkLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B882628457D00EFAB58 /* Hub+NetworkLink.swift */; };
+		FDBE5B982628457D00EFAB58 /* Hub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B8D2628457D00EFAB58 /* Hub.swift */; };
+		FDBE5B992628457D00EFAB58 /* Hub+LinkStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B8E2628457D00EFAB58 /* Hub+LinkStatusService.swift */; };
+		FDBE5C1D2628493C00EFAB58 /* ServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C132628493500EFAB58 /* ServiceMock.swift */; };
+		FDBE5C202628494100EFAB58 /* CharacteristicMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C142628493500EFAB58 /* CharacteristicMock.swift */; };
+		FDBE5C212628494100EFAB58 /* CentralManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C152628493500EFAB58 /* CentralManagerMock.swift */; };
+		FDBE5C222628494100EFAB58 /* PeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C162628493500EFAB58 /* PeripheralMock.swift */; };
+		FDBE5C252628496200EFAB58 /* HubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B8C2628457D00EFAB58 /* HubSpec.swift */; };
+		FDBE5C4D26284A6B00EFAB58 /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */; };
+		FDC76776248F608100855742 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC76775248F608100855742 /* BluetoothConnection.framework */; };
+		FDD7D9C224869F5E00FEE9D0 /* DataSink+XP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7D9C124869F5E00FEE9D0 /* DataSink+XP.swift */; };
 		FDE446F62363254E00BD8E34 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
+		FDE588522486A8F80095B8AA /* Buffer+XP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE588512486A8F80095B8AA /* Buffer+XP.swift */; };
+		FDE58856248793CB0095B8AA /* DataSinkListener+XP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE58855248793CB0095B8AA /* DataSinkListener+XP.swift */; };
+		FDE5885A2487955B0095B8AA /* DataSource+XP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE588592487955B0095B8AA /* DataSource+XP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,27 +141,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 48A80FBA220E07680067A593;
 			remoteInfo = GoldenGate;
-		};
-		AF8260E2244772A300EE499A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0F4A93D86CBE9FEFB91237F5DBE3DD81;
-			remoteInfo = "FbSmo-Tests";
-		};
-		AF8260E4244772A300EE499A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6EB04D00A4E3BB0252037D1EC515E33C;
-			remoteInfo = FbSmo;
-		};
-		AF8260E6244772A300EE499A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0FAF981C3602DCC012F8E7F9CCB3BA60;
-			remoteInfo = SwiftCBOR;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -245,36 +155,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFF076392462D1E400E04F2B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AFF076382462D1E400E04F2B /* Rxbit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		48015F532279515500D27365 /* RxNimbleRxBlocking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxNimbleRxBlocking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48015F552279515500D27365 /* RxNimbleRxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxNimbleRxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48037DA41F8D732A002BECFD /* DataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSink.swift; sourceTree = "<group>"; };
-		48255B2021E80CD400F42606 /* LinkConfigurationService+PreferredConnectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LinkConfigurationService+PreferredConnectionConfiguration.swift"; sourceTree = "<group>"; };
-		48255B2321E8100500F42606 /* LinkStatusService+ConnectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LinkStatusService+ConnectionConfiguration.swift"; sourceTree = "<group>"; };
-		48255B2521E8144400F42606 /* LinkStatusService+ConnectionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LinkStatusService+ConnectionStatus.swift"; sourceTree = "<group>"; };
-		4830C7862224FAE100AFF465 /* Hub+NetworkLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hub+NetworkLink.swift"; sourceTree = "<group>"; };
-		483C2BC6209897C5003D489A /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
-		483F84BB22C4B8BB000155FD /* Node+NetworkLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node+NetworkLink.swift"; sourceTree = "<group>"; };
-		48555F332229B978000A0828 /* Hub+LinkStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hub+LinkStatusService.swift"; sourceTree = "<group>"; };
-		48555F352229BA29000A0828 /* Hub+BatteryLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Hub+BatteryLevel.swift"; sourceTree = "<group>"; };
-		486851072216619E0026781D /* BatteryServiceLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatteryServiceLevel.swift; sourceTree = "<group>"; };
-		4898BB94217ADE9200ADFEDF /* LinkConfigurationService+PreferredConnectionMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LinkConfigurationService+PreferredConnectionMode.swift"; sourceTree = "<group>"; };
-		4898BB99217AF4E100ADFEDF /* Data+NetworkExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+NetworkExtensionsSpec.swift"; sourceTree = "<group>"; };
-		489B6BE9217AAA400071C0B5 /* LinkConfigurationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkConfigurationService.swift; sourceTree = "<group>"; };
-		489B6BF0217AD0440071C0B5 /* Data+NetworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+NetworkExtensions.swift"; sourceTree = "<group>"; };
+		423C41C824A4FDF30006EF07 /* FbSmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FbSmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		423C41CA24A4FDF30006EF07 /* SwiftCBOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCBOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4252E42D265525A3006E4B4C /* FbSmoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FbSmoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnectionObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		489DC0301FBFA7B9008B4F5E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		489DC0521FBFA87F008B4F5E /* GoldenGateLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenGateLogger.swift; sourceTree = "<group>"; };
 		489DC0631FBFCC6E008B4F5E /* GoldenGateInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenGateInitializer.swift; sourceTree = "<group>"; };
@@ -297,15 +184,9 @@
 		48A810AA220E497F0067A593 /* RxAtomic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxAtomic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A810AC220E49AB0067A593 /* RxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A810B2220E52190067A593 /* RxBlocking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48A810DA220E715A0067A593 /* Blaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blaster.swift; sourceTree = "<group>"; };
 		48A810DC220E71830067A593 /* BlasterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlasterService.swift; sourceTree = "<group>"; };
 		48AE717F22820EBF00DE90AD /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48AE718122820ECD00DE90AD /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48BAB3F3224F033E007A3F3D /* DataProbe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProbe.swift; sourceTree = "<group>"; };
-		48C7A17E2065518900E865FA /* GattlinkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GattlinkService.swift; sourceTree = "<group>"; };
-		48C7A1802065529100E865FA /* LinkStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkStatusService.swift; sourceTree = "<group>"; };
-		48E5303C217D5AF9008CEC8D /* ReadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadRequest.swift; sourceTree = "<group>"; };
-		48E5303F217D9257008CEC8D /* LinkConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkConfigurationViewController.swift; sourceTree = "<group>"; };
 		48EC83AB20C1CC300089E247 /* UnsafeHeapAllocatedValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsafeHeapAllocatedValue.swift; sourceTree = "<group>"; };
 		48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenGateVersionSpec.swift; sourceTree = "<group>"; };
 		48EDBE092171B2800057B7B3 /* CoapCodeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapCodeSpec.swift; sourceTree = "<group>"; };
@@ -319,18 +200,14 @@
 		6D13184F206BE6FC002AA4C8 /* StackConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackConfiguration.swift; sourceTree = "<group>"; };
 		6D131852206BE8B5002AA4C8 /* GattlinkParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GattlinkParameters.swift; sourceTree = "<group>"; };
 		6D131855206BE914002AA4C8 /* StackElementId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackElementId.swift; sourceTree = "<group>"; };
-		6D131858206C0210002AA4C8 /* DefaultConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultConnectionController.swift; sourceTree = "<group>"; };
 		6D13185B206C02A0002AA4C8 /* StackPortId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPortId.swift; sourceTree = "<group>"; };
-		6D30545220EFA2B500DDE271 /* CommonPeerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPeerViewModel.swift; sourceTree = "<group>"; };
 		6D3C92391FD80B86006E9551 /* RunLoopSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunLoopSpec.swift; sourceTree = "<group>"; };
 		6D3C923E1FD80CEF006E9551 /* GGErrorTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGErrorTypeSpec.swift; sourceTree = "<group>"; };
 		6D3C92411FD80F93006E9551 /* GGAdapterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAdapterSpec.swift; sourceTree = "<group>"; };
 		6D3C92471FD82B60006E9551 /* GoldenGatePrincipalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenGatePrincipalClass.swift; sourceTree = "<group>"; };
 		6D41E10320CED8FC00CAC73D /* SocketAddressSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketAddressSpec.swift; sourceTree = "<group>"; };
 		6D41E10620D0042D00CAC73D /* GGBsdDatagramSocketSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGBsdDatagramSocketSpec.swift; sourceTree = "<group>"; };
-		6D529A412090A04100649FFB /* Buffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buffer.swift; sourceTree = "<group>"; };
 		6D529A442091AE9500649FFB /* BufferSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferSpec.swift; sourceTree = "<group>"; };
-		6D529A472091D7F100649FFB /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		6D529B4B20BD94B300649FFB /* CoapRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapRequestBuilder.swift; sourceTree = "<group>"; };
 		6D529B4E20BD972A00649FFB /* CoapResponseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapResponseBuilder.swift; sourceTree = "<group>"; };
 		6D529B5120BDB4FB00649FFB /* CoapOutgoingBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapOutgoingBody.swift; sourceTree = "<group>"; };
@@ -345,94 +222,36 @@
 		6D529B7720BF199100649FFB /* CoapBlockwiseResponseListenerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapBlockwiseResponseListenerSpec.swift; sourceTree = "<group>"; };
 		6D5392C41FEBD1820059C3B3 /* SecureDatagramClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDatagramClient.swift; sourceTree = "<group>"; };
 		6D5392C71FEBEDE40059C3B3 /* TlsKeyResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlsKeyResolver.swift; sourceTree = "<group>"; };
-		6D5E30D22059B43900A5FA83 /* Port.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Port.swift; sourceTree = "<group>"; };
-		6D6749DD1FCC6D5100979BDE /* VoidDataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidDataSink.swift; sourceTree = "<group>"; };
-		6D6E750E1FE184F300F00EF4 /* DataSink+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSink+RxSpec.swift"; sourceTree = "<group>"; };
-		6D6E75111FE186C500F00EF4 /* DataSource+RxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSource+RxSpec.swift"; sourceTree = "<group>"; };
-		6D7259BD2073B56B006AEE06 /* StackDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackDescriptor.swift; sourceTree = "<group>"; };
 		6D7BC9422063B78F0039A371 /* RunLoop+Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Timer.swift"; sourceTree = "<group>"; };
 		6D7BC9452063B7BC0039A371 /* RunLoop+Invocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Invocation.swift"; sourceTree = "<group>"; };
 		6D7BC9482063B8670039A371 /* RunLoop+Assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Assert.swift"; sourceTree = "<group>"; };
 		6D7BC94B2063B98C0039A371 /* RunLoop+Ownership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RunLoop+Ownership.swift"; sourceTree = "<group>"; };
 		6D7BC9582063F8B30039A371 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		6D7EBC5C1FD98EB300913C10 /* DataSource+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSource+Rx.swift"; sourceTree = "<group>"; };
-		6D7EBC5F1FD98FAE00913C10 /* DataSink+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataSink+Rx.swift"; sourceTree = "<group>"; };
-		6D7EBC621FD9917400913C10 /* VoidDataSinkSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidDataSinkSpec.swift; sourceTree = "<group>"; };
 		6D7EBC671FD992D100913C10 /* GGAdaptableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAdaptableSpec.swift; sourceTree = "<group>"; };
-		6D7EBC711FD9A9CC00913C10 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
-		6D7EBC741FD9AA4C00913C10 /* MockDataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSink.swift; sourceTree = "<group>"; };
-		6D7EBC771FD9AA6600913C10 /* MockDataSinkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSinkListener.swift; sourceTree = "<group>"; };
-		6D7EBC891FDA9A0600913C10 /* ReconnectingConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconnectingConnectionController.swift; sourceTree = "<group>"; };
-		6D7EBC8C1FDAA4E300913C10 /* ReconnectingConnectionControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconnectingConnectionControllerSpec.swift; sourceTree = "<group>"; };
-		6D7EBC901FDAAC1D00913C10 /* MockConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
-		6D7EBC931FDAAC9C00913C10 /* MockConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnection.swift; sourceTree = "<group>"; };
-		6D7EBC991FDAADC000913C10 /* MockConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnectionController.swift; sourceTree = "<group>"; };
 		6D94015720C1475400DC05E5 /* CoapStaticBlockSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapStaticBlockSource.swift; sourceTree = "<group>"; };
 		6D94016020C16E5100DC05E5 /* CoapStaticBlockSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapStaticBlockSourceSpec.swift; sourceTree = "<group>"; };
 		6D9484FC20775BFC0096FD0C /* StackElementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackElementType.swift; sourceTree = "<group>"; };
-		6DA3E6F41FCFF3B20058E7B9 /* WriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteRequest.swift; sourceTree = "<group>"; };
-		6DA3E6F71FD000DA0058E7B9 /* DataBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBuffer.swift; sourceTree = "<group>"; };
 		6DAB3D9520743C9E0056173A /* SecureDatagramServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDatagramServer.swift; sourceTree = "<group>"; };
 		6DAB3D9820743CCC0056173A /* DtlsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtlsOptions.swift; sourceTree = "<group>"; };
-		6DAB3D9B207440880056173A /* MockStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStack.swift; sourceTree = "<group>"; };
-		6DAE27F61FC3B58A00DB872B /* Service+GG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+GG.swift"; sourceTree = "<group>"; };
-		6DAE27F71FC3B58A00DB872B /* BluetoothPeerDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothPeerDescriptor.swift; sourceTree = "<group>"; };
-		6DAE27F81FC3B58A00DB872B /* DiscoveredBluetoothPeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveredBluetoothPeer.swift; sourceTree = "<group>"; };
-		6DAE27FA1FC3B58A00DB872B /* Hub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
-		6DAE27FB1FC3B58A00DB872B /* Node+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+Connection.swift"; sourceTree = "<group>"; };
-		6DAE27FC1FC3B58A00DB872B /* Peripheral+GG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Peripheral+GG.swift"; sourceTree = "<group>"; };
-		6DAE27FD1FC3B58A00DB872B /* PeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManager.swift; sourceTree = "<group>"; };
-		6DAE27FE1FC3B58A00DB872B /* BluetoothConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
-		6DAE28001FC3B58A00DB872B /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		6DAE28011FC3B58B00DB872B /* CentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManager.swift; sourceTree = "<group>"; };
-		6DAE28031FC3B58B00DB872B /* Hub+Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hub+Connection.swift"; sourceTree = "<group>"; };
-		6DAE28041FC3B58B00DB872B /* BluetoothConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConfiguration.swift; sourceTree = "<group>"; };
-		6DAE28051FC3B58B00DB872B /* Hub+Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hub+Scanner.swift"; sourceTree = "<group>"; };
-		6DAE282B1FC3B60300DB872B /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
-		6DAE282D1FC3B60300DB872B /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		6DAE29081FC5DE7F00DB872B /* GGErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGErrorType.swift; sourceTree = "<group>"; };
-		6DAE29561FC6401900DB872B /* Node+Advertiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Node+Advertiser.swift"; sourceTree = "<group>"; };
-		6DAF210420402BE300BAC2A7 /* NetworkLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLink.swift; sourceTree = "<group>"; };
-		6DAF2111204460A100BAC2A7 /* BluetoothReconnectStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothReconnectStrategy.swift; sourceTree = "<group>"; };
 		6DB124DB20BFD97300DE91CB /* CoapMessageOptionParamSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapMessageOptionParamSpec.swift; sourceTree = "<group>"; };
 		6DB1BB9B1FD0335200192B6E /* SocketAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketAddress.swift; sourceTree = "<group>"; };
-		6DB3EFA12003A052004E42DF /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
-		6DB3EFA620052145004E42DF /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
-		6DC2334E20E10861006CC8D9 /* ConfigureStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureStackViewController.swift; sourceTree = "<group>"; };
 		6DCD2DF81F9E2E76004919AC /* GGAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAdapter.swift; sourceTree = "<group>"; };
 		6DCD2E081F9E30BA004919AC /* GGAdaptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGAdaptable.swift; sourceTree = "<group>"; };
 		6DCD2E421F9F665B004919AC /* RunLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunLoop.swift; sourceTree = "<group>"; };
-		6DCD2E451F9F7A45004919AC /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		6DCD2E481F9F8856004919AC /* DataSinkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSinkListener.swift; sourceTree = "<group>"; };
-		6DCD2E4E1F9F9FD3004919AC /* PeripheralManagerSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralManagerSink.swift; sourceTree = "<group>"; };
-		6DCD2E6E1F9FE72D004919AC /* CentralManagerSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerSink.swift; sourceTree = "<group>"; };
-		6DCD2E711F9FEF1C004919AC /* CentralManagerSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentralManagerSource.swift; sourceTree = "<group>"; };
-		6DCD2E741F9FF2DF004919AC /* PeripheralManagerSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralManagerSource.swift; sourceTree = "<group>"; };
-		6DCD6BCC2111DDFF00FD00D3 /* CommonPeer+UserControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonPeer+UserControllable.swift"; sourceTree = "<group>"; };
-		6DCD6BCF211887E600FD00D3 /* ReconnectStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconnectStrategy.swift; sourceTree = "<group>"; };
 		6DD36D7520C7D87000CB3B21 /* CoapEndpointSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapEndpointSpec.swift; sourceTree = "<group>"; };
 		6DD36D8620CBF41D00CB3B21 /* GGBsdDatagramSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGBsdDatagramSocket.swift; sourceTree = "<group>"; };
-		6DEDA417207DEBD2008861F5 /* CommonPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPeer.swift; sourceTree = "<group>"; };
-		6DEDA41B207DECCE008861F5 /* ServiceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDescriptor.swift; sourceTree = "<group>"; };
-		6DEDA41F207E06DB008861F5 /* CommonPeerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPeerViewController.swift; sourceTree = "<group>"; };
-		6DEDA425207E07FB008861F5 /* ComboBoxViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxViewModel.swift; sourceTree = "<group>"; };
-		6DEDA427207E08FE008861F5 /* ComboBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboBoxViewController.swift; sourceTree = "<group>"; };
-		6DEDA450207E0A67008861F5 /* UITableViewCell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Rx.swift"; sourceTree = "<group>"; };
-		6DEDA451207E0A68008861F5 /* UILabel+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Rx.swift"; sourceTree = "<group>"; };
-		6DEDA45A207E0AF1008861F5 /* ReusableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableTableViewCell.swift; sourceTree = "<group>"; };
-		6DEF08601FD84730007388A1 /* ConnectionControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionControllerSpec.swift; sourceTree = "<group>"; };
+		6DEDA417207DEBD2008861F5 /* GGPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGPeer.swift; sourceTree = "<group>"; };
+		6DEDA41B207DECCE008861F5 /* ServiceDescriptor+GG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServiceDescriptor+GG.swift"; sourceTree = "<group>"; };
 		751A7A932328FF6800087BFB /* Log+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+Bindings.swift"; sourceTree = "<group>"; };
 		751A7A952328FF7500087BFB /* Log+Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+Bluetooth.swift"; sourceTree = "<group>"; };
-		75651C33222769810076AD25 /* RetryingWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryingWriter.swift; sourceTree = "<group>"; };
-		75651C35222769ED0076AD25 /* CharacteristicUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicUpdater.swift; sourceTree = "<group>"; };
-		75860A832244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkConfigurationService+GeneralPurposeCommand.swift"; sourceTree = "<group>"; };
+		757DC62724CF3C0C002FFE52 /* CoapPlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapPlaygroundViewController.swift; sourceTree = "<group>"; };
+		757DC62924CF3CFD002FFE52 /* BlastingPlaygroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlastingPlaygroundViewController.swift; sourceTree = "<group>"; };
+		75A646C42488E74F00B47E0A /* StackDescriptor+GG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackDescriptor+GG.swift"; sourceTree = "<group>"; };
 		75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaseIterable+AllUniqueRawValues.swift"; sourceTree = "<group>"; };
-		75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryingWriterSpec.swift; sourceTree = "<group>"; };
-		75F6F9772327E2C600F4C207 /* TransportReadiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportReadiness.swift; sourceTree = "<group>"; };
+		75D399F02578FDCD0028BD1D /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoldenGateXP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF8260DC244772A300EE499A /* FbSmo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FbSmo.xcodeproj; path = ../../../external/smo/swift/FbSmo.xcodeproj; sourceTree = "<group>"; };
 		AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCoapRequestParameters.swift; sourceTree = "<group>"; };
-		AFF076362462D1E400E04F2B /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF00AE8B207393A100B00C3E /* CoapMessageBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapMessageBuilder.swift; sourceTree = "<group>"; };
 		BF0408F91FCEBA6600D875BA /* CoapCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapCode.swift; sourceTree = "<group>"; };
 		BF0408FA1FCEBA6600D875BA /* CoapRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoapRequestHandler.swift; sourceTree = "<group>"; };
@@ -449,13 +268,29 @@
 		BFA6A33220739CAE007E5D3E /* CoapResponseBuilderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapResponseBuilderSpec.swift; sourceTree = "<group>"; };
 		BFB4B9DB1FDFDC04005EA291 /* RawCoapMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawCoapMessage.swift; sourceTree = "<group>"; };
 		BFE757D2200CC466003D49E0 /* PerfDataSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfDataSink.swift; sourceTree = "<group>"; };
-		FD05DC6422AF9E6F002AB750 /* NilComparer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NilComparer.swift; sourceTree = "<group>"; };
 		FD09E03721F22A6100BBD13A /* CoapStreamingMessageBodySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapStreamingMessageBodySpec.swift; sourceTree = "<group>"; };
 		FD3B0626234F62C700A92603 /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD51255521807614005A7B37 /* CoapClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapClientService.swift; sourceTree = "<group>"; };
 		FD56580D219AF63200C91C29 /* CoapTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapTestService.swift; sourceTree = "<group>"; };
 		FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoapGroupRequestFilter.swift; sourceTree = "<group>"; };
-		FDCC7CB62364377900910311 /* OptionalStringInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalStringInterpolation.swift; sourceTree = "<group>"; };
+		FDBE5B822628457D00EFAB58 /* Node+NetworkLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Node+NetworkLink.swift"; sourceTree = "<group>"; };
+		FDBE5B842628457D00EFAB58 /* NodeConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeConnection.swift; sourceTree = "<group>"; };
+		FDBE5B852628457D00EFAB58 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		FDBE5B872628457D00EFAB58 /* HubConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubConnection.swift; sourceTree = "<group>"; };
+		FDBE5B882628457D00EFAB58 /* Hub+NetworkLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hub+NetworkLink.swift"; sourceTree = "<group>"; };
+		FDBE5B8C2628457D00EFAB58 /* HubSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HubSpec.swift; sourceTree = "<group>"; };
+		FDBE5B8D2628457D00EFAB58 /* Hub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hub.swift; sourceTree = "<group>"; };
+		FDBE5B8E2628457D00EFAB58 /* Hub+LinkStatusService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hub+LinkStatusService.swift"; sourceTree = "<group>"; };
+		FDBE5C132628493500EFAB58 /* ServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceMock.swift; sourceTree = "<group>"; };
+		FDBE5C142628493500EFAB58 /* CharacteristicMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicMock.swift; sourceTree = "<group>"; };
+		FDBE5C152628493500EFAB58 /* CentralManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManagerMock.swift; sourceTree = "<group>"; };
+		FDBE5C162628493500EFAB58 /* PeripheralMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralMock.swift; sourceTree = "<group>"; };
+		FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+AdvanceBy.swift"; sourceTree = "<group>"; };
+		FDC76775248F608100855742 /* BluetoothConnection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDD7D9C124869F5E00FEE9D0 /* DataSink+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataSink+XP.swift"; sourceTree = "<group>"; };
+		FDE588512486A8F80095B8AA /* Buffer+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Buffer+XP.swift"; sourceTree = "<group>"; };
+		FDE58855248793CB0095B8AA /* DataSinkListener+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataSinkListener+XP.swift"; sourceTree = "<group>"; };
+		FDE588592487955B0095B8AA /* DataSource+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataSource+XP.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,16 +298,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D399F12578FDCD0028BD1D /* Starscream.framework in Frameworks */,
+				FDC76776248F608100855742 /* BluetoothConnection.framework in Frameworks */,
 				48A810D9220E6C630067A593 /* GoldenGateXP.framework in Frameworks */,
-				48A81092220E488F0067A593 /* libSwiftCBOR.a in Frameworks */,
 				FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */,
+				42FAE85D26123D85005E6500 /* BluetoothConnectionObjC.framework in Frameworks */,
 				48A81098220E48BD0067A593 /* RxBluetoothKit.framework in Frameworks */,
-				AFF076372462D1E400E04F2B /* Rxbit.framework in Frameworks */,
 				48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */,
 				48AE718022820EBF00DE90AD /* RxRelay.framework in Frameworks */,
 				48A81094220E48A60067A593 /* RxSwift.framework in Frameworks */,
-				AF8260E8244772A900EE499A /* libFbSmo.a in Frameworks */,
-				48A8109E220E48F80067A593 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,14 +314,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				755F34C424C6E23500877754 /* BluetoothConnection.framework in Frameworks */,
 				48A80FC4220E07690067A593 /* GoldenGate.framework in Frameworks */,
 				48A810A3220E49640067A593 /* Nimble.framework in Frameworks */,
 				48A810A5220E496F0067A593 /* Quick.framework in Frameworks */,
 				FDE446F62363254E00BD8E34 /* Rxbit.framework in Frameworks */,
 				48A810B3220E52190067A593 /* RxBlocking.framework in Frameworks */,
 				48A810A9220E497F0067A593 /* RxCocoa.framework in Frameworks */,
-				48015F542279515500D27365 /* RxNimbleRxBlocking.framework in Frameworks */,
-				48015F562279515500D27365 /* RxNimbleRxTest.framework in Frameworks */,
 				48AE718222820ECD00DE90AD /* RxRelay.framework in Frameworks */,
 				48A810A7220E497F0067A593 /* RxSwift.framework in Frameworks */,
 				48A810AD220E49AB0067A593 /* RxTest.framework in Frameworks */,
@@ -510,8 +343,11 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AFF076362462D1E400E04F2B /* Rxbit.framework */,
-				AF8260DC244772A300EE499A /* FbSmo.xcodeproj */,
+				4252E42D265525A3006E4B4C /* FbSmoUtils.framework */,
+				42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */,
+				75D399F02578FDCD0028BD1D /* Starscream.framework */,
+				FDC76775248F608100855742 /* BluetoothConnection.framework */,
+				423C41C824A4FDF30006EF07 /* FbSmo.framework */,
 				AC8253C521EFBD02005B8DC1 /* GoldenGateXP.framework */,
 				48A8108F220E488F0067A593 /* libFbSmo.a */,
 				48A81091220E488F0067A593 /* libSwiftCBOR.a */,
@@ -524,14 +360,13 @@
 				48A81097220E48BD0067A593 /* RxBluetoothKit.framework */,
 				48A81095220E48A60067A593 /* RxCocoa.framework */,
 				48A810A8220E497F0067A593 /* RxCocoa.framework */,
-				48015F532279515500D27365 /* RxNimbleRxBlocking.framework */,
-				48015F552279515500D27365 /* RxNimbleRxTest.framework */,
 				48AE717F22820EBF00DE90AD /* RxRelay.framework */,
 				48AE718122820ECD00DE90AD /* RxRelay.framework */,
 				48A81093220E48A60067A593 /* RxSwift.framework */,
 				48A810A6220E497F0067A593 /* RxSwift.framework */,
 				48A810AC220E49AB0067A593 /* RxTest.framework */,
 				48A8109D220E48F80067A593 /* Starscream.framework */,
+				423C41CA24A4FDF30006EF07 /* SwiftCBOR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -558,45 +393,11 @@
 			path = GoldenGateTests;
 			sourceTree = "<group>";
 		};
-		48C7A17C2065509700E865FA /* Node */ = {
-			isa = PBXGroup;
-			children = (
-				6DCD2E6E1F9FE72D004919AC /* CentralManagerSink.swift */,
-				6DCD2E711F9FEF1C004919AC /* CentralManagerSource.swift */,
-				48C7A1802065529100E865FA /* LinkStatusService.swift */,
-				6DAE28001FC3B58A00DB872B /* Node.swift */,
-				6DAE29561FC6401900DB872B /* Node+Advertiser.swift */,
-				6DAE27FB1FC3B58A00DB872B /* Node+Connection.swift */,
-				483F84BB22C4B8BB000155FD /* Node+NetworkLink.swift */,
-			);
-			path = Node;
-			sourceTree = "<group>";
-		};
-		48C7A17D2065514D00E865FA /* Hub */ = {
-			isa = PBXGroup;
-			children = (
-				75651C35222769ED0076AD25 /* CharacteristicUpdater.swift */,
-				6DAE27F81FC3B58A00DB872B /* DiscoveredBluetoothPeer.swift */,
-				6DAE27FA1FC3B58A00DB872B /* Hub.swift */,
-				48555F352229BA29000A0828 /* Hub+BatteryLevel.swift */,
-				6DAE28031FC3B58B00DB872B /* Hub+Connection.swift */,
-				48555F332229B978000A0828 /* Hub+LinkStatusService.swift */,
-				4830C7862224FAE100AFF465 /* Hub+NetworkLink.swift */,
-				6DAE28051FC3B58B00DB872B /* Hub+Scanner.swift */,
-				489B6BE9217AAA400071C0B5 /* LinkConfigurationService.swift */,
-				6DCD2E4E1F9F9FD3004919AC /* PeripheralManagerSink.swift */,
-				6DCD2E741F9FF2DF004919AC /* PeripheralManagerSource.swift */,
-			);
-			path = Hub;
-			sourceTree = "<group>";
-		};
 		6D4AB3BD1FA0B08E005498AF /* Testing */ = {
 			isa = PBXGroup;
 			children = (
-				48A810DA220E715A0067A593 /* Blaster.swift */,
-				48BAB3F3224F033E007A3F3D /* DataProbe.swift */,
+				75610D8D254B245C001E2BE5 /* Spec */,
 				6DD36D8620CBF41D00CB3B21 /* GGBsdDatagramSocket.swift */,
-				6D41E10620D0042D00CAC73D /* GGBsdDatagramSocketSpec.swift */,
 				BFE757D2200CC466003D49E0 /* PerfDataSink.swift */,
 			);
 			path = Testing;
@@ -605,17 +406,15 @@
 		6D5E3005205295F300A5FA83 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				75610D8F254B2497001E2BE5 /* Spec */,
 				48A810DC220E71830067A593 /* BlasterService.swift */,
 				75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */,
 				FD51255521807614005A7B37 /* CoapClientService.swift */,
 				FD56580D219AF63200C91C29 /* CoapTestService.swift */,
-				6DEDA417207DEBD2008861F5 /* CommonPeer.swift */,
-				6DCD6BCC2111DDFF00FD00D3 /* CommonPeer+UserControllable.swift */,
-				489B6BF0217AD0440071C0B5 /* Data+NetworkExtensions.swift */,
-				4898BB99217AF4E100ADFEDF /* Data+NetworkExtensionsSpec.swift */,
-				6D131858206C0210002AA4C8 /* DefaultConnectionController.swift */,
-				FD05DC6422AF9E6F002AB750 /* NilComparer.swift */,
-				6DEDA41B207DECCE008861F5 /* ServiceDescriptor.swift */,
+				6DEDA417207DEBD2008861F5 /* GGPeer.swift */,
+				6D13184020696F45002AA4C8 /* GoldenGateVersion.swift */,
+				6DEDA41B207DECCE008861F5 /* ServiceDescriptor+GG.swift */,
+				FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -627,7 +426,7 @@
 				6D131852206BE8B5002AA4C8 /* GattlinkParameters.swift */,
 				6D7BC9582063F8B30039A371 /* Stack.swift */,
 				6D13184F206BE6FC002AA4C8 /* StackConfiguration.swift */,
-				6D7259BD2073B56B006AEE06 /* StackDescriptor.swift */,
+				75A646C42488E74F00B47E0A /* StackDescriptor+GG.swift */,
 				6D131855206BE914002AA4C8 /* StackElementId.swift */,
 				6D9484FC20775BFC0096FD0C /* StackElementType.swift */,
 				6D13185B206C02A0002AA4C8 /* StackPortId.swift */,
@@ -635,36 +434,13 @@
 			path = Stack;
 			sourceTree = "<group>";
 		};
-		6D7EBC701FD9A9B500913C10 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				6D7EBC741FD9AA4C00913C10 /* MockDataSink.swift */,
-				6D7EBC771FD9AA6600913C10 /* MockDataSinkListener.swift */,
-				6D7EBC711FD9A9CC00913C10 /* MockDataSource.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		6D7EBC8F1FDAAC1200913C10 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				6D7EBC931FDAAC9C00913C10 /* MockConnection.swift */,
-				6D7EBC991FDAADC000913C10 /* MockConnectionController.swift */,
-				6D7EBC901FDAAC1D00913C10 /* MockConnector.swift */,
-				6DAB3D9B207440880056173A /* MockStack.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		6DAE27C41FC3B4FF00DB872B /* Bridging */ = {
 			isa = PBXGroup;
 			children = (
+				75610D87254B237A001E2BE5 /* Spec */,
 				6DCD2E081F9E30BA004919AC /* GGAdaptable.swift */,
-				6D7EBC671FD992D100913C10 /* GGAdaptableSpec.swift */,
 				6DCD2DF81F9E2E76004919AC /* GGAdapter.swift */,
-				6D3C92411FD80F93006E9551 /* GGAdapterSpec.swift */,
 				6DAE29081FC5DE7F00DB872B /* GGErrorType.swift */,
-				6D3C923E1FD80CEF006E9551 /* GGErrorTypeSpec.swift */,
 			);
 			path = Bridging;
 			sourceTree = "<group>";
@@ -672,22 +448,11 @@
 		6DAE27C81FC3B4FF00DB872B /* IO */ = {
 			isa = PBXGroup;
 			children = (
-				6D7EBC701FD9A9B500913C10 /* Mocks */,
-				75BD2C43222770120067C7E0 /* Spec */,
-				6D529A412090A04100649FFB /* Buffer.swift */,
-				6D529A442091AE9500649FFB /* BufferSpec.swift */,
-				6DA3E6F71FD000DA0058E7B9 /* DataBuffer.swift */,
-				48037DA41F8D732A002BECFD /* DataSink.swift */,
-				6D7EBC5F1FD98FAE00913C10 /* DataSink+Rx.swift */,
-				6D6E750E1FE184F300F00EF4 /* DataSink+RxSpec.swift */,
-				6DCD2E481F9F8856004919AC /* DataSinkListener.swift */,
-				6DCD2E451F9F7A45004919AC /* DataSource.swift */,
-				6D7EBC5C1FD98EB300913C10 /* DataSource+Rx.swift */,
-				6D6E75111FE186C500F00EF4 /* DataSource+RxSpec.swift */,
-				6D5E30D22059B43900A5FA83 /* Port.swift */,
-				75651C33222769810076AD25 /* RetryingWriter.swift */,
-				6D6749DD1FCC6D5100979BDE /* VoidDataSink.swift */,
-				6D7EBC621FD9917400913C10 /* VoidDataSinkSpec.swift */,
+				75610D89254B241B001E2BE5 /* Spec */,
+				FDE588512486A8F80095B8AA /* Buffer+XP.swift */,
+				FDD7D9C124869F5E00FEE9D0 /* DataSink+XP.swift */,
+				FDE58855248793CB0095B8AA /* DataSinkListener+XP.swift */,
+				FDE588592487955B0095B8AA /* DataSource+XP.swift */,
 			);
 			path = IO;
 			sourceTree = "<group>";
@@ -706,13 +471,13 @@
 		6DAE27D61FC3B50000DB872B /* Loop */ = {
 			isa = PBXGroup;
 			children = (
+				75610D8A254B242E001E2BE5 /* Spec */,
 				6DCD2E421F9F665B004919AC /* RunLoop.swift */,
 				6D7BC9482063B8670039A371 /* RunLoop+Assert.swift */,
 				6D7BC9452063B7BC0039A371 /* RunLoop+Invocation.swift */,
 				6D7BC94B2063B98C0039A371 /* RunLoop+Ownership.swift */,
 				BF0409181FCED1F000D875BA /* RunLoop+Rx.swift */,
 				6D7BC9422063B78F0039A371 /* RunLoop+Timer.swift */,
-				6D3C92391FD80B86006E9551 /* RunLoopSpec.swift */,
 			);
 			path = Loop;
 			sourceTree = "<group>";
@@ -720,142 +485,121 @@
 		6DAE282A1FC3B60300DB872B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				6D7EBC8F1FDAAC1200913C10 /* Mocks */,
-				6DAE282D1FC3B60300DB872B /* Connection.swift */,
-				6DAE282B1FC3B60300DB872B /* ConnectionController.swift */,
-				6DEF08601FD84730007388A1 /* ConnectionControllerSpec.swift */,
-				6DB3EFA620052145004E42DF /* Connector.swift */,
+				75610D8B254B2439001E2BE5 /* Spec */,
 				6DAB3D9820743CCC0056173A /* DtlsOptions.swift */,
 				6D131849206BA9C6002AA4C8 /* IpAddress.swift */,
-				6DAF210420402BE300BAC2A7 /* NetworkLink.swift */,
-				6D7EBC891FDA9A0600913C10 /* ReconnectingConnectionController.swift */,
-				6D7EBC8C1FDAA4E300913C10 /* ReconnectingConnectionControllerSpec.swift */,
-				6DCD6BCF211887E600FD00D3 /* ReconnectStrategy.swift */,
-				6DB3EFA12003A052004E42DF /* Role.swift */,
 				6D5392C41FEBD1820059C3B3 /* SecureDatagramClient.swift */,
 				6DAB3D9520743C9E0056173A /* SecureDatagramServer.swift */,
 				6DB1BB9B1FD0335200192B6E /* SocketAddress.swift */,
-				6D41E10320CED8FC00CAC73D /* SocketAddressSpec.swift */,
 				6D5392C71FEBEDE40059C3B3 /* TlsKeyResolver.swift */,
-				75F6F9772327E2C600F4C207 /* TransportReadiness.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		6DCD2E771F9FF61D004919AC /* CoreBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				48C7A17D2065514D00E865FA /* Hub */,
-				48C7A17C2065509700E865FA /* Node */,
-				486851072216619E0026781D /* BatteryServiceLevel.swift */,
-				6DAE28041FC3B58B00DB872B /* BluetoothConfiguration.swift */,
-				6DAE27FE1FC3B58A00DB872B /* BluetoothConnection.swift */,
-				6DAE27F71FC3B58A00DB872B /* BluetoothPeerDescriptor.swift */,
-				6DAF2111204460A100BAC2A7 /* BluetoothReconnectStrategy.swift */,
-				6DAE28011FC3B58B00DB872B /* CentralManager.swift */,
-				48C7A17E2065518900E865FA /* GattlinkService.swift */,
-				75860A832244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift */,
-				48255B2021E80CD400F42606 /* LinkConfigurationService+PreferredConnectionConfiguration.swift */,
-				4898BB94217ADE9200ADFEDF /* LinkConfigurationService+PreferredConnectionMode.swift */,
-				48255B2321E8100500F42606 /* LinkStatusService+ConnectionConfiguration.swift */,
-				48255B2521E8144400F42606 /* LinkStatusService+ConnectionStatus.swift */,
-				6DAE27FC1FC3B58A00DB872B /* Peripheral+GG.swift */,
-				6DAE27FD1FC3B58A00DB872B /* PeripheralManager.swift */,
-				48E5303C217D5AF9008CEC8D /* ReadRequest.swift */,
-				6DAE27F61FC3B58A00DB872B /* Service+GG.swift */,
-				6DA3E6F41FCFF3B20058E7B9 /* WriteRequest.swift */,
-			);
-			path = CoreBluetooth;
 			sourceTree = "<group>";
 		};
 		6DEDA41E207E06BB008861F5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				6DEDA429207E0963008861F5 /* Internal */,
-				6DEDA427207E08FE008861F5 /* ComboBoxViewController.swift */,
-				6DEDA425207E07FB008861F5 /* ComboBoxViewModel.swift */,
-				6DEDA41F207E06DB008861F5 /* CommonPeerViewController.swift */,
-				6D30545220EFA2B500DDE271 /* CommonPeerViewModel.swift */,
-				6DC2334E20E10861006CC8D9 /* ConfigureStackViewController.swift */,
-				48E5303F217D9257008CEC8D /* LinkConfigurationViewController.swift */,
-				483C2BC6209897C5003D489A /* PickerViewController.swift */,
-				6D529A472091D7F100649FFB /* ServiceViewController.swift */,
+				757DC62924CF3CFD002FFE52 /* BlastingPlaygroundViewController.swift */,
+				757DC62724CF3C0C002FFE52 /* CoapPlaygroundViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		6DEDA429207E0963008861F5 /* Internal */ = {
+		75610D87254B237A001E2BE5 /* Spec */ = {
 			isa = PBXGroup;
 			children = (
-				6DEDA45A207E0AF1008861F5 /* ReusableTableViewCell.swift */,
-				6DEDA451207E0A68008861F5 /* UILabel+Rx.swift */,
-				6DEDA450207E0A67008861F5 /* UITableViewCell+Rx.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		75BD2C43222770120067C7E0 /* Spec */ = {
-			isa = PBXGroup;
-			children = (
-				75BD2C442227706F0067C7E0 /* RetryingWriterSpec.swift */,
+				6D7EBC671FD992D100913C10 /* GGAdaptableSpec.swift */,
+				6D3C92411FD80F93006E9551 /* GGAdapterSpec.swift */,
+				6D3C923E1FD80CEF006E9551 /* GGErrorTypeSpec.swift */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
 		};
-		AF8260DD244772A300EE499A /* Products */ = {
+		75610D88254B23A4001E2BE5 /* Spec */ = {
 			isa = PBXGroup;
 			children = (
-				AF8260E3244772A300EE499A /* FbSmo-Tests.xctest */,
-				AF8260E5244772A300EE499A /* libFbSmo.a */,
-				AF8260E7244772A300EE499A /* libSwiftCBOR.a */,
+				6D529B7720BF199100649FFB /* CoapBlockwiseResponseListenerSpec.swift */,
+				48EDBE092171B2800057B7B3 /* CoapCodeSpec.swift */,
+				6DD36D7520C7D87000CB3B21 /* CoapEndpointSpec.swift */,
+				6DB124DB20BFD97300DE91CB /* CoapMessageOptionParamSpec.swift */,
+				6D529B5420BDEB5600649FFB /* CoapRequestBuilderSpec.swift */,
+				BFA6A33220739CAE007E5D3E /* CoapResponseBuilderSpec.swift */,
+				48EDBE0C2171C8F60057B7B3 /* CoapResponseListenerSpec.swift */,
+				6D94016020C16E5100DC05E5 /* CoapStaticBlockSourceSpec.swift */,
+				FD09E03721F22A6100BBD13A /* CoapStreamingMessageBodySpec.swift */,
+				6D529B6820BE1E7D00649FFB /* RawCoapMessageSpec.swift */,
 			);
-			name = Products;
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		75610D89254B241B001E2BE5 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				6D529A442091AE9500649FFB /* BufferSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		75610D8A254B242E001E2BE5 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				6D3C92391FD80B86006E9551 /* RunLoopSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		75610D8B254B2439001E2BE5 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				6D41E10320CED8FC00CAC73D /* SocketAddressSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		75610D8D254B245C001E2BE5 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				6D41E10620D0042D00CAC73D /* GGBsdDatagramSocketSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		75610D8F254B2497001E2BE5 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */,
+			);
+			path = Spec;
 			sourceTree = "<group>";
 		};
 		BF0408F81FCEBA6600D875BA /* Coap */ = {
 			isa = PBXGroup;
 			children = (
+				75610D88254B23A4001E2BE5 /* Spec */,
 				6D529B6E20BECC2E00649FFB /* CoapBlockwiseResponseListener.swift */,
-				6D529B7720BF199100649FFB /* CoapBlockwiseResponseListenerSpec.swift */,
 				BF0408F91FCEBA6600D875BA /* CoapCode.swift */,
-				48EDBE092171B2800057B7B3 /* CoapCodeSpec.swift */,
 				BF0408FD1FCEBA6600D875BA /* CoapEndpoint.swift */,
-				6DD36D7520C7D87000CB3B21 /* CoapEndpointSpec.swift */,
 				FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */,
 				6D529B7120BEDB0300649FFB /* CoapMessage.swift */,
 				BF00AE8B207393A100B00C3E /* CoapMessageBuilder.swift */,
 				BF0409371FCED3B600D875BA /* CoapMessageOptionParam.swift */,
-				6DB124DB20BFD97300DE91CB /* CoapMessageOptionParamSpec.swift */,
 				6D529B5F20BE0C2C00649FFB /* CoapMessageType.swift */,
 				BF0408FC1FCEBA6600D875BA /* CoapOption.swift */,
 				6D529B5120BDB4FB00649FFB /* CoapOutgoingBody.swift */,
 				6D529B5920BE00F300649FFB /* CoapRequest.swift */,
 				6D529B4B20BD94B300649FFB /* CoapRequestBuilder.swift */,
-				6D529B5420BDEB5600649FFB /* CoapRequestBuilderSpec.swift */,
 				BF0408FA1FCEBA6600D875BA /* CoapRequestHandler.swift */,
 				6D0850ED20D3EA0700492C50 /* CoapResourceHandler.swift */,
 				6D529B4E20BD972A00649FFB /* CoapResponseBuilder.swift */,
-				BFA6A33220739CAE007E5D3E /* CoapResponseBuilderSpec.swift */,
 				BF0408FB1FCEBA6600D875BA /* CoapResponseListener.swift */,
-				48EDBE0C2171C8F60057B7B3 /* CoapResponseListenerSpec.swift */,
 				6D0850F020D3ED2800492C50 /* CoapServer+Request.swift */,
 				6D529B6520BE0F5A00649FFB /* CoapServer+Response.swift */,
 				6D94015720C1475400DC05E5 /* CoapStaticBlockSource.swift */,
-				6D94016020C16E5100DC05E5 /* CoapStaticBlockSourceSpec.swift */,
 				6D529B7420BEEE6500649FFB /* CoapStaticMessageBody.swift */,
-				FD09E03721F22A6100BBD13A /* CoapStreamingMessageBodySpec.swift */,
 				AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */,
 				BFB4B9DB1FDFDC04005EA291 /* RawCoapMessage.swift */,
-				6D529B6820BE1E7D00649FFB /* RawCoapMessageSpec.swift */,
 			);
 			path = Coap;
-			sourceTree = "<group>";
-		};
-		BF516C8B2007672F008E85DF /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		BFCB98E51F7542B800F979B8 = {
@@ -865,7 +609,6 @@
 				BFCB98F01F7542B800F979B8 /* GoldenGate */,
 				48A80FC7220E07690067A593 /* GoldenGateTests */,
 				BFCB98EF1F7542B800F979B8 /* Products */,
-				BF516C8B2007672F008E85DF /* Recovered References */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -887,12 +630,11 @@
 				6DAE27C41FC3B4FF00DB872B /* Bridging */,
 				BF0408F81FCEBA6600D875BA /* Coap */,
 				6DAE27CD1FC3B4FF00DB872B /* Common */,
-				6DCD2E771F9FF61D004919AC /* CoreBluetooth */,
 				6DAE27C81FC3B4FF00DB872B /* IO */,
 				489DC0511FBFA869008B4F5E /* Logging */,
 				6DAE27D61FC3B50000DB872B /* Loop */,
 				6DAE282A1FC3B60300DB872B /* Networking */,
-				FDCC7CB5236436E600910311 /* Operators */,
+				FDBE5B802628457D00EFAB58 /* Peer */,
 				6D7BC9542063F8830039A371 /* Stack */,
 				481F27AF1F8F396400074F66 /* Supporting Files */,
 				6D4AB3BD1FA0B08E005498AF /* Testing */,
@@ -900,19 +642,61 @@
 				6D5E3005205295F300A5FA83 /* Utils */,
 				489DC0631FBFCC6E008B4F5E /* GoldenGateInitializer.swift */,
 				6D3C92471FD82B60006E9551 /* GoldenGatePrincipalClass.swift */,
-				6D13184020696F45002AA4C8 /* GoldenGateVersion.swift */,
-				48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */,
 			);
 			path = GoldenGate;
 			sourceTree = "<group>";
 		};
-		FDCC7CB5236436E600910311 /* Operators */ = {
+		FDBE5B802628457D00EFAB58 /* Peer */ = {
 			isa = PBXGroup;
 			children = (
-				FDCC7CB62364377900910311 /* OptionalStringInterpolation.swift */,
+				FDBE5B812628457D00EFAB58 /* Node */,
+				FDBE5B862628457D00EFAB58 /* Hub */,
 			);
-			path = Operators;
+			path = Peer;
 			sourceTree = "<group>";
+		};
+		FDBE5B812628457D00EFAB58 /* Node */ = {
+			isa = PBXGroup;
+			children = (
+				FDBE5B822628457D00EFAB58 /* Node+NetworkLink.swift */,
+				FDBE5B842628457D00EFAB58 /* NodeConnection.swift */,
+				FDBE5B852628457D00EFAB58 /* Node.swift */,
+			);
+			path = Node;
+			sourceTree = "<group>";
+		};
+		FDBE5B862628457D00EFAB58 /* Hub */ = {
+			isa = PBXGroup;
+			children = (
+				FDBE5B8B2628457D00EFAB58 /* Spec */,
+				FDBE5B872628457D00EFAB58 /* HubConnection.swift */,
+				FDBE5B882628457D00EFAB58 /* Hub+NetworkLink.swift */,
+				FDBE5B8D2628457D00EFAB58 /* Hub.swift */,
+				FDBE5B8E2628457D00EFAB58 /* Hub+LinkStatusService.swift */,
+			);
+			path = Hub;
+			sourceTree = "<group>";
+		};
+		FDBE5B8B2628457D00EFAB58 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				FDBE5C122628493500EFAB58 /* Mocks */,
+				FDBE5B8C2628457D00EFAB58 /* HubSpec.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
+		FDBE5C122628493500EFAB58 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FDBE5C132628493500EFAB58 /* ServiceMock.swift */,
+				FDBE5C142628493500EFAB58 /* CharacteristicMock.swift */,
+				FDBE5C152628493500EFAB58 /* CentralManagerMock.swift */,
+				FDBE5C162628493500EFAB58 /* PeripheralMock.swift */,
+			);
+			name = Mocks;
+			path = GoldenGate/Peer/Spec/Mocks;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -936,7 +720,6 @@
 				48A80FB8220E07680067A593 /* Frameworks */,
 				48A80FB6220E07680067A593 /* Headers */,
 				48A80FB9220E07680067A593 /* Resources */,
-				AFF076392462D1E400E04F2B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -997,12 +780,6 @@
 			mainGroup = BFCB98E51F7542B800F979B8;
 			productRefGroup = BFCB98EF1F7542B800F979B8 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AF8260DD244772A300EE499A /* Products */;
-					ProjectRef = AF8260DC244772A300EE499A /* FbSmo.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				48A80FBA220E07680067A593 /* GoldenGate */,
@@ -1010,30 +787,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AF8260E3244772A300EE499A /* FbSmo-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "FbSmo-Tests.xctest";
-			remoteRef = AF8260E2244772A300EE499A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AF8260E5244772A300EE499A /* libFbSmo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFbSmo.a;
-			remoteRef = AF8260E4244772A300EE499A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AF8260E7244772A300EE499A /* libSwiftCBOR.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSwiftCBOR.a;
-			remoteRef = AF8260E6244772A300EE499A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		48A80FB9220E07680067A593 /* Resources */ = {
@@ -1078,20 +831,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486851082216619E0026781D /* BatteryServiceLevel.swift in Sources */,
-				48A810DB220E715A0067A593 /* Blaster.swift in Sources */,
 				48A810DD220E71830067A593 /* BlasterService.swift in Sources */,
-				48A80FEF220E081E0067A593 /* BluetoothConfiguration.swift in Sources */,
-				48A80FF0220E081E0067A593 /* BluetoothConnection.swift in Sources */,
-				48A80FF1220E081E0067A593 /* BluetoothPeerDescriptor.swift in Sources */,
-				48A80FF2220E081E0067A593 /* BluetoothReconnectStrategy.swift in Sources */,
-				48A81006220E08360067A593 /* Buffer.swift in Sources */,
+				757DC62A24CF3CFE002FFE52 /* BlastingPlaygroundViewController.swift in Sources */,
+				FDE588522486A8F80095B8AA /* Buffer+XP.swift in Sources */,
 				75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */,
-				48A80FF3220E081E0067A593 /* CentralManager.swift in Sources */,
-				48A81057220E09960067A593 /* CentralManagerSink.swift in Sources */,
-				48A81058220E09960067A593 /* CentralManagerSource.swift in Sources */,
-				75651C36222769ED0076AD25 /* CharacteristicUpdater.swift in Sources */,
 				48A80FD8220E08040067A593 /* CoapBlockwiseResponseListener.swift in Sources */,
+				FDBE5B932628457D00EFAB58 /* HubConnection.swift in Sources */,
 				48A8104C220E09090067A593 /* CoapClientService.swift in Sources */,
 				48A80FD9220E08040067A593 /* CoapCode.swift in Sources */,
 				48A80FDA220E08040067A593 /* CoapEndpoint.swift in Sources */,
@@ -1102,6 +847,7 @@
 				48A80FDD220E08040067A593 /* CoapMessageType.swift in Sources */,
 				48A80FDE220E08040067A593 /* CoapOption.swift in Sources */,
 				48A80FDF220E08040067A593 /* CoapOutgoingBody.swift in Sources */,
+				757DC62824CF3C0D002FFE52 /* CoapPlaygroundViewController.swift in Sources */,
 				48A80FE0220E08040067A593 /* CoapRequest.swift in Sources */,
 				48A80FE1220E08040067A593 /* CoapRequestBuilder.swift in Sources */,
 				48A80FE2220E08040067A593 /* CoapRequestHandler.swift in Sources */,
@@ -1109,34 +855,20 @@
 				48A80FE4220E08040067A593 /* CoapResponseBuilder.swift in Sources */,
 				48A80FE5220E08040067A593 /* CoapResponseListener.swift in Sources */,
 				48A80FE6220E08040067A593 /* CoapServer+Request.swift in Sources */,
+				FDBE5B992628457D00EFAB58 /* Hub+LinkStatusService.swift in Sources */,
 				48A80FE7220E08040067A593 /* CoapServer+Response.swift in Sources */,
 				48A80FE8220E08040067A593 /* CoapStaticBlockSource.swift in Sources */,
 				48A80FE9220E08040067A593 /* CoapStaticMessageBody.swift in Sources */,
+				FDBE5B912628457D00EFAB58 /* NodeConnection.swift in Sources */,
 				48A8104D220E09090067A593 /* CoapTestService.swift in Sources */,
-				48A81043220E08F70067A593 /* ComboBoxViewController.swift in Sources */,
-				48A81044220E08F70067A593 /* ComboBoxViewModel.swift in Sources */,
-				48A8104F220E09090067A593 /* CommonPeer+UserControllable.swift in Sources */,
-				48A8104E220E09090067A593 /* CommonPeer.swift in Sources */,
-				48A81045220E08F70067A593 /* CommonPeerViewController.swift in Sources */,
-				48A81046220E08F70067A593 /* CommonPeerViewModel.swift in Sources */,
-				48A81047220E08F70067A593 /* ConfigureStackViewController.swift in Sources */,
-				48A8101A220E085D0067A593 /* Connection.swift in Sources */,
-				48A8101B220E085D0067A593 /* ConnectionController.swift in Sources */,
-				48A8101C220E085D0067A593 /* Connector.swift in Sources */,
-				48A81050220E09090067A593 /* Data+NetworkExtensions.swift in Sources */,
-				48A81007220E08360067A593 /* DataBuffer.swift in Sources */,
-				48BAB3F4224F033E007A3F3D /* DataProbe.swift in Sources */,
-				48A81009220E08360067A593 /* DataSink+Rx.swift in Sources */,
-				48A81008220E08360067A593 /* DataSink.swift in Sources */,
-				48A8100A220E08360067A593 /* DataSinkListener.swift in Sources */,
-				48A8100C220E08360067A593 /* DataSource+Rx.swift in Sources */,
-				48A8100B220E08360067A593 /* DataSource.swift in Sources */,
-				48A81051220E09090067A593 /* DefaultConnectionController.swift in Sources */,
-				48A80FFE220E08250067A593 /* DiscoveredBluetoothPeer.swift in Sources */,
+				FDD7D9C224869F5E00FEE9D0 /* DataSink+XP.swift in Sources */,
+				FDE58856248793CB0095B8AA /* DataSinkListener+XP.swift in Sources */,
+				FDE5885A2487955B0095B8AA /* DataSource+XP.swift in Sources */,
+				FDBE5B922628457D00EFAB58 /* Node.swift in Sources */,
 				48A8101D220E085D0067A593 /* DtlsOptions.swift in Sources */,
 				48A81035220E08A20067A593 /* DtlsProtocolState.swift in Sources */,
 				48A81036220E08A20067A593 /* GattlinkParameters.swift in Sources */,
-				48A80FFF220E08250067A593 /* GattlinkService.swift in Sources */,
+				FDBE5B8F2628457D00EFAB58 /* Node+NetworkLink.swift in Sources */,
 				48A80FD2220E07E40067A593 /* GGAdaptable.swift in Sources */,
 				48A80FD3220E07E40067A593 /* GGAdapter.swift in Sources */,
 				48A8103E220E08AB0067A593 /* GGBsdDatagramSocket.swift in Sources */,
@@ -1145,51 +877,20 @@
 				48A80FEB220E08150067A593 /* GGEvent.swift in Sources */,
 				48A80FEC220E08150067A593 /* GGEventListener.swift in Sources */,
 				48A80FED220E08150067A593 /* GGFourCharCode.swift in Sources */,
+				48A8104E220E09090067A593 /* GGPeer.swift in Sources */,
 				48A81054220E09120067A593 /* GoldenGateInitializer.swift in Sources */,
 				48A8100F220E08410067A593 /* GoldenGateLogger.swift in Sources */,
 				48A81055220E09120067A593 /* GoldenGateVersion.swift in Sources */,
-				48555F362229BA29000A0828 /* Hub+BatteryLevel.swift in Sources */,
-				48A81001220E08250067A593 /* Hub+Connection.swift in Sources */,
-				48555F342229B978000A0828 /* Hub+LinkStatusService.swift in Sources */,
-				4830C7872224FAE100AFF465 /* Hub+NetworkLink.swift in Sources */,
-				48A81002220E08250067A593 /* Hub+Scanner.swift in Sources */,
-				48A81000220E08250067A593 /* Hub.swift in Sources */,
 				48A8101E220E085D0067A593 /* IpAddress.swift in Sources */,
-				75860A842244E42D00AE3D81 /* LinkConfigurationService+GeneralPurposeCommand.swift in Sources */,
-				48A80FF5220E081E0067A593 /* LinkConfigurationService+PreferredConnectionConfiguration.swift in Sources */,
-				48A80FF6220E081E0067A593 /* LinkConfigurationService+PreferredConnectionMode.swift in Sources */,
-				48A81003220E08250067A593 /* LinkConfigurationService.swift in Sources */,
-				48A81048220E08F70067A593 /* LinkConfigurationViewController.swift in Sources */,
-				48A80FF7220E081E0067A593 /* LinkStatusService+ConnectionConfiguration.swift in Sources */,
-				48A80FF8220E081E0067A593 /* LinkStatusService+ConnectionStatus.swift in Sources */,
-				48A8105A220E09960067A593 /* LinkStatusService.swift in Sources */,
 				751A7A942328FF6800087BFB /* Log+Bindings.swift in Sources */,
 				751A7A962328FF7500087BFB /* Log+Bluetooth.swift in Sources */,
 				48A81011220E08410067A593 /* Log+Rx.swift in Sources */,
 				48A81010220E08410067A593 /* Log.swift in Sources */,
 				48A81012220E08410067A593 /* Logger.swift in Sources */,
+				FDBE5B982628457D00EFAB58 /* Hub.swift in Sources */,
 				48A81013220E08410067A593 /* LogHandler.swift in Sources */,
-				48A8101F220E085D0067A593 /* NetworkLink.swift in Sources */,
-				FD05DC6522AF9E70002AB750 /* NilComparer.swift in Sources */,
-				48A8105C220E09960067A593 /* Node+Advertiser.swift in Sources */,
-				48A8105D220E09960067A593 /* Node+Connection.swift in Sources */,
-				483F84BC22C4B8BB000155FD /* Node+NetworkLink.swift in Sources */,
-				48A8105B220E09960067A593 /* Node.swift in Sources */,
-				FDCC7CB72364377900910311 /* OptionalStringInterpolation.swift in Sources */,
 				48A8103F220E08AB0067A593 /* PerfDataSink.swift in Sources */,
-				48A80FF9220E081E0067A593 /* Peripheral+GG.swift in Sources */,
-				48A80FFA220E081E0067A593 /* PeripheralManager.swift in Sources */,
-				48A81004220E08250067A593 /* PeripheralManagerSink.swift in Sources */,
-				48A81005220E08250067A593 /* PeripheralManagerSource.swift in Sources */,
-				48A81049220E08F70067A593 /* PickerViewController.swift in Sources */,
-				48A8100D220E08360067A593 /* Port.swift in Sources */,
 				48A80FEA220E08040067A593 /* RawCoapMessage.swift in Sources */,
-				48A80FFB220E081E0067A593 /* ReadRequest.swift in Sources */,
-				48A81020220E085D0067A593 /* ReconnectingConnectionController.swift in Sources */,
-				48A81021220E085D0067A593 /* ReconnectStrategy.swift in Sources */,
-				75651C34222769810076AD25 /* RetryingWriter.swift in Sources */,
-				48A81040220E08F70067A593 /* ReusableTableViewCell.swift in Sources */,
-				48A81022220E085D0067A593 /* Role.swift in Sources */,
 				48A81015220E08480067A593 /* RunLoop+Assert.swift in Sources */,
 				48A81016220E08480067A593 /* RunLoop+Invocation.swift in Sources */,
 				48A81017220E08480067A593 /* RunLoop+Ownership.swift in Sources */,
@@ -1198,23 +899,17 @@
 				48A81014220E08480067A593 /* RunLoop.swift in Sources */,
 				48A81023220E085D0067A593 /* SecureDatagramClient.swift in Sources */,
 				48A81024220E085D0067A593 /* SecureDatagramServer.swift in Sources */,
-				48A80FFC220E081E0067A593 /* Service+GG.swift in Sources */,
-				48A81053220E09090067A593 /* ServiceDescriptor.swift in Sources */,
-				48A8104A220E08F70067A593 /* ServiceViewController.swift in Sources */,
+				48A81053220E09090067A593 /* ServiceDescriptor+GG.swift in Sources */,
 				48A81025220E085D0067A593 /* SocketAddress.swift in Sources */,
+				FDBE5B942628457D00EFAB58 /* Hub+NetworkLink.swift in Sources */,
 				48A81037220E08A20067A593 /* Stack.swift in Sources */,
 				48A81038220E08A20067A593 /* StackConfiguration.swift in Sources */,
-				48A81039220E08A20067A593 /* StackDescriptor.swift in Sources */,
+				75A646C52488E74F00B47E0A /* StackDescriptor+GG.swift in Sources */,
 				48A8103A220E08A20067A593 /* StackElementId.swift in Sources */,
 				48A8103B220E08A20067A593 /* StackElementType.swift in Sources */,
 				48A8103C220E08A20067A593 /* StackPortId.swift in Sources */,
 				48A81026220E085D0067A593 /* TlsKeyResolver.swift in Sources */,
-				75F6F9782327E2C600F4C207 /* TransportReadiness.swift in Sources */,
-				48A81041220E08F70067A593 /* UILabel+Rx.swift in Sources */,
-				48A81042220E08F70067A593 /* UITableViewCell+Rx.swift in Sources */,
 				48A80FEE220E08150067A593 /* UnsafeHeapAllocatedValue.swift in Sources */,
-				48A8100E220E08360067A593 /* VoidDataSink.swift in Sources */,
-				48A80FFD220E081E0067A593 /* WriteRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1228,33 +923,25 @@
 				48A81062220E0CA30067A593 /* CoapEndpointSpec.swift in Sources */,
 				48A81063220E0CA30067A593 /* CoapMessageOptionParamSpec.swift in Sources */,
 				48A81064220E0CA30067A593 /* CoapRequestBuilderSpec.swift in Sources */,
+				FDBE5C212628494100EFAB58 /* CentralManagerMock.swift in Sources */,
+				FDBE5C1D2628493C00EFAB58 /* ServiceMock.swift in Sources */,
 				48A81065220E0CA30067A593 /* CoapResponseBuilderSpec.swift in Sources */,
 				48A81066220E0CA30067A593 /* CoapResponseListenerSpec.swift in Sources */,
 				48A81067220E0CA30067A593 /* CoapStaticBlockSourceSpec.swift in Sources */,
+				FDBE5C202628494100EFAB58 /* CharacteristicMock.swift in Sources */,
 				48A81068220E0CA30067A593 /* CoapStreamingMessageBodySpec.swift in Sources */,
-				48A81076220E0CCE0067A593 /* ConnectionControllerSpec.swift in Sources */,
-				48A81089220E0D160067A593 /* Data+NetworkExtensionsSpec.swift in Sources */,
-				48A8106E220E0CB60067A593 /* DataSink+RxSpec.swift in Sources */,
-				48A8106F220E0CB60067A593 /* DataSource+RxSpec.swift in Sources */,
+				FDBE5C222628494100EFAB58 /* PeripheralMock.swift in Sources */,
 				48A80FD5220E07EB0067A593 /* GGAdaptableSpec.swift in Sources */,
 				48A80FD6220E07EB0067A593 /* GGAdapterSpec.swift in Sources */,
 				48A81088220E0D090067A593 /* GGBsdDatagramSocketSpec.swift in Sources */,
+				FDBE5C4D26284A6B00EFAB58 /* TestScheduler+AdvanceBy.swift in Sources */,
+				75610D90254B25D8001E2BE5 /* GoldenGateVersionSpec.swift in Sources */,
+				FDBE5C252628496200EFAB58 /* HubSpec.swift in Sources */,
 				48A80FD7220E07EB0067A593 /* GGErrorTypeSpec.swift in Sources */,
 				48A8108A220E0D1E0067A593 /* GoldenGatePrincipalClass.swift in Sources */,
-				48A8108B220E0D220067A593 /* GoldenGateVersionSpec.swift in Sources */,
-				48A81072220E0CC60067A593 /* MockConnection.swift in Sources */,
-				48A81073220E0CC60067A593 /* MockConnectionController.swift in Sources */,
-				48A81074220E0CC60067A593 /* MockConnector.swift in Sources */,
-				48A8106A220E0CB00067A593 /* MockDataSink.swift in Sources */,
-				48A8106B220E0CB00067A593 /* MockDataSinkListener.swift in Sources */,
-				48A8106C220E0CB00067A593 /* MockDataSource.swift in Sources */,
-				48A81075220E0CC60067A593 /* MockStack.swift in Sources */,
 				48A81069220E0CA30067A593 /* RawCoapMessageSpec.swift in Sources */,
-				48A81077220E0CCE0067A593 /* ReconnectingConnectionControllerSpec.swift in Sources */,
-				75BD2C452227706F0067C7E0 /* RetryingWriterSpec.swift in Sources */,
 				48A81071220E0CBF0067A593 /* RunLoopSpec.swift in Sources */,
 				48A81078220E0CCE0067A593 /* SocketAddressSpec.swift in Sources */,
-				48A81070220E0CB60067A593 /* VoidDataSinkSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,6 +989,7 @@
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../xp/generated/GoldenGateXP";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1339,6 +1027,7 @@
 				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/../xp/generated/GoldenGateXP";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

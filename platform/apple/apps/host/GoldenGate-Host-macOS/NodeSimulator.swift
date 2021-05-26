@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 11/18/17.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 import RxCocoa
@@ -16,22 +17,19 @@ import RxSwift
 
 /// Test-bed for emulating a node using your macOS device.
 class NodeSimulator {
-    let node: Node
-    let defaultConnectionControllerProvider: (Observable<StackDescriptor>) -> DefaultConnectionController
-    let advertiser: Node.Advertiser
+    let connectionController: ConnectionController<NodeConnection>
+    let advertiser: BluetoothAdvertiser
 
     private let peerManager: PeerManager<ManagedHub>
     private let scheduler: SerialDispatchQueueScheduler
     private let disposeBag = DisposeBag()
 
     init(
-        node: Node,
-        defaultConnectionControllerProvider: @escaping (Observable<StackDescriptor>) -> DefaultConnectionController,
-        advertiser: Node.Advertiser,
+        connectionController: ConnectionController<NodeConnection>,
+        advertiser: BluetoothAdvertiser,
         peerManager: PeerManager<ManagedHub>
     ) {
-        self.node = node
-        self.defaultConnectionControllerProvider = defaultConnectionControllerProvider
+        self.connectionController = connectionController
         self.advertiser = advertiser
 
         self.peerManager = peerManager
@@ -51,24 +49,22 @@ class NodeSimulator {
 
         // Whenever a peer (descriptor) subscribes to us
         // create a new `Hub` object (or force a reconnect).
-        advertiser.subscribedBluetoothPeerDescriptor
+        advertiser.subscribedPeerDescriptor
             .observeOn(scheduler)
             .map { [peerManager] descriptor -> ManagedHub in
-                if let peer = peerManager.get(bluetoothPeerDescriptor: descriptor) {
+                if let peer = peerManager.get(peerDescriptor: descriptor) {
                     return peer
                 } else {
-                    return peerManager.getOrCreate(bluetoothPeerDescriptor: descriptor, name: "Peer")
+                    return peerManager.getOrCreate(peerDescriptor: descriptor, name: "Peer")
                 }
             }
-            .map { $0.setUserWantsToConnect(true) }
-            .subscribe()
+            .subscribe(onNext: { $0.connectionController.establishConnection(trigger: "node_connect") })
             .disposed(by: disposeBag)
 
         // Release `Hub` whenever the previously subscribed peer unsubscribed
-        advertiser.unsubscribedBluetoothPeerDescriptor
+        advertiser.unsubscribedPeerDescriptor
             .observeOn(scheduler)
-            .map(peerManager.get(bluetoothPeerDescriptor:))
-            .filterNil()
+            .compactMap(peerManager.get(peerDescriptor:))
             .do(onNext: peerManager.remove)
             .subscribe()
             .disposed(by: disposeBag)

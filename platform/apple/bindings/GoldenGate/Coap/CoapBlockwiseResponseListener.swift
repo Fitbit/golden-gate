@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 5/30/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
 import Rxbit
 import RxSwift

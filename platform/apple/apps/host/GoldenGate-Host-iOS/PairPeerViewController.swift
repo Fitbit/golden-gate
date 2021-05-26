@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 11/1/17.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 import RxCocoa
@@ -14,8 +15,10 @@ import RxSwift
 import UIKit
 
 class PairPeerViewController: UITableViewController {
-    var scanner: Hub.Scanner!
+    var scanner: BluetoothScanner!
     var peerManager: PeerManager<ManagedNode>!
+
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +38,8 @@ class PairPeerViewController: UITableViewController {
             // handle asynchronously to get a chance for scanner to stop established connections
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self, peerManager] peer in
-                let descriptor = BluetoothPeerDescriptor(identifier: peer.identifier)
-                _ = peerManager!.getOrCreate(bluetoothPeerDescriptor: descriptor, name: peer.name.value)
+                let descriptor = PeerDescriptor(identifier: peer.identifier)
+                _ = peerManager!.getOrCreate(peerDescriptor: descriptor, name: peer.name.value)
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
@@ -69,6 +72,8 @@ class PairPeerViewController: UITableViewController {
 }
 
 private class Cell: UITableViewCell {
+    private let disposeBag = DisposeBag()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }

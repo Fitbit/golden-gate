@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 3/28/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
 
 /// Utility that holds strong references to objects

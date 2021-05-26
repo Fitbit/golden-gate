@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:New Group"
+      name = "External">
+      <FileRef
+         location = "group:../Carthage/Build/iOS/RxBlocking.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/RxCocoa.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/RxRelay.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/RxSwift.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/RxTest.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/Nimble.framework">
+      </FileRef>
+      <FileRef
+         location = "group:../Carthage/Build/iOS/Quick.framework">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Rxbit.xcodeproj">
+   </FileRef>
+</Workspace>

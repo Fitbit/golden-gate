@@ -25,9 +25,11 @@ public struct DtlsOptions {
     }
 
     internal var gg: GG_TlsOptions {
-        return GG_TlsOptions(
-            cipher_suites: cipherSuites,
-            cipher_suites_count: cipherSuites.count
-        )
+        cipherSuites.withUnsafeBufferPointer {
+            GG_TlsOptions(
+                cipher_suites: $0.baseAddress,
+                cipher_suites_count: cipherSuites.count
+            )
+        }
     }
 }

@@ -14,25 +14,23 @@ import RxSwift
 import UIKit
 
 class RootViewController: UITableViewController {
-    enum Section: Int {
+    enum Section: Int, CaseIterable {
         case connectivity
         case hostVersionInfo
         case ggVersionInfo
-
-        static let count = 3
     }
 
-    enum GoldenGateVersionInfoRow: Int {
+    enum GoldenGateVersionInfoRow: Int, CaseIterable {
         case majorMinorPatch
         case commitHash
         case branchName
         case date
         case commitCount
-
-        static let count = 5
     }
 
     var peerManager: PeerManager<ManagedNode>!
+
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +53,7 @@ class RootViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.count
+        return Section.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +63,7 @@ class RootViewController: UITableViewController {
         case .hostVersionInfo:
             return 1
         case .ggVersionInfo:
-            return GoldenGateVersionInfoRow.count
+            return GoldenGateVersionInfoRow.allCases.count
         }
     }
 
@@ -94,10 +92,10 @@ class RootViewController: UITableViewController {
         // Generate: "N / M" = N peers connected, M peers known
         peerManager.peers
             .flatMapLatest { known -> Observable<String> in
-                let states = known.map { $0.connectionController.state.asObservable() }
+                let states = known.map { $0.connectionController.connectionStatus.asObservable() }
 
                 return Observable.combineLatest(states)
-                    .map { $0.filter { $0 == .connected } }
+                    .map { $0.filter { $0.connected } }
                     .startWith([])
                     .map { connected in "\(connected.count) / \(known.count)" }
             }
@@ -117,6 +115,8 @@ class RootViewController: UITableViewController {
         let version = dictionary["CFBundleShortVersionString"] as? String ?? "??"
         let build = dictionary["CFBundleVersion"] as? String ?? "??"
         cell.detailTextLabel?.text = "\(version) (\(build))"
+
+        cell.isUserInteractionEnabled = false
 
         return cell
     }
@@ -150,6 +150,8 @@ class RootViewController: UITableViewController {
             cell.textLabel?.text = "Commit Count"
             cell.detailTextLabel?.text = "\(version.commitCount)"
         }
+
+        cell.isUserInteractionEnabled = false
 
         return cell
     }

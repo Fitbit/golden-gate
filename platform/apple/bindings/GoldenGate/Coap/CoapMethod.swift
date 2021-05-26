@@ -19,7 +19,7 @@ public enum CoapMethod {
 
 /// Convert between Swift CoAP method and GG XP CoAP method.
 extension CoapMethod {
-    // swiftlint:disable identifier_name next
+    // swiftlint:disable:next identifier_name
     var gg_coapMethod: GG_CoapMethod {
         switch self {
         case .put:
@@ -33,7 +33,7 @@ extension CoapMethod {
         }
     }
 
-    // swiftlint:disable identifier_name next
+    // swiftlint:disable:next identifier_name
     init(gg_coapMethod: GG_CoapMethod) {
         switch gg_coapMethod {
         case GG_COAP_METHOD_DELETE:
