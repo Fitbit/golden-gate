@@ -14,7 +14,7 @@ import RxSwift
 public class CoapClientService {
     typealias Ref = OpaquePointer
 
-    private var ref: Ref
+    var ref: Ref
     private let runLoop: GoldenGate.RunLoop
     private let coapEndpoint: CoapEndpointRefType
 
