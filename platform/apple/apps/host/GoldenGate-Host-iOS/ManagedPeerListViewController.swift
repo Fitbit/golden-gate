@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 11/2/17.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 import RxCocoa
@@ -15,6 +16,8 @@ import UIKit
 
 class ManagedPeerListViewController: UITableViewController {
     var peerManager: PeerManager<ManagedNode>!
+
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +62,45 @@ class ManagedPeerListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        peerManager.peers.value[indexPath.row].setUserWantsToConnect(true)
+        peerManager.peers.value[indexPath.row].connectionController.establishConnection(trigger: "admin")
     }
 
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let peerManager = self.peerManager!
         let peer = peerManager.peers.value[indexPath.row]
-        let viewController = CommonPeerViewController(style: .grouped)
+        let viewController = PeerViewController<PeerViewModel<HubConnection>>(style: .grouped)
         let linkConfigurationViewControllerViewModel = LinkConfigurationViewControllerViewModel(
             preferredConnectionConfiguration: peer.preferredConnectionConfiguration,
             preferredConnectionMode: peer.preferredConnectionMode
         )
+
         viewController.title = peer.name.value
-        viewController.viewModel = CommonPeerViewModel(commonPeer: peer, linkConfigurationViewControllerViewModel: linkConfigurationViewControllerViewModel)
+
+        let connection = peer.connectionController.connectionStatus.map { $0.connection }
+        viewController.viewModel = PeerViewModel(
+            peer: .just(peer),
+            connectionController: peer.connectionController,
+            remoteConnectionStatus: connection.flatMapLatestForwardingNil { $0.remoteConnectionStatus },
+            remoteConnectionConfiguration: connection.flatMapLatestForwardingNil { $0.remoteConnectionConfiguration },
+            linkConfigurationViewControllerViewModel: linkConfigurationViewControllerViewModel
+        )
+
+        viewController.servicePlaygroundProvider = { descriptor, _ in
+            switch descriptor {
+            case .coap:
+                let playgroundViewController = CoapPlaygroundViewController(style: .grouped)
+                playgroundViewController.title = "CoAP playground"
+                playgroundViewController.viewModel = peer
+                return playgroundViewController
+            case .blasting:
+                let playgroundViewController = BlastingPlaygroundViewController(style: .grouped)
+                playgroundViewController.title = "Blasting playground"
+                playgroundViewController.viewModel = peer
+                return playgroundViewController
+            default: fatalError("Could not create a playground without a service")
+            }
+        }
+
         viewController.onForget = { peerManager.remove(peer) }
         navigationController!.pushViewController(viewController, animated: true)
     }
@@ -85,6 +114,8 @@ private extension ManagedPeerListViewController {
 }
 
 private class Cell: UITableViewCell, ReusableTableViewCell {
+    private let disposeBag = DisposeBag()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         accessoryType = .detailButton
@@ -94,34 +125,24 @@ private class Cell: UITableViewCell, ReusableTableViewCell {
         fatalError("not implemented")
     }
 
-    func bind(_ peer: ManagedPeer) {
+    func bind(_ peer: ManagedNode) {
         peer.name
             .asDriver()
             .drive(textLabel!.rx.text)
             .disposed(by: disposeBag)
 
-        peer.state
-            .asDriver()
+        peer.connectionController.connectionStatus
+            .asDriver(onErrorJustReturn: .disconnected)
             .map { $0.cellDescription }
             .drive(detailTextLabel!.rx.text)
             .disposed(by: disposeBag)
 
-        peer.state
-            .asDriver()
-            .map { $0 == .connected ? UIColor.darkText : UIColor.lightGray }
+        peer.connectionController.connectionStatus
+            .asDriver(onErrorJustReturn: .disconnected)
+            .map { $0.connected ? UIColor.darkText : UIColor.lightGray }
             .drive(onNext: { [detailTextLabel] in
                 detailTextLabel?.textColor = $0
             })
             .disposed(by: disposeBag)
-    }
-}
-
-private extension CommonPeer.State {
-    var cellDescription: String {
-        switch self {
-        case .disconnected: return "Not Connected"
-        case .connecting: return "Connecting…"
-        case .connected: return "Connected"
-        }
     }
 }

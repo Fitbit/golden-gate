@@ -7,9 +7,11 @@
 //  Created by Bogdan Vlad on 11/21/17.
 //
 
+import BluetoothConnection
 import GoldenGateXP
-import Rxbit
 import RxSwift
+
+// swiftlint:disable file_length
 
 public typealias CoapResponseHandler = (CoapMessage, CoapResponseBuilder) throws -> CoapServer.Response
 

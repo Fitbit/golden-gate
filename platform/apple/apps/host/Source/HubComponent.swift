@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 4/4/18.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGate
 
@@ -25,8 +26,11 @@ class HubComponent: ComponentBase {
 
     func makeManagedNode(record: PeerRecord) -> ManagedNode {
         return ManagedNode(
+            connectionController: makeConnectionController(resolver: hub),
             record: record,
-            commonPeerParameters: commonPeerParameters,
+            peerParameters: peerParameters,
+            runLoop: runLoop,
+            globalBlasterConfiguration: globalBlasterConfiguration.asObservable(),
             linkConfigurationService: linkConfigurationService
         )
     }

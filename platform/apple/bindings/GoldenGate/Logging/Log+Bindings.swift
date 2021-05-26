@@ -18,7 +18,8 @@ func assertLogBindingsError(
     assertLogError(message(), file: file, function: function, line: line, domain: .bindings)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBindingsError(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -28,7 +29,8 @@ func LogBindingsError(
     LogError(message(), file: file, function: function, line: line, domain: .bindings)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBindingsWarning(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -38,7 +40,8 @@ func LogBindingsWarning(
     LogWarning(message(), file: file, function: function, line: line, domain: .bindings)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBindingsInfo(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -48,7 +51,8 @@ func LogBindingsInfo(
     LogInfo(message(), file: file, function: function, line: line, domain: .bindings)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBindingsDebug(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,
@@ -58,7 +62,8 @@ func LogBindingsDebug(
     LogDebug(message(), file: file, function: function, line: line, domain: .bindings)
 }
 
-// swiftlint:disable:next identifier_name The name matches the name in the main app
+// The name matches the name in the main app
+// swiftlint:disable:next identifier_name
 func LogBindingsVerbose(
     _ message: @autoclosure () -> String,
     file: StaticString = #file,

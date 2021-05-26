@@ -7,17 +7,27 @@
 //  Created by Marcel Jackwerth on 4/4/18.
 //
 
+import BluetoothConnection
 import GoldenGate
 import RxCocoa
 import RxSwift
 
-class ManagedHub: ManagedPeer {
+class ManagedHub: ManagedPeer<NodeConnection> {
     private let disposeBag = DisposeBag()
 
-    override init(record: PeerRecord, commonPeerParameters: CommonPeer.Parameters) {
+    override init(
+        connectionController: ConnectionController<NodeConnection>,
+        record: PeerRecord,
+        peerParameters: PeerParameters,
+        runLoop: GoldenGate.RunLoop,
+        globalBlasterConfiguration: Observable<BlasterService.Configuration>
+    ) {
         super.init(
+            connectionController: connectionController,
             record: record,
-            commonPeerParameters: commonPeerParameters
+            peerParameters: peerParameters,
+            runLoop: runLoop,
+            globalBlasterConfiguration: globalBlasterConfiguration
         )
         let registerHelloWorld = HelloWorldResource()
             .register(on: coapEndpoint)

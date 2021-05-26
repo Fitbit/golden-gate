@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 11/28/17.
 //
 
+import BluetoothConnection
 import Foundation
 import GoldenGateXP
 import RxCocoa
@@ -129,4 +130,10 @@ public final class BlasterService {
             GG_BlastService_Destroy(ref)
         }
     }
+}
+
+public enum BlastPacketFormat: UInt32 {
+    case counter
+    // swiftlint:disable:next identifier_name
+    case ip
 }

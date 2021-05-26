@@ -1,6 +1,6 @@
 github "Polidea/RxBluetoothKit" "e9f46b51fb3f1bf9d9b967c176866c9fae77c540"
-github "Quick/Nimble" "v8.1.1"
-github "Quick/Quick" "v2.2.1"
+github "Quick/Nimble" "v9.0.0"
+github "Quick/Quick" "v3.0.0"
 github "ReactiveX/RxSwift" "5.1.1"
 github "daltoniam/Starscream" "a2ed45c0b2f996cb8c335c4f270ecc68c3bd4c0f"
 github "fpillet/NSLogger" "v1.9.7"

@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 6/9/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
 
 /// A platform native BSD datagram socket

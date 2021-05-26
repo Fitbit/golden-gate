@@ -7,8 +7,8 @@
 //  Created by Marcel Jackwerth on 3/22/18.
 //
 
+import BluetoothConnection
 import GoldenGateXP
-import Rxbit
 
 private extension RunLoop {
     /// Releases the retained unmanaged object on the runloop.
