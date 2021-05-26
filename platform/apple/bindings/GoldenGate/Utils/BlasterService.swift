@@ -47,7 +47,7 @@ public final class BlasterService {
     public let shouldBlast = BehaviorRelay(value: false)
     public let isBlasting: Observable<Bool>
 
-    private var ref: Ref
+    var ref: Ref
     private let runLoop: GoldenGate.RunLoop
     private let port: Observable<Port?>
     private let disposeBag = DisposeBag()

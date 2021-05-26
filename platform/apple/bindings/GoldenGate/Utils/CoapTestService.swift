@@ -13,7 +13,7 @@ import RxSwift
 public class CoapTestService {
     typealias Ref = OpaquePointer
 
-    private var ref: Ref
+    var ref: Ref
     private let runLoop: RunLoop
     private let coapEndpoint: CoapEndpointRefType
 
