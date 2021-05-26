@@ -84,7 +84,9 @@ def _carthage_setup_environment():
     # See https://github.com/Carthage/Carthage/issues/3019 for more details
     fp = NamedTemporaryFile(delete=False, prefix='static.xcconfig.')
     fp.write(b'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8\n')
-    fp.write(b'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))')
+    fp.write(b'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))\n')
+    fp.write(b'ENABLE_TESTING_SEARCH_PATHS=YES\n')
+    fp.write(b'OTHER_LDFLAGS=""\n')
     fp.close()
 
     handler = lambda a, b: os.unlink(fp.name)
