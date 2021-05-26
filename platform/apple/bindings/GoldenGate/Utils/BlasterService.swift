@@ -9,7 +9,7 @@
 
 import BluetoothConnection
 import Foundation
-@_exported import GoldenGateXP
+import GoldenGateXP
 import RxCocoa
 import RxSwift
 
