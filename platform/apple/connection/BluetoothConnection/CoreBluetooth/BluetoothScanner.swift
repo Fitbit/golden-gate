@@ -102,9 +102,7 @@ public final class BluetoothScanner {
                 return peers
             }
 
-        return centralManager
-            .observeStateWithInitialValue()
-            .distinctUntilChanged()
+        return centralManager.stabilizedState()
             .flatMapLatest { [isScanning] state -> Observable<[DiscoveredBluetoothPeer]> in
                 guard state == .poweredOn else { return .just([]) }
 

@@ -43,8 +43,8 @@ public protocol CentralManagerType: AnyObject {
     ///   - Complete: Never
     func establishConnection(identifier: UUID, scheduler: SchedulerType) -> Observable<ConnectionStatus<PeripheralType>>
 
-    /// Observable that emits the Bluetooth state
-    func observeStateWithInitialValue() -> Observable<BluetoothState>
+    /// Observable that emits non transient Bluetooth states (any state but unknown). Starts with the current state.
+    func stabilizedState() -> Observable<BluetoothState>
 }
 
 public enum CentralManagerError: Error {
@@ -73,12 +73,17 @@ extension CentralManager: CentralManagerType {
 
         return peripherals.map { $0 as ScannedPeripheralType }
     }
+
+    public func stabilizedState() -> Observable<BluetoothState> {
+        // Per Apple's docs, 'unknown' is a transient state, update being imminent.
+        // Skip unknown state and wait for an update.
+        observeStateWithInitialValue().filter { $0 != .unknown }.distinctUntilChanged()
+    }
 }
 
 extension CentralManagerType {
     public func establishConnection(identifier: UUID, scheduler: SchedulerType) -> Observable<ConnectionStatus<PeripheralType>> {
-        return observeStateWithInitialValue()
-            .distinctUntilChanged()
+        return stabilizedState()
             .logInfo("CentralManager.state:", .bluetooth, .next)
             .flatMapLatest { state -> Observable<ConnectionStatus<PeripheralType>> in
                 guard state == .poweredOn else { throw BluetoothError(state: state) ?? BluetoothError.bluetoothInUnknownState }
