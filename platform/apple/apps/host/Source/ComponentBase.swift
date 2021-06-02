@@ -9,8 +9,10 @@
 
 import BluetoothConnection
 import CoreBluetooth
+import Foundation
 import GoldenGate
 import GoldenGateXP
+import Rxbit
 import RxBluetoothKit
 import RxCocoa
 import RxSwift
@@ -153,13 +155,8 @@ class ComponentBase {
         )
     }()
 
-    lazy var scanner: BluetoothScanner = {
-        BluetoothScanner(
-            centralManager: centralManager,
-            // Scan for multiple UUIDs, as the link service supports multiple configurations
-            services: bluetoothConfiguration.linkService.map { $0.serviceUUID },
-            bluetoothScheduler: bluetoothScheduler
-        )
+    lazy var discoverer: PeerDiscoverer = {
+        PeerDiscoverer(centralManager: centralManager, bluetoothScheduler: bluetoothScheduler)
     }()
 
     lazy var advertiser: BluetoothAdvertiser = {
@@ -181,7 +178,7 @@ class ComponentBase {
         return database
     }()
 
-    func makeConnectionController<R: ConnectionResolver>(resolver: R) -> ConnectionController<R.ConnectionType> {
+    func makeConnectionController<R: ConnectionResolver>(resolver: R) -> AnyConnectionController<R.ConnectionType> {
         // Emit a value whenever we observe * -> PoweredOn
         // which might indicate the user power-cycling iOS's Bluetooth.
         let didEnableBluetooth = centralManager.observeState()
@@ -189,22 +186,28 @@ class ComponentBase {
             .distinctUntilChanged()
             .filter { $0 }
 
-        let reconnectStrategy = BluetoothReconnectStrategy(
-            resumeTrigger: Observable.merge(
-                appDidBecomeActiveSubject.map { _ in "Application did become active" },
-                didEnableBluetooth.map { _ in "Bluetooth was powered on" }
+        let reconnectStrategy = ConnectivityRetryStrategy(
+            configuration: RetryDelayConfiguration(
+                interval: .milliseconds(250),
+                resume: Observable.merge(
+                    appDidBecomeActiveSubject.map { _ in "Application did become active" },
+                    didEnableBluetooth.map { _ in "Bluetooth was powered on" }
+                )
             )
         )
 
-        return ConnectionController(
+        let controller = ConnectionController(
             connector: ConnectionResolvingConnector(
                 connector: BluetoothConnector(centralManager: centralManager, scheduler: bluetoothScheduler),
                 resolver: resolver
             ),
             descriptor: nil,
             reconnectStrategy: reconnectStrategy,
-            scheduler: bluetoothScheduler
+            scheduler: bluetoothScheduler,
+            debugIdentifier: "main"
         )
+
+        return AnyConnectionController(connectionController: controller)
     }
 
     func makeStackBuilder(descriptor: Observable<StackDescriptor>) -> StackBuilderType {
@@ -228,7 +231,7 @@ class ComponentBase {
     }
 
     lazy var helloPsk: (identity: Data, key: Data) = {
-        let identity = "hello".data(using: .utf8)!
+        let identity = Data("hello".utf8)
 
         let key = Data([
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
@@ -239,7 +242,7 @@ class ComponentBase {
     }()
 
     lazy var bootstrapPsk: (identity: Data, key: Data) = {
-        let identity = "BOOTSTRAP".data(using: .utf8)!
+        let identity = Data("BOOTSTRAP".utf8)
 
         let key = Data([
             0x81, 0x06, 0x54, 0xE3, 0x36, 0xAD, 0xCA, 0xB0,

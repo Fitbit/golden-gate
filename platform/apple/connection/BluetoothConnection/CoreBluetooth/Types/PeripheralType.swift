@@ -17,6 +17,7 @@ public enum PeripheralError: Error {
     case servicesChanged
     case missingCharacteristic(CBUUID)
     case unexpectedCharacteristicProperties(CBUUID)
+    case invalidCharacteristicValue(Data?)
 }
 
 /// Peripheral is a ReactiveX wrapper over Core Bluetooth functions allowing to talk to
@@ -112,12 +113,6 @@ extension Peripheral: PeripheralType {
     public func readRSSI() -> Single<(PeripheralType, Int)> {
         let rssi: Single<(Peripheral, Int)> = readRSSI()
         return rssi.map { $0 as (PeripheralType, Int) }
-    }
-}
-
-extension Peripheral: CustomStringConvertible {
-    public var description: String {
-        return "\(type(of: self)) \(peripheral.name ??? "nil") (\(peripheral.identifier))"
     }
 }
 

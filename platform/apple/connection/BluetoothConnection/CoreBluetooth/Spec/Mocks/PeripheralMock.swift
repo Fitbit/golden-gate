@@ -26,16 +26,23 @@ final class PeripheralMock: PeripheralType {
     let isANCSAuthorizedSubject = PublishSubject<Bool>()
     var isANCSAuthorized: Observable<Bool> { isANCSAuthorizedSubject.asObservable() }
 
-    let connectablePeripheral = PublishSubject<PeripheralType>()
+    let connectablePeripheral = PublishSubject<Void>()
+    private(set) var didEstablishConnection: Bool = false
     func establishConnection(options: [String: Any]?) -> Observable<PeripheralType> {
         connectablePeripheral.asObservable()
+            .map { _ in self }
+            .do(onSubscribe: { self.didEstablishConnection = true })
     }
 
     let discoveredServices = PublishSubject<[ServiceType]>()
-    private(set) var didDiscoverAllServices: Bool?
+    private(set) var didDiscoverServices: Bool?
+    private(set) var servicesToDiscover: [CBUUID]?
     func discoverServices(_ serviceUUIDs: [CBUUID]?) -> Single<[ServiceType]> {
         discoveredServices.take(1).asSingle()
-            .do(onSubscribe: { self.didDiscoverAllServices = serviceUUIDs == nil })
+            .do(onSubscribe: {
+                self.didDiscoverServices = true
+                self.servicesToDiscover = serviceUUIDs
+            })
     }
 
     let servicesModification = PublishSubject<[ServiceType]>()
@@ -54,8 +61,32 @@ final class PeripheralMock: PeripheralType {
             .do(onSubscribe: { self.writtenData = data })
     }
 
-    var rssi: (PeripheralType, Int)?
+    var rssi = PublishSubject<Int>()
     func readRSSI() -> Single<(PeripheralType, Int)> {
-        rssi.map(Single.just) ?? Single.never()
+        rssi.map { (self, $0) }
+            .take(1)
+            .asSingle()
     }
+}
+
+extension PeripheralMock {
+    convenience init(identifier: UUID) {
+        self.init()
+        self.identifier = identifier
+    }
+}
+
+final class ScannedPeripheralMock: ScannedPeripheralType {
+    init(peripheral: PeripheralType, rssi: NSNumber = 0) {
+        self._peripheral = peripheral
+        self.rssi = rssi
+    }
+
+    private let _peripheral: PeripheralType
+    func peripheral() -> PeripheralType {
+        _peripheral
+    }
+
+    var advertisementData = AdvertisementData(advertisementData: [:])
+    var rssi: NSNumber
 }

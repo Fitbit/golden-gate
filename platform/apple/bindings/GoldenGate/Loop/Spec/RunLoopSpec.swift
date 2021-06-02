@@ -7,9 +7,11 @@
 //  Created by Marcel Jackwerth on 12/6/17.
 //
 
-@testable import GoldenGate
+import Foundation
 import Nimble
 import Quick
+
+@testable import GoldenGate
 
 // swiftlint:disable:next superfluous_disable_command
 // swiftlint:disable function_body_length identifier_name

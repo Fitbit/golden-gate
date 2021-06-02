@@ -18,8 +18,12 @@ import RxSwift
 public class NodeConnection: LinkConnection {
     // MARK: Connection properties
     public let networkLink = BehaviorRelay<NetworkLink?>(value: nil)
-    public let remotePreferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration?>(value: nil)
-    public let remotePreferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode?>(value: nil)
+    public let modelNumber = Observable<String>.never()
+    public let serialNumber = Observable<String>.never()
+    public let firmwareRevision = Observable<String>.never()
+    public let hardwareRevision = Observable<String>.never()
+    public let remotePreferredConnectionConfiguration = BehaviorRelay<LinkConnectionConfiguration?>(value: nil)
+    public let remotePreferredConnectionMode = BehaviorRelay<LinkConnectionMode?>(value: nil)
 
     public let descriptor: PeerDescriptor
 
@@ -29,28 +33,28 @@ public class NodeConnection: LinkConnection {
     init(
         descriptor: PeerDescriptor,
         networkLink: Observable<NetworkLink>,
-        remotePreferredConnectionConfiguration: Observable<LinkConfigurationService.PreferredConnectionConfiguration>,
-        remotePreferredConnectionMode: Observable<LinkConfigurationService.PreferredConnectionMode>
+        remotePreferredConnectionConfiguration: Observable<LinkConnectionConfiguration>,
+        remotePreferredConnectionMode: Observable<LinkConnectionMode>
     ) {
         self.descriptor = descriptor
 
         networkLink
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logDebug("\(descriptor).networkLink", .bluetooth, .next)
             .subscribe(onNext: self.networkLink.accept)
             .disposed(by: disposeBag)
 
         remotePreferredConnectionConfiguration
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logInfo("\(self.descriptor).remotePreferredConnectionConfiguration: ", .bluetooth, .next)
             .subscribe(onNext: self.remotePreferredConnectionConfiguration.accept)
             .disposed(by: disposeBag)
 
         remotePreferredConnectionMode
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logInfo("\(self.descriptor).remotePreferredConnectionMode: ", .bluetooth, .next)
             .subscribe(onNext: self.remotePreferredConnectionMode.accept)
             .disposed(by: disposeBag)

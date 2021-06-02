@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 3/26/18.
 //
 
+import Foundation
 import GoldenGateXP
 
 /// The version info of the library.

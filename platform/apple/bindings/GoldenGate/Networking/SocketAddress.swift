@@ -9,6 +9,7 @@
 
 import CoreFoundation
 import Darwin
+import Foundation
 import GoldenGateXP
 
 // swiftlint:disable:next superfluous_disable_command

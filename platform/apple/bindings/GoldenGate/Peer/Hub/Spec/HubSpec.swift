@@ -13,18 +13,20 @@
 
 import BluetoothConnection
 import CoreBluetooth
-@testable import GoldenGate
+import Foundation
 import Nimble
 import Quick
 import RxSwift
 import RxTest
+
+@testable import GoldenGate
 
 final class HubSpec: QuickSpec {
     override func spec() {
         let descriptor = PeerDescriptor(identifier: UUID(uuidString: "6B66A7A9-C4F3-4C2A-811A-79EFB7B8A85F")!)
         let configuration = BluetoothConfiguration.test
         let unexpectedUuid = CBUUID()
-        
+
         var peripheralMock: PeripheralMock!
         var serviceMock: ServiceMock!
 
@@ -40,6 +42,12 @@ final class HubSpec: QuickSpec {
         // Confirmation service characteristics
         var ephemeralCharacteristicPointerCharacteristic: CharacteristicMock!
         var ephemeralCharacteristic: CharacteristicMock!
+
+        // Device info service characteristics
+        var modelNumberCharacteristic: CharacteristicMock!
+        var serialNumberCharacteristic: CharacteristicMock!
+        var firmwareRevisionCharacteristic: CharacteristicMock!
+        var hardwareRevisionCharacteristic: CharacteristicMock!
 
         var scheduler: TestScheduler!
         var disposeBag: DisposeBag!
@@ -64,6 +72,13 @@ final class HubSpec: QuickSpec {
             )
         }
 
+        func makeDeviceInfoService() -> BluetoothConnector.DiscoveredService {
+            BluetoothConnector.DiscoveredService(
+                uuid: configuration.deviceInfoService.serviceUUID,
+                characteristics: .just(CharacteristicCollection([modelNumberCharacteristic, serialNumberCharacteristic, firmwareRevisionCharacteristic, hardwareRevisionCharacteristic]))
+            )
+        }
+
         func makeConfirmationService() -> BluetoothConnector.DiscoveredService {
             BluetoothConnector.DiscoveredService(
                 uuid: configuration.confirmationService.serviceUUID,
@@ -72,7 +87,7 @@ final class HubSpec: QuickSpec {
         }
 
         func makeAllServices() -> [BluetoothConnector.DiscoveredService] {
-            [makeLinkService(), makeLinkStatusService(), makeConfirmationService()]
+            [makeLinkService(), makeLinkStatusService(), makeDeviceInfoService(), makeConfirmationService()]
         }
 
         beforeEach {
@@ -85,6 +100,11 @@ final class HubSpec: QuickSpec {
             bondSecureCharacteristic = makeCharacteristic(configuration.linkStatusService.bondSecureUUID)
             currentConnectionConfigurationCharacteristic = makeCharacteristic(configuration.linkStatusService.currentConnectionConfigurationUUID, value: Data(repeating: 1, count: 9))
             currentConnectionStatusCharacteristic = makeCharacteristic(configuration.linkStatusService.currentConnectionStatusUUID, value: Data(repeating: 1, count: 7))
+
+            modelNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.modelNumberUUID, value: Data("SOME_MODEL_NUMBER".utf8))
+            serialNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.serialNumberUUID, value: Data("SOME_SERIAL_NUMBER".utf8))
+            firmwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.firmwareRevisionUUID, value: Data("SOME_FIRMWARE_REVISION".utf8))
+            hardwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.hardwareRevisionUUID, value: Data("SOME_HARDWARE_REVISION".utf8))
 
             ephemeralCharacteristicPointerCharacteristic = makeCharacteristic(configuration.confirmationService.ephemeralCharacteristicPointerUUID, value: BluetoothConfiguration.ephemeralCharacteristicUuid.data)
             ephemeralCharacteristic = makeCharacteristic(BluetoothConfiguration.ephemeralCharacteristicUuid)
@@ -113,7 +133,7 @@ final class HubSpec: QuickSpec {
             it("fails when the link service is missing") {
                 var error: Error?
 
-                hub.resolveConnection(services: [makeLinkStatusService(), makeConfirmationService()], descriptor: descriptor)
+                hub.resolveConnection(services: [makeLinkStatusService(), makeConfirmationService(), makeDeviceInfoService()], descriptor: descriptor)
                     .subscribe(onError: { error = $0 })
                     .disposed(by: disposeBag)
 
@@ -147,7 +167,7 @@ final class HubSpec: QuickSpec {
             it("doesn't fail when the link status service is missing") {
                 var connection: HubConnection?
 
-                hub.resolveConnection(services: [makeLinkService(), makeConfirmationService()], descriptor: descriptor)
+                hub.resolveConnection(services: [makeLinkService(), makeConfirmationService(), makeDeviceInfoService()], descriptor: descriptor)
                     .subscribe(onNext: { connection = $0 })
                     .disposed(by: disposeBag)
 
@@ -190,10 +210,68 @@ final class HubSpec: QuickSpec {
                 expect(error).to(matchError(ConnectionResolverError.couldNotResolveConnection))
             }
 
+            it("fails when the device info service is missing") {
+                var error: Error?
+
+                hub.resolveConnection(services: [makeLinkService(), makeLinkStatusService(), makeConfirmationService()], descriptor: descriptor)
+                    .subscribe(onError: { error = $0 })
+                    .disposed(by: disposeBag)
+
+                expect(error).to(matchError(ConnectionResolverError.couldNotResolveConnection))
+            }
+
+            it("fails when device info service's model number characteristic is missing") {
+                modelNumberCharacteristic = makeCharacteristic(unexpectedUuid)
+
+                var error: Error?
+
+                hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                    .subscribe(onError: { error = $0 })
+                    .disposed(by: disposeBag)
+
+                expect(error).to(matchError(ConnectionResolverError.couldNotResolveConnection))
+            }
+
+            it("doesn't fail when device info service's serial number characteristic is missing") {
+                serialNumberCharacteristic = makeCharacteristic(unexpectedUuid)
+
+                var connection: HubConnection?
+
+                hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                    .subscribe(onNext: { connection = $0 })
+                    .disposed(by: disposeBag)
+
+                expect(connection).notTo(beNil())
+            }
+
+            it("doesn't fail when device info service's firmware revision characteristic is missing") {
+                firmwareRevisionCharacteristic = makeCharacteristic(unexpectedUuid)
+
+                var connection: HubConnection?
+
+                hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                    .subscribe(onNext: { connection = $0 })
+                    .disposed(by: disposeBag)
+
+                expect(connection).notTo(beNil())
+            }
+
+            it("doesn't fail when device info service's hardware revision characteristic is missing") {
+                hardwareRevisionCharacteristic = makeCharacteristic(unexpectedUuid)
+
+                var connection: HubConnection?
+
+                hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                    .subscribe(onNext: { connection = $0 })
+                    .disposed(by: disposeBag)
+
+                expect(connection).notTo(beNil())
+            }
+
             it("doesn't fail when the confirmation service is missing") {
                 var connection: HubConnection?
 
-                hub.resolveConnection(services: [makeLinkService(), makeLinkStatusService()], descriptor: descriptor)
+                hub.resolveConnection(services: [makeLinkService(), makeLinkStatusService(), makeDeviceInfoService()], descriptor: descriptor)
                     .subscribe(onNext: { connection = $0 })
                     .disposed(by: disposeBag)
 
@@ -416,6 +494,218 @@ final class HubSpec: QuickSpec {
                 }
             }
 
+            context("model number") {
+                it("emits the model number of the device") {
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var modelNumbers: [String] = []
+                    connection?.modelNumber
+                        .subscribe(onNext: { modelNumbers.append($0) })
+                        .disposed(by: disposeBag)
+
+                    modelNumberCharacteristic.value = Data("SOME_OTHER_MODEL_NUMBER".utf8)
+                    modelNumberCharacteristic.didUpdateValueSubject.onNext(())
+
+                    expect(modelNumbers) == ["SOME_MODEL_NUMBER", "SOME_OTHER_MODEL_NUMBER"]
+                }
+
+                it("fails when the model number of the device is not available") {
+                    modelNumberCharacteristic.value = nil
+
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var error: Error?
+                    connection?.modelNumber
+                        .subscribe(onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    expect(error).to(matchError(PeripheralError.invalidCharacteristicValue(nil)))
+                }
+
+                it("does not fail the connection if the model number observable fails") {
+                    var connection: HubConnection?
+                    var error: Error?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 }, onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    connection?.modelNumber
+                        .subscribe()
+                        .disposed(by: disposeBag)
+
+                    modelNumberCharacteristic.didUpdateValueSubject.onError(TestError.someError)
+                    expect(error).to(beNil())
+                }
+            }
+
+            context("serial number") {
+                it("emits the serial number of the device") {
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var serialNumbers: [String] = []
+                    connection?.serialNumber
+                        .subscribe(onNext: { serialNumbers.append($0) })
+                        .disposed(by: disposeBag)
+
+                    serialNumberCharacteristic.value = Data("SOME_OTHER_SERIAL_NUMBER".utf8)
+                    serialNumberCharacteristic.didUpdateValueSubject.onNext(())
+
+                    expect(serialNumbers) == ["SOME_SERIAL_NUMBER", "SOME_OTHER_SERIAL_NUMBER"]
+                }
+
+                it("fails when the serial number of the device is not available") {
+                    serialNumberCharacteristic.value = nil
+
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var error: Error?
+                    connection?.serialNumber
+                        .subscribe(onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    expect(error).to(matchError(PeripheralError.invalidCharacteristicValue(nil)))
+                }
+
+                it("does not fail the connection if the serial number observable fails") {
+                    var connection: HubConnection?
+                    var error: Error?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 }, onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    connection?.serialNumber
+                        .subscribe()
+                        .disposed(by: disposeBag)
+
+                    serialNumberCharacteristic.didUpdateValueSubject.onError(TestError.someError)
+                    expect(error).to(beNil())
+                }
+            }
+
+            context("firmware revision") {
+                it("emits the firmware revision of the device") {
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var versions: [String] = []
+                    connection?.firmwareRevision
+                        .subscribe(onNext: { versions.append($0) })
+                        .disposed(by: disposeBag)
+
+                    firmwareRevisionCharacteristic.value = Data("SOME_OTHER_FIRMWARE_REVISION".utf8)
+                    firmwareRevisionCharacteristic.didUpdateValueSubject.onNext(())
+
+                    expect(versions) == ["SOME_FIRMWARE_REVISION", "SOME_OTHER_FIRMWARE_REVISION"]
+                }
+
+                it("fails when the firmware revision of the device is not available") {
+                    firmwareRevisionCharacteristic.value = nil
+
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var error: Error?
+                    connection?.firmwareRevision
+                        .subscribe(onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    expect(error).to(matchError(PeripheralError.invalidCharacteristicValue(nil)))
+                }
+
+                it("does not fail the connection if the firmware revision observable fails") {
+                    var connection: HubConnection?
+                    var error: Error?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 }, onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    connection?.firmwareRevision
+                        .subscribe()
+                        .disposed(by: disposeBag)
+
+                    firmwareRevisionCharacteristic.didUpdateValueSubject.onError(TestError.someError)
+                    expect(error).to(beNil())
+                }
+            }
+
+            context("hardware revision") {
+                it("emits the hardware revision of the device") {
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var versions: [String] = []
+                    connection?.hardwareRevision
+                        .subscribe(onNext: { versions.append($0) })
+                        .disposed(by: disposeBag)
+
+                    hardwareRevisionCharacteristic.value = Data("SOME_OTHER_HARDWARE_REVISION".utf8)
+                    hardwareRevisionCharacteristic.didUpdateValueSubject.onNext(())
+
+                    expect(versions) == ["SOME_HARDWARE_REVISION", "SOME_OTHER_HARDWARE_REVISION"]
+                }
+
+                it("fails when the hardware revision of the device is not available") {
+                    hardwareRevisionCharacteristic.value = nil
+
+                    var connection: HubConnection?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 })
+                        .disposed(by: disposeBag)
+
+                    var error: Error?
+                    connection?.hardwareRevision
+                        .subscribe(onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    expect(error).to(matchError(PeripheralError.invalidCharacteristicValue(nil)))
+                }
+
+                it("does not fail the connection if the hardware revision observable fails") {
+                    var connection: HubConnection?
+                    var error: Error?
+
+                    hub.resolveConnection(services: makeAllServices(), descriptor: descriptor)
+                        .subscribe(onNext: { connection = $0 }, onError: { error = $0 })
+                        .disposed(by: disposeBag)
+
+                    connection?.hardwareRevision
+                        .subscribe()
+                        .disposed(by: disposeBag)
+
+                    hardwareRevisionCharacteristic.didUpdateValueSubject.onError(TestError.someError)
+                    expect(error).to(beNil())
+                }
+            }
+
             context("ephemeral characteristic") {
                 it("doesn't fail connection if ephemeral characteristic exposes invalid data") {
                     ephemeralCharacteristicPointerCharacteristic.value = Data([0x01])
@@ -440,6 +730,12 @@ final class HubSpec: QuickSpec {
                 }
             }
         }
+    }
+}
+
+private extension HubSpec {
+    enum TestError: Error {
+        case someError
     }
 }
 
@@ -470,8 +766,7 @@ private extension BluetoothConfiguration {
             modelNumberUUID: CBUUID(string: "000D"),
             serialNumberUUID: CBUUID(string: "000E"),
             firmwareRevisionUUID: CBUUID(string: "000F"),
-            hardwareRevisionUUID: CBUUID(string: "0010"),
-            softwareRevisionUUID: CBUUID(string: "0011")
+            hardwareRevisionUUID: CBUUID(string: "0010")
         ),
         confirmationService: BluetoothConfiguration.ConfirmationServiceConfiguration(
             serviceUUID: CBUUID(string: "0014"),

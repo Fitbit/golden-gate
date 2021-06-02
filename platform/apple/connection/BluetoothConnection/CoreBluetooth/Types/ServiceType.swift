@@ -24,7 +24,7 @@ public protocol ServiceType: AnyObject {
     /// Peripheral to which this service belongs
     func peripheral() -> PeripheralType
 
-    /// Function that triggers characteristics discovery for specified Services and identifiers.
+    /// Function that triggers characteristics discovery for the specified characteristic identifiers.
     func discoverCharacteristics(_ characteristicUUIDs: [CBUUID]?) -> Single<[CharacteristicType]>
 }
 

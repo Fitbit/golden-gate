@@ -8,6 +8,7 @@
 //
 
 import BluetoothConnection
+import Foundation
 import GoldenGateXP
 
 public typealias Port = BluetoothConnection.Port

@@ -63,7 +63,7 @@ class OnInterruptedSpec: QuickSpec {
 				.do(onInterrupted: {
 					interrupted = true
 				})
-				.takeUntil(disposeSubject)
+				.take(until: disposeSubject)
 				.subscribe()
 			disposeSubject.onNext(())
 
@@ -77,7 +77,7 @@ class OnInterruptedSpec: QuickSpec {
 			let subject = PublishSubject<Void>()
 			let disposeSubject = PublishSubject<Void>()
 			_ = subject.asObservable()
-				.takeUntil(disposeSubject)
+				.take(until: disposeSubject)
 				.do(onCompleted: {
 					completed = true
 				})

@@ -28,17 +28,17 @@ public extension ObservableType {
 		return Observable
 			.combineLatest(work, secondWithoutElements)
 			.map { $0.0 }
-			.takeWhile { event in
+			.take(while: { event in
 				switch event {
 				case .completed: return false
 				default: return true
 				}
-			}
+			})
 			.dematerialize()
 	}
 
 	func filterError(_ predicate: @escaping (Error) -> Bool) -> Observable<Element> {
-		return self.catchError { error in
+		return self.catch { error in
 			guard !predicate(error) else { throw error }
 			return .empty()
 		}

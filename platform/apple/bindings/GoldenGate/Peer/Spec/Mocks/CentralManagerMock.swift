@@ -29,7 +29,7 @@ final class CentralManagerMock: CentralManagerType {
     }
 
     let bluetoothState = ReplaySubject<BluetoothState>.create(bufferSize: 1)
-    func observeStateWithInitialValue() -> Observable<BluetoothState> {
+    func stabilizedState() -> Observable<BluetoothState> {
         bluetoothState.asObservable()
     }
 

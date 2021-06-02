@@ -15,7 +15,7 @@ import Quick
 
 class BufferSpec: QuickSpec {
     override func spec() {
-        let data = "hello".data(using: .utf8)!
+        let data = Data("hello".utf8)
 
         describe("UnmanagedBuffer") {
             it("bridges to Swift") {

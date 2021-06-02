@@ -13,7 +13,7 @@ import GoldenGateXP
 /// Utility for classes that implement just a single GoldenGate interface.
 ///
 /// Use this as inspiration if you have a class that implements multiple interfaces at once.
-internal protocol GGAdaptable: class {
+internal protocol GGAdaptable: AnyObject {
     associatedtype GGObject
     associatedtype GGInterface
     typealias Adapter = GGAdapter<GGObject, GGInterface, Self>

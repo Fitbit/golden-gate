@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 10/24/17.
 //
 
+import Foundation
 import GoldenGateXP
 import RxSwift
 

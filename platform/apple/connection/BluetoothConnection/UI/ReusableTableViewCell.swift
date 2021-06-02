@@ -12,7 +12,7 @@
 import UIKit
 
 /// Utility to avoid dealing with `cellReuseIdentifier` all the time.
-public protocol ReusableTableViewCell: class {
+public protocol ReusableTableViewCell: AnyObject {
     static var cellReuseIdentifier: String { get }
 }
 

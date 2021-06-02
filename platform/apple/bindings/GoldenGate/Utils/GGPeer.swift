@@ -8,6 +8,7 @@
 //
 
 import BluetoothConnection
+import Foundation
 import RxRelay
 import RxSwift
 
@@ -171,7 +172,7 @@ open class GGPeer: Peer {
         // Create new stack as links come up
         stackBuilder.build(link: networkLink)
             .logError("GGPeer: Failed to start stack with: ", .bindings, .error)
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .bind(to: stackRelay)
             .disposed(by: disposeBag)
 
@@ -184,10 +185,10 @@ open class GGPeer: Peer {
 
         // Resolve the URL and create a socket from it
         let customPort = customPortUrl
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observe(on: SerialDispatchQueueScheduler(qos: .background))
             .map { $0.flatMap { SocketAddress(url: $0) } }
             .distinctUntilChanged(==)
-            .observeOn(runLoop)
+            .observe(on: runLoop)
             .logInfo("GGPeer: CustomPortUrl", .bindings, .next)
             .mapForwardingNil { remoteAddress in
                 try? GGBsdDatagramSocket(
@@ -202,13 +203,17 @@ open class GGPeer: Peer {
         // clear out any references the XP port might have. (See: FC-1046)
         Observable
             .combineLatest(stack, customPort, serviceDescriptor)
-            .observeOn(runLoop)
             .map { stack, customPort, _ in
-                // It would be nice if the services could clean up after themselves,
-                // but they can't know if some other new service already added itself,
-                // leading to potential races.
-                _ = try? stack?.topPort?.dataSink.setDataSinkListener(nil)
-                _ = try? stack?.topPort?.dataSource.setDataSink(nil)
+                // The port updates must be in sync (on the run loop) with the stack creation.
+                // `.observe(on: runLoop)` should be avoided in these situations since it breaks
+                // the synchronization by executing the subsequent events async.
+                runLoop.sync {
+                    // It would be nice if the services could clean up after themselves,
+                    // but they can't know if some other new service already added itself,
+                    // leading to potential races.
+                    _ = try? stack?.topPort?.dataSink.setDataSinkListener(nil)
+                    _ = try? stack?.topPort?.dataSource.setDataSink(nil)
+                }
 
                 return customPort ?? stack?.topPort
             }

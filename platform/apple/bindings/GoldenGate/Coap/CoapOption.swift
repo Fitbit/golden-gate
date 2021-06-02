@@ -7,6 +7,7 @@
 //  Created by Bogdan Vlad on 11/22/17.
 //
 
+import Foundation
 import GoldenGateXP
 
 /// The options value formats according to CoAP specification (3.2 Option Value Formats).

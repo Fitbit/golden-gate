@@ -33,7 +33,7 @@ class ComboBoxViewController<Element: Equatable>: UITableViewController {
             .disposed(by: disposeBag)
 
         viewModel.elements
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .bind(to: tableView.rx.items) { [viewModel = viewModel!] tableView, _, element in
                 let cell = tableView.dequeue(Cell.self)!
                 let checked = viewModel.selectedElement.map { $0 == element }
@@ -72,13 +72,13 @@ private class Cell: UITableViewCell, ReusableTableViewCell {
 
     func bind(_ viewModel: ViewModel) -> Cell {
         viewModel.label
-            .takeUntil(rx.methodInvoked(#selector(prepareForReuse)))
+            .take(until: rx.methodInvoked(#selector(prepareForReuse)))
             .asDriver(onErrorJustReturn: "")
             .drive(textLabel!.rx.text)
             .disposed(by: disposeBag)
 
         viewModel.checked
-            .takeUntil(rx.methodInvoked(#selector(prepareForReuse)))
+            .take(until: rx.methodInvoked(#selector(prepareForReuse)))
             .asDriver(onErrorJustReturn: false)
             .drive(rx.checked)
             .disposed(by: disposeBag)

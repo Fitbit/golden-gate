@@ -114,17 +114,17 @@ public extension PrimitiveSequenceType where Trait == SingleTrait {
      Subscribes a success handler, an error handler and an interruption handler for this sequence.
 
      - parameter onSuccess: Action to invoke for each element in the observable sequence.
-     - parameter onError: Action to invoke upon errored termination of the observable sequence.
+     - parameter onFailure: Action to invoke upon errored termination of the observable sequence.
 	 - Parameter onInterrupted: Action to invoke upon cancellation of the observable sequence.
      - returns: Subscription object used to unsubscribe from the observable sequence.
      */
 	func subscribe(onSuccess: ((Element) -> Void)? = nil,
-				   onError: ((Swift.Error) -> Void)? = nil,
+				   onFailure: ((Swift.Error) -> Void)? = nil,
 				   onInterrupted: @escaping () -> Void)
 		-> Disposable {
 			return self
 				.do(onInterrupted: onInterrupted)
-				.subscribe(onSuccess: onSuccess, onError: onError)
+				.subscribe(onSuccess: onSuccess, onFailure: onFailure)
 	}
 }
 

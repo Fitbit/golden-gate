@@ -7,11 +7,12 @@
 //  Created by Marcel Jackwerth on 6/1/18.
 //
 
+import Foundation
+import GoldenGateXP
 import Nimble
 import Quick
 
 @testable import GoldenGate
-import GoldenGateXP
 
 // swiftlint:disable:next superfluous_disable_command
 // swiftlint:disable function_body_length force_try
@@ -22,7 +23,7 @@ class CoapStaticBlockSourceSpec: QuickSpec {
 
         beforeEach {
             // 26 characters
-            let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".data(using: .utf8)!
+            let alphabet = Data("ABCDEFGHIJKLMNOPQRSTUVWXYZ".utf8)
             source = CoapStaticBlockSource(data: alphabet)
         }
 
@@ -58,7 +59,7 @@ class CoapStaticBlockSourceSpec: QuickSpec {
                     )
                 }
 
-                expect(data) == "ABCD".data(using: .utf8)
+                expect(data) == Data("ABCD".utf8)
             }
 
             // Disabled test because `throwAssertion()` doesn't work reliably anymore.

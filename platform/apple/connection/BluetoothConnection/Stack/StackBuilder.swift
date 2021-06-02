@@ -54,7 +54,7 @@ public class StackBuilder: StackBuilderType {
                 descriptor,
                 link
             )
-            .observeOn(protocolScheduler)
+            .observe(on: protocolScheduler)
             .logInfo("StackBuilder.build (descriptor, link):", .bluetooth, .next)
             // Use scan so that we can destroy the previous stack
             // before allocating a new one

@@ -7,6 +7,7 @@
 //  Created by Bogdan Vlad on 11/29/17.
 //
 
+import Foundation
 import GoldenGateXP
 
 /// An option parameter that can be followed by another parameter.
@@ -61,7 +62,7 @@ internal class CoapMessageOptionParam {
                 value: GG_CoapMessageOption.__Unnamed_union_value(opaque: value)
             )
         case let .string(string):
-            let data = string.data(using: .utf8)! as NSData
+            let data = Data(string.utf8) as NSData
             self.payload = data
             let charsRef = data.bytes.assumingMemoryBound(to: Int8.self)
             let value = GG_CoapMessageOption.__Unnamed_union_value.__Unnamed_struct_string(chars: charsRef, length: data.length)

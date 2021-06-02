@@ -7,6 +7,8 @@
 //  Created by Marcel Jackwerth on 3/22/18.
 //
 
+import Foundation
+
 /// Thread Dictionary key that is used to place and read a sentinel
 /// whether the current thread is associated with a run loop.
 private let runLoopSentinelKey = "isGoldenGateRunLoop"

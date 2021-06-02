@@ -15,8 +15,7 @@ import RxSwift
 /// CentralManagerType is a ReactiveX wrapper over Core Bluetooth's Central Manager allowing to
 /// discover, connect to remote peripheral devices and more.
 public protocol CentralManagerType: AnyObject {
-    /// Returns list of the peripherals which are currently connected to the central manager and contain
-    /// all of the specified service UUIDs.
+    /// Returns list of the peripherals which are currently connected to the system and implement any of the specified services.
     func retrieveConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [PeripheralType]
 
     /// Returns list of peripherals by their identifiers which are known to the central manager.
@@ -43,8 +42,8 @@ public protocol CentralManagerType: AnyObject {
     ///   - Complete: Never
     func establishConnection(identifier: UUID, scheduler: SchedulerType) -> Observable<ConnectionStatus<PeripheralType>>
 
-    /// Observable that emits the Bluetooth state
-    func observeStateWithInitialValue() -> Observable<BluetoothState>
+    /// Observable that emits non transient Bluetooth states (any state but unknown). Starts with the current state.
+    func stabilizedState() -> Observable<BluetoothState>
 }
 
 public enum CentralManagerError: Error {
@@ -73,12 +72,17 @@ extension CentralManager: CentralManagerType {
 
         return peripherals.map { $0 as ScannedPeripheralType }
     }
+
+    public func stabilizedState() -> Observable<BluetoothState> {
+        // Per Apple's docs, 'unknown' is a transient state, update being imminent.
+        // Skip unknown state and wait for an update.
+        observeStateWithInitialValue().filter { $0 != .unknown }.distinctUntilChanged()
+    }
 }
 
 extension CentralManagerType {
     public func establishConnection(identifier: UUID, scheduler: SchedulerType) -> Observable<ConnectionStatus<PeripheralType>> {
-        return observeStateWithInitialValue()
-            .distinctUntilChanged()
+        return stabilizedState()
             .logInfo("CentralManager.state:", .bluetooth, .next)
             .flatMapLatest { state -> Observable<ConnectionStatus<PeripheralType>> in
                 guard state == .poweredOn else { throw BluetoothError(state: state) ?? BluetoothError.bluetoothInUnknownState }
@@ -123,7 +127,7 @@ public extension ObservableType {
     /// Bluetooth being turned off. The proposed workaround is to delay the specific `BluetoothError.peripheralDisconnected(_, nil)`
     /// error, hoping that a `BluetoothError.bluetoothPoweredOff` error follows quickly enough (via some other Observable chain).
     func delayUnknownDisconnectionError(scheduler: SchedulerType, delay: DispatchTimeInterval = .milliseconds(300)) -> Observable<Element> {
-        catchError { error in
+        self.catch { error in
             switch error {
             case BluetoothError.peripheralDisconnected(_, nil):
                 return Observable.error(error).delaySubscription(delay, scheduler: scheduler)

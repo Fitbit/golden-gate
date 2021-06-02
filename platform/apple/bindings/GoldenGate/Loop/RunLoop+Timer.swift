@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 3/22/18.
 //
 
+import Foundation
 import GoldenGateXP
 
 extension RunLoop {

@@ -7,7 +7,7 @@
 //  Created by Vlad Corneci on 03/06/2020.
 //
 
-public protocol DataSinkListener: class {
+public protocol DataSinkListener: AnyObject {
     /// Called when the DataSink accepts more data after reporting `GG_WOULD_BLOCK`
     func onCanPut()
 }

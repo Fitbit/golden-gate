@@ -146,11 +146,21 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
         return details
     }
 
-    public var descriptorDetails: [(label: String, value: Driver<String?>)] {
+    public var deviceInfoDetails: [(label: String, value: Driver<String?>)] {
         let descriptor = self.descriptor.asDriver(onErrorJustReturn: nil)
 
+        func deviceInformation(connectionKeyPath: KeyPath<ConnectionType, Observable<String>>) -> Driver<String?> {
+            peerConnectionStatus.flatMapLatest {
+                $0.connection?[keyPath: connectionKeyPath].optionalize().asDriver(onErrorJustReturn: nil) ?? Driver.empty()
+            }
+        }
+
         return [
-            (label: "PeerIdentifier", value: descriptor.map { $0?.identifier.uuidString ?? "" })
+            (label: "Peer Identifier", value: descriptor.map { $0?.identifier.uuidString ?? "" }),
+            (label: "Model Number", value: deviceInformation(connectionKeyPath: \.modelNumber)),
+            (label: "Serial Number", value: deviceInformation(connectionKeyPath: \.serialNumber)),
+            (label: "Firmware Revision", value: deviceInformation(connectionKeyPath: \.firmwareRevision)),
+            (label: "Hardware Revision", value: deviceInformation(connectionKeyPath: \.hardwareRevision))
         ]
     }
 
@@ -182,10 +192,10 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
         ]
     }
 
-    private let connectionController: ConnectionController<ConnectionType>
+    private let connectionController: AnyConnectionController<ConnectionType>
     private let remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>
     private let remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>
-    public let linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel
+    public let linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?
 
     private let customStackDescriptor = PublishSubject<StackDescriptor?>()
     private let customServiceDescriptor = PublishSubject<ServiceDescriptor?>()
@@ -193,10 +203,10 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
 
     public init(
         peer: Observable<Peer>,
-        connectionController: ConnectionController<ConnectionType>,
+        connectionController: AnyConnectionController<ConnectionType>,
         remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>,
         remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>,
-        linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel
+        linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?
     ) {
         self.peer = peer
         self.connectionController = connectionController

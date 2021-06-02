@@ -28,7 +28,7 @@ public class PeripheralManagerSource: DataSource {
             .disposed(by: disposeBag)
 
         incomingDataSubject
-            .observeOn(sinkScheduler)
+            .observe(on: sinkScheduler)
             .subscribe(onNext: { [weak self] data in
                 guard let self = self else { return }
 

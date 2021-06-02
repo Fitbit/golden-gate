@@ -14,6 +14,10 @@ import RxSwift
 /// The connection to a peer.
 public protocol Connection: CustomStringConvertible {
     var descriptor: PeerDescriptor { get }
+    var modelNumber: Observable<String> { get }
+    var serialNumber: Observable<String> { get }
+    var firmwareRevision: Observable<String> { get }
+    var hardwareRevision: Observable<String> { get }
 }
 
 extension Connection {

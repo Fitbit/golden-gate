@@ -11,8 +11,10 @@ import Foundation
 
 // swiftlint:disable nesting
 
+public typealias LinkConnectionMode = LinkConfigurationService.PreferredConnectionMode
+
 extension LinkConfigurationService {
-    public struct PreferredConnectionMode: CustomStringConvertible, Codable {
+    public struct PreferredConnectionMode: CustomStringConvertible, Codable, Equatable {
         public enum Mode: UInt8, Codable, CustomStringConvertible {
             case fast = 0
             case slow = 1
@@ -39,7 +41,7 @@ extension LinkConfigurationService {
     }
 }
 
-extension LinkConfigurationService.PreferredConnectionMode: RawRepresentable {
+extension LinkConnectionMode: RawRepresentable {
     public init?(rawValue: Data) {
         guard rawValue.count >= 1 else {
             LogBluetoothWarning("PreferredConnectionMode was \(rawValue.count) bytes - expected: 1")
