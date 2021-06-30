@@ -110,17 +110,44 @@ MapErrorCode(err_t error)
         case ERR_BUF:
             return GG_ERROR_OUT_OF_RESOURCES;
 
+        case ERR_TIMEOUT:
+            return GG_ERROR_TIMEOUT;
+        
+        case ERR_RTE:
+            return GG_ERROR_NETWORK_UNREACHABLE;
+
+        case ERR_VAL:
+            return GG_ERROR_ILLEGAL_VALUE;
+
         case ERR_WOULDBLOCK:
             return GG_ERROR_WOULD_BLOCK;
 
-        case ERR_TIMEOUT:
-            return GG_ERROR_TIMEOUT;
+        case ERR_USE:
+            return GG_ERROR_ADDRESS_IN_USE;
+
+        case ERR_ALREADY:
+            return GG_ERROR_ALREADY_CONNECTING;
+
+        case ERR_ISCONN:
+            return GG_ERROR_ALREADY_CONNECTED;
+
+        case ERR_CONN:
+            return GG_ERROR_NOT_CONNECTED;
+
+        case ERR_IF:
+            return GG_ERROR_LOW_LEVEL_NETIF_ERROR;
+
+        case ERR_ABRT:
+            return GG_ERROR_CONNECTION_ABORTED;
+        
+        case ERR_RST:
+            return GG_ERROR_CONNECTION_RESET;
+
+        case ERR_CLSD:
+            return GG_ERROR_CONNECTION_CLOSED; 
 
         case ERR_ARG:
             return GG_ERROR_INVALID_PARAMETERS;
-
-        case ERR_RTE:
-            return GG_ERROR_NETWORK_UNREACHABLE;
 
         default:
             GG_LOG_FINER("GG_FAILURE shadowing finer error: %d", (int)error);

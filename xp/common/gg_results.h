@@ -86,7 +86,7 @@ typedef int GG_Result;
 #define GG_ERROR_PERMISSION_DENIED     (GG_ERROR_BASE_GENERAL - 16) ///< Permission denied
 #define GG_ERROR_INTERRUPTED           (GG_ERROR_BASE_GENERAL - 17) ///< Operation interrupted
 #define GG_ERROR_IN_USE                (GG_ERROR_BASE_GENERAL - 18) ///< Resource already in use
-
+#define GG_ERROR_ILLEGAL_VALUE         (GG_ERROR_BASE_GENERAL - 19) ///< Illegal value
 
 #define GG_ERROR_BASE_IO               (GG_ERROR_BASE - 100) ///< Base for I/O error codes
 #define GG_ERROR_BASE_SOCKET           (GG_ERROR_BASE - 200) ///< Base for Socket error codes

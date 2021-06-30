@@ -24,6 +24,7 @@ enum class GoldenGateNativeResult(val code: Int, val title: String) {
     GG_ERROR_PERMISSION_DENIED        ((GG_ERROR_BASE - 16), "Permission denied"),
     GG_ERROR_INTERRUPTED              ((GG_ERROR_BASE - 17), "Operation interrupted"),
     GG_ERROR_IN_USE                   ((GG_ERROR_BASE - 18), "Resource already in use"),
+    GG_ERROR_ILLEGAL_VALUE            ((GG_ERROR_BASE - 19), "Illegal value"),
 
     GG_ERROR_EOS                      ((GG_ERROR_BASE - 100), "End Of Stream"),
 
@@ -45,6 +46,10 @@ enum class GoldenGateNativeResult(val code: Int, val title: String) {
     GG_ERROR_HOST_UNREACHABLE         ((GG_ERROR_BASE - 215), "Host unreachable"),
     GG_ERROR_NOT_CONNECTED            ((GG_ERROR_BASE - 216), "Not connected"),
     GG_ERROR_UNMAPPED_STACK_ERROR     ((GG_ERROR_BASE - 217), "Unmapped stack error"),
+    GG_ERROR_ALREADY_CONNECTING       ((GG_ERROR_BASE - 218), "Already connecting"),
+    GG_ERROR_ALREADY_CONNECTED        ((GG_ERROR_BASE - 219), "Connection already established"),
+    GG_ERROR_LOW_LEVEL_NETIF_ERROR    ((GG_ERROR_BASE - 220), "Low-level netif error"),
+    GG_ERROR_CONNECTION_CLOSED        ((GG_ERROR_BASE - 221), "Connection closed"),
 
     GG_ERROR_COAP_UNSUPPORTED_VERSION ((GG_ERROR_BASE - 300), "CoAP unsupported version"),
     GG_ERROR_COAP_RESET               ((GG_ERROR_BASE - 301), "CoAP reset"),
