@@ -15,8 +15,7 @@ import RxSwift
 /// CentralManagerType is a ReactiveX wrapper over Core Bluetooth's Central Manager allowing to
 /// discover, connect to remote peripheral devices and more.
 public protocol CentralManagerType: AnyObject {
-    /// Returns list of the peripherals which are currently connected to the central manager and contain
-    /// all of the specified service UUIDs.
+    /// Returns list of the peripherals which are currently connected to the system and implement any of the specified services.
     func retrieveConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [PeripheralType]
 
     /// Returns list of peripherals by their identifiers which are known to the central manager.

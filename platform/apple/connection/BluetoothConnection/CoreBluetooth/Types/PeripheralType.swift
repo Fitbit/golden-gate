@@ -17,6 +17,7 @@ public enum PeripheralError: Error {
     case servicesChanged
     case missingCharacteristic(CBUUID)
     case unexpectedCharacteristicProperties(CBUUID)
+    case invalidCharacteristicValue(Data?)
 }
 
 /// Peripheral is a ReactiveX wrapper over Core Bluetooth functions allowing to talk to

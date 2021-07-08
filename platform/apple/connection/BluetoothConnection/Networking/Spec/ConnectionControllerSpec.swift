@@ -50,7 +50,8 @@ final class ConnectionControllerSpec: QuickSpec {
                 connector: connector,
                 descriptor: descriptor,
                 reconnectStrategy: reconnectStrategy,
-                scheduler: scheduler
+                scheduler: scheduler,
+                debugIdentifier: "test"
             )
         }
 
@@ -315,7 +316,8 @@ final class ConnectionControllerSpec: QuickSpec {
                     connector: connector,
                     descriptor: descriptor,
                     reconnectStrategy: reconnectStrategy,
-                    scheduler: scheduler
+                    scheduler: scheduler,
+                    debugIdentifier: "test"
                 )
 
                 var events: [ConnectionStatus<Connection>] = []

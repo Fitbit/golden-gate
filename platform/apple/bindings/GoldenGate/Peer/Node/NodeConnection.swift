@@ -18,6 +18,10 @@ import RxSwift
 public class NodeConnection: LinkConnection {
     // MARK: Connection properties
     public let networkLink = BehaviorRelay<NetworkLink?>(value: nil)
+    public let modelNumber = Observable<String>.never()
+    public let serialNumber = Observable<String>.never()
+    public let firmwareRevision = Observable<String>.never()
+    public let hardwareRevision = Observable<String>.never()
     public let remotePreferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration?>(value: nil)
     public let remotePreferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode?>(value: nil)
 

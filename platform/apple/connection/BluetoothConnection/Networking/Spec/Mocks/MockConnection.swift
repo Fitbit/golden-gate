@@ -9,27 +9,16 @@
 
 import BluetoothConnection
 import Foundation
-import RxCocoa
 import RxSwift
 
-class MockConnection: Connection {
+final class MockConnection: Connection {
     var descriptor: PeerDescriptor
-
-    private let disposeBag = DisposeBag()
-
-    let networkLink = BehaviorRelay<NetworkLink?>(value: nil)
+    var modelNumber = Observable<String>.never()
+    var serialNumber = Observable<String>.never()
+    var firmwareRevision = Observable<String>.never()
+    var hardwareRevision = Observable<String>.never()
 
     init() {
-        // empty variant
         self.descriptor = PeerDescriptor(identifier: UUID())
-    }
-
-    convenience init(networkLink: Observable<NetworkLink>) {
-        self.init()
-        networkLink.subscribe(onNext: self.networkLink.accept).disposed(by: disposeBag)
-    }
-
-    var description: String {
-        return "\(type(of: self))"
     }
 }

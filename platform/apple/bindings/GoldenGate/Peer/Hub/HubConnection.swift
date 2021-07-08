@@ -19,6 +19,10 @@ public class HubConnection: SecureLinkConnection {
     public let descriptor: PeerDescriptor
     public let ancsAuthorized: Observable<Bool>
     public let networkLink = BehaviorRelay<NetworkLink?>(value: nil)
+    public let modelNumber: Observable<String>
+    public let serialNumber: Observable<String>
+    public let firmwareRevision: Observable<String>
+    public let hardwareRevision: Observable<String>
     public let remoteConnectionConfiguration = BehaviorRelay<LinkStatusService.ConnectionConfiguration?>(value: nil)
     public let remoteConnectionStatus = BehaviorRelay<LinkStatusService.ConnectionStatus?>(value: nil)
     public let accessBondSecureCharacteristic: Completable
@@ -28,6 +32,10 @@ public class HubConnection: SecureLinkConnection {
         descriptor: PeerDescriptor,
         ancsAuthorized: Observable<Bool>,
         networkLink: Observable<NetworkLink>,
+        modelNumber: Observable<String>,
+        serialNumber: Observable<String>,
+        firmwareRevision: Observable<String>,
+        hardwareRevision: Observable<String>,
         remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration>,
         remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus>,
         accessBondSecureCharacteristic: Completable
@@ -41,6 +49,11 @@ public class HubConnection: SecureLinkConnection {
             .logDebug("\(descriptor).networkLink: ", .bluetooth, .next)
             .subscribe(onNext: self.networkLink.accept)
             .disposed(by: disposeBag)
+
+        self.modelNumber = modelNumber
+        self.serialNumber = serialNumber
+        self.firmwareRevision = firmwareRevision
+        self.hardwareRevision = hardwareRevision
 
         remoteConnectionConfiguration
             .optionalize()

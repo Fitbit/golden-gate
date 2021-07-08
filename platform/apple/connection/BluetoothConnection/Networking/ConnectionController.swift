@@ -94,6 +94,7 @@ public enum ConnectionControllerMetricsEvent: MetricsEvent {
 /// An auto-connecting ConnectionController.
 public final class ConnectionController<ConnectionType>: ConnectionControllerType, Instrumentable {
     private let scheduler: SchedulerType
+    private let debugIdentifier: String
     private let disposeBag = DisposeBag()
 
     /// Subject that broadcasts demands to establish or cancel a connection.
@@ -126,13 +127,16 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     ///   - descriptor: The descriptor used by the peripheral
     ///   - reconnectStrategy: Strategy that dictates the connection retry behavior
     ///   - scheduler: Scheduler to establish the connection on
+    ///   - debugIdentifier: A human readable string used to identify logs from a specific instance
     public init<C: Connector>(
         connector: C,
         descriptor: PeerDescriptor?,
         reconnectStrategy: ReconnectStrategy,
-        scheduler: SchedulerType
+        scheduler: SchedulerType,
+        debugIdentifier: String
     ) where C.ConnectionType == ConnectionType {
         self.scheduler = scheduler
+        self.debugIdentifier = debugIdentifier
         self.descriptorRelay = BehaviorRelay<PeerDescriptor?>(value: descriptor)
 
         let encounteredUnrecoverableFailure = PublishSubject<Void>()
@@ -143,7 +147,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         // and writes all the errors into another subject.
         let establishConnection: Observable<ConnectionStatus<ConnectionType>> = self.descriptor
             .distinctUntilChanged()
-            .logInfo("ConnectionController: Establish connection using descriptor", .bluetooth, .next)
+            .logInfo("ConnectionController<\(debugIdentifier)>: Establish connection using descriptor", .bluetooth, .next)
             .observeOn(scheduler)
             .flatMapLatest { descriptor -> Observable<ConnectionStatus<ConnectionType>> in
                 guard let descriptor = descriptor else { return .just(.disconnected) }
@@ -158,7 +162,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                     }
                     .startWith(.connecting)
                     .catchError { Observable.just(.disconnected).concat(Observable.error($0)) }
-                    .logError("ConnectionController: Connection error", .bluetooth, .error)
+                    .logError("ConnectionController<\(debugIdentifier)>: Connection error", .bluetooth, .error)
             }
             .do(onError: { [weak self] error in
                 self?.connectionErrorsSubject.onNext(error)
@@ -169,10 +173,10 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
             })
             .retryWhen { [metricsSubject] errors in
                 errors.map(reconnectStrategy.action)
-                    .logError("ConnectionController: Reconnect strategy action", .bluetooth, .next)
+                    .logError("ConnectionController<\(debugIdentifier)>: Reconnect strategy action", .bluetooth, .next)
                     .do(onNext: { metricsSubject.onNext(.determinedReconnectStrategyAction($0)) })
                     .flatMap { $0.asSingle(scheduler: scheduler) }
-                    .logInfo("ConnectionController: Resuming reconnects...", .bluetooth, .next)
+                    .logInfo("ConnectionController<\(debugIdentifier)>: Resuming reconnects...", .bluetooth, .next)
             }
             .do(afterError: { _ in encounteredUnrecoverableFailure.onNext(()) })
             .catchErrorJustReturn(.disconnected)
@@ -180,14 +184,14 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         // Observable that emits `true` if a connection is required and can be established and
         // maintained or `false` otherwise.
         let shouldConnect = Observable.merge(connectionRequested, encounteredUnrecoverableFailure.map { _ in false })
-            .logInfo("ConnectionController: Should connect", .bluetooth, .next)
+            .logInfo("ConnectionController<\(debugIdentifier)>: Should connect", .bluetooth, .next)
             .observeOn(scheduler)
             .distinctUntilChanged()
 
         Observable.if(shouldConnect, then: establishConnection, else: .just(.disconnected))
             .startWith(.disconnected)
             .distinctUntilChanged()
-            .logInfo("ConnectionController: New connection status", .bluetooth, .next)
+            .logInfo("ConnectionController<\(debugIdentifier)>: New connection status", .bluetooth, .next)
             .bind(to: connectionStatusSubject)
             .disposed(by: disposeBag)
 
@@ -214,19 +218,19 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     }
 
     public func establishConnection(trigger: ConnectionTrigger) {
-        LogBluetoothInfo("ConnectionController: Connection requested with \(trigger)")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: Connection requested with \(trigger)")
         metricsSubject.onNext(.connectionRequested(trigger: trigger))
         connectionRequested.onNext(true)
     }
 
     public func disconnect(trigger: ConnectionTrigger) {
-        LogBluetoothWarning("ConnectionController: Disconnection requested with \(trigger)")
+        LogBluetoothWarning("ConnectionController<\(debugIdentifier)>: Disconnection requested with \(trigger)")
         metricsSubject.onNext(.disconnectionRequested(trigger: trigger))
         connectionRequested.onNext(false)
     }
 
     public func update(descriptor: PeerDescriptor) {
-        LogBluetoothInfo("ConnectionController: Updating descriptor for connection \(descriptor)")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: Updating descriptor for connection \(descriptor)")
         self.descriptorRelay.accept(descriptor)
     }
 
@@ -235,13 +239,13 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     }
 
     deinit {
-        LogBluetoothInfo("ConnectionController: deinited")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: deinited")
     }
 }
 
 extension ConnectionController: CustomStringConvertible {
     public var description: String {
-        return "ConnectionController(descriptor=\(descriptorRelay.value ??? "nil"))"
+        return "ConnectionController<\(debugIdentifier)>(descriptor=\(descriptorRelay.value ??? "nil"))"
     }
 }
 

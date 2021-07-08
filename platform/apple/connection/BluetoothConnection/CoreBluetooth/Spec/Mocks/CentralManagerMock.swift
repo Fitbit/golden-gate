@@ -14,8 +14,10 @@ import RxSwift
 
 final class CentralManagerMock: CentralManagerType {
     var connectedPeripherals: [PeripheralType] = []
+    var connectedServiceUUIDsFilter: [CBUUID]?
     func retrieveConnectedPeripherals(withServices serviceUUIDs: [CBUUID]) -> [PeripheralType] {
-        connectedPeripherals
+        connectedServiceUUIDsFilter = serviceUUIDs
+        return connectedPeripherals
     }
 
     var peripherals: [PeripheralType] = []
@@ -24,8 +26,10 @@ final class CentralManagerMock: CentralManagerType {
     }
 
     let scannedPeripherals = PublishSubject<ScannedPeripheralType>()
+    var scannedServiceUUIDsFilter: [CBUUID]?
     func scanForPeripherals(withServices serviceUUIDs: [CBUUID]?, options: [String: Any]?) -> Observable<ScannedPeripheralType> {
         scannedPeripherals.asObservable()
+            .do(onSubscribe: { self.scannedServiceUUIDsFilter = serviceUUIDs })
     }
 
     let bluetoothState = ReplaySubject<BluetoothState>.create(bufferSize: 1)

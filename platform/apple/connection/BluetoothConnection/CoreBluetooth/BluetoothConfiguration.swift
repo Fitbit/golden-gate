@@ -99,22 +99,19 @@ extension BluetoothConfiguration {
         public let serialNumberUUID: CBUUID
         public let firmwareRevisionUUID: CBUUID
         public let hardwareRevisionUUID: CBUUID
-        public let softwareRevisionUUID: CBUUID
 
         public init(
             serviceUUID: CBUUID,
             modelNumberUUID: CBUUID,
             serialNumberUUID: CBUUID,
             firmwareRevisionUUID: CBUUID,
-            hardwareRevisionUUID: CBUUID,
-            softwareRevisionUUID: CBUUID
+            hardwareRevisionUUID: CBUUID
         ) {
             self.serviceUUID = serviceUUID
             self.modelNumberUUID = modelNumberUUID
             self.serialNumberUUID = serialNumberUUID
             self.firmwareRevisionUUID = firmwareRevisionUUID
             self.hardwareRevisionUUID = hardwareRevisionUUID
-            self.softwareRevisionUUID = softwareRevisionUUID
         }
     }
 

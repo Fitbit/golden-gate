@@ -90,6 +90,11 @@ public class Hub: ConnectionResolver {
             networkLink = .error(error)
         }
 
+        let modelNumber = deviceInformation(characteristic: characteristics.deviceInfo.modelNumber, uuid: configuration.deviceInfoService.modelNumberUUID)
+        let serialNumber = deviceInformation(characteristic: characteristics.deviceInfo.serialNumber, uuid: configuration.deviceInfoService.serialNumberUUID)
+        let firmwareRevision = deviceInformation(characteristic: characteristics.deviceInfo.firmwareRevision, uuid: configuration.deviceInfoService.firmwareRevisionUUID)
+        let hardwareRevision = deviceInformation(characteristic: characteristics.deviceInfo.hardwareRevision, uuid: configuration.deviceInfoService.hardwareRevisionUUID)
+
         let remoteConnectionConfiguration = { () -> Observable<LinkStatusService.ConnectionConfiguration> in
             guard let characteristic = characteristics.linkStatus?.currentConnectionConfiguration else {
                 return .empty()
@@ -145,6 +150,10 @@ public class Hub: ConnectionResolver {
             descriptor: descriptor,
             ancsAuthorized: characteristics.link.rx.service().peripheral().isANCSAuthorized,
             networkLink: networkLink,
+            modelNumber: modelNumber,
+            serialNumber: serialNumber,
+            firmwareRevision: firmwareRevision,
+            hardwareRevision: hardwareRevision,
             remoteConnectionConfiguration: remoteConnectionConfiguration,
             remoteConnectionStatus: remoteConnectionStatus,
             accessBondSecureCharacteristic: accessBondSecureCharacteristic
@@ -198,7 +207,16 @@ private extension Hub {
             let all: CharacteristicCollection
         }
 
+        struct DeviceInfo {
+            let modelNumber: CharacteristicType
+            // TODO: IPD-160379 These properties must be made non optional when GGHost macOS supports these characteristics.
+            let serialNumber: CharacteristicType?
+            let firmwareRevision: CharacteristicType?
+            let hardwareRevision: CharacteristicType?
+        }
+
         let link: Link
+        let deviceInfo: DeviceInfo
         // TODO: IPD-160379 These properties must be made non optional when GGHost macOS supports these characteristics.
         let linkStatus: LinkStatus?
         let confirmation: Confirmation?
@@ -272,15 +290,47 @@ private extension Hub {
                 }
             }
 
-            return Single.zip(link, linkStatus, confirmation)
-                .map { ExpectedCharacteristics(link: $0.0, linkStatus: $0.1, confirmation: $0.2) }
+            // Device information service
+            let deviceInfo: Single<ExpectedCharacteristics.DeviceInfo>
+
+            do {
+                let serviceConfiguration = self.configuration.deviceInfoService
+                let allCharacteristics = try services.required(serviceConfiguration.serviceUUID).characteristics
+
+                deviceInfo = allCharacteristics.map { characteristics in
+                    ExpectedCharacteristics.DeviceInfo(
+                        modelNumber: try characteristics.required(serviceConfiguration.modelNumberUUID),
+                        serialNumber: characteristics.optional(serviceConfiguration.serialNumberUUID),
+                        firmwareRevision: characteristics.optional(serviceConfiguration.firmwareRevisionUUID),
+                        hardwareRevision: characteristics.optional(serviceConfiguration.hardwareRevisionUUID)
+                    )
+                }
+            }
+
+            return Single.zip(link, deviceInfo, linkStatus, confirmation)
+                .map { ExpectedCharacteristics(link: $0.0, deviceInfo: $0.1, linkStatus: $0.2, confirmation: $0.3) }
         }
     }
 }
 
 // MARK: Ephemeral
 extension Hub {
-    func writeEphemeralCharacteristic(
+    private func deviceInformation(characteristic: CharacteristicType?, uuid: CBUUID) -> Observable<String> {
+        guard let characteristic = characteristic else {
+            return Observable.error(PeripheralError.missingCharacteristic(uuid))
+        }
+
+        return characteristic.readAndObserveValue()
+            .map {
+                guard let data = $0, let value = String(data: data, encoding: .utf8) else {
+                    LogError("Hub: Invalid device information characteristic value \(characteristic)", domain: .bluetooth)
+                    throw PeripheralError.invalidCharacteristicValue($0)
+                }
+                return value
+            }
+    }
+
+    private func writeEphemeralCharacteristic(
         ephemeralCharacteristicPointer: CharacteristicType,
         confirmationCharacteristics: CharacteristicCollection
     ) -> Completable {
