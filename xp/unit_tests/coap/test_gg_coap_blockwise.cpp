@@ -1703,6 +1703,114 @@ TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper_BLOCK1) {
     GG_TimerScheduler_Destroy(timer_scheduler);
 }
 
+//-----------------------------------------------------------------------
+// Test Test_ServerBlockwiseHelper Corner Case with offset 0 more false
+//-----------------------------------------------------------------------
+TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper_BLOCK1_EdgeCase) {
+
+    GG_CoapBlockwiseServerHelper helper;
+
+    GG_CoapBlockwiseServerHelper_Init(&helper, GG_COAP_MESSAGE_OPTION_BLOCK1, 0);
+
+    GG_CoapMessage* request = NULL;
+    uint8_t token[1] =  { 0 };
+    uint8_t payload[1024];
+    memset(payload, 0, sizeof(payload));
+
+    // create a message for a block with offset 0 and more false
+    GG_CoapMessageBlockInfo block_info;
+    block_info.offset = 0;
+    block_info.size = 1024;
+    block_info.more = false;
+    uint32_t block_option_value;
+    GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
+    GG_CoapMessageOptionParam block_option = GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    GG_Result result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
+                                             GG_COAP_MESSAGE_TYPE_CON,
+                                             &block_option,
+                                             1,
+                                             0,
+                                             token,
+                                             sizeof(token),
+                                             payload,
+                                             sizeof(payload),
+                                             &request);
+    LONGS_EQUAL(GG_SUCCESS, result);
+
+    // process the block 0 request which should set done 1
+    bool was_resent = false;
+    result = GG_CoapBlockwiseServerHelper_OnRequest(&helper, request, &was_resent);
+    LONGS_EQUAL(GG_SUCCESS, result);
+    LONGS_EQUAL(0, (int)was_resent);
+    LONGS_EQUAL(helper.next_offset, 0);
+    LONGS_EQUAL(1, (int)helper.done);
+
+    // cleanup
+    GG_CoapMessage_Destroy(request);
+
+    // If helper.done is not reset and this is followed by another message 
+    // with offset 0 and more false, then the Helper assumes this a resent
+    // message
+    block_info.offset = 0;
+    block_info.size = 1024;
+    block_info.more = false;
+    GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
+    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
+                                             GG_COAP_MESSAGE_TYPE_CON,
+                                             &block_option,
+                                             1,
+                                             0,
+                                             token,
+                                             sizeof(token),
+                                             payload,
+                                             sizeof(payload),
+                                             &request);
+    LONGS_EQUAL(GG_SUCCESS, result);
+
+    // process the block 0 request
+    was_resent = false;
+    result = GG_CoapBlockwiseServerHelper_OnRequest(&helper, request, &was_resent);
+    LONGS_EQUAL(GG_SUCCESS, result);
+    LONGS_EQUAL(1, (int)was_resent); //message resent
+    LONGS_EQUAL(helper.next_offset, 0);
+    LONGS_EQUAL(1, (int)helper.done); 
+
+    // cleanup
+    GG_CoapMessage_Destroy(request);
+
+    // once the done flag is reset, the  next message is considered a new message
+    helper.done = false;
+    block_info.offset = 0;
+    block_info.size = 1024;
+    block_info.more = false;
+    GG_CoapMessageBlockInfo_ToOptionValue(&block_info, &block_option_value);
+    block_option = (GG_CoapMessageOptionParam) GG_COAP_MESSAGE_OPTION_PARAM_UINT(BLOCK1, block_option_value);
+    result = GG_CoapMessage_Create(GG_COAP_METHOD_GET,
+                                             GG_COAP_MESSAGE_TYPE_CON,
+                                             &block_option,
+                                             1,
+                                             0,
+                                             token,
+                                             sizeof(token),
+                                             payload,
+                                             sizeof(payload),
+                                             &request);
+    LONGS_EQUAL(GG_SUCCESS, result);
+
+    // process the block 0 request
+    was_resent = false;
+    result = GG_CoapBlockwiseServerHelper_OnRequest(&helper, request, &was_resent);
+    LONGS_EQUAL(GG_SUCCESS, result);
+    LONGS_EQUAL(0, (int)was_resent); //message resent
+    LONGS_EQUAL(helper.next_offset, 0);
+    LONGS_EQUAL(1, (int)helper.done); 
+
+    // cleanup
+    GG_CoapMessage_Destroy(request);
+
+}
+
 TEST(GG_COAP_BLOCKWISE, Test_ServerBlockwiseHelper_BLOCK2) {
     GG_CoapBlockwiseServerHelper helper;
 
@@ -2226,4 +2334,4 @@ TEST(GG_COAP_BLOCKWISE, Test_BlockwiseCancelFromListener) {
     GG_AsyncPipe_Destroy(pipe2);
     GG_TimerScheduler_Destroy(timer_scheduler1);
     GG_TimerScheduler_Destroy(timer_scheduler2);
-}
+} 
