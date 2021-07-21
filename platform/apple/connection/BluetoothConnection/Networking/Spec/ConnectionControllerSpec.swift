@@ -11,17 +11,21 @@ import BluetoothConnection
 import CoreBluetooth
 import Nimble
 import Quick
+import Rxbit
 import RxRelay
 import RxSwift
 import RxTest
 
 // swiftlint:disable file_length
 
-private final class MockReconnectStrategy: ReconnectStrategy {
-    let resetFailureHistory = PublishRelay<Void>()
+private final class MockReconnectStrategy: RetryStrategy {
+    let resetFailureHistoryRelay = PublishRelay<Void>()
+    func resetFailureHistory() {
+        resetFailureHistoryRelay.accept(())
+    }
 
-    var stagedAction: ((Error) -> ReconnectStrategyAction)!
-    func action(for error: Error) -> ReconnectStrategyAction { stagedAction(error) }
+    var stagedAction: ((Error) -> RetryStrategyAction)!
+    func action(for error: Error) -> RetryStrategyAction { stagedAction(error) }
 }
 
 final class ConnectionControllerSpec: QuickSpec {
@@ -42,7 +46,7 @@ final class ConnectionControllerSpec: QuickSpec {
         beforeEach {
             connector = MockConnector()
             reconnectStrategy = MockReconnectStrategy()
-            reconnectStrategy.stagedAction = { .stop($0) }
+            reconnectStrategy.stagedAction = { .error($0) }
             scheduler = TestScheduler(initialClock: 0, simulateProcessingDelay: false)
             disposeBag = DisposeBag()
 
@@ -185,8 +189,8 @@ final class ConnectionControllerSpec: QuickSpec {
                 let reconnectTrigger = PublishSubject<Void>()
                 reconnectStrategy.stagedAction = { error in
                     switch error {
-                    case ConnectorError.disconnected: return .suspendUntil(reconnectTrigger)
-                    default: return .stop(error)
+                    case ConnectorError.disconnected: return .suspendUntil(reconnectTrigger.take(1).asSingle())
+                    default: return .error(error)
                     }
                 }
 
@@ -218,7 +222,7 @@ final class ConnectionControllerSpec: QuickSpec {
                 controller.establishConnection(trigger: trigger) ~~> scheduler
 
                 let reconnectTrigger = PublishSubject<Void>()
-                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger) }
+                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger.take(1).asSingle()) }
 
                 connector.connectionStatus.onNext(.connected(someConnection))
 
@@ -262,7 +266,7 @@ final class ConnectionControllerSpec: QuickSpec {
                 controller.establishConnection(trigger: trigger) ~~> scheduler
 
                 let reconnectTrigger = PublishSubject<Void>()
-                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger.asObservable()) }
+                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger.take(1).asSingle()) }
 
                 connector.connectionStatus.onNext(.connecting)
                 connector.connectionStatus.onError(TestError.someError)
@@ -326,7 +330,7 @@ final class ConnectionControllerSpec: QuickSpec {
                     .subscribe(onNext: { events.append($0) })
                     .disposed(by: disposeBag)
 
-                reconnectStrategy.stagedAction = { _ in .retryWithDelay(.never) }
+                reconnectStrategy.stagedAction = { _ in RetryStrategyAction.delay(RetryDelayConfiguration(interval: .never)) }
 
                 connector.connectionStatuses = [
                     Observable.just(.connected(someConnection)).concat(Observable.error(TestError.someError)),
@@ -348,7 +352,7 @@ final class ConnectionControllerSpec: QuickSpec {
                 controller.establishConnection(trigger: trigger) ~~> scheduler
 
                 let reconnectTrigger = PublishSubject<Void>()
-                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger) }
+                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger.take(1).asSingle()) }
 
                 connector.connectionStatus.onNext(.connected(someConnection))
                 connector.connectionStatus.onError(TestError.someError)
@@ -365,14 +369,14 @@ final class ConnectionControllerSpec: QuickSpec {
             it("resets the failure history on successful connection") {
                 var resetHistory = false
 
-                reconnectStrategy.resetFailureHistory
+                reconnectStrategy.resetFailureHistoryRelay
                     .subscribe(onNext: { resetHistory = true })
                     .disposed(by: disposeBag)
 
                 controller.establishConnection(trigger: trigger) ~~> scheduler
 
                 let reconnectTrigger = PublishSubject<Void>()
-                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger) }
+                reconnectStrategy.stagedAction = { _ in .suspendUntil(reconnectTrigger.take(1).asSingle()) }
 
                 connector.connectionStatus.onNext(.connecting)
                 connector.connectionStatus.onError(TestError.someError)
@@ -409,7 +413,7 @@ final class ConnectionControllerSpec: QuickSpec {
                 expect(iterator.next().map(stringify)) == stringify(MetricsEvent.stateChangedToConnected)
                 expect(iterator.next().map(stringify)) == stringify(MetricsEvent.stateChangedToDisconnected)
                 expect(iterator.next().map(stringify)) == stringify(MetricsEvent.encounteredError(TestError.someError))
-                expect(iterator.next().map(stringify)) == stringify(MetricsEvent.determinedReconnectStrategyAction(.stop(TestError.someError)))
+                expect(iterator.next().map(stringify)) == stringify(MetricsEvent.determinedReconnectStrategyAction(.error(TestError.someError)))
             }
 
             it("emits the correct metrics events when disconnection is requested") {

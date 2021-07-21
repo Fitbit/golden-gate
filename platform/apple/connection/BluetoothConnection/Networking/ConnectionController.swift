@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import Rxbit
 import RxRelay
 import RxSwift
 
@@ -88,7 +89,7 @@ public enum ConnectionControllerMetricsEvent: MetricsEvent {
     case stateChangedToDisconnected
 
     case encounteredError(Error)
-    case determinedReconnectStrategyAction(ReconnectStrategyAction)
+    case determinedReconnectStrategyAction(RetryStrategyAction)
 }
 
 /// An auto-connecting ConnectionController.
@@ -131,7 +132,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     public init<C: Connector>(
         connector: C,
         descriptor: PeerDescriptor?,
-        reconnectStrategy: ReconnectStrategy,
+        reconnectStrategy: RetryStrategy,
         scheduler: SchedulerType,
         debugIdentifier: String
     ) where C.ConnectionType == ConnectionType {
@@ -197,8 +198,8 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
 
         // Reset reconnection failure history on successful connection
         connectionStatus.filter { $0.connected }
-            .map { _ in () }
-            .bind(to: reconnectStrategy.resetFailureHistory)
+            .do(onNext: { _ in reconnectStrategy.resetFailureHistory() })
+            .subscribe()
             .disposed(by: disposeBag)
 
         connectionStatus
@@ -264,20 +265,5 @@ extension ConnectionEmitter {
                 .filter { $0.isBluetoothHalfBondedError }
                 .map { _ in true }
         )
-    }
-}
-
-private extension ReconnectStrategyAction {
-    func asSingle(scheduler: SchedulerType) -> Single<Void> {
-        switch self {
-        case .stop(let error):
-            return Single.error(error)
-        case .retryWithDelay(let delay) where delay != .never:
-            return Single.just(()).delay(delay, scheduler: scheduler)
-        case .retryWithDelay:
-            return Single.just(())
-        case .suspendUntil(let trigger):
-            return trigger.take(1).asSingle()
-        }
     }
 }

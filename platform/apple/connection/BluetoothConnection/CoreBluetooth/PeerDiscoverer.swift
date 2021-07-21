@@ -14,6 +14,9 @@ import RxSwift
 /// A retriever of connected and scanner for nearby Bluetooth peers. The discoverer supports matching by peer and service identifier and it guarantees
 /// that each peer is emitted only once for the entire lifetime of the subscription. Various attributes of the peers are updated as the discovery process continues.
 public protocol PeerDiscovererType {
+    /// Observable that emits the stabilized Bluetooth state.
+    var bluetoothState: Observable<BluetoothState> { get }
+
     /// An observable that starts polling for connected peripherals upon subscription and emits distinct peers as they are discovered. The polling is stopped
     /// upon disposal.
     ///
@@ -59,9 +62,13 @@ public final class PeerDiscoverer: PeerDiscovererType {
     private let centralManager: CentralManagerType
     private let bluetoothScheduler: SchedulerType
 
+    public var bluetoothState: Observable<BluetoothState> {
+        centralManager.stabilizedState()
+    }
+
     /// Observable that emits if Bluetooth is powered on and errors out otherwise.
     private var ensureBluetoothOn: Observable<Void> {
-        centralManager.stabilizedState()
+        bluetoothState
             .map { state -> Void in
                 guard state == .poweredOn else {
                     throw BluetoothError(state: state) ?? .bluetoothInUnknownState
@@ -256,7 +263,7 @@ private extension PeerDiscoverer {
     }
 }
 
-extension PeerDiscoverer {
+extension PeerDiscovererType {
     /// Emits a list of discovered peers that implement any of the services specified.
     ///
     /// - Note: Will only discover peripherals while a subscription exists.
@@ -266,7 +273,7 @@ extension PeerDiscoverer {
     ///   - Error: Never
     ///   - Complete: Never
     public func peerList(withServices serviceUuids: [CBUUID], peerFilter: ((UUID) -> Bool)?) -> Observable<[DiscoveredPeerType]?> {
-        centralManager.stabilizedState()
+        bluetoothState
             .flatMapLatest { state -> Observable<[DiscoveredPeerType]?> in
                 guard state == .poweredOn else { return .just(nil) }
 
