@@ -13,18 +13,20 @@
 
 import BluetoothConnection
 import CoreBluetooth
-@testable import GoldenGate
+import Foundation
 import Nimble
 import Quick
 import RxSwift
 import RxTest
+
+@testable import GoldenGate
 
 final class HubSpec: QuickSpec {
     override func spec() {
         let descriptor = PeerDescriptor(identifier: UUID(uuidString: "6B66A7A9-C4F3-4C2A-811A-79EFB7B8A85F")!)
         let configuration = BluetoothConfiguration.test
         let unexpectedUuid = CBUUID()
-        
+
         var peripheralMock: PeripheralMock!
         var serviceMock: ServiceMock!
 

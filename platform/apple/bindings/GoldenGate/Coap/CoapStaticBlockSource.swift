@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 6/1/18.
 //
 
+import Foundation
 import GoldenGateXP
 
 final class CoapStaticBlockSource: GGAdaptable, UnsafeCoapBlockSource {

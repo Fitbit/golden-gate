@@ -7,12 +7,13 @@
 //  Created by Marcel Jackwerth on 5/30/18.
 //
 
+import Foundation
+import GoldenGateXP
 import Nimble
 import Quick
 import RxSwift
 
 @testable import GoldenGate
-import GoldenGateXP
 
 // swiftlint:disable force_try function_body_length
 

@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 6/12/18.
 //
 
+import Foundation
 import Nimble
 import Quick
 import RxSwift

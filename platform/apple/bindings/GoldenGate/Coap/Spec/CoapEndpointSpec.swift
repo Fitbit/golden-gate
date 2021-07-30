@@ -8,12 +8,13 @@
 //
 
 import BluetoothConnection
+import Foundation
+import GoldenGateXP
 import Nimble
 import Quick
 import RxSwift
 
 @testable import GoldenGate
-import GoldenGateXP
 
 // swiftlint:disable:next superfluous_disable_command
 // swiftlint:disable function_body_length force_try
@@ -46,6 +47,7 @@ final class CoapEndpointSpec: QuickSpec {
         }
 
         beforeEach {
+            GoldenGate.RunLoop.assumeMainThreadIsRunLoop()
             runLoop = GoldenGate.RunLoop()
             runLoop.start()
             transferStrategy = MockTransferStrategy()
@@ -137,7 +139,7 @@ final class CoapEndpointSpec: QuickSpec {
                             .delay(.milliseconds(10), scheduler: MainScheduler.instance).asSingle()
                     )
 
-                waitUntil { done in
+                waitUntil(timeout: .seconds(10)) { done in
                     _ = makeEndpoint()
                         .response(request: request)
                         .subscribe(onError: { error in

@@ -7,6 +7,8 @@
 //  Created by Marcel Jackwerth on 3/28/18.
 //
 
+import Foundation
+
 /// Utility to deal with the issue that GG_4CC is not
 /// imported by Swift's C parser.
 public struct GGFourCharCode: RawRepresentable, ExpressibleByStringLiteral {

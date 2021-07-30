@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 12/21/17.
 //
 
+import Foundation
 import GoldenGateXP
 
 public class SecureDatagramClient {

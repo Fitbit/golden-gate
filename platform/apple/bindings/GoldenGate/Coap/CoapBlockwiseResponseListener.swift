@@ -8,9 +8,10 @@
 //
 
 import BluetoothConnection
+import Foundation
 import GoldenGateXP
-import Rxbit
 import RxSwift
+import Rxbit
 
 enum CoapBlockwiseResponseListenerError: Error {
     case failureWithMessage(GGRawError, message: String)

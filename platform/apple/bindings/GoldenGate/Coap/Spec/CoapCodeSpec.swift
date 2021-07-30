@@ -7,11 +7,12 @@
 //  Created by Sylvain Rebaud on 10/12/18.
 //
 
+import Foundation
+import GoldenGateXP
 import Nimble
 import Quick
 
 @testable import GoldenGate
-import GoldenGateXP
 
 // swiftlint:disable:next superfluous_disable_command
 // swiftlint:disable function_body_length force_try

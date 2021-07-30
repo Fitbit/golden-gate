@@ -7,6 +7,7 @@
 //  Created by Bogdan Vlad on 11/29/17.
 //
 
+import Foundation
 import GoldenGateXP
 
 /// An option parameter that can be followed by another parameter.
