@@ -39,6 +39,7 @@
 #define GG_GATTLINK_SERVICE_UUID                                           @"ABBAFF00-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_RX_CHARACTERISTIC_UUID                                 @"ABBAFF01-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_TX_CHARACTERISTIC_UUID                                 @"ABBAFF02-E56A-484C-B832-8B17CF6CBFE8"
+#define GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID                  @"ABBAFF03-E56A-484C-B832-8B17CF6CBFE8"
 
 // Link Configuration Service
 #define GG_LINK_CONFIGURATION_SERVICE_UUID                                 @"ABBAFC00-E56A-484C-B832-8B17CF6CBFE8"
@@ -50,10 +51,10 @@
 #define GG_GATT_CONFIRMATION_SERVICE_UUID                                  @"AC2F0045-8182-4BE5-91E0-2992E6B40EBB"
 #define GG_GATT_CONFIRMATION_EPHEMERAL_CHARACTERISTIC_POINTER_UUID         @"AC2F0145-8182-4BE5-91E0-2992E6B40EBB"
 
-#define GG_STACK_TOOL_RX_QUEUE_SIZE  32
-#define GG_STACK_TOOL_TX_QUEUE_SIZE  32
-#define GG_STACK_TOOL_TX_DEFAULT_MTU 20
-#define GG_STACK_TOOL_MAX_MTU        512
+#define GG_STACK_TOOL_SEND_QUEUE_SIZE    32
+#define GG_STACK_TOOL_TX_DEFAULT_MTU     20
+#define GG_STACK_TOOL_MAX_MTU            512
+#define GG_STACK_TOOL_GATTLINK_L2CAP_MTU 256
 
 #define GG_LINK_STATUS_CONNECTION_STATUS_FLAG_HAS_BEEN_BONDED_BEFORE 1
 #define GG_LINK_STATUS_CONNECTION_STATUS_FLAG_ENCRYPTED              2
@@ -120,13 +121,320 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
                                                                             unsigned int mode);
 
 //----------------------------------------------------------------------
-// HubBluetoothTransort class (inner Objective-C implemenation)
+// Thread to run a background Run Loop
 //----------------------------------------------------------------------
-@interface HubBluetoothTransport: NSObject <CBCentralManagerDelegate,
-                                            CBPeripheralManagerDelegate,
-                                            CBPeripheralDelegate>
+@interface RunLoopThread: NSThread
 
-@property (strong, nonatomic) NSLock*                  lock;
+@property (atomic, strong) NSRunLoop* loop;
+@property (atomic, strong) NSCondition* started;
+
+@end
+
+@implementation RunLoopThread
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        // Init our properties
+        self.loop = nil;
+        self.started = [[NSCondition alloc] init];
+    }
+    return self;
+}
+
+- (void)startRunloopThread {
+    // start the run loop thread to handle stream processing
+    [self.started lock];
+    [self start];
+    while (self.loop == nil) {
+        [self.started wait];
+    }
+    [self.started unlock];
+}
+
+- (void)main {
+    GG_LOG_INFO("RunLoopThread starting");
+        
+    // Schedule a 'dummy' mach port because the run loop needs at least one input
+    NSRunLoop* loop = [NSRunLoop currentRunLoop];
+    [[NSMachPort port] scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    // Safely set the run loop reference and say that we're ready to go
+    [self.started lock];
+    self.loop = loop;
+    [self.started signal];
+    [self.started unlock];
+    
+    // Run until termination
+    @autoreleasepool {
+        BOOL done = NO;
+ 
+        // TODO: offer a way to ask the loop to stop (for now, we'll just run forever)
+        do {
+            BOOL result = [self.loop runMode:NSDefaultRunLoopMode beforeDate: [NSDate distantFuture]];
+     
+            if (!result) {
+                GG_LOG_INFO("runUntilDate returned FALSE");
+                done = YES;
+            }
+        } while (!done);
+    }
+}
+
+@end
+
+//----------------------------------------------------------------------
+// Base class with shared behavior
+//----------------------------------------------------------------------
+@interface BaseTransport: NSObject <NSStreamDelegate>
+
+@property (strong, nonatomic) NSMutableArray*                 sendQueue;
+@property (nonatomic)         CBL2CAPPSM                      gattlinkL2capChannelPsm;
+@property (strong)            CBL2CAPChannel*                 gattlinkL2capChannel;
+@property (strong, nonatomic) NSInputStream*                  gattlinkL2capInputStream;
+@property (strong, nonatomic) NSOutputStream*                 gattlinkL2capOutputStream;
+@property (strong)            NSMutableData*                  gattlinkL2capChannelPacket;
+@property (nonatomic)         UInt                            gattlinkL2capChannelPacketBytesNeeded;
+@property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
+@property (strong, nonatomic) RunLoopThread*                  runLoopThread;
+@property (strong, nonatomic) NSLock*                         lock;
+
+@end
+
+@implementation BaseTransport
+
+- (id) initWithHost: (GG_StackToolBluetoothTransport *)host {
+    self = [super init];
+
+    if (self) {
+        // keep a reference to the host so we can call it back
+        self.host = host;
+
+        // create a mutex for this object
+        self.lock = [[NSLock alloc] init];
+
+        // create a queue for outgoing packets
+        self.sendQueue = [[NSMutableArray alloc] init];
+        
+        // create the run loop thread
+        self.runLoopThread = [[RunLoopThread alloc] init];
+    }
+    
+    return self;
+}
+
+- (void) onChannelOpen: (CBL2CAPChannel *)channel {
+    self.gattlinkL2capChannel = channel;
+    self.gattlinkL2capInputStream = channel.inputStream;
+    self.gattlinkL2capInputStream.delegate = self;
+    [self.gattlinkL2capInputStream scheduleInRunLoop: self.runLoopThread.loop forMode: NSDefaultRunLoopMode];
+    [self.gattlinkL2capInputStream open];
+    self.gattlinkL2capOutputStream = channel.outputStream;
+    self.gattlinkL2capOutputStream.delegate = self;
+    [self.gattlinkL2capOutputStream scheduleInRunLoop: self.runLoopThread.loop forMode: NSDefaultRunLoopMode];
+    [self.gattlinkL2capOutputStream open];
+}
+
+// Delegate method called when a stream event is received
+- (void)stream: (NSStream *)stream
+   handleEvent: (NSStreamEvent)eventCode {
+    switch(eventCode) {
+        case NSStreamEventNone:
+            GG_LOG_FINEST("NSStreamEventNone");
+            break;
+            
+        case NSStreamEventOpenCompleted:
+            GG_LOG_FINEST("NSStreamEventOpenCompleted");
+            if (stream == self.gattlinkL2capInputStream) {
+                [self checkInputStream_];
+            } else if (stream == self.gattlinkL2capOutputStream) {
+                [self checkOutputStream_];
+            }
+            break;
+            
+        case NSStreamEventHasBytesAvailable:
+            GG_LOG_FINEST("NSStreamEventHasBytesAvailable");
+            if (stream == self.gattlinkL2capInputStream) {
+                [self checkInputStream_];
+            }
+            break;
+            
+        case NSStreamEventHasSpaceAvailable:
+            GG_LOG_FINEST("NSStreamEventHasSpaceAvailable");
+            if (stream == self.gattlinkL2capOutputStream) {
+                [self checkOutputStream_];
+            }
+            break;
+            
+        case NSStreamEventErrorOccurred:
+            GG_LOG_WARNING("NSStreamEventErrorOccurred: %s",
+                           stream.streamError.localizedDescription.UTF8String);
+            break;
+
+        case NSStreamEventEndEncountered:
+            GG_LOG_FINE("NSStreamEventEndEncountered");
+            break;
+    }
+}
+
+// Check if there is data to read on the L2CAP channel
+// NOTE: this method will dispatch its work to the thread with the run loop on which the
+// stream is scheduled, to avoid calling stream methods from multiple different threads
+- (void)checkInputStream {
+    if (!self.gattlinkL2capChannel) {
+        return;
+    }
+    [self performSelector: @selector(checkInputStream_)
+                 onThread: self.runLoopThread
+               withObject: nil
+            waitUntilDone: FALSE];
+}
+
+// Part of checkInputStream that can be called only from the context of the thread whith
+// the run loop on which the stream is scheduled.
+- (void)checkInputStream_ {
+    assert(NSThread.currentThread == self.runLoopThread);
+
+    if (!(self.gattlinkL2capChannel.outputStream.streamStatus == NSStreamStatusOpen ||
+          self.gattlinkL2capChannel.outputStream.streamStatus == NSStreamStatusReading)) {
+        return;
+    }
+
+    // read all the data we can
+    while (self.gattlinkL2capInputStream.hasBytesAvailable) {
+        if (self.gattlinkL2capChannelPacketBytesNeeded == 0) {
+            // we need to read the size of the next packet
+            UInt8 packet_size_minus_one = 0;
+            NSInteger bytes_read = [self.gattlinkL2capInputStream read: &packet_size_minus_one maxLength: 1];
+            if (bytes_read < 0) {
+                GG_LOG_WARNING("!!! failed to read header from input stream: %s",            self.gattlinkL2capInputStream.streamError.localizedDescription.UTF8String);
+                break;
+            }
+            if (bytes_read == 0) {
+                break;
+            }
+            GG_LOG_FINER(">>> packet header read, packet size = %d", packet_size_minus_one + 1);
+            self.gattlinkL2capChannelPacket = [NSMutableData dataWithCapacity: packet_size_minus_one + 1];
+            self.gattlinkL2capChannelPacketBytesNeeded = packet_size_minus_one + 1;
+        }
+
+        UInt8 buffer[GG_STACK_TOOL_GATTLINK_L2CAP_MTU];
+        NSInteger bytes_read = [self.gattlinkL2capInputStream read: buffer maxLength: self.gattlinkL2capChannelPacketBytesNeeded];
+        if (bytes_read < 0) {
+            GG_LOG_WARNING("!!! failed to read from input stream: %s",
+                           self.gattlinkL2capInputStream.streamError.localizedDescription.UTF8String);
+            break;
+        }
+        if (bytes_read == 0) {
+            GG_LOG_FINER("no data available from input stream");
+            break;
+        }
+        GG_LOG_FINER(">>> read %d bytes from input stream", (int)bytes_read);
+        self.gattlinkL2capChannelPacketBytesNeeded -= bytes_read;
+        [self.gattlinkL2capChannelPacket appendBytes: buffer length: bytes_read];
+        if (self.gattlinkL2capChannelPacketBytesNeeded == 0) {
+            // we have received a complete packet
+            GG_LOG_FINER(">>> packet completed");
+            GG_StackToolBluetoothTransport_OnDataReceived(self.host,
+                                                          self.gattlinkL2capChannelPacket.bytes,
+                                                          (size_t)self.gattlinkL2capChannelPacket.length);
+            
+            // we now need a new packet
+            self.gattlinkL2capChannelPacket = nil;
+        }
+    }
+}
+
+// Check if there is data to be written to the L2CAP channel
+// NOTE: this method will dispatch its work to the thread with the run loop on which the
+// stream is scheduled, to avoid calling stream methods from multiple different threads
+- (void)checkOutputStream {
+    if (!self.gattlinkL2capChannel) {
+        return;
+    }
+    [self performSelector: @selector(checkOutputStream_)
+                 onThread: self.runLoopThread
+               withObject: nil
+            waitUntilDone: FALSE];
+}
+
+// Part of checkOutputStream that can be called only from the context of the thread whith
+// the run loop on which the stream is scheduled.
+- (void)checkOutputStream_ {
+    assert(NSThread.currentThread == self.runLoopThread);
+    
+    if (!(self.gattlinkL2capChannel.outputStream.streamStatus == NSStreamStatusOpen ||
+          self.gattlinkL2capChannel.outputStream.streamStatus == NSStreamStatusWriting)) {
+        return;
+    }
+
+    [self.lock lock];
+    while (self.sendQueue.count && self.gattlinkL2capChannel.outputStream.hasSpaceAvailable) {
+        NSData* data = self.sendQueue[self.sendQueue.count - 1];
+        
+        // write to the channel
+        NSInteger bytes_written = [self.gattlinkL2capChannel.outputStream write: data.bytes maxLength: data.length];
+        
+        if (bytes_written < 0) {
+            GG_LOG_WARNING("!!! failed to write to output stream: %s", self.gattlinkL2capChannel.outputStream.streamError.localizedDescription.UTF8String);
+            [self.sendQueue removeLastObject];
+            continue;
+        }
+        
+        if (bytes_written == 0) {
+            GG_LOG_FINER(">>> no space available in output stream, will try again later");
+            break;
+        }
+        
+        GG_LOG_FINER(">>> wrote %d bytes of %d to output stream", (int)bytes_written, (int)data.length);
+        if (bytes_written == (NSInteger)data.length) {
+            // data sent, remove from the queue
+            [self.sendQueue removeLastObject];
+        } else {
+            // couldn't write everything, keep what's left
+            const UInt8* bytes = data.bytes;
+            self.sendQueue[self.sendQueue.count - 1] =
+                [NSData dataWithBytes: bytes + bytes_written  length: data.length - bytes_written];
+        }
+    }
+    [self.lock unlock];
+}
+
+// Send a packet to the L2CAP channel
+- (void)sendToOutputStream: (NSData*)data {
+    // prefix the data with a length so we can frame it
+    assert(data.length != 0);
+    assert(data.length <= GG_STACK_TOOL_GATTLINK_L2CAP_MTU);
+    UInt8 prefixed[GG_STACK_TOOL_GATTLINK_L2CAP_MTU + 1];
+    prefixed[0] = (UInt8)(data.length - 1);
+    memcpy(&prefixed[1], data.bytes, data.length);
+    [self queueOutgoingPacket: [NSData dataWithBytes: prefixed length: 1 + data.length]];
+}
+
+// Queue a packet
+- (void)queueOutgoingPacket: (NSData*)data {
+    [self.lock lock];
+
+    // check if the queue is full
+    if (self.sendQueue.count >= GG_STACK_TOOL_SEND_QUEUE_SIZE) {
+        GG_LOG_WARNING("send queue full, data dropped");
+    } else {
+        // add to the front of the queue
+        [self.sendQueue insertObject: data atIndex: 0];
+    }
+
+    [self.lock unlock];
+}
+
+@end
+
+//----------------------------------------------------------------------
+// HubBluetoothTransort class (inner Objective-C implementation)
+//----------------------------------------------------------------------
+@interface HubBluetoothTransport: BaseTransport <CBCentralManagerDelegate,
+                                                 CBPeripheralManagerDelegate,
+                                                 CBPeripheralDelegate>
+
 @property (strong, nonatomic) NSUUID*                  target;
 @property (strong, nonatomic) CBCentralManager*        centralManager;
 @property (strong, nonatomic) CBPeripheralManager*     peripheralManager;
@@ -143,32 +451,25 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 @property (strong, nonatomic) CBService*               gattConfirmationService;
 @property (strong, nonatomic) CBUUID*                  gattConfirmationServiceEphemeralCharacteristicUuid;
 @property (strong, nonatomic) CBCharacteristic*        gattlinkRxCharacteristic;
+@property (strong, nonatomic) CBCharacteristic*        gattlinkTxCharacteristic;
+@property (strong, nonatomic) CBCharacteristic*        gattlinkL2capChannelPsmCharacteristic;
+@property (nonatomic)         BOOL                     gattlinkL2capChannelEnabled;
 @property (nonatomic)         BOOL                     gattlinkRxOk;
 @property (nonatomic)         BOOL                     gattlinkTxOk;
-@property (strong, nonatomic) NSMutableArray*          rxQueue;
 @property (nonatomic)         BOOL                     rxReady;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
-
-@property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
 @end
 
 @implementation HubBluetoothTransport
 
 // Init a new instance
-- (id) initWithHost: (GG_StackToolBluetoothTransport *)host target: (NSString *)target {
-    self = [super init];
+- (id) initWithHost: (GG_StackToolBluetoothTransport *)host target: (NSString *)target enableL2capChannel: (BOOL)enableL2capChannel {
+    self = [super initWithHost: host];
     if (self) {
-        // create a mutex for this object
-        self.lock = [[NSLock alloc] init];
-
-        // create a queue for TX packets
-        self.rxQueue = [[NSMutableArray alloc] init];
         self.rxReady = TRUE;
-
-        // keep a reference to the host so we can call it back
-        self.host = host;
+        self.gattlinkL2capChannelEnabled = enableL2capChannel;
 
         // convert the target to a CBUUID
         if (![target isEqualToString: @"scan"]) {
@@ -214,6 +515,9 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
     // get a queue to do the central and peripheral work on
     dispatch_queue_t bt_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
+    // start the run loop thread to handle stream processing
+    [self.runLoopThread startRunloopThread];
+    
     // initialize the peripheral manager
     // NOTE: allocate first, then init, because init may invoke a delegate before returning,
     // which could end up referencing self.peripheralManager before it is assigned
@@ -298,7 +602,7 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 }
 
 // Delegate method called when the central role is powered on or off
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+- (void)centralManagerDidUpdateState: (CBCentralManager *)central {
     GG_LOG_INFO("central manager state changed: %d", (int)central.state);
     if (central.state == CBManagerStatePoweredOn) {
         if (!self.centralOn) {
@@ -417,6 +721,9 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     self.linkConfigurationConnectionModeSubscriber = nil;
     self.linkConfigurationConnectionConfigurationSubscriber = nil;
     self.gattlinkRxCharacteristic = nil;
+    self.gattlinkTxCharacteristic = nil;
+    self.gattlinkL2capChannelPsmCharacteristic = nil;
+    self.gattlinkL2capChannelPsm = 0;
     self.gattConfirmationService = nil;
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
@@ -452,10 +759,20 @@ didFailToConnectPeripheral: (CBPeripheral *)peripheral
             // Gattlink Service
             // discover the TX and RX characteristics
             GG_LOG_FINE("Gattlink Service discovered");
-            [peripheral discoverCharacteristics: @[
-                    [CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID],
-                    [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID]
-                ] forService: service];
+            if (@available(macOS 10.14, *)) {
+                [peripheral discoverCharacteristics: self.gattlinkL2capChannelEnabled ?
+                    @[[CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID],
+                      [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID],
+                      [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]] :
+                    @[[CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID],
+                      [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID]]
+                 forService: service];
+            } else {
+                [peripheral discoverCharacteristics: @[
+                        [CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID],
+                        [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID]
+                    ] forService: service];
+            }
         } else if ([service.UUID isEqual: [CBUUID UUIDWithString: GG_LINK_STATUS_SERVICE_UUID]]) {
             // Link Status Service
             // discover the connection configuration and connection status characteristics
@@ -477,8 +794,8 @@ didFailToConnectPeripheral: (CBPeripheral *)peripheral
 }
 
 // Delegate method called when a service has changed
-- (void)peripheral:(CBPeripheral *)peripheral
- didModifyServices:(NSArray<CBService *> *)invalidatedServices {
+- (void)peripheral: (CBPeripheral *)peripheral
+ didModifyServices: (NSArray<CBService *> *)invalidatedServices {
     NSMutableArray* services_to_rediscover = [[NSMutableArray alloc] init];
     for (CBService* service in invalidatedServices) {
         GG_LOG_FINE("service change indication for %s", service.UUID.UUIDString.UTF8String);
@@ -487,6 +804,9 @@ didFailToConnectPeripheral: (CBPeripheral *)peripheral
             self.gattlinkRxOk = false;
             self.gattlinkTxOk = false;
             self.gattlinkRxCharacteristic = nil;
+            self.gattlinkTxCharacteristic = nil;
+            self.gattlinkL2capChannelPsmCharacteristic = nil;
+            self.gattlinkL2capChannelPsm = 0;
             [services_to_rediscover addObject: service.UUID];
         } else if ([service.UUID isEqual: [CBUUID UUIDWithString: GG_LINK_STATUS_SERVICE_UUID]]) {
             GG_LOG_INFO("Link Status Service changed");
@@ -524,24 +844,15 @@ didDiscoverCharacteristicsForService: (CBService *)service
             [peripheral setNotifyValue: YES forCharacteristic: characteristic];
         } else if ([characteristic.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID]]) {
             GG_LOG_FINE("found Gattlink RX");
-            if (!self.gattlinkRxOk) {
-                self.gattlinkRxOk = true;
-                if (self.gattlinkTxOk) {
-                    GG_StackToolBluetoothTransport_NotifyConnected(self.host);
-                }
-            }
             self.gattlinkRxCharacteristic = characteristic;
-
-            size_t mtu = [peripheral maximumWriteValueLengthForType: CBCharacteristicWriteWithoutResponse];
-            GG_LOG_FINE("connection MTU: %d", (int)mtu);
-            if (mtu > GG_STACK_TOOL_MAX_MTU) {
-                GG_LOG_FINE("clamping MTU to %d", (int)GG_STACK_TOOL_MAX_MTU);
-                mtu = GG_STACK_TOOL_MAX_MTU;
+        } else if ([characteristic.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+            GG_LOG_FINE("found Gattlink L2CAP Channel PSM Characteristic");
+            if (@available(macOS 10.14, *)) {
+                self.gattlinkL2capChannelPsmCharacteristic = characteristic;
             }
-            GG_StackToolBluetoothTransport_UpdateMtu(self.host, mtu);
         } else if ([characteristic.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID]]) {
             GG_LOG_FINE("found Gattlink TX");
-            [peripheral setNotifyValue: YES forCharacteristic: characteristic];
+            self.gattlinkTxCharacteristic = characteristic;
         } else if ([characteristic.UUID isEqual:
             [CBUUID UUIDWithString: GG_GATT_CONFIRMATION_EPHEMERAL_CHARACTERISTIC_POINTER_UUID]]) {
             GG_LOG_FINE("found ephermeral characteristic pointer characteristic");
@@ -558,12 +869,36 @@ didDiscoverCharacteristicsForService: (CBService *)service
                               type: CBCharacteristicWriteWithResponse];
         }
     }
+    
+    if ([service.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID]]) {
+        // Decide if we should use RX/TX or L2CAP
+        if (self.gattlinkL2capChannelPsmCharacteristic != nil) {
+            // Use L2CAP
+            self.gattlinkRxCharacteristic = nil;
+            self.gattlinkTxCharacteristic = nil;
+
+            // read the PSM value for the L2CAP channel
+            [peripheral readValueForCharacteristic: self.gattlinkL2capChannelPsmCharacteristic];
+        } else {
+            if (self.gattlinkTxCharacteristic != nil) {
+                [peripheral setNotifyValue: YES forCharacteristic: self.gattlinkTxCharacteristic];
+            }
+            if (self.gattlinkRxCharacteristic != nil) {
+                if (!self.gattlinkRxOk) {
+                    self.gattlinkRxOk = true;
+                    if (self.gattlinkTxOk) {
+                        [self onConnected];
+                    }
+                }
+            }
+        }
+    }
 }
 
 // Delegate method called when we have subscribed to a charcteristic
--                          (void)peripheral:(CBPeripheral *)peripheral
-didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
-                                      error:(NSError *)error {
+-                          (void)peripheral: (CBPeripheral *)peripheral
+didUpdateNotificationStateForCharacteristic: (CBCharacteristic *)characteristic
+                                      error: (NSError *)error {
     GG_COMPILER_UNUSED(peripheral);
 
     if (error) {
@@ -576,7 +911,7 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
         if (!self.gattlinkTxOk) {
             self.gattlinkTxOk = true;
             if (self.gattlinkRxOk) {
-                GG_StackToolBluetoothTransport_NotifyConnected(self.host);
+                [self onConnected];
             }
         }
     } else if ([characteristic.UUID isEqual:
@@ -739,7 +1074,40 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
         GG_LOG_INFO("    dle_max_tx_time:     %d", dle_max_tx_time);
         GG_LOG_INFO("    dle_max_rx_pdu_size: %d", dle_max_rx_pdu_size);
         GG_LOG_INFO("    dle_max_rx_time:     %d", dle_max_rx_time);
+    } else if ([characteristic.UUID isEqual:
+                [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+        GG_LOG_FINE("got value for the Gattlink L2CAP Channel PSM characteristic");
+        if (characteristic.value == nil | characteristic.value.length != 2) {
+            GG_LOG_WARNING("characteristic value is not 2 bytes long");
+            return;
+        }
+        const uint8_t* data = characteristic.value.bytes;
+        self.gattlinkL2capChannelPsm = (CBL2CAPPSM)(data[0] | data[1] << 8);
+        GG_LOG_INFO("Gattlink L2CAP Channel PSM = %d", (int)self.gattlinkL2capChannelPsm);
+
+        // open the L2CAP channel
+        if (@available(macOS 10.14, *)) {
+            GG_LOG_FINE("openning L2CAP Channel");
+            [self.peripheral openL2CAPChannel: self.gattlinkL2capChannelPsm];
+        } else {
+            // Fallback on earlier versions
+            GG_LOG_INFO("ignoring L2CAP Channel PSM, not supported");
+        }
     }
+}
+
+// Delegate method called when an L2CAP channel has been opened
+-  (void)peripheral: (CBPeripheral *)peripheral
+didOpenL2CAPChannel: (CBL2CAPChannel *)channel
+              error: (NSError *)error {
+    if (error) {
+        GG_LOG_WARNING("failed to open L2CAP Channel: %s", error.localizedDescription.UTF8String);
+        return;
+    }
+    
+    GG_LOG_INFO("Gattlink L2CAP Channel open");
+    [self onChannelOpen: channel];
+    [self onConnected];
 }
 
 // Delegate method called when a GATT client writes to one of our characteristics
@@ -777,78 +1145,81 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 }
 
 // Delegate method called when it is Ok to write
-- (void)peripheralIsReadyToSendWriteWithoutResponse:(CBPeripheral *)peripheral {
+- (void)peripheralIsReadyToSendWriteWithoutResponse: (CBPeripheral *)peripheral {
     GG_COMPILER_UNUSED(peripheral);
-
-    [self.lock lock];
 
     // try to send
     self.rxReady = TRUE;
-    [self checkRxQueue];
-
-    [self.lock unlock];
+    [self checkSendQueue];
 }
 
-// Try to send data from the RX queue
-// NOTE: the lock must be held
-- (void)checkRxQueue {
+// Called when we are fully connected (RX/TX or L2CAP)
+- (void)onConnected {
+    size_t mtu;
+    if (self.gattlinkL2capChannel) {
+        mtu = GG_STACK_TOOL_GATTLINK_L2CAP_MTU;
+        [self checkInputStream];
+        [self checkOutputStream];
+    } else {
+        mtu = [self.peripheral maximumWriteValueLengthForType: CBCharacteristicWriteWithoutResponse];
+        GG_LOG_FINE("connection MTU: %d", (int)mtu);
+        if (mtu > GG_STACK_TOOL_MAX_MTU) {
+            GG_LOG_FINE("clamping MTU to %d", (int)GG_STACK_TOOL_MAX_MTU);
+            mtu = GG_STACK_TOOL_MAX_MTU;
+        }
+    }
+    GG_StackToolBluetoothTransport_UpdateMtu(self.host, mtu);
+    GG_StackToolBluetoothTransport_NotifyConnected(self.host);
+}
+
+// Try to send data from the outgoing queue to GATT
+- (void)checkSendQueue {
     // do nothing if we're waiting for RX to be ready
     if (!self.rxReady || !self.peripheral || !self.gattlinkRxCharacteristic) {
         return;
     }
 
-    // try to send more if we can
-    if (self.rxQueue.count) {
-        // check if we can write
 #if 0
-        // NOTE the following block has been temporarily disabled, because canSendWriteWithoutResponse
-        // is broken on some version of macOS, where it always returns FALSE. Until we can be sure that
-        // most users have moved to Mojave or later, where this works, we'll leave this check disabled,
-        // which isn't an issue on a mac platform, because the write queue is large enough to accept
-        // entire Gattlink windows without any problem.
-        BOOL canWrite = [self.peripheral canSendWriteWithoutResponse];
-        if (!canWrite) {
-            GG_LOG_WARNING("can't write at this time, will try again later");
-            self.rxReady = FALSE;
-            return;
-        }
+    // NOTE the following block has been temporarily disabled, because canSendWriteWithoutResponse
+    // is broken on some version of macOS, where it always returns FALSE. Until we can be sure that
+    // most users have moved to Mojave or later, where this works, we'll leave this check disabled,
+    // which isn't an issue on a mac platform, because the write queue is large enough to accept
+    // entire Gattlink windows without any problem.
+    BOOL canWrite = [self.peripheral canSendWriteWithoutResponse];
+    if (!canWrite) {
+        GG_LOG_WARNING("can't write at this time, will try again later");
+        self.rxReady = FALSE;
+        [self.lock unlock];
+    }
 #endif
 
-        // write
-        NSData* data = self.rxQueue[self.rxQueue.count - 1];
-        [self.peripheral writeValue: data
-                  forCharacteristic: self.gattlinkRxCharacteristic
-                               type: CBCharacteristicWriteWithoutResponse];
-
-        // data sent, remove from the queue
-        GG_LOG_FINER(">>> gattlink RX, size=%u", (int)data.length);
-        [self.rxQueue removeLastObject];
-    }
+    [self.lock lock];
+    NSData* data = self.sendQueue[self.sendQueue.count - 1];
+    [self.peripheral writeValue: data
+              forCharacteristic: self.gattlinkRxCharacteristic
+                           type: CBCharacteristicWriteWithoutResponse];
+    
+    // data sent, remove from the queue
+    GG_LOG_FINER(">>> gattlink RX, size=%u", (int)data.length);
+    [self.sendQueue removeLastObject];
+    [self.lock unlock];
 }
 
 // Send data to Gattlink
 - (void)sendData: (NSData *)data {
-    (void)data;
-    if (!self.gattlinkRxCharacteristic) {
-        GG_LOG_WARNING("no characteristic, dropping gattlink RX data");
+    if (!self.gattlinkRxCharacteristic && !self.gattlinkL2capChannel) {
+        GG_LOG_WARNING("no characteristic or channel, dropping data");
         return;
     }
-
-    // lock before we check the queue
-    [self.lock lock];
-
-    // check if the queue is full
-    if (self.rxQueue.count >= GG_STACK_TOOL_RX_QUEUE_SIZE) {
-        GG_LOG_WARNING("RX queue full, data dropped");
+    
+    // send via GATT or L2CAP
+    if (self.gattlinkL2capChannel) {
+        [self sendToOutputStream: data];
+        [self checkOutputStream];
     } else {
-        // add to the front of the queue
-        [self.rxQueue insertObject: data atIndex: 0];
-
-        // send anything that's ready
-        [self checkRxQueue];
+        [self queueOutgoingPacket: data];
+        [self checkSendQueue];
     }
-
-    [self.lock unlock];
 }
 
 // Release central resources that were obtained
@@ -901,20 +1272,21 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 @end
 
 //----------------------------------------------------------------------
-// NodeBluetoothTransort class (inner Objective-C implemenation)
+// NodeBluetoothTransort class (inner Objective-C implementation)
 //----------------------------------------------------------------------
-@interface NodeBluetoothTransport: NSObject <CBCentralManagerDelegate,
-                                             CBPeripheralManagerDelegate,
-                                             CBPeripheralDelegate>
+@interface NodeBluetoothTransport: BaseTransport <CBCentralManagerDelegate,
+                                                  CBPeripheralManagerDelegate,
+                                                  CBPeripheralDelegate>
 
 @property (strong, nonatomic) NSString*                advertisedName;
-@property (strong, nonatomic) NSLock*                  lock;
 @property (strong, nonatomic) CBCentralManager*        centralManager;
 @property (strong, nonatomic) CBPeripheralManager*     peripheralManager;
 @property (strong, nonatomic) CBPeripheral*            peer;
 @property (strong, nonatomic) CBMutableService*        gattlinkService;
 @property (strong, nonatomic) CBMutableCharacteristic* gattlinkRxCharacteristic;
 @property (strong, nonatomic) CBMutableCharacteristic* gattlinkTxCharacteristic;
+@property (strong, nonatomic) CBMutableCharacteristic* gattlinkL2capChannelPsmCharacteristic;
+@property (nonatomic)         BOOL                     gattlinkL2capChannelEnabled;
 @property (strong, nonatomic) CBCentral*               gattlinkSubscriber;
 @property (strong, nonatomic) CBMutableService*        linkStatusService;
 @property (strong, nonatomic) CBMutableCharacteristic* linkStatusConnectionConfigurationCharacteristic;
@@ -926,12 +1298,10 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 @property (nonatomic)         BOOL                     linkStatusConnectionStatusCharacteristicChanged;
 @property (strong, nonatomic) CBCentral*               linkStatusConnectionStatusSubscriber;
 @property (strong, nonatomic) CBMutableCharacteristic* linkStatusSecureCharacteristic;
-@property (strong, nonatomic) NSMutableArray*          txQueue;
 @property (nonatomic)         BOOL                     txReady;
+@property (nonatomic)         CBL2CAPPSM               l2capPsm;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
-
-@property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
 @end
 
@@ -939,21 +1309,15 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 
 // Init a new instance
 - (id) initWithHost: (GG_StackToolBluetoothTransport *)host
-     advertisedName: (NSString*)advertisedName {
-    self = [super init];
+     advertisedName: (NSString*)advertisedName
+ enableL2capChannel: (BOOL)enableL2capChannel {
+    self = [super initWithHost: host];
     if (self) {
+        self.txReady = TRUE;
+        self.gattlinkL2capChannelEnabled = enableL2capChannel;
+
         // set our name
         self.advertisedName = advertisedName;
-
-        // create a mutex for this object
-        self.lock = [[NSLock alloc] init];
-
-        // create a queue for TX packets
-        self.txQueue = [[NSMutableArray alloc] init];
-        self.txReady = TRUE;
-
-        // keep a reference to the host so we can call it back
-        self.host = host;
 
         // create a GATT service for the Gattlink Service
         self.gattlinkService = [[CBMutableService alloc] initWithType: [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID]
@@ -968,7 +1332,28 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
               properties: CBCharacteristicPropertyNotify | CBCharacteristicPropertyRead
                    value: nil
              permissions: CBAttributePermissionsReadable];
-        self.gattlinkService.characteristics = @[self.gattlinkRxCharacteristic, self.gattlinkTxCharacteristic];
+        if (@available(macOS 10.14, *)) {
+            uint16_t zero = 0;
+            if (self.gattlinkL2capChannelEnabled) {
+                self.gattlinkL2capChannelPsmCharacteristic = [[CBMutableCharacteristic alloc]
+                    initWithType: [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]
+                      properties: CBCharacteristicPropertyRead
+                           value: [NSData dataWithBytes: &zero length: 2]
+                     permissions: CBAttributePermissionsReadable];
+                self.gattlinkService.characteristics = @[
+                    self.gattlinkRxCharacteristic,
+                    self.gattlinkTxCharacteristic,
+                    self.gattlinkL2capChannelPsmCharacteristic
+                ];
+            } else {
+                self.gattlinkL2capChannelPsmCharacteristic = nil;
+                self.gattlinkService.characteristics = @[self.gattlinkRxCharacteristic, self.gattlinkTxCharacteristic];
+            }
+        } else {
+            // L2CAP channels not available, just the RX and TX characteristics
+            self.gattlinkL2capChannelPsmCharacteristic = nil;
+            self.gattlinkService.characteristics = @[self.gattlinkRxCharacteristic, self.gattlinkTxCharacteristic];
+        }
 
         // create a GATT service for the Link Status Service
         self.linkStatusService = [[CBMutableService alloc]
@@ -1010,6 +1395,9 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     // get a queue to do the central and peripheral work on
     dispatch_queue_t bt_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
+    // start the run loop thread to handle stream processing
+    [self.runLoopThread startRunloopThread];
+
     // initialize the peripheral manager
     // NOTE: allocate first, then init, because init may invoke a delegate before returning,
     // which could end up referencing self.peripheralManager before it is assigned
@@ -1023,8 +1411,17 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     [self.centralManager initWithDelegate: self queue: bt_queue];
 }
 
+// Publish the services
+- (void)publishServices {
+    // Add the Gattlink service
+    [self.peripheralManager addService: self.gattlinkService];
+
+    // Add the Link Status service
+    [self.peripheralManager addService: self.linkStatusService];
+}
+
 // Delegate method called when the central role is powered on or off
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+- (void)centralManagerDidUpdateState: (CBCentralManager *)central {
     GG_LOG_INFO("central manager state changed: %d", (int)central.state);
     if (central.state == CBManagerStatePoweredOn) {
         if (!self.centralOn) {
@@ -1045,12 +1442,15 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
         if (!self.peripheralOn) {
             self.peripheralOn = TRUE;
 
-            // Add the Gattlink service
-            [peripheral addService: self.gattlinkService];
-
-            // Add the Link Status service
-            [peripheral addService: self.linkStatusService];
-
+            if (@available(macOS 10.14, *)) {
+                // Publish an L2CAP channel, we will publish the services when we know the value
+                // assigned to us for the L2CAP PSM
+                [peripheral publishL2CAPChannelWithEncryption: FALSE];
+            } else {
+                // Fallback on earlier versions, just publish the services now
+                [self publishServices];
+            }
+            
             // advertise our name and the Golden Gate Service
             [self.peripheralManager startAdvertising: @{
                 CBAdvertisementDataLocalNameKey: self.advertisedName,
@@ -1067,8 +1467,8 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 }
 
 // Delegate method called when we start advertisting
-- (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral
-                                       error:(NSError *)error {
+- (void)peripheralManagerDidStartAdvertising: (CBPeripheralManager *)peripheral
+                                       error: (NSError *)error {
     GG_COMPILER_UNUSED(peripheral);
 
     if (error) {
@@ -1077,6 +1477,42 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     }
 
     GG_LOG_INFO("advertising as %s", self.advertisedName.UTF8String);
+}
+
+// Delegate method called when our L2CAP channel has been published
+- (void)peripheralManager: (CBPeripheralManager *)peripheral
+   didPublishL2CAPChannel: (CBL2CAPPSM)PSM
+                    error: (NSError *)error {
+    if (error) {
+        GG_LOG_WARNING("failed to publish L2CAP Channel: %s", error.localizedDescription.UTF8String);
+        return;
+    }
+    
+    GG_LOG_INFO("L2CAP Channel published with PSM=%d", (int)PSM);
+    self.l2capPsm = PSM;
+    uint8_t psm_bytes[2] = {
+        PSM & 0xFF,
+        (PSM >> 8) & 0xFF
+    };
+    self.gattlinkL2capChannelPsmCharacteristic.value = [NSData dataWithBytes: psm_bytes length: 2];
+    
+    // Publish the services now
+    [self publishServices];
+}
+
+// Delegate method called when our L2CAP channel has been opened
+- (void)peripheralManager: (CBPeripheralManager *)peripheral
+      didOpenL2CAPChannel: (CBL2CAPChannel *)channel
+                    error: (NSError *)error {
+    if (error) {
+        GG_LOG_WARNING("L2CAP Channel error: %s", error.localizedDescription.UTF8String);
+        return;
+    }
+
+    GG_LOG_INFO("L2CAP Channel open with PSM=%d", (int)channel.PSM);
+    [self onChannelOpen: channel];
+    GG_StackToolBluetoothTransport_UpdateMtu(self.host, GG_STACK_TOOL_GATTLINK_L2CAP_MTU);
+    GG_StackToolBluetoothTransport_NotifyConnected(self.host);
 }
 
 // Delegate method called when a service has been added
@@ -1104,15 +1540,6 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     // check which services have been discovered, and discover their characteristics
     for (CBService* service in peripheral.services) {
         GG_LOG_FINER("service discovered: %s", service.UUID.UUIDString.UTF8String);
-        if ([service.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID]]) {
-            // Gattlink service
-            // discover the RX and TX characteristics
-            GG_LOG_FINE("discovered Gattlink Service");
-            [peripheral discoverCharacteristics: @[
-                    [CBUUID UUIDWithString: GG_GATTLINK_RX_CHARACTERISTIC_UUID],
-                    [CBUUID UUIDWithString: GG_GATTLINK_TX_CHARACTERISTIC_UUID]
-                ] forService: service];
-        }
     }
 }
 
@@ -1132,8 +1559,8 @@ didDiscoverCharacteristicsForService: (CBService *)service
 }
 
 // Delegate method called when a service has changed
-- (void)peripheral:(CBPeripheral *)peripheral
- didModifyServices:(NSArray<CBService *> *)invalidatedServices {
+- (void)peripheral: (CBPeripheral *)peripheral
+ didModifyServices: (NSArray<CBService *> *)invalidatedServices {
     NSMutableArray* services_to_rediscover = [[NSMutableArray alloc] init];
     for (CBService* service in invalidatedServices) {
         GG_LOG_INFO("service change indication for %s", service.UUID.UUIDString.UTF8String);
@@ -1188,16 +1615,18 @@ didSubscribeToCharacteristic: (CBCharacteristic *)characteristic {
         self.gattlinkSubscriber = central;
 
         // update the MTU
-        size_t mtu = central.maximumUpdateValueLength;
-        GG_LOG_FINE("connection MTU: %d", (int)mtu);
-        if (mtu > GG_STACK_TOOL_MAX_MTU) {
-            GG_LOG_FINE("clamping MTU to %d", (int)GG_STACK_TOOL_MAX_MTU);
-            mtu = GG_STACK_TOOL_MAX_MTU;
-        }
-        GG_StackToolBluetoothTransport_UpdateMtu(self.host, mtu);
+        if (!self.gattlinkL2capChannel) {
+            size_t mtu = central.maximumUpdateValueLength;
+            GG_LOG_FINE("connection MTU: %d", (int)mtu);
+            if (mtu > GG_STACK_TOOL_MAX_MTU) {
+                GG_LOG_FINE("clamping MTU to %d", (int)GG_STACK_TOOL_MAX_MTU);
+                mtu = GG_STACK_TOOL_MAX_MTU;
+            }
+            GG_StackToolBluetoothTransport_UpdateMtu(self.host, mtu);
 
-        // we're now in a 'link connected' state
-        GG_StackToolBluetoothTransport_NotifyConnected(self.host);
+            // we're now in a 'link connected' state
+            GG_StackToolBluetoothTransport_NotifyConnected(self.host);
+        }
     }
 }
 
@@ -1267,7 +1696,7 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
 }
 
 // Delegate method called when it is Ok to notify subscribers
-- (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral {
+- (void)peripheralManagerIsReadyToUpdateSubscribers: (CBPeripheralManager *)peripheral {
     GG_COMPILER_UNUSED(peripheral);
     [self updateSubscribers];
 }
@@ -1332,8 +1761,6 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
 
 // Update subscribers with any changed value
 - (void) updateSubscribers {
-    [self.lock lock];
-
     if (self.linkStatusConnectionConfigurationCharacteristicChanged &&
         self.linkStatusConnectionConfigurationSubscriber) {
         GG_LOG_FINE("updating subscribers of the Link Connection Configuration characteristic");
@@ -1360,60 +1787,52 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
 
     // try to send
     self.txReady = TRUE;
-    [self checkTxQueue];
-
-    [self.lock unlock];
+    [self checkSendQueue];
 }
 
-// Try to send data from the TX queue
-// NOTE: the lock must be held
-- (void)checkTxQueue {
+// Try to send GATT data from the queue
+- (void)checkSendQueue {
     // do nothing if we're waiting for TX to be ready
     if (!self.txReady || !self.gattlinkSubscriber) {
         return;
     }
 
     // try to send all queued data
-    while (self.txQueue.count) {
+    [self.lock lock];
+    while (self.sendQueue.count) {
         // update the subscriber
-        NSData* data = self.txQueue[self.txQueue.count - 1];
+        NSData* data = self.sendQueue[self.sendQueue.count - 1];
         BOOL result = [self.peripheralManager updateValue: data
                                         forCharacteristic: self.gattlinkTxCharacteristic
                                      onSubscribedCentrals: @[ self.gattlinkSubscriber ]];
         if (result) {
             // data sent, remove from the queue
             GG_LOG_FINER(">>> gattlink TX, size=%u", (int)data.length);
-            [self.txQueue removeLastObject];
+            [self.sendQueue removeLastObject];
         } else {
             // couldn't send this one, just stop
             self.txReady = FALSE;
             break;
         }
     }
+    [self.lock unlock];
 }
 
 // Send data to Gattlink
 - (void)sendData: (NSData *)data {
-    if (self.gattlinkSubscriber == nil) {
-        GG_LOG_WARNING("no subscriber, dropping gattlink TX data");
+    if (!self.gattlinkSubscriber && !self.gattlinkL2capChannel) {
+        GG_LOG_WARNING("no subscriber or channel, dropping gattlink TX data");
         return;
     }
 
-    // lock before we check the queue
-    [self.lock lock];
-
-    // check if the queue is full
-    if (self.txQueue.count >= GG_STACK_TOOL_TX_QUEUE_SIZE) {
-        GG_LOG_WARNING("TX queue full, data dropped");
+    // send via GATT or L2CAP
+    if (self.gattlinkL2capChannel) {
+        [self sendToOutputStream: data];
+        [self checkOutputStream];
     } else {
-        // add to the front of the queue
-        [self.txQueue insertObject: data atIndex: 0];
-
-        // send anything that's ready
-        [self checkTxQueue];
+        [self queueOutgoingPacket: data];
+        [self checkSendQueue];
     }
-
-    [self.lock unlock];
 }
 
 // Release central resources that were obtained
@@ -1469,7 +1888,7 @@ GG_StackToolBluetoothTransport_SetDataSink(GG_DataSource* _self, GG_DataSink* si
 
     // create a proxy to deliver data to the sink on the loop thread
     GG_Result result = GG_Loop_CreateDataSinkProxy(self->loop,
-                                                   GG_STACK_TOOL_RX_QUEUE_SIZE,
+                                                   GG_STACK_TOOL_SEND_QUEUE_SIZE,
                                                    sink,
                                                    &self->sink_proxy);
     if (GG_FAILED(result)) {
@@ -1533,23 +1952,34 @@ GG_StackToolBluetoothTransport_Create(GG_Loop*                         loop,
     };
     GG_SET_INTERFACE(*transport, GG_StackToolBluetoothTransport, GG_DataSink);
 
+    // check if L2CAP Channels are disabled
+    BOOL enableL2capChannel = TRUE;
+    NSString* target = [NSString stringWithUTF8String: device_id];
+    if ([target hasSuffix: @"/-l2cap"]) {
+        // L2CAP Channel support disabled
+        GG_LOG_INFO("L2CAP Channel support disabled");
+        target = [target substringToIndex: [target length] - 7];
+        enableL2capChannel = FALSE;
+    }
+
     // init the inner driver
-    if (!strncmp(device_id, "node", 4)) {
+    if ([target hasPrefix: @"node"]) {
         // run as a node
-        const char* name;
-        if (device_id[4] == ':') {
-            name = device_id + 5;
+        NSString* advertisedName;
+        if ([target length] >= 5 && [target characterAtIndex: 4] == ':') {
+            advertisedName = [target substringFromIndex: 5];
         } else {
-            name = GG_STACK_TOOL_DEFAULT_NODE_NAME;
+            advertisedName = @GG_STACK_TOOL_DEFAULT_NODE_NAME;
         }
-        NSString* advertisedName = [NSString stringWithUTF8String: name];
         (*transport)->node_driver = [[NodeBluetoothTransport alloc] initWithHost: *transport
-                                                                  advertisedName: advertisedName];
+                                                                  advertisedName: advertisedName
+                                                              enableL2capChannel: enableL2capChannel];
     } else {
         // run as a hub
         (*transport)->hub_driver = [[HubBluetoothTransport alloc]
             initWithHost: *transport
-                  target: [NSString stringWithUTF8String: device_id]];
+                  target: target
+      enableL2capChannel: enableL2capChannel];
     }
 
     return GG_SUCCESS;

@@ -310,7 +310,8 @@ GG_StackGattlinkElement_Create(const GG_StackElementGattlinkParameters* paramete
     if (parameters && parameters->buffer_size) {
         gattlink_buffer_size = parameters->buffer_size;
     } else {
-        gattlink_buffer_size = 2 * stack->ip_configuration.ip_mtu; // default to 2 max IP packets
+        //gattlink_buffer_size = 2 * stack->ip_configuration.ip_mtu; // default to 2 max IP packets
+        gattlink_buffer_size = 16384; // FIXME: testing
     }
     GG_LOG_FINE("creating gattlink client - buffer_size=%d, tx_window=%d, rx_window=%d, initial_max_fragment_size=%d",
                 (int)gattlink_buffer_size,
