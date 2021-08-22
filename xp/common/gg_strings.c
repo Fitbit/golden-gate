@@ -736,7 +736,7 @@ GG_String_TrimCharsLeft(GG_String* self, const char* chars)
     {
         char* d = self->chars;
         GG_String_GetBuffer(self)->length = (size_t)(GG_String_GetLength(self)-(s-d));
-        while ((*d++ = *s++)) {};
+        while ((*d++ = *s++)) {}
     }
 }
 

@@ -26,6 +26,7 @@ extern "C" {
 +---------------------------------------------------------------------*/
 #include "xp/common/gg_queues.h"
 #include "xp/common/gg_threads.h"
+#include "xp/common/gg_types.h"
 #include "xp/loop/gg_loop.h"
 
 /*----------------------------------------------------------------------
@@ -84,12 +85,26 @@ typedef struct {
 } GG_LoopBase;
 
 /*----------------------------------------------------------------------
+|   macros
++---------------------------------------------------------------------*/
+#if defined(GG_CONFIG_LOOP_TIME_THRESHOLD) && defined(GG_CONFIG_ENABLE_LOGGING) && (GG_CONFIG_LOOP_TIME_THRESHOLD != 0)
+#define GG_LOOP_CHECK_TIME_THRESHOLD(elapsed) do {                            \
+    if (elapsed > GG_CONFIG_LOOP_TIME_THRESHOLD) {                            \
+        GG_LOG_WARNING("loop elapsed time over threshold: %d", (int)elapsed); \
+} while(0)                                                                    \
+#else
+#define GG_LOOP_CHECK_TIME_THRESHOLD(elapsed) do {} while (0)
+#endif
+
+/*----------------------------------------------------------------------
 |   functions
 +---------------------------------------------------------------------*/
 /**
- * Update the timer scheduler notion of current time
+ * Update the timer scheduler notion of current time.
+ *
+ * @return The current time
  */
-void GG_LoopBase_UpdateTime(GG_LoopBase* self);
+GG_Timestamp GG_LoopBase_UpdateTime(GG_LoopBase* self);
 
 /**
  * Check for expired timers and call timer listeners.

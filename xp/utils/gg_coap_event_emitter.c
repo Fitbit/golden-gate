@@ -414,7 +414,7 @@ GG_CoapEventEmitter_SetEvent(GG_CoapEventEmitter* self,
     }
     if (have_events && !self->coap_request_handle && !GG_Timer_IsScheduled(self->timer)) {
         GG_LOG_SEVERE("inconsistent state detected");
-    };
+    }
 #endif
 
     // compute the window bounds in terms of time relative to the scheduler's origin

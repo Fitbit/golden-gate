@@ -2644,7 +2644,6 @@
 		020000000000000000000412 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 020000000000000000000B24 /* Build configuration list for PBXProject "GoldenGateXP" */;
@@ -5463,6 +5462,7 @@
 					GG_CONFIG_ENABLE_LOGGING,
 					GG_CONFIG_ENABLE_THREAD_GUARDS,
 					GG_CONFIG_ENABLE_INSPECTION,
+					GG_CONFIG_ENABLE_MEMORY_STATS,
 				);
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_FILE_PATH}/../generated",
@@ -5723,6 +5723,7 @@
 					GG_CONFIG_ENABLE_LOGGING,
 					GG_CONFIG_ENABLE_THREAD_GUARDS,
 					GG_CONFIG_ENABLE_INSPECTION,
+					GG_CONFIG_ENABLE_MEMORY_STATS,
 				);
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_FILE_PATH}/../generated",
@@ -6377,6 +6378,7 @@
 					GG_CONFIG_ENABLE_LOGGING,
 					GG_CONFIG_ENABLE_THREAD_GUARDS,
 					GG_CONFIG_ENABLE_INSPECTION,
+					GG_CONFIG_ENABLE_MEMORY_STATS,
 				);
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_FILE_PATH}/../generated",
@@ -7017,6 +7019,7 @@
 					GG_CONFIG_ENABLE_LOGGING,
 					GG_CONFIG_ENABLE_THREAD_GUARDS,
 					GG_CONFIG_ENABLE_INSPECTION,
+					GG_CONFIG_ENABLE_MEMORY_STATS,
 				);
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_FILE_PATH}/../generated",

@@ -258,12 +258,12 @@ GG_CoapExtendedError_Encode(const GG_CoapExtendedError* self,
     }
 
     // encode the code: field number = 2, wire type = varint (0)
-    *buffer++ = GG_PROTOBUF_FIELD_KEY(2, VARINT);;
+    *buffer++ = GG_PROTOBUF_FIELD_KEY(2, VARINT);
     buffer += GG_EncodeProtobufVarint(GG_ProtobufSignedToZigZag(self->code), buffer);
 
     // encode the message: field number = 3, wire type = length-delimited
     if (self->message) {
-        *buffer++ = GG_PROTOBUF_FIELD_KEY(3, LENGTH_DELIMITED);;
+        *buffer++ = GG_PROTOBUF_FIELD_KEY(3, LENGTH_DELIMITED);
         size_t message_size = self->message_size ? self->message_size : strlen(self->message);
         buffer += GG_EncodeProtobufVarint(message_size, buffer);
         memcpy(buffer, self->message, message_size);

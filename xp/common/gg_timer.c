@@ -131,6 +131,7 @@ GG_TimerScheduler_SetTime(GG_TimerScheduler* self, uint32_t now)
     // set the current time
     self->now = now;
 
+    unsigned int fire_count = 0;
     while (!GG_LINKED_LIST_IS_EMPTY(&self->scheduled)) {
         GG_Timer* timer = GG_LINKED_LIST_ITEM(GG_LINKED_LIST_HEAD(&self->scheduled), GG_Timer, list_node);
         if (timer->fire_time > now) {
@@ -150,9 +151,11 @@ GG_TimerScheduler_SetTime(GG_TimerScheduler* self, uint32_t now)
 
         // notify the listener
         GG_TimerListener_OnTimerFired(listener, timer, elapsed);
+        
+        ++fire_count;
     }
 
-    return GG_SUCCESS;
+    return (GG_Result)fire_count;
 }
 
 //----------------------------------------------------------------------

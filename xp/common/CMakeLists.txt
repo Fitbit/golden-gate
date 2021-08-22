@@ -6,6 +6,11 @@ if(NOT GG_LIBS_ENABLE_COMMON)
     return()
 endif()
 
+option(GG_CONFIG_ENABLE_MEMORY_STATS "Enable memory stats" FALSE)
+if(GG_CONFIG_ENABLE_MEMORY_STATS)
+    add_definitions(-DGG_CONFIG_ENABLE_MEMORY_STATS)
+endif()
+
 set(SOURCES gg_buffer.c
             gg_common.c
             gg_crc32.c

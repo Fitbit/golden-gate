@@ -37,7 +37,15 @@ static void GG_COMMON_Deinit(void* state) {
 // appear in any header file, they are referenced by macro construction
 extern GG_Result GG_COMMON_Init(void);
 GG_Result GG_COMMON_Init(void) {
-    GG_LogManager_Initialize();
+    GG_Result result;
+    result = GG_Memory_Initialize();
+    if (GG_FAILED(result)) {
+        return result;
+    }
+    result = GG_LogManager_Initialize();
+    if (GG_FAILED(result)) {
+        return result;
+    }
 
     static GG_SimpleCallback c1;
     GG_GenericCallbackHandler* h1 = GG_SimpleCallback_Init(&c1, GG_COMMON_Deinit, NULL);

@@ -615,6 +615,7 @@ GG_LogManager_Initialize(void)
     }
 
     /* create and lock a mutex for the log manager */
+    LogManager.disabled = true;
     GG_Result result = GG_Mutex_LockAutoCreate(&LogManager.lock);
     GG_COMPILER_UNUSED(result); // needed to remove warning if GG_ASSERT is compiled out below
     GG_ASSERT(GG_SUCCEEDED(result));

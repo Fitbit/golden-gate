@@ -248,7 +248,7 @@ GG_Loop_MonitorFileDescriptors(GG_Loop* self, uint32_t max_wait_time_ms)
     }
 
     // update the timer scheduler now so that its notion of time is current
-    GG_LoopBase_UpdateTime(&self->base);
+    GG_Timestamp before = GG_LoopBase_UpdateTime(&self->base);
 
     // check which events have occurred
     if (io_result > 0) {
@@ -302,6 +302,12 @@ GG_Loop_MonitorFileDescriptors(GG_Loop* self, uint32_t max_wait_time_ms)
                 // call the listener
                 GG_LoopEventHandler_OnEvent(GG_CAST(&handler->base, GG_LoopEventHandler), self);
             }
+
+            // measure how long it took to invoke the handler
+            GG_Timestamp after = GG_System_GetCurrentTimestamp();
+            int64_t elapsed = after - before;
+            GG_LOG_FINER("handler took %d ns", (int)elapsed);
+            GG_LOOP_CHECK_TIME_THRESHOLD(elapsed);
         }
     }
 
@@ -310,7 +316,7 @@ GG_Loop_MonitorFileDescriptors(GG_Loop* self, uint32_t max_wait_time_ms)
 
 //----------------------------------------------------------------------
 // Inner loop, called from within an auto-release wrapper
-// (because some platforms need the wrapper to avoid retainining released
+// (because some platforms need the wrapper to avoid retaining released
 // objects forever)
 //
 // Returns GG_SUCCESS if the loop should continue, or GG_FAILURE if it should stop

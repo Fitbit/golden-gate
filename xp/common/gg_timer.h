@@ -120,6 +120,7 @@ GG_Result GG_TimerScheduler_CreateTimer(GG_TimerScheduler* self, GG_Timer** time
 
 //! Set the current time of the scheduler.
 //! This causes all timers that are scheduled for a time prior or equal to that time to fire.
+//! Returns the number of timers that fired, or a negative error code.
 //! NOTE: upon creation, the timer scheduler's time is 0.
 GG_Result GG_TimerScheduler_SetTime(GG_TimerScheduler* self, uint32_t now);
 

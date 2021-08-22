@@ -44,6 +44,16 @@ extern "C" {
 |   heap allocation
 +---------------------------------------------------------------------*/
 /**
+ * Initialize the memory subsystem
+ * All ports need to implement this function, but it may be a no-op if
+ * no special initialization is needed.
+ *
+ * @return GG_SUCCESS if the call succeded, or a negative error code.
+ */
+GG_Result
+GG_Memory_Initialize(void);
+
+/**
  * Allocate memory from the default application heap.
  * The memory is not initialized.
  *

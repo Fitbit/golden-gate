@@ -263,8 +263,9 @@ static GG_CoapMessageOption CoapEndpoint_GG_CoapMessageOption_String_From_Values
      * Creating a copy so ReleaseStringUTFChars can be called on string allocated with GetStringUTFChars.
      * options param should release this when its is no longer needed (see: CoapEndpoint_ReleaseOptionParam)
      */
-    char *option_value_utf_copy = strdup(option_value_utf);
+    char *option_value_utf_copy = (char*)GG_AllocateMemory(strlen(option_value_utf) + 1);
     GG_ASSERT(option_value_utf_copy);
+    strcpy(option_value_utf_copy, option_value_utf);
     env->ReleaseStringUTFChars(option_value, option_value_utf);
 
     GG_CoapMessageOption option = GG_CoapMessageOption {

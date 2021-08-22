@@ -38,7 +38,7 @@ GG_SET_LOCAL_LOGGER("gg.xp.loop.base")
 +---------------------------------------------------------------------*/
 
 //----------------------------------------------------------------------
-void
+GG_Timestamp
 GG_LoopBase_UpdateTime(GG_LoopBase* self)
 {
     // get the current system time in nanoseconds
@@ -47,7 +47,14 @@ GG_LoopBase_UpdateTime(GG_LoopBase* self)
     uint32_t scheduler_time = now >= self->start_time ?
         (uint32_t)((now - self->start_time)/GG_NANOSECONDS_PER_MILLISECOND) : 0;
     GG_LOG_FINER("check timers - now = %u", (int)scheduler_time);
-    GG_TimerScheduler_SetTime(self->timer_scheduler, scheduler_time);
+    GG_Result fire_count = GG_TimerScheduler_SetTime(self->timer_scheduler, scheduler_time);
+
+    // compute how long it took
+    if (fire_count > 0) {
+        int64_t elapsed = GG_System_GetCurrentTimestamp() - now;
+        GG_LOG_FINER("timers fired: %u, elapsed: %d ns", fire_count, (int)elapsed);
+    }
+    return now;
 }
 
 //----------------------------------------------------------------------

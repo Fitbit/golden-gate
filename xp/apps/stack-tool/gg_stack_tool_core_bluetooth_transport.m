@@ -76,6 +76,7 @@ static const uint8_t GG_LinkConfigurationService_DefaultConnectionConfiguration[
     0x00, 0x00, // DLE Max Tx Time
     0x00, 0x00  // Prefered MTU Size
 };
+
 static uint8_t GG_LinkConfigurationService_ConnectionMode[1] = {
     0x00 // Fast mode
 };
@@ -87,6 +88,7 @@ static const uint8_t GG_LinkStatusService_DefaultConnectionConfiguration[10] = {
     0x17, 0x00, // ATT MTU (23)
     0x00        // Speed Mode (0 = default)
 };
+
 static const uint8_t GG_LinkStatusService_DefaultConnectionStatus[7] = {
     0x00,       // Flags
     0x00,       // Maximum Tx Payload Length

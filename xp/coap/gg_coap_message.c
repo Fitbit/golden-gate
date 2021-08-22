@@ -583,7 +583,7 @@ GG_CoapMessage_Create(uint8_t                    code,
         *cursor = option_param;
 
         // next
-        option_param = GG_COAP_MESSAGE_OPTION_PARAM_NEXT(option_param);;
+        option_param = GG_COAP_MESSAGE_OPTION_PARAM_NEXT(option_param);
     }
 
     // compute the space requirements for the options
