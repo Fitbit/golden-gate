@@ -564,6 +564,10 @@ GG_Loop_InvokeSync(GG_Loop*            self,
                    void*               function_argument,
                    int*                function_result)
 {
+    if (!self) {
+        GG_LOG_WARNING("InvokeSync(%p, %p) called without GG Loop running", function, function_argument);
+        return GG_ERROR_INVALID_STATE;
+    }
     return GG_LoopBase_InvokeSync(&self->base, function, function_argument, function_result);
 }
 
@@ -573,6 +577,10 @@ GG_Loop_InvokeAsync(GG_Loop*             self,
                     GG_LoopAsyncFunction function,
                     void*                function_argument)
 {
+    if (!self) {
+        GG_LOG_WARNING("InvokeAsync(%p, %p) called without GG Loop running", function, function_argument);
+        return GG_ERROR_INVALID_STATE;
+    }
     return GG_LoopBase_InvokeAsync(&self->base, function, function_argument);
 }
 
