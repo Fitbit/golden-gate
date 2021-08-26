@@ -1,5 +1,5 @@
 # External
 github "Polidea/RxBluetoothKit" "e9f46b51fb3f1bf9d9b967c176866c9fae77c540"
-github "ReactiveX/RxSwift" == 5.1.2
+github "ReactiveX/RxSwift" == 5.1.3
 github "fpillet/NSLogger" == 1.9.7
 github "daltoniam/Starscream" "a2ed45c0b2f996cb8c335c4f270ecc68c3bd4c0f"
