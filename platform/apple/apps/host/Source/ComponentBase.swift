@@ -11,6 +11,7 @@ import BluetoothConnection
 import CoreBluetooth
 import GoldenGate
 import GoldenGateXP
+import Rxbit
 import RxBluetoothKit
 import RxCocoa
 import RxSwift
@@ -153,13 +154,8 @@ class ComponentBase {
         )
     }()
 
-    lazy var scanner: BluetoothScanner = {
-        BluetoothScanner(
-            centralManager: centralManager,
-            // Scan for multiple UUIDs, as the link service supports multiple configurations
-            services: bluetoothConfiguration.linkService.map { $0.serviceUUID },
-            bluetoothScheduler: bluetoothScheduler
-        )
+    lazy var discoverer: PeerDiscoverer = {
+        PeerDiscoverer(centralManager: centralManager, bluetoothScheduler: bluetoothScheduler)
     }()
 
     lazy var advertiser: BluetoothAdvertiser = {
@@ -189,10 +185,13 @@ class ComponentBase {
             .distinctUntilChanged()
             .filter { $0 }
 
-        let reconnectStrategy = BluetoothReconnectStrategy(
-            resumeTrigger: Observable.merge(
-                appDidBecomeActiveSubject.map { _ in "Application did become active" },
-                didEnableBluetooth.map { _ in "Bluetooth was powered on" }
+        let reconnectStrategy = ConnectivityRetryStrategy(
+            configuration: RetryDelayConfiguration(
+                interval: .milliseconds(250),
+                resume: Observable.merge(
+                    appDidBecomeActiveSubject.map { _ in "Application did become active" },
+                    didEnableBluetooth.map { _ in "Bluetooth was powered on" }
+                )
             )
         )
 
@@ -203,7 +202,8 @@ class ComponentBase {
             ),
             descriptor: nil,
             reconnectStrategy: reconnectStrategy,
-            scheduler: bluetoothScheduler
+            scheduler: bluetoothScheduler,
+            debugIdentifier: "main"
         )
     }
 

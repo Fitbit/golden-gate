@@ -8,9 +8,13 @@
 //
 
 import Foundation
+import RxRelay
 import RxSwift
 
 public protocol RetryStrategy {
+	/// Erase the history of failures, allowing the strategy to start afresh.
+	func resetFailureHistory()
+
 	/// Called when an error has terminated the observable.
 	///
 	/// - Parameter error: The error that caused termination.
@@ -21,19 +25,19 @@ public protocol RetryStrategy {
 /// A configuration for RetryStrategyAction.delay
 public struct RetryDelayConfiguration {
 	/// A delay before retrying. DispatchTimeInterval.never for no delay.
-	let interval: DispatchTimeInterval
+	public let interval: DispatchTimeInterval
 
-	/// Maximum number of retries. 0 for none.
-	let maxRetries: UInt
+	/// Maximum number of retries.
+	public let maxRetries: UInt
 
 	/// A multiplier to apply to delay for each attempt. 0 for none.
 	/// Note: must be positive.
-	let multiplier: Double
+	public let multiplier: Double
 
 	/// An observable to retry immediately without further waiting when it emits a value.
-	let resume: Observable<Void>?
+	public let resume: Observable<CustomStringConvertible>?
 
-	public init(interval: DispatchTimeInterval, maxRetries: UInt, multiplier: Double = 0, resume: Observable<Void>? = nil) {
+	public init(interval: DispatchTimeInterval, maxRetries: UInt = .max, multiplier: Double = 0, resume: Observable<CustomStringConvertible>? = nil) {
 		self.interval = interval
 		self.maxRetries = maxRetries
 		self.multiplier = multiplier
@@ -41,45 +45,27 @@ public struct RetryDelayConfiguration {
 	}
 }
 
-/// A strategy that retries regardless of the error
-/// up to maxAttempts.
-public struct DefaultRetryStrategy: RetryStrategy {
-	let retryConfiguration: RetryDelayConfiguration
-
-	public func action(for error: Error) -> RetryStrategyAction {
-		return .delay(configuration: retryConfiguration)
-	}
-
-	public init(retryConfiguration: RetryDelayConfiguration) {
-		self.retryConfiguration = retryConfiguration
-	}
-
-	public init(interval: DispatchTimeInterval, maxRetries: UInt, multiplier: Double = 0, resume: Observable<Void>? = nil) {
-		self.init(retryConfiguration: RetryDelayConfiguration(interval: interval, maxRetries: maxRetries, multiplier: multiplier, resume: resume))
-	}
-}
-
 public enum RetryStrategyAction {
 	/// Will stop retrying and forward the error.
-	case error(error: Error)
+	case error(Error)
 
-	/// Will retry according to the specfified configuration.
-	case delay(configuration: RetryDelayConfiguration)
+	/// Will retry according to the specified configuration.
+	case delay(RetryDelayConfiguration)
 
-	/// Will stop retrying until a `trigger` emits an element.
-	case suspendUntil(trigger: Observable<Void>)
+	/// Will stop retrying until a trigger emits.
+	case suspendUntil(Single<Void>)
 }
 
 extension RetryStrategyAction {
-	/// Transform the retry action into an observable expected by `retryWhen` operator.
+	/// Transform the retry action into a Single expected by `retryWhen` operator.
 	///
 	/// - Parameters:
 	///   - attempt: the current retry attempt
 	///   - error: the current error to report if not retrying
 	///   - scheduler: A scheduler to use for the .delay action.
-	/// - Returns: An observable that triggers a retry according to the strategy action when used
+	/// - Returns: A Single that triggers a retry according to the strategy action when used
 	///            with `retryWhen` operator.
-	fileprivate func asObservable(attempt: Int, error: Error, scheduler: SchedulerType) -> Observable<Void> {
+	fileprivate func asSingle(attempt: Int, error: Error, scheduler: SchedulerType) -> Single<Void> {
 		switch self {
 		case .error(let error):
 			return .error(error)
@@ -91,26 +77,33 @@ extension RetryStrategyAction {
 
 			// check number of attempts already made against max number of attempts if specified
 			// and give up with error or wait for resume trigger if any
-			guard configuration.maxRetries > 0, attempt < configuration.maxRetries else {
-				return configuration.resume ?? .error(error)
+			guard attempt < configuration.maxRetries else {
+				return configuration.resume?.take(1).asSingle()
+					.map { _ in () } ?? Single.error(error)
 			}
 
 			// retry immediately if no delay specified
 			guard configuration.interval != .never else {
-				return Observable.just(())
+				return Single.just(())
 			}
 
 			// calculate delay
 			let timeInterval = configuration.interval.timeInterval * pow(1 + configuration.multiplier, Double(attempt))
 			
-			return Observable.merge(
+			return Observable<Void>.merge(
 				Observable.just(()).delay(.milliseconds(Int(timeInterval * 1000.0)), scheduler: scheduler),
-				configuration.resume ?? Observable.never()
+				configuration.resume?.map { _ in () } ?? Observable.never()
 			)
 			.take(1)
+			.asSingle()
 		case .suspendUntil(let trigger):
 			return trigger
 		}
+	}
+
+	public func asSingle(scheduler: SchedulerType) -> Single<Void> {
+		// The attempt number and error will not be used
+		asSingle(attempt: Int.min, error: RxError.unknown, scheduler: scheduler)
 	}
 }
 
@@ -123,16 +116,16 @@ public extension ObservableConvertibleType {
 	/// - Returns: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully or is notified to error or complete.
 	func retryWith(_ strategy: RetryStrategy, scheduler: SchedulerType) -> Observable<Element> {
 		return self.asObservable().retryWhen { errors in
-			errors.enumerated().flatMap { attempt, error -> Observable<Void> in
-				strategy.action(for: error).asObservable(attempt: attempt, error: error, scheduler: scheduler)
+			errors.enumerated().flatMap { attempt, error -> Single<Void> in
+				strategy.action(for: error).asSingle(attempt: attempt, error: error, scheduler: scheduler)
 			}
 		}
 	}
 
 	func retryWith(_ action: RetryStrategyAction, scheduler: SchedulerType) -> Observable<Element> {
 		return self.asObservable().retryWhen { errors in
-			errors.enumerated().flatMap { attempt, error -> Observable<Void> in
-				action.asObservable(attempt: attempt, error: error, scheduler: scheduler)
+			errors.enumerated().flatMap { attempt, error -> Single<Void> in
+				action.asSingle(attempt: attempt, error: error, scheduler: scheduler)
 			}
 		}
 	}

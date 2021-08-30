@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C63608E26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */; };
 		42FAE85D26123D85005E6500 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */; };
 		4830C6BD221F60D100AFF465 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A8109D220E48F80067A593 /* Starscream.framework */; };
 		48A80FC4220E07690067A593 /* GoldenGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A80FBB220E07680067A593 /* GoldenGate.framework */; };
@@ -111,6 +110,7 @@
 		75A646C52488E74F00B47E0A /* StackDescriptor+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A646C42488E74F00B47E0A /* StackDescriptor+GG.swift */; };
 		75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */; };
 		75D399F12578FDCD0028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399F02578FDCD0028BD1D /* Starscream.framework */; };
+		81B5C5AE26D9295200D72E89 /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */; };
 		AF8F0940224281D300FF5604 /* GGCoapRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */; };
 		FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
 		FD6FB79C22A9015F000EFB76 /* CoapGroupRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */; };
@@ -910,7 +910,6 @@
 				48A8103C220E08A20067A593 /* StackPortId.swift in Sources */,
 				48A81026220E085D0067A593 /* TlsKeyResolver.swift in Sources */,
 				48A80FEE220E08150067A593 /* UnsafeHeapAllocatedValue.swift in Sources */,
-				3C63608E26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +931,7 @@
 				FDBE5C202628494100EFAB58 /* CharacteristicMock.swift in Sources */,
 				48A81068220E0CA30067A593 /* CoapStreamingMessageBodySpec.swift in Sources */,
 				FDBE5C222628494100EFAB58 /* PeripheralMock.swift in Sources */,
+				81B5C5AE26D9295200D72E89 /* TestScheduler+AdvanceBy.swift in Sources */,
 				48A80FD5220E07EB0067A593 /* GGAdaptableSpec.swift in Sources */,
 				48A80FD6220E07EB0067A593 /* GGAdapterSpec.swift in Sources */,
 				48A81088220E0D090067A593 /* GGBsdDatagramSocketSpec.swift in Sources */,
