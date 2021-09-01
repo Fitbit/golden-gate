@@ -203,13 +203,17 @@ open class GGPeer: Peer {
         // clear out any references the XP port might have. (See: FC-1046)
         Observable
             .combineLatest(stack, customPort, serviceDescriptor)
-            .observeOn(runLoop)
             .map { stack, customPort, _ in
-                // It would be nice if the services could clean up after themselves,
-                // but they can't know if some other new service already added itself,
-                // leading to potential races.
-                _ = try? stack?.topPort?.dataSink.setDataSinkListener(nil)
-                _ = try? stack?.topPort?.dataSource.setDataSink(nil)
+                // The port updates must be in sync (on the run loop) with the stack creation.
+                // `.observe(on: runLoop)` should be avoided in these situations since it breaks
+                // the synchronization by executing the subsequent events async.
+                runLoop.sync {
+                    // It would be nice if the services could clean up after themselves,
+                    // but they can't know if some other new service already added itself,
+                    // leading to potential races.
+                    _ = try? stack?.topPort?.dataSink.setDataSinkListener(nil)
+                    _ = try? stack?.topPort?.dataSource.setDataSink(nil)
+                }
 
                 return customPort ?? stack?.topPort
             }

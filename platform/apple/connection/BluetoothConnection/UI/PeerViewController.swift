@@ -340,6 +340,7 @@ private extension PeerViewController {
     func presentServicePlaygroundViewController() {
         _ = Observable.combineLatest(viewModel.serviceDescriptor, viewModel.peer)
             .take(1)
+            .observeOn(MainScheduler.instance)
             .map { [unowned self] in self.servicePlaygroundProvider($0.0, $0.1) }
             .subscribe(onNext: { [navigationController] playground in
                 navigationController?.pushViewController(playground, animated: true)
