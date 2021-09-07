@@ -27,8 +27,8 @@ class CoapResponseListenerSpec: QuickSpec {
                 code: .response(.success(.success)),
                 type: .confirmable,
                 options: [],
-                token: "token".data(using: .utf8)!,
-                payload: "payload".data(using: .utf8)!,
+                token: Data("token".utf8),
+                payload: Data("payload".utf8),
                 messageId: 0
             )
         }
@@ -48,7 +48,7 @@ class CoapResponseListenerSpec: QuickSpec {
                 _ = response
                     .flatMap { $0.body.asData() }
                     .subscribe(onSuccess: { data in
-                        expect(data) == "payload".data(using: .utf8)!
+                        expect(data) == Data("payload".utf8)
                         done()
                     })
             }

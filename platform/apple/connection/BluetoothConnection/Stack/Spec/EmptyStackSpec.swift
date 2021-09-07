@@ -25,8 +25,8 @@ final class EmptyStackSpec: QuickSpec {
         var scheduler: TestScheduler!
         var disposeBag: DisposeBag!
 
-        let someData1 = "SOME_DATA_1".data(using: .utf8)!
-        let someData2 = "SOME_DATA_2".data(using: .utf8)!
+        let someData1 = Data("SOME_DATA_1".utf8)
+        let someData2 = Data("SOME_DATA_2".utf8)
 
         beforeEach {
             linkSourceBuffer = DataBuffer(size: 8)

@@ -80,7 +80,7 @@ private extension CoapPlaygroundViewController {
 
         switch method {
         case .put, .post:
-            requestBuilder.body(data: UIDevice.current.name.data(using: .utf8)!)
+            requestBuilder.body(data: Data(UIDevice.current.name.utf8))
         case .get, .delete:
             break
         }

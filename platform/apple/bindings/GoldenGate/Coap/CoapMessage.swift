@@ -99,8 +99,8 @@ public struct CoapExtendedError: Equatable {
     /// Return a protobuf encoded payload
     public var data: Data? {
         let ref = UnsafeMutablePointer<GG_CoapExtendedError>.allocate(capacity: 1)
-        let namespace = self.namespace.data(using: .utf8)! as NSData
-        let message = self.message?.data(using: .utf8)! as NSData?
+        let namespace = Data(self.namespace.utf8) as NSData
+        let message = self.message.map { Data($0.utf8) } as NSData?
 
         ref.pointee = GG_CoapExtendedError(
             name_space: namespace.bytes.assumingMemoryBound(to: Int8.self),

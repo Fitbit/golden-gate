@@ -228,7 +228,7 @@ class ComponentBase {
     }
 
     lazy var helloPsk: (identity: Data, key: Data) = {
-        let identity = "hello".data(using: .utf8)!
+        let identity = Data("hello".utf8)
 
         let key = Data([
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
@@ -239,7 +239,7 @@ class ComponentBase {
     }()
 
     lazy var bootstrapPsk: (identity: Data, key: Data) = {
-        let identity = "BOOTSTRAP".data(using: .utf8)!
+        let identity = Data("BOOTSTRAP".utf8)
 
         let key = Data([
             0x81, 0x06, 0x54, 0xE3, 0x36, 0xAD, 0xCA, 0xB0,

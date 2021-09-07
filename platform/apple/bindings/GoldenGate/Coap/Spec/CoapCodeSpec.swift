@@ -26,7 +26,7 @@ class CoapCodeSpec: QuickSpec {
                 code: .request(.get),
                 type: .confirmable,
                 options: [],
-                token: "token".data(using: .utf8)!,
+                token: Data("token".utf8),
                 payload: .none,
                 messageId: 0
             )

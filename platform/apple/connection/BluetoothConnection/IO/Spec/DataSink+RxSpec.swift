@@ -19,7 +19,7 @@ class DataSinkRxSpec: QuickSpec {
 
         it("can be bound to observables") {
             waitUntil { done in
-                let sentData = "hello".data(using: .utf8)!
+                let sentData = Data("hello".utf8)
 
                 let dataSink = MockDataSink { buffer in
                     expect(buffer.data).to(equal(sentData))

@@ -67,7 +67,7 @@ class GGBsdDatagramSocketSpec: QuickSpec {
                 remoteAddress: address1
             )
 
-            let outgoingMessage = "hello".data(using: .utf8)!
+            let outgoingMessage = Data("hello".utf8)
 
             waitUntil { done in
                 runLoop.async {

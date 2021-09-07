@@ -21,7 +21,7 @@ class CoapResponseBuilderSpec: QuickSpec {
                 code: .request(.get),
                 type: .confirmable,
                 options: [],
-                token: "token".data(using: .utf8)!,
+                token: Data("token".utf8),
                 payload: .none,
                 messageId: 0
             )
@@ -39,13 +39,13 @@ class CoapResponseBuilderSpec: QuickSpec {
         describe("option()") {
             it("appends in order") {
                 let request = CoapResponseBuilder(request: request)
-                    .option(number: .ifMatch, value: "test".data(using: .utf8)!)
+                    .option(number: .ifMatch, value: Data("test".utf8))
                     .option(number: .contentFormat, value: 5)
                     .option(number: .maxAge, value: "test")
                     .build()
 
                 expect(request.options) == [
-                    CoapOption(number: .ifMatch, value: .opaque("test".data(using: .utf8)!)),
+                    CoapOption(number: .ifMatch, value: .opaque(Data("test".utf8))),
                     CoapOption(number: .contentFormat, value: .uint(5)),
                     CoapOption(number: .maxAge, value: .string("test"))
                 ]
@@ -63,7 +63,7 @@ class CoapResponseBuilderSpec: QuickSpec {
         }
 
         it("sets the body") {
-            let data = "hello".data(using: .utf8)!
+            let data = Data("hello".utf8)
 
             let response = CoapResponseBuilder(request: request)
                 .body(data: data)

@@ -18,10 +18,10 @@ final class RetryingWriterSpec: QuickSpec {
     fileprivate typealias Destination = Int
 
     override func spec() {
-        let data_1 = "1".data(using: .utf8)!
-        let data_2 = "2".data(using: .utf8)!
-        let data_3 = "3".data(using: .utf8)!
-        let data_4 = "4".data(using: .utf8)!
+        let data_1 = Data("1".utf8)
+        let data_2 = Data("2".utf8)
+        let data_3 = Data("3".utf8)
+        let data_4 = Data("4".utf8)
 
         let firstTarget: Destination = 1
         let secondTarget: Destination = 2

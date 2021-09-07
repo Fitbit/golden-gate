@@ -47,7 +47,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
         }
 
         it("accepts single blocks") {
-            let data = "1234567812345678".data(using: .utf8)!
+            let data = Data("1234567812345678".utf8)
             listener.onResponse(payload: data)
 
             // Release listener eagerly
@@ -66,11 +66,11 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
         }
 
         it("combines blocks") {
-            let firstData = "1234567812345678".data(using: .utf8)!
+            let firstData = Data("1234567812345678".utf8)
             let firstBlockInfo = GG_CoapMessageBlockInfo(data: firstData, offset: 0, more: true)!
             listener.onResponse(blockInfo: firstBlockInfo, payload: firstData)
 
-            let lastData = "ABCDEFGH".data(using: .utf8)!
+            let lastData = Data("ABCDEFGH".utf8)
             let lastBlockInfo = GG_CoapMessageBlockInfo(data: lastData, offset: 16, more: false)!
             listener.onResponse(blockInfo: lastBlockInfo, payload: lastData)
 
@@ -150,7 +150,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
         }
 
         it("reports body errors on later blocks") {
-            let data = "1234567812345678".data(using: .utf8)!
+            let data = Data("1234567812345678".utf8)
             let blockInfo = GG_CoapMessageBlockInfo(data: data, offset: 0, more: true)!
             listener.onResponse(blockInfo: blockInfo, payload: data)
             listener.onError(GGRawError.failure, message: nil)
@@ -191,7 +191,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
         }
 
         it("reports body errors on later blocks with failure code") {
-            let data = "1234567812345678".data(using: .utf8)!
+            let data = Data("1234567812345678".utf8)
             let firstBlockInfo = GG_CoapMessageBlockInfo(data: data, offset: 0, more: true)!
             listener.onResponse(blockInfo: firstBlockInfo, payload: data)
 
@@ -222,11 +222,11 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
         it("assumes that order is guaranteed by XP") {
             // Note that `offset` parameters are completely bogus in this test.
 
-            let firstData = "1234567812345678".data(using: .utf8)!
+            let firstData = Data("1234567812345678".utf8)
             let firstBlockInfo = GG_CoapMessageBlockInfo(data: firstData, offset: 16, more: true)!
             listener.onResponse(blockInfo: firstBlockInfo, payload: firstData)
 
-            let lastData = "ABCDEFGH".data(using: .utf8)!
+            let lastData = Data("ABCDEFGH".utf8)
             let lastBlockInfo = GG_CoapMessageBlockInfo(data: lastData, offset: 8, more: false)!
             listener.onResponse(blockInfo: lastBlockInfo, payload: lastData)
 

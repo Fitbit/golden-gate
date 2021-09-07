@@ -147,13 +147,13 @@ class CoapRequestBuilderSpec: QuickSpec {
         describe("option()") {
             it("appends in order") {
                 let request = CoapRequestBuilder()
-                    .option(number: .ifMatch, value: "test".data(using: .utf8)!)
+                    .option(number: .ifMatch, value: Data("test".utf8))
                     .option(number: .contentFormat, value: 5)
                     .option(number: .maxAge, value: "test")
                     .build()
 
                 expect(request.options) == [
-                    CoapOption(number: .ifMatch, value: .opaque("test".data(using: .utf8)!)),
+                    CoapOption(number: .ifMatch, value: .opaque(Data("test".utf8))),
                     CoapOption(number: .contentFormat, value: .uint(5)),
                     CoapOption(number: .maxAge, value: .string("test"))
                 ]
@@ -182,19 +182,19 @@ class CoapRequestBuilderSpec: QuickSpec {
         describe("body()") {
             it("sets body") {
                 let request = CoapRequestBuilder()
-                    .body(data: "foo".data(using: .utf8)!)
+                    .body(data: Data("foo".utf8))
                     .build()
 
-                expect(request.body) == CoapOutgoingBody.data("foo".data(using: .utf8)!, nil)
+                expect(request.body) == CoapOutgoingBody.data(Data("foo".utf8), nil)
             }
 
             it("replaces acceptsBlockwiseTransfer") {
                 let request = CoapRequestBuilder()
-                    .body(data: "foo".data(using: .utf8)!)
-                    .body(data: "bar".data(using: .utf8)!)
+                    .body(data: Data("foo".utf8))
+                    .body(data: Data("bar".utf8))
                     .build()
 
-                expect(request.body) == CoapOutgoingBody.data("bar".data(using: .utf8)!, nil)
+                expect(request.body) == CoapOutgoingBody.data(Data("bar".utf8), nil)
             }
         }
 

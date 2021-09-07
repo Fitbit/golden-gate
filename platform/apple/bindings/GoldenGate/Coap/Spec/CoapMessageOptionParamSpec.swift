@@ -26,7 +26,7 @@ class CoapMessageOptionParamSpec: QuickSpec {
             emptyOption = CoapOption(number: .accept, value: .empty)
             stringOption = CoapOption(number: .accept, value: .string("abc"))
             uintOption = CoapOption(number: .accept, value: .uint(123))
-            opaqueOption = CoapOption(number: .accept, value: .opaque("data".data(using: .utf8)!))
+            opaqueOption = CoapOption(number: .accept, value: .opaque(Data("data".utf8)))
         }
 
         describe("count") {

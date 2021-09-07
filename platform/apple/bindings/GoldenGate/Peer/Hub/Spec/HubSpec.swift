@@ -101,10 +101,10 @@ final class HubSpec: QuickSpec {
             currentConnectionConfigurationCharacteristic = makeCharacteristic(configuration.linkStatusService.currentConnectionConfigurationUUID, value: Data(repeating: 1, count: 9))
             currentConnectionStatusCharacteristic = makeCharacteristic(configuration.linkStatusService.currentConnectionStatusUUID, value: Data(repeating: 1, count: 7))
 
-            modelNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.modelNumberUUID, value: "SOME_MODEL_NUMBER".data(using: .utf8)!)
-            serialNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.serialNumberUUID, value: "SOME_SERIAL_NUMBER".data(using: .utf8)!)
-            firmwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.firmwareRevisionUUID, value: "SOME_FIRMWARE_REVISION".data(using: .utf8)!)
-            hardwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.hardwareRevisionUUID, value: "SOME_HARDWARE_REVISION".data(using: .utf8)!)
+            modelNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.modelNumberUUID, value: Data("SOME_MODEL_NUMBER".utf8))
+            serialNumberCharacteristic = makeCharacteristic(configuration.deviceInfoService.serialNumberUUID, value: Data("SOME_SERIAL_NUMBER".utf8))
+            firmwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.firmwareRevisionUUID, value: Data("SOME_FIRMWARE_REVISION".utf8))
+            hardwareRevisionCharacteristic = makeCharacteristic(configuration.deviceInfoService.hardwareRevisionUUID, value: Data("SOME_HARDWARE_REVISION".utf8))
 
             ephemeralCharacteristicPointerCharacteristic = makeCharacteristic(configuration.confirmationService.ephemeralCharacteristicPointerUUID, value: BluetoothConfiguration.ephemeralCharacteristicUuid.data)
             ephemeralCharacteristic = makeCharacteristic(BluetoothConfiguration.ephemeralCharacteristicUuid)
@@ -507,7 +507,7 @@ final class HubSpec: QuickSpec {
                         .subscribe(onNext: { modelNumbers.append($0) })
                         .disposed(by: disposeBag)
 
-                    modelNumberCharacteristic.value = "SOME_OTHER_MODEL_NUMBER".data(using: .utf8)!
+                    modelNumberCharacteristic.value = Data("SOME_OTHER_MODEL_NUMBER".utf8)
                     modelNumberCharacteristic.didUpdateValueSubject.onNext(())
 
                     expect(modelNumbers) == ["SOME_MODEL_NUMBER", "SOME_OTHER_MODEL_NUMBER"]
@@ -560,7 +560,7 @@ final class HubSpec: QuickSpec {
                         .subscribe(onNext: { serialNumbers.append($0) })
                         .disposed(by: disposeBag)
 
-                    serialNumberCharacteristic.value = "SOME_OTHER_SERIAL_NUMBER".data(using: .utf8)!
+                    serialNumberCharacteristic.value = Data("SOME_OTHER_SERIAL_NUMBER".utf8)
                     serialNumberCharacteristic.didUpdateValueSubject.onNext(())
 
                     expect(serialNumbers) == ["SOME_SERIAL_NUMBER", "SOME_OTHER_SERIAL_NUMBER"]
@@ -613,7 +613,7 @@ final class HubSpec: QuickSpec {
                         .subscribe(onNext: { versions.append($0) })
                         .disposed(by: disposeBag)
 
-                    firmwareRevisionCharacteristic.value = "SOME_OTHER_FIRMWARE_REVISION".data(using: .utf8)!
+                    firmwareRevisionCharacteristic.value = Data("SOME_OTHER_FIRMWARE_REVISION".utf8)
                     firmwareRevisionCharacteristic.didUpdateValueSubject.onNext(())
 
                     expect(versions) == ["SOME_FIRMWARE_REVISION", "SOME_OTHER_FIRMWARE_REVISION"]
@@ -666,7 +666,7 @@ final class HubSpec: QuickSpec {
                         .subscribe(onNext: { versions.append($0) })
                         .disposed(by: disposeBag)
 
-                    hardwareRevisionCharacteristic.value = "SOME_OTHER_HARDWARE_REVISION".data(using: .utf8)!
+                    hardwareRevisionCharacteristic.value = Data("SOME_OTHER_HARDWARE_REVISION".utf8)
                     hardwareRevisionCharacteristic.didUpdateValueSubject.onNext(())
 
                     expect(versions) == ["SOME_HARDWARE_REVISION", "SOME_OTHER_HARDWARE_REVISION"]

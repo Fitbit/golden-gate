@@ -23,7 +23,7 @@ class CoapStaticBlockSourceSpec: QuickSpec {
 
         beforeEach {
             // 26 characters
-            let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".data(using: .utf8)!
+            let alphabet = Data("ABCDEFGHIJKLMNOPQRSTUVWXYZ".utf8)
             source = CoapStaticBlockSource(data: alphabet)
         }
 
@@ -59,7 +59,7 @@ class CoapStaticBlockSourceSpec: QuickSpec {
                     )
                 }
 
-                expect(data) == "ABCD".data(using: .utf8)
+                expect(data) == Data("ABCD".utf8)
             }
 
             // Disabled test because `throwAssertion()` doesn't work reliably anymore.

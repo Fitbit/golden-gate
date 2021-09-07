@@ -21,8 +21,8 @@ class RawCoapMessageSpec: QuickSpec {
 
     override func spec() {
         it("parses messages") {
-            let token = "hi".data(using: .utf8)!
-            let data = "data".data(using: .utf8)!
+            let token = Data("hi".utf8)
+            let data = Data("data".utf8)
             let response = CoapResponseBuilder(messageId: 123, token: token)
                 .option(number: .uriHost, value: "example.org")
                 .option(number: .ifMatch, value: "ANY")
@@ -39,7 +39,7 @@ class RawCoapMessageSpec: QuickSpec {
             expect(message.token) == token
             expect(message.options) == [
                 // Even though we passed in a string, If-Match is always interpreted as `opaque`
-                CoapOption(number: .ifMatch, value: .opaque("ANY".data(using: .utf8)!)),
+                CoapOption(number: .ifMatch, value: .opaque(Data("ANY".utf8))),
                 // Even though we passed this, If-Match (1) comes before URI-Host (3)
                 CoapOption(number: .uriHost, value: .string("example.org")),
                 CoapOption(number: .size1, value: .uint(4))
