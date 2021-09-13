@@ -27,6 +27,11 @@ find_package(Nanopb REQUIRED)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ${CMAKE_FIND_ROOT_PATH_MODE_INCLUDE_BAK})
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ${CMAKE_FIND_ROOT_PATH_MODE_PROGRAM_BAK})
 
+# By not including the generated timestamp in the protobuf files, we can commit
+# the generated `.pb.c` and `.pb.h` to source control
+# Note: After nanopb version 0.4.0, the default behavior is `--no-timestamp`
+set(NANOPB_USER_OPTIONS "--no-timestamp")
+
 # Create the targets for all annotations
 NANOPB_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
                     RELPATH ${GG_PROTOCOL_SPEC_SRC_ROOT}
