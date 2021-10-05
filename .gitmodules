@@ -1,6 +1,6 @@
 [submodule "external/lwip"]
 	path = external/lwip
-	url = https://git.savannah.nongnu.org/git/lwip.git
+	url = https://github.com/lwip-tcpip/lwip.git
 [submodule "external/mbedtls"]
 	path = external/mbedtls
 	url = https://github.com/ARMmbed/mbedtls.git
