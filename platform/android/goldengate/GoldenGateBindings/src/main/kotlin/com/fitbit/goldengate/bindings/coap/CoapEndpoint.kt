@@ -46,7 +46,7 @@ class CoapEndpoint(
     internal var dataSinkDataSource: DataSinkDataSource? = null
     private val resourceHandlerMap = mutableMapOf<String, Long>()
     val requestFilter: CoapGroupRequestFilter = CoapGroupRequestFilter()
-    private val initialized = AtomicBoolean()
+    private val isInitialized = AtomicBoolean()
     private val scheduler : Scheduler = customScheduler ?: Schedulers.from(
         Executors.unconfigurableExecutorService(
             ThreadPoolExecutor(
@@ -63,7 +63,7 @@ class CoapEndpoint(
         thisPointerWrapper = create()
         if (thisPointerWrapper.isNotNull()) {
             attachFilter(thisPointerWrapper, requestFilter.thisPointerWrapper)
-            initialized.set(true)
+            isInitialized.set(true)
         }
     }
 
@@ -71,18 +71,16 @@ class CoapEndpoint(
         return Single.create<IncomingResponse> { emitter ->
             val coapResponseListener: CoapResponseListener
             val responseForResult = if (!request.forceNonBlockwise) {
-                coapResponseListener = BlockwiseCoapResponseListener(request, emitter)
+                coapResponseListener = BlockwiseCoapResponseListener(
+                    request, emitter, isInitialized)
                 responseForBlockwise(
                     selfPtr = thisPointerWrapper,
                     request = request,
-                    responseListener = coapResponseListener)
-                    .also {
-                        coapResponseListener.setCancellable {
-                            cancelResponseForBlockwise(it.nativeResponseListenerReference, !initialized.get())
-                        }
-                    }
+                    responseListener = coapResponseListener
+                )
             } else {
-                coapResponseListener = SingleCoapResponseListener(request, emitter)
+                coapResponseListener = SingleCoapResponseListener(
+                    request, emitter)
                 responseFor(
                     selfPtr = thisPointerWrapper,
                     request = request,
@@ -94,12 +92,9 @@ class CoapEndpoint(
                  * Only call native cancel method if request was added successfully (resultCode >= 0)
                  * and we have not already received complete response
                  */
-                if (initialized.get() && responseForResult.resultCode >= 0 && !coapResponseListener.isComplete()) {
-                    if (!request.forceNonBlockwise) {
-                        cancelResponseForBlockwise(responseForResult.nativeResponseListenerReference, canceled = false)
-                    } else {
-                        cancelResponseFor(responseForResult.nativeResponseListenerReference)
-                    }
+                if (responseForResult.resultCode >= 0 &&
+                    !coapResponseListener.isComplete() ) {
+                    coapResponseListener.cleanupNativeListener()
                 }
             }
         }.observeOn(scheduler)
@@ -182,7 +177,7 @@ class CoapEndpoint(
 
     override fun close() {
         Timber.i("Closing CoapEndpoint")
-        initialized.set(false)
+        isInitialized.set(false)
         resourceHandlerMap.clear()
         requestFilter.close()
         detach()
@@ -231,18 +226,11 @@ class CoapEndpoint(
         responseListener: CoapResponseListener
     ): ResponseForResult
 
-    private external fun cancelResponseFor(nativeResponseListenerReference: Long): Int
-
     private external fun responseForBlockwise(
         selfPtr: Long,
         request: OutgoingRequest,
         responseListener: CoapResponseListener
     ): ResponseForResult
-
-    private external fun cancelResponseForBlockwise(
-        nativeResponseListenerReference: Long,
-        canceled: Boolean
-    ): Int
 
     private external fun addResourceHandler(
         selfPtr: Long,

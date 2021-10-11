@@ -53,5 +53,17 @@ jobject CoapEndpoint_ResponseForResult_Object_From_Values(
         void *response_listener
 );
 
+/**
+ * Helper method to invoke setNativeReference method on provided listener
+ *
+ * @param listener reference to kotlin CoapResponseListener object
+ * @param native response listener reference
+ */
+void CoapEndpoint_SetNativeListenerReference(
+    JNIEnv *env,
+    jobject listener,
+    void *_response_listener
+);
+
 }
 #endif // JNI_GG_COAP_CLIENT_COMMON_H

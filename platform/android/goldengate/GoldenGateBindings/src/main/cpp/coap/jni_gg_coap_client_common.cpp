@@ -129,4 +129,26 @@ jobject CoapEndpoint_ResponseForResult_Object_From_Values(
     return response_for_result_object;
 }
 
+void CoapEndpoint_SetNativeListenerReference(
+    JNIEnv *env,
+    jobject listener,
+    void *_response_listener
+) {
+  GG_ASSERT(listener);
+
+  jclass listener_class = env->FindClass(COAP_RESPONSE_LISTENER_CLASS_NAME);
+  GG_ASSERT(listener_class);
+  jmethodID set_native_listener_reference_id = env->GetMethodID(
+      listener_class,
+      COAP_RESPONSE_LISTENER_SET_NATIVE_LISTENER_REFERENCE_NAME,
+      COAP_RESPONSE_LISTENER_SET_NATIVE_LISTENER_REFERENCE_SIG);
+  GG_ASSERT(set_native_listener_reference_id);
+
+  jlong response_listener = (jlong) (intptr_t) _response_listener;
+
+  env->CallVoidMethod(listener, set_native_listener_reference_id, response_listener);
+
+  env->DeleteLocalRef(listener_class);
+}
+
 }

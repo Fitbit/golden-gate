@@ -19,6 +19,7 @@ import com.fitbit.goldengate.bindings.coap.data.error
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import io.reactivex.subjects.BehaviorSubject
+import java.util.concurrent.atomic.AtomicBoolean
 import timber.log.Timber
 
 /**
@@ -30,16 +31,18 @@ import timber.log.Timber
 internal class BlockwiseCoapResponseListener(
     private val request: OutgoingRequest,
     private val responseEmitter: SingleEmitter<IncomingResponse>,
+    private val isCoapEndpointInitialzed: AtomicBoolean,
     private val errorDecoder: ExtendedErrorDecoder = ExtendedErrorDecoder()
 ) : CoapResponseListener {
 
     private var completed: Boolean = false
     private var started = false
     private var data = Data(0)
-    private var cancelable = {}
 
     private val bodyBehaviorSubject = BehaviorSubject.create<Data>()
     private val bodySingle = Single.fromObservable(bodyBehaviorSubject.take(1))
+    private var nativeResponseListenerReference: Long = 0L
+    private val isResponseObjectCleanUpNeeded = AtomicBoolean(true)
 
     override fun onAck() {
         // Just logging for now
@@ -47,7 +50,6 @@ internal class BlockwiseCoapResponseListener(
     }
 
     override fun onError(error: Int, message: String) {
-        completed = true
         val exception = CoapEndpointException(message, error, data)
         // transmit the error to progressObserver
         request.progressObserver.onError(exception)
@@ -60,6 +62,8 @@ internal class BlockwiseCoapResponseListener(
              * as at this point response is already completed
              */
             bodyBehaviorSubject.onError(exception)
+            // clean up native listener object
+            cleanupNativeListener()
         }
     }
 
@@ -90,6 +94,8 @@ internal class BlockwiseCoapResponseListener(
             if (exception != null) {
                 request.progressObserver.onError(exception)
                 bodyBehaviorSubject.onError(exception)
+                // clean up native listener object
+                cleanupNativeListener()
             }
         }
     }
@@ -99,16 +105,30 @@ internal class BlockwiseCoapResponseListener(
         request.progressObserver.onComplete()
         // emit response body
         bodyBehaviorSubject.onNext(data)
+        // clean up native listener object
+        cleanupNativeListener()
     }
 
     override fun isComplete() = completed
 
-    /**
-     * Sets a Cancellable for incoming coap response body stream
-     */
-    fun setCancellable(cancellable: () -> Unit) {
-        this.cancelable = cancellable
+
+    override fun setNativeListenerReference(nativeReference: Long) {
+        nativeResponseListenerReference = nativeReference
     }
+
+    /**
+     * Cancel and clean up native coap listener object
+     */
+    override fun cleanupNativeListener() {
+        if (isResponseObjectCleanUpNeeded.getAndSet(false) && nativeResponseListenerReference != 0L) {
+            cancelResponseForBlockwise(
+                nativeResponseListenerReference,
+                !isCoapEndpointInitialzed.get()
+            )
+        }
+    }
+
+
 
     private fun createIncomingResponse(message: RawResponseMessage): IncomingResponse {
         return object : IncomingResponse {
@@ -126,11 +146,16 @@ internal class BlockwiseCoapResponseListener(
                     override fun asData(): Single<Data> {
                         return bodySingle
                             .doOnDispose {
-                                cancelable()
+                                cleanupNativeListener()
                                 Timber.d("cancel ongoing blockwise coap request")
                             }
                     }
                 }
         }
     }
+
+    private external fun cancelResponseForBlockwise(
+        nativeResponseListenerReference: Long,
+        canceled: Boolean
+    ): Int
 }

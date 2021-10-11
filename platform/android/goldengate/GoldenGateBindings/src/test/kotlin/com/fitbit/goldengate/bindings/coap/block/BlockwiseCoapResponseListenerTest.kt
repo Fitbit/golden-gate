@@ -25,6 +25,8 @@ import io.reactivex.SingleEmitter
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.util.Arrays
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class BlockwiseCoapResponseListenerTest {
@@ -35,13 +37,14 @@ class BlockwiseCoapResponseListenerTest {
     }
     private val mockSingleEmitter = mock<SingleEmitter<IncomingResponse>>()
     private val mockDecoder = mock<ExtendedErrorDecoder>()
-    private val mockCancellable = mock<() -> Unit>()
+    private val isResponseObjectCleanUpNeeded = AtomicBoolean()
 
     private val listener = BlockwiseCoapResponseListener(
             mockRequest,
             mockSingleEmitter,
-            mockDecoder
-    ).also { it.setCancellable(mockCancellable) }
+            isResponseObjectCleanUpNeeded,
+            mockDecoder,
+    )
 
     private val testCode = ResponseCode.created
     private val testData = "Hello,".toByteArray()
@@ -68,6 +71,8 @@ class BlockwiseCoapResponseListenerTest {
 
         listener.onNext(testMessage)
 
+        assert(listener.isComplete())
+
         val response = verifySuccessSignalOnResponseEmitter()
         assertEquals(testCode, response.responseCode)
 
@@ -83,6 +88,8 @@ class BlockwiseCoapResponseListenerTest {
         listener.onNext(testMessage)
         listener.onComplete()
 
+        assert(listener.isComplete())
+
         val response = verifySuccessSignalOnResponseEmitter()
         assertEquals(testCode, response.responseCode)
 
@@ -97,6 +104,7 @@ class BlockwiseCoapResponseListenerTest {
 
         listener.onComplete()
 
+        assertFalse(listener.isComplete())
         verifyNoMoreInteractions(mockSingleEmitter)
     }
 
@@ -134,11 +142,13 @@ class BlockwiseCoapResponseListenerTest {
     }
 
     @Test
-    fun shouldSendErrorIfFailureReceivingFirstBlocks() {
+    fun shouldSendErrorIfFailureReceivingFirstBlock() {
         val expectedEmptyPartialData = ByteArray(0)
 
         // first callback is error without any data received
         listener.onError(1, "error message")
+
+        assertFalse(listener.isComplete())
 
         val response = verifyFailureSignalOnResponseEmitter()
 
@@ -174,8 +184,6 @@ class BlockwiseCoapResponseListenerTest {
 
         // cancel the body stream; set cancelled = true
         response.body.asData().test(true)
-
-        verify(mockCancellable).invoke()
     }
 
     @Test
@@ -190,8 +198,6 @@ class BlockwiseCoapResponseListenerTest {
 
         // cancel the body stream; set cancelled = true
         response.body.asData().test(true)
-
-        verify(mockCancellable).invoke()
     }
 
     private fun verifySuccessSignalOnResponseEmitter(): IncomingResponse {

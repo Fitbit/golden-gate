@@ -6,7 +6,9 @@ package com.fitbit.goldengatehost
 import android.content.Context
 import android.content.Intent
 import android.view.View
+import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.goldengate.bindings.coap.CoapEndpoint
 import com.fitbit.goldengate.bindings.coap.CoapEndpointBuilder
@@ -35,6 +37,7 @@ import timber.log.Timber
 class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
 
     private var sendRequestTime: Long = 0
+    private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
 
     override fun getContentViewRes(): Int = R.layout.a_single_message
 
@@ -101,10 +104,24 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
     }
 
     private fun updateResponseMessage(response: IncomingResponse) {
+        var callback: FitbitGatt.FitbitGattCallback? = null
         disposeBag.add(
             response.body.asData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { disposable ->
+                    callback = object : BaseFitbitGattCallback() {
+                        // cancel CoAP request when BT is off
+                        override fun onBluetoothOff() {
+                            Timber.d("BT is off")
+                            disposable.dispose()
+                            super.onBluetoothOff()
+                        }
+                    }.also {
+                        fitbitGatt.registerGattEventListener(it)
+                    }
+                }
+                .doFinally { callback?.let { fitbitGatt.unregisterGattEventListener(it) } }
                 .subscribe({ data -> updateResponseMessage(String(data)) }, { Timber.e(it) })
         )
     }
