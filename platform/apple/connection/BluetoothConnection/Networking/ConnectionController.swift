@@ -16,12 +16,12 @@ import RxSwift
 public protocol ConnectionEmitter {
     associatedtype ConnectionType
 
-    /// Access to the connection status and the underlying connection that we are trying to establish.
+    /// Access to the connection status and the underlying connection that we are trying to establish. Replays the last value (if any) on subscribe.
     var connectionStatus: Observable<ConnectionStatus<ConnectionType>> { get }
 
-    /// Observable that emits when a connection error occurs. Most of these errors will be handled
-    /// by the reconnect strategy, but some are unrecoverable.
-    var connectionErrors: Observable<Error> { get }
+    /// Observable that emits a non-nil value when a connection error occurs or nil otherwise. Most of these errors will be handled
+    /// by the reconnect strategy, but some are unrecoverable. Replays the last value (if any) on subscribe.
+    var connectionError: Observable<Error?> { get }
 }
 
 /// A descriptor for a connection request.
@@ -111,9 +111,9 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         return connectionStatusSubject.asObservable()
     }
 
-    private let connectionErrorsSubject = PublishSubject<Error>()
-    public var connectionErrors: Observable<Error> {
-        return connectionErrorsSubject.asObservable()
+    private let connectionErrorSubject = ReplaySubject<Error?>.create(bufferSize: 1)
+    public var connectionError: Observable<Error?> {
+        return connectionErrorSubject.asObservable()
     }
 
     private let metricsSubject = PublishSubject<ConnectionControllerMetricsEvent>()
@@ -165,13 +165,16 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                     .catchError { Observable.just(.disconnected).concat(Observable.error($0)) }
                     .logError("ConnectionController<\(debugIdentifier)>: Connection error", .bluetooth, .error)
             }
-            .do(onError: { [weak self] error in
-                self?.connectionErrorsSubject.onNext(error)
+            .do(
+                onError: { [weak self] error in
+                    self?.connectionErrorSubject.onNext(error)
 
-                if case CentralManagerError.identifierUnknown = error {
-                    self?.clearDescriptor()
-                }
-            })
+                    if case CentralManagerError.identifierUnknown = error {
+                        self?.clearDescriptor()
+                    }
+                },
+                onSubscribe: { [connectionErrorSubject] in connectionErrorSubject.onNext(nil) }
+            )
             .retryWhen { [metricsSubject] errors in
                 errors.map(reconnectStrategy.action)
                     .logError("ConnectionController<\(debugIdentifier)>: Reconnect strategy action", .bluetooth, .next)
@@ -213,7 +216,9 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
             .bind(to: metricsSubject)
             .disposed(by: disposeBag)
 
-        connectionErrors.map { ConnectionControllerMetricsEvent.encounteredError($0) }
+        connectionError
+            .filterNil()
+            .map { ConnectionControllerMetricsEvent.encounteredError($0) }
             .bind(to: metricsSubject)
             .disposed(by: disposeBag)
     }
@@ -261,8 +266,8 @@ extension ConnectionEmitter {
             connectionStatus
                 .filter { $0.connected }
                 .map { _ in false },
-            connectionErrors
-                .filter { $0.isBluetoothHalfBondedError }
+            connectionError
+                .filter { $0?.isBluetoothHalfBondedError == true }
                 .map { _ in true }
         )
     }

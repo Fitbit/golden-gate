@@ -178,9 +178,9 @@ final class ConnectionControllerSpec: QuickSpec {
                     .subscribe(onNext: { statuses.append($0) })
                     .disposed(by: disposeBag)
 
-                var errors: [Error] = []
+                var errors: [Error?] = []
 
-                controller.connectionErrors
+                controller.connectionError
                     .subscribe(onNext: { errors.append($0) })
                     .disposed(by: disposeBag)
 
@@ -204,10 +204,29 @@ final class ConnectionControllerSpec: QuickSpec {
                 connector.connectionStatus.onError(TestError.someError)
 
                 expect(statuses) == [.disconnected, .connecting, .disconnected, .connecting, .connected(someConnection), .disconnected]
-                expect(errors.count) == 2
+                expect(errors.count) == 4
                 var iterator = errors.makeIterator()
-                expect(iterator.next()).to(matchError(ConnectorError.disconnected))
-                expect(iterator.next()).to(matchError(TestError.someError))
+                expect(iterator.next() as? Error).to(beNil())
+                expect(iterator.next() as? Error).to(matchError(ConnectorError.disconnected))
+                expect(iterator.next() as? Error).to(beNil())
+                expect(iterator.next() as? Error).to(matchError(TestError.someError))
+
+                // The controller must replay the last status and error upon subscribe
+                var replayedStatuses: [ConnectionStatus<Connection>] = []
+
+                controller.connectionStatus
+                    .subscribe(onNext: { replayedStatuses.append($0) })
+                    .disposed(by: disposeBag)
+
+                var replayedErrors: [Error?] = []
+
+                controller.connectionError
+                    .subscribe(onNext: { replayedErrors.append($0) })
+                    .disposed(by: disposeBag)
+
+                expect(replayedStatuses) == [.disconnected]
+                expect(replayedErrors.count) == 1
+                expect(replayedErrors.first as? Error).to(matchError(TestError.someError))
             }
 
             it("emits half bonded state") {
