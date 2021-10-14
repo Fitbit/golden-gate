@@ -52,7 +52,7 @@ internal class ResourceHandlerInvoker(
             Method.DELETE -> resourceHandler.onDelete(request, OutgoingResponseBuilder())
         }
 
-        // TODO: making a blocking call right now but this should instead support sending response back to jni asynchronously
+        // TODO FC-6782: making a blocking call right now but this should instead support sending response back to jni asynchronously
         val startTime = elapsedRealtimeProvider()
         val response = responseSingle.blockingGet()
         val timeBlocked = elapsedRealtimeProvider() - startTime

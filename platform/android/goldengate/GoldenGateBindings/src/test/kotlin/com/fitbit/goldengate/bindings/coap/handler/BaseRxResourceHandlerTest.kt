@@ -1,9 +1,7 @@
 package com.fitbit.goldengate.bindings.coap.handler
 
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.schedulers.TestScheduler
 import org.junit.Assert.assertTrue
-import org.junit.Assert.fail
 import org.junit.Test
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
@@ -15,17 +13,6 @@ class BaseRxResourceHandlerTest {
     inner class TestRxResourceHander: BaseRxResourceHandler() {
         fun emit(data: ByteArray) {
             emitUpdates(data)
-        }
-    }
-
-    @Test
-    fun `trampoline scheduler throws exception`() {
-        val sut = TestRxResourceHander()
-        try {
-            sut.observeUpdates(Schedulers.trampoline())
-            fail("An exception should have been thrown")
-        } catch (e: IllegalArgumentException) {
-            //test passed
         }
     }
 
