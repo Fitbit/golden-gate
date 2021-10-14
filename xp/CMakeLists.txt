@@ -26,7 +26,11 @@ include(CMakeDependentOption)
 get_filename_component(GG_ROOT .. ABSOLUTE BASEDIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Global options
-set(CMAKE_C_STANDARD 99)
+if(GG_CONFIG_C_STANDARD)
+    set(CMAKE_C_STANDARD ${GG_CONFIG_C_STANDARD})
+else()
+    set(CMAKE_C_STANDARD 99)
+endif()
 add_definitions(-D_THREAD_SAFE)
 
 # XCode-specific options
