@@ -1,11 +1,11 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <jni_gg_loop.h>
-#include <xp/common/gg_common.h>
-#include <logging/jni_gg_logging.h>
-#include <xp/utils/gg_memory_data_sink.h>
-#include <util/jni_gg_utils.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/common/gg_common.h"
+#include "xp/utils/gg_memory_data_sink.h"
 
 /**
  * Jni Bindings for MemoryDataSink

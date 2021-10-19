@@ -1,9 +1,9 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <xp/common/gg_types.h>
-#include <xp/remote/gg_remote.h>
 #include <jni.h>
+#include "xp/common/gg_types.h"
+#include "xp/remote/gg_remote.h"
 
 #ifndef GOLDENGATE_JNI_GG_REMOTE_H
 #define GOLDENGATE_JNI_GG_REMOTE_H
