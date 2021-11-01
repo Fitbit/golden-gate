@@ -189,7 +189,6 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 @interface BaseTransport: NSObject <NSStreamDelegate>
 
 @property (strong, nonatomic) NSMutableArray*                 sendQueue;
-@property (nonatomic)         CBL2CAPPSM                      gattlinkL2capChannelPsm;
 @property (strong)            CBL2CAPChannel*                 gattlinkL2capChannel;
 @property (strong, nonatomic) NSInputStream*                  gattlinkL2capInputStream;
 @property (strong, nonatomic) NSOutputStream*                 gattlinkL2capOutputStream;
@@ -723,7 +722,6 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     self.gattlinkRxCharacteristic = nil;
     self.gattlinkTxCharacteristic = nil;
     self.gattlinkL2capChannelPsmCharacteristic = nil;
-    self.gattlinkL2capChannelPsm = 0;
     self.gattConfirmationService = nil;
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
@@ -806,7 +804,6 @@ didFailToConnectPeripheral: (CBPeripheral *)peripheral
             self.gattlinkRxCharacteristic = nil;
             self.gattlinkTxCharacteristic = nil;
             self.gattlinkL2capChannelPsmCharacteristic = nil;
-            self.gattlinkL2capChannelPsm = 0;
             [services_to_rediscover addObject: service.UUID];
         } else if ([service.UUID isEqual: [CBUUID UUIDWithString: GG_LINK_STATUS_SERVICE_UUID]]) {
             GG_LOG_INFO("Link Status Service changed");
@@ -878,9 +875,11 @@ didDiscoverCharacteristicsForService: (CBService *)service
             self.gattlinkTxCharacteristic = nil;
 
             // read the PSM value for the L2CAP channel
-            [peripheral readValueForCharacteristic: self.gattlinkL2capChannelPsmCharacteristic];
+            GG_LOG_FINER("subscribing to L2CAP Channel PSM Characteristic");
+            [peripheral setNotifyValue: YES forCharacteristic: self.gattlinkL2capChannelPsmCharacteristic];
         } else {
             if (self.gattlinkTxCharacteristic != nil) {
+                GG_LOG_FINER("subscribing to Gattlink TX Characteristic");
                 [peripheral setNotifyValue: YES forCharacteristic: self.gattlinkTxCharacteristic];
             }
             if (self.gattlinkRxCharacteristic != nil) {
@@ -914,6 +913,10 @@ didUpdateNotificationStateForCharacteristic: (CBCharacteristic *)characteristic
                 [self onConnected];
             }
         }
+    } else if ([characteristic.UUID isEqual:
+               [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+        GG_LOG_FINE("subscribed to the L2CAP Channel PSM characteristic");
+        [peripheral readValueForCharacteristic: characteristic];
     } else if ([characteristic.UUID isEqual:
                [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_CONFIGURATION_CHARACTERISTIC_UUID]]) {
         GG_LOG_FINE("subscribed to the Link Status Connection Configuration charateristic");
@@ -1082,16 +1085,24 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
             return;
         }
         const uint8_t* data = characteristic.value.bytes;
-        self.gattlinkL2capChannelPsm = (CBL2CAPPSM)(data[0] | data[1] << 8);
-        GG_LOG_INFO("Gattlink L2CAP Channel PSM = %d", (int)self.gattlinkL2capChannelPsm);
+        CBL2CAPPSM psm = (CBL2CAPPSM)(data[0] | data[1] << 8);
+        GG_LOG_INFO("Gattlink L2CAP Channel PSM = %d", (int)psm);
 
-        // open the L2CAP channel
-        if (@available(macOS 10.14, *)) {
-            GG_LOG_FINE("openning L2CAP Channel");
-            [self.peripheral openL2CAPChannel: self.gattlinkL2capChannelPsm];
+        // a value of 0 indicates that the channel isn't ready yet, or has been removed
+        if (psm == 0) {
+            if (self.gattlinkL2capChannel != nil) {
+                // the channel has been removed
+                GG_LOG_INFO("Gattlink L2CAP Channel PSM has been removed");
+            }
         } else {
-            // Fallback on earlier versions
-            GG_LOG_INFO("ignoring L2CAP Channel PSM, not supported");
+            // open the L2CAP channel
+            if (@available(macOS 10.14, *)) {
+                GG_LOG_FINE("openning L2CAP Channel");
+                [self.peripheral openL2CAPChannel: psm];
+            } else {
+                // Fallback on earlier versions
+                GG_LOG_INFO("ignoring L2CAP Channel PSM, not supported");
+            }
         }
     }
 }
@@ -1285,9 +1296,12 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
 @property (strong, nonatomic) CBMutableService*        gattlinkService;
 @property (strong, nonatomic) CBMutableCharacteristic* gattlinkRxCharacteristic;
 @property (strong, nonatomic) CBMutableCharacteristic* gattlinkTxCharacteristic;
+@property (strong, nonatomic) CBCentral*               gattlinkTxSubscriber;
 @property (strong, nonatomic) CBMutableCharacteristic* gattlinkL2capChannelPsmCharacteristic;
+@property (strong, nonatomic) NSMutableData*           gattlinkL2capChannelPsmCharacteristicValue;
+@property (nonatomic)         BOOL                     gattlinkL2capChannelPsmCharacteristicChanged;
+@property (strong, nonatomic) CBCentral*               gattlinkL2capChannelPsmSubscriber;
 @property (nonatomic)         BOOL                     gattlinkL2capChannelEnabled;
-@property (strong, nonatomic) CBCentral*               gattlinkSubscriber;
 @property (strong, nonatomic) CBMutableService*        linkStatusService;
 @property (strong, nonatomic) CBMutableCharacteristic* linkStatusConnectionConfigurationCharacteristic;
 @property (strong, nonatomic) NSMutableData*           linkStatusConnectionConfigurationCharacteristicValue;
@@ -1299,7 +1313,6 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
 @property (strong, nonatomic) CBCentral*               linkStatusConnectionStatusSubscriber;
 @property (strong, nonatomic) CBMutableCharacteristic* linkStatusSecureCharacteristic;
 @property (nonatomic)         BOOL                     txReady;
-@property (nonatomic)         CBL2CAPPSM               l2capPsm;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
 
@@ -1333,13 +1346,16 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
                    value: nil
              permissions: CBAttributePermissionsReadable];
         if (@available(macOS 10.14, *)) {
-            uint16_t zero = 0;
             if (self.gattlinkL2capChannelEnabled) {
                 self.gattlinkL2capChannelPsmCharacteristic = [[CBMutableCharacteristic alloc]
                     initWithType: [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]
-                      properties: CBCharacteristicPropertyRead
-                           value: [NSData dataWithBytes: &zero length: 2]
+                      properties: CBCharacteristicPropertyNotify | CBCharacteristicPropertyRead
+                           value: nil
                      permissions: CBAttributePermissionsReadable];
+                self.gattlinkL2capChannelPsmCharacteristicChanged = FALSE;
+                const uint8_t psm[2] = {0, 0};
+                self.gattlinkL2capChannelPsmCharacteristicValue =
+                    [NSMutableData dataWithBytes: psm length: sizeof(psm)];
                 self.gattlinkService.characteristics = @[
                     self.gattlinkRxCharacteristic,
                     self.gattlinkTxCharacteristic,
@@ -1366,6 +1382,7 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
         self.linkStatusConnectionConfigurationCharacteristicValue =
             [NSMutableData dataWithBytes: GG_LinkStatusService_DefaultConnectionConfiguration
                                   length: sizeof(GG_LinkStatusService_DefaultConnectionConfiguration)];
+        self.linkStatusConnectionConfigurationCharacteristicChanged = FALSE;
         self.linkStatusConnectionStatusCharacteristic = [[CBMutableCharacteristic alloc]
             initWithType: [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_STATUS_CHARACTERISTIC_UUID]
               properties: CBCharacteristicPropertyNotify | CBCharacteristicPropertyRead
@@ -1374,6 +1391,7 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
         self.linkStatusConnectionStatusCharacteristicValue =
             [NSMutableData dataWithBytes: GG_LinkStatusService_DefaultConnectionStatus
                                   length: sizeof(GG_LinkStatusService_DefaultConnectionStatus)];
+        self.linkStatusConnectionStatusCharacteristicChanged = FALSE;
         uint8_t zero = 0;
         self.linkStatusSecureCharacteristic = [[CBMutableCharacteristic alloc]
             initWithType: [CBUUID UUIDWithString: GG_LINK_STATUS_SECURE_CHARACTERISTIC_UUID]
@@ -1442,15 +1460,12 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
         if (!self.peripheralOn) {
             self.peripheralOn = TRUE;
 
+            [self publishServices];
             if (@available(macOS 10.14, *)) {
-                // Publish an L2CAP channel, we will publish the services when we know the value
-                // assigned to us for the L2CAP PSM
+                // Publish an L2CAP channel, we will publish the PSM value when assigned
                 [peripheral publishL2CAPChannelWithEncryption: FALSE];
-            } else {
-                // Fallback on earlier versions, just publish the services now
-                [self publishServices];
             }
-            
+
             // advertise our name and the Golden Gate Service
             [self.peripheralManager startAdvertising: @{
                 CBAdvertisementDataLocalNameKey: self.advertisedName,
@@ -1488,16 +1503,13 @@ didOpenL2CAPChannel: (CBL2CAPChannel *)channel
         return;
     }
     
+    // Update the PSM characteristic
     GG_LOG_INFO("L2CAP Channel published with PSM=%d", (int)PSM);
-    self.l2capPsm = PSM;
-    uint8_t psm_bytes[2] = {
-        PSM & 0xFF,
-        (PSM >> 8) & 0xFF
-    };
-    self.gattlinkL2capChannelPsmCharacteristic.value = [NSData dataWithBytes: psm_bytes length: 2];
-    
-    // Publish the services now
-    [self publishServices];
+    uint8_t* value = (uint8_t*)[self.gattlinkL2capChannelPsmCharacteristicValue mutableBytes];
+    value[0] = PSM & 0xFF;
+    value[1] = (PSM >> 8) & 0xFF;
+    self.gattlinkL2capChannelPsmCharacteristicChanged = TRUE;
+    [self updateSubscribers];
 }
 
 // Delegate method called when our L2CAP channel has been opened
@@ -1612,7 +1624,7 @@ didSubscribeToCharacteristic: (CBCharacteristic *)characteristic {
         GG_LOG_FINE("subscription to Gattlink TX");
 
         // keep a reference to the subscriber
-        self.gattlinkSubscriber = central;
+        self.gattlinkTxSubscriber = central;
 
         // update the MTU
         if (!self.gattlinkL2capChannel) {
@@ -1627,6 +1639,10 @@ didSubscribeToCharacteristic: (CBCharacteristic *)characteristic {
             // we're now in a 'link connected' state
             GG_StackToolBluetoothTransport_NotifyConnected(self.host);
         }
+    } else if ([characteristic.UUID isEqual:
+        [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+        GG_LOG_FINE("subscription to the L2CAP Channel PSM characteristic");
+        self.gattlinkL2capChannelPsmSubscriber = central;
     }
 }
 
@@ -1656,7 +1672,12 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
         GG_LOG_FINE("un-subscription from Gattlink TX");
 
         // clear the subscriber if we have one
-        self.gattlinkSubscriber = nil;
+        self.gattlinkTxSubscriber = nil;
+    } else if ([characteristic.UUID isEqual: [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+        GG_LOG_FINE("un-subscription from L2CAP Channel PSM");
+
+        // clear the subscriber if we have one
+        self.gattlinkL2capChannelPsmSubscriber = nil;
     }
 }
 
@@ -1691,6 +1712,10 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
     } else if ([request.characteristic.UUID isEqual:
         [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_STATUS_CHARACTERISTIC_UUID]]) {
         request.value = self.linkStatusConnectionStatusCharacteristicValue;
+        [peripheral respondToRequest: request withResult: CBATTErrorSuccess];
+    } else if ([request.characteristic.UUID isEqual:
+        [CBUUID UUIDWithString: GG_GATTLINK_L2CAP_CHANNEL_PSM_CHARACTERISTIC_UUID]]) {
+        request.value = self.gattlinkL2capChannelPsmCharacteristicValue;
         [peripheral respondToRequest: request withResult: CBATTErrorSuccess];
     }
 }
@@ -1735,7 +1760,11 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
     // First, look for a peripheral with the same ID as our subscriber
     CBPeripheral* peer = NULL;
     for (CBPeripheral* peripheral in peripherals) {
-        if (self.gattlinkSubscriber && [self.gattlinkSubscriber.identifier isEqual: peripheral.identifier]) {
+        if (self.gattlinkTxSubscriber && [self.gattlinkTxSubscriber.identifier isEqual: peripheral.identifier]) {
+            peer = peripheral;
+            break;
+        }
+        if (self.gattlinkL2capChannelPsmSubscriber && [self.gattlinkL2capChannelPsmSubscriber.identifier isEqual: peripheral.identifier]) {
             peer = peripheral;
             break;
         }
@@ -1783,6 +1812,17 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
         } else {
             GG_LOG_FINE("update failed, will retry later");
         }
+    } else if (self.gattlinkL2capChannelPsmCharacteristicChanged &&
+               self.gattlinkL2capChannelPsmSubscriber) {
+        GG_LOG_FINE("updating subscribers of the L2CAP Channel PSM characteristic");
+        BOOL result = [self.peripheralManager updateValue: self.gattlinkL2capChannelPsmCharacteristicValue
+                                        forCharacteristic: self.gattlinkL2capChannelPsmCharacteristic
+                                     onSubscribedCentrals: @[ self.gattlinkL2capChannelPsmSubscriber ]];
+        if (result) {
+            self.gattlinkL2capChannelPsmCharacteristicChanged = FALSE;
+        } else {
+            GG_LOG_FINE("update failed, will retry later");
+        }
     }
 
     // try to send
@@ -1793,7 +1833,7 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
 // Try to send GATT data from the queue
 - (void)checkSendQueue {
     // do nothing if we're waiting for TX to be ready
-    if (!self.txReady || !self.gattlinkSubscriber) {
+    if (!self.txReady || !self.gattlinkTxSubscriber) {
         return;
     }
 
@@ -1804,7 +1844,7 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
         NSData* data = self.sendQueue[self.sendQueue.count - 1];
         BOOL result = [self.peripheralManager updateValue: data
                                         forCharacteristic: self.gattlinkTxCharacteristic
-                                     onSubscribedCentrals: @[ self.gattlinkSubscriber ]];
+                                     onSubscribedCentrals: @[ self.gattlinkTxSubscriber ]];
         if (result) {
             // data sent, remove from the queue
             GG_LOG_FINER(">>> gattlink TX, size=%u", (int)data.length);
@@ -1820,7 +1860,7 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
 
 // Send data to Gattlink
 - (void)sendData: (NSData *)data {
-    if (!self.gattlinkSubscriber && !self.gattlinkL2capChannel) {
+    if (!self.gattlinkTxSubscriber && !self.gattlinkL2capChannel) {
         GG_LOG_WARNING("no subscriber or channel, dropping gattlink TX data");
         return;
     }
@@ -1847,7 +1887,8 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
     }
 
     // release references
-    self.gattlinkSubscriber                          = nil;
+    self.gattlinkTxSubscriber                        = nil;
+    self.gattlinkL2capChannelPsmSubscriber           = nil;
     self.linkStatusConnectionConfigurationSubscriber = nil;
     self.linkStatusConnectionStatusSubscriber        = nil;
 }
