@@ -8,6 +8,6 @@ project.repositories:
 #
 repository.apache-mynewt-core:
     type: github
-    vers: 1.7.0
+    vers: 1.9.0
     user: apache
     repo: mynewt-core

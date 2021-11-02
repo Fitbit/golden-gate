@@ -59,7 +59,7 @@ def provision(ctx, sn=None, board=None):  # pylint: disable=C0103
     # Build and flash Mynewt bootloader
     app_dir = "platform/mynewt/apps/gg-tool"
     with ctx.cd(app_dir):
-        file_path = "{app_dir}/bin/targets/boot_{board}/app/boot/mynewt/mynewt.elf.bin"
+        file_path = "{app_dir}/bin/targets/boot_{board}/app/@mcuboot/boot/mynewt/mynewt.elf.bin"
         file_path = file_path.format(app_dir=app_dir, board=board_name)
 
         if not os.path.isdir(os.path.join(app_dir, "repos")):

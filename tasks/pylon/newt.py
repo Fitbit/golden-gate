@@ -7,7 +7,7 @@ from invoke import task
 from ..deps import version_check, build_instructions
 
 @task
-def check_version(ctx, min_version="1.7.0", abort=True):
+def check_version(ctx, min_version="1.9.0", abort=True):
     '''Check if Newt Tool is installed with a minimum version'''
     return version_check(
         ctx, "newt version",
