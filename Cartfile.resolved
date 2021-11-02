@@ -1,4 +1,4 @@
-github "Polidea/RxBluetoothKit" "e9f46b51fb3f1bf9d9b967c176866c9fae77c540"
+github "Fitbit/RxBluetoothKit" "dcf8996637414ca3c81e2de4249694232706b889"
 github "Quick/Nimble" "v9.2.0"
 github "Quick/Quick" "v3.0.0"
 github "ReactiveX/RxSwift" "5.1.3"
