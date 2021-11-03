@@ -61,6 +61,10 @@
 #define GG_CONN_MODE_FAST_LATENCY          0   // in units of connection intervals
 #define GG_CONN_MODE_FAST_TIMEOUT          20  // in units of 100ms = 2s
 
+#define GG_GATTLINK_L2CAP_PSM             0xC0
+#define GG_GATTLINK_L2CAP_MTU             2048
+#define GG_GATTLINK_L2CAP_MAX_PACKET_SIZE 256
+
 /*----------------------------------------------------------------------
 |   BLE configs
 +---------------------------------------------------------------------*/
@@ -83,6 +87,13 @@ static const ble_uuid128_t gatt_svr_gattlink_chr_tx_uuid =
 BLE_UUID128_INIT(
     0xE8, 0xBF, 0x6C, 0xCF, 0x17, 0x8B, 0x32, 0xB8,
     0x4C, 0x48, 0x6A, 0xE5, 0x02, 0xFF, 0xBA, 0xAB
+);
+
+/* ABBAFF03-E56A-484C-B832-8B17CF6CBFE8 */
+static const ble_uuid128_t gatt_svr_gattlink_chr_l2cap_psm_uuid =
+BLE_UUID128_INIT(
+    0xE8, 0xBF, 0x6C, 0xCF, 0x17, 0x8B, 0x32, 0xB8,
+    0x4C, 0x48, 0x6A, 0xE5, 0x03, 0xFF, 0xBA, 0xAB
 );
 
 /* ABBAFD00-E56A-484C-B832-8B17CF6CBFE8 */
@@ -157,6 +168,9 @@ static uint16_t link_status_connection_status_chr_attr_handle;
 
 static uint16_t gattlink_rx_attr_handle;
 static uint16_t gattlink_tx_attr_handle;
+static uint16_t gattlink_l2cap_psm_attr_handle;
+
+static struct ble_l2cap_chan* gattlink_l2cap_channel;
 
 #if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL) == 0
 static uint8_t disc_ble_addr[BLE_DEV_ADDR_LEN];
@@ -203,6 +217,13 @@ static const struct ble_gatt_svc_def gatt_svr_svcs[] = {
                 .val_handle = &gattlink_tx_attr_handle,
                 .access_cb  = ble_gatt_svr_chr_access_cb,
                 .flags      = BLE_GATT_CHR_F_NOTIFY
+            },
+            {
+                /*** Characteristic: L2CAP CoC PSM */
+                .uuid       = &gatt_svr_gattlink_chr_l2cap_psm_uuid.u,
+                .val_handle = &gattlink_l2cap_psm_attr_handle,
+                .access_cb  = ble_gatt_svr_chr_access_cb,
+                .flags      = BLE_GATT_CHR_F_READ | BLE_GATT_CHR_F_NOTIFY
             },
             {
                 0, /* No more characteristics in this service */
@@ -313,6 +334,16 @@ static GG_LinkStatus_ConnectionStatus       g_conn_status;      // Link Status S
 static uint16_t ble_conn_handle = BLE_HS_CONN_HANDLE_NONE;
 static bool g_gattc_discovery_failed;
 
+static enum {
+    GATTLINK_MODE_UNKNOWN,
+    GATTLINK_MODE_GATT,
+    GATTLINK_MODE_L2CAP
+} g_gattlink_mode = GATTLINK_MODE_UNKNOWN;
+
+static uint8_t      g_gattlink_l2cap_packet[GG_GATTLINK_L2CAP_MAX_PACKET_SIZE];
+static unsigned int g_gattlink_l2cap_packet_size;
+static unsigned int g_gattlink_l2cap_packet_bytes_needed;
+
 static GG_LinkConfiguration_ConnectionConfig g_preferred_conn_config = {
     .mask = GG_LINK_CONFIGURATION_CONNECTION_CONFIG_HAS_FAST_MODE_CONFIG |
             GG_LINK_CONFIGURATION_CONNECTION_CONFIG_HAS_SLOW_MODE_CONFIG,
@@ -403,7 +434,8 @@ static struct {
 /*----------------------------------------------------------------------
 |   forward declarations
 +---------------------------------------------------------------------*/
-static struct os_mbuf* ble_get_free_mbuf(const uint8_t *data_buf, size_t data_len);
+static struct os_mbuf* ble_get_gatt_mbuf(const uint8_t *data_buf, size_t data_len);
+static struct os_mbuf* ble_get_l2cap_mbuf(const uint8_t *data_buf, size_t data_len);
 static void ble_disc_chr_dscs(struct remote_gatt_chr *chr);
 static void ble_disc_svc_chrs(struct remote_gatt_svc *svc);
 static void ble_on_data_recv(struct os_mbuf *om);
@@ -414,34 +446,55 @@ static int ble_read_cb(struct ble_gatt_attr* attribute);
 /*----------------------------------------------------------------------
 |   Data Sink interface
 +---------------------------------------------------------------------*/
-static GG_Result GG_ConnMgr_DataSink_PutData(GG_DataSink* self, GG_Buffer* data,
+static GG_Result GG_ConnMgr_DataSink_PutData(GG_DataSink*             self,
+                                             GG_Buffer*               data,
                                              const GG_BufferMetadata* metadata)
 {
     const uint8_t *data_buf = GG_Buffer_GetData(data);
     size_t data_len = GG_Buffer_GetDataSize(data);
     struct os_mbuf* om;
-    int rc;
+    int rc = 0;
 
     GG_LOG_FINE("Sending data, size=%u", data_len);
 
-    om = ble_get_free_mbuf(data_buf, data_len);
-    if (om == NULL) {
-        return GG_FAILURE;
-    }
-
 #if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
-    if (gattlink_rx_attr_handle) {
-        rc = ble_gattc_write_no_rsp(ble_conn_handle, gattlink_rx_attr_handle, om);
-    } else {
-        GG_LOG_WARNING("no RX characteristic, dropping");
-        return GG_SUCCESS;
+    if (g_gattlink_mode == GATTLINK_MODE_GATT) {
+        if (gattlink_rx_attr_handle) {
+            om = ble_get_gatt_mbuf(data_buf, data_len);
+            if (om == NULL) {
+                return GG_FAILURE;
+            }
+            rc = ble_gattc_write_no_rsp(ble_conn_handle, gattlink_rx_attr_handle, om);
+        } else {
+            GG_LOG_WARNING("no RX characteristic, dropping");
+            return GG_SUCCESS;
+        }
+    } else if (g_gattlink_mode == GATTLINK_MODE_L2CAP) {
+        // not implemented yet
     }
 #else
-    if (gattlink_tx_attr_handle) {
-        rc = ble_gattc_notify_custom(ble_conn_handle, gattlink_tx_attr_handle, om);
-    } else {
-        GG_LOG_WARNING("no TX characteristic, dropping");
-        return GG_SUCCESS;
+    if (g_gattlink_mode == GATTLINK_MODE_GATT) {
+        if (gattlink_tx_attr_handle) {
+            om = ble_get_gatt_mbuf(data_buf, data_len);
+            if (om == NULL) {
+                return GG_FAILURE;
+            }
+            rc = ble_gattc_notify_custom(ble_conn_handle, gattlink_tx_attr_handle, om);
+        } else {
+            GG_LOG_WARNING("no TX characteristic, dropping");
+            return GG_SUCCESS;
+        }
+    } else if (g_gattlink_mode == GATTLINK_MODE_L2CAP) {
+        if (gattlink_l2cap_channel) {
+            om = ble_get_l2cap_mbuf(data_buf, data_len);
+            if (om == NULL) {
+                return GG_FAILURE;
+            }
+            rc = ble_l2cap_send(gattlink_l2cap_channel, om);
+        } else {
+            GG_LOG_WARNING("no L2CAP channel, dropping");
+            return GG_SUCCESS;
+        }
     }
 #endif
 
@@ -533,8 +586,7 @@ static void log_remote_gatt_db(void)
 +---------------------------------------------------------------------*/
 
 //----------------------------------------------------------------------
-static struct os_mbuf* ble_get_free_mbuf(const uint8_t *data_buf,
-                                         size_t data_len)
+static struct os_mbuf* ble_get_gatt_mbuf(const uint8_t* data_buf, size_t data_len)
 {
     unsigned int sleep_ticks = 1;
     int watchdog = 1000;
@@ -552,6 +604,34 @@ static struct os_mbuf* ble_get_free_mbuf(const uint8_t *data_buf,
             os_time_delay(sleep_ticks);
         }
     } while (!om);
+
+    return om;
+}
+
+//----------------------------------------------------------------------
+static struct os_mbuf* ble_get_l2cap_mbuf(const uint8_t* data_buf, size_t data_len)
+{
+    unsigned int sleep_ticks = 1;
+    int watchdog = 1000;
+    struct os_mbuf *om;
+
+    do {
+        om = os_msys_get_pkthdr(data_len + 1, 0);;
+        if (!om) {
+            if (--watchdog == 0) {
+               GG_LOG_WARNING("no free mbuf available");
+               return NULL;
+            }
+
+            // wait a bit and retry
+            os_time_delay(sleep_ticks);
+        }
+    } while (!om);
+
+    // copy the data with a 1-byte length_minus_one header
+    uint8_t header = (uint8_t)(data_len - 1);
+    os_mbuf_copyinto(om, 0, &header, 1);
+    os_mbuf_copyinto(om, 1, data_buf, data_len);
 
     return om;
 }
@@ -1411,6 +1491,10 @@ static int ble_gatt_svr_chr_read_cb(uint16_t conn_handle,
     } else if (attr_handle == link_status_connection_status_chr_attr_handle) {
         GG_LOG_INFO("Read on Link Status Connection Status characteristic");
         os_mbuf_append(ctxt->om, &g_conn_status, sizeof(g_conn_status));
+    } else if (attr_handle == gattlink_l2cap_psm_attr_handle) {
+        GG_LOG_INFO("Read on L2CAP PSM characteristic");
+        uint16_t psm = GG_GATTLINK_L2CAP_PSM;
+        os_mbuf_append(ctxt->om, &psm, sizeof(psm));
     }
 #endif
 
@@ -1493,6 +1577,151 @@ static void ble_on_conn_params_update(void)
 }
 
 //----------------------------------------------------------------------
+static void
+ble_l2cap_ready_to_receive(struct ble_l2cap_chan* channel)
+{
+    struct os_mbuf* sdu_buffer = os_msys_get_pkthdr(GG_GATTLINK_L2CAP_MTU, 0);
+    if (sdu_buffer == NULL) {
+        GG_LOG_SEVERE("failed to allocated CoC receive buffer");
+        return;
+    }
+
+    int rc = ble_l2cap_recv_ready(channel, sdu_buffer);
+    if (rc != 0) {
+        GG_LOG_SEVERE("ble_l2cap_recv_ready failed: %d", rc);
+    }
+}
+
+//----------------------------------------------------------------------
+// Called back when an L2CAP CoC event is received
+//----------------------------------------------------------------------
+static int ble_on_l2cap_event(struct ble_l2cap_event *event, void *arg)
+{
+    switch (event->type) {
+      case BLE_L2CAP_EVENT_COC_CONNECTED:
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_CONNECTED: status=%d", event->connect.status);
+        if (event->connect.status == 0) {
+            // Keep a reference to the channel
+            gattlink_l2cap_channel = event->connect.chan;
+
+            // Log the channel info
+            struct ble_l2cap_chan_info channel_info;
+            int rc = ble_l2cap_get_chan_info(event->connect.chan, &channel_info);
+            if (rc == 0) {
+                GG_LOG_INFO("L2CAP Channel:");
+                GG_LOG_INFO("  source_cid      = %u", channel_info.scid);
+                GG_LOG_INFO("  destination_cid = %u", channel_info.dcid);
+                GG_LOG_INFO("  our L2CAP MTU   = %u", channel_info.our_l2cap_mtu);
+                GG_LOG_INFO("  peer L2CAP MTU  = %u", channel_info.peer_l2cap_mtu);
+                GG_LOG_INFO("  PSM             = %u", channel_info.psm);
+                GG_LOG_INFO("  our CoC MTU     = %u", channel_info.our_coc_mtu);
+                GG_LOG_INFO("  peer CoC MTU    = %u", channel_info.peer_coc_mtu);
+
+            }
+
+            // The link is now up
+            GG_LOG_INFO("~~~ Link UP [L2CAP] ~~~");
+            g_gattlink_mode = GATTLINK_MODE_L2CAP;
+            if (g_client_cbs.mtu_size_change != NULL) {
+                g_client_cbs.mtu_size_change(256);
+            }
+            if (g_client_cbs.connected) {
+                g_client_cbs.connected(GG_SUCCESS);
+            }
+        }
+        break;
+
+      case BLE_L2CAP_EVENT_COC_DISCONNECTED:
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_DISCONNECTED");
+        gattlink_l2cap_channel = NULL;
+        g_gattlink_mode = GATTLINK_MODE_UNKNOWN;
+        break;
+
+      case BLE_L2CAP_EVENT_COC_ACCEPT:
+        ble_l2cap_ready_to_receive(event->accept.chan);
+        break;
+
+      case BLE_L2CAP_EVENT_COC_DATA_RECEIVED: {
+        const struct os_mbuf* data = event->receive.sdu_rx;
+        unsigned int data_size = OS_MBUF_PKTLEN(data);
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_DATA_RECEIVED: %u bytes", data_size);
+
+        // perform packet buffering
+        unsigned int offset = 0;
+        while (data_size) {
+            if (g_gattlink_l2cap_packet_bytes_needed) {
+                // copy as much as we can in the packet buffer
+                unsigned int chunk = GG_MIN(g_gattlink_l2cap_packet_bytes_needed, data_size);
+                os_mbuf_copydata(data, (int)offset, chunk, &g_gattlink_l2cap_packet[g_gattlink_l2cap_packet_size]);
+                g_gattlink_l2cap_packet_size += chunk;
+                g_gattlink_l2cap_packet_bytes_needed -= chunk;
+                data_size -= chunk;
+                offset += chunk;
+
+                // if we have completed a packet, emit it now
+                if (g_gattlink_l2cap_packet_bytes_needed == 0) {
+                    GG_LOG_FINE("Packet complete, size=%u", g_gattlink_l2cap_packet_size);
+                    if (g_connmgr.sink) {
+                        GG_DynamicBuffer* packet;
+                        int result = GG_DynamicBuffer_Create(g_gattlink_l2cap_packet_size, &packet);
+                        if (GG_FAILED(result)) {
+                            GG_LOG_SEVERE("failed to allocate buffer");
+                        } else {
+                            GG_DynamicBuffer_SetData(
+                                packet,
+                                g_gattlink_l2cap_packet,
+                                g_gattlink_l2cap_packet_size
+                            );
+                        }
+
+                        result = GG_Loop_InvokeAsync(g_connmgr.loop, ble_on_data_recv_async, packet);
+                        if (result != 0) {
+                            GG_LOG_WARNING("Failed to invoke ble_data_recv_async");
+                            GG_DynamicBuffer_Release(packet);
+                        }
+
+                        // done, reset the buffer
+                        g_gattlink_l2cap_packet_size = 0;
+                    }
+                }
+            } else {
+                // new packet, with a one byte size header
+                uint8_t packet_size_minus_one;
+                os_mbuf_copydata(data, (int)offset, 1, &packet_size_minus_one);
+                --data_size;
+                ++offset;
+                g_gattlink_l2cap_packet_bytes_needed = packet_size_minus_one + 1;
+            }
+        }
+
+        // free the incoming buffer
+        os_mbuf_free_chain(event->receive.sdu_rx);
+
+        // we can now receive more
+        ble_l2cap_ready_to_receive(event->receive.chan);
+        break;
+      }
+
+      case BLE_L2CAP_EVENT_COC_TX_UNSTALLED:
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_TX_UNSTALLED");
+        break;
+
+      case BLE_L2CAP_EVENT_COC_RECONFIG_COMPLETED:
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_RECONFIG_COMPLETED");
+        break;
+
+      case BLE_L2CAP_EVENT_COC_PEER_RECONFIGURED:
+        GG_LOG_FINE("BLE_L2CAP_EVENT_COC_PEER_RECONFIGURED");
+        break;
+
+      default:
+          GG_LOG_FINE("L2CAP Unknown Event: %u", event->type);
+    }
+
+    return 0;
+}
+
+//----------------------------------------------------------------------
 // Callback invoked when a connection is established
 //----------------------------------------------------------------------
 static void ble_gap_event_connect(struct ble_gap_event *event, void *arg)
@@ -1563,7 +1792,7 @@ static void ble_gap_event_mtu(struct ble_gap_event *event, void *arg)
 
     g_conn_config.mtu = event->mtu.value;
 
-    if (g_client_cbs.mtu_size_change != NULL) {
+    if (g_gattlink_mode == GATTLINK_MODE_GATT && g_client_cbs.mtu_size_change != NULL) {
         g_client_cbs.mtu_size_change(event->mtu.value);
     }
 
@@ -1619,7 +1848,11 @@ static void ble_gap_event_subscribe(struct ble_gap_event *event, void *arg)
         if (event->subscribe.cur_notify) {
             if (g_conn_state != GG_CONNECTION_MANAGER_STATE_CONNECTED) {
                 g_conn_state = GG_CONNECTION_MANAGER_STATE_CONNECTED;
-                GG_LOG_INFO("~~~ Link UP ~~~");
+                GG_LOG_INFO("~~~ Link UP [GATT] ~~~");
+                g_gattlink_mode = GATTLINK_MODE_GATT;
+                if (g_client_cbs.mtu_size_change != NULL) {
+                    g_client_cbs.mtu_size_change(g_conn_config.mtu);
+                }
                 if (g_client_cbs.connected) {
                     g_client_cbs.connected(GG_SUCCESS);
                 }
@@ -1972,12 +2205,24 @@ GG_Result GG_ConnMgr_Initialize(GG_Loop *loop)
     GG_SET_INTERFACE(&g_connmgr, GG_ConnMgr, GG_DataSource);
 
     /* Initialize the NimBLE host configuration. */
-    ble_hs_cfg.reset_cb          = ble_on_reset;
-    ble_hs_cfg.sync_cb           = ble_on_sync;
+    ble_hs_cfg.reset_cb = ble_on_reset;
+    ble_hs_cfg.sync_cb  = ble_on_sync;
 
+    /* Initialize the GATT server */
     rc = gatt_svr_init();
     if (rc != 0) {
         return GG_FAILURE;
+    }
+
+    /* Create an L2CAP server */
+    rc = ble_l2cap_create_server(
+        GG_GATTLINK_L2CAP_PSM,
+        GG_GATTLINK_L2CAP_MTU,
+        ble_on_l2cap_event,
+        NULL
+    );
+    if (rc != 0) {
+        GG_LOG_SEVERE("ble_l2cap_create_server failed: %d", rc);
     }
 
     /* Set the default device name. */
@@ -2146,7 +2391,7 @@ GG_Result GG_ConnMgr_ChangeMTUSize(uint16_t mtu)
 
     rc = ble_att_set_preferred_mtu(mtu);
     if (rc != 0) {
-        GG_LOG_WARNING("Failed for set preffered MTU! (rc=0x%x)", rc);
+        GG_LOG_WARNING("Failed for set preferred MTU! (rc=0x%x)", rc);
         return GG_ERROR_INVALID_PARAMETERS;
     }
 
