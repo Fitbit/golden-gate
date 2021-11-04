@@ -154,6 +154,7 @@ BLE_UUID128_INIT(
 static uint16_t link_status_connection_configuration_cccd_handle;
 static uint16_t link_status_connection_status_cccd_handle;
 static uint16_t gattlink_tx_cccd_handle;
+static uint16_t gattlink_l2cap_psm_cccd_handle;
 #else
 static uint16_t link_configuration_connection_configuration_cccd_handle;
 static uint16_t link_configuration_connection_mode_cccd_handle;
@@ -442,6 +443,7 @@ static void ble_on_data_recv(struct os_mbuf *om);
 static int ble_gap_handle_event(struct ble_gap_event *event, void *arg);
 static int ble_subscribe_cb(struct ble_gatt_attr* attribute);
 static int ble_read_cb(struct ble_gatt_attr* attribute);
+static int ble_on_l2cap_event(struct ble_l2cap_event *event, void *arg);
 
 /*----------------------------------------------------------------------
 |   Data Sink interface
@@ -469,8 +471,6 @@ static GG_Result GG_ConnMgr_DataSink_PutData(GG_DataSink*             self,
             GG_LOG_WARNING("no RX characteristic, dropping");
             return GG_SUCCESS;
         }
-    } else if (g_gattlink_mode == GATTLINK_MODE_L2CAP) {
-        // not implemented yet
     }
 #else
     if (g_gattlink_mode == GATTLINK_MODE_GATT) {
@@ -484,7 +484,9 @@ static GG_Result GG_ConnMgr_DataSink_PutData(GG_DataSink*             self,
             GG_LOG_WARNING("no TX characteristic, dropping");
             return GG_SUCCESS;
         }
-    } else if (g_gattlink_mode == GATTLINK_MODE_L2CAP) {
+    }
+#endif
+    else if (g_gattlink_mode == GATTLINK_MODE_L2CAP) {
         if (gattlink_l2cap_channel) {
             om = ble_get_l2cap_mbuf(data_buf, data_len);
             if (om == NULL) {
@@ -496,7 +498,6 @@ static GG_Result GG_ConnMgr_DataSink_PutData(GG_DataSink*             self,
             return GG_SUCCESS;
         }
     }
-#endif
 
     if (rc != 0) {
         GG_LOG_WARNING("ble send data function failed (rc=0x%x)", rc);
@@ -860,29 +861,51 @@ static void ble_on_discovery_done(uint16_t status)
         }
     }
 #elif MYNEWT_VAL(GG_CONNMGR_CENTRAL)
-    // get the Gattlink TX characteristic
-    gattlink_rx_attr_handle = ble_get_remote_chr_val_handle(&gatt_svr_gattlink_svc_uuid.u,
-                                                            &gatt_svr_gattlink_chr_rx_uuid.u);
-    if (gattlink_rx_attr_handle) {
-        GG_LOG_INFO("Gattlink RX found");
+    // first, look for an L2CAP PSM
+    gattlink_l2cap_psm_attr_handle = ble_get_remote_chr_val_handle(&gatt_svr_gattlink_svc_uuid.u,
+                                                                   &gatt_svr_gattlink_chr_l2cap_psm_uuid.u);
+    if (gattlink_l2cap_psm_attr_handle) {
+        GG_LOG_INFO("Gattlink L2CAP PSM found");
 
-        // get and subscribe to the Gattlink TX characteristic
-        gattlink_tx_attr_handle = ble_get_remote_chr_val_handle(&gatt_svr_gattlink_svc_uuid.u,
-                                                                &gatt_svr_gattlink_chr_tx_uuid.u);
-        if (gattlink_tx_attr_handle) {
-            GG_LOG_INFO("Gattlink TX found, subscribing");
-            rc = ble_subscribe_to_remote_chr(&gatt_svr_gattlink_svc_uuid.u,
-                                             &gatt_svr_gattlink_chr_tx_uuid.u,
-                                             &gattlink_tx_cccd_handle);
-            if (rc) {
-                GG_LOG_WARNING("Failed to subscribe to Gattlink TX (rc=0x%x)", rc);
-                gattlink_tx_attr_handle = 0;
-            }
+        rc = ble_subscribe_to_remote_chr(&gatt_svr_gattlink_svc_uuid.u,
+                                         &gatt_svr_gattlink_chr_l2cap_psm_uuid.u,
+                                         &gattlink_l2cap_psm_cccd_handle);
+        if (rc) {
+            GG_LOG_WARNING("Failed to subscribe to Gattlink L2CAP PSM (rc=0x%x)", rc);
+            gattlink_l2cap_psm_attr_handle = 0;
         } else {
-            GG_LOG_WARNING("Failed to find Gattlink TX");
+            g_gattlink_mode = GATTLINK_MODE_L2CAP;
         }
-    } else {
-        GG_LOG_WARNING("Failed to find Gattlink RX");
+    }
+
+    // next, if L2CAP isn't supported, look for the Gattlink TX characteristic
+    if (g_gattlink_mode == GATTLINK_MODE_UNKNOWN) {
+        gattlink_rx_attr_handle = ble_get_remote_chr_val_handle(&gatt_svr_gattlink_svc_uuid.u,
+                                                                &gatt_svr_gattlink_chr_rx_uuid.u);
+        if (gattlink_rx_attr_handle) {
+            GG_LOG_INFO("Gattlink RX found");
+
+            // get and subscribe to the Gattlink TX characteristic
+            gattlink_tx_attr_handle = ble_get_remote_chr_val_handle(&gatt_svr_gattlink_svc_uuid.u,
+                                                                    &gatt_svr_gattlink_chr_tx_uuid.u);
+            if (gattlink_tx_attr_handle) {
+                GG_LOG_INFO("Gattlink TX found, subscribing");
+                rc = ble_subscribe_to_remote_chr(&gatt_svr_gattlink_svc_uuid.u,
+                                                 &gatt_svr_gattlink_chr_tx_uuid.u,
+                                                 &gattlink_tx_cccd_handle);
+                if (rc) {
+                    GG_LOG_WARNING("Failed to subscribe to Gattlink TX (rc=0x%x)", rc);
+                    gattlink_tx_attr_handle = 0;
+                } else {
+                    g_gattlink_mode = GATTLINK_MODE_GATT;
+                }
+            }
+        }
+    }
+
+    // check that we have either GATT or L2CAP
+    if (g_gattlink_mode == GATTLINK_MODE_UNKNOWN) {
+        GG_LOG_WARNING("Neither GATT nor L2CAP mode enabled for Gattlink");
     }
 
     // get and subscribe to the Link Status connection configuration characteristic
@@ -1392,6 +1415,40 @@ static void ble_on_link_status_connection_status_changed(struct os_mbuf *om)
     GG_LOG_INFO("    dle_max_rx_pdu_size: %d", (int)status->dle_max_rx_pdu_size);
     GG_LOG_INFO("    dle_max_rx_time:     %d", (int)status->dle_max_rx_time);
 }
+
+//----------------------------------------------------------------------
+static void ble_on_gattlink_l2cap_psm_changed(struct os_mbuf *om)
+{
+    int len = OS_MBUF_PKTLEN(om);
+    if (len != 2) {
+        GG_LOG_WARNING("L2CAP PSM characteristic size is invalid: expected 2, got %d", len);
+        return;
+    }
+
+    const uint8_t* data = OS_MBUF_DATA(om, const uint8_t*);
+    uint16_t psm = GG_BytesToInt16Le(data);
+    GG_LOG_FINE("L2CAP PSM = %u", psm);
+    if (psm) {
+        // non-zero PSM, we can connect
+        struct os_mbuf* rx_buffer = os_msys_get_pkthdr(GG_GATTLINK_L2CAP_MTU, 0);
+        if (rx_buffer == NULL) {
+            GG_LOG_SEVERE("failed to allocate rx buffer");
+            return;
+        }
+        int rc = ble_l2cap_connect(
+            ble_conn_handle,
+            psm,
+            GG_GATTLINK_L2CAP_MTU,
+            rx_buffer,
+            ble_on_l2cap_event,
+            NULL
+        );
+        if (rc) {
+            GG_LOG_WARNING("ble_l2cap_connect failed (%d)", rc);
+        }
+    }
+}
+
 #else
 //----------------------------------------------------------------------
 static void ble_on_link_configuration_connection_configuration_changed(struct os_mbuf *om)
@@ -1622,6 +1679,7 @@ static int ble_on_l2cap_event(struct ble_l2cap_event *event, void *arg)
             // The link is now up
             GG_LOG_INFO("~~~ Link UP [L2CAP] ~~~");
             g_gattlink_mode = GATTLINK_MODE_L2CAP;
+            g_conn_state = GG_CONNECTION_MANAGER_STATE_CONNECTED;
             if (g_client_cbs.mtu_size_change != NULL) {
                 g_client_cbs.mtu_size_change(256);
             }
@@ -1886,6 +1944,8 @@ static int ble_read_cb(struct ble_gatt_attr* attribute)
         ble_on_link_status_connection_configuration_changed(attribute->om);
     } else if (attribute->handle == link_status_connection_status_chr_attr_handle) {
         ble_on_link_status_connection_status_changed(attribute->om);
+    } else if (attribute->handle == gattlink_l2cap_psm_attr_handle) {
+        ble_on_gattlink_l2cap_psm_changed(attribute->om);
 #endif
     } else {
         GG_LOG_WARNING("Unexpected GATT read callback for handle 0x%x", attribute->handle);
@@ -1906,11 +1966,21 @@ static int ble_subscribe_cb(struct ble_gatt_attr* attribute)
     if (attribute->handle == gattlink_tx_cccd_handle) {
         GG_LOG_FINE("Subscribed to Gattlink TX");
         g_conn_state = GG_CONNECTION_MANAGER_STATE_CONNECTED;
-        GG_LOG_INFO("~~~ Link UP ~~~");
+        GG_LOG_INFO("~~~ Link UP [GATT] ~~~");
         if (g_client_cbs.connected) {
             g_client_cbs.connected(GG_SUCCESS);
         }
-    } else if (attribute->handle != link_status_connection_configuration_cccd_handle) {
+    } else if (attribute->handle == gattlink_l2cap_psm_cccd_handle) {
+        GG_LOG_FINE("Subscribed to Gattlink L2CAP PSM");
+
+        // read the characteristic to get its initial value
+        ble_gatt_operation operation = {
+            .type     = BLE_GATT_OPERATION_READ,
+            .handle   = gattlink_l2cap_psm_attr_handle,
+            .callback = ble_read_cb
+        };
+        ble_queue_gatt_operation(&operation);
+    } else if (attribute->handle == link_status_connection_configuration_cccd_handle) {
         // read the characteristic to get its initial value
         GG_LOG_FINE("Subscribed to Link Status connection configuration characteristic");
         ble_gatt_operation operation = {
@@ -1919,9 +1989,9 @@ static int ble_subscribe_cb(struct ble_gatt_attr* attribute)
             .callback = ble_read_cb
         };
         ble_queue_gatt_operation(&operation);
-    } else if (attribute->handle != link_status_connection_status_cccd_handle) {
+    } else if (attribute->handle == link_status_connection_status_cccd_handle) {
         // read the characteristic to get its initial value
-        GG_LOG_FINE("Subscribed to Link Status connection configuration characteristic");
+        GG_LOG_FINE("Subscribed to Link Status connection status characteristic");
         ble_gatt_operation operation = {
             .type     = BLE_GATT_OPERATION_READ,
             .handle   = link_status_connection_status_chr_attr_handle,
@@ -1979,6 +2049,8 @@ static void ble_gap_event_notify_rx(struct ble_gap_event *event, void *arg)
         ble_on_link_status_connection_configuration_changed(event->notify_rx.om);
     } else if (event->notify_rx.attr_handle == link_status_connection_status_chr_attr_handle) {
         ble_on_link_status_connection_status_changed(event->notify_rx.om);
+    } else if (event->notify_rx.attr_handle == gattlink_l2cap_psm_attr_handle) {
+        ble_on_gattlink_l2cap_psm_changed(event->notify_rx.om);
     }
 #endif
 }
@@ -2000,7 +2072,7 @@ static void ble_gap_event_notify_tx(struct ble_gap_event *event, void *arg)
 static void ble_gap_event_disc(struct ble_gap_event *event, void *arg)
 {
     ble_uuid_any_t uuid;
-    uint8_t *ptr;
+    const uint8_t *ptr;
     uint8_t data_len;
     uint8_t type;
     int rc;
@@ -2214,6 +2286,7 @@ GG_Result GG_ConnMgr_Initialize(GG_Loop *loop)
         return GG_FAILURE;
     }
 
+#if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)
     /* Create an L2CAP server */
     rc = ble_l2cap_create_server(
         GG_GATTLINK_L2CAP_PSM,
@@ -2224,6 +2297,7 @@ GG_Result GG_ConnMgr_Initialize(GG_Loop *loop)
     if (rc != 0) {
         GG_LOG_SEVERE("ble_l2cap_create_server failed: %d", rc);
     }
+#endif
 
     /* Set the default device name. */
     rc = nvm_get_adv_name(name, sizeof(name));
