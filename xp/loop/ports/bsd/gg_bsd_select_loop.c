@@ -89,7 +89,7 @@ typedef ssize_t   GG_ssize_t;
 #endif
 #endif
 
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
 // In NuttX implementation socket descriptors (similar to file descriptors) are local to task groups
 // Therefore not accessible from tasks/threads outside of the owner of the sd/fd. To make sockets 
 // accessible to other tasks/threads NuttX provides detached sd/fd interface. These interfaces basically 
@@ -156,7 +156,7 @@ struct GG_Loop {
     GG_Mutex*                         wakeup_write_fds_lock;
 #else
     GG_SocketFd                       wakeup_write_fd;
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
     struct socket                     wakeup_write_socket_clone; // socket for a clone of the internal socket structure. 
 #endif 
 #endif
@@ -490,7 +490,7 @@ GG_Loop_GetWakeupWriteFd(GG_Loop* self)
     return GG_BSD_SOCKET_INVALID_HANDLE;
 }
 #else
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
 static struct socket* 
 GG_Loop_GetWakeupWriteSocket(GG_Loop* self) {
     return &self->wakeup_write_socket_clone;
@@ -511,7 +511,7 @@ GG_Loop_SendWakeup(GG_Loop* self)
     uint8_t msg = 0;
     GG_ssize_t io_result;
     do {
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
         // write to the socket clone directly to wake up the loop
         GG_LOG_FINEST("writing to wakeup socket");
         io_result = psock_send(GG_Loop_GetWakeupWriteSocket(self), (void*)&msg, 1, 0);
@@ -565,7 +565,7 @@ GG_Loop_InvokeSync(GG_Loop*            self,
                    int*                function_result)
 {
     if (!self) {
-        GG_LOG_WARNING("InvokeSync(%p, %p) called without GG Loop running", function, function_argument);
+        GG_LOG_WARNING("InvokeSync(%p, %p) called without GG Loop running", (void*)function, function_argument);
         return GG_ERROR_INVALID_STATE;
     }
     return GG_LoopBase_InvokeSync(&self->base, function, function_argument, function_result);
@@ -578,7 +578,7 @@ GG_Loop_InvokeAsync(GG_Loop*             self,
                     void*                function_argument)
 {
     if (!self) {
-        GG_LOG_WARNING("InvokeAsync(%p, %p) called without GG Loop running", function, function_argument);
+        GG_LOG_WARNING("InvokeAsync(%p, %p) called without GG Loop running", (void*)function, function_argument);
         return GG_ERROR_INVALID_STATE;
     }
     return GG_LoopBase_InvokeAsync(&self->base, function, function_argument);
@@ -731,7 +731,7 @@ GG_Loop_CloseWakeupFds(GG_Loop* self)
         }
         self->wakeup_write_fd = GG_BSD_SOCKET_INVALID_HANDLE;
     }
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
     GG_LOG_FINEST("closing wakeup write socket clone");
     if(psock_close(&self->wakeup_write_socket_clone)) {
         GG_LOG_WARNING("psock_close failed with %d", errno);
@@ -791,7 +791,7 @@ GG_Loop_CreateWakeupFds(GG_Loop* self)
     if (GG_FAILED(result)) {
         goto end;
     }
-#if GG_CONFIG_ENABLE_DETACHED_SOCKETS
+#if defined(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
     // clone the write loopback socket after it's created
     // Get the underlying socket structure given the socket descriptor
     GG_LOG_FINEST("Cloning the wakeup write socket to make it available to other task groups");
