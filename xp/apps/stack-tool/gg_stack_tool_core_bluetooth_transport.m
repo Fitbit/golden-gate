@@ -36,6 +36,7 @@
 #define GG_LINK_STATUS_SECURE_CHARACTERISTIC_UUID                          @"ABBAFD03-E56A-484C-B832-8B17CF6CBFE8"
 
 // Gattlink Service
+#define GG_GATTLINK_SERVICE_UUID_SHORT                                     @"FD62"
 #define GG_GATTLINK_SERVICE_UUID                                           @"ABBAFF00-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_RX_CHARACTERISTIC_UUID                                 @"ABBAFF01-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_TX_CHARACTERISTIC_UUID                                 @"ABBAFF02-E56A-484C-B832-8B17CF6CBFE8"
@@ -263,6 +264,7 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
     if (!self.centralManager.isScanning) {
         // Scan for devices
         [self.centralManager scanForPeripheralsWithServices: @[
+                [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID_SHORT],
                 [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID],
                 [CBUUID UUIDWithString: GG_LINK_STATUS_SERVICE_UUID]
             ]
