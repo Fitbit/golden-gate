@@ -1,4 +1,5 @@
 <manifest package="com.fitbit.connmgr"
           xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-sdk android:minSdkVersion="21"/>
 </manifest>
