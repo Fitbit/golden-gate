@@ -229,7 +229,10 @@ static void CoapEndpoint_OnResponse_Blockwise(
     // invoke callback listener with single response message
     CoapEndpoint_OnNext_Caller(self->listener, block_message);
 
-    if (!block_info->more) {
+    // onNext callback may clean up listener object in error scenarios
+    // we need to verify if listener reference is still valid before invoking
+    // onComplete callback
+    if (!block_info->more && self->listener) {
         // call onComplete
         CoapEndpoint_OnComplete_Caller(self->listener);
     }
