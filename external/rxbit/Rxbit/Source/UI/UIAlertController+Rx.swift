@@ -59,7 +59,7 @@ public extension Reactive where Base: UIAlertController {
 		style: UIAlertController.Style,
 		actions: [Action]
 	) -> Single<Result> where Action.Result == Result {
-		return Single.create { [unowned base] observer in
+		return Single.create { [base] observer in
 			actions.enumerated().forEach { _, action in
 				let action = UIAlertAction(title: action.title, style: action.style) { _ in
 					observer(.success(action.result))

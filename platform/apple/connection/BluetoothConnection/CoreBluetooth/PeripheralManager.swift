@@ -114,7 +114,9 @@ public class PeripheralManager {
                 guard let `self` = self else { return }
                 LogBluetoothDebug("PeripheralManager: Did receive read request \(request)")
 
-                guard let service = self.publishedServices[request.characteristic.service.uuid] else {
+                let cbService: CBService? = request.characteristic.service
+
+                guard let serviceUuid = cbService?.uuid, let service = self.publishedServices[serviceUuid] else {
                     self.peripheralManager.respond(to: request, withResult: .readNotPermitted)
                     LogBluetoothError("PeripheralManager: Invalid GATT read request \(request)")
                     return
@@ -135,7 +137,9 @@ public class PeripheralManager {
                 LogBluetoothDebug("PeripheralManager: Did receive write requests \(requests)")
 
                 for request in requests {
-                    guard let service = self.publishedServices[request.characteristic.service.uuid] else {
+                    let cbService: CBService? = request.characteristic.service
+
+                    guard let serviceUuid = cbService?.uuid, let service = self.publishedServices[serviceUuid] else {
                         self.peripheralManager.respond(to: request, withResult: .writeNotPermitted)
                         LogBluetoothError("PeripheralManager: Invalid GATT write request \(request)")
                         return
@@ -309,7 +313,7 @@ private class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerD
     }
 }
 
-public protocol PeripheralManagerService: class {
+public protocol PeripheralManagerService: AnyObject {
     var advertise: Bool { get }
     var service: CBMutableService { get }
     var peripheralManager: PeripheralManager? { get set }

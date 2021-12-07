@@ -7,7 +7,7 @@
 //  Created by Vlad Corneci on 03/06/2020.
 //
 
-public protocol DataSource: class {
+public protocol DataSource: AnyObject {
     /// Sets the sink to which this source writes data to.
     func setDataSink(_ dataSink: DataSink?) throws
 }

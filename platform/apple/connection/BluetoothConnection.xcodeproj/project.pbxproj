@@ -626,6 +626,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1D2236248F797500F85400 /* Build configuration list for PBXNativeTarget "BluetoothConnectionTests" */;
 			buildPhases = (
+				756E47D4275FA3AE00DB68E0 /* Carthage Sync */,
 				FD1D222A248F797500F85400 /* Sources */,
 				FD1D222B248F797500F85400 /* Frameworks */,
 				FD1D222C248F797500F85400 /* Resources */,
@@ -723,6 +724,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		756E47D4275FA3AE00DB68E0 /* Carthage Sync */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Carthage Sync";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $SOURCE_ROOT/../../..\nplatform/apple/scripts/carthage-copy-and-verify\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42FAE7D826123A5A005E6500 /* Sources */ = {

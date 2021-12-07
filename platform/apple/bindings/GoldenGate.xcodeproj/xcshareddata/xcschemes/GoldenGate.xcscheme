@@ -100,16 +100,6 @@
                ReferencedContainer = "container:GoldenGate.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD1D222D248F797500F85400"
-               BuildableName = "BluetoothConnectionTests.xctest"
-               BlueprintName = "BluetoothConnectionTests"
-               ReferencedContainer = "container:../connection/BluetoothConnection.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

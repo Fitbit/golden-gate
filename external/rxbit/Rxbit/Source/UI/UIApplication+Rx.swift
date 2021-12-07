@@ -52,7 +52,7 @@ public class UIApplicationStateObservableProvider<StateProvider>: UIApplicationS
 ///
 /// Note that it should use Notification.Name.UIApplicationWill/Did
 /// notifications upon changing values.
-public protocol UIApplicationStateProviderType: class {
+public protocol UIApplicationStateProviderType: AnyObject {
 	var applicationState: UIApplication.State { get }
 }
 
