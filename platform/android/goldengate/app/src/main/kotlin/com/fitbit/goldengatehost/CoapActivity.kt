@@ -5,7 +5,11 @@ package com.fitbit.goldengatehost
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
@@ -29,17 +33,28 @@ import com.fitbit.goldengatehost.coap.handler.addAllAvailableCoapHandlers
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_single_message.coap_response_time
-import kotlinx.android.synthetic.main.a_single_message.edittext
-import kotlinx.android.synthetic.main.a_single_message.rxtext
 import timber.log.Timber
 
 class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
 
     private var sendRequestTime: Long = 0
     private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance()
+    private lateinit var coapResponseTime: TextView
+    private lateinit var editText: EditText
+    private lateinit var rxText: TextView
 
     override fun getContentViewRes(): Int = R.layout.a_single_message
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        bindViews()
+    }
+
+    private fun bindViews() {
+        coapResponseTime = ActivityCompat.requireViewById(this, R.id.coap_response_time)
+        editText = ActivityCompat.requireViewById(this, R.id.edittext)
+        rxText = ActivityCompat.requireViewById(this, R.id.rxtext)
+    }
 
     override fun getPeerBuilder(
         peerRole: PeerRole,
@@ -63,7 +78,7 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
 
     override fun onConnected(stackService: CoapEndpoint, stackConfig: StackConfig) {
         renderButtonText(stackConfig)
-        edittext.visibility = View.VISIBLE
+        editText.visibility = View.VISIBLE
 
         send.setOnClickListener {
             sendRequestTime = System.currentTimeMillis()
@@ -127,11 +142,11 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
     }
 
     private fun updateResponseMessage(message: String) {
-        coap_response_time.visibility = View.VISIBLE
+        coapResponseTime.visibility = View.VISIBLE
         val sendResponseTime = System.currentTimeMillis() - sendRequestTime
-        coap_response_time.text = getString(R.string.label_response_time).format(sendResponseTime)
-        rxtext.visibility = View.VISIBLE
-        rxtext.text = getString(R.string.label_log_coap).format(message)
+        coapResponseTime.text = getString(R.string.label_response_time).format(sendResponseTime)
+        rxText.visibility = View.VISIBLE
+        rxText.text = getString(R.string.label_log_coap).format(message)
     }
 
     companion object {

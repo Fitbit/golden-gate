@@ -13,24 +13,16 @@ import android.widget.TextView
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.goldengatehost.R
 import com.fitbit.goldengatehost.scan.ScanFragment.ScanListener
-import kotlinx.android.synthetic.main.fragment_scan.view.bluetooth_address
-import kotlinx.android.synthetic.main.fragment_scan.view.device_name
-import kotlinx.android.synthetic.main.fragment_scan.view.device_origin
-import kotlinx.android.synthetic.main.fragment_scan.view.rssi
 
 class ScanRecyclerViewAdapter(
     private val listener: ScanListener?
 ) : RecyclerView.Adapter<ScanRecyclerViewAdapter.ViewHolder>() {
 
-    private val onClickListener: View.OnClickListener
-    private val connectionsMap: LinkedHashMap<BluetoothDevice, Pair<GattConnection, Int>> = LinkedHashMap()
-
-    init {
-        onClickListener = View.OnClickListener { v ->
-            val connection = v.tag as GattConnection
-            listener?.onScanItemClick(connection)
-        }
+    private val onClickListener: View.OnClickListener = View.OnClickListener { v ->
+        val connection = v.tag as GattConnection
+        listener?.onScanItemClick(connection)
     }
+    private val connectionsMap: LinkedHashMap<BluetoothDevice, Pair<GattConnection, Int>> = LinkedHashMap()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -68,13 +60,12 @@ class ScanRecyclerViewAdapter(
         } else {
             notifyItemInserted(position)
         }
-
     }
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val deviceNameView: TextView = view.device_name
-        val bluetoothAddressView: TextView = view.bluetooth_address
-        val deviceOriginView: TextView = view.device_origin
-        val rssiView: TextView = view.rssi
+        val deviceNameView: TextView = view.findViewById(R.id.device_name)
+        val bluetoothAddressView: TextView = view.findViewById(R.id.bluetooth_address)
+        val deviceOriginView: TextView = view.findViewById(R.id.device_origin)
+        val rssiView: TextView = view.findViewById(R.id.rssi)
     }
 }
