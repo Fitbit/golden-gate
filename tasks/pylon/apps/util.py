@@ -47,24 +47,33 @@ def app_tasks(name, path):
 
     return _install_project, _reset_project, _build, _run, _debug
 
+def run_newt_upgrade(ctx):
+    try:
+        ctx.run("newt -v upgrade")
+    except Exception as error:
+        # newt 1.9 has a bug where pulling the dependencies fails because of
+        # an invalid clobbering of some repo file, which can be worked around
+        # by removing the file and re-trying.
+        # newt 1.7, when performing a fresh install, reports an error
+        # even when it succeeds.
+        # So, if the upgrade step fails, we remove the potential problematic file
+        # and retry, but without failing, in case we're running newt 1.7
+        print('got exception, retrying once')
+        ctx.run("rm repos/apache-mynewt-nimble/porting/npl/riot/include/npl_syscfg/npl_sycfg.h", warn=True)
+        ctx.run("newt -v upgrade", warn=True)
+
 @task(newt.check_version)
 def install_project(ctx, path):
     """Install Mynewt project files"""
     with ctx.cd(path):
-        ctx.run("newt -v upgrade")
+        run_newt_upgrade(ctx)
 
 @task(newt.check_version)
 def reset_project(ctx, path):
     """Reset Mynewt project files in case they got in an invalid state"""
     with ctx.cd(path):
         ctx.run("rm -rf project.state repos")
-        ctx.run("newt -v upgrade")
-
-@task(newt.check_version)
-def upgrade_project(ctx, path):
-    """Upgrade Mynewt project dependencies (needed if project.yml changes)"""
-    with ctx.cd(path):
-        ctx.run("newt upgrade")
+        run_newt_upgrade(ctx)
 
 def get_mem_usage(ctx, elf_file=None, img_file=None, board=None):  # pylint: disable=R0914
     """Get Pylon memory usage"""
@@ -148,10 +157,8 @@ def build(ctx, name, path, export_path=None, board=None):
     with ctx.cd(path):
         # Install dependencies if they are not present
         if not os.path.isdir(os.path.join(path, "repos/apache-mynewt-core")):
-            # NOTE: here we continue even if there are errors, because of a bug
-            # in newt 1.7 when performing a fresh install, which reports an error
-            # even when it succeeds
-            ctx.run("newt -v upgrade", warn=True)
+            run_newt_upgrade(ctx)
+
         ctx.run("newt build {app}_{board}".format(app=name, board=board_name))
         ctx.run("newt create-image {app}_{board} 1.0.0".format(app=name, board=board_name))
 
@@ -192,8 +199,6 @@ def run(ctx, name, path, sn=None, board=None):
     xp.build(ctx, board=board)
 
     with ctx.cd(path):
-        if not os.path.isdir(os.path.join(path, "repos")):
-            ctx.run("newt -v upgrade")
         ctx.run("newt create-image {app}_{board} 1.0.0".format(app=name, board=board_name))
 
     img = "{path}/bin/targets/{app}_{board}/app/apps/{app}/{app}.img"
