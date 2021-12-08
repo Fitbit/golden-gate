@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 5/31/18.
 //
 
+import Foundation
 @testable import GoldenGate
 import Nimble
 import Quick

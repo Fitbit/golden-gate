@@ -9,6 +9,7 @@
 
 // swiftlint:disable function_body_length
 
+import Foundation
 @testable import GoldenGate
 import Nimble
 import Quick

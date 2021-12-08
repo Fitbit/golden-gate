@@ -9,6 +9,7 @@
 
 // swiftlint:disable force_try
 
+import Foundation
 @testable import GoldenGate
 import GoldenGateXP
 import Nimble
@@ -34,7 +35,7 @@ class RawCoapMessageSpec: QuickSpec {
             defer { GG_CoapMessage_Destroy(messageRef) }
 
             let message = try! RawCoapMessage(message: messageRef)
-            expect(message.code) == .response(.success(.success))
+            expect(message.code) == CoapCode.response(CoapCode.Response.success(CoapCode.SuccessfulResponse.success))
             expect(message.messageId) == 123
             expect(message.token) == token
             expect(message.options) == [

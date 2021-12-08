@@ -9,6 +9,7 @@
 
 import BluetoothConnection
 import CoreBluetooth
+import Foundation
 import GoldenGate
 import GoldenGateXP
 import Rxbit

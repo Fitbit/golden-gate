@@ -9,6 +9,7 @@
 
 #if os(iOS)
 
+import Foundation
 import RxCocoa
 import RxSwift
 import UIKit

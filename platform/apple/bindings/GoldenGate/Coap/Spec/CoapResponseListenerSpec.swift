@@ -7,6 +7,7 @@
 //  Created by Sylvain Rebaud on 10/12/18.
 //
 
+import Foundation
 import Nimble
 import Quick
 
