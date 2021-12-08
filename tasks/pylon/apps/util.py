@@ -59,7 +59,7 @@ def run_newt_upgrade(ctx):
         # So, if the upgrade step fails, we remove the potential problematic file
         # and retry, but without failing, in case we're running newt 1.7
         print('got exception, retrying once')
-        ctx.run("rm repos/apache-mynewt-nimble/porting/npl/riot/include/npl_syscfg/npl_sycfg.h")
+        ctx.run("rm repos/apache-mynewt-nimble/porting/npl/riot/include/npl_syscfg/npl_sycfg.h", warn=True)
         ctx.run("newt -v upgrade", warn=True)
 
 @task(newt.check_version)
