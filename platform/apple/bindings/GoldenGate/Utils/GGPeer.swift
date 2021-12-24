@@ -172,7 +172,7 @@ open class GGPeer: Peer {
         // Create new stack as links come up
         stackBuilder.build(link: networkLink)
             .logError("GGPeer: Failed to start stack with: ", .bindings, .error)
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .bind(to: stackRelay)
             .disposed(by: disposeBag)
 
@@ -185,10 +185,10 @@ open class GGPeer: Peer {
 
         // Resolve the URL and create a socket from it
         let customPort = customPortUrl
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observe(on: SerialDispatchQueueScheduler(qos: .background))
             .map { $0.flatMap { SocketAddress(url: $0) } }
             .distinctUntilChanged(==)
-            .observeOn(runLoop)
+            .observe(on: runLoop)
             .logInfo("GGPeer: CustomPortUrl", .bindings, .next)
             .mapForwardingNil { remoteAddress in
                 try? GGBsdDatagramSocket(

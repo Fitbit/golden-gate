@@ -123,7 +123,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         expect(error).to(matchError(RawCoapMessageError.unexpectedCode(code: 0)))
                         expect(disposable.isDisposed) == false
                         done()
@@ -140,7 +140,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         let expectedError = CoapBlockwiseResponseListenerError.failureWithMessage(GGRawError.failure, message: "Custom Message")
                         expect(error).to(matchError(expectedError))
                         expect(disposable.isDisposed) == false
@@ -162,7 +162,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
             waitUntil { done in
                 _ = response
                     .subscribe(onSuccess: { response in
-                        _ = response.body.asData().subscribe(onError: { error in
+                        _ = response.body.asData().subscribe(onFailure: { error in
                             expect(error).to(matchError(GGRawError.failure))
                             done()
                         })
@@ -206,7 +206,7 @@ class CoapBlockwiseResponseListenerSpec: QuickSpec {
             waitUntil { done in
                 _ = response
                     .subscribe(onSuccess: { response in
-                        _ = response.body.asData().subscribe(onError: { error in
+                        _ = response.body.asData().subscribe(onFailure: { error in
                             guard case let CoapRequestError.responseNotSuccessful(code, extendedError) = error else {
                                 fail("invalid error \(error)")
                                 return

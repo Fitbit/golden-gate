@@ -34,7 +34,7 @@ public class PeripheralManagerSink: DataSink {
         self.writer = writer
 
         readyToUpdateSubscribers
-            .observeOn(listenerScheduler)
+            .observe(on: listenerScheduler)
             .subscribe(onNext: { [weak self] in self?.notify() })
             .disposed(by: disposeBag)
     }

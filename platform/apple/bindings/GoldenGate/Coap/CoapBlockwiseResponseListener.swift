@@ -230,7 +230,7 @@ final class CoapStreamingMessageBody: CoapMessageBody {
                 }
             }
             .asObservable()
-            .takeUntil(transportUnavailable)
+            .take(until: transportUnavailable)
             .asSingle()
     }
 
@@ -246,6 +246,6 @@ final class CoapStreamingMessageBody: CoapMessageBody {
         }
 
         return cache.asObservable()
-            .takeUntil(transportUnavailable)
+            .take(until: transportUnavailable)
     }
 }

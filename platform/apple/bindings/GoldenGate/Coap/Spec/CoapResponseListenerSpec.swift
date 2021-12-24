@@ -65,7 +65,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         expect(error).to(matchError(RawCoapMessageError.unexpectedCode(code: 0)))
                         done()
                     })
@@ -81,7 +81,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         let expectedError = CoapResponseListenerError.failureWithMessage(GGRawError.failure, message: "Custom Message")
                         expect(error).to(matchError(expectedError))
                         done()
@@ -98,7 +98,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         expect(error).to(matchError(GGRawError.failure))
                         done()
                     })

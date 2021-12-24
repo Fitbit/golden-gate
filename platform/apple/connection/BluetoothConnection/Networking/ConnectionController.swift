@@ -119,7 +119,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     private let metricsSubject = PublishSubject<ConnectionControllerMetricsEvent>()
     public var metrics: Observable<ConnectionControllerMetricsEvent> {
         metricsSubject.asObservable()
-            .observeOn(scheduler)
+            .observe(on: scheduler)
     }
 
     /// Creates an auto-connecting connection controller.
@@ -149,7 +149,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         let establishConnection: Observable<ConnectionStatus<ConnectionType>> = self.descriptor
             .distinctUntilChanged()
             .logInfo("ConnectionController<\(debugIdentifier)>: Establish connection using descriptor", .bluetooth, .next)
-            .observeOn(scheduler)
+            .observe(on: scheduler)
             .flatMapLatest { descriptor -> Observable<ConnectionStatus<ConnectionType>> in
                 guard let descriptor = descriptor else { return .just(.disconnected) }
 
@@ -162,7 +162,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                         }
                     }
                     .startWith(.connecting)
-                    .catchError { Observable.just(.disconnected).concat(Observable.error($0)) }
+                    .catch { Observable.just(.disconnected).concat(Observable.error($0)) }
                     .logError("ConnectionController<\(debugIdentifier)>: Connection error", .bluetooth, .error)
             }
             .do(
@@ -175,7 +175,7 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                 },
                 onSubscribe: { [connectionErrorSubject] in connectionErrorSubject.onNext(nil) }
             )
-            .retryWhen { [metricsSubject] errors in
+            .retry { [metricsSubject] errors in
                 errors.map(reconnectStrategy.action)
                     .logError("ConnectionController<\(debugIdentifier)>: Reconnect strategy action", .bluetooth, .next)
                     .do(onNext: { metricsSubject.onNext(.determinedReconnectStrategyAction($0)) })
@@ -183,13 +183,13 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                     .logInfo("ConnectionController<\(debugIdentifier)>: Resuming reconnects...", .bluetooth, .next)
             }
             .do(afterError: { _ in encounteredUnrecoverableFailure.onNext(()) })
-            .catchErrorJustReturn(.disconnected)
+            .catchAndReturn(.disconnected)
 
         // Observable that emits `true` if a connection is required and can be established and
         // maintained or `false` otherwise.
         let shouldConnect = Observable.merge(connectionRequested, encounteredUnrecoverableFailure.map { _ in false })
             .logInfo("ConnectionController<\(debugIdentifier)>: Should connect", .bluetooth, .next)
-            .observeOn(scheduler)
+            .observe(on: scheduler)
             .distinctUntilChanged()
 
         Observable.if(shouldConnect, then: establishConnection, else: .just(.disconnected))

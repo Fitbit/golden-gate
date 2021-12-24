@@ -45,7 +45,7 @@ public class HubConnection: SecureLinkConnection {
 
         networkLink
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logDebug("\(descriptor).networkLink: ", .bluetooth, .next)
             .subscribe(onNext: self.networkLink.accept)
             .disposed(by: disposeBag)
@@ -57,14 +57,14 @@ public class HubConnection: SecureLinkConnection {
 
         remoteConnectionConfiguration
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logDebug("\(descriptor).remoteConnectionConfiguration: ", .bluetooth, .next)
             .subscribe(onNext: self.remoteConnectionConfiguration.accept)
             .disposed(by: disposeBag)
 
         remoteConnectionStatus
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logDebug("\(descriptor).remoteConnectionStatus: ", .bluetooth, .next)
             .subscribe(onNext: self.remoteConnectionStatus.accept)
             .disposed(by: disposeBag)

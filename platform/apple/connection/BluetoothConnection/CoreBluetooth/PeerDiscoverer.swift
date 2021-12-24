@@ -145,7 +145,7 @@ public final class PeerDiscoverer: PeerDiscovererType {
                             }
 
                             // Interrogate the RSSI of the connected peripheral every second.
-                            let rssiUpdate: Observable<Never> = Observable<Int>
+                            let rssiUpdate = Observable<Int>
                                 .interval(Self.rssiUpdateInterval, scheduler: self.bluetoothScheduler)
                                 .startWith(0)
                                 .flatMapFirst { _ in
@@ -155,7 +155,8 @@ public final class PeerDiscoverer: PeerDiscovererType {
                                             peer.update(peripheral: peripheral, advertisementData: nil, rssi: $0.1)
                                         })
                                         .ignoreElements()
-                                        .catchError { _ in Completable.empty() }
+                                        .asCompletable()
+                                        .catch { _ in Completable.empty() }
                                 }
 
                             // Emit the peer only if it has never been discovered previously
@@ -164,7 +165,7 @@ public final class PeerDiscoverer: PeerDiscovererType {
                                 .concat(rssiUpdate.map { _ in peer as DiscoveredPeerType })
                         }
                         // End the observable when there's an error
-                        .catchError { _ in Observable.empty() }
+                        .catch { _ in Observable.empty() }
                 }
             }
 
@@ -283,7 +284,7 @@ extension PeerDiscovererType {
                     }
                     .startWith([])
                     .optionalize()
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .logInfo("PeerDiscoverer: started discovery", .bluetooth, .subscribe)
                     .logInfo("PeerDiscoverer: stopped discovery", .bluetooth, .disposed)
             }

@@ -187,7 +187,7 @@ public class PeripheralManager {
                 let disposable = CompositeDisposable()
                 disposable += self.stateOncePoweredOn()
                     .take(1)
-                    .observeOn(self.scheduler)
+                    .observe(on: self.scheduler)
                     .subscribe(onNext: { _ in
                         guard
                             self.publishedServices[service.service.uuid] == nil,
@@ -209,7 +209,7 @@ public class PeripheralManager {
 
                 return disposable
             }
-            .subscribeOn(scheduler)
+            .subscribe(on: scheduler)
     }
 
     private lazy var advertiser: Completable = {
@@ -255,7 +255,7 @@ public class PeripheralManager {
 
     public func stateOncePoweredOn() -> Observable<CBManagerState> {
         return stateSubject
-            .skipWhile { $0 != .poweredOn }
+            .skip { $0 != .poweredOn }
             .distinctUntilChanged()
     }
 }

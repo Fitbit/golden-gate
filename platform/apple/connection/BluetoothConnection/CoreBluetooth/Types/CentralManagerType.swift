@@ -127,7 +127,7 @@ public extension ObservableType {
     /// Bluetooth being turned off. The proposed workaround is to delay the specific `BluetoothError.peripheralDisconnected(_, nil)`
     /// error, hoping that a `BluetoothError.bluetoothPoweredOff` error follows quickly enough (via some other Observable chain).
     func delayUnknownDisconnectionError(scheduler: SchedulerType, delay: DispatchTimeInterval = .milliseconds(300)) -> Observable<Element> {
-        catchError { error in
+        self.catch { error in
             switch error {
             case BluetoothError.peripheralDisconnected(_, nil):
                 return Observable.error(error).delaySubscription(delay, scheduler: scheduler)

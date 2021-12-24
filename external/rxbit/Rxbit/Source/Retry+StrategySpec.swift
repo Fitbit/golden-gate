@@ -58,13 +58,13 @@ class RetryStrategySpec: QuickSpec {
 		describe("retryWith") {
 			it("errors immediately") {
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(AlwaysErrorStrategy(), scheduler: $1)
+					$0.retry(withStrategy: AlwaysErrorStrategy(), scheduler: $1)
 				}, {
-					$0.retryWith(DefaultRetryStrategy(interval: .seconds(10), maxRetries: 0, multiplier: 0), scheduler: $1)
+					$0.retry(withStrategy: DefaultRetryStrategy(interval: .seconds(10), maxRetries: 0, multiplier: 0), scheduler: $1)
 				}, {
-					$0.retryWith(.error(RetryError.dummyError), scheduler: $1)
+					$0.retry(withAction: .error(RetryError.dummyError), scheduler: $1)
 				}, {
-					$0.retryWith(.delay(RetryDelayConfiguration(interval: .seconds(10), maxRetries: 0)), scheduler: $1)
+					$0.retry(withAction: .delay(RetryDelayConfiguration(interval: .seconds(10), maxRetries: 0)), scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -97,9 +97,9 @@ class RetryStrategySpec: QuickSpec {
 				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -138,9 +138,9 @@ class RetryStrategySpec: QuickSpec {
 				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -179,9 +179,9 @@ class RetryStrategySpec: QuickSpec {
 				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -221,9 +221,9 @@ class RetryStrategySpec: QuickSpec {
 				let action = RetryStrategyAction.suspendUntil(trigger.take(1).asSingle())
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -263,9 +263,9 @@ class RetryStrategySpec: QuickSpec {
 				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {

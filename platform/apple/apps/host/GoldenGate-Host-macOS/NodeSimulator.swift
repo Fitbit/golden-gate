@@ -50,7 +50,7 @@ class NodeSimulator {
         // Whenever a peer (descriptor) subscribes to us
         // create a new `Hub` object (or force a reconnect).
         advertiser.subscribedPeerDescriptor
-            .observeOn(scheduler)
+            .observe(on: scheduler)
             .map { [peerManager] descriptor -> ManagedHub in
                 if let peer = peerManager.get(peerDescriptor: descriptor) {
                     return peer
@@ -63,7 +63,7 @@ class NodeSimulator {
 
         // Release `Hub` whenever the previously subscribed peer unsubscribed
         advertiser.unsubscribedPeerDescriptor
-            .observeOn(scheduler)
+            .observe(on: scheduler)
             .compactMap(peerManager.get(peerDescriptor:))
             .do(onNext: peerManager.remove)
             .subscribe()

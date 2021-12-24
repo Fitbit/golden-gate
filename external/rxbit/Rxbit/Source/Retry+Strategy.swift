@@ -114,16 +114,16 @@ public extension ObservableConvertibleType {
 	///   - strategy: A strategy defining the retry action to perform given the error emitted.
 	///   - scheduler: A scheduler to use for the delay action.
 	/// - Returns: An observable sequence producing the elements of the given sequence repeatedly until it terminates successfully or is notified to error or complete.
-	func retryWith(_ strategy: RetryStrategy, scheduler: SchedulerType) -> Observable<Element> {
-		return self.asObservable().retryWhen { errors in
+	func retry(withStrategy strategy: RetryStrategy, scheduler: SchedulerType) -> Observable<Element> {
+		return self.asObservable().retry { errors in
 			errors.enumerated().flatMap { attempt, error -> Single<Void> in
 				strategy.action(for: error).asSingle(attempt: attempt, error: error, scheduler: scheduler)
 			}
 		}
 	}
 
-	func retryWith(_ action: RetryStrategyAction, scheduler: SchedulerType) -> Observable<Element> {
-		return self.asObservable().retryWhen { errors in
+	func retry(withAction action: RetryStrategyAction, scheduler: SchedulerType) -> Observable<Element> {
+		return self.asObservable().retry { errors in
 			errors.enumerated().flatMap { attempt, error -> Single<Void> in
 				action.asSingle(attempt: attempt, error: error, scheduler: scheduler)
 			}

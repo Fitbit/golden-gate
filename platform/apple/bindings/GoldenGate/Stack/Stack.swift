@@ -154,7 +154,7 @@ public class Stack: StackType, StackEventEmitter, StackDtlsStateReporter {
             .asObservable()
             .skip(1)
             .distinctUntilChanged()
-            .observeOn(runLoop)
+            .observe(on: runLoop)
             .subscribe(onNext: gg.value.onMtuChange)
             .disposed(by: disposeBag)
 

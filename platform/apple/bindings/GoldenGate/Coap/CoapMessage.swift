@@ -133,7 +133,7 @@ public extension CoapMessage {
     var extendedError: Single<CoapExtendedError?> {
         return body.asData()
             .map { CoapExtendedError($0) }
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
     }
 }
 

@@ -82,7 +82,7 @@ final class CoapEndpointSpec: QuickSpec {
                 waitUntil { done in
                     _ = makeEndpoint()
                         .response(request: request)
-                        .subscribe(onError: { error in
+                        .subscribe(onFailure: { error in
                             guard case CoapRequestError.responseNotSuccessful(let code, _) = error else {
                                 fail()
                                 return
@@ -125,7 +125,7 @@ final class CoapEndpointSpec: QuickSpec {
                 waitUntil { done in
                     _ = makeEndpoint()
                         .response(request: request)
-                        .subscribe(onError: { error in
+                        .subscribe(onFailure: { error in
                             expect(error).to(matchError(transportUnavailableError))
                             done()
                         })
@@ -142,7 +142,7 @@ final class CoapEndpointSpec: QuickSpec {
                 waitUntil(timeout: .seconds(10)) { done in
                     _ = makeEndpoint()
                         .response(request: request)
-                        .subscribe(onError: { error in
+                        .subscribe(onFailure: { error in
                             expect(error).to(matchError(transportUnavailableError))
                             done()
                         })

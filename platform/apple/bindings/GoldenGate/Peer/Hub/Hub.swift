@@ -59,7 +59,7 @@ public class Hub: ConnectionResolver {
         descriptor: PeerDescriptor
     ) -> Observable<HubConnection> {
         ensureExpectedCharacteristics(inServices: services)
-            .catchError { error in
+            .catch { error in
                 switch error {
                 case PeripheralError.serviceNotFound, PeripheralError.missingCharacteristic:
                     throw ConnectionResolverError.couldNotResolveConnection
@@ -135,7 +135,7 @@ public class Hub: ConnectionResolver {
                 confirmationCharacteristics: confirmation.all
             )
             .logError("Hub: Ephemeral characteristic error:", .bluetooth, .error)
-            .catchError { error in
+            .catch { error in
                 switch error {
                 case HubError.illegalEphemeralCharacteristicPointer:
                     // Do not fail when the characteristic pointer is invalid.
@@ -170,7 +170,7 @@ public class Hub: ConnectionResolver {
             // to send iOS a service change indication.
             .inheritError(from: writeEphemeralCharacteristic)
             .logInfo("Hub: resolveConnection", .bluetooth, .next)
-            .catchError { error in
+            .catch { error in
                 LogBluetoothError("Hub: Error occured in resolveConnection: \(error)")
 
                 switch error {
@@ -362,5 +362,6 @@ extension Hub {
                 return ephemeralCharacteristic.writeValue(Data([0x00]), type: .withResponse)
             }
             .ignoreElements()
+            .asCompletable()
     }
 }

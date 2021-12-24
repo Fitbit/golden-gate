@@ -243,7 +243,7 @@ private extension SingleEvent {
         switch self {
         case .success:
             return nil
-        case .error(let error):
+        case .failure(let error):
             return error
         }
     }

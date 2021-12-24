@@ -39,9 +39,9 @@ public class CentralManagerSource: NSObject, DataSource {
 
                 return value
             }
-            .observeOn(sinkScheduler)
-            .takeUntil(invalidateSubject)
-            .catchError { _ in .empty() }
+            .observe(on: sinkScheduler)
+            .take(until: invalidateSubject)
+            .catch { _ in .empty() }
             .subscribe(onNext: { [weak self] (value: Data) in
                 LogBluetoothVerbose("CentralManagerSource: \(NSDataBuffer(value as NSData).debugDescription)")
                 _ = try? self?.dataSink?.put(value)

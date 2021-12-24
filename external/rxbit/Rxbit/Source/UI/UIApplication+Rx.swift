@@ -86,8 +86,8 @@ public extension Reactive where Base: UIApplicationStateProviderType {
 					.startWith(base.applicationState)
 			}
 			.distinctUntilChanged()
-			.subscribeOn(MainScheduler.instance)
-			.takeUntil(deallocated)
+			.subscribe(on: MainScheduler.instance)
+			.take(until: deallocated)
 	}
 
 	/// Emits true when the application state is active and false otherwise. Starts

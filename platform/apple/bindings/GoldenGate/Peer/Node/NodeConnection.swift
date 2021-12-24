@@ -40,21 +40,21 @@ public class NodeConnection: LinkConnection {
 
         networkLink
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logDebug("\(descriptor).networkLink", .bluetooth, .next)
             .subscribe(onNext: self.networkLink.accept)
             .disposed(by: disposeBag)
 
         remotePreferredConnectionConfiguration
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logInfo("\(self.descriptor).remotePreferredConnectionConfiguration: ", .bluetooth, .next)
             .subscribe(onNext: self.remotePreferredConnectionConfiguration.accept)
             .disposed(by: disposeBag)
 
         remotePreferredConnectionMode
             .optionalize()
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .logInfo("\(self.descriptor).remotePreferredConnectionMode: ", .bluetooth, .next)
             .subscribe(onNext: self.remotePreferredConnectionMode.accept)
             .disposed(by: disposeBag)

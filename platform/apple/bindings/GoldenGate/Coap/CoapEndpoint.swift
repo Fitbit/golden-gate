@@ -92,7 +92,7 @@ public class CoapEndpoint: CoapEndpointType {
         self.port = port
         self.transferStrategy = transferStrategy ?? CoapRequestDependentTransferStrategy(transportReadiness: transportReadiness)
         self.requestFilter = try CoapGroupRequestFilter(runLoop)
-        self.transportReadiness = transportReadiness.observeOn(runLoop)
+        self.transportReadiness = transportReadiness.observe(on: runLoop)
 
         // register the CoAP group request filter
         register(requestFilter: requestFilter)
@@ -183,12 +183,12 @@ extension CoapEndpoint {
         }
 
         return transferStrategy.response(request: request, endpoint: self)
-            .subscribeOn(runLoop)
+            .subscribe(on: runLoop)
             .asObservable()
-            .takeUntil(transportUnavailable)
+            .take(until: transportUnavailable)
             .asSingle()
             // Move any response processing off the run-loop
-            .observeOn(SerialDispatchQueueScheduler(qos: .default))
+            .observe(on: SerialDispatchQueueScheduler(qos: .default))
             .flatMap { [expectsSuccess = request.expectsSuccess] response -> Single<CoapMessage> in
                 // Error observable if response wasn't successful
                 // but the client is only expecting success.
@@ -275,7 +275,7 @@ extension CoapEndpoint {
             switch result! {
             case .success(let value):
                 return value
-            case .error(let error):
+            case .failure(let error):
                 throw error
             }
         }

@@ -57,9 +57,9 @@ public class CentralManagerSink: NSObject, DataSink {
         LogBluetoothVerbose("CentralManagerSink: \(buffer.debugDescription)")
 
         _ = characteristic.service().peripheral().writeValue(buffer.data, for: characteristic, type: writeType, canSendWriteWithoutResponseCheckEnabled: false)
-            .catchErrorJustReturn(characteristic)
+            .catchAndReturn(characteristic)
             .do(onSuccess: { _ in self.waitingForReponse = false })
-            .observeOn(listenerScheduler)
+            .observe(on: listenerScheduler)
             .subscribe(onSuccess: { _ in
                 switch self.writeType {
                 case .withResponse:

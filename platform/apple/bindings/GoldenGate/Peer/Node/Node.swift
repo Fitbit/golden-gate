@@ -46,7 +46,7 @@ public class Node: ConnectionResolver {
         descriptor: PeerDescriptor
     ) -> Observable<NodeConnection> {
         ensureExpectedCharacteristics(inServices: services)
-            .catchError { error in
+            .catch { error in
                 switch error {
                 case PeripheralError.serviceNotFound, PeripheralError.missingCharacteristic:
                     throw ConnectionResolverError.couldNotResolveConnection

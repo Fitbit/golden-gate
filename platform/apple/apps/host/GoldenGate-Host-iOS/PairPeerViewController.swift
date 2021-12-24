@@ -36,7 +36,7 @@ class PairPeerViewController: UITableViewController {
 
         tableView.rx.modelSelected(DiscoveredPeer.self)
             // handle asynchronously to get a chance for scanner to stop established connections
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self, peerManager] peer in
                 let descriptor = PeerDescriptor(identifier: peer.identifier)
                 _ = peerManager!.getOrCreate(peerDescriptor: descriptor, name: peer.name)
@@ -56,7 +56,6 @@ class PairPeerViewController: UITableViewController {
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: false)
 
-
         isDiscovering
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
@@ -67,7 +66,7 @@ class PairPeerViewController: UITableViewController {
             .disposed(by: disposeBag)
 
         peers.map { $0 ?? [] }
-            .takeUntil(tableView.rx.modelSelected(DiscoveredPeer.self).asObservable())
+            .take(until: tableView.rx.modelSelected(DiscoveredPeer.self).asObservable())
             .bind(to: tableView.rx.items) { tableView, _, peer in
                 // swiftlint:disable:next force_cast
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")! as! Cell
