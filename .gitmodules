@@ -4,10 +4,14 @@
 [submodule "external/mbedtls"]
 	path = external/mbedtls
 	url = https://github.com/ARMmbed/mbedtls.git
-	branch = mbedtls-2.18
+	branch = mbedtls-2.28.0
 [submodule "external/xcconfigs"]
 	path = external/xcconfigs
 	url = https://github.com/jspahrsummers/xcconfigs.git
 [submodule "external/workflows"]
 	path = external/workflows
 	url = https://github.com/Carthage/workflows.git
+[submodule "mbedtls-3"]
+	path = external/mbedtls-3
+	url = https://github.com/ARMmbed/mbedtls.git
+	branch = mbedtls-3.1.0

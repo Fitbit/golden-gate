@@ -22,6 +22,11 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "mbedtls/version.h"
+#if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define MBEDTLS_ALLOW_PRIVATE_ACCESS // Needed to access mbedtls_ssl_context.state
+#endif
+
 #include "mbedtls/ssl.h"
 #include "mbedtls/ctr_drbg.h"
 #include "mbedtls/entropy.h"
@@ -112,6 +117,13 @@ static void GG_DtlsProtocol_AdvanceHandshake(GG_DtlsProtocol* self);
 static void GG_DtlsProtocol_TransportSide_TryToFlush(GG_DtlsProtocol* self);
 
 /*----------------------------------------------------------------------
+|   2.x/3.x compatibility
++---------------------------------------------------------------------*/
+#if MBEDTLS_VERSION_NUMBER < 0x03000000
+#define mbedtls_ssl_get_max_out_record_payload mbedtls_ssl_get_max_frag_len
+#endif
+
+/*----------------------------------------------------------------------
 |   functions
 +---------------------------------------------------------------------*/
 
@@ -136,11 +148,25 @@ MapErrorCode(int ssl_result)
         case MBEDTLS_ERR_SSL_UNKNOWN_IDENTITY:
             return GG_ERROR_TLS_UNKNOWN_IDENTITY;
 
-        case MBEDTLS_ERR_SSL_BAD_HS_CLIENT_HELLO:
-            return GG_ERROR_TLS_BAD_CLIENT_HELLO;
+#if defined(MBEDTLS_ERR_SSL_ILLEGAL_PARAMETER)
+        case MBEDTLS_ERR_SSL_ILLEGAL_PARAMETER:
+            return GG_ERROR_TLS_ILLEGAL_PARAMETER;
+#endif
 
+#if defined(MBEDTLS_ERR_SSL_DECODE_ERROR)
+        case MBEDTLS_ERR_SSL_DECODE_ERROR:
+            return GG_ERROR_TLS_DECODE_ERROR;
+#endif
+
+#if defined(MBEDTLS_ERR_SSL_BAD_HS_CLIENT_HELLO)
+        case MBEDTLS_ERR_SSL_BAD_HS_CLIENT_HELLO:
+            return GG_ERROR_TLS_DECODE_ERROR;
+#endif
+
+#if defined(MBEDTLS_ERR_SSL_BAD_HS_SERVER_HELLO)
         case MBEDTLS_ERR_SSL_BAD_HS_SERVER_HELLO:
-            return GG_ERROR_TLS_BAD_SERVER_HELLO;
+            return GG_ERROR_TLS_DECODE_ERROR;
+#endif
 
         default:
             GG_LOG_FINER("GG_FAILURE shadowing finer error: %d", ssl_result);
@@ -387,7 +413,7 @@ GG_DtlsProtocol_UserSide_PutData(GG_DataSink* _self, GG_Buffer* data, const GG_B
     }
 
     // check that we can write this buffer
-    if (GG_Buffer_GetDataSize(data) > mbedtls_ssl_get_max_frag_len(&self->ssl_context)) {
+    if ((int)GG_Buffer_GetDataSize(data) > (int)mbedtls_ssl_get_max_out_record_payload(&self->ssl_context)) {
         return GG_ERROR_OUT_OF_RANGE;
     }
 
@@ -836,6 +862,11 @@ GG_DtlsProtocol_Create(GG_TlsProtocolRole   role,
     GG_Result result;
 
     GG_LOG_FINE("GG_DtlsProtocol_Create, sizeof(GG_DtlsProtocol) = %u", (int)sizeof(GG_DtlsProtocol));
+    char mbedtls_version_string[12];
+    mbedtls_version_get_string(mbedtls_version_string);
+    GG_LOG_FINE("MbedTLS compile time version = %s, runtime version = %s",
+                MBEDTLS_VERSION_STRING,
+                mbedtls_version_string);
 
     // check the arguments
     if (max_datagram_size < GG_DTLS_MIN_DATAGRAM_SIZE ||

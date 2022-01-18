@@ -29,9 +29,10 @@ def detect_profile():
     "coverage": "Generate a code coverage report",
     "sonarqube": "Enable Sonarqube scanning",
     "sanitize": "Enable a sanitizer ('address', ...). You can use this option multiple times, one for each sanitizer.",
-    "cmakegen": "Override CMake generator (e.g. 'Xcode', run `cmake --help` for a list of supported generators)"
+    "cmake_gen": "Override CMake generator (e.g. 'Xcode', run `cmake --help` for a list of supported generators)",
+    "cmake_extras": "Extra parameters for CMake"
 }, iterable=['sanitize'])
-def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmake_verbose=False, cmakegen=None):
+def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmake_verbose=False, cmake_gen=None, cmake_extras=None):
     '''Build Golden Gate natively using the default auto-detected profile for the host platform'''
     build_dir = ctx.C.BUILD_DIR_NATIVE
     cmake.build(ctx,
@@ -42,7 +43,8 @@ def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmak
                 coverage=coverage,
                 sanitize=sanitize,
                 cmake_verbose=cmake_verbose,
-                generator=cmakegen)
+                cmake_extras=cmake_extras,
+                generator=cmake_gen)
     build_wrapper = ""
     if sonarqube:
         wrapper_bin = {
