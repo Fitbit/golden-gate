@@ -119,7 +119,7 @@ static void GG_DtlsProtocol_TransportSide_TryToFlush(GG_DtlsProtocol* self);
 /*----------------------------------------------------------------------
 |   2.x/3.x compatibility
 +---------------------------------------------------------------------*/
-#if MBEDTLS_VERSION_NUMBER < 0x03000000
+#if MBEDTLS_VERSION_NUMBER < 0x020d0000
 #define mbedtls_ssl_get_max_out_record_payload mbedtls_ssl_get_max_frag_len
 #endif
 
@@ -862,11 +862,13 @@ GG_DtlsProtocol_Create(GG_TlsProtocolRole   role,
     GG_Result result;
 
     GG_LOG_FINE("GG_DtlsProtocol_Create, sizeof(GG_DtlsProtocol) = %u", (int)sizeof(GG_DtlsProtocol));
+#if defined(MBEDTLS_VERSION_C)
     char mbedtls_version_string[12];
     mbedtls_version_get_string(mbedtls_version_string);
     GG_LOG_FINE("MbedTLS compile time version = %s, runtime version = %s",
                 MBEDTLS_VERSION_STRING,
                 mbedtls_version_string);
+#endif
 
     // check the arguments
     if (max_datagram_size < GG_DTLS_MIN_DATAGRAM_SIZE ||
