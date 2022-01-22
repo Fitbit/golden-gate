@@ -10,10 +10,6 @@
  *
  * @date 2017-11-13
  *
- * @details
- * Detailed information can be found at this link:
- *  https://wiki.fitbit.com/display/firmware/BLE+Connection+Manager
- *
  */
 
 /*----------------------------------------------------------------------

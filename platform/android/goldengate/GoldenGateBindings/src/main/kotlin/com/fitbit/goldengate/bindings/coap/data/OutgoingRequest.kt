@@ -22,8 +22,6 @@ interface OutgoingRequest : OutgoingMessage, BaseRequest {
      * of fixed size. In GG we use 1024 bytes. On the tracker some Coap resources accept larger data payloads
      * in a single block. In this case we need to force a non-blockwise request. Here is an example of this
      * type of resource:
-     *
-     * https://wiki.fitbit.com/pages/viewpage.action?pageId=109586801
      */
     val forceNonBlockwise: Boolean
 

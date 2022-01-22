@@ -17,7 +17,9 @@ if (GG_PORTS_ENABLE_LWIP_SOCKETS)
     target_sources(gg-sockets PRIVATE ${PORT_DIR}/gg_lwip_sockets.c
                                       ${PORT_DIR}/gg_lwip_sockets.h)
     # silence some warnings, because of LwIP headers that are not 100% clean
-    set_source_files_properties(${PORT_DIR}/gg_lwip_sockets.c PROPERTIES COMPILE_FLAGS -Wno-conversion)
+    if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_C_COMPILER_ID MATCHES "GNU")
+        set_source_files_properties(${PORT_DIR}/gg_lwip_sockets.c PROPERTIES COMPILE_FLAGS -Wno-conversion)
+    endif()
 else()
     target_sources(gg-sockets PRIVATE ${PORT_DIR}/gg_lwip_netconn_sockets.c
                                       ${PORT_DIR}/gg_lwip_sockets.h)

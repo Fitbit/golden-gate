@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import os
+import sys
 import subprocess
 
 def build(ctx, build_dir, profile, toolchain_file=None,
@@ -17,8 +18,8 @@ def build(ctx, build_dir, profile, toolchain_file=None,
         cmd = [cmake_wrapper] + cmd
 
     # check if Ninja is available, and use the Ninja generator if it is, unless a
-    # custom generator was requested
-    if not generator:
+    # custom generator was requested, or the host is Windows
+    if not generator and sys.platform != 'win32':
         try:
             subprocess.check_output(['ninja', '--version'])
             cmd.append('-GNinja')

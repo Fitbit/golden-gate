@@ -1,15 +1,16 @@
-{
+﻿{
   "configurations": [
     {
-        "name": "x86-Debug",
-        "generator": "Ninja",
-        "configurationType": "Debug",
-        "inheritEnvironments": [ "msvc_x86" ],
-        "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
-        "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
-        "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
-        "buildCommandArgs": "-v",
-        "ctestCommandArgs": ""
+      "name": "x86-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "inheritEnvironments": [ "msvc_x86" ],
+      "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "variables": []
     },
     {
       "name": "x86-Release",
@@ -18,9 +19,10 @@
       "inheritEnvironments": [ "msvc_x86" ],
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
       "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
-      "cmakeCommandArgs": "-L",
+      "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": []
     },
     {
       "name": "x64-Debug",
@@ -29,9 +31,10 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
       "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
-      "cmakeCommandArgs": "",
+      "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": []
     },
     {
       "name": "x64-Release",
@@ -40,9 +43,10 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
       "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
-      "cmakeCommandArgs": "",
+      "cmakeCommandArgs": "-L -C${projectDir}\\config\\profiles\\windows.cmake",
       "buildCommandArgs": "-v",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": []
     }
   ]
 }

@@ -14,7 +14,7 @@ def build(_ctx):
     '''Build All Android tasks'''
 
 @task
-def test(ctx, coverage=True, sonarqube=False):
+def test(ctx, coverage=True, sonarqube=''):
     '''Runs tests'''
     bindings_dir = os.path.join(ctx.C.PLATFORM_DIR, "android", "goldengate", "GoldenGateBindings")
     coverage_dir = os.path.join(bindings_dir, '.externalNativeBuild', 'cmake', 'debug',
@@ -46,7 +46,7 @@ def test(ctx, coverage=True, sonarqube=False):
     tasks.append(remoteapi_command)
     tasks.append(link_controller_command)
     if sonarqube:
-        tasks.append("sonarqube -Dsonar.host.url=https://sonarqube.site-ops.fitbit.com")
+        tasks.append(f'sonarqube -Dsonar.host.url={sonarqube}')
 
     with ctx.cd(root_dir):
         ctx.run("./gradlew " + " ".join(tasks))

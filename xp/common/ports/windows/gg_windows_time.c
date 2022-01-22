@@ -31,19 +31,19 @@
 GG_Timestamp
 GG_System_GetCurrentTimestamp(void)
 {
-    static uint64_t timer_frequency = 0;
-    if (timer_frequency == 0) {
+    static double timer_frequency = 0.0; // timer frequency in units per nanoseconds
+    if (timer_frequency == 0.0) {
         // initialize the frequency
         LARGE_INTEGER _timer_frequency;
         if (QueryPerformanceFrequency(&_timer_frequency)) {
-            timer_frequency = (uint64_t)_timer_frequency.QuadPart;
+            timer_frequency = (double)_timer_frequency.QuadPart / (double)GG_NANOSECONDS_PER_SECOND;
         }
     }
 
     // get the current timer
     LARGE_INTEGER now;
     if (timer_frequency && QueryPerformanceCounter(&now)) {
-        return (GG_NANOSECONDS_PER_SECOND * (uint64_t)now.QuadPart) / timer_frequency;
+        return (GG_Timestamp)((double)now.QuadPart / timer_frequency);
     } else {
         // something went wrong
         return 0;

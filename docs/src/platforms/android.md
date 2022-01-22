@@ -97,4 +97,4 @@ $ inv android.build
 Run The Host App
 ----------------
 
-See the [Android Host App](../apps/android/host_app.md) documentation.
+See the [Android Host App](https://fitbit.github.io/golden-gate/apps/android/host_app.html) documentation.
