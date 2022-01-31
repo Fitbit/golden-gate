@@ -25,6 +25,10 @@
 extern "C" {
 #endif
 
+//! @addtogroup Utils Utilities
+//! General purpose data probe to monitor a buffer's fullness over time.
+//! @{
+
 /*----------------------------------------------------------------------
 |   types
 +---------------------------------------------------------------------*/

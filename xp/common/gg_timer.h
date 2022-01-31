@@ -69,7 +69,7 @@ GG_DECLARE_INTERFACE(GG_TimerListener) {
 
 //! @relates GG_TimerListener
 //! @copydoc GG_TimerListenerInterface::OnTimerFired
-void GG_TimerListener_OnTimerFired(GG_TimerListener* self, GG_Timer* timer, uint32_t actual_ms_elapsed);
+void GG_TimerListener_OnTimerFired(GG_TimerListener* self, GG_Timer* timer, uint32_t time_elapsed);
 
 //! A timer scheduler is an object that creates and manages timers
 typedef struct GG_TimerScheduler GG_TimerScheduler;
