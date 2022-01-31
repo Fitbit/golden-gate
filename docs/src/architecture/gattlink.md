@@ -16,7 +16,56 @@ Protocol in a nutshell
     - Packets are resent when not ACK'ed for some time (default 4 seconds)
     - Consecutive missed ACKs = stall. Stall event emitted
 
+## Handshake State Machine
+
+             +----------+
+             |          |
+             |         ---
+             |         any
+             v         ---
+      +-------------+   |
+      | INITIALIZED |---+
+      +-------------+
+             |
+             |      +-------------------------------------------------------+
+          {start}   |      +------------+                                   |
+             |      |      |            |                                   |
+             v      v      v      --------------                            |
+          ( send reset request )  on reset timer                            |
+          (schedule reset timer)  --------------                            |
+                    |                   |                                   |
+                    v                   |                                   |
+    +------------------------------------------+                            |
+    |  AWAITING_RESET_COMPLETE_SELF_INITIATED  |                            |
+    +------------------------------------------+             +---------+    |
+              |                      |                       |         |    |
+       ----------------      -----------------       ----------------- |    |
+       on reset request      on reset complete       on reset complete |    |
+       ----------------      -----------------       ----------------- |    |
+              |                      |                       |         |    |
+              |            (send reset complete)             |         |    |
+              |                      |                       |         v    |
+              |                      +------------>+---------------------+  |
+              |                                    |        READY        |  |
+     (send reset complete)           +------------>+---------------------+  |
+              |                      |                       |              |
+              |              -----------------        ----------------      |
+              |              on reset complete        on reset request      |
+              |              -----------------        ----------------      |
+              v                      |                       |              |
+    +------------------------------------------+             |              |
+    | AWAITING_RESET_COMPLETE_REMOTE_INITIATED |   (send reset complete)    |
+    +------------------------------------------+             |              |
+              |           ^        |         ^               |              |
+       ----------------   |  --------------  |               |              |
+       on reset request   |  on reset timer  +---------------+              |
+       ----------------   |  --------------                                 |
+              |           |        |                                        |
+    (send reset complete) |        |                                        |
+              |           |        |                                        |
+              +-----------+        |                                        |
+                                   +----------------------------------------+
 
 ## GattLink Buffers
 
-<img src="assets/gattlink-buffers.svg" width="100%"/>
+<img src="gattlink-buffers.svg" width="100%"/>
