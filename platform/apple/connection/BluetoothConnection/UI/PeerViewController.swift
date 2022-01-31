@@ -41,7 +41,7 @@ public protocol PeerViewControllerViewModel {
     var connectionConfigurationDetails: [(label: String, value: Driver<String?>)] { get }
     var deviceInfoDetails: [(label: String, value: Driver<String?>)] { get }
 
-    var linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel { get }
+    var linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel? { get }
 }
 
 public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITableViewController {
@@ -96,7 +96,9 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .connection: return ConnectionRow.allCases.count
-        case .settings: return SettingRow.allCases.count
+        case .settings:
+            let linkConfigurationAvailable = viewModel.linkConfigurationViewControllerViewModel != nil
+            return linkConfigurationAvailable ? SettingRow.allCases.count : SettingRow.allCases.count - 1
         case .servicePlayground: return 1
         case .networkLinkStatus: return viewModel.networkLinkStatusDetails.count
         case .connectionStatus: return viewModel.connectionStatusDetails.count

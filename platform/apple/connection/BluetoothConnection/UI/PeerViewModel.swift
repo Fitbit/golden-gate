@@ -195,7 +195,7 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
     private let connectionController: ConnectionController<ConnectionType>
     private let remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>
     private let remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>
-    public let linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel
+    public let linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?
 
     private let customStackDescriptor = PublishSubject<StackDescriptor?>()
     private let customServiceDescriptor = PublishSubject<ServiceDescriptor?>()
@@ -206,7 +206,7 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
         connectionController: ConnectionController<ConnectionType>,
         remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>,
         remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>,
-        linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel
+        linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?
     ) {
         self.peer = peer
         self.connectionController = connectionController

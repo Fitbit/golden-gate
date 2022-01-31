@@ -116,12 +116,6 @@ extension Peripheral: PeripheralType {
     }
 }
 
-extension Peripheral: CustomStringConvertible {
-    public var description: String {
-        return "\(type(of: self)) \(peripheral.name ??? "nil") (\(peripheral.identifier))"
-    }
-}
-
 public extension ConnectionStatus where Connection == Peripheral {
     var peripheral: Peripheral? { connection }
 }
