@@ -220,6 +220,7 @@ struct _iface##Interface
  *     .my_field = 123
  *     // ...
  * };
+ * ```
  */
 #define GG_INTERFACE_INITIALIZER(_class, _iface) \
     .GG_INTERFACE_BASE_FIELD(_iface) = { .vtable = &_class##_##_iface##Interface }
