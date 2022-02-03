@@ -1,8 +1,8 @@
 //  Copyright 2017-2020 Fitbit, Inc
 //  SPDX-License-Identifier: Apache-2.0
 //
-//  WriteRequest.swift
-//  GoldenGate
+//  ReadRequest.swift
+//  BluetoothConnection
 //
 //  Created by Sylvain Rebaud on 10/21/18.
 //
@@ -10,25 +10,22 @@
 import CoreBluetooth
 import Foundation
 
+/// Abstraction over the mechanism of responding to Bluetooth read requests
+public protocol ReadRequestType: AnyObject {
+    var readerIdentifier: UUID { get }
+    func respond(withResult result: ReadRequest.Result)
+}
+
 /// Utility to detect when we forget to respond to CBATTRequests.
-public class ReadRequest {
+public final class ReadRequest: ReadRequestType {
     public let central: CBCentral
     public let characteristic: CBCharacteristic
+
+    public var readerIdentifier: UUID { central.identifier }
 
     public enum Result {
         case success(Data?)
         case failure(CBATTError.Code)
-
-        func respond(to request: CBATTRequest, on peripheralManager: CBPeripheralManager) {
-            switch self {
-            case .success(let data):
-                request.value = data
-                peripheralManager.respond(to: request, withResult: .success)
-            case .failure(let code):
-                assert(code != .success)
-                peripheralManager.respond(to: request, withResult: code)
-            }
-        }
     }
 
     private var internalRespond: ((Result) -> Void)?
@@ -39,7 +36,14 @@ public class ReadRequest {
 
         if characteristic.properties.contains(.read) {
             internalRespond = { result in
-                result.respond(to: request, on: peripheralManager)
+                switch result {
+                case .success(let data):
+                    request.value = data
+                    peripheralManager.respond(to: request, withResult: .success)
+                case .failure(let code):
+                    assert(code != .success)
+                    peripheralManager.respond(to: request, withResult: code)
+                }
             }
         }
     }

@@ -22,8 +22,8 @@ public class NodeConnection: LinkConnection {
     public let serialNumber = Observable<String>.never()
     public let firmwareRevision = Observable<String>.never()
     public let hardwareRevision = Observable<String>.never()
-    public let remotePreferredConnectionConfiguration = BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration?>(value: nil)
-    public let remotePreferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode?>(value: nil)
+    public let remotePreferredConnectionConfiguration = BehaviorRelay<LinkConnectionConfiguration?>(value: nil)
+    public let remotePreferredConnectionMode = BehaviorRelay<LinkConnectionMode?>(value: nil)
 
     public let descriptor: PeerDescriptor
 
@@ -33,8 +33,8 @@ public class NodeConnection: LinkConnection {
     init(
         descriptor: PeerDescriptor,
         networkLink: Observable<NetworkLink>,
-        remotePreferredConnectionConfiguration: Observable<LinkConfigurationService.PreferredConnectionConfiguration>,
-        remotePreferredConnectionMode: Observable<LinkConfigurationService.PreferredConnectionMode>
+        remotePreferredConnectionConfiguration: Observable<LinkConnectionConfiguration>,
+        remotePreferredConnectionMode: Observable<LinkConnectionMode>
     ) {
         self.descriptor = descriptor
 
