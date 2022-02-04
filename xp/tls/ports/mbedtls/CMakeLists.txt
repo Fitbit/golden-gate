@@ -26,8 +26,6 @@ target_link_libraries(gg-tls PRIVATE gg-annotations gg-common)
 
 # If we use a local build of mbedtls
 if (GG_PORTS_ENABLE_MBEDTLS)
-    # set the default value for the config header file (can be changed in platform config CMake initial cache files)
-    set(GG_MBEDTLS_CONFIG "gg_dtls_default_config.h" CACHE STRING "")
     target_compile_definitions(gg-tls PRIVATE MBEDTLS_CONFIG_FILE=\"${GG_MBEDTLS_CONFIG}\")
 
     # add a dependency to the local mbedtls library

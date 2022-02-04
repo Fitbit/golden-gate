@@ -37,6 +37,7 @@ function(gg_add_test TEST_SOURCE PRODUCT_LIBS)
         target_compile_options(${TEST_EXE_NAME} PRIVATE -Wno-weak-vtables -Wno-global-constructors -Wno-exit-time-destructors)
         target_compile_options(${TEST_EXE_NAME} PRIVATE -Wno-disabled-macro-expansion -Wno-old-style-cast -Wno-keyword-macro)
         target_compile_options(${TEST_EXE_NAME} PRIVATE -Wno-c++11-long-long -Wno-missing-field-initializers -Wno-variadic-macros)
+        target_compile_options(${TEST_EXE_NAME} PRIVATE -Wno-suggest-override -Wno-suggest-destructor-override)
     endif()
 
   set(TEST_COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${TEST_EXE_NAME})

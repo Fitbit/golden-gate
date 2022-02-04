@@ -181,8 +181,8 @@ typedef struct {
  */
 #define GG_ERROR_TLS_FATAL_ALERT_MESSAGE           (GG_ERROR_BASE_TLS - 0)
 #define GG_ERROR_TLS_UNKNOWN_IDENTITY              (GG_ERROR_BASE_TLS - 1)
-#define GG_ERROR_TLS_BAD_CLIENT_HELLO              (GG_ERROR_BASE_TLS - 2)
-#define GG_ERROR_TLS_BAD_SERVER_HELLO              (GG_ERROR_BASE_TLS - 3)
+#define GG_ERROR_TLS_ILLEGAL_PARAMETER             (GG_ERROR_BASE_TLS - 2)
+#define GG_ERROR_TLS_DECODE_ERROR                  (GG_ERROR_BASE_TLS - 3)
 #define GG_ERROR_TLS_UNMAPPED_LIB_ERROR            (GG_ERROR_BASE_TLS - 4)
 
 /**

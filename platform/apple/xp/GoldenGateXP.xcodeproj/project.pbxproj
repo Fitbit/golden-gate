@@ -47,7 +47,6 @@
 		020000000000000000000127 /* pbuf.c in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000128 /* pbuf.c */; };
 		02000000000000000000012B /* gg_remote_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000012C /* gg_remote_parser.c */; };
 		02000000000000000000012F /* ecdh.c in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000130 /* ecdh.c */; };
-		020000000000000000000131 /* md_wrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000132 /* md_wrap.c */; };
 		020000000000000000000133 /* gg_bsd_sockets.c in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000134 /* gg_bsd_sockets.c */; };
 		020000000000000000000143 /* padlock.c in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000144 /* padlock.c */; };
 		020000000000000000000149 /* ip.c in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000014A /* ip.c */; };
@@ -900,7 +899,6 @@
 		02000000000000000000012A /* gg_strings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gg_strings.h; path = common/gg_strings.h; sourceTree = SOURCE_ROOT; };
 		02000000000000000000012C /* gg_remote_parser.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = gg_remote_parser.c; path = remote/transport/serial/gg_remote_parser.c; sourceTree = SOURCE_ROOT; };
 		020000000000000000000130 /* ecdh.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = ecdh.c; path = ../external/mbedtls/library/ecdh.c; sourceTree = SOURCE_ROOT; };
-		020000000000000000000132 /* md_wrap.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = md_wrap.c; path = ../external/mbedtls/library/md_wrap.c; sourceTree = SOURCE_ROOT; };
 		020000000000000000000134 /* gg_bsd_sockets.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = gg_bsd_sockets.c; path = sockets/ports/bsd/gg_bsd_sockets.c; sourceTree = SOURCE_ROOT; };
 		020000000000000000000136 /* gg_stack_builder.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gg_stack_builder.h; path = stack_builder/gg_stack_builder.h; sourceTree = SOURCE_ROOT; };
 		020000000000000000000138 /* gg_remote_serial_io.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = gg_remote_serial_io.h; path = remote/transport/serial/gg_remote_serial_io.h; sourceTree = SOURCE_ROOT; };
@@ -1589,7 +1587,6 @@
 				020000000000000000000076 /* gcm.c */,
 				0200000000000000000000AE /* havege.c */,
 				020000000000000000000378 /* hmac_drbg.c */,
-				020000000000000000000132 /* md_wrap.c */,
 				020000000000000000000126 /* md.c */,
 				0200000000000000000003A0 /* md2.c */,
 				020000000000000000000274 /* md4.c */,
@@ -2644,7 +2641,6 @@
 		020000000000000000000412 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 020000000000000000000B24 /* Build configuration list for PBXProject "GoldenGateXP" */;
@@ -2997,7 +2993,6 @@
 				02000000000000000000039F /* md2.c in Sources */,
 				020000000000000000000273 /* md4.c in Sources */,
 				020000000000000000000379 /* md5.c in Sources */,
-				020000000000000000000131 /* md_wrap.c in Sources */,
 				0200000000000000000001F1 /* memory_buffer_alloc.c in Sources */,
 				0200000000000000000003A3 /* oid.c in Sources */,
 				020000000000000000000143 /* padlock.c in Sources */,
