@@ -2,7 +2,7 @@
 //  SPDX-License-Identifier: Apache-2.0
 //
 //  WriteRequest.swift
-//  BluetoothConnection
+//  GoldenGate
 //
 //  Created by Marcel Jackwerth on 11/30/17.
 //
@@ -10,20 +10,12 @@
 import CoreBluetooth
 import Foundation
 
-/// Abstraction over the mechanism of responding to Bluetooth write requests
-public protocol WriteRequestType: AnyObject {
-    var writerIdentifier: UUID { get }
-    func respond(withResult result: CBATTError.Code)
-}
-
 /// Utility to detect when we forget to respond to CBATTRequests,
 /// but will also not send a response if we don't have to.
-public class WriteRequest: WriteRequestType {
+public class WriteRequest {
     public let central: CBCentral
     public let characteristic: CBCharacteristic
     let value: Data?
-
-    public var writerIdentifier: UUID { central.identifier }
 
     private var internalRespond: ((CBATTError.Code) -> Void)?
 
@@ -39,7 +31,7 @@ public class WriteRequest: WriteRequestType {
         }
     }
 
-    public func respond(withResult result: CBATTError.Code) {
+    func respond(withResult result: CBATTError.Code) {
         internalRespond?(result)
         internalRespond = nil
     }

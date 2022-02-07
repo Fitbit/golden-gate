@@ -135,12 +135,12 @@ private extension Node {
 private extension Node {
     func remotePreferredConnectionConfiguration(
         from characteristic: CharacteristicType
-    ) -> Observable<LinkConnectionConfiguration> {
+    ) -> Observable<LinkConfigurationService.PreferredConnectionConfiguration> {
         return characteristic.readAndObserveValue()
             .map {
                 guard
                     let value = $0,
-                    let configuration = LinkConnectionConfiguration(rawValue: value)
+                    let configuration = LinkConfigurationService.PreferredConnectionConfiguration(rawValue: value)
                 else {
                     throw NodeError.illegalConnectionConfiguration
                 }
@@ -151,12 +151,12 @@ private extension Node {
 
     func remotePreferredConnectionMode(
         from characteristic: CharacteristicType
-    ) -> Observable<LinkConnectionMode> {
+    ) -> Observable<LinkConfigurationService.PreferredConnectionMode> {
         return characteristic.readAndObserveValue()
             .map {
                 guard
                     let value = $0,
-                    let configuration = LinkConnectionMode(rawValue: value)
+                    let configuration = LinkConfigurationService.PreferredConnectionMode(rawValue: value)
                 else {
                     throw NodeError.illegalConnectionMode
                 }
