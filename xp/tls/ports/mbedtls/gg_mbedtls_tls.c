@@ -24,7 +24,9 @@
 
 #include "mbedtls/version.h"
 #if MBEDTLS_VERSION_NUMBER >= 0x03000000
+#if !defined(MBEDTLS_ALLOW_PRIVATE_ACCESS)
 #define MBEDTLS_ALLOW_PRIVATE_ACCESS // Needed to access mbedtls_ssl_context.state
+#endif
 #endif
 
 #include "mbedtls/ssl.h"
