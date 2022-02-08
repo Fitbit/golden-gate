@@ -17,8 +17,10 @@ public struct ValidRange<T, U> {
     public let unit: U
 }
 
+public typealias LinkConnectionConfiguration = LinkConfigurationService.PreferredConnectionConfiguration
+
 public extension LinkConfigurationService {
-    struct PreferredConnectionConfiguration: CustomStringConvertible, Codable {
+    struct PreferredConnectionConfiguration: CustomStringConvertible, Codable, Equatable {
         struct Mask: OptionSet {
             let rawValue: UInt8
 
@@ -28,7 +30,7 @@ public extension LinkConfigurationService {
             static let mtu = Mask(rawValue: 1 << 3)
         }
 
-        public struct ModeConfiguration: CustomStringConvertible, Codable {
+        public struct ModeConfiguration: CustomStringConvertible, Codable, Equatable {
             /// in units of 1.25ms, valid range: 15 msec to 2 seconds
             public var min: UInt16
 
@@ -57,7 +59,7 @@ public extension LinkConfigurationService {
             public static let supervisionTimeoutValidRange = ValidRange<UInt32, UInt32>(min: 20, max: 60, unit: 100)
         }
 
-        public struct DLEConfiguration: CustomStringConvertible, Codable {
+        public struct DLEConfiguration: CustomStringConvertible, Codable, Equatable {
             /// in units of bytes, valid range: 0x001B-0x00FB
             public var maxTxPDU: UInt8
 
@@ -103,7 +105,7 @@ public extension LinkConfigurationService {
     }
 }
 
-extension LinkConfigurationService.PreferredConnectionConfiguration.ModeConfiguration: RawRepresentable {
+extension LinkConnectionConfiguration.ModeConfiguration: RawRepresentable {
     public init?(rawValue: Data) {
         guard rawValue.count >= 6 else {
             LogBluetoothWarning("ModeConfiguration was \(rawValue.count) bytes - expected: 6")
@@ -128,7 +130,7 @@ extension LinkConfigurationService.PreferredConnectionConfiguration.ModeConfigur
     }
 }
 
-extension LinkConfigurationService.PreferredConnectionConfiguration.DLEConfiguration: RawRepresentable {
+extension LinkConnectionConfiguration.DLEConfiguration: RawRepresentable {
     public init?(rawValue: Data) {
         guard rawValue.count >= 3 else {
             LogBluetoothWarning("ModeConfiguration was \(rawValue.count) bytes - expected: 3")
@@ -149,7 +151,7 @@ extension LinkConfigurationService.PreferredConnectionConfiguration.DLEConfigura
     }
 }
 
-extension LinkConfigurationService.PreferredConnectionConfiguration: RawRepresentable {
+extension LinkConnectionConfiguration: RawRepresentable {
     public init?(rawValue: Data) {
         guard rawValue.count >= 18 else {
             LogBluetoothWarning("PreferredConnectionConfiguration was \(rawValue.count) bytes - expected: 18")
