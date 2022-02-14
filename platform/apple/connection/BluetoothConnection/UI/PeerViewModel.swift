@@ -192,7 +192,7 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
         ]
     }
 
-    private let connectionController: ConnectionController<ConnectionType>
+    private let connectionController: AnyConnectionController<ConnectionType>
     private let remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>
     private let remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>
     public let linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?
@@ -203,7 +203,7 @@ public class PeerViewModel<ConnectionType: LinkConnection>: PeerViewControllerVi
 
     public init(
         peer: Observable<Peer>,
-        connectionController: ConnectionController<ConnectionType>,
+        connectionController: AnyConnectionController<ConnectionType>,
         remoteConnectionStatus: Observable<LinkStatusService.ConnectionStatus?>,
         remoteConnectionConfiguration: Observable<LinkStatusService.ConnectionConfiguration?>,
         linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel?

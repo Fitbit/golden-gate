@@ -459,6 +459,6 @@ final class ConnectionControllerSpec: QuickSpec {
     }
 }
 
-private enum TestError: Error {
+enum TestError: Error {
     case someError
 }

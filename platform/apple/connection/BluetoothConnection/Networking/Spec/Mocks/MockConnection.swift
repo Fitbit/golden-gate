@@ -11,7 +11,7 @@ import BluetoothConnection
 import Foundation
 import RxSwift
 
-final class MockConnection: Connection {
+final class MockConnection: Connection, Equatable {
     var descriptor: PeerDescriptor
     var modelNumber = Observable<String>.never()
     var serialNumber = Observable<String>.never()
@@ -20,5 +20,9 @@ final class MockConnection: Connection {
 
     init() {
         self.descriptor = PeerDescriptor(identifier: UUID())
+    }
+
+    static func == (lhs: MockConnection, rhs: MockConnection) -> Bool {
+        lhs.descriptor == rhs.descriptor
     }
 }

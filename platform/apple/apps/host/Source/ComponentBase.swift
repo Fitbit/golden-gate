@@ -178,7 +178,7 @@ class ComponentBase {
         return database
     }()
 
-    func makeConnectionController<R: ConnectionResolver>(resolver: R) -> ConnectionController<R.ConnectionType> {
+    func makeConnectionController<R: ConnectionResolver>(resolver: R) -> AnyConnectionController<R.ConnectionType> {
         // Emit a value whenever we observe * -> PoweredOn
         // which might indicate the user power-cycling iOS's Bluetooth.
         let didEnableBluetooth = centralManager.observeState()
@@ -196,7 +196,7 @@ class ComponentBase {
             )
         )
 
-        return ConnectionController(
+        let controller = ConnectionController(
             connector: ConnectionResolvingConnector(
                 connector: BluetoothConnector(centralManager: centralManager, scheduler: bluetoothScheduler),
                 resolver: resolver
@@ -206,6 +206,8 @@ class ComponentBase {
             scheduler: bluetoothScheduler,
             debugIdentifier: "main"
         )
+
+        return AnyConnectionController(connectionController: controller)
     }
 
     func makeStackBuilder(descriptor: Observable<StackDescriptor>) -> StackBuilderType {

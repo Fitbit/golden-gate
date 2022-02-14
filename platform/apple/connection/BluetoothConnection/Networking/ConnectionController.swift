@@ -2,7 +2,7 @@
 //  SPDX-License-Identifier: Apache-2.0
 //
 //  ConnectionController.swift
-//  GoldenGate
+//  BluetoothConnection
 //
 //  Created by Marcel Jackwerth on 11/3/17.
 //

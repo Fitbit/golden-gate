@@ -17,7 +17,7 @@ import RxSwift
 
 /// Test-bed for emulating a node using your macOS device.
 class NodeSimulator {
-    let connectionController: ConnectionController<NodeConnection>
+    let connectionController: AnyConnectionController<NodeConnection>
     let advertiser: BluetoothAdvertiser
 
     private let peerManager: PeerManager<ManagedHub>
@@ -25,7 +25,7 @@ class NodeSimulator {
     private let disposeBag = DisposeBag()
 
     init(
-        connectionController: ConnectionController<NodeConnection>,
+        connectionController: AnyConnectionController<NodeConnection>,
         advertiser: BluetoothAdvertiser,
         peerManager: PeerManager<ManagedHub>
     ) {

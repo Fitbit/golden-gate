@@ -15,6 +15,9 @@
 		751261F525E7B8410086DB6D /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751261F425E7B8410086DB6D /* TestScheduler+AdvanceBy.swift */; };
 		751FCA3025B1DFFB00A26D90 /* CharacteristicTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FCA2F25B1DFFB00A26D90 /* CharacteristicTypeSpec.swift */; };
 		7530F82624ACD19300C6BDEB /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530F82524ACD19300C6BDEB /* Peer.swift */; };
+		753E3E1027B52C8500C7D5EC /* AnyConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E3E0F27B52C8500C7D5EC /* AnyConnectionController.swift */; };
+		753E3E1227B5364200C7D5EC /* AnyConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E3E1127B5364200C7D5EC /* AnyConnectionControllerSpec.swift */; };
+		753E3E1427B536CE00C7D5EC /* MockConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E3E1327B536CE00C7D5EC /* MockConnectionController.swift */; };
 		755F34B524C6C2C900877754 /* TransportReadiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F34B424C6C2C900877754 /* TransportReadiness.swift */; };
 		75609798255E713F00E40109 /* CBUUID+ArbitraryDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75609797255E713F00E40109 /* CBUUID+ArbitraryDataSpec.swift */; };
 		756F6E4B25664EA600CB0395 /* BluetoothConnectorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F6E4925664E7700CB0395 /* BluetoothConnectorSpec.swift */; };
@@ -138,6 +141,9 @@
 		751261F425E7B8410086DB6D /* TestScheduler+AdvanceBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+AdvanceBy.swift"; sourceTree = "<group>"; };
 		751FCA2F25B1DFFB00A26D90 /* CharacteristicTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicTypeSpec.swift; sourceTree = "<group>"; };
 		7530F82524ACD19300C6BDEB /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		753E3E0F27B52C8500C7D5EC /* AnyConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyConnectionController.swift; sourceTree = "<group>"; };
+		753E3E1127B5364200C7D5EC /* AnyConnectionControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyConnectionControllerSpec.swift; sourceTree = "<group>"; };
+		753E3E1327B536CE00C7D5EC /* MockConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnectionController.swift; sourceTree = "<group>"; };
 		755F34B424C6C2C900877754 /* TransportReadiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportReadiness.swift; sourceTree = "<group>"; };
 		75609797255E713F00E40109 /* CBUUID+ArbitraryDataSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBUUID+ArbitraryDataSpec.swift"; sourceTree = "<group>"; };
 		756F6E4925664E7700CB0395 /* BluetoothConnectorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectorSpec.swift; sourceTree = "<group>"; };
@@ -309,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1D227F248F825400F85400 /* Mocks */,
+				753E3E1127B5364200C7D5EC /* AnyConnectionControllerSpec.swift */,
 				FD1D227D248F823C00F85400 /* ConnectionControllerSpec.swift */,
 			);
 			path = Spec;
@@ -431,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				75610D84254B1C01001E2BE5 /* Spec */,
+				753E3E0F27B52C8500C7D5EC /* AnyConnectionController.swift */,
 				FD1D2242248F7D6D00F85400 /* Connection.swift */,
 				FD1D2244248F7D7500F85400 /* ConnectionController.swift */,
 				7500E27C252B2437004D2B12 /* ConnectionStatus.swift */,
@@ -486,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1D2282248F828900F85400 /* MockConnection.swift */,
+				753E3E1327B536CE00C7D5EC /* MockConnectionController.swift */,
 				FD1D2283248F828900F85400 /* MockConnector.swift */,
 			);
 			path = Mocks;
@@ -760,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1D227E248F823C00F85400 /* ConnectionControllerSpec.swift in Sources */,
+				753E3E1227B5364200C7D5EC /* AnyConnectionControllerSpec.swift in Sources */,
 				756F6E51256653AF00CB0395 /* ServiceMock.swift in Sources */,
 				FDBE1E11249B4E370098FEA6 /* Data+NetworkExtensionsSpec.swift in Sources */,
 				FD1D223A248F799200F85400 /* DataSink+RxSpec.swift in Sources */,
@@ -779,6 +789,7 @@
 				81DE25B226D9156100B5DE37 /* PeerDiscovererSpec.swift in Sources */,
 				75609798255E713F00E40109 /* CBUUID+ArbitraryDataSpec.swift in Sources */,
 				FDBE1E10249A6A810098FEA6 /* RetryingWriterSpec.swift in Sources */,
+				753E3E1427B536CE00C7D5EC /* MockConnectionController.swift in Sources */,
 				751261F525E7B8410086DB6D /* TestScheduler+AdvanceBy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -789,6 +800,7 @@
 			files = (
 				FD1D227C248F81C800F85400 /* BluetoothConfiguration.swift in Sources */,
 				7500E27D252B2437004D2B12 /* ConnectionStatus.swift in Sources */,
+				753E3E1027B52C8500C7D5EC /* AnyConnectionController.swift in Sources */,
 				81DE25BA26D915C500B5DE37 /* ConnectivityRetryStrategy.swift in Sources */,
 				FDBE1E0A249A68180098FEA6 /* BluetoothConnectionError.swift in Sources */,
 				75E0E4AF251C7EBE004517BE /* ConnectionResolver.swift in Sources */,

@@ -20,7 +20,7 @@ class ManagedNode: ManagedPeer<HubConnection> {
     public let preferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>(value: .default)
 
     init(
-        connectionController: ConnectionController<HubConnection>,
+        connectionController: AnyConnectionController<HubConnection>,
         record: PeerRecord,
         peerParameters: PeerParameters,
         runLoop: GoldenGate.RunLoop,
