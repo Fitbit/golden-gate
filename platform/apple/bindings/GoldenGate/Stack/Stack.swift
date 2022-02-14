@@ -48,7 +48,7 @@ extension ActivityMonitorDirection: CustomStringConvertible {
 }
 
 public enum StackEvent: Equatable {
-    case tlsStateChange
+    case tlsStateChange(DtlsProtocolState?)
     case linkMtuChange
     case gattlinkSessionReady
     case gattlinkSessionReset
@@ -64,7 +64,19 @@ extension StackEvent {
 
         switch ggEventType {
         case GGEventType.tlsStateChange.rawValue.rawValue:
-            self = .tlsStateChange
+            var dtlsState: DtlsProtocolState?
+
+            if let dtlsProtocol = ggEventPointer.pointee.source {
+                var status = GG_DtlsProtocolStatus()
+
+                withUnsafeMutablePointer(to: &status) { statusPointer in
+                    GG_DtlsProtocol_GetStatus(OpaquePointer(dtlsProtocol), statusPointer)
+                }
+
+                dtlsState = DtlsProtocolState(status)
+            }
+
+            self = .tlsStateChange(dtlsState)
         case GGEventType.linkMtuChange.rawValue.rawValue:
             self = .linkMtuChange
         case GGEventType.gattlinkSessionReady.rawValue.rawValue:
@@ -98,21 +110,10 @@ public protocol StackEventEmitter {
     var event: Observable<StackEvent> { get }
 }
 
-/// A protocol for reporting a stack DTLS element state.
-public protocol StackDtlsStateReporter {
-    /// Get the status of the DTLS element if there is one.
-    var dtlsState: DtlsProtocolState? { get }
-}
-
 /// A configurable default stack.
-public class Stack: StackType, StackEventEmitter, StackDtlsStateReporter {
+public class Stack: StackType, StackEventEmitter {
     /// Observable that will emit all the states of the stack.
     public let event: Observable<StackEvent>
-
-    /// Get the status for the DTLS element of the stack, if there is one.
-    public var dtlsState: DtlsProtocolState? {
-        return gg.value.dtlsStatus.map { DtlsProtocolState($0) }
-    }
 
     private let gg: RunLoopGuardedValue<GGStack>
     private let disposeBag = DisposeBag()
@@ -230,20 +231,6 @@ private class GGStack {
     /// Some parts might still hold a reference to the old
     /// stack when we create a new stack, so we need to ensure
     private var destroyed = false
-
-    /// Get the status for the DTLS element of the stack, if there is one.
-    var dtlsStatus: GG_DtlsProtocolStatus? {
-        var status = GG_DtlsProtocolStatus()
-
-        return withUnsafeMutablePointer(to: &status) { pointer in
-            let result = GG_Stack_GetDtlsProtocolStatus(ref, pointer)
-            if result == GG_SUCCESS {
-                return pointer.pointee
-            } else {
-                return nil
-            }
-        }
-    }
 
     fileprivate init(runLoop: RunLoop, link: NetworkLink, configuration: inout StackConfiguration) throws {
         runLoopPrecondition(condition: .onRunLoop)
