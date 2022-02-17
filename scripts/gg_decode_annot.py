@@ -6,6 +6,7 @@
 import argparse
 import os
 import os.path
+import sys
 
 # Generate absolute paths for needed dirs and scripts
 scripts_dir = os.path.dirname(os.path.realpath(__file__))
@@ -35,4 +36,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())
