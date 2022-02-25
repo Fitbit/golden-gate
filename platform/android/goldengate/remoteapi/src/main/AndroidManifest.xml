@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <application>
         <activity android:name=".RemoteApiActivity"
-                  android:exported="false">
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.RUN"/>
             </intent-filter>
