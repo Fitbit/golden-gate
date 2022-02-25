@@ -211,7 +211,7 @@ void GG_GattlinkProtocol_Destroy(GG_GattlinkProtocol* protocol);
 //! Open a GattLink session.
 //!
 //! Should be called when the underlying transport is ready for communication. This will kick off a
-//! "Port Reset" sequence and whether or not it is succesful will be communicated via the
+//! "Port Reset" sequence and whether or not it is successful will be communicated via the
 //! a call to the client's NotifySessionUp implementation
 //! @param[in] protocol The protocol to act on
 //! @return #GG_SUCCESS on success, or an error code
@@ -256,7 +256,7 @@ GG_Result GG_GattlinkProtocol_GetIncomingData(GG_GattlinkProtocol* protocol,
 //! @return #GG_SUCCESS on success, or an error code
 GG_Result GG_GattlinkProtocol_ConsumeIncomingData(GG_GattlinkProtocol* protocol, size_t size);
 
-//! Inform Gatllink when new data is received over the transport layer. This data will be decoded
+//! Inform Gattlink when new data is received over the transport layer. This data will be decoded
 //! and eventually result in a call to the client GattlinkNotifyIncomingDataAvailable implementation.
 //!
 //! @param[in] protocol The protocol that should handle raw data which is received

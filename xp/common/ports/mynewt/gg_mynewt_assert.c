@@ -28,7 +28,7 @@ __assert_func(const char *file, int line, const char *func, const char *e)
     __attribute((noreturn));
 
 void
-__gg_assert_func(const char *file, int line, const char *func, const char *mesg)
+_gg_assert_func(const char *file, int line, const char *func, const char *mesg)
 {
     __assert_func(file, line, func, mesg);
 }

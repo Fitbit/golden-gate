@@ -59,13 +59,15 @@ elseif(CMAKE_C_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Weverything -Wint-conversion -Wno-padded -Wno-sign-conversion -Wno-extended-offsetof
     -Wno-documentation-unknown-command -Wno-documentation-deprecated-sync -Wno-missing-field-initializers
     -Wno-missing-noreturn -Wno-c99-extensions -Wno-vla -Wno-date-time -Wno-unknown-warning-option -Wno-disabled-macro-expansion -fno-common
-    -Wno-missing-braces)
+    -Wno-missing-braces -Wno-suggest-override -Wno-suggest-destructor-override)
     if(CMAKE_OSX_SYSROOT)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lobjc")
     endif()
     if(GG_COVERAGE)
-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 --coverage")
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-instr-generate -fcoverage-mapping")
+        # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -O0 --coverage")
+        # set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
     endif()
 endif()
 if(CMAKE_C_COMPILER_ID MATCHES "GNU" OR CMAKE_C_COMPILER_ID MATCHES "Clang")
@@ -248,6 +250,13 @@ if(GG_ENABLE_UNIT_TESTS)
     enable_testing()
     add_subdirectory(unit_tests)
 endif()
+
+# Fuzz Targets
+option(GG_ENABLE_FUZZING "Enable fuzzing" FALSE)
+if(GG_ENABLE_FUZZING)
+    add_subdirectory(fuzzing)
+endif()
+
 
 # Documentation
 if (GG_GENERATE_DOCS)
