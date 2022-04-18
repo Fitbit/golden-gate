@@ -34,6 +34,18 @@ def apple_test(ctx, profile, destination=None, coverage=False, skip_build=False)
     '''Test iOS or macOS GoldenGate framework'''
     tmp_dir = ctx.C.APPLE_BUILD_TEMP_DIR
     build_dir = os.path.join(ctx.C.PLATFORM_DIR, "apple")
+
+    xcodebuild.test(
+        ctx,
+        workspace="GoldenGate.xcworkspace",
+        scheme="BluetoothConnection",
+        destination=destination,
+        build_dir=build_dir,
+        tmp_dir=tmp_dir,
+        coverage=coverage,
+        skip_build=skip_build
+    )
+
     xcodebuild.test(
         ctx,
         workspace="GoldenGate.xcworkspace",
@@ -42,7 +54,8 @@ def apple_test(ctx, profile, destination=None, coverage=False, skip_build=False)
         build_dir=build_dir,
         tmp_dir=tmp_dir,
         coverage=coverage,
-        skip_build=skip_build)
+        skip_build=skip_build
+    )
 
     if coverage:
         apple_coverage(
@@ -50,4 +63,5 @@ def apple_test(ctx, profile, destination=None, coverage=False, skip_build=False)
             build_dir,
             tmp_dir,
             scheme="GoldenGate",
-            profile=profile)
+            profile=profile
+        )

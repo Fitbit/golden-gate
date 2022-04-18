@@ -81,7 +81,7 @@ extension CharacteristicType {
     public func secureAccess() -> Completable {
         readValue().asCompletable()
             .logError("Access Secure Characteristic error", .bluetooth, .error)
-            .catchError { error in
+            .catch { error in
                 switch error {
                 case BluetoothError.characteristicReadFailed(_, let bluetoothError as CBATTError) where bluetoothError.code == CBATTError.insufficientEncryption:
                     throw CharacteristicSecureAccessError.insufficientEncryption

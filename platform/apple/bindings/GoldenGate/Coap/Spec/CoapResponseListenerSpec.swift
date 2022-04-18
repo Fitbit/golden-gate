@@ -7,6 +7,7 @@
 //  Created by Sylvain Rebaud on 10/12/18.
 //
 
+import Foundation
 import Nimble
 import Quick
 
@@ -27,8 +28,8 @@ class CoapResponseListenerSpec: QuickSpec {
                 code: .response(.success(.success)),
                 type: .confirmable,
                 options: [],
-                token: "token".data(using: .utf8)!,
-                payload: "payload".data(using: .utf8)!,
+                token: Data("token".utf8),
+                payload: Data("payload".utf8),
                 messageId: 0
             )
         }
@@ -48,7 +49,7 @@ class CoapResponseListenerSpec: QuickSpec {
                 _ = response
                     .flatMap { $0.body.asData() }
                     .subscribe(onSuccess: { data in
-                        expect(data) == "payload".data(using: .utf8)!
+                        expect(data) == Data("payload".utf8)
                         done()
                     })
             }
@@ -64,7 +65,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         expect(error).to(matchError(RawCoapMessageError.unexpectedCode(code: 0)))
                         done()
                     })
@@ -80,7 +81,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         let expectedError = CoapResponseListenerError.failureWithMessage(GGRawError.failure, message: "Custom Message")
                         expect(error).to(matchError(expectedError))
                         done()
@@ -97,7 +98,7 @@ class CoapResponseListenerSpec: QuickSpec {
 
             waitUntil { done in
                 _ = response
-                    .subscribe(onError: { error in
+                    .subscribe(onFailure: { error in
                         expect(error).to(matchError(GGRawError.failure))
                         done()
                     })

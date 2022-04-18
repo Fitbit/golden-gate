@@ -15,16 +15,16 @@ import RxSwift
 /// uses information provided by a Hub through the link configuration service to configure various aspects of the Bluetooth connection.
 public protocol LinkConfigurationServiceType {
     /// The incoming read requests for the preferred connection configuration charateristic exposed by the service.
-    var preferredConnectionConfigurationReadRequests: Observable<ReadRequest> { get }
+    var preferredConnectionConfigurationReadRequests: Observable<ReadRequestType> { get }
 
     /// The incoming read requests for the preferred connection mode charateristic exposed by the service.
-    var preferredConnectionModeReadRequests: Observable<ReadRequest> { get }
+    var preferredConnectionModeReadRequests: Observable<ReadRequestType> { get }
 
     /// Notify a specified central with an update on the preferred connection configuration charateristic.
-    func update(preferredConnectionConfigurationValue: LinkConfigurationService.PreferredConnectionConfiguration, onSubscribedCentralUuid centralUuid: UUID)
+    func update(preferredConnectionConfigurationValue: LinkConnectionConfiguration, onSubscribedCentralUuid centralUuid: UUID)
 
     /// Notify a specified central with an update on the preferred connection mode charateristic.
-    func update(preferredConnectionModeValue: LinkConfigurationService.PreferredConnectionMode, onSubscribedCentralUuid centralUuid: UUID)
+    func update(preferredConnectionModeValue: LinkConnectionMode, onSubscribedCentralUuid centralUuid: UUID)
 
     /// Notify a specified central with an update on the general purpose command charateristic.
     func send(command: LinkConfigurationService.GeneralPurposeCommand, onSubscribedCentralUuid centralUuid: UUID)
@@ -42,8 +42,8 @@ public class LinkConfigurationService: LinkConfigurationServiceType, PeripheralM
     public let service: CBMutableService
 
     // swiftlint:disable:next identifier_name
-    public let preferredConnectionConfigurationReadRequests: Observable<ReadRequest>
-    public let preferredConnectionModeReadRequests: Observable<ReadRequest>
+    public let preferredConnectionConfigurationReadRequests: Observable<ReadRequestType>
+    public let preferredConnectionModeReadRequests: Observable<ReadRequestType>
 
     /// The characterstic on which preferred connection configuration
     /// is sent to other peers.
@@ -100,11 +100,13 @@ public class LinkConfigurationService: LinkConfigurationServiceType, PeripheralM
             .filter { [preferredConnectionConfiguration] in
                 $0.characteristic == preferredConnectionConfiguration
             }
+            .map { $0 as ReadRequestType }
 
         self.preferredConnectionModeReadRequests = didReceiveRead
             .filter { [preferredConnectionMode] in
                 $0.characteristic == preferredConnectionMode
             }
+            .map { $0 as ReadRequestType } 
 
         didReceiveWrite
             .subscribe(onNext: {
@@ -146,15 +148,15 @@ public class LinkConfigurationService: LinkConfigurationServiceType, PeripheralM
 }
 
 /// Default Hub Configurations
-extension LinkConfigurationService.PreferredConnectionConfiguration.ModeConfiguration {
-    public static let fast = LinkConfigurationService.PreferredConnectionConfiguration.ModeConfiguration(
+extension LinkConnectionConfiguration.ModeConfiguration {
+    public static let fast = LinkConnectionConfiguration.ModeConfiguration(
         min: 12,
         max: 12,
         slaveLatency: 0,
         supervisionTimeout: 20
     )
 
-    public static let slow = LinkConfigurationService.PreferredConnectionConfiguration.ModeConfiguration(
+    public static let slow = LinkConnectionConfiguration.ModeConfiguration(
         min: 96,
         max: 116,
         slaveLatency: 3,
@@ -162,15 +164,15 @@ extension LinkConfigurationService.PreferredConnectionConfiguration.ModeConfigur
     )
 }
 
-extension LinkConfigurationService.PreferredConnectionConfiguration.DLEConfiguration {
-    public static let `default` = LinkConfigurationService.PreferredConnectionConfiguration.DLEConfiguration(
+extension LinkConnectionConfiguration.DLEConfiguration {
+    public static let `default` = LinkConnectionConfiguration.DLEConfiguration(
         maxTxPDU: 0,
         maxTxTime: 0
     )
 }
 
-extension LinkConfigurationService.PreferredConnectionConfiguration {
-    public static let `default` = LinkConfigurationService.PreferredConnectionConfiguration(
+extension LinkConnectionConfiguration {
+    public static let `default` = LinkConnectionConfiguration(
         fastModeConfiguration: .fast,
         slowModeConfiguration: nil,
         dleConfiguration: nil,

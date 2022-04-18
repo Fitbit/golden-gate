@@ -10,7 +10,7 @@
 import Foundation
 
 /// An object designed to receive incoming data.
-public protocol DataSink: class {
+public protocol DataSink: AnyObject {
     typealias Metadata = [String: Any]
 
     func put(_ buffer: Buffer, metadata: Metadata?) throws

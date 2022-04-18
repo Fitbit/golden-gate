@@ -2,12 +2,13 @@
 //  SPDX-License-Identifier: Apache-2.0
 //
 //  ConnectionController.swift
-//  GoldenGate
+//  BluetoothConnection
 //
 //  Created by Marcel Jackwerth on 11/3/17.
 //
 
 import Foundation
+import Rxbit
 import RxRelay
 import RxSwift
 
@@ -15,12 +16,12 @@ import RxSwift
 public protocol ConnectionEmitter {
     associatedtype ConnectionType
 
-    /// Access to the connection status and the underlying connection that we are trying to establish.
+    /// Access to the connection status and the underlying connection that we are trying to establish. Replays the last value (if any) on subscribe.
     var connectionStatus: Observable<ConnectionStatus<ConnectionType>> { get }
 
-    /// Observable that emits when a connection error occurs. Most of these errors will be handled
-    /// by the reconnect strategy, but some are unrecoverable.
-    var connectionErrors: Observable<Error> { get }
+    /// Observable that emits a non-nil value when a connection error occurs or nil otherwise. Most of these errors will be handled
+    /// by the reconnect strategy, but some are unrecoverable. Replays the last value (if any) on subscribe.
+    var connectionError: Observable<Error?> { get }
 }
 
 /// A descriptor for a connection request.
@@ -88,12 +89,13 @@ public enum ConnectionControllerMetricsEvent: MetricsEvent {
     case stateChangedToDisconnected
 
     case encounteredError(Error)
-    case determinedReconnectStrategyAction(ReconnectStrategyAction)
+    case determinedReconnectStrategyAction(RetryStrategyAction)
 }
 
 /// An auto-connecting ConnectionController.
 public final class ConnectionController<ConnectionType>: ConnectionControllerType, Instrumentable {
     private let scheduler: SchedulerType
+    private let debugIdentifier: String
     private let disposeBag = DisposeBag()
 
     /// Subject that broadcasts demands to establish or cancel a connection.
@@ -109,15 +111,15 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         return connectionStatusSubject.asObservable()
     }
 
-    private let connectionErrorsSubject = PublishSubject<Error>()
-    public var connectionErrors: Observable<Error> {
-        return connectionErrorsSubject.asObservable()
+    private let connectionErrorSubject = ReplaySubject<Error?>.create(bufferSize: 1)
+    public var connectionError: Observable<Error?> {
+        return connectionErrorSubject.asObservable()
     }
 
     private let metricsSubject = PublishSubject<ConnectionControllerMetricsEvent>()
     public var metrics: Observable<ConnectionControllerMetricsEvent> {
         metricsSubject.asObservable()
-            .observeOn(scheduler)
+            .observe(on: scheduler)
     }
 
     /// Creates an auto-connecting connection controller.
@@ -126,13 +128,16 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     ///   - descriptor: The descriptor used by the peripheral
     ///   - reconnectStrategy: Strategy that dictates the connection retry behavior
     ///   - scheduler: Scheduler to establish the connection on
+    ///   - debugIdentifier: A human readable string used to identify logs from a specific instance
     public init<C: Connector>(
         connector: C,
         descriptor: PeerDescriptor?,
-        reconnectStrategy: ReconnectStrategy,
-        scheduler: SchedulerType
+        reconnectStrategy: RetryStrategy,
+        scheduler: SchedulerType,
+        debugIdentifier: String
     ) where C.ConnectionType == ConnectionType {
         self.scheduler = scheduler
+        self.debugIdentifier = debugIdentifier
         self.descriptorRelay = BehaviorRelay<PeerDescriptor?>(value: descriptor)
 
         let encounteredUnrecoverableFailure = PublishSubject<Void>()
@@ -143,8 +148,8 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
         // and writes all the errors into another subject.
         let establishConnection: Observable<ConnectionStatus<ConnectionType>> = self.descriptor
             .distinctUntilChanged()
-            .logInfo("ConnectionController: Establish connection using descriptor", .bluetooth, .next)
-            .observeOn(scheduler)
+            .logInfo("ConnectionController<\(debugIdentifier)>: Establish connection using descriptor", .bluetooth, .next)
+            .observe(on: scheduler)
             .flatMapLatest { descriptor -> Observable<ConnectionStatus<ConnectionType>> in
                 guard let descriptor = descriptor else { return .just(.disconnected) }
 
@@ -157,44 +162,47 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
                         }
                     }
                     .startWith(.connecting)
-                    .catchError { Observable.just(.disconnected).concat(Observable.error($0)) }
-                    .logError("ConnectionController: Connection error", .bluetooth, .error)
+                    .catch { Observable.just(.disconnected).concat(Observable.error($0)) }
+                    .logError("ConnectionController<\(debugIdentifier)>: Connection error", .bluetooth, .error)
             }
-            .do(onError: { [weak self] error in
-                self?.connectionErrorsSubject.onNext(error)
+            .do(
+                onError: { [weak self] error in
+                    self?.connectionErrorSubject.onNext(error)
 
-                if case CentralManagerError.identifierUnknown = error {
-                    self?.clearDescriptor()
-                }
-            })
-            .retryWhen { [metricsSubject] errors in
+                    if case CentralManagerError.identifierUnknown = error {
+                        self?.clearDescriptor()
+                    }
+                },
+                onSubscribe: { [connectionErrorSubject] in connectionErrorSubject.onNext(nil) }
+            )
+            .retry { [metricsSubject] errors in
                 errors.map(reconnectStrategy.action)
-                    .logError("ConnectionController: Reconnect strategy action", .bluetooth, .next)
+                    .logError("ConnectionController<\(debugIdentifier)>: Reconnect strategy action", .bluetooth, .next)
                     .do(onNext: { metricsSubject.onNext(.determinedReconnectStrategyAction($0)) })
                     .flatMap { $0.asSingle(scheduler: scheduler) }
-                    .logInfo("ConnectionController: Resuming reconnects...", .bluetooth, .next)
+                    .logInfo("ConnectionController<\(debugIdentifier)>: Resuming reconnects...", .bluetooth, .next)
             }
             .do(afterError: { _ in encounteredUnrecoverableFailure.onNext(()) })
-            .catchErrorJustReturn(.disconnected)
+            .catchAndReturn(.disconnected)
 
         // Observable that emits `true` if a connection is required and can be established and
         // maintained or `false` otherwise.
         let shouldConnect = Observable.merge(connectionRequested, encounteredUnrecoverableFailure.map { _ in false })
-            .logInfo("ConnectionController: Should connect", .bluetooth, .next)
-            .observeOn(scheduler)
+            .logInfo("ConnectionController<\(debugIdentifier)>: Should connect", .bluetooth, .next)
+            .observe(on: scheduler)
             .distinctUntilChanged()
 
         Observable.if(shouldConnect, then: establishConnection, else: .just(.disconnected))
             .startWith(.disconnected)
             .distinctUntilChanged()
-            .logInfo("ConnectionController: New connection status", .bluetooth, .next)
+            .logInfo("ConnectionController<\(debugIdentifier)>: New connection status", .bluetooth, .next)
             .bind(to: connectionStatusSubject)
             .disposed(by: disposeBag)
 
         // Reset reconnection failure history on successful connection
         connectionStatus.filter { $0.connected }
-            .map { _ in () }
-            .bind(to: reconnectStrategy.resetFailureHistory)
+            .do(onNext: { _ in reconnectStrategy.resetFailureHistory() })
+            .subscribe()
             .disposed(by: disposeBag)
 
         connectionStatus
@@ -208,25 +216,27 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
             .bind(to: metricsSubject)
             .disposed(by: disposeBag)
 
-        connectionErrors.map { ConnectionControllerMetricsEvent.encounteredError($0) }
+        connectionError
+            .filterNil()
+            .map { ConnectionControllerMetricsEvent.encounteredError($0) }
             .bind(to: metricsSubject)
             .disposed(by: disposeBag)
     }
 
     public func establishConnection(trigger: ConnectionTrigger) {
-        LogBluetoothInfo("ConnectionController: Connection requested with \(trigger)")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: Connection requested with \(trigger)")
         metricsSubject.onNext(.connectionRequested(trigger: trigger))
         connectionRequested.onNext(true)
     }
 
     public func disconnect(trigger: ConnectionTrigger) {
-        LogBluetoothWarning("ConnectionController: Disconnection requested with \(trigger)")
+        LogBluetoothWarning("ConnectionController<\(debugIdentifier)>: Disconnection requested with \(trigger)")
         metricsSubject.onNext(.disconnectionRequested(trigger: trigger))
         connectionRequested.onNext(false)
     }
 
     public func update(descriptor: PeerDescriptor) {
-        LogBluetoothInfo("ConnectionController: Updating descriptor for connection \(descriptor)")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: Updating descriptor for connection \(descriptor)")
         self.descriptorRelay.accept(descriptor)
     }
 
@@ -235,13 +245,13 @@ public final class ConnectionController<ConnectionType>: ConnectionControllerTyp
     }
 
     deinit {
-        LogBluetoothInfo("ConnectionController: deinited")
+        LogBluetoothInfo("ConnectionController<\(debugIdentifier)>: deinited")
     }
 }
 
 extension ConnectionController: CustomStringConvertible {
     public var description: String {
-        return "ConnectionController(descriptor=\(descriptorRelay.value ??? "nil"))"
+        return "ConnectionController<\(debugIdentifier)>(descriptor=\(descriptorRelay.value ??? "nil"))"
     }
 }
 
@@ -256,24 +266,9 @@ extension ConnectionEmitter {
             connectionStatus
                 .filter { $0.connected }
                 .map { _ in false },
-            connectionErrors
-                .filter { $0.isBluetoothHalfBondedError }
+            connectionError
+                .filter { $0?.isBluetoothHalfBondedError == true }
                 .map { _ in true }
         )
-    }
-}
-
-private extension ReconnectStrategyAction {
-    func asSingle(scheduler: SchedulerType) -> Single<Void> {
-        switch self {
-        case .stop(let error):
-            return Single.error(error)
-        case .retryWithDelay(let delay) where delay != .never:
-            return Single.just(()).delay(delay, scheduler: scheduler)
-        case .retryWithDelay:
-            return Single.just(())
-        case .suspendUntil(let trigger):
-            return trigger.take(1).asSingle()
-        }
     }
 }

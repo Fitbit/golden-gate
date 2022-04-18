@@ -54,8 +54,7 @@ extension BluetoothConfiguration.DeviceInfoServiceConfiguration {
         modelNumberUUID: CBUUID(string: "2A24"),
         serialNumberUUID: CBUUID(string: "2A25"),
         firmwareRevisionUUID: CBUUID(string: "2A26"),
-        hardwareRevisionUUID: CBUUID(string: "2A27"),
-        softwareRevisionUUID: CBUUID(string: "2A28")
+        hardwareRevisionUUID: CBUUID(string: "2A27")
     )
 }
 

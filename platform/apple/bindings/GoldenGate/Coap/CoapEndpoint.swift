@@ -8,6 +8,7 @@
 //
 
 import BluetoothConnection
+import Foundation
 import GoldenGateXP
 import RxSwift
 
@@ -48,6 +49,7 @@ protocol CoapEndpointRefType: CoapEndpointType {
     var ref: Ref { get }
 }
 
+/// The actual implementation of a Coap endpoint which can act as both client and server.
 public class CoapEndpoint: CoapEndpointType {
     typealias Ref = OpaquePointer
 
@@ -62,6 +64,13 @@ public class CoapEndpoint: CoapEndpointType {
     private var handlers = [CoapRequestHandler]()
     private let disposeBag = DisposeBag()
 
+    /// Creates a new CoapEndpoint.
+    ///
+    /// - Parameters:
+    ///     - runLoop: The transport layer run loop.
+    ///     - port: An observable that emits transport stack top port.
+    ///     - transferStrategy: The Coap transfer strategy (e.g. blockwise, non-blockwise).
+    ///     - transportReadiness: An observable that emits the transport layer readiness.
     public init(
         runLoop: RunLoop,
         port: Observable<Port?>,
@@ -83,7 +92,7 @@ public class CoapEndpoint: CoapEndpointType {
         self.port = port
         self.transferStrategy = transferStrategy ?? CoapRequestDependentTransferStrategy(transportReadiness: transportReadiness)
         self.requestFilter = try CoapGroupRequestFilter(runLoop)
-        self.transportReadiness = transportReadiness.observeOn(runLoop)
+        self.transportReadiness = transportReadiness.observe(on: runLoop)
 
         // register the CoAP group request filter
         register(requestFilter: requestFilter)
@@ -92,19 +101,23 @@ public class CoapEndpoint: CoapEndpointType {
             .disposed(by: disposeBag)
 
         port
-            .observeOn(runLoop)
-            .do(onNext: { LogBindingsInfo("[CoAP] Coap endpoint new top port: \($0 ??? "nil")") })
             .subscribe(onNext: { [weak self] port in
+                LogBindingsInfo("[CoAP] CoapEndpoint new top port: \(port ??? "nil")")
                 guard let self = self else { return }
 
                 let portDataSink = port?.dataSink.gg
                 let portDataSource = port?.dataSource.gg
 
-                let dataSource = GG_CoapEndpoint_AsDataSource(self.ref)
+                // The port bindings updates must be in sync (on the run loop) with the stack creation.
+                // `.observe(on: runLoop)` should be avoided in these situations since it breaks the
+                // synchronization by executing the subsequent events async.
+                runLoop.sync {
+                    let dataSource = GG_CoapEndpoint_AsDataSource(self.ref)
 
-                GG_DataSource_SetDataSink(dataSource, portDataSink?.ref)
-                if let source = portDataSource {
-                    GG_DataSource_SetDataSink(source.ref, GG_CoapEndpoint_AsDataSink(self.ref))
+                    GG_DataSource_SetDataSink(dataSource, portDataSink?.ref)
+                    if let source = portDataSource {
+                        GG_DataSource_SetDataSink(source.ref, GG_CoapEndpoint_AsDataSink(self.ref))
+                    }
                 }
 
                 self.portDataSink = portDataSink
@@ -170,12 +183,12 @@ extension CoapEndpoint {
         }
 
         return transferStrategy.response(request: request, endpoint: self)
-            .subscribeOn(runLoop)
+            .subscribe(on: runLoop)
             .asObservable()
-            .takeUntil(transportUnavailable)
+            .take(until: transportUnavailable)
             .asSingle()
             // Move any response processing off the run-loop
-            .observeOn(SerialDispatchQueueScheduler(qos: .default))
+            .observe(on: SerialDispatchQueueScheduler(qos: .default))
             .flatMap { [expectsSuccess = request.expectsSuccess] response -> Single<CoapMessage> in
                 // Error observable if response wasn't successful
                 // but the client is only expecting success.
@@ -262,7 +275,7 @@ extension CoapEndpoint {
             switch result! {
             case .success(let value):
                 return value
-            case .error(let error):
+            case .failure(let error):
                 throw error
             }
         }

@@ -68,7 +68,7 @@ public final class BlasterService {
         self.port = port
 
         port
-            .observeOn(runLoop)
+            .observe(on: runLoop)
             .do(onNext: { [weak self] port in
                 guard let self = self else { return }
 
@@ -85,7 +85,7 @@ public final class BlasterService {
 
         Observable
             .combineLatest(port, shouldBlast.distinctUntilChanged(), configuration)
-            .observeOn(runLoop)
+            .observe(on: runLoop)
             .map { port, shouldBlast, configuration in
                 return shouldBlast ? (port, configuration) : (nil, configuration)
             }

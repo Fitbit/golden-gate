@@ -17,7 +17,7 @@ import UIKit
 
 public class LinkConfigurationViewControllerViewModel {
     // Inputs
-    // A BehaviorRelaphy which emits the "Edit" state events.
+    // A BehaviorRelay which emits the "Edit" state events.
     public let edit = BehaviorRelay<Bool>(value: false)
     // A PublishSubject which emits the "Done" button events.
     public let done = PublishSubject<Void>()
@@ -26,16 +26,16 @@ public class LinkConfigurationViewControllerViewModel {
     
     // Outputs
     // A BehaviorRelay which emits current connection configuration.
-    public let currentConnectionConfiguration: BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>
+    public let currentConnectionConfiguration: BehaviorRelay<LinkConnectionConfiguration>
     // A BehaviorRelay which emits current connection mode.
-    public let currentConnectionMode: BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>
+    public let currentConnectionMode: BehaviorRelay<LinkConnectionMode>
     
     // Private
     private let disposeBag = DisposeBag()
 
     public init(
-        preferredConnectionConfiguration: BehaviorRelay<LinkConfigurationService.PreferredConnectionConfiguration>,
-        preferredConnectionMode: BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>
+        preferredConnectionConfiguration: BehaviorRelay<LinkConnectionConfiguration>,
+        preferredConnectionMode: BehaviorRelay<LinkConnectionMode>
     ) {
         currentConnectionConfiguration = BehaviorRelay(value: preferredConnectionConfiguration.value)
         currentConnectionMode = BehaviorRelay(value: preferredConnectionMode.value)
@@ -72,13 +72,12 @@ private enum ViewModelEntry {
 }
 
 extension LinkConfigurationViewControllerViewModel {
-    typealias PreferredConnectionConfiguration = LinkConfigurationService.PreferredConnectionConfiguration
-    typealias ModeConfiguration = PreferredConnectionConfiguration.ModeConfiguration
+    typealias ModeConfiguration = LinkConnectionConfiguration.ModeConfiguration
 
     // swiftlint:disable:next function_body_length
     fileprivate func viewModelEntries(
         for configuration: Driver<ModeConfiguration?>,
-        with keyPath: WritableKeyPath<PreferredConnectionConfiguration, ModeConfiguration?>,
+        with keyPath: WritableKeyPath<LinkConnectionConfiguration, ModeConfiguration?>,
         defaultValue: ModeConfiguration
     ) -> [ViewModelEntry] {
         let connectionIntervalValidRange = ModeConfiguration.connectionIntervalValidRange
@@ -160,7 +159,7 @@ extension LinkConfigurationViewControllerViewModel {
 
         return viewModelEntries(
             for: configuration,
-            with: \PreferredConnectionConfiguration.fastModeConfiguration,
+            with: \LinkConnectionConfiguration.fastModeConfiguration,
             defaultValue: .fast
         )
     }
@@ -172,7 +171,7 @@ extension LinkConfigurationViewControllerViewModel {
 
         return viewModelEntries(
             for: configuration,
-            with: \PreferredConnectionConfiguration.slowModeConfiguration,
+            with: \LinkConnectionConfiguration.slowModeConfiguration,
             defaultValue: .slow
         )
     }

@@ -21,7 +21,7 @@ class DataSourceRxSpec: QuickSpec {
 
         it("can be bound to observables") {
             waitUntil { done in
-                let sentData = "hello".data(using: .utf8)!
+                let sentData = Data("hello".utf8)
                 let dataSource = MockDataSource()
 
                 dataSource.asObservable()

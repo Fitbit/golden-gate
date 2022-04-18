@@ -45,7 +45,7 @@ class ManagedPeerListViewController: UITableViewController {
 
         peerManager.peers
             .asObservable()
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .bind(to: tableView.rx.items) { tableView, _, peer in
                 let cell = tableView.dequeue(Cell.self)!
                 cell.bind(peer)

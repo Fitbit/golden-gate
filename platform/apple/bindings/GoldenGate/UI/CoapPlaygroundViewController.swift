@@ -9,6 +9,7 @@
 
 #if os(iOS)
 
+import Foundation
 import RxCocoa
 import RxSwift
 import UIKit
@@ -80,7 +81,7 @@ private extension CoapPlaygroundViewController {
 
         switch method {
         case .put, .post:
-            requestBuilder.body(data: UIDevice.current.name.data(using: .utf8)!)
+            requestBuilder.body(data: Data(UIDevice.current.name.utf8))
         case .get, .delete:
             break
         }
@@ -90,7 +91,7 @@ private extension CoapPlaygroundViewController {
             .response(request: requestBuilder.build())
             .flatMap { $0.body.asData() }
             .timeout(.seconds(5), scheduler: MainScheduler.instance)
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] response in
                     let message = String(data: response, encoding: .utf8) ?? "ENCODING ERROR"
@@ -104,7 +105,7 @@ private extension CoapPlaygroundViewController {
 
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self?.present(alert, animated: true, completion: nil)
-                }, onError: { [weak self] error in
+                }, onFailure: { [weak self] error in
                     let alert = UIAlertController(
                         title: "CoAP Response Error",
                         message: "\(error)",

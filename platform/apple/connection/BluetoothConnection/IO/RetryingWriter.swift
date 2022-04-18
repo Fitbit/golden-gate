@@ -26,7 +26,7 @@ final class RetryingWriter<Destination: Hashable> {
     ///   - scheduler: Scheduler used to perform writes on.
     init(write: @escaping (Data, Destination) -> Result<Void, RetryingWriterError>, retryTrigger: Observable<Void>, scheduler: SchedulerType) {
         self.writeRelay.asObservable()
-            .observeOn(scheduler)
+            .observe(on: scheduler)
             .groupBy { $0.target }
             .flatMap { group in
                 // Attempt to write new values as they're received, cancelling pending retries
@@ -44,15 +44,15 @@ final class RetryingWriter<Destination: Hashable> {
                     }
 
                     return written.asObservable()
-                        .catchError { error in
+                        .catch { error in
                             // Simply ignore unretriable failures
                             if case RetryingWriterError.unretriable = error {
                                 return .empty()
                             }
                             throw error
                         }
-                        .retryWhen { _ in retryTrigger.observeOn(scheduler) }
-                        .ignoreElements()
+                        .retry { _ in retryTrigger.observe(on: scheduler) }
+                        .asCompletable()
                 }
             }
             .subscribe()

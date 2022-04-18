@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 3/28/18.
 //
 
+import Foundation
 import GoldenGateXP
 
 /// An IP Address.
@@ -21,7 +22,7 @@ public struct IpAddress: CustomStringConvertible, Hashable {
     public init(string: String) throws {
         var address = GG_IpAddress()
 
-        try string.data(using: .utf8)!.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) in
+        try Data(string.utf8).withUnsafeBytes { (bytes: UnsafeRawBufferPointer) in
             try GG_IpAddress_SetFromString(
                 &address,
                 bytes.baseAddress?.assumingMemoryBound(to: Int8.self)

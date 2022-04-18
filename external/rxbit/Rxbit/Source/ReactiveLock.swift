@@ -48,7 +48,7 @@ public class ReactiveLock {
 				})
 				.map { _ in () }
 		}
-		.subscribeOn(scheduler)
+		.subscribe(on: scheduler)
 	}
 
 	private func release(ticket: Int) {
@@ -72,12 +72,12 @@ public extension ObservableType {
 			.flatMapFirst { _ in
 				self.materialize()
 			}
-			.takeWhile { state in
+			.take(while: { state in
 				switch state {
 				case .completed: return false
 				default: return true
 				}
-			}
+			})
 			.dematerialize()
 	}
 }
