@@ -258,7 +258,7 @@ GG_Result GG_CoapEndpoint_SendBlockwiseRequest(GG_CoapEndpoint*                 
  * received.
  *
  * @param self The object on which this method is called.
- * @parm request_handle Handle of the request to cancel.
+ * @param request_handle Handle of the request to cancel.
  *
  * @return GG_SUCCESS if the call succeeded, or a negative error code.
  */
@@ -272,7 +272,7 @@ GG_Result GG_CoapEndpoint_CancelBlockwiseRequest(GG_CoapEndpoint* self, GG_CoapR
  * ready to receive more callbacks (when it is ready again, it can call GG_CoapEndpoint_ResumeBlockwiseRequest).
  *
  * @param self The object on which this method is called.
- * @parm request_handle Handle of the request to pause.
+ * @param request_handle Handle of the request to pause.
  *
  * @return GG_SUCCESS if the call succeeded, or a negative error code.
  */
@@ -283,7 +283,7 @@ GG_Result GG_CoapEndpoint_PauseBlockwiseRequest(GG_CoapEndpoint* self, GG_CoapRe
  * If the request is not paused, this has no effect.
  *
  * @param self The object on which this method is called.
- * @parm request_handle Handle of the request to resume.
+ * @param request_handle Handle of the request to resume.
  *
  * @return GG_SUCCESS if the call succeeded, or a negative error code.
  */
@@ -393,6 +393,7 @@ void GG_CoapBlockwiseServerHelper_Init(GG_CoapBlockwiseServerHelper* self,
  * The Etag value should be as unique as possible, at least within the context of the resource
  * that is exposed by the server.
  *
+ * @param self The object on which this method is invoked.
  * @param etag The ETag value.
  * @param etag_size Size of the ETag value (1 to 8 bytes)
  */
