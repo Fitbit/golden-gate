@@ -20,6 +20,7 @@
 #include "xp/common/gg_memory.h"
 #include "xp/common/gg_port.h"
 #include "xp/common/gg_timer.h"
+#include "xp/common/gg_logging.h"
 
 /*----------------------------------------------------------------------
 |   constants
@@ -27,6 +28,11 @@
 #if !defined(GG_CONFIG_MAX_TIMERS)
 #define GG_CONFIG_MAX_TIMERS 32
 #endif
+
+/*----------------------------------------------------------------------
+|   logging
++---------------------------------------------------------------------*/
+GG_SET_LOCAL_LOGGER("gg.xp.common.timer")
 
 /*----------------------------------------------------------------------
 |   types
@@ -106,6 +112,7 @@ GG_TimerScheduler_CreateTimer(GG_TimerScheduler* self, GG_Timer** timer)
 
     // check that we have a timer available
     if (GG_LINKED_LIST_IS_EMPTY(&self->nursery)) {
+        GG_LOG_WARNING("timer pool empty");
         *timer = NULL;
         return GG_ERROR_OUT_OF_RESOURCES;
     }
