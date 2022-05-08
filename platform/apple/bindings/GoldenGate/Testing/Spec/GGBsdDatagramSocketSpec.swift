@@ -7,6 +7,7 @@
 //  Created by Marcel Jackwerth on 6/12/18.
 //
 
+import Foundation
 import Nimble
 import Quick
 import RxSwift
@@ -66,7 +67,7 @@ class GGBsdDatagramSocketSpec: QuickSpec {
                 remoteAddress: address1
             )
 
-            let outgoingMessage = "hello".data(using: .utf8)!
+            let outgoingMessage = Data("hello".utf8)
 
             waitUntil { done in
                 runLoop.async {

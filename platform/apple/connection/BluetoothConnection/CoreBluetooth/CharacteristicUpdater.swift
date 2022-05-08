@@ -35,7 +35,7 @@ final class CharacteristicUpdater {
                     if let central = subscribedCentrals?.first(where: { $0.identifier == centralId }) {
                         recipients = [central]
                     } else {
-                        LogBluetoothError(
+                        LogBluetoothWarning(
                             """
                             [CharacteristicUpdater(\(identifier)] Couldn't update characteristic \(group.characteristic.uuid) \
                             because no subscribed central with id \(centralId) could be found.

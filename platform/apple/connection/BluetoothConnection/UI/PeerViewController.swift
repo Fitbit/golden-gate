@@ -39,9 +39,9 @@ public protocol PeerViewControllerViewModel {
     var networkLinkStatusDetails: [(label: String, value: Driver<String?>)] { get }
     var connectionStatusDetails: [(label: String, value: Driver<String?>)] { get }
     var connectionConfigurationDetails: [(label: String, value: Driver<String?>)] { get }
-    var descriptorDetails: [(label: String, value: Driver<String?>)] { get }
+    var deviceInfoDetails: [(label: String, value: Driver<String?>)] { get }
 
-    var linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel { get }
+    var linkConfigurationViewControllerViewModel: LinkConfigurationViewControllerViewModel? { get }
 }
 
 public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITableViewController {
@@ -84,7 +84,7 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
         case .networkLinkStatus: return "Network Link Status"
         case .connectionStatus: return "Connection Status"
         case .connectionConfiguration: return "Connection Configuration"
-        case .descriptor: return "Descriptor"
+        case .deviceInfo: return "Device Information"
         case .actions: return nil
         }
     }
@@ -96,12 +96,14 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .connection: return ConnectionRow.allCases.count
-        case .settings: return SettingRow.allCases.count
+        case .settings:
+            let linkConfigurationAvailable = viewModel.linkConfigurationViewControllerViewModel != nil
+            return linkConfigurationAvailable ? SettingRow.allCases.count : SettingRow.allCases.count - 1
         case .servicePlayground: return 1
         case .networkLinkStatus: return viewModel.networkLinkStatusDetails.count
         case .connectionStatus: return viewModel.connectionStatusDetails.count
         case .connectionConfiguration: return viewModel.connectionConfigurationDetails.count
-        case .descriptor: return viewModel.descriptorDetails.count
+        case .deviceInfo: return viewModel.deviceInfoDetails.count
         case .actions:
             return (onForget == nil ? 0 : 1)
         }
@@ -121,8 +123,8 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
             return connectionStatusCell(forRow: indexPath.row)
         case .connectionConfiguration:
             return connectionConfigurationCell(forRow: indexPath.row)
-        case .descriptor:
-            return descriptorCell(forRow: indexPath.row)
+        case .deviceInfo:
+            return deviceInfoCell(forRow: indexPath.row)
         case .actions:
             return actionCell(forRow: indexPath.row)
         }
@@ -240,8 +242,8 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
         return detailCell(label: rowViewModel.label, value: rowViewModel.value)
     }
 
-    private func descriptorCell(forRow row: Int) -> UITableViewCell {
-        let rowViewModel = viewModel.descriptorDetails[row]
+    private func deviceInfoCell(forRow row: Int) -> UITableViewCell {
+        let rowViewModel = viewModel.deviceInfoDetails[row]
         return detailCell(label: rowViewModel.label, value: rowViewModel.value)
     }
 
@@ -294,7 +296,7 @@ public class PeerViewController<ViewModel: PeerViewControllerViewModel>: UITable
         case .networkLinkStatus: break
         case .connectionStatus: break
         case .connectionConfiguration: break
-        case .descriptor: break
+        case .deviceInfo: break
         case .actions:
             switch ActionRow(rawValue: indexPath.row)! {
             case .forget:
@@ -340,6 +342,7 @@ private extension PeerViewController {
     func presentServicePlaygroundViewController() {
         _ = Observable.combineLatest(viewModel.serviceDescriptor, viewModel.peer)
             .take(1)
+            .observe(on: MainScheduler.instance)
             .map { [unowned self] in self.servicePlaygroundProvider($0.0, $0.1) }
             .subscribe(onNext: { [navigationController] playground in
                 navigationController?.pushViewController(playground, animated: true)
@@ -379,7 +382,7 @@ private enum Section: Int, CaseIterable {
     case networkLinkStatus
     case connectionStatus
     case connectionConfiguration
-    case descriptor
+    case deviceInfo
     case actions
 }
 

@@ -52,7 +52,7 @@ class ConfigureStackViewController: ComboBoxViewController<StackDescriptor> {
             _ = childViewModel.customPortUrl
                 .take(1)
                 .map { $0?.description }
-                .takeUntil(textField.rx.deallocated)
+                .take(until: textField.rx.deallocated)
                 .bind(to: textField.rx.text)
 
             textField.placeholder = "//SFO-M-ABCDEF.local:5683"

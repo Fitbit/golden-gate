@@ -36,9 +36,3 @@ public struct CharacteristicCollection {
         return characteristic
     }
 }
-
-extension Characteristic: CustomStringConvertible {
-    public var description: String {
-        return "\(self.characteristic)"
-    }
-}

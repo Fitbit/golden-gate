@@ -111,7 +111,7 @@ public class LinkService: PeripheralManagerService {
             .do(onSubscribe: { LogBluetoothDebug("[LinkService]: Waiting for central \(identifier) to subscribe...") })
             .do(onNext: { LogBluetoothInfo("[LinkService]: Central subscription changed: \($0)") })
             .do(onError: { LogBluetoothWarning("[LinkService]: Central subscription error: \($0)") })
-            .retryWhen { errors in
+            .retry { errors in
                 errors.flatMapLatest { error -> Observable<Void> in
                     switch error {
                     case PeripheralManagerError.unsubscribed:

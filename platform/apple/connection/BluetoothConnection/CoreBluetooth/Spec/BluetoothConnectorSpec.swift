@@ -8,6 +8,7 @@
 //
 
 import BluetoothConnection
+import Foundation
 import Nimble
 import Quick
 import RxSwift
@@ -53,7 +54,8 @@ final class BluetoothConnectorSpec: QuickSpec {
                 let peripheral = PeripheralMock()
                 centralManager.connectionStatus.onNext(.connected(peripheral))
 
-                expect(peripheral.didDiscoverAllServices) == true
+                expect(peripheral.didDiscoverServices) == true
+                expect(peripheral.servicesToDiscover).to(beNil())
             }
 
             it("fails when service discovery fails") {
@@ -241,7 +243,7 @@ private extension SingleEvent {
         switch self {
         case .success:
             return nil
-        case .error(let error):
+        case .failure(let error):
             return error
         }
     }

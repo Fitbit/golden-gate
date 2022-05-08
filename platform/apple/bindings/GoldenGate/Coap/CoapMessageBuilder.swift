@@ -7,6 +7,8 @@
 //  Created by Bogdan Vlad on 02/04/2018.
 //
 
+import Foundation
+
 public protocol CoapMessageBuilder {
     associatedtype Message
 

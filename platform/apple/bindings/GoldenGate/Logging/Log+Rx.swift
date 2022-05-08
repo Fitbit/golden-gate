@@ -174,7 +174,7 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
     ) -> Completable {
         return asObservable()
             .logError(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logWarning(
@@ -187,7 +187,7 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
     ) -> Completable {
         return asObservable()
             .logWarning(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logInfo(
@@ -200,7 +200,7 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
     ) -> Completable {
         return asObservable()
             .logInfo(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logDebug(
@@ -213,7 +213,7 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
     ) -> Completable {
         return asObservable()
             .logDebug(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logVerbose(
@@ -226,7 +226,7 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
     ) -> Completable {
         return asObservable()
             .logVerbose(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 }
 

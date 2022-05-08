@@ -16,17 +16,40 @@ import RxTest
 // swiftlint:disable:next superfluous_disable_command
 // swiftlint:disable function_body_length force_try
 
-struct AlwaysErrorStrategy: RetryStrategy {
+/// A strategy that retries regardless of the error up to maxAttempts.
+struct DefaultRetryStrategy: RetryStrategy {
+	let retryConfiguration: RetryDelayConfiguration
+
+	func resetFailureHistory() {}
+
 	func action(for error: Error) -> RetryStrategyAction {
-		return .error(error: error)
+		return .delay(retryConfiguration)
+	}
+
+	init(retryConfiguration: RetryDelayConfiguration) {
+		self.retryConfiguration = retryConfiguration
+	}
+
+	init(interval: DispatchTimeInterval, maxRetries: UInt, multiplier: Double = 0, resume: Observable<CustomStringConvertible>? = nil) {
+		self.init(retryConfiguration: RetryDelayConfiguration(interval: interval, maxRetries: maxRetries, multiplier: multiplier, resume: resume))
+	}
+}
+
+struct AlwaysErrorStrategy: RetryStrategy {
+	func resetFailureHistory() {}
+
+	func action(for error: Error) -> RetryStrategyAction {
+		return .error(error)
 	}
 }
 
 struct TriggerErrorStrategy: RetryStrategy {
 	let trigger: Observable<Void>
 
+	func resetFailureHistory() {}
+
 	func action(for error: Error) -> RetryStrategyAction {
-		return .suspendUntil(trigger: trigger)
+		return .suspendUntil(trigger.take(1).asSingle())
 	}
 }
 
@@ -35,13 +58,13 @@ class RetryStrategySpec: QuickSpec {
 		describe("retryWith") {
 			it("errors immediately") {
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(AlwaysErrorStrategy(), scheduler: $1)
+					$0.retry(withStrategy: AlwaysErrorStrategy(), scheduler: $1)
 				}, {
-					$0.retryWith(DefaultRetryStrategy(interval: .seconds(10), maxRetries: 0, multiplier: 0), scheduler: $1)
+					$0.retry(withStrategy: DefaultRetryStrategy(interval: .seconds(10), maxRetries: 0, multiplier: 0), scheduler: $1)
 				}, {
-					$0.retryWith(.error(error: RetryError.dummyError), scheduler: $1)
+					$0.retry(withAction: .error(RetryError.dummyError), scheduler: $1)
 				}, {
-					$0.retryWith(.delay(configuration: RetryDelayConfiguration(interval: .seconds(10), maxRetries: 0)), scheduler: $1)
+					$0.retry(withAction: .delay(RetryDelayConfiguration(interval: .seconds(10), maxRetries: 0)), scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -71,12 +94,12 @@ class RetryStrategySpec: QuickSpec {
 
 			it("retries immediately") {
 				let strategy = DefaultRetryStrategy(interval: .never, maxRetries: 2, multiplier: 0)
-				let action = RetryStrategyAction.delay(configuration: strategy.retryConfiguration)
+				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -112,12 +135,12 @@ class RetryStrategySpec: QuickSpec {
 
 			it("retries up to a maximum") {
 				let strategy = DefaultRetryStrategy(interval: .seconds(10), maxRetries: 2, multiplier: 0)
-				let action = RetryStrategyAction.delay(configuration: strategy.retryConfiguration)
+				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -153,12 +176,12 @@ class RetryStrategySpec: QuickSpec {
 
 			it("applies a multiplier when retrying with a delay") {
 				let strategy = DefaultRetryStrategy(interval: .seconds(10), maxRetries: 2, multiplier: 0.5)
-				let action = RetryStrategyAction.delay(configuration: strategy.retryConfiguration)
+				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -195,12 +218,12 @@ class RetryStrategySpec: QuickSpec {
 			it("suspends retries until trigger fires") {
 				let trigger = PublishSubject<Void>()
 				let strategy = TriggerErrorStrategy(trigger: trigger)
-				let action = RetryStrategyAction.suspendUntil(trigger: trigger)
+				let action = RetryStrategyAction.suspendUntil(trigger.take(1).asSingle())
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -235,14 +258,14 @@ class RetryStrategySpec: QuickSpec {
 			}
 
 			it("resumes retries earlier when trigger fires") {
-				let trigger = PublishSubject<Void>()
+				let trigger = PublishSubject<CustomStringConvertible>()
 				let strategy = DefaultRetryStrategy(interval: .seconds(100), maxRetries: 2, multiplier: 0, resume: trigger)
-				let action = RetryStrategyAction.delay(configuration: strategy.retryConfiguration)
+				let action = RetryStrategyAction.delay(strategy.retryConfiguration)
 
 				let factories: [(TestableObservable<Int>, SchedulerType) -> Observable<Int>] = [ {
-					$0.retryWith(strategy, scheduler: $1)
+					$0.retry(withStrategy: strategy, scheduler: $1)
 				}, {
-					$0.retryWith(action, scheduler: $1)
+					$0.retry(withAction: action, scheduler: $1)
 				}]
 
 				for factory in factories {
@@ -255,7 +278,7 @@ class RetryStrategySpec: QuickSpec {
 					])
 
 					scheduler.scheduleAt(250) {
-						trigger.onNext(())
+						trigger.onNext(("TEST_TRIGGER"))
 					}
 
 					let res = scheduler.start(disposed: 300) {

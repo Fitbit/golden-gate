@@ -8,6 +8,7 @@
 //
 
 import BluetoothConnection
+import Foundation
 import Nimble
 import Quick
 import RxBlocking

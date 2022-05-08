@@ -20,7 +20,7 @@ class ManagedNode: ManagedPeer<HubConnection> {
     public let preferredConnectionMode = BehaviorRelay<LinkConfigurationService.PreferredConnectionMode>(value: .default)
 
     init(
-        connectionController: ConnectionController<HubConnection>,
+        connectionController: AnyConnectionController<HubConnection>,
         record: PeerRecord,
         peerParameters: PeerParameters,
         runLoop: GoldenGate.RunLoop,
@@ -78,7 +78,7 @@ class ManagedNode: ManagedPeer<HubConnection> {
         // Handle Preferred Connection Configuration read requests
         linkConfigurationService.preferredConnectionConfigurationReadRequests
             .filter {
-                $0.central.identifier == record.peerDescriptor?.identifier
+                $0.readerIdentifier == record.peerDescriptor?.identifier
             }
             .subscribe(onNext: { [preferredConnectionConfiguration] in
                 $0.respond(withResult: .success(preferredConnectionConfiguration.value.rawValue))
@@ -88,7 +88,7 @@ class ManagedNode: ManagedPeer<HubConnection> {
         // Handle Preferred Connection Mode read requests
         linkConfigurationService.preferredConnectionModeReadRequests
             .filter {
-                $0.central.identifier == record.peerDescriptor?.identifier
+                $0.readerIdentifier == record.peerDescriptor?.identifier
             }
             .subscribe(onNext: { [preferredConnectionMode] in
                 $0.respond(withResult: .success(preferredConnectionMode.value.rawValue))
