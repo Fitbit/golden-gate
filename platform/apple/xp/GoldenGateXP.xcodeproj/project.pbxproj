@@ -200,6 +200,8 @@
 		48C53287225CCE43004436ED /* libgg-stack-service.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02000000000000000000073C /* libgg-stack-service.a */; };
 		48C53288225CCE43004436ED /* libgg-tls.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 020000000000000000000743 /* libgg-tls.a */; };
 		48C53289225CCE43004436ED /* libgg-utils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 020000000000000000000719 /* libgg-utils.a */; };
+		75392F9927ADF74600E5D5E1 /* ssl_msg.c in Sources */ = {isa = PBXBuildFile; fileRef = 75392F9827ADF74600E5D5E1 /* ssl_msg.c */; };
+		75392F9B27ADF76A00E5D5E1 /* constant_time.c in Sources */ = {isa = PBXBuildFile; fileRef = 75392F9A27ADF76A00E5D5E1 /* constant_time.c */; };
 		AC28E6BE238C8378005D9BE9 /* gg_memory.c in Sources */ = {isa = PBXBuildFile; fileRef = AC28E6BC238C8377005D9BE9 /* gg_memory.c */; };
 		AC28E6BF238C8378005D9BE9 /* gg_types.c in Sources */ = {isa = PBXBuildFile; fileRef = AC28E6BD238C8377005D9BE9 /* gg_types.c */; };
 		AC4B6A2022574FDC005473F3 /* gg_bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = AC4B6A1F22574FDC005473F3 /* gg_bitstream.c */; };
@@ -1146,6 +1148,8 @@
 		487ED906225F25ED0016B8BB /* gg_activity_data_monitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gg_activity_data_monitor.h; path = utils/gg_activity_data_monitor.h; sourceTree = "<group>"; };
 		487ED907225F25ED0016B8BB /* gg_data_probe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gg_data_probe.h; path = utils/gg_data_probe.h; sourceTree = "<group>"; };
 		487ED908225F26AD0016B8BB /* gg_stack_builder_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = gg_stack_builder_base.h; path = stack_builder/gg_stack_builder_base.h; sourceTree = "<group>"; };
+		75392F9827ADF74600E5D5E1 /* ssl_msg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ssl_msg.c; path = ../external/mbedtls/library/ssl_msg.c; sourceTree = "<group>"; };
+		75392F9A27ADF76A00E5D5E1 /* constant_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = constant_time.c; path = ../external/mbedtls/library/constant_time.c; sourceTree = "<group>"; };
 		AC28E6BC238C8377005D9BE9 /* gg_memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gg_memory.c; path = common/gg_memory.c; sourceTree = "<group>"; };
 		AC28E6BD238C8377005D9BE9 /* gg_types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gg_types.c; path = common/gg_types.c; sourceTree = "<group>"; };
 		AC4B6A1E22574FDC005473F3 /* gg_bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gg_bitstream.h; path = common/gg_bitstream.h; sourceTree = "<group>"; };
@@ -1572,6 +1576,7 @@
 				020000000000000000000408 /* cipher_wrap.c */,
 				020000000000000000000302 /* cipher.c */,
 				0200000000000000000000D8 /* cmac.c */,
+				75392F9A27ADF76A00E5D5E1 /* constant_time.c */,
 				02000000000000000000028E /* ctr_drbg.c */,
 				02000000000000000000009E /* debug.c */,
 				0200000000000000000002BE /* des.c */,
@@ -1613,6 +1618,7 @@
 				02000000000000000000038E /* ssl_ciphersuites.c */,
 				0200000000000000000002A2 /* ssl_cli.c */,
 				02000000000000000000039A /* ssl_cookie.c */,
+				75392F9827ADF74600E5D5E1 /* ssl_msg.c */,
 				0200000000000000000000C4 /* ssl_srv.c */,
 				02000000000000000000029A /* ssl_ticket.c */,
 				0200000000000000000000D0 /* ssl_tls.c */,
@@ -2960,6 +2966,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75392F9B27ADF76A00E5D5E1 /* constant_time.c in Sources */,
 				0200000000000000000000B7 /* aes.c in Sources */,
 				0200000000000000000003F7 /* aesni.c in Sources */,
 				0200000000000000000002F5 /* arc4.c in Sources */,
@@ -2977,6 +2984,7 @@
 				02000000000000000000028D /* ctr_drbg.c in Sources */,
 				02000000000000000000009D /* debug.c in Sources */,
 				0200000000000000000002BD /* des.c in Sources */,
+				75392F9927ADF74600E5D5E1 /* ssl_msg.c in Sources */,
 				0200000000000000000001A1 /* dhm.c in Sources */,
 				02000000000000000000012F /* ecdh.c in Sources */,
 				02000000000000000000021F /* ecdsa.c in Sources */,

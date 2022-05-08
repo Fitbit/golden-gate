@@ -76,6 +76,7 @@ typedef struct GG_AsyncPipe GG_AsyncPipe;
  *
  * @param timer_scheduler Timer scheduler used to create a tick timer for pumping
  * the data between the endpoints.
+ * @param max_items The maximum number of items the pipe can hold.
  * @param [out] pipe Pointer to where the created object will be returned.
  *
  * @return GG_SUCCESS if the object could be created, or a negative error code.

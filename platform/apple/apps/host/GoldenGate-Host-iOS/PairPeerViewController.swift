@@ -15,7 +15,7 @@ import RxSwift
 import UIKit
 
 class PairPeerViewController: UITableViewController {
-    var scanner: BluetoothScanner!
+    var discoverer: PeerDiscoverer!
     var peerManager: PeerManager<ManagedNode>!
 
     private let disposeBag = DisposeBag()
@@ -25,7 +25,7 @@ class PairPeerViewController: UITableViewController {
 
         title = "Pair Client"
 
-        scanner = Component.instance.scanner
+        discoverer = Component.instance.discoverer
         peerManager = Component.instance.peerManager
 
         let activityIndicator = UIActivityIndicatorView(style: .gray)
@@ -34,29 +34,39 @@ class PairPeerViewController: UITableViewController {
         tableView.dataSource = nil
         tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
 
-        tableView.rx.modelSelected(DiscoveredBluetoothPeer.self)
+        tableView.rx.modelSelected(DiscoveredPeer.self)
             // handle asynchronously to get a chance for scanner to stop established connections
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self, peerManager] peer in
                 let descriptor = PeerDescriptor(identifier: peer.identifier)
-                _ = peerManager!.getOrCreate(peerDescriptor: descriptor, name: peer.name.value)
+                _ = peerManager!.getOrCreate(peerDescriptor: descriptor, name: peer.name)
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
 
-        scanner.isScanning
-            .asDriver()
+        let peers = discoverer
+            // Look for multiple UUIDs, as the link service supports multiple configurations
+            .peerList(
+                withServices: BluetoothConfiguration.default.linkService.map { $0.serviceUUID },
+                peerFilter: { Component.instance.peerManager.get(peerDescriptor: PeerDescriptor(identifier: $0)) == nil }
+            )
+            .share()
+
+        let isDiscovering = peers.map { $0 != nil }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: false)
+
+        isDiscovering
             .drive(activityIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
 
-        scanner.isScanning
-            .asDriver()
+        isDiscovering
             .map { !$0 }
             .drive(activityIndicator.rx.isHidden)
             .disposed(by: disposeBag)
 
-        scanner.peers
-            .takeUntil(tableView.rx.modelSelected(DiscoveredBluetoothPeer.self).asObservable())
+        peers.map { $0 ?? [] }
+            .take(until: tableView.rx.modelSelected(DiscoveredPeer.self).asObservable())
             .bind(to: tableView.rx.items) { tableView, _, peer in
                 // swiftlint:disable:next force_cast
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")! as! Cell
@@ -82,14 +92,11 @@ private class Cell: UITableViewCell {
         fatalError("not implemented")
     }
 
-    func bind(_ peer: DiscoveredBluetoothPeer) {
-        peer.name
-            .asDriver()
-            .drive(textLabel!.rx.text)
-            .disposed(by: disposeBag)
+    func bind(_ peer: DiscoveredPeerType) {
+        textLabel?.text = peer.name
 
         peer.rssi
-            .asDriver()
+            .asDriver(onErrorJustReturn: 0)
             .map { "Signal Strength: \($0)" }
             .drive(detailTextLabel!.rx.text)
             .disposed(by: disposeBag)

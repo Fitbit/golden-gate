@@ -4,8 +4,12 @@
 """
 Carthage Tasks
 """
+from __future__ import print_function, absolute_import
+
 import os
+import re
 import signal
+import sys
 
 from invoke import task
 from invoke.exceptions import Exit
@@ -60,6 +64,16 @@ def swift_version(ctx):
 
     return version
 
+def find_xcode_version(ctx):
+    '''Return the current Xcode version'''
+    version = run_and_extract_version(ctx, "xcodebuild -version")
+
+    if not version:
+        print("Couldn't determine Xcode version.")
+        raise Exit(-1)
+
+    return version
+
 def _rome_prefix(ctx):
     return "Swift_" + swift_version(ctx).replace('.', '_')
 
@@ -79,14 +93,19 @@ def _rome_upload_cmd(ctx, platform):
             --platform {} \
             --cache-prefix {}".format(platform, _rome_prefix(ctx))
 
-def _carthage_setup_environment():
+def _carthage_bootstrap_cmd(ctx):
     # Applying Carthage build workaround to exclude Apple Silicon binaries.
     # See https://github.com/Carthage/Carthage/issues/3019 for more details
     fp = NamedTemporaryFile(delete=False, prefix='static.xcconfig.')
-    fp.write(b'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8\n')
-    fp.write(b'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))\n')
-    fp.write(b'ENABLE_TESTING_SEARCH_PATHS=YES\n')
-    fp.write(b'OTHER_LDFLAGS=""\n')
+
+    xcode_version = find_xcode_version(ctx)
+    xcode_version_major = int(xcode_version.split('.')[0])
+    print("Xcode version major: {}".format(xcode_version_major))
+
+    xcconfig = 'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_{}00 = arm64 arm64e armv7 armv7s armv6 armv8\n'.format(xcode_version_major)
+    xcconfig += 'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))'
+
+    fp.write(bytearray(xcconfig, encoding='utf8'))
     fp.close()
 
     handler = lambda a, b: os.unlink(fp.name)
@@ -98,14 +117,9 @@ def _carthage_setup_environment():
 
     os.environ['XCODE_XCCONFIG_FILE'] = fp.name
 
-def _carthage_bootstrap_cmd():
-    _carthage_setup_environment()
-
     return "carthage bootstrap --platform ios,macos --cache-builds"
 
 def _carthage_build_cmd(ctx):
-    _carthage_setup_environment()
-
     # Carthage 0.29.0 moved the `--no-use-binaries` to the `build` command.
     if version_check(ctx, "carthage version", min_version="0.29.0"):
         return "carthage build --cache-builds --no-use-binaries"
@@ -147,7 +161,7 @@ def rome_upload(ctx, missing=False, platform="ios,macos"):
 
 def _build(ctx, missing=False, platform="ios,macos"):
     '''Build Carthage Frameworks missing from Rome cache'''
-    cmd = _carthage_bootstrap_cmd()
+    cmd = _carthage_bootstrap_cmd(ctx)
 
     if missing:
         cmd = " | ".join([
@@ -208,22 +222,16 @@ def bootstrap(ctx, platform="ios,macos"):
         ctx.run("rm -rf Carthage/Build")
         ctx.run(_carthage_checkout_cmd(ctx))
         developer_checkouts(ctx)
-    #elif check_rome_version(ctx, abort=False) and ctx.carthage.rome:
-    #    print("Using pre-built libraries (cached by Rome)...")
-    #    developer_uncheckouts(ctx, warn=True)  # might not be there yet
-    #    rome_download(ctx, platform=platform)
-    #    _build(ctx, missing=True)
-    #    rome_upload(ctx, missing=True, platform=platform)
+    elif check_rome_version(ctx, abort=False) and ctx.carthage.rome:
+        print("Using pre-built libraries (cached by Rome)...")
+        developer_uncheckouts(ctx, warn=True)  # might not be there yet
+        rome_download(ctx, platform=platform)
+        _build(ctx, missing=True)
+        rome_upload(ctx, missing=True, platform=platform)
     else:
         print("Using pre-built libraries...")
         developer_uncheckouts(ctx, warn=True)  # might not be there yet
-        ctx.run(_carthage_bootstrap_cmd())
-
-    # FIXME: temporary hack to get around the fact that Rxbit isn't
-    # available as a Git repo, so instead we bootstrap it manually here
-    # instead of through a Cartfile reference
-    with ctx.cd("{}/external/Rxbit".format(ctx.C.ROOT_DIR)):
-        ctx.run(_carthage_bootstrap_cmd())
+        ctx.run(_carthage_bootstrap_cmd(ctx))
 
 @task(_precheck)
 def build(ctx, dependencies, platform="ios,macos", configuration="Release"):

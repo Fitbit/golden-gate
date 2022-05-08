@@ -352,7 +352,7 @@ GG_CoapRequestContext_Create(GG_CoapEndpoint*               endpoint,
     GG_Result result = GG_TimerScheduler_CreateTimer(endpoint->timer_scheduler, &self->resend_timer);
     if (GG_FAILED(result)) {
         GG_FreeMemory(self);
-        return GG_ERROR_OUT_OF_MEMORY;
+        return result;
     }
 
     // setup the interface

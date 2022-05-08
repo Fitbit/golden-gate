@@ -13,7 +13,8 @@ import RxBluetoothKit
 public extension BluetoothError {
     var isHalfBondedError: Bool {
         switch self {
-        case .peripheralConnectionFailed(_, let error) where error?.isBluetoothHalfBondedError == true: return true
+        case .peripheralConnectionFailed(_, let error), .peripheralDisconnected(_, let error):
+            return error?.isBluetoothHalfBondedError == true
         default: return false
         }
     }

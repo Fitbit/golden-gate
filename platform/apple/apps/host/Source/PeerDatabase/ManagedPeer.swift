@@ -16,7 +16,7 @@ import RxSwift
 /// Setup shared by "ManagedHub" and "ManagedNode" classes.
 class ManagedPeer<ConnectionType: LinkConnection>: GGPeer, ManagedPeerType {
     /// ManagedPeer's `ConnectionController`.
-    public let connectionController: ConnectionController<ConnectionType>
+    public let connectionController: AnyConnectionController<ConnectionType>
 
     /// The database record that is backing the peer.
     let record: PeerRecord
@@ -27,7 +27,7 @@ class ManagedPeer<ConnectionType: LinkConnection>: GGPeer, ManagedPeerType {
     private let disposeBag = DisposeBag()
 
     init(
-        connectionController: ConnectionController<ConnectionType>,
+        connectionController: AnyConnectionController<ConnectionType>,
         record: PeerRecord,
         peerParameters: PeerParameters,
         runLoop: GoldenGate.RunLoop,
@@ -63,5 +63,7 @@ class ManagedPeer<ConnectionType: LinkConnection>: GGPeer, ManagedPeerType {
                 record.peerDescriptor = $0
             })
             .disposed(by: disposeBag)
+
+        connectionController.establishConnection(trigger: "peer_init")
     }
 }

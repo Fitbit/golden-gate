@@ -46,7 +46,7 @@ public class Node: ConnectionResolver {
         descriptor: PeerDescriptor
     ) -> Observable<NodeConnection> {
         ensureExpectedCharacteristics(inServices: services)
-            .catchError { error in
+            .catch { error in
                 switch error {
                 case PeripheralError.serviceNotFound, PeripheralError.missingCharacteristic:
                     throw ConnectionResolverError.couldNotResolveConnection
@@ -135,12 +135,12 @@ private extension Node {
 private extension Node {
     func remotePreferredConnectionConfiguration(
         from characteristic: CharacteristicType
-    ) -> Observable<LinkConfigurationService.PreferredConnectionConfiguration> {
+    ) -> Observable<LinkConnectionConfiguration> {
         return characteristic.readAndObserveValue()
             .map {
                 guard
                     let value = $0,
-                    let configuration = LinkConfigurationService.PreferredConnectionConfiguration(rawValue: value)
+                    let configuration = LinkConnectionConfiguration(rawValue: value)
                 else {
                     throw NodeError.illegalConnectionConfiguration
                 }
@@ -151,12 +151,12 @@ private extension Node {
 
     func remotePreferredConnectionMode(
         from characteristic: CharacteristicType
-    ) -> Observable<LinkConfigurationService.PreferredConnectionMode> {
+    ) -> Observable<LinkConnectionMode> {
         return characteristic.readAndObserveValue()
             .map {
                 guard
                     let value = $0,
-                    let configuration = LinkConfigurationService.PreferredConnectionMode(rawValue: value)
+                    let configuration = LinkConnectionMode(rawValue: value)
                 else {
                     throw NodeError.illegalConnectionMode
                 }

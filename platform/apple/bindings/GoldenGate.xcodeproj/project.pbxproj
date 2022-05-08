@@ -110,6 +110,7 @@
 		75A646C52488E74F00B47E0A /* StackDescriptor+GG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A646C42488E74F00B47E0A /* StackDescriptor+GG.swift */; };
 		75A9289F240599840018C88B /* CaseIterable+AllUniqueRawValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A9289E240599840018C88B /* CaseIterable+AllUniqueRawValues.swift */; };
 		75D399F12578FDCD0028BD1D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75D399F02578FDCD0028BD1D /* Starscream.framework */; };
+		81B5C5AE26D9295200D72E89 /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */; };
 		AF8F0940224281D300FF5604 /* GGCoapRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F093F224281D300FF5604 /* GGCoapRequestParameters.swift */; };
 		FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
 		FD6FB79C22A9015F000EFB76 /* CoapGroupRequestFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6FB79B22A9015F000EFB76 /* CoapGroupRequestFilter.swift */; };
@@ -125,7 +126,6 @@
 		FDBE5C212628494100EFAB58 /* CentralManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C152628493500EFAB58 /* CentralManagerMock.swift */; };
 		FDBE5C222628494100EFAB58 /* PeripheralMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C162628493500EFAB58 /* PeripheralMock.swift */; };
 		FDBE5C252628496200EFAB58 /* HubSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5B8C2628457D00EFAB58 /* HubSpec.swift */; };
-		FDBE5C4D26284A6B00EFAB58 /* TestScheduler+AdvanceBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */; };
 		FDC76776248F608100855742 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC76775248F608100855742 /* BluetoothConnection.framework */; };
 		FDD7D9C224869F5E00FEE9D0 /* DataSink+XP.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7D9C124869F5E00FEE9D0 /* DataSink+XP.swift */; };
 		FDE446F62363254E00BD8E34 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3B0626234F62C700A92603 /* Rxbit.framework */; };
@@ -158,6 +158,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestScheduler+AdvanceBy.swift"; sourceTree = "<group>"; };
 		423C41C824A4FDF30006EF07 /* FbSmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FbSmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423C41CA24A4FDF30006EF07 /* SwiftCBOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCBOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4252E42D265525A3006E4B4C /* FbSmoUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FbSmoUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,7 +286,6 @@
 		FDBE5C142628493500EFAB58 /* CharacteristicMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicMock.swift; sourceTree = "<group>"; };
 		FDBE5C152628493500EFAB58 /* CentralManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralManagerMock.swift; sourceTree = "<group>"; };
 		FDBE5C162628493500EFAB58 /* PeripheralMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralMock.swift; sourceTree = "<group>"; };
-		FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+AdvanceBy.swift"; sourceTree = "<group>"; };
 		FDC76775248F608100855742 /* BluetoothConnection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD7D9C124869F5E00FEE9D0 /* DataSink+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataSink+XP.swift"; sourceTree = "<group>"; };
 		FDE588512486A8F80095B8AA /* Buffer+XP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Buffer+XP.swift"; sourceTree = "<group>"; };
@@ -414,7 +414,6 @@
 				6DEDA417207DEBD2008861F5 /* GGPeer.swift */,
 				6D13184020696F45002AA4C8 /* GoldenGateVersion.swift */,
 				6DEDA41B207DECCE008861F5 /* ServiceDescriptor+GG.swift */,
-				FDBE5C4926284A6400EFAB58 /* TestScheduler+AdvanceBy.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -568,6 +567,7 @@
 			isa = PBXGroup;
 			children = (
 				48EDBE06217118680057B7B3 /* GoldenGateVersionSpec.swift */,
+				3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -931,10 +931,10 @@
 				FDBE5C202628494100EFAB58 /* CharacteristicMock.swift in Sources */,
 				48A81068220E0CA30067A593 /* CoapStreamingMessageBodySpec.swift in Sources */,
 				FDBE5C222628494100EFAB58 /* PeripheralMock.swift in Sources */,
+				81B5C5AE26D9295200D72E89 /* TestScheduler+AdvanceBy.swift in Sources */,
 				48A80FD5220E07EB0067A593 /* GGAdaptableSpec.swift in Sources */,
 				48A80FD6220E07EB0067A593 /* GGAdapterSpec.swift in Sources */,
 				48A81088220E0D090067A593 /* GGBsdDatagramSocketSpec.swift in Sources */,
-				FDBE5C4D26284A6B00EFAB58 /* TestScheduler+AdvanceBy.swift in Sources */,
 				75610D90254B25D8001E2BE5 /* GoldenGateVersionSpec.swift in Sources */,
 				FDBE5C252628496200EFAB58 /* HubSpec.swift in Sources */,
 				48A80FD7220E07EB0067A593 /* GGErrorTypeSpec.swift in Sources */,

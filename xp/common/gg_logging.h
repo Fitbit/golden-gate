@@ -132,7 +132,7 @@ void GG_LogHandler_Log(GG_LogHandler* self, const GG_LogRecord* record);
 
 //! @relates GG_LogHandler
 //! @copydoc GG_LogHandlerInterface::Destroy
-void GG_LogHandler_Destroy(GG_LogHandler* handler);
+void GG_LogHandler_Destroy(GG_LogHandler* self);
 
 /**
  * Factory function for log handlers.
@@ -568,9 +568,10 @@ void GG_Log_FormatRecordToStringBuffer(const GG_LogRecord* record,
  *
  * @param logger_name    Name of the logger
  * @param handler_name   Name of the console handler
+ * @param use_colors    Whether to use colors or not in log string output
+ * @param format_filter Filter indicating log string format
  *
- * @return use_colors    Whether to use colors or not in log string output
- * @return format_filter Filter indicating log string format
+ * @return GG_SUCCESS if the call succeeds, or a negative error code.
  */
 GG_Result GG_Log_GetConsoleHandlerConfig(const char* logger_name,
                                          const char* handler_name,

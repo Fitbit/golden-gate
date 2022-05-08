@@ -561,6 +561,7 @@ GG_Inspectable* GG_Stack_AsInspectable(GG_Stack* self);
  * Get the IP information associated with a stack, if any.
  *
  * @param self The object on which this method is invoked.
+ * @param ip_configuration Pointer to the struct where the configuration will be written.
  *
  * @return GG_SUCCESS if an IP configuration can be returned for the stack,
  * or GG_ERROR_NOT_SUPPORTED if the stack does not have any IP configuration.

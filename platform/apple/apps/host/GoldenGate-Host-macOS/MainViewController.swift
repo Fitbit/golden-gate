@@ -112,32 +112,32 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
         else { return nil }
         
         let connection = peer.connectionController.connectionStatus
-            .catchErrorJustReturn(.disconnected)
+            .catchAndReturn(.disconnected)
             .map { $0.connection }
 
         switch tableColumn.identifier {
         case .nameColumn:
             _ = peer.name
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .uuidColumn:
             _ = peer.connectionController.descriptor
                 .map { $0?.identifier.uuidString }
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .stateColumn:
             _ = peer.connectionController.connectionStatus
                 .map { $0.cellDescription }
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .blasterStatsColumn:
             _ = peer.blasterService.stats
                 .map { $0.description }
                 .startWith("n/a")
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .preferredConnectionConfigColumn:
@@ -145,7 +145,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
                 .flatMapLatest { $0?.remotePreferredConnectionConfiguration.asObservable() ?? .just(nil) }
                 .map { $0?.description ?? "n/a" }
                 .startWith("n/a")
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         case .preferredConnectionModeColumn:
@@ -155,7 +155,7 @@ extension MainViewController: NSTableViewDelegate, NSTableViewDataSource, NSMenu
                     $0?.description ?? "n/a"
                 }
                 .startWith("n/a")
-                .takeUntil(cell.rx.detached)
+                .take(until: cell.rx.detached)
                 .asDriver(onErrorJustReturn: "")
                 .drive(cell.textField!.rx.text)
         default:

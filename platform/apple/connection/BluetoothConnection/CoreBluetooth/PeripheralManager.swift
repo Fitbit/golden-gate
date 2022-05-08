@@ -114,7 +114,9 @@ public class PeripheralManager {
                 guard let `self` = self else { return }
                 LogBluetoothDebug("PeripheralManager: Did receive read request \(request)")
 
-                guard let service = self.publishedServices[request.characteristic.service.uuid] else {
+                let cbService: CBService? = request.characteristic.service
+
+                guard let serviceUuid = cbService?.uuid, let service = self.publishedServices[serviceUuid] else {
                     self.peripheralManager.respond(to: request, withResult: .readNotPermitted)
                     LogBluetoothError("PeripheralManager: Invalid GATT read request \(request)")
                     return
@@ -135,7 +137,9 @@ public class PeripheralManager {
                 LogBluetoothDebug("PeripheralManager: Did receive write requests \(requests)")
 
                 for request in requests {
-                    guard let service = self.publishedServices[request.characteristic.service.uuid] else {
+                    let cbService: CBService? = request.characteristic.service
+
+                    guard let serviceUuid = cbService?.uuid, let service = self.publishedServices[serviceUuid] else {
                         self.peripheralManager.respond(to: request, withResult: .writeNotPermitted)
                         LogBluetoothError("PeripheralManager: Invalid GATT write request \(request)")
                         return
@@ -183,7 +187,7 @@ public class PeripheralManager {
                 let disposable = CompositeDisposable()
                 disposable += self.stateOncePoweredOn()
                     .take(1)
-                    .observeOn(self.scheduler)
+                    .observe(on: self.scheduler)
                     .subscribe(onNext: { _ in
                         guard
                             self.publishedServices[service.service.uuid] == nil,
@@ -205,7 +209,7 @@ public class PeripheralManager {
 
                 return disposable
             }
-            .subscribeOn(scheduler)
+            .subscribe(on: scheduler)
     }
 
     private lazy var advertiser: Completable = {
@@ -251,7 +255,7 @@ public class PeripheralManager {
 
     public func stateOncePoweredOn() -> Observable<CBManagerState> {
         return stateSubject
-            .skipWhile { $0 != .poweredOn }
+            .skip { $0 != .poweredOn }
             .distinctUntilChanged()
     }
 }
@@ -309,7 +313,7 @@ private class CBPeripheralManagerDelegateWrapper: NSObject, CBPeripheralManagerD
     }
 }
 
-public protocol PeripheralManagerService: class {
+public protocol PeripheralManagerService: AnyObject {
     var advertise: Bool { get }
     var service: CBMutableService { get }
     var peripheralManager: PeripheralManager? { get set }

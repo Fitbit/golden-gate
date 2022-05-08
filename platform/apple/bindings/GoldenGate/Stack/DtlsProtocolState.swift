@@ -7,6 +7,7 @@
 //  Created by Bogdan Vlad on 03/09/2018.
 //
 
+import Foundation
 import GoldenGateXP
 
 public enum DtlsProtocolState {

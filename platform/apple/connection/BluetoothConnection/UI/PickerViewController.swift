@@ -42,7 +42,7 @@ public final class PickerViewController<Element: Equatable>: UIViewController {
 
         // Map view model elements to picker item titles
         viewModel.elements
-            .observeOn(MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
             .bind(to: picker.rx.itemTitles) { (_, element) in
                 return "\(element)"
             }

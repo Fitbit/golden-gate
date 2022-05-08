@@ -77,6 +77,8 @@ extern "C" {
  * Initialize a bitstream for reading.
  *
  * @param self The object on which the method is invoked.
+ * @param data Data from which the bits will be read.
+ * @param data_size Size of the data.
  */
 void GG_BitInputStream_Init(GG_BitInputStream* self, const uint8_t* data, size_t data_size);
 

@@ -16,7 +16,7 @@ class ManagedHub: ManagedPeer<NodeConnection> {
     private let disposeBag = DisposeBag()
 
     override init(
-        connectionController: ConnectionController<NodeConnection>,
+        connectionController: AnyConnectionController<NodeConnection>,
         record: PeerRecord,
         peerParameters: PeerParameters,
         runLoop: GoldenGate.RunLoop,

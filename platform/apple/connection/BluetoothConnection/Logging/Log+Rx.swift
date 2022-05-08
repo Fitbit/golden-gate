@@ -57,7 +57,7 @@ extension ObservableConvertibleType {
         function: StaticString = #function,
         line: UInt = #line
     ) -> Observable<Element> {
-        return log(events: events) { LogError("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogError("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     /// Log as warning the specified events from the current observable.
@@ -79,7 +79,7 @@ extension ObservableConvertibleType {
         function: StaticString = #function,
         line: UInt = #line
     ) -> Observable<Element> {
-        return log(events: events) { LogWarning("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogWarning("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     /// Log as info the specified events from the current observable.
@@ -101,7 +101,7 @@ extension ObservableConvertibleType {
         function: StaticString = #function,
         line: UInt = #line
     ) -> Observable<Element> {
-        return log(events: events) { LogInfo("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogInfo("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     /// Log as debug the specified events from the current observable.
@@ -123,7 +123,7 @@ extension ObservableConvertibleType {
         function: StaticString = #function,
         line: UInt = #line
     ) -> Observable<Element> {
-        return log(events: events) { LogDebug("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogDebug("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     /// Log as verbose the specified events from the current observable.
@@ -145,7 +145,7 @@ extension ObservableConvertibleType {
         function: StaticString = #function,
         line: UInt = #line
     ) -> Observable<Element> {
-        return log(events: events) { LogVerbose("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogVerbose("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func log(events: LogEvents, logFunction: @escaping (Any) -> Void) -> Observable<Element> {
@@ -172,9 +172,9 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
         function: StaticString = #function,
         line: UInt = #line
     ) -> Completable {
-        return asObservable()
+        asObservable()
             .logError(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logWarning(
@@ -185,9 +185,9 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
         function: StaticString = #function,
         line: UInt = #line
     ) -> Completable {
-        return asObservable()
+        asObservable()
             .logWarning(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logInfo(
@@ -198,9 +198,9 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
         function: StaticString = #function,
         line: UInt = #line
     ) -> Completable {
-        return asObservable()
+        asObservable()
             .logInfo(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logDebug(
@@ -211,9 +211,9 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
         function: StaticString = #function,
         line: UInt = #line
     ) -> Completable {
-        return asObservable()
+        asObservable()
             .logDebug(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 
     func logVerbose(
@@ -224,9 +224,9 @@ extension PrimitiveSequence where Trait == CompletableTrait, Element == Swift.Ne
         function: StaticString = #function,
         line: UInt = #line
     ) -> Completable {
-        return asObservable()
+        asObservable()
             .logVerbose(identifier, domain, events, file: file, function: function, line: line)
-            .ignoreElements()
+            .asCompletable()
     }
 }
 
@@ -239,7 +239,7 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         function: StaticString = #function,
         line: UInt = #line
     ) -> Driver<Element> {
-        return log(events: events) { LogError("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogError("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func logWarning(
@@ -250,7 +250,7 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         function: StaticString = #function,
         line: UInt = #line
     ) -> Driver<Element> {
-        return log(events: events) { LogWarning("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogWarning("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func logInfo(
@@ -261,7 +261,7 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         function: StaticString = #function,
         line: UInt = #line
     ) -> Driver<Element> {
-        return log(events: events) { LogInfo("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogInfo("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func logDebug(
@@ -272,7 +272,7 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         function: StaticString = #function,
         line: UInt = #line
     ) -> Driver<Element> {
-        return log(events: events) { LogDebug("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogDebug("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func logVerbose(
@@ -283,7 +283,7 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
         function: StaticString = #function,
         line: UInt = #line
     ) -> Driver<Element> {
-        return log(events: events) { LogVerbose("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
+        log(events: events) { LogVerbose("\(identifier) \($0)", file: file, function: function, line: line, domain: domain) }
     }
 
     func log(events: LogEvents, logFunction: @escaping (Any) -> Void) -> Driver<Element> {

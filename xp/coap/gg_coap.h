@@ -659,6 +659,7 @@ GG_Result GG_CoapMessage_CreateFromDatagram(GG_Buffer* datagram, GG_CoapMessage*
 /**
  * Obtain a #GG_Buffer buffer containing the encoded datagram representation of a CoAP message.
  * @param self The object on which this method is called.
+ * @param datagram Pointer to the variable where the datagram will be returned.
  *
  * @return GG_SUCCESS if the call succeeded, or a negative error code.
  */
@@ -926,7 +927,7 @@ GG_Result GG_CoapEndpoint_CreateResponse(GG_CoapEndpoint*           self,
  * received.
  *
  * @param self The object on which this method is called.
- * @parm request Handle of the request to cancel.
+ * @param request Handle of the request to cancel.
  *
  * @return GG_SUCCESS if the call succeeded, or a negative error code.
  */
@@ -1117,6 +1118,7 @@ GG_Result GG_CoapResponder_SendResponse(GG_CoapResponder* self, GG_CoapMessage* 
  * to create a response, followed by GG_CoapResponder_SendResponse to send that response.
  *
  * @param self The object on which this method is called.
+ * @param code The response code.
  * @param options Options for the response.
  * @param options_count Number of options for the response.
  * @param payload Payload for the response.

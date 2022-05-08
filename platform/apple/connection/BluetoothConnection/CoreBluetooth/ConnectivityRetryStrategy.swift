@@ -1,23 +1,22 @@
 //  Copyright 2017-2020 Fitbit, Inc
 //  SPDX-License-Identifier: Apache-2.0
 //
-//  BluetoothReconnectStrategy.swift
-//  GoldenGate
+//  ConnectivityRetryStrategy.swift
+//  BluetoothConnection
 //
 //  Created by Marcel Jackwerth on 2/26/18.
 //
 
 import CoreBluetooth
 import Foundation
+import Rxbit
 import RxBluetoothKit
 import RxRelay
 import RxSwift
 
-public class BluetoothReconnectStrategy: ReconnectStrategy {
-    public let resetFailureHistory = PublishRelay<Void>()
-
-    private let resumeTrigger: Observable<Void>
-    private let retryDelay: DispatchTimeInterval
+public final class ConnectivityRetryStrategy: RetryStrategy {
+    private let configuration: RetryDelayConfiguration
+    private let resetFailureHistoryRelay = PublishRelay<Void>()
 
     private let observationInterval: TimeInterval = 2 * 60
     private let observationLimit = 5
@@ -25,50 +24,42 @@ public class BluetoothReconnectStrategy: ReconnectStrategy {
 
     private let disposeBag = DisposeBag()
 
-    /// - Parameters:
-    ///   - resume: Emit values whenever suspended reconnections attempts
-    ///       should be resumed. See `ReconnectStrategy`. The values describe
-    ///       the trigger.
-    ///   - retryDelay: The time interval to wait before retrying the connection.
-    public init(
-        resumeTrigger: Observable<CustomStringConvertible>,
-        retryDelay: DispatchTimeInterval = .milliseconds(250)
-    ) {
-        self.resumeTrigger = resumeTrigger
-            .logInfo("Received trigger to resume reconnection:", .bluetooth, .next)
-            .map { _ in () }
+    public init(configuration: RetryDelayConfiguration) {
+        self.configuration = configuration
 
-        self.retryDelay = retryDelay
-
-        resetFailureHistory
+        resetFailureHistoryRelay
             .subscribe(onNext: { [weak self] _ in
                 self?.observations.removeAll()
             })
             .disposed(by: disposeBag)
     }
 
-    public func action(for error: Error) -> ReconnectStrategyAction {
+    public func resetFailureHistory() {
+        resetFailureHistoryRelay.accept(())
+    }
+
+    public func action(for error: Error) -> RetryStrategyAction {
         switch error {
         case CentralManagerError.identifierUnknown, ConnectionResolverError.couldNotResolveConnection:
             observations.removeAll()
-            return .stop(error)
+            return .error(error)
         case BluetoothError.bluetoothPoweredOff,
              BluetoothError.bluetoothInUnknownState,
              BluetoothError.bluetoothResetting:
             observations.removeAll()
-            return .suspendUntil(resumeTrigger)
+            return suspendIfSupported(error: error)
         default:
             return actionFromPast(for: error) ?? actionFromCurrent(error: error)
         }
     }
 
-    private func actionFromCurrent(error: Error) -> ReconnectStrategyAction {
+    private func actionFromCurrent(error: Error) -> RetryStrategyAction {
         if #available(iOS 10, OSX 10.13, *) {
             switch error {
             case CBError.connectionLimitReached:
-                return .suspendUntil(resumeTrigger)
+                return suspendIfSupported(error: error)
             case CBError.connectionFailed:
-                return .retryWithDelay(retryDelay)
+                return .delay(configuration)
             default: break
             }
         }
@@ -76,21 +67,21 @@ public class BluetoothReconnectStrategy: ReconnectStrategy {
         switch error {
         case let error as BluetoothError where error.isHalfBondedError:
             // handle the case when we cannot connect to a peripheral on iOS 13.4+ (half bond mode)
-            return .suspendUntil(resumeTrigger)
+            return suspendIfSupported(error: error)
         case BluetoothError.peripheralConnectionFailed,
              BluetoothError.peripheralDisconnected,
              CBError.peripheralDisconnected,
              CBError.connectionTimeout,
              PeripheralError.servicesChanged:
-            return .retryWithDelay(retryDelay)
+            return .delay(configuration)
         default:
-            LogBluetoothError("Unexpected error in the reconnect strategy: \(error)")
-            return .retryWithDelay(retryDelay)
+            LogBluetoothError("Unexpected error in the connectivity retry strategy: \(error)")
+            return .delay(configuration)
         }
     }
 
     /// Makes a decision based on what has been observed in the past.
-    private func actionFromPast(for error: Error) -> ReconnectStrategyAction? {
+    private func actionFromPast(for error: Error) -> RetryStrategyAction? {
         let cutoffDate = Date(timeIntervalSinceNow: -observationInterval)
 
         // Sliding window - keep fresh observations and append new observation.
@@ -101,13 +92,28 @@ public class BluetoothReconnectStrategy: ReconnectStrategy {
             return nil
         }
 
-        LogBluetoothWarning("Observed \(observations.count) errors since \(cutoffDate).")
+        LogBluetoothWarning("Observed \(observations.count) connectivity errors since \(cutoffDate).")
 
-        // Forget everything that happened, so that once reconnections
-        // are resumed, we allow for retries again.
+        // Forget everything that happened, so that once connectivity
+        // is resumed, we allow for retries again.
         observations.removeAll()
 
-        return .suspendUntil(resumeTrigger)
+        return suspendIfSupported(error: error)
+    }
+
+    /// Creates a retry action that suspends retries until the resume trigger emits, or errors out if the resume trigger is nil.
+    private func suspendIfSupported(error: Error) -> RetryStrategyAction {
+        if let resumeTrigger = configuration.resume {
+            return .suspendUntil(
+                resumeTrigger
+                    .logInfo("Received trigger to resume connectivity:", .bluetooth, .next)
+                    .map { _ in () }
+                    .take(1)
+                    .asSingle()
+            )
+        } else {
+            return .error(error)
+        }
     }
 
     private struct Observation {
