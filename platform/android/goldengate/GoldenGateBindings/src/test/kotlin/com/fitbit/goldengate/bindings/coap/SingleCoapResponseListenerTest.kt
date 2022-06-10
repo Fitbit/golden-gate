@@ -18,6 +18,7 @@ import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
 import io.reactivex.Observer
 import io.reactivex.SingleEmitter
 import org.junit.Test
+import java.lang.ref.WeakReference
 
 class SingleCoapResponseListenerTest {
 
@@ -29,7 +30,8 @@ class SingleCoapResponseListenerTest {
 
     private val listener = SingleCoapResponseListener(
         mockRequest,
-        mockSingleEmitter
+        mockSingleEmitter,
+        WeakReference(null)
     )
 
     @Test

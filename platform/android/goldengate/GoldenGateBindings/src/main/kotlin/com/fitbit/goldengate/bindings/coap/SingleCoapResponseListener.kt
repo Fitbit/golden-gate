@@ -13,10 +13,14 @@ import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.data.RawResponseMessage
 import com.fitbit.goldengate.bindings.coap.data.ResponseCode
 import com.fitbit.goldengate.bindings.coap.data.error
+import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState.TLS_STATE_UNKNOWN
+import com.fitbit.goldengate.bindings.stack.Stack
+import com.fitbit.goldengate.bindings.stack.StackEvent.Unknown
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import java.util.concurrent.atomic.AtomicBoolean
 import timber.log.Timber
+import java.lang.ref.WeakReference
 
 /**
  * Response listener for single(non-blockwise) response message
@@ -24,6 +28,7 @@ import timber.log.Timber
 internal class SingleCoapResponseListener(
     private val request: OutgoingRequest,
     private val responseEmitter: SingleEmitter<IncomingResponse>,
+    private val stack: WeakReference<Stack?>,
     private val errorDecoder: ExtendedErrorDecoder = ExtendedErrorDecoder()
 ) : CoapResponseListener {
 
@@ -37,7 +42,12 @@ internal class SingleCoapResponseListener(
     }
 
     override fun onError(error: Int, message: String) {
-        val exception = CoapEndpointException(message, error)
+        val exception = CoapEndpointException(
+            message,
+            error,
+            lastDtlsState = stack.get()?.lastDtlsState?.value?: TLS_STATE_UNKNOWN.value,
+            lastStackEvent = stack.get()?.lastStackEvent?.eventId?: Unknown.eventId
+        )
         emitFailedCompletion(exception)
         // clean up native listener object
         cleanupNativeListener()

@@ -9,7 +9,6 @@ import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.GattlinkStackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerRole
-import com.fitbit.goldengate.node.Peer
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import org.junit.Test

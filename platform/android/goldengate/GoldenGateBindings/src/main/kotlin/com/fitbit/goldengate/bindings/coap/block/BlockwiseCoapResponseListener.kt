@@ -16,11 +16,15 @@ import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.data.RawResponseMessage
 import com.fitbit.goldengate.bindings.coap.data.ResponseCode
 import com.fitbit.goldengate.bindings.coap.data.error
+import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState.TLS_STATE_UNKNOWN
+import com.fitbit.goldengate.bindings.stack.Stack
+import com.fitbit.goldengate.bindings.stack.StackEvent.Unknown
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
 import io.reactivex.subjects.BehaviorSubject
 import java.util.concurrent.atomic.AtomicBoolean
 import timber.log.Timber
+import java.lang.ref.WeakReference
 
 /**
  * Response listener for blockwise response message. This class will receive and parse a CoAP message that
@@ -32,6 +36,7 @@ internal class BlockwiseCoapResponseListener(
     private val request: OutgoingRequest,
     private val responseEmitter: SingleEmitter<IncomingResponse>,
     private val isCoapEndpointInitialzed: AtomicBoolean,
+    private val stack: WeakReference<Stack?>,
     private val errorDecoder: ExtendedErrorDecoder = ExtendedErrorDecoder()
 ) : CoapResponseListener {
 
@@ -50,7 +55,13 @@ internal class BlockwiseCoapResponseListener(
     }
 
     override fun onError(error: Int, message: String) {
-        val exception = CoapEndpointException(message, error, data)
+        val exception = CoapEndpointException(
+            message,
+            error,
+            data,
+            lastDtlsState = stack.get()?.lastDtlsState?.value?: TLS_STATE_UNKNOWN.value,
+            lastStackEvent = stack.get()?.lastStackEvent?.eventId?: Unknown.eventId)
+
         // transmit the error to progressObserver
         request.progressObserver.onError(exception)
         if (!started) {
@@ -69,7 +80,6 @@ internal class BlockwiseCoapResponseListener(
 
     override fun onNext(message: RawResponseMessage) {
         this.data = this.data.plus(message.data)
-
         val exception = if (message.responseCode.error() && request.expectSuccess) {
             CoapEndpointResponseException(
                 message.responseCode,
