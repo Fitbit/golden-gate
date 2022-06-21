@@ -6,13 +6,13 @@ package com.fitbit.goldengate.bt
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
+import com.fitbit.bluetooth.fbgatt.exception.AlreadyStartedException
 import com.fitbit.bluetooth.fbgatt.exception.BitGattStartException
 import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
 import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
-import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.internal.functions.Functions.EMPTY_ACTION
@@ -59,13 +59,8 @@ internal class GlobalBluetoothGattInitializer(
 
     private val bluetoothStateListener = object: BaseFitbitGattCallback() {
         override fun onGattServerStarted(serverConnection: GattServerConnection?) {
-            if (isBleCentral) {
-                Timber.d("add GATT services of central mode")
-                addGattServicesForCentral()
-            } else {
-                Timber.d("add GATT services of peripheral mode")
-                addGattServicesForPeripheral()
-            }
+            // Add GATT services upon GATT server start
+            addGattServices()
         }
 
         override fun onGattClientStartError(exception: BitGattStartException?) {
@@ -74,10 +69,27 @@ internal class GlobalBluetoothGattInitializer(
 
         override fun onGattServerStartError(exception: BitGattStartException?) {
             Timber.w(exception, "Bitgatt Server failed to start")
+            if(exception is AlreadyStartedException) {
+                // Add GATT services, if bitgatt was already initialized before GG lib initialization started
+                addGattServices()
+            }
         }
 
         override fun onScannerInitError(exception: BitGattStartException?) {
             Timber.w(exception, "Bitgatt scanner failed to initialize")
+        }
+    }
+
+    /**
+     * Add GATT services if one is not already added
+     */
+    private fun addGattServices() {
+        if (isBleCentral) {
+            Timber.d("add GATT services of central mode")
+            addGattServicesForCentral()
+        } else {
+            Timber.d("add GATT services of peripheral mode")
+            addGattServicesForPeripheral()
         }
     }
 
