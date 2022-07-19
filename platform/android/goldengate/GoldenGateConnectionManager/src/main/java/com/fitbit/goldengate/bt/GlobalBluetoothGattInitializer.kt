@@ -68,10 +68,12 @@ internal class GlobalBluetoothGattInitializer(
         }
 
         override fun onGattServerStartError(exception: BitGattStartException?) {
-            Timber.w(exception, "Bitgatt Server failed to start")
             if(exception is AlreadyStartedException) {
                 // Add GATT services, if bitgatt was already initialized before GG lib initialization started
+                Timber.w("Bitgatt Server was already started")
                 addGattServices()
+            } else {
+                Timber.w(exception, "Bitgatt Server failed to start")
             }
         }
 
@@ -99,7 +101,7 @@ internal class GlobalBluetoothGattInitializer(
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { EMPTY_ACTION },
-                { Timber.e(it, "Error handling bluetooth state change") }
+                { Timber.e(it, "Error adding GATT services") }
             )
         )
     }
@@ -111,7 +113,7 @@ internal class GlobalBluetoothGattInitializer(
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { EMPTY_ACTION },
-                { Timber.e(it, "Error handling bluetooth state change") }
+                { Timber.e(it, "Error adding GATT services") }
             )
         )
     }

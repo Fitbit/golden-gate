@@ -11,7 +11,6 @@ import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.GattServerTransaction
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.rx.getGattCharacteristic
-import com.fitbit.bluetooth.fbgatt.rx.getGattService
 import com.fitbit.bluetooth.fbgatt.rx.hexString
 import com.fitbit.bluetooth.fbgatt.rx.runTxReactive
 import com.fitbit.bluetooth.fbgatt.tx.NotifyGattServerCharacteristicTransaction
@@ -30,6 +29,7 @@ import java.util.concurrent.Semaphore
 class GattCharacteristicNotifier constructor(
         private val fitbitDevice: FitbitBluetoothDevice,
         private val bitgatt: FitbitGatt = FitbitGatt.getInstance(),
+        private val getGattServerServices: () -> GetGattServerServices = { GetGattServerServices(bitgatt.server) },
         private val notifyTransactionProvider: NotifyGattServerCharacteristicTransactionProvider = NotifyGattServerCharacteristicTransactionProvider(),
         private val scheduler: Scheduler = GattCharacteristicNotifierProvider.scheduler,
         private val notifierLock: Semaphore = GattCharacteristicNotifierLock.lock
@@ -53,7 +53,8 @@ class GattCharacteristicNotifier constructor(
             characteristicId: UUID,
             data: ByteArray
     ): Completable {
-        return bitgatt.server.getGattService(serviceId)
+        return getGattServerServices().get()
+            .map { service -> service.first { it.uuid == serviceId } }
             .flatMap { service -> service.getGattCharacteristic(characteristicId) }
             /**
              * we want to run all notify operation synchronously on a dedicated single thread,
