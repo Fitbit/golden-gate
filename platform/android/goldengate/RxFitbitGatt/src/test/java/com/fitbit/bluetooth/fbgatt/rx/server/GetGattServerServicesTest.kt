@@ -21,7 +21,7 @@ class GetGattServerServicesTest {
 
     private val mockTransaction = mock<GetGattServerServicesTransaction>()
     private val mockTransactionProvider = mock<GetGattServerServicesTransactionProvider> {
-        on { provide(any(), any(), any()) } doReturn mockTransaction
+        on { provide(any(), any()) } doReturn mockTransaction
     }
 
     private val getServices = GetGattServerServices(
