@@ -10,6 +10,7 @@ import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.GattServerTransaction
 import com.fitbit.bluetooth.fbgatt.GattState
+import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.getGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.rx.hexString
 import com.fitbit.bluetooth.fbgatt.rx.runTxReactive
@@ -55,6 +56,7 @@ class GattCharacteristicNotifier constructor(
     ): Completable {
         return getGattServerServices().get()
             .map { service -> service.first { it.uuid == serviceId } }
+            .onErrorResumeNext { Single.error(GattServiceNotFoundException(serviceId)) }
             .flatMap { service -> service.getGattCharacteristic(characteristicId) }
             /**
              * we want to run all notify operation synchronously on a dedicated single thread,
