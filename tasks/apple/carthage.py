@@ -233,6 +233,12 @@ def bootstrap(ctx, platform="ios,macos"):
         developer_uncheckouts(ctx, warn=True)  # might not be there yet
         ctx.run(_carthage_bootstrap_cmd(ctx))
 
+    # FIXME: temporary hack to get around the fact that Rxbit isn't
+    # available as a Git repo, so instead we bootstrap it manually here
+    # instead of through a Cartfile reference
+    with ctx.cd("{}/external/Rxbit".format(ctx.C.ROOT_DIR)):
+      ctx.run(_carthage_bootstrap_cmd(ctx))
+
 @task(_precheck)
 def build(ctx, dependencies, platform="ios,macos", configuration="Release"):
     '''Build the specified target'''
