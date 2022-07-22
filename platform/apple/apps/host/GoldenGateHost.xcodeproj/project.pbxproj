@@ -74,7 +74,6 @@
 		75E49EA124C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E49E9F24C592AB00BEAF85 /* BluetoothConfiguration+Defaults.swift */; };
 		BF6A553B1F78532D003EC08B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553A1F78532D003EC08B /* AppDelegate.swift */; };
 		BF6A553D1F78532D003EC08B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6A553C1F78532D003EC08B /* RootViewController.swift */; };
-		BF6A55401F78532D003EC08B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A553E1F78532D003EC08B /* Main.storyboard */; };
 		BF6A55421F78532D003EC08B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6A55411F78532D003EC08B /* Assets.xcassets */; };
 		BF6A55451F78532D003EC08B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */; };
 		BFF7C2741FE2D6D300C33843 /* HelloWorldCoAPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF7C2731FE2D6D300C33843 /* HelloWorldCoAPClient.swift */; };
@@ -208,7 +207,6 @@
 		BF6A55381F78532D003EC08B /* GGHost-Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GGHost-Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF6A553A1F78532D003EC08B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF6A553C1F78532D003EC08B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		BF6A553F1F78532D003EC08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF6A55411F78532D003EC08B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6A55441F78532D003EC08B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF6A55461F78532D003EC08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -412,7 +410,6 @@
 				48C39495204A6D1E00576D8C /* GoldenGateHost-iOS-Bridging-Header.h */,
 				BF6A55461F78532D003EC08B /* Info.plist */,
 				BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */,
-				BF6A553E1F78532D003EC08B /* Main.storyboard */,
 				6DAE28951FC3E69000DB872B /* ManagedNode.swift */,
 				6DFCA5ED1FAB5C9C0022F4DB /* ManagedPeerListViewController.swift */,
 				6DFCA5E91FAA389D0022F4DB /* PairPeerViewController.swift */,
@@ -635,7 +632,6 @@
 			files = (
 				BF6A55421F78532D003EC08B /* Assets.xcassets in Resources */,
 				BF6A55451F78532D003EC08B /* LaunchScreen.storyboard in Resources */,
-				BF6A55401F78532D003EC08B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,14 +734,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BF6A553E1F78532D003EC08B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BF6A553F1F78532D003EC08B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BF6A55431F78532D003EC08B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
