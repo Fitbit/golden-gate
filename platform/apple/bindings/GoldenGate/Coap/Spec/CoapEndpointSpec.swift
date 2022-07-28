@@ -32,18 +32,24 @@ final class MockCoapMessageBody: CoapMessageBody {
 }
 
 final class CoapEndpointSpec: QuickSpec {
+    func testX() {
+        // This is here because otherwise Quick tests don't appear in Test Navigator
+    }
+
     override func spec() {
         var runLoop: GoldenGate.RunLoop!
         var transferStrategy: MockTransferStrategy!
         var transportReadiness: Observable<TransportReadiness>!
 
         func makeEndpoint() -> CoapEndpoint {
-            return try! CoapEndpoint(
-                runLoop: runLoop,
-                port: .never(),
-                transferStrategy: transferStrategy,
-                transportReadiness: transportReadiness
-            )
+            runLoop.sync {
+                return try! CoapEndpoint(
+                    runLoop: runLoop,
+                    port: .never(),
+                    transferStrategy: transferStrategy,
+                    transportReadiness: transportReadiness
+                )
+            }
         }
 
         beforeEach {
