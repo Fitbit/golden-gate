@@ -86,17 +86,27 @@ internal class GlobalBluetoothGattInitializer(
      * Add GATT services if one is not already added
      */
     private fun addGattServices() {
+        fitbitGatt.server?.let { serverConnection ->
+            // Add GATT services, if bitgatt was already initialized before GG lib initialization started
+            addGattServices(serverConnection)
+        } ?: Timber.e("Was expecting non-null GattServerConnection, since Bitgatt is already started")
+    }
+
+    /**
+     * Add GATT services if one is not already added
+     */
+    private fun addGattServices(serverConnection: GattServerConnection) {
         if (isBleCentral) {
             Timber.d("add GATT services of central mode")
-            addGattServicesForCentral()
+            addGattServicesForCentral(serverConnection)
         } else {
             Timber.d("add GATT services of peripheral mode")
-            addGattServicesForPeripheral()
+            addGattServicesForPeripheral(serverConnection)
         }
     }
 
-    private fun addGattServicesForCentral() {
-        disposeBag.add(gattServerListenerRegistrar.registerGattServerListeners(fitbitGatt.server)
+    private fun addGattServicesForCentral(serverConnection: GattServerConnection) {
+        disposeBag.add(gattServerListenerRegistrar.registerGattServerListeners(serverConnection)
             .andThen(linkControllerProvider.addLinkConfigurationService())
             .subscribeOn(Schedulers.io())
             .subscribe(
@@ -106,8 +116,8 @@ internal class GlobalBluetoothGattInitializer(
         )
     }
 
-    private fun addGattServicesForPeripheral() {
-        disposeBag.add(gattServerListenerRegistrar.registerGattServerNodeListeners(fitbitGatt.server)
+    private fun addGattServicesForPeripheral(serverConnection: GattServerConnection) {
+        disposeBag.add(gattServerListenerRegistrar.registerGattServerNodeListeners(serverConnection)
             .andThen(gattServer.addServices(gattlinkServiceProvider()))
             .andThen(gattCacheServiceHandler.addGattCacheService())
             .subscribeOn(Schedulers.io())

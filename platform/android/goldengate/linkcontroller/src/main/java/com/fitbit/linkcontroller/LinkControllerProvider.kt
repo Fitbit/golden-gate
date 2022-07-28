@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.GattServerNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
@@ -90,7 +91,8 @@ class LinkControllerProvider private constructor(
      */
     private fun registerListeners(): Completable {
         return Completable.fromCallable {
-            fitbitGatt.server.registerConnectionEventListener(linkConfigurationServiceEventListener)
+            fitbitGatt.server?.registerConnectionEventListener(linkConfigurationServiceEventListener)
+                ?: throw GattServerNotFoundException()
         }
     }
 

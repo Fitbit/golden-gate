@@ -10,6 +10,7 @@ import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.GattServerTransaction
 import com.fitbit.bluetooth.fbgatt.GattState
+import com.fitbit.bluetooth.fbgatt.rx.GattServerNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.getGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.rx.hexString
@@ -19,10 +20,10 @@ import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 import java.util.UUID
 import java.util.concurrent.Executors
 import java.util.concurrent.Semaphore
+import timber.log.Timber
 
 /**
  * Notify GATT Characteristic change
@@ -30,7 +31,9 @@ import java.util.concurrent.Semaphore
 class GattCharacteristicNotifier constructor(
         private val fitbitDevice: FitbitBluetoothDevice,
         private val bitgatt: FitbitGatt = FitbitGatt.getInstance(),
-        private val getGattServerServices: () -> GetGattServerServices = { GetGattServerServices(bitgatt.server) },
+        private val getGattServerServices: (serverConnection: GattServerConnection) -> GetGattServerServices = { serverConnection ->
+            GetGattServerServices(serverConnection)
+        },
         private val notifyTransactionProvider: NotifyGattServerCharacteristicTransactionProvider = NotifyGattServerCharacteristicTransactionProvider(),
         private val scheduler: Scheduler = GattCharacteristicNotifierProvider.scheduler,
         private val notifierLock: Semaphore = GattCharacteristicNotifierLock.lock
@@ -54,7 +57,18 @@ class GattCharacteristicNotifier constructor(
             characteristicId: UUID,
             data: ByteArray
     ): Completable {
-        return getGattServerServices().get()
+        return bitgatt.server?.let { serverConnection ->
+            notify(serverConnection, serviceId, characteristicId, data)
+        } ?: Completable.error(GattServerNotFoundException())
+    }
+
+    private fun notify(
+        serverConnection: GattServerConnection,
+        serviceId: UUID,
+        characteristicId: UUID,
+        data: ByteArray
+    ): Completable {
+        return getGattServerServices(serverConnection).get()
             .map { service -> service.first { it.uuid == serviceId } }
             .onErrorResumeNext { Single.error(GattServiceNotFoundException(serviceId)) }
             .flatMap { service -> service.getGattCharacteristic(characteristicId) }
@@ -65,7 +79,7 @@ class GattCharacteristicNotifier constructor(
              * this transaction
              */
             .observeOn(scheduler)
-            .flatMapCompletable { gattCharacteristic -> notify(data, gattCharacteristic) }
+            .flatMapCompletable { gattCharacteristic -> notify(serverConnection, data, gattCharacteristic) }
             .doOnSubscribe { Timber.d("Request to notify $characteristicId characteristic with data: ${data.hexString()}") }
             .doOnComplete { Timber.d("Success notifying $characteristicId characteristic with data: ${data.hexString()}") }
             .doOnError { Timber.w(it, "Failed to notify $characteristicId characteristic with data: ${data.hexString()}") }
@@ -74,10 +88,15 @@ class GattCharacteristicNotifier constructor(
     /**
      * Send a notification or indication that local GATT Characteristic has been updated
      */
-    private fun notify(data: ByteArray, gattCharacteristic: BluetoothGattCharacteristic): Completable {
+    private fun notify(
+        serverConnection: GattServerConnection,
+        data: ByteArray,
+        gattCharacteristic:
+        BluetoothGattCharacteristic
+    ): Completable {
         return updateGattCharacteristic(data, gattCharacteristic)
-            .flatMap { characteristic -> notifyTransactionProvider.provide(bitgatt.server, fitbitDevice, characteristic) }
-            .flatMap { gattTransaction -> gattTransaction.runTxReactive(bitgatt.server) }
+            .flatMap { characteristic -> notifyTransactionProvider.provide(serverConnection, fitbitDevice, characteristic) }
+            .flatMap { gattTransaction -> gattTransaction.runTxReactive(serverConnection) }
             .ignoreElement()
             .doFinally {
                 notifierLock.release()
