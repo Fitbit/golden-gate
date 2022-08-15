@@ -34,15 +34,17 @@ abstract class Peer<T: StackService>(val stackService: T, val peerRole: PeerRole
      * Disconnects the [Peer] if currently connected. All subscribers of the current connection will
      * have their disposables [disposed][Disposable.dispose]. This method should be [Synchronized]
      * with [connection] and [close]
+     *
+     * @param notifyPeerToDisconnect notify peer to initiate the BLE disconnection procedure
      */
-    abstract fun disconnect()
+    abstract fun disconnect(notifyPeerToDisconnect: Boolean = false)
 
     /**
      * [Disconnects][disconnect] the [Peer] and closes the [StackService] attached to the [Peer]. The [Peer]
      * should not be used after this is called.
      */
     @Synchronized
-    internal fun close() {
+    fun close() {
         disconnect()
         stackService.close()
     }

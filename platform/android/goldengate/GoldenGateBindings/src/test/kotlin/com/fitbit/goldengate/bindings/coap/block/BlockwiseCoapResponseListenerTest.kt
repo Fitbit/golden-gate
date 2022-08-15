@@ -35,12 +35,13 @@ class BlockwiseCoapResponseListenerTest {
     }
     private val mockSingleEmitter = mock<SingleEmitter<IncomingResponse>>()
     private val mockDecoder = mock<ExtendedErrorDecoder>()
+    private val mockCancellable = mock<() -> Unit>()
 
     private val listener = BlockwiseCoapResponseListener(
             mockRequest,
             mockSingleEmitter,
             mockDecoder
-    )
+    ).also { it.setCancellable(mockCancellable) }
 
     private val testCode = ResponseCode.created
     private val testData = "Hello,".toByteArray()
@@ -163,6 +164,34 @@ class BlockwiseCoapResponseListenerTest {
             it is CoapEndpointResponseException && it.responseCode == ResponseCode.internalServerError && it.extendedError == mockExtendedError
         }
         verify(mockProgressObserver).onError(any())
+    }
+
+    @Test
+    fun shouldCallCancellableWhenBodyStreamIsCancelledAfterReceivingFirstBlock() {
+        listener.onNext(testMessage)
+
+        val response = verifySuccessSignalOnResponseEmitter()
+
+        // cancel the body stream; set cancelled = true
+        response.body.asData().test(true)
+
+        verify(mockCancellable).invoke()
+    }
+
+    @Test
+    fun shouldCallCancellableWhenBodyStreamIsCancelledAfterReceivingTwoBlocks() {
+        val testData2 = " World".toByteArray()
+        val testMessage2 = RawResponseMessage(testCode, testOptions, testData2)
+
+        listener.onNext(testMessage)
+        listener.onNext(testMessage2)
+
+        val response = verifySuccessSignalOnResponseEmitter()
+
+        // cancel the body stream; set cancelled = true
+        response.body.asData().test(true)
+
+        verify(mockCancellable).invoke()
     }
 
     private fun verifySuccessSignalOnResponseEmitter(): IncomingResponse {

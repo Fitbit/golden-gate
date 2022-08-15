@@ -5,6 +5,7 @@ package com.fitbit.remoteapi
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.fitbit.goldengate.GoldenGateConnectionManagerModule
 import com.fitbit.goldengate.bindings.remote.RemoteShellThread
 import com.fitbit.goldengate.bindings.remote.WebSocketTransport
 import com.fitbit.goldengate.bindings.services.BlastService
@@ -22,11 +23,16 @@ import timber.log.Timber
 class RemoteApiActivity : AppCompatActivity() {
 
     private val EXTRA_URL = "EXTRA_URL"
+    private val IS_CENTRAL = "IS_CENTRAL"
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val isBleCentralRole: Boolean = intent.getBooleanExtra(IS_CENTRAL, true)
+        GoldenGateConnectionManagerModule.init(applicationContext, true, isBleCentralRole)
+
         setContentView(R.layout.a_remote_api)
         val url = intent.getStringExtra(EXTRA_URL)
         if (url == null) {

@@ -6,11 +6,11 @@
 #############################################################################
 
 # We require some CMake 3.19 when building with XCode 12
-# but the Android SDK ships with 3.6 so we can't force it globally (yet).
+# but the Android SDK ships with 3.10.2 so we can't force it globally (yet).
 if (CMAKE_GENERATOR MATCHES "Xcode")
     cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 else ()
-    cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
+    cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 endif ()
 
 # The project variant suffix is only in use on platforms

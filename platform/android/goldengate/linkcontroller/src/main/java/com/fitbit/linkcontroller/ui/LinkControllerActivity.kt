@@ -62,7 +62,7 @@ class LinkControllerActivity : AppCompatActivity() {
 
         setContentView(R.layout.a_linkcontroller_setup)
         val bluetoothDevice =
-            intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
+            intent.getParcelableExtra<BluetoothDevice>(EXTRA_DEVICE) as BluetoothDevice
         val controller = LinkControllerProvider.INSTANCE.getLinkController(bluetoothDevice)
         if (controller == null) {
             Toast.makeText(

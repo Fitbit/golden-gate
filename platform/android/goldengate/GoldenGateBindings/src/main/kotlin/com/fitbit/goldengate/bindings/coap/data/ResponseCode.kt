@@ -39,12 +39,12 @@ data class ResponseCode constructor(val responseClass: Byte, val detail: Byte) {
         /** CoAP Response Code 413 */ val requestEntityTooLarge     = ResponseCode(Class.clientError, 13)
         /** CoAP Response Code 415 */ val unsupportedContentFormat  = ResponseCode(Class.clientError, 15)
 
-        /** CoAP Response Code 500 */ val internalServerError       = ResponseCode(Class.serverError,0)
-        /** CoAP Response Code 501 */ val notImplemented            = ResponseCode(Class.serverError,1)
-        /** CoAP Response Code 502 */ val badGateway                = ResponseCode(Class.serverError,2)
-        /** CoAP Response Code 503 */ val serviceUnavailable        = ResponseCode(Class.serverError,3)
-        /** CoAP Response Code 504 */ val gatewayTimeout            = ResponseCode(Class.serverError,4)
-        /** CoAP Response Code 505 */ val proxyingNotSupported      = ResponseCode(Class.serverError,5)
+        /** CoAP Response Code 500 */ val internalServerError       = ResponseCode(Class.serverError, 0)
+        /** CoAP Response Code 501 */ val notImplemented            = ResponseCode(Class.serverError, 1)
+        /** CoAP Response Code 502 */ val badGateway                = ResponseCode(Class.serverError, 2)
+        /** CoAP Response Code 503 */ val serviceUnavailable        = ResponseCode(Class.serverError, 3)
+        /** CoAP Response Code 504 */ val gatewayTimeout            = ResponseCode(Class.serverError, 4)
+        /** CoAP Response Code 505 */ val proxyingNotSupported      = ResponseCode(Class.serverError, 5)
     }
 }
 

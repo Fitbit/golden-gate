@@ -19,17 +19,17 @@ android {
         ndk {
             abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
         }
-        ndkVersion "21.0.6113669"
         externalNativeBuild {
             cmake {
-                def ndkDir = android.ndkDirectory
-                arguments "-DGG_ENABLE_UNIT_TESTS=FALSE", "-DANDROID_NDK=${ndkDir}"
+                ndkVersion project.NDK_VERSION
+                arguments "-DGG_ENABLE_UNIT_TESTS=FALSE"
             }
         }
     }
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
+            version project.CMAKE_VERSION
         }
     }
     sourceSets {
@@ -41,6 +41,13 @@ android {
             jniLibs.srcDirs = ['../../../../xp/build/cmake/android/']
             test.jniLibs.srcDirs = ['../../../../xp/build/cmake/native/']
         }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/x86_64/libgg.so'
+        pickFirst 'lib/x86/libgg.so'
+        pickFirst 'lib/armeabi-v7a/libgg.so'
+        pickFirst 'lib/arm64-v8a/libgg.so'
     }
 }
 

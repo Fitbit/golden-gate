@@ -56,7 +56,7 @@ class NodeMapper internal constructor(
     @Synchronized
     fun  <K: NodeKey<*>> removeNode(nodeKey:K){
         nodeMap[nodeKey]?.let {
-            Timber.i("Removing the exisiting node with key $nodeKey")
+            Timber.i("Removing the existing node with key $nodeKey")
             it.close()
             nodeMap.remove(nodeKey)
         }

@@ -64,7 +64,7 @@ class BsdCoapActivity : AppCompatActivity() {
 
     private fun getIntentData() {
         localPort = intent.getIntExtra(EXTRA_LOCAL_PORT, 0)
-        remoteIpAddress = intent.getStringExtra(EXTRA_REMOTE_IP)
+        remoteIpAddress = intent.getStringExtra(EXTRA_REMOTE_IP).toString()
         remotePort = intent.getIntExtra(EXTRA_REMOTE_PORT, 0)
     }
 

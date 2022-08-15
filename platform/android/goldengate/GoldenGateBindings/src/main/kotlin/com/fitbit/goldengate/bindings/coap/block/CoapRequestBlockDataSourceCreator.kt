@@ -5,15 +5,16 @@ package com.fitbit.goldengate.bindings.coap.block
 
 import com.fitbit.goldengate.bindings.coap.data.BytesArrayOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.EmptyOutgoingBody
+import com.fitbit.goldengate.bindings.coap.data.FileUriOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.InputStreamOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.Method
 import com.fitbit.goldengate.bindings.coap.data.OutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 
 /**
- * Helper called from JNI to provide a convenient way of creating [BlockDataSource]
+ * Helper called from JNI to provide a convenient way of creating [BlockDataSource] for CoAP request
  */
-internal class BlockDataSourceCreator {
+internal class CoapRequestBlockDataSourceCreator {
 
     /**
      * Create a new instance of [BlockDataSource] from given message
@@ -45,6 +46,10 @@ internal class BlockDataSourceCreator {
                 request.progressObserver
             )
             is BytesArrayOutgoingBody -> BytesArrayBlockDataSource(
+                body.data,
+                request.progressObserver
+            )
+            is FileUriOutgoingBody -> FileUriBlockDataSource(
                 body.data,
                 request.progressObserver
             )

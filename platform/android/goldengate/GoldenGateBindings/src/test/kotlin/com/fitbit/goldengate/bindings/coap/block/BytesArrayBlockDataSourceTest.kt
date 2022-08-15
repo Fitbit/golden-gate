@@ -135,8 +135,5 @@ class BytesArrayBlockDataSourceTest {
         dataSource.getData(2, 3)
         verify(observer).onNext(0)
         verify(observer).onNext(2)
-
-
     }
-
 }

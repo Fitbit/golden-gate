@@ -12,6 +12,7 @@ import android.bluetooth.BluetoothGattService
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.GattServerTransaction
@@ -65,12 +66,12 @@ fun GattServerTransaction.mockGattTransactionCompletion() {
     }
 }
 
-fun GattTransaction.mockGattTransactionCompletion(result: TransactionResultStatus) {
+fun GattClientTransaction.mockGattTransactionCompletion(result: TransactionResultStatus) {
     whenever(mockTransactionResult.resultStatus).thenReturn(result)
     mockGattTransactionCompletion()
 }
 
-fun GattTransaction.mockGattTransactionCompletion() {
+fun GattClientTransaction.mockGattTransactionCompletion() {
     whenever(mockGattConnection.runTx(eq(this), any())).thenAnswer { invocation ->
         val callback = invocation.arguments[1] as GattTransactionCallback
         callback.onTransactionComplete(mockTransactionResult)
