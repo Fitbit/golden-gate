@@ -138,7 +138,7 @@ final class CoapEndpointSpec: QuickSpec {
                 }
             }
 
-            it("rejects requests when transport becomes not ready after requests started") {
+            xit("rejects requests when transport becomes not ready after requests started") {
                 transportReadiness = Observable.just(.ready)
                     .concat(
                         Observable.just(.notReady(reason: TestError.transportNotReady))
