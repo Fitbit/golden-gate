@@ -7,9 +7,9 @@ import android.bluetooth.BluetoothGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattState
-import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicException
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
+import com.fitbit.bluetooth.fbgatt.rx.dumpServicesWarning
 import com.fitbit.bluetooth.fbgatt.rx.getGattCharacteristic
 import com.fitbit.bluetooth.fbgatt.rx.getRemoteGattServiceSingle
 import com.fitbit.bluetooth.fbgatt.rx.hexString
@@ -59,7 +59,12 @@ class GattCharacteristicReader constructor(
             .flatMap { characteristic -> read(characteristic) }
             .doOnSubscribe { Timber.d("Request to read $characteristicId characteristic") }
             .doOnSuccess { data -> Timber.d("Success reading $characteristicId characteristic data: ${data.hexString()}") }
-            .doOnError { t -> Timber.w(t, "Failed reading $characteristicId characteristic") }
+            .doOnError { t ->
+                Timber.w(t, "Failed reading $characteristicId characteristic")
+                if (t is GattServiceNotFoundException) {
+                    dumpServicesWarning(gattConnection.gatt?.services)
+                }
+            }
     }
 
     private fun read(gattCharacteristic: BluetoothGattCharacteristic): Single<ByteArray> {

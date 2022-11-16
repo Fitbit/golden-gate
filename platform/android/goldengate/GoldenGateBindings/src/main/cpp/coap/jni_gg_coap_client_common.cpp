@@ -1,17 +1,17 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "jni_gg_coap_client_common.h"
-#include <jni.h>
-#include <jni_gg_loop.h>
 #include <string.h>
 #include <stdlib.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/coap/gg_coap.h>
-#include <xp/common/gg_memory.h>
-#include "../logging/jni_gg_logging.h"
-#include <xp/common/gg_strings.h>
+#include <jni.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_client_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/coap/gg_coap.h"
+#include "xp/common/gg_memory.h"
+#include "xp/common/gg_strings.h"
 
 extern "C" {
 
@@ -127,6 +127,28 @@ jobject CoapEndpoint_ResponseForResult_Object_From_Values(
     env->DeleteLocalRef(response_for_result_class);
 
     return response_for_result_object;
+}
+
+void CoapEndpoint_SetNativeListenerReference(
+    JNIEnv *env,
+    jobject listener,
+    void *_response_listener
+) {
+  GG_ASSERT(listener);
+
+  jclass listener_class = env->FindClass(COAP_RESPONSE_LISTENER_CLASS_NAME);
+  GG_ASSERT(listener_class);
+  jmethodID set_native_listener_reference_id = env->GetMethodID(
+      listener_class,
+      COAP_RESPONSE_LISTENER_SET_NATIVE_LISTENER_REFERENCE_NAME,
+      COAP_RESPONSE_LISTENER_SET_NATIVE_LISTENER_REFERENCE_SIG);
+  GG_ASSERT(set_native_listener_reference_id);
+
+  jlong response_listener = (jlong) (intptr_t) _response_listener;
+
+  env->CallVoidMethod(listener, set_native_listener_reference_id, response_listener);
+
+  env->DeleteLocalRef(listener_class);
 }
 
 }

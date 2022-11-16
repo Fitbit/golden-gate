@@ -16,7 +16,7 @@ class StagedCborHandler(override val name: String, val stages : Stages<*, *>) : 
          */
     override fun handle(requestParamsCbor: ByteArray) : ByteArray {
         val dataItems = CborDecoder.decode(requestParamsCbor)
-        Timber.i("RemoteApi received request. Request Name: $name Params: $dataItems")
+        Timber.w("RemoteApi received request. Request Name: $name Params: $dataItems")
         try {
             return stages(dataItems)
         } catch (e: RuntimeException) {

@@ -40,7 +40,7 @@ const char* const GG_String_EmptyString = "";
 +---------------------------------------------------------------------*/
 #define GG_UPPERCASE(x) (((x) >= 'a' && (x) <= 'z') ? (x)&0xdf : (x))
 #define GG_LOWERCASE(x) (((x) >= 'A' && (x) <= 'Z') ? (x)^32   : (x))
-#define GG_STRING_BUFFER_CHARS(b) ((char*)((b)+1))
+#define GG_STRING_BUFFER_CHARS(b) (b == NULL ? NULL : ((char*)((b)+1)))
 
 /*--------------------------------------------------------------------*/
 static GG_StringBuffer*

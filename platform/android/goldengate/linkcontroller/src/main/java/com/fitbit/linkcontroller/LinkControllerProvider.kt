@@ -7,7 +7,11 @@ import android.bluetooth.BluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattConnection
+import com.fitbit.bluetooth.fbgatt.rx.GattServerNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
+import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
+import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
+import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCharacteristic
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationServiceEventListener
 import io.reactivex.Completable
@@ -18,7 +22,7 @@ import io.reactivex.Completable
  * These are used to configure connection parameters between the mobile app and the peripheral device
  */
 
-class LinkControllerProvider private constructor (
+class LinkControllerProvider private constructor(
     private val fitbitGatt: FitbitGatt = FitbitGatt.getInstance(),
     private val gattServer: BitGattServer = BitGattServer(),
     private val linkConfigurationService: LinkConfigurationService = LinkConfigurationService(),
@@ -43,34 +47,31 @@ class LinkControllerProvider private constructor (
      * Get the Link controller for a specific peripheral device
      */
     @Synchronized
-    fun getLinkController(device: BluetoothDevice): LinkController? {
+    fun getLinkController(device: BluetoothDevice): LinkController {
         return linkControllersMap[device] ?: add(device)
     }
 
     @Synchronized
     fun getLinkController(gattConnection: GattConnection): LinkController {
-        return linkControllersMap[gattConnection.device.btDevice] ?: add(gattConnection)
+        return getLinkController(gattConnection.device.btDevice)
     }
 
     @Synchronized
-    private fun add(bluetoothDevice: BluetoothDevice): LinkController? {
-        val gattConnection = fitbitGatt.getConnection(bluetoothDevice)
-        return gattConnection?.let {
-            val linkController = LinkController(
-                it,
-                linkConfigurationServiceEventListener.getDataObservable(bluetoothDevice)
-            )
-            linkControllersMap[bluetoothDevice] = linkController
-            linkController
-        }
-    }
-
-    @Synchronized
-    private fun add(gattConnection: GattConnection): LinkController {
-        val bluetoothDevice = gattConnection.device.btDevice
+    private fun add(bluetoothDevice: BluetoothDevice): LinkController {
         val linkController = LinkController(
-            gattConnection,
-            linkConfigurationServiceEventListener.getDataObservable(bluetoothDevice)
+            bluetoothDevice,
+            linkConfigurationServiceEventListener.getDataObservable(
+                bluetoothDevice,
+                ClientPreferredConnectionModeCharacteristic.uuid
+            ),
+            linkConfigurationServiceEventListener.getDataObservable(
+                bluetoothDevice,
+                ClientPreferredConnectionConfigurationCharacteristic.uuid
+            ),
+            linkConfigurationServiceEventListener.getDataObservable(
+                bluetoothDevice,
+                GeneralPurposeCommandCharacteristic.uuid
+            )
         )
         linkControllersMap[bluetoothDevice] = linkController
         return linkController
@@ -90,7 +91,8 @@ class LinkControllerProvider private constructor (
      */
     private fun registerListeners(): Completable {
         return Completable.fromCallable {
-            fitbitGatt.server.registerConnectionEventListener(linkConfigurationServiceEventListener)
+            fitbitGatt.server?.registerConnectionEventListener(linkConfigurationServiceEventListener)
+                ?: throw GattServerNotFoundException()
         }
     }
 

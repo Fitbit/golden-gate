@@ -15,7 +15,8 @@ import timber.log.Timber
 
 class GattServiceRefresher(
     private val refreshTransactionProvider: GattClientRefreshGattTransactionProvider = GattClientRefreshGattTransactionProvider(),
-    private val provideBitGattPeer: (GattConnection) -> BitGattPeer = { BitGattPeer(it) }) {
+    private val provideBitGattPeer: (GattConnection) -> BitGattPeer = { BitGattPeer(it) }
+) {
 
     /**
      * Performs service refresh on the peripheral

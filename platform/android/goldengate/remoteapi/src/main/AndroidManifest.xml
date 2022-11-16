@@ -2,7 +2,8 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <application>
-        <activity android:name=".RemoteApiActivity">
+        <activity android:name=".RemoteApiActivity"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.RUN"/>
             </intent-filter>

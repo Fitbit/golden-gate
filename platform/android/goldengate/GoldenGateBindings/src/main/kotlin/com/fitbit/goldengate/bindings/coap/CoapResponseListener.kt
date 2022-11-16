@@ -42,4 +42,14 @@ internal interface CoapResponseListener {
      * Returns True if complete response if already received (either successfully or with error), False otherwise
      */
     fun isComplete(): Boolean
+
+    /**
+     * Method called to set the native reference of the jni coap listener object
+     */
+    fun setNativeListenerReference(nativeReference: Long)
+
+    /**
+     * Method called to clean up the native reference of the jni coap listener object and cancel the request if necessary
+     */
+    fun cleanupNativeListener()
 }

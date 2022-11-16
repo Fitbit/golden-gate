@@ -6,13 +6,13 @@ package com.fitbit.goldengate.bt
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
+import com.fitbit.bluetooth.fbgatt.exception.AlreadyStartedException
 import com.fitbit.bluetooth.fbgatt.exception.BitGattStartException
 import com.fitbit.bluetooth.fbgatt.rx.BaseFitbitGattCallback
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
 import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
-import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.internal.functions.Functions.EMPTY_ACTION
@@ -59,13 +59,8 @@ internal class GlobalBluetoothGattInitializer(
 
     private val bluetoothStateListener = object: BaseFitbitGattCallback() {
         override fun onGattServerStarted(serverConnection: GattServerConnection?) {
-            if (isBleCentral) {
-                Timber.d("add GATT services of central mode")
-                addGattServicesForCentral()
-            } else {
-                Timber.d("add GATT services of peripheral mode")
-                addGattServicesForPeripheral()
-            }
+            // Add GATT services upon GATT server start
+            addGattServices()
         }
 
         override fun onGattClientStartError(exception: BitGattStartException?) {
@@ -73,7 +68,13 @@ internal class GlobalBluetoothGattInitializer(
         }
 
         override fun onGattServerStartError(exception: BitGattStartException?) {
-            Timber.w(exception, "Bitgatt Server failed to start")
+            if(exception is AlreadyStartedException) {
+                // Add GATT services, if bitgatt was already initialized before GG lib initialization started
+                Timber.w("Bitgatt Server was already started")
+                addGattServices()
+            } else {
+                Timber.w(exception, "Bitgatt Server failed to start")
+            }
         }
 
         override fun onScannerInitError(exception: BitGattStartException?) {
@@ -81,25 +82,48 @@ internal class GlobalBluetoothGattInitializer(
         }
     }
 
-    private fun addGattServicesForCentral() {
-        disposeBag.add(gattServerListenerRegistrar.registerGattServerListeners(fitbitGatt.server)
+    /**
+     * Add GATT services if one is not already added
+     */
+    private fun addGattServices() {
+        fitbitGatt.server?.let { serverConnection ->
+            // Add GATT services, if bitgatt was already initialized before GG lib initialization started
+            addGattServices(serverConnection)
+        } ?: Timber.e("Was expecting non-null GattServerConnection, since Bitgatt is already started")
+    }
+
+    /**
+     * Add GATT services if one is not already added
+     */
+    private fun addGattServices(serverConnection: GattServerConnection) {
+        if (isBleCentral) {
+            Timber.d("add GATT services of central mode")
+            addGattServicesForCentral(serverConnection)
+        } else {
+            Timber.d("add GATT services of peripheral mode")
+            addGattServicesForPeripheral(serverConnection)
+        }
+    }
+
+    private fun addGattServicesForCentral(serverConnection: GattServerConnection) {
+        disposeBag.add(gattServerListenerRegistrar.registerGattServerListeners(serverConnection)
             .andThen(linkControllerProvider.addLinkConfigurationService())
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { EMPTY_ACTION },
-                { Timber.e(it, "Error handling bluetooth state change") }
+                { Timber.e(it, "Error adding GATT services") }
             )
         )
     }
 
-    private fun addGattServicesForPeripheral() {
-        disposeBag.add(gattServerListenerRegistrar.registerGattServerNodeListeners(fitbitGatt.server)
+    private fun addGattServicesForPeripheral(serverConnection: GattServerConnection) {
+        disposeBag.add(gattServerListenerRegistrar.registerGattServerNodeListeners(serverConnection)
             .andThen(gattServer.addServices(gattlinkServiceProvider()))
             .andThen(gattCacheServiceHandler.addGattCacheService())
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { EMPTY_ACTION },
-                { Timber.e(it, "Error handling bluetooth state change") }
+                { Timber.e(it, "Error adding GATT services") }
             )
         )
     }

@@ -1,12 +1,13 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <jni.h>
-#include <xp/common/gg_logging.h>
-#include <string.h>
-#include <xp/common/gg_memory.h>
-#include <stdio.h>
 #include <cassert>
+#include <jni.h>
+#include <stdio.h>
+#include <string.h>
+#include "xp/common/gg_logging.h"
+#include "xp/common/gg_memory.h"
+
 
 extern "C" {
 

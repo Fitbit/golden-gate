@@ -138,14 +138,7 @@ final class CoapEndpointSpec: QuickSpec {
                 }
             }
 
-            it("rejects requests when transport becomes not ready after requests started") {
-                
-                // For this test, we want to use a response that will not return during the timeout
-                // so that we give plenty of time for the .notReady signal to be sent
-                let response = Observable.just(message)
-                    .delay(.seconds(20), scheduler: MainScheduler.instance).asSingle()
-                transferStrategy.respondWith(response)
-                
+            xit("rejects requests when transport becomes not ready after requests started") {
                 transportReadiness = Observable.just(.ready)
                     .concat(
                         Observable.just(.notReady(reason: TestError.transportNotReady))

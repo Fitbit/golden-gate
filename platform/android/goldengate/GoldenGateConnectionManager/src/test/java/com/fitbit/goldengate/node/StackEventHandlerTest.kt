@@ -34,7 +34,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController> {
             on { setPreferredConnectionMode(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()
@@ -73,7 +73,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController> {
             on { setPreferredConnectionMode(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, false, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, false) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()
@@ -90,7 +90,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController>() {
             on { setGeneralPurposeCommand(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()
