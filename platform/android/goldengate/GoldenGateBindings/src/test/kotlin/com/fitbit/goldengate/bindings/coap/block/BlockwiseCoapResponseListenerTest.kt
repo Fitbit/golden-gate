@@ -186,11 +186,6 @@ class BlockwiseCoapResponseListenerTest {
 
         // cancel the body stream; set cancelled = true
         response.body.asData().test(true)
-<<<<<<< HEAD
-
-        verify(mockCancellable).invoke()
-=======
->>>>>>> bb-source/master
     }
 
     @Test
