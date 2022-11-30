@@ -14,17 +14,17 @@ import java.util.UUID
 /**
  * GATT client listener that listens to characteristic changes on a remote device.
  * GATT characteristic changes are available per remote device
+ *
+ * @param gattConnection [GattConnection] for the remote peripheral to listen for characteristic changes
  */
-class GattClientCharacteristicChangeListener {
+class GattClientCharacteristicChangeListener(private val gattConnection: GattConnection) {
 
     /**
      * Register a listener for GATT client characteristic changes
      *
-     * @param gattConnection [GattConnection] for the remote peripheral to listen for characteristic changes
      * @param characteristicUuid characteristic id on remote device to listen changes for
      */
     fun register(
-        gattConnection: GattConnection,
         characteristicUuid: UUID
     ): Observable<ByteArray> {
         return Observable.create<ByteArray> { emitter ->

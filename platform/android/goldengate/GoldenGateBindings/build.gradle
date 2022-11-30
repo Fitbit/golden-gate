@@ -49,6 +49,10 @@ android {
         pickFirst 'lib/armeabi-v7a/libgg.so'
         pickFirst 'lib/arm64-v8a/libgg.so'
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/unix/'
@@ -110,7 +114,7 @@ dependencies {
     implementation "androidx.annotation:annotation:$ANDROIDX_APPCOMPAT_VERSION"
     implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
     implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
-    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:okhttp:$OK_HTTP"
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
     ktlint "com.github.shyiko:ktlint:0.14.0"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"

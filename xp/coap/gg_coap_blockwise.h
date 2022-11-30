@@ -89,9 +89,9 @@ typedef struct {
 typedef struct {
     uint32_t                block_type;           ///< GG_COAP_MESSAGE_OPTION_BLOCK1 or GG_COAP_MESSAGE_OPTION_BLOCK2
     size_t                  next_offset;          ///< Next expected block offset
-    bool                    done;                 ///< True when we've received the last block
+    bool                    done;                 ///< True when we've received the last block (BLOCK1 only)
     size_t                  preferred_block_size; ///< Preferred block size
-    GG_CoapMessageBlockInfo block_info;           ///< Last parsed BLOCK1 option
+    GG_CoapMessageBlockInfo block_info;           ///< Last parsed BLOCK1/BLOCK2 option
     uint8_t                 etag[GG_COAP_MESSAGE_MAX_ETAG_OPTION_SIZE]; ///< ETag for the transfer session
     size_t                  etag_size;                                  ///< ETag size
 } GG_CoapBlockwiseServerHelper;

@@ -4,7 +4,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
 }
 
 def hostVersionCode = System.getenv("BUILD_NUMBER") != null ? System.getenv("BUILD_NUMBER").toInteger() : DEV_VERSION.toInteger()

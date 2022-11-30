@@ -16,5 +16,10 @@ if(GG_CONFIG_ENABLE_PER_PID_SOCKETPAIR_FD)
     target_compile_definitions(gg-loop PUBLIC GG_CONFIG_ENABLE_PER_PID_SOCKETPAIR_FD)
 endif()
 
+option(GG_CONFIG_ENABLE_DETACHED_SOCKETS "Enable detached sockets FD (nuttx)" FALSE)
+if(GG_CONFIG_ENABLE_DETACHED_SOCKETS)
+    target_compile_definitions(gg-loop PUBLIC GG_CONFIG_ENABLE_DETACHED_SOCKETS)
+endif()
+
 target_sources(gg-loop PRIVATE ports/bsd/gg_bsd_select_loop.c
                                extensions/gg_loop_fd.h)

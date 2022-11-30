@@ -4,6 +4,7 @@
 package com.fitbit.goldengate.node
 
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceDiscoverer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidator
@@ -11,7 +12,6 @@ import com.fitbit.goldengate.bt.gatt.client.services.GenericAttributeService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
-import com.fitbit.goldengate.bt.gatt.util.dumpServices
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Scheduler
@@ -25,6 +25,9 @@ import java.util.concurrent.atomic.AtomicInteger
 internal const val MAX_RETRY_ATTEMPTS = 3
 internal const val LINK_UP_TIMEOUT_SECONDS = 60L
 
+// add delay after GATT refresh and before discovery as refresh is a async call, and we want to give it little time to complete b4 calling discovery again
+internal const val GATT_SERVICE_REFRESH_DELAY_IN_SEC = 2L
+
 /**
  * Utility class to establish a link with given CONNECTED Node
  */
@@ -32,6 +35,7 @@ internal class LinkupWithPeerNodeHandler(
     private val peerGattServiceSubscriber: PeerGattServiceSubscriber = PeerGattServiceSubscriber(),
     private val gattDatabaseValidator: GattDatabaseValidator = GattDatabaseValidator(),
     private val gattServiceRefresher: GattServiceRefresher = GattServiceRefresher(),
+    private val gattServiceDiscoverer: GattServiceDiscoverer = GattServiceDiscoverer(),
     private val maxRetryAttempts: Int = MAX_RETRY_ATTEMPTS,
     private val linkUpTimeoutSeconds: Long = LINK_UP_TIMEOUT_SECONDS,
     private val timeoutScheduler: Scheduler = Schedulers.computation()
@@ -73,17 +77,16 @@ internal class LinkupWithPeerNodeHandler(
                         Flowable.timer(retryCount * 2000L, TimeUnit.MILLISECONDS, Schedulers.computation())
                     }
             }
-            .onErrorResumeNext {
-                Timber.e("Failed to validate the gatt service")
+            .onErrorResumeNext { error ->
+                Timber.e(error, "Failed to validate the gatt service")
                 refreshServices(peer)
-                    .andThen(discoverServices(peer)) }
+                    .andThen(Completable.timer(GATT_SERVICE_REFRESH_DELAY_IN_SEC, TimeUnit.SECONDS))
+                    .andThen(discoverServices(peer))
+            }
     }
 
     private fun discoverServices(peer: BitGattPeer): Completable = Completable.defer {
-        peer.discoverServices()
-            .doOnSuccess { dumpServices(peer.services) }
-            .doOnError { Timber.w(it, "Error discovering services on $peer") }
-            .ignoreElement()
+        gattServiceDiscoverer.discover(peer.gattConnection).ignoreElement()
     }
 
     private fun subscribeToGenericAttribute(peer: BitGattPeer): Completable {
@@ -121,8 +124,5 @@ internal class LinkupWithPeerNodeHandler(
     }
 
     private fun refreshServices(peer: BitGattPeer): Completable =
-        gattServiceRefresher
-            .refresh(peer.gattConnection)
-            .doOnError { Timber.w(it, "Fail to refresh services on $peer") }
-            .doOnComplete { Timber.d("Successfully refresh services on $peer") }
+        gattServiceRefresher.refresh(peer.gattConnection)
 }

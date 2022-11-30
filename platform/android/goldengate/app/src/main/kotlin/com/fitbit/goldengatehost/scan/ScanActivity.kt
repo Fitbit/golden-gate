@@ -7,23 +7,30 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.goldengate.bindings.io.BLASTER_DEFAULT_PACKET_SIZE
 import com.fitbit.goldengate.bindings.io.EXTRA_BLAST_PACKET_SIZE
 import com.fitbit.goldengatehost.EXTRA_STACK_CONFIG
 import com.fitbit.goldengatehost.R
-import kotlinx.android.synthetic.main.activity_scan.toolbar
 
 const val EXTRA_LAUNCH_CLASS = "launchClass"
 const val EXTRA_DEVICE = "extra_device"
 
 class ScanActivity : AppCompatActivity(), ScanFragment.ScanListener {
 
+    private lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan)
+        bindViews()
         setSupportActionBar(toolbar)
+    }
 
+    private fun bindViews() {
+        toolbar = ActivityCompat.requireViewById(this, R.id.toolbar)
     }
 
     override fun onScanItemClick(connection: GattConnection) {

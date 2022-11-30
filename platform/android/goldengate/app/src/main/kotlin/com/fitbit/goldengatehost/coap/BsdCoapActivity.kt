@@ -4,8 +4,12 @@
 package com.fitbit.goldengatehost.coap
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import com.fitbit.goldengate.bindings.coap.CoapEndpoint
 import com.fitbit.goldengate.bindings.coap.CoapEndpointProvider
 import com.fitbit.goldengate.bindings.coap.data.IncomingResponse
@@ -23,10 +27,6 @@ import com.fitbit.goldengatehost.coap.handler.removeAllAvailableCoapHandlers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_bsd_coap.toolbar
-import kotlinx.android.synthetic.main.content_bsd_coap.coap_message_text_view
-import kotlinx.android.synthetic.main.content_bsd_coap.coap_mode_text_view
-import kotlinx.android.synthetic.main.content_bsd_coap.get_hello_world_btn
 import java.net.Inet4Address
 import java.net.InetSocketAddress
 
@@ -41,10 +41,15 @@ class BsdCoapActivity : AppCompatActivity() {
     private var remotePort: Int = 0
     private lateinit var remoteIpAddress: String
     private lateinit var bsdDatagramSocketAddress: BsdDatagramSocketAddress
+    private lateinit var coapMessageTextView: TextView
+    private lateinit var coapModeTextView: TextView
+    private lateinit var getHelloWorldBtn: Button
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bsd_coap)
+        bindViews()
         setSupportActionBar(toolbar)
 
         getIntentData()
@@ -52,6 +57,13 @@ class BsdCoapActivity : AppCompatActivity() {
 
         createEndpoint()
         addAllAvailableCoapHandlers(disposeBag, endpoint)
+    }
+
+    private fun bindViews() {
+        coapMessageTextView = ActivityCompat.requireViewById(this, R.id.coap_message_text_view)
+        coapModeTextView = ActivityCompat.requireViewById(this, R.id.coap_mode_text_view)
+        getHelloWorldBtn = ActivityCompat.requireViewById(this, R.id.get_hello_world_btn)
+        toolbar = ActivityCompat.requireViewById(this, R.id.toolbar)
     }
 
     override fun onDestroy() {
@@ -84,13 +96,13 @@ class BsdCoapActivity : AppCompatActivity() {
         } else {
             "Client and Server Only"
         }
-        coap_mode_text_view.text = "Coap Mode: $mode"
+        coapModeTextView.text = "Coap Mode: $mode"
     }
 
     private fun setupAvailableClientCalls() {
-        coap_message_text_view.visibility = View.VISIBLE
-        get_hello_world_btn.visibility = View.VISIBLE
-        get_hello_world_btn.setOnClickListener { setGetHelloWorldClickHandler() }
+        coapMessageTextView.visibility = View.VISIBLE
+        getHelloWorldBtn.visibility = View.VISIBLE
+        getHelloWorldBtn.setOnClickListener { setGetHelloWorldClickHandler() }
     }
 
     private fun createEndpoint() {
@@ -142,7 +154,7 @@ class BsdCoapActivity : AppCompatActivity() {
     }
 
     private fun updateResponseMessage(message: String) {
-        coap_message_text_view.text = message
+        coapMessageTextView.text = message
     }
 
     override fun onStop() {

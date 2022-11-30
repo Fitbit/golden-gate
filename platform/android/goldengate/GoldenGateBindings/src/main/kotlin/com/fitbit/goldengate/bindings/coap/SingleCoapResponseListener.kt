@@ -15,6 +15,7 @@ import com.fitbit.goldengate.bindings.coap.data.ResponseCode
 import com.fitbit.goldengate.bindings.coap.data.error
 import io.reactivex.Single
 import io.reactivex.SingleEmitter
+import java.util.concurrent.atomic.AtomicBoolean
 import timber.log.Timber
 
 /**
@@ -27,6 +28,8 @@ internal class SingleCoapResponseListener(
 ) : CoapResponseListener {
 
     private var completed: Boolean = false
+    private var nativeResponseListenerReference: Long = 0L
+    private val isResponseObjectCleanUpNeeded = AtomicBoolean(true)
 
     override fun onAck() {
         // Just logging for now
@@ -36,6 +39,8 @@ internal class SingleCoapResponseListener(
     override fun onError(error: Int, message: String) {
         val exception = CoapEndpointException(message, error)
         emitFailedCompletion(exception)
+        // clean up native listener object
+        cleanupNativeListener()
     }
 
     override fun onNext(message: RawResponseMessage) {
@@ -46,6 +51,8 @@ internal class SingleCoapResponseListener(
             val response = createIncomingResponse(message)
             emitSuccessfulCompletion(response)
         }
+        // clean up native listener object
+        cleanupNativeListener()
     }
 
     override fun onComplete() {
@@ -53,6 +60,21 @@ internal class SingleCoapResponseListener(
     }
 
     override fun isComplete() = completed
+
+    override fun setNativeListenerReference(nativeReference: Long) {
+        nativeResponseListenerReference = nativeReference
+    }
+
+    /**
+     * Cancel and clean up native coap listener object
+     */
+    override fun cleanupNativeListener() {
+        if (isResponseObjectCleanUpNeeded.getAndSet(false) && nativeResponseListenerReference != 0L) {
+            cancelResponse(
+                nativeResponseListenerReference
+            )
+        }
+    }
 
     private fun createIncomingResponse(message: RawResponseMessage): IncomingResponse {
         return object : IncomingResponse {
@@ -86,4 +108,7 @@ internal class SingleCoapResponseListener(
         request.progressObserver.onComplete()
     }
 
+    private external fun cancelResponse(
+        nativeResponseListenerReference: Long
+    ): Int
 }

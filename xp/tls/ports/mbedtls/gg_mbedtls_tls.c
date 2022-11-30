@@ -115,6 +115,9 @@ struct GG_DtlsProtocol {
 /*----------------------------------------------------------------------
 |   forward declarations
 +---------------------------------------------------------------------*/
+#ifndef MBEDTLS_DEPRECATED_REMOVED
+#define mbedtls_ssl_get_output_max_frag_len mbedtls_ssl_get_max_frag_len
+#endif
 static void GG_DtlsProtocol_AdvanceHandshake(GG_DtlsProtocol* self);
 static void GG_DtlsProtocol_TransportSide_TryToFlush(GG_DtlsProtocol* self);
 

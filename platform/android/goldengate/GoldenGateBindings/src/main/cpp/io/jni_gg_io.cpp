@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <string.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/common/gg_port.h>
-#include <xp/common/gg_memory.h>
-#include "jni_gg_io.h"
-#include <jni_gg_loop.h>
-#include <logging/jni_gg_logging.h>
-#include <util/jni_gg_utils.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/io/jni_gg_io.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/common/gg_port.h"
+#include "xp/common/gg_memory.h"
 
 extern "C" {
 

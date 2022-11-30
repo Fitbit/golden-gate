@@ -1,9 +1,9 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <util/jni_gg_native_reference.h>
-#include <xp/common/gg_port.h>
-#include <xp/common/gg_memory.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
+#include "xp/common/gg_port.h"
+#include "xp/common/gg_memory.h"
 
 NativeReferenceWrapper* createNativeReferenceWrapper(
         JNIEnv* env,

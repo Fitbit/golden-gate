@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include <xp/module/gg_module.h>
-#include <xp/common/gg_common.h>
 #include <gtest/gtest.h>
-#include <jni_gg.h>
-#include "jni_gg_test_harness.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
+#include "xp/module/gg_module.h"
+#include "xp/common/gg_common.h"
 
 TEST(GG_Module, Initialize) {
     GG_Result result = Java_com_fitbit_goldengate_bindings_GoldenGate_initModulesJNI(getJNIEnv(), NULL);

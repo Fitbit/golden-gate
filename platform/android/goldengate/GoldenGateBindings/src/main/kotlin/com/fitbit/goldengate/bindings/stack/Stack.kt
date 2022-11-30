@@ -6,6 +6,8 @@ package com.fitbit.goldengate.bindings.stack
 import androidx.annotation.Keep
 import androidx.annotation.VisibleForTesting
 import com.fitbit.goldengate.bindings.DataSinkDataSource
+import com.fitbit.goldengate.bindings.GoldenGateNativeException
+import com.fitbit.goldengate.bindings.GoldenGateNativeResult
 import com.fitbit.goldengate.bindings.NativeReference
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
 import com.fitbit.goldengate.bindings.dtls.TlsKeyResolver
@@ -67,7 +69,8 @@ class Stack constructor(
             TlsKeyResolverRegistry.resolvers
         )
         if(stackCreationResult.result < 0 ) {
-            throw IllegalStateException("Failed to create stack, error code: ${stackCreationResult.result}")
+            val error = GoldenGateNativeResult.getNativeResultFrom(stackCreationResult.result)
+            throw GoldenGateNativeException(error.title, stackCreationResult.result)
         } else {
             return stackCreationResult.stackPointer
         }

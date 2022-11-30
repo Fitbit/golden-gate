@@ -30,9 +30,9 @@ the SDK manager.
     else:
         profiles = [profile]
 
-    ndk_version = "21.0.6113669"
+    ndk_version = "23.0.7599858"
     toolchain = "{}/ndk/{}/build/cmake/android.toolchain.cmake".format(ctx.android.sdk, ndk_version)
-    generator = "Ninja"
+    generator = "'Ninja'"
 
     for arch in profiles:
         profile = "android/{}".format(arch)
