@@ -66,8 +66,14 @@ def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmak
             print("!!! Sonarqube wrapper not installed ({}), will not run analysis. See https://docs.sonarqube.org/latest/analysis/languages/cfamily".format(wrapper_bin))
             build_wrapper = ""
 
+    # Select the target to build
+    if target:
+        build_target = ' --target "{}"'.format(target)
+    else:
+        build_target = ''
+
     # Run the build
-    ctx.run("{}cmake --build {}".format(build_wrapper, build_dir), pty=(sys.platform != 'win32'))
+    ctx.run("{}cmake --build {}{}".format(build_wrapper, build_dir, build_target), pty=(sys.platform != 'win32'))
 
 @task
 def clean(ctx):

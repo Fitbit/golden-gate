@@ -479,6 +479,11 @@ GG_DtlsProtocol_UserSide_SetDataSink(GG_DataSource* _self, GG_DataSink* sink)
     // register as a listener
     if (sink) {
         GG_DataSink_SetListener(sink, GG_CAST(&self->user_side, GG_DataSinkListener));
+
+        // if we have a session, process any pending data on the user side
+        if (self->state == GG_TLS_STATE_SESSION) {
+            GG_DtlsProtocol_UserSide_PumpData(self);
+        }
     }
 
     return GG_SUCCESS;

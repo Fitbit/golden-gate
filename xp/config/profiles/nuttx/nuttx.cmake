@@ -3,6 +3,7 @@
 
 # Enable/Disable groups
 set(GG_ENABLE_APPS FALSE CACHE BOOL "")
+set(GG_ENABLE_EXAMPLES FALSE CACHE BOOL "")
 set(GG_ENABLE_UNIT_TESTS FALSE CACHE BOOL "")
 
 # Shared configuation options

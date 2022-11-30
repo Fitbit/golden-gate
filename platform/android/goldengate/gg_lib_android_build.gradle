@@ -30,3 +30,20 @@ android {
         }
     }
 }
+
+artifactory {
+    publish {
+        contextUrl = artifactory_url
+        repository {
+            // The Artifactory repository key to publish to
+            repoKey = artifactory_repokey
+            username = artifactory_username
+            password = artifactory_password
+        }
+        defaults {
+            publications('aar')
+            publishArtifacts = true
+            publishPom = true
+        }
+    }
+}

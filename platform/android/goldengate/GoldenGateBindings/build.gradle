@@ -56,7 +56,7 @@ def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/
 task buildNativeXpLibrary(type: Exec) {
     workingDir projectDir.absolutePath + '../../../../..' //Root dir of golden-gate project
     commandLine 'invoke'
-    args 'native.build'
+    args 'native.build', '-t', 'gg'
 }
 
 task makeUnixBuildDir() {
