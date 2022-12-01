@@ -5,13 +5,19 @@ package com.fitbit.goldengate.bt
 
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
+import com.fitbit.bluetooth.fbgatt.exception.AlreadyStartedException
 import com.fitbit.bluetooth.fbgatt.exception.BluetoothNotEnabledException
 import com.fitbit.bluetooth.fbgatt.rx.server.BitGattServer
 import com.fitbit.goldengate.bt.gatt.GattServerListenerRegistrar
 import com.fitbit.goldengate.bt.gatt.server.services.gattcache.GattCacheServiceHandler
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.linkcontroller.LinkControllerProvider
-import com.nhaarman.mockitokotlin2.*
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.doNothing
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.times
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
@@ -67,6 +73,15 @@ class GlobalBluetoothGattInitializerTest {
     }
 
     @Test
+    fun `should start bitgatt as ble central and add link configuration if bitgatt had already started`() {
+        mockinitLinkControllerModule()
+
+        initializer.start(mockContext, true)
+        callbackCaptor.value.onGattServerStartError(AlreadyStartedException())
+        verifyInitLinkControllerCalled()
+    }
+
+    @Test
     fun `should start bitgatt as central and not add link Configuration if bitgatt start fails`() {
         mockinitLinkControllerModule()
 
@@ -79,6 +94,14 @@ class GlobalBluetoothGattInitializerTest {
     fun `should start bitgatt as peripheral and then add gattlink and gatt cache services`() {
         initializer.start(mockContext, false)
         callbackCaptor.value.onGattServerStarted(mock())
+        verifyInitGattlinkCalled()
+        verifyInitGattCacheServiceCalled()
+    }
+
+    @Test
+    fun `should start bitgatt as peripheral and then add gattlink and gatt cache services bitgatt had already started`() {
+        initializer.start(mockContext, false)
+        callbackCaptor.value.onGattServerStartError(AlreadyStartedException())
         verifyInitGattlinkCalled()
         verifyInitGattCacheServiceCalled()
     }

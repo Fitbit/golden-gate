@@ -24,6 +24,7 @@ import io.reactivex.Observer
 import io.reactivex.SingleEmitter
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.lang.ref.WeakReference
 import java.util.Arrays
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.test.assertFalse
@@ -40,10 +41,11 @@ class BlockwiseCoapResponseListenerTest {
     private val isResponseObjectCleanUpNeeded = AtomicBoolean()
 
     private val listener = BlockwiseCoapResponseListener(
-            mockRequest,
-            mockSingleEmitter,
-            isResponseObjectCleanUpNeeded,
-            mockDecoder,
+        mockRequest,
+        mockSingleEmitter,
+        isResponseObjectCleanUpNeeded,
+        WeakReference(null),
+        mockDecoder,
     )
 
     private val testCode = ResponseCode.created

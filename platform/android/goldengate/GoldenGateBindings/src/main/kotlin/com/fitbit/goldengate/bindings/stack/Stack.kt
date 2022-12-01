@@ -10,6 +10,8 @@ import com.fitbit.goldengate.bindings.GoldenGateNativeException
 import com.fitbit.goldengate.bindings.GoldenGateNativeResult
 import com.fitbit.goldengate.bindings.NativeReference
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
+import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState
+import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus.TlsProtocolState.TLS_STATE_UNKNOWN
 import com.fitbit.goldengate.bindings.dtls.TlsKeyResolver
 import com.fitbit.goldengate.bindings.dtls.TlsKeyResolverRegistry
 import com.fitbit.goldengate.bindings.node.NodeKey
@@ -47,6 +49,9 @@ class Stack constructor(
     private val stackClosed = AtomicBoolean(false) //Not the same as !stackStarted.get() because Stacks aren't reusable.
     private val dtlsEventSubject = BehaviorSubject.create<DtlsProtocolStatus>()
     private val stackEventSubject = BehaviorSubject.create<StackEvent>()
+
+    var lastDtlsState: TlsProtocolState = TLS_STATE_UNKNOWN
+    var lastStackEvent: StackEvent = StackEvent.Unknown
 
     override val thisPointer: Long
 
@@ -163,6 +168,7 @@ class Stack constructor(
     fun onDtlsStatusChange(tlsState: Int, tlsLastError: Int, pskIdentity: ByteArray) {
         Timber.d("DTLS state change received tlsState: $tlsState, tlsLastError: $tlsLastError, pskIdentity: $pskIdentity")
         val dtlsProtocolStatus = DtlsProtocolStatus(tlsState, tlsLastError, String(pskIdentity))
+        lastDtlsState = dtlsProtocolStatus.state
         dtlsEventSubject.onNext(dtlsProtocolStatus)
     }
 
@@ -171,6 +177,7 @@ class Stack constructor(
     fun onStackEvent(eventId: Int, data: Int) {
         Timber.d("Received StackEvent $eventId")
         val stackEvent = StackEvent.parseStackEvent(eventId, data)
+        lastStackEvent = stackEvent
         stackEventSubject.onNext(stackEvent)
     }
 

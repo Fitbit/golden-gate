@@ -124,7 +124,7 @@ class StackTest : BaseTest() {
 
     @Test
     fun canAttachBlaster() {
-        Stack(mockNodeKey, txSink.thisPointer, rxSource.thisPointer, SocketNetifGattlink()).use { stack ->
+        Stack(mockNodeKey, txSink.thisPointer, rxSource.thisPointer, SocketNetifGattlink()).use {
             val blaster = Blaster(true)
             blaster.close()
         }
