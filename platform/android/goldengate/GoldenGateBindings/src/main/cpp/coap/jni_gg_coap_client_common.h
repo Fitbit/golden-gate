@@ -1,7 +1,7 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
 
 #ifndef JNI_GG_COAP_CLIENT_COMMON_H
 #define JNI_GG_COAP_CLIENT_COMMON_H
@@ -51,6 +51,18 @@ jobject CoapEndpoint_ResponseForResult_Object_From_Values(
         JNIEnv *env,
         GG_Result result,
         void *response_listener
+);
+
+/**
+ * Helper method to invoke setNativeReference method on provided listener
+ *
+ * @param listener reference to kotlin CoapResponseListener object
+ * @param native response listener reference
+ */
+void CoapEndpoint_SetNativeListenerReference(
+    JNIEnv *env,
+    jobject listener,
+    void *_response_listener
 );
 
 }

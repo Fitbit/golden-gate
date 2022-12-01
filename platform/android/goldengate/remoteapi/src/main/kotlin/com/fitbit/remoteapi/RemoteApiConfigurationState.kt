@@ -110,7 +110,7 @@ class RemoteApiConfigurationState(
                     .connection()
                     .subscribeOn(Schedulers.io())
                     .subscribe(
-                            { Timber.i("Connected to device: $macAddress") },
+                            { Timber.w("Connected to device: $macAddress") },
                             { Timber.e(it, "Error connecting to $macAddress via remote api") }
                     )
         )

@@ -18,6 +18,8 @@
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
+#include <stdlib.h>
+
 #include "xp/common/gg_memory.h"
 #include "xp/common/gg_results.h"
 #include "xp/module/gg_module.h"

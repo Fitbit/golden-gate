@@ -1,16 +1,16 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "jni_gg_socket_address.h"
 #include <string.h>
 #include <stdlib.h>
-#include <jni_gg_loop.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/common/gg_port.h>
-#include <logging/jni_gg_logging.h>
-#include <xp/sockets/gg_sockets.h>
-#include <xp/common/gg_memory.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/sockets/jni_gg_socket_address.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/common/gg_port.h"
+#include "xp/sockets/gg_sockets.h"
+#include "xp/common/gg_memory.h"
 
 extern "C" {
 

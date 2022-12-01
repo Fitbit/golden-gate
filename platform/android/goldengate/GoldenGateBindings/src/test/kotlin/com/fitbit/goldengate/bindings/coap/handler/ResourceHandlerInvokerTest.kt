@@ -20,7 +20,7 @@ internal class ResourceHandlerInvokerTest {
     private val mockRawRequestMessage = mock<RawRequestMessage>()
     private val mockResponse = mock<OutgoingResponse>()
 
-    private val invoker = ResourceHandlerInvoker(mockResourceHandler)
+    private val invoker = ResourceHandlerInvoker(mockResourceHandler) { System.currentTimeMillis() }
 
     @Before
     fun setup() {

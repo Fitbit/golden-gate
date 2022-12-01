@@ -32,6 +32,7 @@ class OpaqueOptionValue(val value: Opaque) : OptionValue()
  * The Content-Format Option indicates the representation format of the message payload.
  * These are the supported value for [ContentFormatOption] and [AcceptOption] coap options
  */
+@SuppressWarnings("ImmutableEnum")
 enum class FormatOptionValue(val intValue: IntOptionValue) {
     TEXT_PLAIN(IntOptionValue(0)),
     LINK_FORMAT(IntOptionValue(40)),

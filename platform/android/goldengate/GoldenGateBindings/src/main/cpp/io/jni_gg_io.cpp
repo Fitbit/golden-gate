@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <string.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/common/gg_port.h>
-#include <xp/common/gg_memory.h>
-#include "jni_gg_io.h"
-#include <jni_gg_loop.h>
-#include <logging/jni_gg_logging.h>
-#include <util/jni_gg_utils.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/io/jni_gg_io.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/common/gg_port.h"
+#include "xp/common/gg_memory.h"
 
 extern "C" {
 
@@ -105,8 +105,19 @@ static GG_Result RxSource_SetDataSink(GG_DataSource* _self, GG_DataSink *dataSin
     return GG_SUCCESS;
 }
 
+static void
+RxSource_OnCanPut(GG_DataSinkListener* _self)
+{
+    // nothing to do, in this implementation we don't keep a pending buffer queue
+    GG_COMPILER_UNUSED(_self);
+}
+
 GG_IMPLEMENT_INTERFACE(RxSource, GG_DataSource) {
-    RxSource_SetDataSink
+    .SetDataSink = RxSource_SetDataSink
+};
+
+GG_IMPLEMENT_INTERFACE(RxSource, GG_DataSinkListener) {
+    .OnCanPut = RxSource_OnCanPut
 };
 
 JNIEXPORT jlong
@@ -117,6 +128,7 @@ Java_com_fitbit_goldengate_bindings_io_RxSource_create(
     RxSource *transportSource = (RxSource *) GG_AllocateZeroMemory(sizeof(RxSource));
     GG_Log_JNI("RxSource", "Creating RxSource");
     GG_SET_INTERFACE(transportSource, RxSource, GG_DataSource);
+    GG_SET_INTERFACE(transportSource, RxSource, GG_DataSinkListener);
     return (jlong) (intptr_t) transportSource;
 }
 
@@ -172,8 +184,8 @@ Java_com_fitbit_goldengate_bindings_io_RxSource_receiveData(
 
     RxSourceDataArgs args = {
             .rxSource = source,
-            .data = buffer,
-            .dataSize = size
+            .dataSize = size,
+            .data = buffer
     };
 
     GG_Result result;

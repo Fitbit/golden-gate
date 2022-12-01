@@ -1,17 +1,16 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
-
-#include "jni_gg_coap_common.h"
-#include <jni.h>
-#include <jni_gg_loop.h>
 #include <string.h>
 #include <stdlib.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/coap/gg_coap.h>
-#include <xp/common/gg_memory.h>
-#include <xp/common/gg_strings.h>
-#include <platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h>
+#include <jni.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/coap/gg_coap.h"
+#include "xp/common/gg_memory.h"
+#include "xp/common/gg_strings.h"
 
 extern "C" {
 
@@ -311,7 +310,7 @@ static GG_CoapMessageOption CoapEndpoint_GG_CoapMessageOption_Opaque_From_Values
      * Creating a copy of opaque value, options param should release this when its is no
      * longer needed (see: CoapEndpoint_ReleaseOptionParam)
      */
-    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(sizeof(jbyte));
+    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(option_value_size * sizeof(jbyte));
     GG_ASSERT(option_value_byte);
     env->GetByteArrayRegion(
             option_value,

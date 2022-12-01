@@ -32,6 +32,12 @@
 #include "xp/utils/gg_perf_data_sink.h"
 #include "xp/services/blast/gg_blast_service.h"
 #include "xp/services/stack/gg_stack_service.h"
+#include "xp/services/test_server/gg_coap_test_service.h"
+#include "xp/remote/gg_remote.h"
+#include "xp/remote/transport/serial/gg_remote_parser.h"
+#include "xp/remote/transport/serial/gg_remote_serial.h"
+#include "xp/remote/transport/serial/gg_remote_serial_io.h"
+#include "xp/smo/gg_smo_allocator.h"
 
 #include "nvm.h"
 
@@ -64,6 +70,8 @@ GG_SET_LOCAL_LOGGER("mynewt.gg-tool");
 #define GG_LOOP_TASK_STACK_SIZE             (OS_STACK_ALIGN(1024))
 #endif
 #define GG_LOOP_TASK_PRIORITY               (0x0F)
+#define GG_REMOTE_SHELL_TASK_STACK_SIZE     (OS_STACK_ALIGN(512))
+#define GG_REMOTE_SHELL_TASK_PRIORITY       (0x0E)
 
 #define GG_STACK_DTLS_KEY_SIZE              (16)
 
@@ -76,8 +84,6 @@ GG_SET_LOCAL_LOGGER("mynewt.gg-tool");
 #define GG_CMD_STRING                       "gg"
 #define GG_AUTO_CONNECT_CMD_STRING          "bt/autoconnect"
 #define GG_CONN_PARAMS_CMD_STRING           "bt/set_connection_parameters"
-#define GG_COAP_SYNC_DUMP_CMD_STRING        "coap/sync/dump"
-#define GG_COAP_SYNC_RESPONSE_CMD_STRING    "coap/sync/response"
 #define GG_COAP_HELLOWORLD_CMD_STRING       "coap/helloworld"
 #define GG_COAP_CLIENT_CMD_STRING           "coap/client"
 
@@ -165,6 +171,46 @@ typedef struct {
 } StaticPskResolver;
 
 typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} HelloWorldHandler;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+
+    unsigned int counter;
+} CounterHandler;
+
+typedef GG_Result (*BtHandlerMethod)(GG_RemoteSmoHandler* _self,
+                                     const char*          request_method,
+                                     Fb_Smo*              request_params,
+                                     GG_JsonRpcErrorCode* rpc_error_code,
+                                     Fb_Smo**             rpc_result);
+typedef struct {
+    char *method_string;
+    BtHandlerMethod method_func;
+} BtHandlerTableEntry;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} BtHandler;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} LogHandler;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} GG_SysHandler;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} InfoHandler;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} PairHandler;
+
+typedef struct {
     GG_IMPLEMENTS(GG_EventListener);
 } StackEventListener;
 
@@ -174,6 +220,18 @@ typedef struct {
     size_t pkt_size;
     bool start;
 } BlasterCmdMessage;
+
+typedef struct {
+    GG_IMPLEMENTS(GG_RemoteSmoHandler);
+} CoapTestServiceRAPIHandler;
+
+typedef struct {
+    const char*             request_method;
+    Fb_Smo*                 request_params;
+    GG_JsonRpcErrorCode*    rpc_error_code;
+    Fb_Smo**                rpc_result;
+} CoapTestServiceRAPI_InvokeArgs;
+
 
 /*----------------------------------------------------------------------
 |   globals
@@ -185,6 +243,14 @@ static char *speed_str[] = {"fast", "slow"};
 
 static os_stack_t g_loop_task_stack[GG_LOOP_TASK_STACK_SIZE];
 static struct os_task g_loop_task;
+
+static os_stack_t g_remote_shell_task_stack[GG_REMOTE_SHELL_TASK_STACK_SIZE];
+static struct os_task g_remote_shell_task;
+
+static SerialTransport transport;
+static GG_RemoteShell *shell;
+static GG_SerialRemoteParser parser;
+static SerialIO serial_link;
 
 static GG_Loop *g_loop;
 
@@ -202,9 +268,16 @@ static StaticPskResolver psk_resolver;
 static HelloRequester hello_requester;
 #endif
 
-static GG_StackService *stack_service;
+static BtHandler bt_handler;
+static InfoHandler info_handler;
+static LogHandler log_handler;
+static GG_SysHandler gg_sys_handler;
+static GG_String paired_peer;
+static PairHandler pair_handler;
 static GG_BlastService *blaster;
+static GG_StackService *stack_service;
 static GG_CoapEndpoint *coap_endpoint;
+static GG_CoapTestService *coap_test_service;
 
 static bool is_stack_ready = false;
 
@@ -397,6 +470,703 @@ GG_IMPLEMENT_INTERFACE(StaticPskResolver, GG_TlsKeyResolver) {
 };
 
 #endif
+
+/*----------------------------------------------------------------------
+|   Hello World SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+HelloWorldHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                                const char*          request_method,
+                                Fb_Smo*              request_params,
+                                GG_JsonRpcErrorCode* rpc_error_code,
+                                Fb_Smo**             rpc_result)
+{
+    *rpc_result = Fb_Smo_Create(NULL, "s", "Hello World!");
+
+    return GG_SUCCESS;
+}
+
+GG_IMPLEMENT_INTERFACE(HelloWorldHandler, GG_RemoteSmoHandler) {
+    HelloWorldHandler_HandleRequest
+};
+
+static void
+InitHelloWorldHandler(HelloWorldHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, HelloWorldHandler, GG_RemoteSmoHandler);
+}
+
+/*----------------------------------------------------------------------
+|   BT SmoHandler
++---------------------------------------------------------------------*/
+#if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
+static GG_Result
+BtHandler_Connect(GG_RemoteSmoHandler* _self,
+                  const char*          request_method,
+                  Fb_Smo*              request_params,
+                  GG_JsonRpcErrorCode* rpc_error_code,
+                  Fb_Smo**             rpc_result)
+{
+    GG_Result rc;
+    const char* peer_string;
+
+    Fb_Smo* peer_p = Fb_Smo_GetChildByName(request_params, "peer");
+
+    if (peer_p == NULL) {
+        // check to see if we have a previously paired peer
+        if (GG_String_GetLength(&paired_peer)) {
+            peer_string = GG_String_GetChars(&paired_peer);
+            if (!peer_string) {
+                return GG_ERROR_INVALID_PARAMETERS;
+            }
+        } else {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+    } else {
+        // try to extract the string name of the passed peer
+        peer_string = (char *)Fb_Smo_GetValueAsString(peer_p);
+        if (!peer_string) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+    }
+
+    // we have a valid peer name, lets try to find it and connect to it
+    rc = GG_ConnMgr_ScanAndConnect(peer_string);
+    if (rc != GG_SUCCESS) {
+        return rc;
+    } else {
+        *rpc_result = Fb_Smo_Create(&GG_SmoHeapAllocator, "s", peer_string);
+        return GG_SUCCESS;
+    }
+}
+#endif
+
+static GG_Result
+BtHandler_Disconnect(GG_RemoteSmoHandler* _self,
+                     const char*          request_method,
+                     Fb_Smo*              request_params,
+                     GG_JsonRpcErrorCode* rpc_error_code,
+                     Fb_Smo**             rpc_result)
+{
+// Only care about the disable advertising parameter on the peripheral
+#if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)
+    Fb_Smo* disable_flag = Fb_Smo_GetChildByName(request_params, "disable_advertising");
+    if (disable_flag != NULL) {
+        if (Fb_Smo_GetValueAsSymbol(disable_flag) == FB_SMO_SYMBOL_TRUE) {
+            GG_ConnMgr_SetAdvertiseOnDisconnect(false);
+        }
+    }
+#endif
+
+    return GG_ConnMgr_Disconnect();
+}
+
+static GG_Result
+BtHandler_MtuExchange(GG_RemoteSmoHandler* _self,
+                      const char*          request_method,
+                      Fb_Smo*              request_params,
+                      GG_JsonRpcErrorCode* rpc_error_code,
+                      Fb_Smo**             rpc_result)
+{
+    Fb_Smo* mtu_p;
+    uint16_t mtu;
+
+    mtu_p = Fb_Smo_GetChildByName(request_params, "mtu");
+    if (mtu_p == NULL) {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+
+    mtu = (uint16_t)Fb_Smo_GetValueAsInteger(mtu_p);
+
+    return GG_ConnMgr_ChangeMTUSize(mtu);
+}
+
+static GG_Result
+BtHandler_SetAdvName(GG_RemoteSmoHandler* _self,
+                     const char*          request_method,
+                     Fb_Smo*              request_params,
+                     GG_JsonRpcErrorCode* rpc_error_code,
+                     Fb_Smo**             rpc_result)
+{
+    Fb_Smo* name_p = Fb_Smo_GetChildByName(request_params, "name");
+    char *name = name_p ? (char *)Fb_Smo_GetValueAsString(name_p) : NULL;
+    GG_Result rc;
+
+    if (name == NULL) {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+
+    rc = GG_ConnMgr_SetAdvertiseName(name);
+    if (rc != GG_SUCCESS) {
+        return rc;
+    }
+
+    nvm_set_adv_name(name);
+
+    return GG_SUCCESS;
+}
+
+
+#if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)
+static GG_Result
+BtHandler_SetAdvState(GG_RemoteSmoHandler* _self,
+                      const char*          request_method,
+                      Fb_Smo*              request_params,
+                      GG_JsonRpcErrorCode* rpc_error_code,
+                      Fb_Smo**             rpc_result)
+{
+    Fb_Smo* enable_flag = NULL;
+    Fb_SmoSymbol val = FB_SMO_SYMBOL_UNDEFINED;
+
+    enable_flag = Fb_Smo_GetChildByName(request_params, "enable");
+    if (enable_flag == NULL) {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+
+    if ((val = Fb_Smo_GetValueAsSymbol(enable_flag)) == FB_SMO_SYMBOL_TRUE) {
+        return GG_ConnMgr_AdvertiseEnable();
+    } else if (val == FB_SMO_SYMBOL_FALSE) {
+        return GG_ConnMgr_AdvertiseDisable();
+    } else {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+}
+#endif
+
+
+static GG_Result
+BtHandler_GetConnSvcStatus(GG_RemoteSmoHandler* _self,
+                           const char*          request_method,
+                           Fb_Smo*              request_params,
+                           GG_JsonRpcErrorCode* rpc_error_code,
+                           Fb_Smo**             rpc_result)
+{
+    GG_LinkStatus_ConnectionStatus* status = GG_ConnMgr_GetConnStatus();
+    bool bonded    = (status->flags & GG_LINK_STATUS_CONNECTION_STATUS_FLAG_HAS_BEEN_BONDED_BEFORE) != 0;
+    bool encrypted = (status->flags & GG_LINK_STATUS_CONNECTION_STATUS_FLAG_ENCRYPTED) != 0;
+
+    bool ble_connected = (GG_ConnMgr_GetState() != GG_CONNECTION_MANAGER_STATE_DISCONNECTED);
+    bool gg_link_up = (GG_ConnMgr_GetState() == GG_CONNECTION_MANAGER_STATE_CONNECTED);
+
+    if (ble_connected) {
+        *rpc_result = Fb_Smo_Create(
+            &GG_SmoHeapAllocator,
+            "{connected=Tbonded_flag=#encrypted_flag=#link_up_flag=#}",
+            bonded ? FB_SMO_SYMBOL_TRUE : FB_SMO_SYMBOL_FALSE,
+            encrypted ? FB_SMO_SYMBOL_TRUE : FB_SMO_SYMBOL_FALSE,
+            gg_link_up ? FB_SMO_SYMBOL_TRUE : FB_SMO_SYMBOL_FALSE);
+    } else {
+        *rpc_result = Fb_Smo_Create(
+            &GG_SmoHeapAllocator,
+            "{connected=F}");
+    }
+
+    return GG_SUCCESS;
+}
+
+static GG_Result
+BtHandler_GetConnConfig(GG_RemoteSmoHandler* _self,
+                        const char*          request_method,
+                        Fb_Smo*              request_params,
+                        GG_JsonRpcErrorCode* rpc_error_code,
+                        Fb_Smo**             rpc_result)
+{
+    GG_LinkStatus_ConnectionConfig *config = GG_ConnMgr_GetConnConfig();
+
+    bool ble_connected = (GG_ConnMgr_GetState() != GG_CONNECTION_MANAGER_STATE_DISCONNECTED);
+    if (ble_connected) {
+        *rpc_result = Fb_Smo_Create(
+            &GG_SmoHeapAllocator,
+            "{connected=Tconnection_interval=islave_latency=isupervision_timeout=imtu=i}",
+            config->connection_interval,
+            config->slave_latency,
+            config->supervision_timeout,
+            config->mtu);
+    } else {
+        *rpc_result = Fb_Smo_Create(
+            &GG_SmoHeapAllocator,
+            "{connected=F}");
+    }
+    return GG_SUCCESS;
+}
+
+static GG_Result
+BtHandler_SetConnSpeed(GG_RemoteSmoHandler* _self,
+                       const char*          request_method,
+                       Fb_Smo*              request_params,
+                       GG_JsonRpcErrorCode* rpc_error_code,
+                       Fb_Smo**             rpc_result)
+{
+    Fb_Smo* speed_p = Fb_Smo_GetChildByName(request_params, "speed");
+    const char* speed_str = Fb_Smo_GetValueAsString(speed_p);
+    GG_LinkConfiguration_ConnectionSpeed speed;
+    if (!strcmp(speed_str, "fast")) {
+        speed = GG_LinkConfiguration_ConnectionSpeed_Fast;
+    } else if (!strcmp(speed_str, "slow")) {
+        speed = GG_LinkConfiguration_ConnectionSpeed_Slow;
+    } else {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+
+    return GG_ConnMgr_ChangeConnectionSpeed(speed);
+}
+
+static GG_Result
+BtHandler_ConfigConnSpeeds(GG_RemoteSmoHandler* _self,
+                           const char*          request_method,
+                           Fb_Smo*              request_params,
+                           GG_JsonRpcErrorCode* rpc_error_code,
+                           Fb_Smo**             rpc_result)
+{
+    GG_LinkConfiguration_ConnectionConfig config = {
+        .mask = GG_LINK_CONFIGURATION_CONNECTION_CONFIG_HAS_FAST_MODE_CONFIG |
+                GG_LINK_CONFIGURATION_CONNECTION_CONFIG_HAS_SLOW_MODE_CONFIG
+    };
+
+    for (int i = 0; i < 2; i++) {
+        GG_LinkConfiguration_ConnectionModeConfig mode_config;
+
+        Fb_Smo* speed_p = Fb_Smo_GetChildByName(request_params, speed_str[i]);
+        if (speed_p == NULL) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+
+        Fb_Smo* interval_min_p = Fb_Smo_GetChildByName(speed_p, "connection_interval_min");
+        int interval_min = interval_min_p ? Fb_Smo_GetValueAsInteger(interval_min_p) : -1;
+        if (interval_min < 0) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+
+        Fb_Smo* interval_max_p = Fb_Smo_GetChildByName(speed_p, "connection_interval_max");
+        int interval_max = interval_max_p ? Fb_Smo_GetValueAsInteger(interval_max_p) : -1;
+        if (interval_max < 0 || interval_max < interval_min) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+
+        Fb_Smo* latency_p = Fb_Smo_GetChildByName(speed_p, "slave_latency");
+        int latency = latency_p ? Fb_Smo_GetValueAsInteger(latency_p) : -1;
+        if (latency < 0) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+
+        Fb_Smo* timeout_p = Fb_Smo_GetChildByName(speed_p, "supervision_timeout");
+        int timeout = timeout_p ? Fb_Smo_GetValueAsInteger(timeout_p) : -1;
+        if (timeout < 0) {
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+
+
+        mode_config.min_connection_interval = interval_min;
+        mode_config.max_connection_interval = interval_max;
+        mode_config.slave_latency           = latency;
+        mode_config.supervision_timeout     = timeout / 10; // convert from 10ms to 100ms units
+
+        if (i == 0) {
+            config.fast_mode_config = mode_config;
+        } else {
+            config.slow_mode_config = mode_config;
+        }
+    }
+
+    return GG_ConnMgr_SetPreferredConnectionConfig(&config);
+}
+
+static BtHandlerTableEntry bt_handler_table[] = {
+#if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
+    {BT_HANDLER_CONNECT, BtHandler_Connect},
+#endif
+    {BT_HANDLER_DISCONNECT, BtHandler_Disconnect},
+    {BT_HANDLER_MTU_EXCHANGE, BtHandler_MtuExchange},
+    {BT_HANDLER_SET_ADV_NAME, BtHandler_SetAdvName},
+#if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)
+    {BT_HANDLER_SET_ADV_STATE, BtHandler_SetAdvState},
+#endif
+    {BT_HANDLER_GET_CONN_SVC_STATUS, BtHandler_GetConnSvcStatus},
+    {BT_HANDLER_GET_CONN_CONFIG, BtHandler_GetConnConfig},
+    {BT_HANDLER_SET_CONN_SPEED, BtHandler_SetConnSpeed},
+    {BT_HANDLER_CONFIG_CONN_SPEEDS, BtHandler_ConfigConnSpeeds},
+};
+
+static GG_Result
+BtHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                        const char*          request_method,
+                        Fb_Smo*              request_params,
+                        GG_JsonRpcErrorCode* rpc_error_code,
+                        Fb_Smo**             rpc_result)
+{
+    for (unsigned int i = 0; i < GG_ARRAY_SIZE(bt_handler_table); i++) {
+        if (!strcmp(request_method, bt_handler_table[i].method_string)) {
+            return bt_handler_table[i].method_func(_self, request_method, request_params,
+                                                   rpc_error_code, rpc_result);
+        }
+    }
+
+    return GG_FAILURE;
+}
+
+GG_IMPLEMENT_INTERFACE(BtHandler, GG_RemoteSmoHandler) {
+    BtHandler_HandleRequest
+};
+
+static void
+InitBtHandler(BtHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, BtHandler, GG_RemoteSmoHandler);
+}
+
+/*----------------------------------------------------------------------
+|   Info SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+InfoHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                          const char*          request_method,
+                          Fb_Smo*              request_params,
+                          GG_JsonRpcErrorCode* rpc_error_code,
+                          Fb_Smo**             rpc_result)
+{
+    if (!strcmp(request_method, INFO_HANDLER_GET_HOST)) {
+        char dev_id_str[HAL_BSP_MAX_ID_LEN * 2 + 1];
+        uint8_t dev_id[HAL_BSP_MAX_ID_LEN];
+        int rc;
+
+        rc = hal_bsp_hw_id(dev_id, HAL_BSP_MAX_ID_LEN);
+        if (rc <= 0) {
+            return GG_FAILURE;
+        }
+
+        for (int i = 0; i < rc; i++) {
+            sprintf(dev_id_str + i * 2, "%02X", dev_id[i]);
+        }
+
+        *rpc_result = Fb_Smo_Create(&GG_SmoHeapAllocator, "{id=s}", dev_id_str);
+
+        return GG_SUCCESS;
+    } else if (!strcmp(request_method, INFO_HANDLER_GET_PLATFORM)) {
+        *rpc_result = Fb_Smo_Create(&GG_SmoHeapAllocator,
+                                    "{name=sos_name=sos_version=s}",
+                                    "Pylon", "Mynewt", "1.2.0");
+
+        return GG_SUCCESS;
+    } else if (!strcmp(request_method, INFO_HANDLER_GET_VERSION)) {
+        Fb_Smo *version_smo;
+        uint16_t maj;
+        uint16_t min;
+        uint16_t patch;
+        uint32_t commit_count;
+        const char *commit_hash;
+        const char *branch;
+        const char *build_date;
+        const char *build_time;
+        char maj_str[32];
+        char min_str[32];
+        char patch_str[32];
+
+        GG_Version(&maj, &min, &patch, &commit_count, &commit_hash, &branch,
+                   &build_date, &build_time);
+
+        sprintf(maj_str, "%d", maj);
+        sprintf(min_str, "%d", min);
+        sprintf(patch_str, "%d", patch);
+
+        *rpc_result = Fb_Smo_CreateObject(&GG_SmoHeapAllocator);
+        version_smo = Fb_Smo_Create(
+            &GG_SmoHeapAllocator,
+            "{maj=smin=spatch=scommit_count=icommit_hash=sbranch=sbuild_date=sbuild_time=s}",
+            (char *)maj_str, (char *)min_str, (int)patch_str, (char *)commit_count,
+            (char *)commit_hash, (char *)branch, (char *)build_date, (char *)build_time);
+        Fb_Smo_AddChild(*rpc_result, "gg_lib_version", strlen("gg_lib_version"), version_smo);
+
+        return GG_SUCCESS;
+    }
+
+    return GG_FAILURE;
+}
+
+GG_IMPLEMENT_INTERFACE(InfoHandler, GG_RemoteSmoHandler) {
+    InfoHandler_HandleRequest
+};
+
+static void
+InitInfoHandler(InfoHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, InfoHandler, GG_RemoteSmoHandler);
+}
+
+
+
+/*----------------------------------------------------------------------
+|   Log config set/get SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+LogHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                         const char*          request_method,
+                         Fb_Smo*              request_params,
+                         GG_JsonRpcErrorCode* rpc_error_code,
+                         Fb_Smo**             rpc_result)
+{
+    char buf[LOG_CONFIG_MAX_LEN + 1];
+    char *set_str = NULL;
+    nvm_error_t rc;
+    Fb_Smo* str_p;
+
+    GG_LOG_INFO("RPC request: %s", request_method);
+
+    if (!strcmp(request_method, GG_SET_LOG_CONFIG)) {
+        str_p = Fb_Smo_GetChildByName(request_params, "config");
+        set_str = str_p ? (char *)Fb_Smo_GetValueAsString(str_p) : NULL;
+
+        if (set_str) {
+            GG_LOG_INFO("Setting log config to: %s", set_str);
+            nvm_set_log_config(set_str);
+            GG_LogManager_Configure(set_str);
+        } else {
+            GG_LOG_WARNING("Can't set NULL string log config");
+            return GG_ERROR_INVALID_FORMAT;
+        }
+
+        return GG_SUCCESS;
+    } else if (!strcmp(request_method, GG_GET_LOG_CONFIG)) {
+        memset(buf, 0, sizeof(buf));
+        rc = nvm_get_log_config(buf, LOG_CONFIG_MAX_LEN);
+
+        *rpc_result = NULL;
+        if (rc == NVM_NOT_SET) {
+            /* For a defaulted DUT this is a legitimate usecase - return a "" string and no error */
+            GG_LOG_INFO("Log config string not set");
+        } else if (rc != NVM_OK) {
+            /* This is an unforeseen error scenario - send a None respose and return error */
+            GG_LOG_WARNING("Get log string failed");
+            return GG_ERROR_INTERNAL;
+        }
+
+        *rpc_result = Fb_Smo_CreateString(&GG_SmoHeapAllocator, buf, sizeof(buf));
+
+        return GG_SUCCESS;
+    }
+    return GG_FAILURE;
+}
+
+
+GG_IMPLEMENT_INTERFACE(LogHandler, GG_RemoteSmoHandler) {
+    LogHandler_HandleRequest
+};
+
+
+static void
+InitLogHandler(LogHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, LogHandler, GG_RemoteSmoHandler);
+}
+
+
+/*----------------------------------------------------------------------
+|   sys/reboot SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+GG_SysHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                               const char*          request_method,
+                               Fb_Smo*              request_params,
+                               GG_JsonRpcErrorCode* rpc_error_code,
+                               Fb_Smo**             rpc_result)
+{
+    int64_t uptime;
+
+    if (!strcmp(request_method, SYS_REBOOT_METHOD)) {
+        hal_system_reset();
+    } else if (!strcmp(request_method, SYS_UPTIME_METHOD)) {
+        uptime = GG_System_GetCurrentTimestamp();
+        *rpc_result = Fb_Smo_CreateInteger(&GG_SmoHeapAllocator, uptime);
+        if (rpc_result == NULL) {
+            return GG_FAILURE;
+        }
+    }
+
+    return GG_SUCCESS;
+}
+
+
+GG_IMPLEMENT_INTERFACE(GG_SysHandler, GG_RemoteSmoHandler) {
+    GG_SysHandler_HandleRequest
+};
+
+
+static void
+GG_SysHandler_Init(GG_SysHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, GG_SysHandler, GG_RemoteSmoHandler);
+}
+
+
+/*----------------------------------------------------------------------
+|   Counter SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+CounterHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                             const char*          request_method,
+                             Fb_Smo*              request_params,
+                             GG_JsonRpcErrorCode* rpc_error_code,
+                             Fb_Smo**             rpc_result)
+{
+    CounterHandler* self = GG_SELF(CounterHandler, GG_RemoteSmoHandler);
+
+    // get the 'x' parameter from the request params
+    Fb_Smo* x = Fb_Smo_GetChildByName(request_params, "x");
+    int64_t value = 1;
+    if (x && Fb_Smo_GetType(x) == FB_SMO_TYPE_INTEGER) {
+        value = Fb_Smo_GetValueAsInteger(x);
+    }
+
+    // respond with an error if x is odd
+    if ((value % 2) == 1) {
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+
+    // multiply the input x value by the counter and increemnt the counter
+    value *= self->counter++;
+
+    // create the result as a single integer
+    *rpc_result = Fb_Smo_Create(NULL, "i", value);
+
+    return GG_SUCCESS;
+}
+
+GG_IMPLEMENT_INTERFACE(CounterHandler, GG_RemoteSmoHandler) {
+    CounterHandler_HandleRequest
+};
+
+void
+InitCounterHandler(CounterHandler* handler)
+{
+    handler->counter = 0;
+
+    // setup interfaces
+    GG_SET_INTERFACE(handler, CounterHandler, GG_RemoteSmoHandler);
+}
+
+/*----------------------------------------------------------------------
+|   CoAP Test Service SmoHandler
++---------------------------------------------------------------------*/
+
+//----------------------------------------------------------------------
+// Invoked by Fb_GG_CoapTestService_HandleRequest (called in the GG loop thread context)
+//----------------------------------------------------------------------
+
+static int prv_GG_CoapTestService_HandleRequest_helper(void* _args)
+{
+    CoapTestServiceRAPI_InvokeArgs* args             = _args;
+    const char*                     request_method   = args->request_method;
+    Fb_Smo*                         request_params   = args->request_params;
+    GG_JsonRpcErrorCode*            rpc_error_code   = args->rpc_error_code;
+    Fb_Smo**                        rpc_result       = args->rpc_result;
+
+    return GG_CoapTestService_HandleRequest(GG_CoapTestService_AsRemoteSmoHandler(coap_test_service),
+                                            request_method,
+                                            request_params,
+                                            rpc_error_code,
+                                            rpc_result);
+}
+
+static GG_Result
+Fb_GG_CoapTestService_HandleRequest(GG_RemoteSmoHandler*  _self,
+                                    const char*           request_method,
+                                    Fb_Smo*               request_params,
+                                    GG_JsonRpcErrorCode*  rpc_error_code,
+                                    Fb_Smo**              rpc_result)
+{
+    int inv_result = 0;
+
+    CoapTestServiceRAPI_InvokeArgs invoke_args = {
+        .request_method  = request_method,
+        .request_params  = request_params,
+        .rpc_error_code  = rpc_error_code,
+        rpc_result       = rpc_result
+    };
+
+    GG_Result result = GG_Loop_InvokeSync(g_loop, prv_GG_CoapTestService_HandleRequest_helper,
+                                          &invoke_args, &inv_result);
+
+    if (GG_FAILED(result)) {
+        return result;
+    }
+
+    return inv_result;
+}
+
+GG_IMPLEMENT_INTERFACE(CoapTestServiceRAPIHandler, GG_RemoteSmoHandler) {
+    Fb_GG_CoapTestService_HandleRequest
+};
+
+static void
+GG_CoapTestServiceRAPIHandler_Init(CoapTestServiceRAPIHandler* coap_test_service_handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(coap_test_service_handler, CoapTestServiceRAPIHandler, GG_RemoteSmoHandler);
+}
+
+/*----------------------------------------------------------------------
+|   Pair SmoHandler
++---------------------------------------------------------------------*/
+static GG_Result
+PairHandler_HandleRequest(GG_RemoteSmoHandler* _self,
+                          const char*          request_method,
+                          Fb_Smo*              request_params,
+                          GG_JsonRpcErrorCode* rpc_error_code,
+                          Fb_Smo**             rpc_result)
+{
+    if (!strcmp(request_method, PAIR_HANDLER_START_PAIRING)) {
+        Fb_Smo* peer_p = Fb_Smo_GetChildByName(request_params, "peer");
+        if (peer_p) {
+            Fb_Smo* peer_name = Fb_Smo_GetChildByName(peer_p, "id");
+            char* paired_peer_name = peer_p ? (char *)Fb_Smo_GetValueAsString(peer_name) : NULL;
+            if (paired_peer_name == NULL) {
+                GG_LOG_SEVERE("NULL name for start_pairing request");
+                return GG_ERROR_INVALID_PARAMETERS;
+            } else {
+                GG_String_Assign(&paired_peer,  paired_peer_name);
+                return GG_SUCCESS;
+            }
+        } else {
+            GG_LOG_SEVERE("No 'peer' element in request");
+            return GG_ERROR_INVALID_PARAMETERS;
+        }
+    } else if (!strcmp(request_method, PAIR_HANDLER_GET_STATE)) {
+        *rpc_result = Fb_Smo_CreateInteger(&GG_SmoHeapAllocator, 0); // return idle
+        return GG_SUCCESS;
+    } else if (!strcmp(request_method, PAIR_HANDLER_GET_PAIRED_DEVICES)) {
+        Fb_Smo* paired_device_list = Fb_Smo_CreateArray(NULL);
+        if (paired_device_list) {
+            if (!GG_String_IsEmpty(&paired_peer)) {
+                Fb_Smo_AddChild(paired_device_list,
+                                NULL, 0,
+                                Fb_Smo_Create(NULL, "{=s}", "name", GG_String_GetChars(&paired_peer)));
+            }
+            *rpc_result = paired_device_list;
+            return GG_SUCCESS;
+        }
+        GG_LOG_SEVERE("Failed to create SMO array");
+        return GG_ERROR_INTERNAL;
+    } else {
+        GG_LOG_SEVERE("Unsupported pair request_method:%s", request_method);
+        return GG_ERROR_INVALID_PARAMETERS;
+    }
+}
+
+GG_IMPLEMENT_INTERFACE(PairHandler, GG_RemoteSmoHandler) {
+    PairHandler_HandleRequest
+};
+
+void
+InitPairHandler(PairHandler* handler)
+{
+    // setup interfaces
+    GG_SET_INTERFACE(handler, PairHandler, GG_RemoteSmoHandler);
+}
+
 
 /*----------------------------------------------------------------------
 |   Stack Event Listener interface
@@ -770,6 +1540,13 @@ static GG_Result gg_coap_init(void)
         return rc;
     }
 
+    // Setup CoAP test service
+    rc = GG_CoapTestService_Create(coap_endpoint, &coap_test_service);
+    if (rc != GG_SUCCESS) {
+        GG_LOG_WARNING("Failed to create CoAP test service!");
+        return rc;
+    }
+
     GG_CoapEndpoint_Register_HelloworldHandler(coap_endpoint,
                                                GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET |
                                                GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_PUT);
@@ -785,6 +1562,179 @@ static GG_Result gg_coap_init(void)
 #endif
 
     return GG_SUCCESS;
+}
+
+/*----------------------------------------------------------------------
+|   gg_remote_shell_task
++---------------------------------------------------------------------*/
+static void gg_remote_shell_task(void *arg)
+{
+    /* Set response handlers */
+    HelloWorldHandler hello_world_handler;
+    InitHelloWorldHandler(&hello_world_handler);
+
+    GG_RemoteShell_RegisterSmoHandler(shell, "hello_world",
+                                      GG_CAST(&hello_world_handler,
+                                              GG_RemoteSmoHandler));
+
+    CounterHandler counter_handler;
+    InitCounterHandler(&counter_handler);
+
+    GG_RemoteShell_RegisterSmoHandler(shell, "counter",
+                                      GG_CAST(&counter_handler,
+                                              GG_RemoteSmoHandler));
+
+    InitBtHandler(&bt_handler);
+
+#if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_CONNECT,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+#endif
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_DISCONNECT,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_MTU_EXCHANGE,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_SET_ADV_NAME,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+#if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_SET_ADV_STATE,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+#endif
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_GET_CONN_CONFIG,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_GET_CONN_SVC_STATUS,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_SET_CONN_SPEED,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      BT_HANDLER_CONFIG_CONN_SPEEDS,
+                                      GG_CAST(&bt_handler,
+                                              GG_RemoteSmoHandler));
+
+    InitInfoHandler(&info_handler);
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      INFO_HANDLER_GET_HOST,
+                                      GG_CAST(&info_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      INFO_HANDLER_GET_PLATFORM,
+                                      GG_CAST(&info_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      INFO_HANDLER_GET_VERSION,
+                                      GG_CAST(&info_handler,
+                                              GG_RemoteSmoHandler));
+
+    InitLogHandler(&log_handler);
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      GG_SET_LOG_CONFIG,
+                                      GG_CAST(&log_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      GG_GET_LOG_CONFIG,
+                                      GG_CAST(&log_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_SysHandler_Init(&gg_sys_handler);
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      SYS_REBOOT_METHOD,
+                                      GG_CAST(&gg_sys_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      SYS_UPTIME_METHOD,
+                                      GG_CAST(&gg_sys_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_BlastService_Register(blaster, shell);
+    GG_StackService_Register(stack_service, shell);
+
+    CoapTestServiceRAPIHandler coap_test_service_handler;
+
+    GG_CoapTestServiceRAPIHandler_Init(&coap_test_service_handler);
+
+    GG_CoapTestService_RegisterSmoHandlers(shell,
+                                           GG_CAST(&coap_test_service_handler,
+                                           GG_RemoteSmoHandler));
+
+    InitPairHandler(&pair_handler);
+
+#if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      PAIR_HANDLER_START_PAIRING,
+                                      GG_CAST(&pair_handler,
+                                              GG_RemoteSmoHandler));
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      PAIR_HANDLER_GET_STATE,
+                                      GG_CAST(&pair_handler,
+                                              GG_RemoteSmoHandler));
+
+    GG_RemoteShell_RegisterSmoHandler(shell,
+                                      PAIR_HANDLER_GET_PAIRED_DEVICES,
+                                      GG_CAST(&pair_handler,
+                                              GG_RemoteSmoHandler));
+#endif
+
+    GG_RemoteShell_Run(shell);
+
+    while (1) {
+        os_time_delay(OS_TICKS_PER_SEC);
+    }
+}
+
+/*----------------------------------------------------------------------
+|   gg_remote_shell_init
++---------------------------------------------------------------------*/
+static void gg_remote_shell_init(void)
+{
+    GG_Result res;
+
+    GG_SerialRemoteParser_Reset(&parser);
+
+    SerialIO_Init(&serial_link, &parser);
+    SerialTransport_Init(&transport, GG_CAST(&serial_link, GG_SerialIO));
+
+    res = GG_RemoteShell_Create(GG_CAST(&transport, GG_RemoteTransport),
+                                &shell);
+
+    if (res != GG_SUCCESS) {
+        GG_LOG_WARNING("Failed to create Remote Shell!");
+        return;
+    }
+
+    os_task_init(&g_remote_shell_task, "remote_shell", gg_remote_shell_task,
+                 NULL, GG_REMOTE_SHELL_TASK_PRIORITY, OS_WAIT_FOREVER,
+                 g_remote_shell_task_stack, GG_REMOTE_SHELL_TASK_STACK_SIZE);
 }
 
 /*----------------------------------------------------------------------
@@ -1387,240 +2337,6 @@ gg_auto_connect_cmd_usage:
     return 1;
 }
 
-#ifdef NRF52840_XXAA
-
-/*----------------------------------------------------------------------
- |   gg_sync_cmd_func
- +---------------------------------------------------------------------*/
-typedef struct {
-    GG_IMPLEMENTS(GG_CoapBlockwiseResponseListener);
-
-    size_t                  blocks_received;
-    size_t                  bytes_received;
-    GG_Result               last_error;
-    GG_CoapMessageBlockInfo last_block_info;
-} BlockListener;
-
-static BlockListener block_listener = {0};
-
-static void
-BlockListener_OnResponseBlock(GG_CoapBlockwiseResponseListener* _self,
-                              GG_CoapMessageBlockInfo*          block_info,
-                              GG_CoapMessage*                   block_message)
-{
-    BlockListener* self = GG_SELF(BlockListener, GG_CoapBlockwiseResponseListener);
-    GG_CoapMessageBlockInfo block = {0};
-
-    GG_LOG_FINE("#### > Getting block info");
-    GG_Result result = GG_CoapMessage_GetBlockInfo(block_message, GG_COAP_MESSAGE_OPTION_BLOCK2,
-                                                   &block, GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE);
-    if (GG_FAILED(result)) {
-        GG_LOG_SEVERE("##### > Failed to gather block info from message");
-    }
-
-    self->last_block_info = *block_info;
-    if (GG_COAP_MESSAGE_CODE_CLASS(GG_CoapMessage_GetCode(block_message)) ==
-        GG_COAP_MESSAGE_CODE_CLASS_SUCCESS_RESPONSE) {
-        ++self->blocks_received;
-        GG_LOG_FINE("##### > Total blocks received: %d", self->blocks_received);
-        self->bytes_received += GG_CoapMessage_GetPayloadSize(block_message);
-        GG_LOG_FINE("##### > Total bytes received: %d", self->bytes_received);
-    }
-
-    if (block.more) {
-        GG_LOG_FINE("##### > More blocks to come");
-    } else {
-        GG_LOG_FINE("##### > Last block received");
-    }
-
-    // Pretty print the payload to verify data
-    const uint8_t* payload_ptr = GG_CoapMessage_GetPayload(block_message);
-    size_t i = 0;
-    size_t payload_size = GG_CoapMessage_GetPayloadSize(block_message);
-
-    while (i < payload_size) {
-        for (int j = 0; j < 16 && i < payload_size; ++j) {
-            console_printf("%02x ", *payload_ptr);
-            payload_ptr++;
-            ++i;
-        }
-        console_printf("\n");
-    }
-}
-
-static void
-BlockListener_OnError(GG_CoapBlockwiseResponseListener* _self,
-                      GG_Result                         error,
-                      const char*                       message)
-{
-    GG_LOG_SEVERE("##### > Sync blockwise listener error code: %d, message: %s", error, message);
-    BlockListener* self = GG_SELF(BlockListener, GG_CoapBlockwiseResponseListener);
-    GG_COMPILER_UNUSED(message);
-
-    self->last_error = error;
-}
-
-GG_IMPLEMENT_INTERFACE(BlockListener, GG_CoapBlockwiseResponseListener) {
-    .OnResponseBlock = BlockListener_OnResponseBlock,
-    .OnError         = BlockListener_OnError
-};
-
-static void Sync_Handle(void *arg)
-{
-    GG_Result result;
-    GG_LOG_FINE("##### > Starting sync test");
-
-    GG_ASSERT(coap_endpoint);
-
-    // create a blockwise listener
-    memset(&block_listener, 0, sizeof(BlockListener));
-    GG_SET_INTERFACE(&block_listener, BlockListener, GG_CoapBlockwiseResponseListener);
-
-    // make a blockwise GET request for sync/dump
-    GG_CoapRequestHandle request_handle;
-    GG_CoapMessageOptionParam params[2] = {
-        GG_COAP_MESSAGE_OPTION_PARAM_STRING(URI_PATH, "sync"),
-        GG_COAP_MESSAGE_OPTION_PARAM_STRING(URI_PATH, "dump")
-    };
-
-    GG_LOG_FINE("##### > Sending sync block wise request");
-    result = GG_CoapEndpoint_SendBlockwiseRequest(coap_endpoint,
-                                                  GG_COAP_METHOD_GET,
-                                                  params, GG_ARRAY_SIZE(params),
-                                                  NULL,
-                                                  0,
-                                                  NULL,
-                                                  GG_CAST(&block_listener, GG_CoapBlockwiseResponseListener),
-                                                  &request_handle);
-    GG_LOG_FINE("Block wise request rc=%d", result);
-}
-
-//-----------------------------------------------------------------------
-static int gg_sync_cmd_func(int argc, char** argv)
-{
-    GG_Result res = GG_Loop_InvokeAsync(g_loop, Sync_Handle, NULL);
-
-    if (res != GG_SUCCESS) {
-        GG_LOG_WARNING("Async function returned %d", res);
-        return 1;
-    }
-
-    return 0;
-}
-
-#endif
-
-#ifdef NRF52840_XXAA
-
-//----------------------------------------------------------------------
-// CoAP payload source that returns a large payload
-//----------------------------------------------------------------------
-typedef struct {
-    GG_IMPLEMENTS(GG_CoapBlockSource);
-
-    size_t payload_size;
-} BlockSource;
-
-static BlockSource block_source = {0};
-
-static GG_Result
-BlockSource_GetDataSize(GG_CoapBlockSource* _self,
-                        size_t              offset,
-                        size_t*             data_size,
-                        bool*               more)
-{
-    BlockSource* self = GG_SELF(BlockSource, GG_CoapBlockSource);
-    GG_Result rc;
-
-    rc = GG_CoapMessageBlockInfo_AdjustAndGetChunkSize(
-        offset,
-        data_size,
-        more,
-        self->payload_size);
-
-    if (rc != GG_SUCCESS) {
-        GG_LOG_WARNING("GG_CoapMessageBlockInfo_AdjustAndGetChunkSize failed!");
-        return rc;
-    }
-
-    return GG_SUCCESS;
-}
-
-static GG_Result
-BlockSource_GetData(GG_CoapBlockSource* _self,
-                    size_t              offset,
-                    size_t              data_size,
-                    void*               data)
-{
-    bool more_blocks;
-    GG_Result rc;
-
-    GG_COMPILER_UNUSED(_self);
-
-    rc = BlockSource_GetDataSize(_self, offset, &data_size, &more_blocks);
-    if (rc != GG_SUCCESS) {
-        return rc;
-    }
-
-    // Fill in dummy data for sync response
-    uint8_t* payload = (uint8_t*)data;
-    for (unsigned int i = 0; i < data_size; i++) {
-        payload[i] = 0x01;
-    }
-
-    return GG_SUCCESS;
-}
-
-GG_IMPLEMENT_INTERFACE(BlockSource, GG_CoapBlockSource) {
-    .GetDataSize = BlockSource_GetDataSize,
-    .GetData     = BlockSource_GetData
-};
-
-//-----------------------------------------------------------------------
-static void SyncResponse_Handle(void *arg)
-{
-    GG_Result result;
-    GG_LOG_FINE("##### > Starting sync response test");
-
-    GG_ASSERT(coap_endpoint);
-
-    // Create a block source
-    GG_SET_INTERFACE(&block_source, BlockSource, GG_CoapBlockSource);
-    block_source.payload_size = GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE;
-
-    GG_CoapRequestHandle request_handle = 0;
-    GG_CoapMessageOptionParam params[3] = {
-        GG_COAP_MESSAGE_OPTION_PARAM_STRING(URI_PATH, "sync"),
-        GG_COAP_MESSAGE_OPTION_PARAM_STRING(URI_PATH, "response"),
-        GG_COAP_MESSAGE_OPTION_PARAM_UINT(CONTENT_FORMAT, GG_COAP_MESSAGE_FORMAT_ID_OCTET_STREAM)
-    };
-
-    result = GG_CoapEndpoint_SendBlockwiseRequest(coap_endpoint,
-                                                  GG_COAP_METHOD_PUT,
-                                                  params, GG_ARRAY_SIZE(params),
-                                                  GG_CAST(&block_source, GG_CoapBlockSource),
-                                                  GG_COAP_BLOCKWISE_DEFAULT_BLOCK_SIZE,
-                                                  NULL,
-                                                  NULL,
-                                                  &request_handle);
-
-    GG_LOG_FINE("Block wise sync response request rc=%d", result);
-}
-
-//-----------------------------------------------------------------------
-static int gg_sync_response_cmd_func(int argc, char** argv)
-{
-    GG_Result res = GG_Loop_InvokeAsync(g_loop, SyncResponse_Handle, NULL);
-
-    if (res!= GG_SUCCESS) {
-        GG_LOG_WARNING("Async function returned %d", res);
-        return 1;
-    }
-
-    return 0;
-}
-#endif
-
 #endif
 
 /*----------------------------------------------------------------------
@@ -1651,6 +2367,57 @@ gg_adv_name_cmd_usage:
 }
 
 /*----------------------------------------------------------------------
+|   Invoked by GG_CoapTestService_Register (called in the GG loop thread context)
++---------------------------------------------------------------------*/
+static int prv_GG_CoapTestService_Register_helper(void *arg) {
+    GG_COMPILER_UNUSED(arg);
+    return GG_CoapTestService_Register(coap_test_service);
+}
+
+/*----------------------------------------------------------------------
+|   Invoked by GG_CoapTestService_Unregister (called in the GG loop thread context)
++---------------------------------------------------------------------*/
+static int prv_GG_CoapTestService_Unregister_helper(void *arg) {
+    GG_COMPILER_UNUSED(arg);
+    return GG_CoapTestService_Unregister(coap_test_service);
+}
+
+/*----------------------------------------------------------------------
+|   gg_coap_test_service_cmd_func
++---------------------------------------------------------------------*/
+static int gg_coap_test_service_cmd_func(int argc, char **argv)
+{
+    int result = 0;
+    GG_Result rc;
+
+    if (argc != 1) {
+        goto gg_coap_test_service_cmd_usage;
+    }
+
+    if (!strcmp(argv[0], GG_RAPI_COAP_TEST_SERVICE_START_METHOD)) {
+        rc = GG_Loop_InvokeSync(g_loop, prv_GG_CoapTestService_Register_helper, NULL, &result);
+    } else if (!strcmp(argv[0], GG_RAPI_COAP_TEST_SERVICE_STOP_METHOD)) {
+        rc = GG_Loop_InvokeSync(g_loop, prv_GG_CoapTestService_Unregister_helper, NULL, &result);
+    } else {
+        goto gg_coap_test_service_cmd_usage;
+    }
+
+    if (rc != GG_SUCCESS) {
+        goto gg_coap_test_service_cmd_usage;
+    }
+
+    return result;
+
+gg_coap_test_service_cmd_usage:
+    console_printf("Usage:\n"
+                   "  gg %s\n"
+                   "  gg %s\n",
+                   GG_RAPI_COAP_TEST_SERVICE_START_METHOD,
+                   GG_RAPI_COAP_TEST_SERVICE_STOP_METHOD);
+
+    return 1;
+}
+/*----------------------------------------------------------------------
 |   gg command table
 +---------------------------------------------------------------------*/
 static ShellCmdTableEntry shell_cmd_table[] = {
@@ -1676,11 +2443,9 @@ static ShellCmdTableEntry shell_cmd_table[] = {
     {GG_BLAST_SERVICE_STOP_METHOD, gg_blast_cmd_func},
     {GG_BLAST_SERVICE_GET_STATS_METHOD, gg_blast_cmd_func},
     {GG_BLAST_SERVICE_RESET_STATS_METHOD, gg_blast_cmd_func},
+    {GG_RAPI_COAP_TEST_SERVICE_START_METHOD, gg_coap_test_service_cmd_func},
+    {GG_RAPI_COAP_TEST_SERVICE_STOP_METHOD, gg_coap_test_service_cmd_func},
 #ifdef NRF52840_XXAA
-#if MYNEWT_VAL(GG_CONNMGR_CENTRAL)
-    {GG_COAP_SYNC_DUMP_CMD_STRING, gg_sync_cmd_func},
-    {GG_COAP_SYNC_RESPONSE_CMD_STRING, gg_sync_response_cmd_func},
-#endif
     {GG_COAP_HELLOWORLD_CMD_STRING, gg_coap_helloworld_cmd_func},
     {GG_COAP_CLIENT_CMD_STRING, CoapClient_CLI_Handler},
 #endif
@@ -1776,6 +2541,8 @@ int main(void)
         GG_LOG_WARNING("Failed to create stack service!");
         return 1;
     }
+
+    gg_remote_shell_init();
 
     // Set leds
 #if MYNEWT_VAL(GG_CONNMGR_PERIPHERAL)

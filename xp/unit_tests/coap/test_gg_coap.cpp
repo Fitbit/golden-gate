@@ -647,7 +647,7 @@ TEST(GG_COAP, Test_ConnectionChange) {
 typedef struct {
     GG_IMPLEMENTS(GG_CoapRequestHandler);
 
-    bool      was_called;
+    size_t    call_count;
     uint8_t   last_message_code_handled;
     uint8_t   code_to_respond_with;
     GG_Result result_to_return;
@@ -665,7 +665,7 @@ TestHandler_OnRequest(GG_CoapRequestHandler*   _self,
     GG_COMPILER_UNUSED(responder);
     GG_COMPILER_UNUSED(transport_metadata);
 
-    self->was_called = true;
+    ++self->call_count;
     self->last_message_code_handled = GG_CoapMessage_GetCode(request);
 
     if (self->code_to_respond_with != 0) {
@@ -706,7 +706,7 @@ TEST(GG_COAP, Test_Handlers) {
     handler1.result_to_return = GG_COAP_MESSAGE_CODE_CREATED;
     handler1.code_to_respond_with = 0;
     handler1.last_message_code_handled = 0;
-    handler1.was_called = false;
+    handler1.call_count = 0;
     GG_Result result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                               "foo/bar/1",
                                                               GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
@@ -731,7 +731,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler1.was_called);
+    LONGS_EQUAL(0, handler1.call_count);
 
     // check that we got "not found" error
     CHECK_TRUE(client1.ack_received);
@@ -756,7 +756,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler1.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
 
     // check that we got an "invalid method" error
     CHECK_TRUE(client1.ack_received);
@@ -774,7 +774,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler1.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
 
     // check that we got an "invalid method" error
     CHECK_TRUE(client1.ack_received);
@@ -792,7 +792,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler1.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
 
     // check that we got an "invalid method" error
     CHECK_TRUE(client1.ack_received);
@@ -811,7 +811,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(1, handler1.call_count)
 
     // check that we got valid response
     CHECK_TRUE(client1.ack_received);
@@ -834,7 +834,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(2, handler1.call_count)
 
     // check that we got valid response
     CHECK_TRUE(client1.ack_received);
@@ -857,7 +857,7 @@ TEST(GG_COAP, Test_Handlers) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(3, handler1.call_count)
 
     // check that we got valid response
     CHECK_TRUE(client1.ack_received);
@@ -879,8 +879,8 @@ TEST(GG_COAP, Test_Handlers) {
                                          &client1.request_handle);
     LONGS_EQUAL(GG_SUCCESS, result);
 
-    // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    // check that the handler was not called
+    LONGS_EQUAL(3, handler1.call_count)
 
     // check that we got "not found" response
     CHECK_TRUE(client1.ack_received);
@@ -915,7 +915,7 @@ TEST(GG_COAP, Test_Handlers2) {
     handler1.result_to_return = GG_COAP_MESSAGE_CODE_CREATED;
     handler1.code_to_respond_with = 0;
     handler1.last_message_code_handled = 0;
-    handler1.was_called = false;
+    handler1.call_count = 0;
     GG_Result result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                               "foo/bar",
                                                               GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
@@ -928,7 +928,7 @@ TEST(GG_COAP, Test_Handlers2) {
     handler2.result_to_return = GG_COAP_MESSAGE_CODE_CREATED;
     handler2.code_to_respond_with = 0;
     handler2.last_message_code_handled = 0;
-    handler2.was_called = false;
+    handler2.call_count = 0;
     result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                     "//foo",
                                                     GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
@@ -956,12 +956,12 @@ TEST(GG_COAP, Test_Handlers2) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that handler1 was called but not handler2
-    CHECK_FALSE(handler1.was_called);
-    CHECK_TRUE(handler2.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
+    LONGS_EQUAL(1, handler2.call_count)
 
     // reset
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // send a GET request to "foo/bar"
     result = GG_CoapEndpoint_SendRequest(endpoint1,
@@ -974,12 +974,12 @@ TEST(GG_COAP, Test_Handlers2) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that handler1 was called but not handler2
-    CHECK_TRUE(handler1.was_called);
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(1, handler1.call_count)
+    LONGS_EQUAL(0, handler2.call_count)
 
     // reset
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // send a GET request to "foo/bar/baz"
     result = GG_CoapEndpoint_SendRequest(endpoint1,
@@ -992,12 +992,12 @@ TEST(GG_COAP, Test_Handlers2) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that handler1 was called but not handler2
-    CHECK_TRUE(handler1.was_called);
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(1, handler1.call_count)
+    LONGS_EQUAL(0, handler2.call_count)
 
     // reset
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // send a GET request to "bar"
     result = GG_CoapEndpoint_SendRequest(endpoint1,
@@ -1010,12 +1010,12 @@ TEST(GG_COAP, Test_Handlers2) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that no handler was called
-    CHECK_FALSE(handler1.was_called);
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
+    LONGS_EQUAL(0, handler2.call_count)
 
     // reset
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // send a GET request to "fo"
     result = GG_CoapEndpoint_SendRequest(endpoint1,
@@ -1028,12 +1028,12 @@ TEST(GG_COAP, Test_Handlers2) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that no handler was called
-    CHECK_FALSE(handler1.was_called);
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
+    LONGS_EQUAL(0, handler2.call_count)
 
     // reset
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // cleanup
     TestClient_Cleanup(&client1);
@@ -1559,7 +1559,7 @@ TEST(GG_COAP, Test_RequestFilters) {
     handler1.result_to_return = GG_COAP_MESSAGE_CODE_CREATED;
     handler1.code_to_respond_with = 0;
     handler1.last_message_code_handled = 0;
-    handler1.was_called = false;
+    handler1.call_count = 0;
     GG_Result result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                               "foo",
                                                               GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
@@ -1585,7 +1585,7 @@ TEST(GG_COAP, Test_RequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(1, handler1.call_count);
 
     // check that we got valid response
     CHECK_TRUE(client1.ack_received);
@@ -1735,7 +1735,7 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     handler1.result_to_return = GG_COAP_MESSAGE_CODE_CONTENT;
     handler1.code_to_respond_with = 0;
     handler1.last_message_code_handled = 0;
-    handler1.was_called = false;
+    handler1.call_count = 0;
     GG_Result result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                               "foo",
                                                               GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET |
@@ -1750,7 +1750,7 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     handler2.result_to_return = GG_COAP_MESSAGE_CODE_CONTENT;
     handler2.code_to_respond_with = 0;
     handler2.last_message_code_handled = 0;
-    handler2.was_called = false;
+    handler2.call_count = 0;
     result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
                                                     "bar",
                                                     GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
@@ -1791,7 +1791,7 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(1, handler1.call_count)
 
     // send a request for /bar
     TestClient_Cleanup(&client1);
@@ -1805,11 +1805,11 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler2.was_called);
+    LONGS_EQUAL(1, handler2.call_count);
 
     // reset some flags
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // change the filter's group to group 2
     GG_CoapGroupRequestFilter_SetGroup(group_filter, 2);
@@ -1827,7 +1827,7 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler1.was_called);
+    LONGS_EQUAL(0, handler1.call_count)
     CHECK_TRUE(client1.response != NULL);
     LONGS_EQUAL(GG_COAP_MESSAGE_CODE_UNAUTHORIZED, GG_CoapMessage_GetCode(client1.response));
 
@@ -1843,13 +1843,13 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(0, handler2.call_count)
     CHECK_TRUE(client1.response != NULL);
     LONGS_EQUAL(GG_COAP_MESSAGE_CODE_UNAUTHORIZED, GG_CoapMessage_GetCode(client1.response));
 
     // reset some flags
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // change the filter's group to group 3
     GG_CoapGroupRequestFilter_SetGroup(group_filter, 3);
@@ -1867,7 +1867,7 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was called
-    CHECK_TRUE(handler1.was_called);
+    LONGS_EQUAL(1, handler1.call_count)
 
     // send a request for /bar
     TestClient_Cleanup(&client1);
@@ -1881,13 +1881,13 @@ TEST(GG_COAP, Test_GroupRequestFilters) {
     LONGS_EQUAL(GG_SUCCESS, result);
 
     // check that the handler was not called
-    CHECK_FALSE(handler2.was_called);
+    LONGS_EQUAL(0, handler2.call_count)
     CHECK_TRUE(client1.response != NULL);
     LONGS_EQUAL(GG_COAP_MESSAGE_CODE_UNAUTHORIZED, GG_CoapMessage_GetCode(client1.response));
 
     // reset some flags
-    handler1.was_called = false;
-    handler2.was_called = false;
+    handler1.call_count = 0;
+    handler2.call_count = 0;
 
     // cleanup
     TestClient_Cleanup(&client1);
@@ -2078,4 +2078,93 @@ TEST(GG_COAP, Test_TokenPrefix)
     GG_CoapEndpoint_Destroy(endpoint);
     GG_MemoryDataSink_Destroy(sink);
     GG_TimerScheduler_Destroy(scheduler);
+}
+
+TEST(GG_COAP, Test_ResponseQueue)
+{
+    // init basic objets
+    GG_TimerScheduler_Create(&timer_scheduler);
+    MemSink_Reset(&mem_sink);
+
+    // make the sink block
+    mem_sink.block = true;
+
+    // create two endpoints
+    GG_CoapEndpoint* endpoint1;
+    GG_CoapEndpoint_Create(timer_scheduler, NULL, NULL, &endpoint1);
+    GG_CoapEndpoint* endpoint2;
+    GG_CoapEndpoint_Create(timer_scheduler, NULL, NULL, &endpoint2);
+
+    // connect the first endpoint output to the second's input, and
+    // the second's output to a memory sink
+    GG_DataSource_SetDataSink(GG_CoapEndpoint_AsDataSource(endpoint1),
+                              GG_CoapEndpoint_AsDataSink(endpoint2));
+    GG_DataSource_SetDataSink(GG_CoapEndpoint_AsDataSource(endpoint2),
+                              GG_CAST(&mem_sink, GG_DataSink));
+
+    // attach a handler to endpoint2
+    TestHandler handler1;
+    GG_SET_INTERFACE(&handler1, TestHandler, GG_CoapRequestHandler);
+    handler1.result_to_return = GG_COAP_MESSAGE_CODE_CREATED;
+    handler1.code_to_respond_with = 0;
+    handler1.last_message_code_handled = 0;
+    handler1.call_count = 0;
+    GG_Result result = GG_CoapEndpoint_RegisterRequestHandler(endpoint2,
+                                                              "foo",
+                                                              GG_COAP_REQUEST_HANDLER_FLAG_ALLOW_GET,
+                                                              GG_CAST(&handler1, GG_CoapRequestHandler));
+    LONGS_EQUAL(GG_SUCCESS, result);
+
+    unsigned int checkpoint = 0;
+    for (unsigned int i = 0; i < 1000; i++) {
+        GG_CoapMessageOptionParam options[] = {
+            GG_COAP_MESSAGE_OPTION_PARAM_STRING(URI_PATH, "foo")
+        };
+        uint32_t payload = i;
+        GG_CoapRequestHandle request_handle;
+        result = GG_CoapEndpoint_SendRequest(endpoint1,
+                                             GG_COAP_METHOD_GET,
+                                             options,
+                                             GG_ARRAY_SIZE(options),
+                                             (const uint8_t*)&payload,
+                                             sizeof(payload),
+                                             NULL,
+                                             NULL,
+                                             &request_handle);
+        LONGS_EQUAL(GG_SUCCESS, result);
+
+        // cancel the request now because we don't expect a response and we know
+        // it has been sent
+        GG_CoapEndpoint_CancelRequest(endpoint1, request_handle);
+
+        // check that the handler has been called for each request
+        LONGS_EQUAL(i + 1, handler1.call_count);
+
+        if ((i % 5) == 0 || (i % 13) == 0) {
+            // unblock the sink
+            mem_sink.block = false;
+
+            // notify the endpoint that the sink isn't blocking anymore
+            CHECK_FALSE(mem_sink.listener == NULL);
+            GG_DataSinkListener_OnCanPut(mem_sink.listener);
+
+            // check that the queued responses have been sent
+            LONGS_EQUAL(i + 1, mem_sink.receive_count);
+
+            // re-block the sink
+            mem_sink.block = true;
+
+            // remember where we are
+            checkpoint = i + 1;
+        } else {
+            // check that we have not received blocked responses yet
+            LONGS_EQUAL(checkpoint, mem_sink.receive_count);
+        }
+    }
+
+    // cleanup
+    GG_DataSource_SetDataSink(GG_CoapEndpoint_AsDataSource(endpoint1), NULL);
+    GG_DataSource_SetDataSink(GG_CoapEndpoint_AsDataSource(endpoint2), NULL);
+    GG_CoapEndpoint_Destroy(endpoint1);
+    GG_CoapEndpoint_Destroy(endpoint2);
 }

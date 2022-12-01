@@ -94,7 +94,7 @@ class ConnectionModeRpc private constructor() {
                 .setPreferredConnectionMode(connectionSpeed)
                 .blockingAwait()
 
-            Timber.d("Set connection mode to ${parameterObject} for Device: ${macAddress}")
+            Timber.w("Set connection mode to $parameterObject for Device: $macAddress")
             return gattConnection.device.name
         }
     }

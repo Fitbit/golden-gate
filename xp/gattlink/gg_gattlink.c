@@ -1087,6 +1087,11 @@ GG_GattlinkProtocol_HandleIncomingRawData(GG_GattlinkProtocol* self,
         return GG_SUCCESS;
     }
 
+    // If previously stalled, notify session Un-stalled
+    if (self->stall_time > GG_GATTLINK_STALL_NOTIFICATION_INTERVAL) {
+        GG_GattlinkClient_NotifySessionStalled(self->client, 0);
+    }
+
     // Clear the inactivity counter
     self->stall_time = 0;
     self->last_notified_stall_time = 0;
