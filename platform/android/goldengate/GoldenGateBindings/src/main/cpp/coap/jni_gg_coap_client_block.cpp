@@ -182,23 +182,13 @@ static GG_Result CoapEndpoint_CancelResponseFor_Blockwise(void *_args) {
             GG_Result result = GG_CoapEndpoint_CancelBlockwiseRequest(
                     args->responseListener->endpoint,
                     args->responseListener->request_handle);
-<<<<<<< HEAD
-            if (GG_SUCCEEDED(result)) {
-                CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args->responseListener);
-            }
-=======
 
             CoapEndpoint_FreeResponseObject(args->responseListener);
->>>>>>> bitbucket/master
             return result;
         }
         return GG_ERROR_INVALID_STATE;
     } else {
-<<<<<<< HEAD
-        CoapEndpoint_OnResponseCompleteCleanup_Blockwise(args->responseListener);
-=======
         CoapEndpoint_FreeResponseObject(args->responseListener);
->>>>>>> bitbucket/master
         return GG_SUCCESS;
     }
 }
@@ -627,31 +617,18 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseForBlockwise(
  */
 JNIEXPORT jint
 JNICALL
-<<<<<<< HEAD
-Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseForBlockwise(
-        JNIEnv *env,
-        jobject thiz,
-        jlong _response_listener,
-        jboolean _canceled
-=======
 Java_com_fitbit_goldengate_bindings_coap_block_BlockwiseCoapResponseListener_cancelResponseForBlockwise(
     JNIEnv *env,
     jobject thiz,
     jlong _response_listener,
     jboolean _canceled
->>>>>>> bitbucket/master
 ) {
     ResponseListenerBlockwise *response_listener = (ResponseListenerBlockwise *) (intptr_t) _response_listener;
     GG_ASSERT(response_listener);
 
     CancelResponseForBlockwiseArgs args = {
-<<<<<<< HEAD
-            .responseListener = response_listener,
-            .canceled = _canceled
-=======
         .responseListener = response_listener,
         .canceled = _canceled
->>>>>>> bitbucket/master
     };
 
     GG_Result result;

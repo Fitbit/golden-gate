@@ -7,7 +7,6 @@
 #include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
 #include "xp/common/gg_common.h"
 #include "xp/services/coap_client/gg_coap_client_service.h"
->>>>>>> bitbucket/master
 /**
  * Jni Bindings for CoapGeneratorService
  */
