@@ -1,10 +1,11 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <jni_gg_loop.h>
-#include <xp/common/gg_common.h>
-#include <xp/services/blast/gg_blast_service.h>
-#include <logging/jni_gg_logging.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "xp/common/gg_common.h"
+#include "xp/services/blast/gg_blast_service.h"
+
 
 /**
  * Jni Bindings for BlastService

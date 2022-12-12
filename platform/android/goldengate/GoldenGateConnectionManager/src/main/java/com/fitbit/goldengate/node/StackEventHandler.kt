@@ -19,12 +19,12 @@ import java.util.concurrent.TimeUnit
  * gattlink buffer events.
  * @param eventStream The stream emitting stack events
  * @param gattConnection The connection on which to operate
- * @param linkController The link controller instance (default)
  * @param votingEnabled Determines whether we enable voting for fast/slow mode
+ * @param linkControllerProvider Provides the link controller instance (default)
  */
 class StackEventHandler(
-    val eventStream: Observable<StackEvent>,
-    val gattConnection: GattConnection,
+    private val eventStream: Observable<StackEvent>,
+    private val gattConnection: GattConnection,
     private val votingEnabled: Boolean = true,
     val linkControllerProvider: (GattConnection) -> LinkController = { LinkControllerProvider.INSTANCE.getLinkController(it) }
 ) {
@@ -47,6 +47,7 @@ class StackEventHandler(
     private fun setPreferredConnectionModeToFast(): Completable {
         return when {
             votingEnabled -> linkControllerProvider(gattConnection).setPreferredConnectionMode(PreferredConnectionMode.FAST)
+                .doOnError { e -> Timber.w(e, "Error setting preferred mode to FAST for ${gattConnection.device.address}") }
                 .onErrorComplete()
             else -> Completable.complete()
         }
@@ -55,6 +56,7 @@ class StackEventHandler(
     private fun setPreferredConnectionModeToSlow(): Completable {
         return when {
             votingEnabled -> linkControllerProvider(gattConnection).setPreferredConnectionMode(PreferredConnectionMode.SLOW)
+                .doOnError { e -> Timber.w(e, "Error setting preferred mode to SLOW for ${gattConnection.device.address}") }
                 .onErrorComplete()
             else -> Completable.complete()
         }
@@ -63,6 +65,7 @@ class StackEventHandler(
     private fun setGeneralPurposeCommandDisconnect(): Completable {
         Timber.d("set Disconnection via GeneralPurposeCommand characteristic")
         return linkControllerProvider(gattConnection).setGeneralPurposeCommand(GeneralPurposeCommandCode.DISCONNECT)
+            .doOnError { e -> Timber.w(e, "Error sending disconnect request to ${gattConnection.device.address}") }
             .onErrorComplete()
     }
 

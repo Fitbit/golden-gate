@@ -32,16 +32,20 @@ class GattCharacteristicNotifierTest {
 
     private val mockFitbitBluetoothDevice = mock<FitbitBluetoothDevice>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
-    private val mockBluetoothGattService = mock<BluetoothGattService>()
+    private val mockBluetoothGattService = mock<BluetoothGattService> {
+        on { uuid } doReturn mockServiceId
+    }
     private val mockGattTransaction = mock<GattServerTransaction>()
     private val mockNotifyTransactionProvider = mock<NotifyGattServerCharacteristicTransactionProvider> {
         on { provide(any(), any(), any()) } doReturn Single.just(mockGattTransaction)
     }
     private val mockNotifyLock: Semaphore = mock()
+    private val mockGetGattServerServices: GetGattServerServices = mock()
 
     private val notifier = GattCharacteristicNotifier(
             fitbitDevice = mockFitbitBluetoothDevice,
             bitgatt = mockFitbitGatt,
+            getGattServerServices = { mockGetGattServerServices },
             notifyTransactionProvider = mockNotifyTransactionProvider,
             scheduler = Schedulers.trampoline(),
             notifierLock = mockNotifyLock
@@ -129,10 +133,10 @@ class GattCharacteristicNotifierTest {
     }
 
     private fun mockGattServiceFound() =
-        whenever(mockBluetoothGattServer.getService(mockServiceId)).thenReturn(mockBluetoothGattService)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(listOf(mockBluetoothGattService)))
 
     private fun mockGattServiceNotFound() =
-        whenever(mockBluetoothGattServer.getService(mockServiceId)).thenReturn(null)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(emptyList()))
 
     private fun mockGattCharacteristicFound() =
         whenever(mockBluetoothGattService.getCharacteristic(mockCharacteristicId)).thenReturn(mockBluetoothGattCharacteristic)

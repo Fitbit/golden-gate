@@ -18,8 +18,8 @@ import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.Subject
 import timber.log.Timber
+import java.util.UUID
 
 /**
  * Duplicating [BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE] and [BluetoothGattDescriptor.DISABLE_NOTIFICATION_VALUE]
@@ -34,12 +34,12 @@ internal val gattServiceUnSubscribedValue = byteArrayOf(0x00, 0x00)
  */
 class LinkConfigurationServiceEventListener internal constructor(
     private val responseScheduler: Scheduler = Schedulers.io(),
-    private val gattServerResponseSenderProvider: GattServerResponseSenderProvider = GattServerResponseSenderProvider()
+    private val gattServerResponseSenderProvider: GattServerResponseSenderProvider = GattServerResponseSenderProvider(),
 ) : BaseServerConnectionEventListener {
 
-    lateinit var linkControllerProvider:LinkControllerProvider
+    lateinit var linkControllerProvider: LinkControllerProvider
     private val registry =
-        hashMapOf<BluetoothDevice, Subject<GattCharacteristicSubscriptionStatus>>()
+        hashMapOf<Pair<BluetoothDevice, UUID>, BehaviorSubject<GattCharacteristicSubscriptionStatus>>()
 
     /**
      * Observable on which changes to Gattlink service subscription is available
@@ -47,18 +47,28 @@ class LinkConfigurationServiceEventListener internal constructor(
      * @param device remote device for which subscription status change need to be observer
      * @return observable to broadcast Gattlink service subscription changes per device
      */
-    fun getDataObservable(device: BluetoothDevice): Observable<GattCharacteristicSubscriptionStatus> =
-        getDataSubject(device)
+    fun getDataObservable(
+        device: BluetoothDevice,
+        characteristicUuid: UUID
+    ): Observable<GattCharacteristicSubscriptionStatus> =
+        getDataSubject(device, characteristicUuid)
 
     @Synchronized
-    private fun getDataSubject(device: BluetoothDevice): Subject<GattCharacteristicSubscriptionStatus> {
-        return registry[device] ?: add(device)
+    private fun getDataSubject(
+        device: BluetoothDevice,
+        characteristicUuid: UUID
+    ): BehaviorSubject<GattCharacteristicSubscriptionStatus> {
+        return registry[Pair(device, characteristicUuid)] ?: add(device, characteristicUuid)
     }
 
     @Synchronized
-    private fun add(device: BluetoothDevice): Subject<GattCharacteristicSubscriptionStatus> {
-        val dataSubject = BehaviorSubject.createDefault<GattCharacteristicSubscriptionStatus>(GattCharacteristicSubscriptionStatus.DISABLED)
-        registry[device] = dataSubject
+    private fun add(
+        device: BluetoothDevice,
+        characteristicUuid: UUID
+    ): BehaviorSubject<GattCharacteristicSubscriptionStatus> {
+        val dataSubject =
+            BehaviorSubject.createDefault(GattCharacteristicSubscriptionStatus.DISABLED)
+        registry[Pair(device, characteristicUuid)] = dataSubject
         return dataSubject
     }
 
@@ -73,7 +83,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 result,
                 connection
             )
-            else -> Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported service: ${result.serviceUuid}")
+            else -> Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
         }
     }
 
@@ -91,16 +101,17 @@ class LinkConfigurationServiceEventListener internal constructor(
             descriptorUuid: ${result.descriptorUuid}
             """
         )
-        when (result.characteristicUuid) {
+        when (val characteristicUuid = result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid,
             ClientPreferredConnectionConfigurationCharacteristic.uuid,
-            GeneralPurposeCommandCharacteristic.uuid-> handleLinkConfigurationCharacteristicDescriptorWriteRequest(
+            GeneralPurposeCommandCharacteristic.uuid -> handleLinkConfigurationCharacteristicDescriptorWriteRequest(
                 device,
                 result,
+                characteristicUuid,
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
         }
@@ -109,16 +120,18 @@ class LinkConfigurationServiceEventListener internal constructor(
     private fun handleLinkConfigurationCharacteristicDescriptorWriteRequest(
         device: BluetoothDevice,
         result: TransactionResult,
+        characteristicUuid: UUID,
         connection: GattServerConnection
     ) {
         when (result.descriptorUuid) {
             CLIENT_CONFIG_UUID -> handleConfigurationDescriptorWriteRequest(
                 device,
                 result,
+                characteristicUuid,
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported descriptor: ${result.descriptorUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported descriptor: ${result.descriptorUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
         }
@@ -127,6 +140,7 @@ class LinkConfigurationServiceEventListener internal constructor(
     private fun handleConfigurationDescriptorWriteRequest(
         device: BluetoothDevice,
         result: TransactionResult,
+        characteristicUuid: UUID,
         connection: GattServerConnection
     ) {
         result.data?.let { data ->
@@ -134,15 +148,17 @@ class LinkConfigurationServiceEventListener internal constructor(
                 data.contentEquals(gattServiceSubscribedValue) -> handleTransmitCharacteristicSubscriptionEnabled(
                     device,
                     result,
+                    characteristicUuid,
                     connection
                 )
                 data.contentEquals(gattServiceUnSubscribedValue) -> handleTransmitCharacteristicSubscriptionDisabled(
                     device,
                     result,
+                    characteristicUuid,
                     connection
                 )
                 else -> {
-                    Timber.w("Ignoring descriptor write request ")
+                    Timber.w("Rejecting descriptor write request ")
                     sendFailureResponseIfRequested(device, result, connection)
                 }
             }
@@ -152,20 +168,28 @@ class LinkConfigurationServiceEventListener internal constructor(
     private fun handleTransmitCharacteristicSubscriptionEnabled(
         device: BluetoothDevice,
         result: TransactionResult,
+        characteristicUuid: UUID,
         connection: GattServerConnection
     ) {
         Timber.d("Device: $device SUBSCRIBED to LinkConfiguration service ")
-        getDataSubject(device).onNext(GattCharacteristicSubscriptionStatus.ENABLED)
+        getDataSubject(
+            device,
+            characteristicUuid
+        ).onNext(GattCharacteristicSubscriptionStatus.ENABLED)
         sendSuccessResponseIfRequested(device, result, connection)
     }
 
     private fun handleTransmitCharacteristicSubscriptionDisabled(
         device: BluetoothDevice,
         result: TransactionResult,
+        characteristicUuid: UUID,
         connection: GattServerConnection
     ) {
         Timber.d("Device: $device UN_SUBSCRIBED to LinkConfiguration service ")
-        getDataSubject(device).onNext(GattCharacteristicSubscriptionStatus.DISABLED)
+        getDataSubject(
+            device,
+            characteristicUuid
+        ).onNext(GattCharacteristicSubscriptionStatus.DISABLED)
         sendSuccessResponseIfRequested(device, result, connection)
     }
 
@@ -174,10 +198,12 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        Timber.d("Ignoring requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
         if (result.isResponseRequired) {
             // By default we do nothing when null data is received and just send success response
+            Timber.d("Rejecting requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
             sendResponse(device, connection, result.requestId, BluetoothGatt.GATT_FAILURE)
+        } else {
+            Timber.d("Ignoring requestId: ${result.requestId} on service: ${result.serviceUuid} as data received is null")
         }
     }
 
@@ -237,7 +263,7 @@ class LinkConfigurationServiceEventListener internal constructor(
                 result,
                 connection
             )
-            else -> Timber.d("Ignoring onServerCharacteristicReadRequest call for unsupported service: ${result.serviceUuid}")
+            else -> Timber.d("Ignoring onServerCharacteristicReadRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
         }
     }
 
@@ -246,6 +272,12 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
+        // notify listeners there is a GATT read request from peer
+        linkControllerProvider.getLinkController(device).getLinkConfigurationPeerRequestListeners()
+            .forEach {
+                it.onPeerReadRequest()
+            }
+
         Timber.d(
             """
             Handle handleLinkConfigurationServerCharacteristicReadRequest call from
@@ -255,6 +287,7 @@ class LinkConfigurationServiceEventListener internal constructor(
             descriptorUuid: ${result.descriptorUuid}
             """
         )
+
         when (result.characteristicUuid) {
             ClientPreferredConnectionModeCharacteristic.uuid -> handlePreferredConnectionModeReadRequest(
                 device,
@@ -267,9 +300,77 @@ class LinkConfigurationServiceEventListener internal constructor(
                 connection
             )
             else -> {
-                Timber.d("Ignoring onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
+                Timber.d("Rejecting onServerDescriptorWriteRequest call for unsupported characteristicUuid: ${result.characteristicUuid}")
                 sendFailureResponseIfRequested(device, result, connection)
             }
+        }
+    }
+
+    override fun onServerDescriptorReadRequest(
+        device: BluetoothDevice,
+        result: TransactionResult,
+        connection: GattServerConnection
+    ) {
+        when (result.serviceUuid) {
+            LinkConfigurationService.uuid -> handleLinkConfigurationServerDescriptorReadRequest(
+                device,
+                result,
+                connection
+            )
+            else -> Timber.d("Ignoring onServerDescriptorReadRequest call for unsupported service: ${result.serviceUuid}. Hopefully some other ServerConnectionEventListener is handling it!")
+        }
+    }
+
+    private fun handleLinkConfigurationServerDescriptorReadRequest(
+        device: BluetoothDevice,
+        result: TransactionResult,
+        connection: GattServerConnection
+    ) {
+        Timber.d(
+            """
+            Handle handleLinkConfigurationServerDescriptorReadRequest call from
+            device ${device.address},
+            service: ${result.serviceUuid},
+            characteristicUuid: ${result.characteristicUuid},
+            descriptorUuid: ${result.descriptorUuid}
+            """
+        )
+        when (val characteristicUuid = result.characteristicUuid) {
+            ClientPreferredConnectionModeCharacteristic.uuid,
+            ClientPreferredConnectionConfigurationCharacteristic.uuid,
+            GeneralPurposeCommandCharacteristic.uuid -> handleLinkConfigurationCharacteristicDescriptorReadRequest(
+                device,
+                result,
+                characteristicUuid,
+                connection
+            )
+            else -> sendFailureResponseIfRequested(device, result, connection)
+        }
+    }
+
+    private fun handleLinkConfigurationCharacteristicDescriptorReadRequest(
+        device: BluetoothDevice,
+        result: TransactionResult,
+        characteristicUuid: UUID,
+        connection: GattServerConnection
+    ) {
+        if (result.descriptorUuid == CLIENT_CONFIG_UUID) {
+            val enabledValue = when (getDataSubject(device, characteristicUuid).value) {
+                GattCharacteristicSubscriptionStatus.ENABLED -> gattServiceSubscribedValue
+                GattCharacteristicSubscriptionStatus.DISABLED -> gattServiceUnSubscribedValue
+                null -> null
+            }
+            enabledValue?.let {
+                sendResponse(
+                    device,
+                    connection,
+                    result.requestId,
+                    BluetoothGatt.GATT_SUCCESS,
+                    it
+                )
+            } ?: sendFailureResponseIfRequested(device, result, connection)
+        } else {
+            sendFailureResponseIfRequested(device, result, connection)
         }
     }
 
@@ -279,21 +380,14 @@ class LinkConfigurationServiceEventListener internal constructor(
         connection: GattServerConnection
     ) {
         val linkController = linkControllerProvider.getLinkController(device)
-
-        linkController?.let {
-            sendResponse(
-                device,
-                connection,
-                result.requestId,
-                BluetoothGatt.GATT_SUCCESS,
-                linkController.getPreferredConnectionMode().toByteArray()
-            )
-        }?: sendResponse(
+        sendResponse(
             device,
             connection,
             result.requestId,
-            BluetoothGatt.GATT_FAILURE
+            BluetoothGatt.GATT_SUCCESS,
+            linkController.getPreferredConnectionMode().toByteArray()
         )
+        Timber.w("handlePreferredConnectionModeReadRequest ${linkController.getPreferredConnectionMode()}")
     }
 
     private fun handlePreferredConnectionConfigurationReadRequest(
@@ -301,21 +395,13 @@ class LinkConfigurationServiceEventListener internal constructor(
         result: TransactionResult,
         connection: GattServerConnection
     ) {
-        val linkController =
-            linkControllerProvider.getLinkController(device)
-        linkController?.let {
-            sendResponse(
-                device,
-                connection,
-                result.requestId,
-                BluetoothGatt.GATT_SUCCESS,
-                linkController.getPreferredConnectionConfiguration().toByteArray()
-            )
-        }?: sendResponse(
+        val linkController = linkControllerProvider.getLinkController(device)
+        sendResponse(
             device,
             connection,
             result.requestId,
-            BluetoothGatt.GATT_FAILURE
+            BluetoothGatt.GATT_SUCCESS,
+            linkController.getPreferredConnectionConfiguration().toByteArray()
         )
     }
 

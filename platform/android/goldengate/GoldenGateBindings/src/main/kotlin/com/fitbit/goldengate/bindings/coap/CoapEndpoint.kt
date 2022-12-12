@@ -10,13 +10,16 @@ import com.fitbit.goldengate.bindings.coap.data.IncomingResponse
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.handler.ResourceHandler
 import com.fitbit.goldengate.bindings.node.NodeKey
+import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bindings.util.isNotNull
 import io.reactivex.Completable
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import java.lang.ref.SoftReference
 import timber.log.Timber
+import java.lang.ref.WeakReference
 import java.util.concurrent.Executors
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
@@ -44,9 +47,10 @@ class CoapEndpoint(
     }
 
     internal var dataSinkDataSource: DataSinkDataSource? = null
+    private var ggStack: Stack? = null
     private val resourceHandlerMap = mutableMapOf<String, Long>()
     val requestFilter: CoapGroupRequestFilter = CoapGroupRequestFilter()
-    private val initialized = AtomicBoolean()
+    private val isInitialized = AtomicBoolean()
     private val scheduler : Scheduler = customScheduler ?: Schedulers.from(
         Executors.unconfigurableExecutorService(
             ThreadPoolExecutor(
@@ -63,7 +67,7 @@ class CoapEndpoint(
         thisPointerWrapper = create()
         if (thisPointerWrapper.isNotNull()) {
             attachFilter(thisPointerWrapper, requestFilter.thisPointerWrapper)
-            initialized.set(true)
+            isInitialized.set(true)
         }
     }
 
@@ -71,18 +75,16 @@ class CoapEndpoint(
         return Single.create<IncomingResponse> { emitter ->
             val coapResponseListener: CoapResponseListener
             val responseForResult = if (!request.forceNonBlockwise) {
-                coapResponseListener = BlockwiseCoapResponseListener(request, emitter)
+                coapResponseListener = BlockwiseCoapResponseListener(
+                    request, emitter, isInitialized, WeakReference(ggStack))
                 responseForBlockwise(
                     selfPtr = thisPointerWrapper,
                     request = request,
-                    responseListener = coapResponseListener)
-                    .also {
-                        coapResponseListener.setCancellable {
-                            cancelResponseForBlockwise(it.nativeResponseListenerReference, !initialized.get())
-                        }
-                    }
+                    responseListener = coapResponseListener
+                )
             } else {
-                coapResponseListener = SingleCoapResponseListener(request, emitter)
+                coapResponseListener = SingleCoapResponseListener(
+                    request, emitter, WeakReference(ggStack))
                 responseFor(
                     selfPtr = thisPointerWrapper,
                     request = request,
@@ -94,12 +96,9 @@ class CoapEndpoint(
                  * Only call native cancel method if request was added successfully (resultCode >= 0)
                  * and we have not already received complete response
                  */
-                if (initialized.get() && responseForResult.resultCode >= 0 && !coapResponseListener.isComplete()) {
-                    if (!request.forceNonBlockwise) {
-                        cancelResponseForBlockwise(responseForResult.nativeResponseListenerReference, canceled = false)
-                    } else {
-                        cancelResponseFor(responseForResult.nativeResponseListenerReference)
-                    }
+                if (responseForResult.resultCode >= 0 &&
+                    !coapResponseListener.isComplete() ) {
+                    coapResponseListener.cleanupNativeListener()
                 }
             }
         }.observeOn(scheduler)
@@ -127,7 +126,9 @@ class CoapEndpoint(
                     emitter.onError(
                         CoapEndpointException(
                             error = result.resultCode,
-                            message = "Error registering resource handler for path: $path"
+                            message = "Error registering resource handler for path: $path",
+                            lastStackEvent = ggStack?.lastStackEvent?.eventId?:-1,
+                            lastDtlsState = ggStack?.lastDtlsState?.value?:-1,
                         )
                     )
                 } else {
@@ -151,6 +152,9 @@ class CoapEndpoint(
     override fun attach(dataSinkDataSource: DataSinkDataSource) {
         if (this.dataSinkDataSource == null && thisPointerWrapper.isNotNull()) {
             this.dataSinkDataSource = dataSinkDataSource
+            if (dataSinkDataSource is Stack) {
+                this.ggStack = dataSinkDataSource
+            }
             attach(
                 selfPtr = thisPointerWrapper,
                 sourcePtr = dataSinkDataSource.getAsDataSourcePointer(),
@@ -168,6 +172,7 @@ class CoapEndpoint(
                 sourcePtr = it.getAsDataSourcePointer()
             )
             this.dataSinkDataSource = null
+            this.ggStack = null
         }
     }
 
@@ -182,7 +187,7 @@ class CoapEndpoint(
 
     override fun close() {
         Timber.i("Closing CoapEndpoint")
-        initialized.set(false)
+        isInitialized.set(false)
         resourceHandlerMap.clear()
         requestFilter.close()
         detach()
@@ -231,18 +236,11 @@ class CoapEndpoint(
         responseListener: CoapResponseListener
     ): ResponseForResult
 
-    private external fun cancelResponseFor(nativeResponseListenerReference: Long): Int
-
     private external fun responseForBlockwise(
         selfPtr: Long,
         request: OutgoingRequest,
         responseListener: CoapResponseListener
     ): ResponseForResult
-
-    private external fun cancelResponseForBlockwise(
-        nativeResponseListenerReference: Long,
-        canceled: Boolean
-    ): Int
 
     private external fun addResourceHandler(
         selfPtr: Long,

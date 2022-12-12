@@ -30,9 +30,10 @@ def detect_profile():
     "sonarqube": "Enable Sonarqube scanning",
     "sanitize": "Enable a sanitizer ('address', ...). You can use this option multiple times, one for each sanitizer.",
     "cmake_gen": "Override CMake generator (e.g. 'Xcode', run `cmake --help` for a list of supported generators)",
+    "target": "Target to build",
     "cmake_extras": "Extra parameters for CMake"
 }, iterable=['sanitize'])
-def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmake_verbose=False, cmake_gen=None, cmake_extras=None):
+def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, target=None, cmake_verbose=False, cmake_gen=None, cmake_extras=None):
     '''Build Golden Gate natively using the default auto-detected profile for the host platform'''
     build_dir = ctx.C.BUILD_DIR_NATIVE
     cmake.build(ctx,
@@ -66,8 +67,14 @@ def build(ctx, debug=False, coverage=False, sonarqube=False, sanitize=None, cmak
             print("!!! Sonarqube wrapper not installed ({}), will not run analysis. See https://docs.sonarqube.org/latest/analysis/languages/cfamily".format(wrapper_bin))
             build_wrapper = ""
 
+    # Select the target to build
+    if target:
+        build_target = ' --target "{}"'.format(target)
+    else:
+        build_target = ''
+
     # Run the build
-    ctx.run("{}cmake --build {}".format(build_wrapper, build_dir), pty=(sys.platform != 'win32'))
+    ctx.run("{}cmake --build {}{}".format(build_wrapper, build_dir, build_target), pty=(sys.platform != 'win32'))
 
 @task
 def clean(ctx):

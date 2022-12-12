@@ -38,7 +38,11 @@ GG_System_GetTime(clockid_t clk_id)
 GG_Timestamp
 GG_System_GetCurrentTimestamp(void)
 {
+#ifdef CLOCK_BOOTTIME
+    return GG_System_GetTime(CLOCK_BOOTTIME);
+#else
     return GG_System_GetTime(CLOCK_MONOTONIC);
+#endif
 }
 
 GG_Timestamp

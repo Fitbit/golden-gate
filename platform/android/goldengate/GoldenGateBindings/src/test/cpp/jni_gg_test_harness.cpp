@@ -1,9 +1,10 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "jni_gg_test_harness.h"
 #include <cstring>
 #include <gtest/gtest.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
+
 
 JNIEnv *jniEnv;
 

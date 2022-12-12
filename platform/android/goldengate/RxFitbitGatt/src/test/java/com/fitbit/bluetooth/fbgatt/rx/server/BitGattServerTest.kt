@@ -8,9 +8,7 @@ import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus
-import com.fitbit.bluetooth.fbgatt.rx.GattServerNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.GattTransactionException
-import com.fitbit.bluetooth.fbgatt.rx.mockBluetoothGattServer
 import com.fitbit.bluetooth.fbgatt.rx.mockFitbitGatt
 import com.fitbit.bluetooth.fbgatt.rx.mockGattServerConnection
 import com.fitbit.bluetooth.fbgatt.rx.mockGattTransactionCompletion
@@ -22,10 +20,11 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import org.junit.Assert.assertFalse
-import org.junit.Test
+import io.reactivex.Single
 import java.util.UUID
 import kotlin.test.assertTrue
+import org.junit.Assert.assertFalse
+import org.junit.Test
 
 class BitGattServerTest {
 
@@ -34,13 +33,15 @@ class BitGattServerTest {
     private val mockTransactionProvider = mock<ServerTransactionProvider> {
         on { getAddServicesTransaction(any(), any()) } doReturn mockTransaction
     }
-    private val mockService = mock<BluetoothGattService>{
+    private val mockService = mock<BluetoothGattService> {
         on { uuid } doReturn mockUUID
     }
+    private val mockGetGattServerServices = mock<GetGattServerServices>()
 
     private val server = BitGattServer(
-            fitbitGatt = mockFitbitGatt,
-            serverTransactionProvider = mockTransactionProvider
+        fitbitGatt = mockFitbitGatt,
+        serverTransactionProvider = mockTransactionProvider,
+        getGattServerServices = { mockGetGattServerServices }
     )
 
     @Test
@@ -55,44 +56,35 @@ class BitGattServerTest {
 
     @Test
     fun shouldAddServiceIfServiceDoesNotExistAndGattTransactionSucceeds() {
-        whenever(mockBluetoothGattServer.getService(mockUUID)).thenReturn(null)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(emptyList()))
         mockTransaction.mockGattTransactionCompletion(TransactionResultStatus.SUCCESS)
 
         server.addServices(mockService)
-                .test()
-                .assertComplete()
+            .test()
+            .assertComplete()
 
         verify(mockGattServerConnection).runTx(eq(mockTransaction), any())
     }
 
     @Test
     fun shouldNotAddServiceIfServiceDoesNotExistAndGattTransactionFails() {
-        whenever(mockBluetoothGattServer.getService(mockUUID)).thenReturn(null)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(emptyList()))
         mockTransaction.mockGattTransactionCompletion(TransactionResultStatus.FAILURE)
 
         server.addServices(mockService)
-                .test()
-                .assertError {it is GattTransactionException }
+            .test()
+            .assertError { it is GattTransactionException }
 
         verify(mockGattServerConnection).runTx(eq(mockTransaction), any())
     }
 
     @Test
     fun shouldNotAddServiceIfServiceAlreadyExists() {
-        whenever(mockBluetoothGattServer.getService(mockUUID)).thenReturn(mockService)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(listOf(mockService)))
 
         server.addServices(mockService)
-                .test()
-                .assertComplete()
-
-        verify(mockGattServerConnection, never()).runTx(eq(mockTransaction), any())
-    }
-
-    @Test
-    fun shouldNotAddServiceIfServerIsNull() {
-        mockNullGattServer().addServices(mockService)
-                .test()
-                .assertError {it is GattServerNotFoundException }
+            .test()
+            .assertComplete()
 
         verify(mockGattServerConnection, never()).runTx(eq(mockTransaction), any())
     }
@@ -106,8 +98,8 @@ class BitGattServerTest {
             on { server } doReturn mockGattServerConnection
         }
         return BitGattServer(
-                fitbitGatt = mockFitbitGatt,
-                serverTransactionProvider = mockTransactionProvider
+            fitbitGatt = mockFitbitGatt,
+            serverTransactionProvider = mockTransactionProvider
         )
     }
 

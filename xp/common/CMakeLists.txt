@@ -59,6 +59,7 @@ include(ports/android/CMakeLists.txt)
 include(ports/windows/CMakeLists.txt)
 include(ports/freertos/CMakeLists.txt)
 include(ports/null/CMakeLists.txt)
+include(ports/nuttx/CMakeLists.txt)
 
 # the log manager needs an init function to be called
 list(APPEND GG_MODULE_INIT_LIST COMMON)
