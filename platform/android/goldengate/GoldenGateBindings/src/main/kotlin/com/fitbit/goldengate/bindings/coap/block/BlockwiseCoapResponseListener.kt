@@ -43,7 +43,6 @@ internal class BlockwiseCoapResponseListener(
     private var completed: Boolean = false
     private var started = false
     private var data = Data(0)
-    private var cancelable = {}
 
     private val bodyBehaviorSubject = BehaviorSubject.create<Data>()
     private val bodySingle = Single.fromObservable(bodyBehaviorSubject.take(1))
