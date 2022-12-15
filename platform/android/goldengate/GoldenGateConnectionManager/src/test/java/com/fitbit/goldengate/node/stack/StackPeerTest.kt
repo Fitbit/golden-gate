@@ -19,7 +19,6 @@ import com.fitbit.goldengate.bindings.stack.StackEvent
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerConnector
 import com.fitbit.goldengate.bt.PeerRole
-import com.fitbit.goldengate.bt.mockGattConnection
 import com.fitbit.goldengate.node.Bridge
 import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.MtuChangeRequester
@@ -29,7 +28,6 @@ import com.fitbit.linkcontroller.LinkController
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
 import com.nhaarman.mockitokotlin2.*
 import io.reactivex.Completable
-import io.reactivex.Maybe
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.plugins.RxJavaPlugins
