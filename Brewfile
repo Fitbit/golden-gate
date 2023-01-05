@@ -3,6 +3,7 @@ tap "homebrew/homebrew-bundle"
 tap "homebrew/cask-drivers"
 tap "JuulLabs-OSS/mynewt"
 
-# brew "mynewt-newt@1.7"
+# Note: Please comment out next line for Apple Silicon setup. Proper solution penging.
+brew "mynewt-newt@1.7"
 brew "carthage"
 cask "segger-jlink"
