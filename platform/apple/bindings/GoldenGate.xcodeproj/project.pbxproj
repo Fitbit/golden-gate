@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12BC9FAD295E737900BC5771 /* Starscream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FAC295E737900BC5771 /* Starscream.xcframework */; };
+		12E26A352966107D00BA7462 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A342966107D00BA7462 /* Nimble.xcframework */; };
+		12E26A372966109C00BA7462 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A362966109C00BA7462 /* Quick.xcframework */; };
+		12E26A39296610B000BA7462 /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A38296610B000BA7462 /* RxBlocking.xcframework */; };
+		12E26A3B296610C400BA7462 /* RxTest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A3A296610C400BA7462 /* RxTest.xcframework */; };
 		42FAE85D26123D85005E6500 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */; };
 		4830C6BD221F60D100AFF465 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A8109D220E48F80067A593 /* Starscream.framework */; };
 		48A80FC4220E07690067A593 /* GoldenGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A80FBB220E07680067A593 /* GoldenGate.framework */; };
@@ -158,6 +163,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		12BC9FAC295E737900BC5771 /* Starscream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Starscream.xcframework; path = ../../../Carthage/Build/Starscream.xcframework; sourceTree = "<group>"; };
+		12E26A342966107D00BA7462 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = ../../../Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		12E26A362966109C00BA7462 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = ../../../Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		12E26A38296610B000BA7462 /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = ../../../Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
+		12E26A3A296610C400BA7462 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = ../../../Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
 		3C63608D26B96AE200FADE5D /* TestScheduler+AdvanceBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TestScheduler+AdvanceBy.swift"; sourceTree = "<group>"; };
 		423C41C824A4FDF30006EF07 /* FbSmo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FbSmo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		423C41CA24A4FDF30006EF07 /* SwiftCBOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftCBOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +312,7 @@
 				FDC76776248F608100855742 /* BluetoothConnection.framework in Frameworks */,
 				48A810D9220E6C630067A593 /* GoldenGateXP.framework in Frameworks */,
 				FD3B0627234F62C700A92603 /* Rxbit.framework in Frameworks */,
+				12BC9FAD295E737900BC5771 /* Starscream.xcframework in Frameworks */,
 				42FAE85D26123D85005E6500 /* BluetoothConnectionObjC.framework in Frameworks */,
 				48A81098220E48BD0067A593 /* RxBluetoothKit.framework in Frameworks */,
 				48A81096220E48A60067A593 /* RxCocoa.framework in Frameworks */,
@@ -314,7 +325,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E26A352966107D00BA7462 /* Nimble.xcframework in Frameworks */,
 				755F34C424C6E23500877754 /* BluetoothConnection.framework in Frameworks */,
+				12E26A372966109C00BA7462 /* Quick.xcframework in Frameworks */,
 				48A80FC4220E07690067A593 /* GoldenGate.framework in Frameworks */,
 				48A810A3220E49640067A593 /* Nimble.framework in Frameworks */,
 				48A810A5220E496F0067A593 /* Quick.framework in Frameworks */,
@@ -324,6 +337,8 @@
 				48AE718222820ECD00DE90AD /* RxRelay.framework in Frameworks */,
 				48A810A7220E497F0067A593 /* RxSwift.framework in Frameworks */,
 				48A810AD220E49AB0067A593 /* RxTest.framework in Frameworks */,
+				12E26A39296610B000BA7462 /* RxBlocking.xcframework in Frameworks */,
+				12E26A3B296610C400BA7462 /* RxTest.xcframework in Frameworks */,
 				4830C6BD221F60D100AFF465 /* Starscream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +358,11 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12BC9FAC295E737900BC5771 /* Starscream.xcframework */,
+				12E26A342966107D00BA7462 /* Nimble.xcframework */,
+				12E26A362966109C00BA7462 /* Quick.xcframework */,
+				12E26A38296610B000BA7462 /* RxBlocking.xcframework */,
+				12E26A3A296610C400BA7462 /* RxTest.xcframework */,
 				4252E42D265525A3006E4B4C /* FbSmoUtils.framework */,
 				42FAE85C26123D85005E6500 /* BluetoothConnectionObjC.framework */,
 				75D399F02578FDCD0028BD1D /* Starscream.framework */,
@@ -734,7 +754,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48A80FD1220E07690067A593 /* Build configuration list for PBXNativeTarget "GoldenGateTests" */;
 			buildPhases = (
-				48492DE7220EE08300C67916 /* Carthage Sync */,
 				48A80FBF220E07690067A593 /* Sources */,
 				48A80FC0220E07690067A593 /* Frameworks */,
 				48A80FC1220E07690067A593 /* Resources */,
@@ -804,27 +823,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		48492DE7220EE08300C67916 /* Carthage Sync */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Carthage Sync";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd $SOURCE_ROOT/../../..\nplatform/apple/scripts/carthage-copy-and-verify\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		48A80FB7220E07680067A593 /* Sources */ = {
@@ -980,7 +978,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = GoldenGate/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = " $(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitbit.GoldenGate;
@@ -1019,7 +1021,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = GoldenGate/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = " $(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitbit.GoldenGate;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1051,8 +1057,16 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = GoldenGateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitbit.GoldenGateTests;
@@ -1080,8 +1094,16 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = GoldenGateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitbit.GoldenGateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1124,8 +1146,6 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = ../../../Carthage/Build/iOS;
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1185,8 +1205,6 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = ../../../Carthage/Build/iOS;
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1198,7 +1216,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
