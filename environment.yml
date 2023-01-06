@@ -9,9 +9,11 @@ dependencies:
 - semver=2.8.1
 - cmake=3.19
 - git=2.34.1
+# Note: Replace line below with - xpack-gcc-arm-none-eabi=11.2.1.1.2 for Apple Silicon setup. Proper solution pending.
 - gcc-arm-none-eabi=8.2019.q3.update
 - doxygen=1.9.5
 - ninja=1.11.0
+# Note: Replace line below with - cpputest=4.0.memfault0 for Apple Silicon setup. Proper solution pending.
 - cpputest=3.8
 - mkdocs=1.1
 - pip=20.0
