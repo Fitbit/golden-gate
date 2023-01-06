@@ -9,10 +9,10 @@ dependencies:
 - semver=2.8.1
 - cmake=3.19
 - git=2.34.1
-- xpack-gcc-arm-none-eabi=11.2.1.1.2
+- gcc-arm-none-eabi=8.2019.q3.update
 - doxygen=1.9.5
 - ninja=1.11.0
-- cpputest=4.0.memfault0
+- cpputest=3.8
 - mkdocs=1.1
 - pip=20.0
 - pip:
