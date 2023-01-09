@@ -7,11 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1215E2452968E339007307B3 /* NSLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB9295E787900BC5771 /* NSLogger.xcframework */; };
+		1215E2462968E339007307B3 /* NSLogger.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB9295E787900BC5771 /* NSLogger.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E24A2968E383007307B3 /* RxBluetoothKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2472968E37D007307B3 /* RxBluetoothKit.xcframework */; };
+		1215E24B2968E383007307B3 /* RxBluetoothKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2472968E37D007307B3 /* RxBluetoothKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E24F2968E3BD007307B3 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E24C2968E3A2007307B3 /* RxCocoa.xcframework */; };
+		1215E2502968E3BD007307B3 /* RxCocoa.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E24C2968E3A2007307B3 /* RxCocoa.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E2532968E40B007307B3 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2512968E3E3007307B3 /* RxRelay.xcframework */; };
+		1215E2542968E40B007307B3 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2512968E3E3007307B3 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E2572968E43C007307B3 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2552968E426007307B3 /* RxSwift.xcframework */; };
+		1215E2582968E43C007307B3 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E2552968E426007307B3 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E25A2968E45D007307B3 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; };
+		1215E25B2968E45D007307B3 /* Rxbit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD2B6E48234F6F2500765D7B /* Rxbit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E25E2968E486007307B3 /* Starscream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E25C2968E47D007307B3 /* Starscream.xcframework */; };
+		1215E25F2968E486007307B3 /* Starscream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1215E25C2968E47D007307B3 /* Starscream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1215E2612968E4B2007307B3 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */; };
+		1215E2622968E4B2007307B3 /* BluetoothConnectionObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12BC9FB1295E77ED00BC5771 /* BluetoothConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB0295E77ED00BC5771 /* BluetoothConnection.framework */; };
 		12BC9FB2295E77ED00BC5771 /* BluetoothConnection.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB0295E77ED00BC5771 /* BluetoothConnection.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12BC9FB5295E780600BC5771 /* GoldenGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB4295E780600BC5771 /* GoldenGate.framework */; };
 		12BC9FB6295E780600BC5771 /* GoldenGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB4295E780600BC5771 /* GoldenGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		12BC9FBA295E787900BC5771 /* NSLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC9FB9295E787900BC5771 /* NSLogger.xcframework */; };
 		4828B707220E8DCE005377DA /* GoldenGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4828B704220E8BA2005377DA /* GoldenGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		486134F6213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
 		486134F7213309B300E29452 /* OptionalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486134F5213309B200E29452 /* OptionalType.swift */; };
@@ -85,7 +100,15 @@
 			dstSubfolderSpec = 10;
 			files = (
 				12BC9FB6295E780600BC5771 /* GoldenGate.framework in Embed Frameworks */,
+				1215E25F2968E486007307B3 /* Starscream.xcframework in Embed Frameworks */,
+				1215E24B2968E383007307B3 /* RxBluetoothKit.xcframework in Embed Frameworks */,
+				1215E2502968E3BD007307B3 /* RxCocoa.xcframework in Embed Frameworks */,
+				1215E2542968E40B007307B3 /* RxRelay.xcframework in Embed Frameworks */,
+				1215E25B2968E45D007307B3 /* Rxbit.framework in Embed Frameworks */,
+				1215E2582968E43C007307B3 /* RxSwift.xcframework in Embed Frameworks */,
+				1215E2622968E4B2007307B3 /* BluetoothConnectionObjC.framework in Embed Frameworks */,
 				12BC9FB2295E77ED00BC5771 /* BluetoothConnection.framework in Embed Frameworks */,
+				1215E2462968E339007307B3 /* NSLogger.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +129,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1215E2472968E37D007307B3 /* RxBluetoothKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBluetoothKit.xcframework; path = ../../../../Carthage/Build/RxBluetoothKit.xcframework; sourceTree = "<group>"; };
+		1215E24C2968E3A2007307B3 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = ../../../../Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		1215E2512968E3E3007307B3 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = ../../../../Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		1215E2552968E426007307B3 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = ../../../../Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
+		1215E25C2968E47D007307B3 /* Starscream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Starscream.xcframework; path = ../../../../Carthage/Build/Starscream.xcframework; sourceTree = "<group>"; };
 		12BC9FB0295E77ED00BC5771 /* BluetoothConnection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BluetoothConnection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BC9FB4295E780600BC5771 /* GoldenGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoldenGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BC9FB9295E787900BC5771 /* NSLogger.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NSLogger.xcframework; path = ../../../../Carthage/Build/NSLogger.xcframework; sourceTree = "<group>"; };
@@ -191,9 +219,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12BC9FBA295E787900BC5771 /* NSLogger.xcframework in Frameworks */,
 				12BC9FB5295E780600BC5771 /* GoldenGate.framework in Frameworks */,
+				1215E25E2968E486007307B3 /* Starscream.xcframework in Frameworks */,
+				1215E24A2968E383007307B3 /* RxBluetoothKit.xcframework in Frameworks */,
+				1215E24F2968E3BD007307B3 /* RxCocoa.xcframework in Frameworks */,
+				1215E2532968E40B007307B3 /* RxRelay.xcframework in Frameworks */,
+				1215E25A2968E45D007307B3 /* Rxbit.framework in Frameworks */,
+				1215E2572968E43C007307B3 /* RxSwift.xcframework in Frameworks */,
+				1215E2612968E4B2007307B3 /* BluetoothConnectionObjC.framework in Frameworks */,
 				12BC9FB1295E77ED00BC5771 /* BluetoothConnection.framework in Frameworks */,
+				1215E2452968E339007307B3 /* NSLogger.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +254,12 @@
 		484F88261F8590370014A037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1215E2552968E426007307B3 /* RxSwift.xcframework */,
+				1215E2512968E3E3007307B3 /* RxRelay.xcframework */,
 				12BC9FB9295E787900BC5771 /* NSLogger.xcframework */,
+				1215E2472968E37D007307B3 /* RxBluetoothKit.xcframework */,
+				1215E24C2968E3A2007307B3 /* RxCocoa.xcframework */,
+				1215E25C2968E47D007307B3 /* Starscream.xcframework */,
 				12BC9FB4295E780600BC5771 /* GoldenGate.framework */,
 				12BC9FB0295E77ED00BC5771 /* BluetoothConnection.framework */,
 				42FAE7E626123AC0005E6500 /* BluetoothConnectionObjC.framework */,
