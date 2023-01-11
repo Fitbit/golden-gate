@@ -28,7 +28,7 @@ class PairPeerViewController: UITableViewController {
         discoverer = Component.instance.discoverer
         peerManager = Component.instance.peerManager
 
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
 
         tableView.dataSource = nil

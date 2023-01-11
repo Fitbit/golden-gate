@@ -16,8 +16,6 @@ import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Initialize GoldenGate logger before anything else
         // Don't use NSLogger if STDERR is a TTY (i.e. a debugger is attached)
@@ -26,12 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         requestNotificationAuthorization()
-
-        // TODO: use scenes instead of UIScreen.main
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: RootViewController())
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
 
         return true
     }
@@ -81,5 +73,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        guard connectingSceneSession.role == UISceneSession.Role.windowApplication else {
+            fatalError("Unknown scene role \(connectingSceneSession.role)")
+         }
+        let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        config.delegateClass = SceneDelegate.self
+        return config
     }
 }
