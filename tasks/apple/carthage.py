@@ -64,6 +64,16 @@ def swift_version(ctx):
 
     return version
 
+def find_xcode_version(ctx):
+    '''Return the current Xcode version'''
+    version = run_and_extract_version(ctx, "xcodebuild -version")
+
+    if not version:
+        print("Couldn't determine Xcode version.")
+        raise Exit(-1)
+
+    return version
+
 def _rome_prefix(ctx):
     return "Swift_" + swift_version(ctx).replace('.', '_')
 
@@ -84,6 +94,11 @@ def _rome_upload_cmd(ctx, platform):
             --cache-prefix {}".format(platform, _rome_prefix(ctx))
 
 def _carthage_bootstrap_cmd(ctx):
+
+    xcode_version = find_xcode_version(ctx)
+    xcode_version_major = int(xcode_version.split('.')[0])
+    print("Xcode version major: {}".format(xcode_version_major))
+
     return "carthage bootstrap --platform ios,macos --cache-builds --use-xcframeworks --no-use-binaries"
 
 def _carthage_build_cmd(ctx):
