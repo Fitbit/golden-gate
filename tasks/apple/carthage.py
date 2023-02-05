@@ -94,37 +94,19 @@ def _rome_upload_cmd(ctx, platform):
             --cache-prefix {}".format(platform, _rome_prefix(ctx))
 
 def _carthage_bootstrap_cmd(ctx):
-    # Applying Carthage build workaround to exclude Apple Silicon binaries.
-    # See https://github.com/Carthage/Carthage/issues/3019 for more details
-    fp = NamedTemporaryFile(delete=False, prefix='static.xcconfig.')
 
     xcode_version = find_xcode_version(ctx)
     xcode_version_major = int(xcode_version.split('.')[0])
     print("Xcode version major: {}".format(xcode_version_major))
 
-    xcconfig = 'EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_{}00 = arm64 arm64e armv7 armv7s armv6 armv8\n'.format(xcode_version_major)
-    xcconfig += 'EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))'
-
-    fp.write(bytearray(xcconfig, encoding='utf8'))
-    fp.close()
-
-    handler = lambda a, b: os.unlink(fp.name)
-
-    signal.signal(signal.SIGINT, handler)
-    signal.signal(signal.SIGTERM, handler)
-    signal.signal(signal.SIGHUP, handler)
-    signal.signal(signal.SIGQUIT, handler)
-
-    os.environ['XCODE_XCCONFIG_FILE'] = fp.name
-
-    return "carthage bootstrap --platform ios,macos --cache-builds"
+    return "carthage bootstrap --platform ios,macos --cache-builds --use-xcframeworks --no-use-binaries"
 
 def _carthage_build_cmd(ctx):
     # Carthage 0.29.0 moved the `--no-use-binaries` to the `build` command.
     if version_check(ctx, "carthage version", min_version="0.29.0"):
-        return "carthage build --cache-builds --no-use-binaries"
+        return "carthage build --cache-builds --no-use-binaries --use-xcframeworks"
 
-    return "carthage build --cache-builds"
+    return "carthage build --cache-builds --use-xcframeworks"
 
 def _carthage_checkout_cmd(ctx):
     # Carthage 0.29.0 moved the `--no-use-binaries` to the `build` command.
