@@ -1,7 +1,7 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
 
 #ifndef JNI_GG_COAP_CLIENT_COMMON_H
 #define JNI_GG_COAP_CLIENT_COMMON_H

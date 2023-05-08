@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include "xp/utils/gg_blaster_data_source.h"
-#include "xp/utils/gg_perf_data_sink.h"
+#include "third_party/goldengate/xp/utils/gg_blaster_data_source.h"
+#include "third_party/goldengate/xp/utils/gg_perf_data_sink.h"
 
 #ifndef GOLDENGATE_JNI_GG_UTILS_H
 #define GOLDENGATE_JNI_GG_UTILS_H

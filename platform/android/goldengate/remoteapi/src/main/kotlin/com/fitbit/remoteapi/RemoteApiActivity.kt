@@ -4,7 +4,7 @@
 package com.fitbit.remoteapi
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import com.fitbit.goldengate.GoldenGateConnectionManagerModule
 import com.fitbit.goldengate.bindings.remote.RemoteShellThread
 import com.fitbit.goldengate.bindings.remote.WebSocketTransport

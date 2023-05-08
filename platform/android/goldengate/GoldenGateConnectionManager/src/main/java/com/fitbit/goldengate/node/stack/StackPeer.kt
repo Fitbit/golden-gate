@@ -59,6 +59,9 @@ const val STACK_NODE_CONNECTION_TIMEOUT_SECONDS: Long = 60
  * @param key the [BluetoothAddressNodeKey] to use for this [StackPeer]
  * @param stackConfig the [StackConfig] of the [Stack]
  * @param stackService the [StackService] at the top of the [Stack]
+ * @param shouldSetStartMtuChecker Allow decide if MTU change should be requested during stack creation,
+ *        this solution will either be rolled back or API improved for better stack configurable API.
+ *        Defaults to True.
  * @param linkupHandler the [LinkupWithPeerNodeHandler] used to link up the stack to golden gate stack services
  * @param peerConnector the [PeerConnector] used to connect the stack to the gatt layer
  * @param connectionStatusProvider provides an Observable stream which emits [PeripheralConnectionStatus] updates when provided a [GattConnection]
@@ -78,6 +81,7 @@ class StackPeer<T: StackService> internal constructor(
     peerRole: PeerRole,
     val stackConfig: StackConfig,
     stackService: T,
+    private val shouldSetStartMtuChecker: () -> Boolean = { true },
     private val linkupHandler: Linkup = LinkupHandlerProvider.getHandler(peerRole),
     private val peerConnector: PeerConnector = PeerConnector(key.value),
     private val connectionStatusProvider: (GattConnection) -> Observable<PeripheralConnectionStatus> = { GattClientConnectionChangeListener().register(it) },
@@ -114,12 +118,14 @@ class StackPeer<T: StackService> internal constructor(
         stackConfig: StackConfig,
         stackService: T,
         connectionStatusProvider: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-        dtlsEventObservableProvider: (stack: Stack) -> Observable<DtlsProtocolStatus>
+        dtlsEventObservableProvider: (stack: Stack) -> Observable<DtlsProtocolStatus>,
+        shouldSetStartMtuChecker: () -> Boolean = { true },
     ): this(
         key,
         peerRole,
         stackConfig,
         stackService,
+        shouldSetStartMtuChecker,
         LinkupHandlerProvider.getHandler(peerRole),
         PeerConnector(key.value),
         connectionStatusProvider,
@@ -168,13 +174,12 @@ class StackPeer<T: StackService> internal constructor(
                 //2. Build the stack, bridge, and attach the service
                 setupStack(it)
             }.flatMap { state ->
-                Timber.i("StackPeer with key $key mtuChangedHandler $state")
                 //3. subscribe to MTU update observable
                 mtuUpdateHandler(state)
                     .startWith(Observable.just(state))
             }.flatMapSingle { state ->
                 //4. Send MTU update request
-                if (peerRole == PeerRole.Peripheral) {
+                if (shouldSetStartMtuChecker() && peerRole == PeerRole.Peripheral) {
                     mtuChangeRequesterProvider(state.stack)
                         .requestMtu(state.peer, startMtu)
                         .map { state }

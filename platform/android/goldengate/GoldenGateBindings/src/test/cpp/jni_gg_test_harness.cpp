@@ -3,7 +3,7 @@
 
 #include <cstring>
 #include <gtest/gtest.h>
-#include "platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
 
 
 JNIEnv *jniEnv;

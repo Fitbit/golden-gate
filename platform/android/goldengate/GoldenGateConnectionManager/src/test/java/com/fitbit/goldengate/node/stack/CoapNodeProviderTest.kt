@@ -15,6 +15,7 @@ import kotlin.test.assertEquals
 class CoapPeerProviderTest {
 
     private val bluetoothAddress = "bluetoothAddress"
+    private val shouldSetStartMtu = { true }
     private val bluetoothAddressNodeKey = mock<BluetoothAddressNodeKey>()
 
     private val bluetoothAddressNodeKeyProvider = mock<(String) -> BluetoothAddressNodeKey> {
@@ -34,6 +35,7 @@ class CoapPeerProviderTest {
     @Test
     fun getNode() {
         val node = CoapNodeProvider(
+                shouldSetStartMtu,
                 nodeMapper,
                 stackNodeBuilder,
                 bluetoothAddressNodeKeyProvider
@@ -47,6 +49,7 @@ class CoapPeerProviderTest {
     @Test
     fun removeNode() {
         val node = CoapNodeProvider(
+            shouldSetStartMtu
             nodeMapper,
             stackNodeBuilder,
             bluetoothAddressNodeKeyProvider

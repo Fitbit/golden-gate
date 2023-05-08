@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <string.h>
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
-#include "xp/loop/gg_loop.h"
-#include "xp/coap/gg_coap.h"
-#include "xp/common/gg_memory.h"
-#include "xp/coap/gg_coap_filters.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "third_party/goldengate/xp/loop/gg_loop.h"
+#include "third_party/goldengate/xp/coap/gg_coap.h"
+#include "third_party/goldengate/xp/common/gg_memory.h"
+#include "third_party/goldengate/xp/coap/gg_coap_filters.h"
 
 extern "C" {
 

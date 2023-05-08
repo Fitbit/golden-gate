@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include "xp/sockets/gg_sockets.h"
+#include "third_party/goldengate/xp/sockets/gg_sockets.h"
 
 #ifndef JNI_GG_SOCKET_ADDRESS_H
 #define JNI_GG_SOCKET_ADDRESS_H

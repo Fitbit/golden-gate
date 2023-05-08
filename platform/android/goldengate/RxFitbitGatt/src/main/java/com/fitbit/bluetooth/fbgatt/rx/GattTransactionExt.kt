@@ -26,7 +26,8 @@ fun GattClientTransaction.runTxReactive(gattConnection: GattConnection): Single<
                 emitter.onSuccess(result)
             } else {
                 Timber.w("Running GattTransaction ${this.name} failed, result: $result")
-                emitter.onError(GattTransactionException(result))
+                val message = "TransactionName: ${result.transactionName} ResultStatus: ${result.resultStatus.name} ResponseStatus: ${result.responseCodeString}"
+                emitter.onError(GattTransactionException(result, message))
             }
         }
     }
@@ -46,7 +47,8 @@ fun GattServerTransaction.runTxReactive(gattServerConnection: GattServerConnecti
                 emitter.onSuccess(result)
             } else {
                 Timber.w("Running GattTransaction ${this.name} failed, result: $result")
-                emitter.onError(GattTransactionException(result))
+                val message = "TransactionName: ${result.transactionName} ResultStatus: ${result.resultStatus.name} ResponseStatus: ${result.responseCodeString}"
+                emitter.onError(GattTransactionException(result, message))
             }
         }
     }

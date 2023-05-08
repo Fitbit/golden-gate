@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include "xp/loop/gg_loop.h"
+#include "third_party/goldengate/xp/loop/gg_loop.h"
 
 extern "C" {
 

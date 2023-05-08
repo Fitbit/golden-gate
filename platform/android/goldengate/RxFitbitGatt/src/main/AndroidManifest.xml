@@ -1,1 +1,3 @@
-<manifest package="com.fitbit.bluetooth.fbgatt.rx" />
+<manifest package="com.fitbit.bluetooth.fbgatt.rx"  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28"/>
+</manifest>

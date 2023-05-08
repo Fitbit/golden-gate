@@ -6,63 +6,63 @@ package com.fitbit.goldengate.bindings.coap.handler
 import com.fitbit.goldengate.bindings.coap.data.Method
 import com.fitbit.goldengate.bindings.coap.data.OutgoingResponse
 import com.fitbit.goldengate.bindings.coap.data.RawRequestMessage
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
+import org.mockito.kotlin.any
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 
 internal class ResourceHandlerInvokerTest {
 
-    private val mockResourceHandler = mock<ResourceHandler>()
-    private val mockRawRequestMessage = mock<RawRequestMessage>()
-    private val mockResponse = mock<OutgoingResponse>()
+  private val mockResourceHandler = mock<ResourceHandler>()
+  private val mockRawRequestMessage = mock<RawRequestMessage>()
+  private val mockResponse = mock<OutgoingResponse>()
 
-    private val invoker = ResourceHandlerInvoker(mockResourceHandler) { System.currentTimeMillis() }
+  private val invoker = ResourceHandlerInvoker(mockResourceHandler) { System.currentTimeMillis() }
 
-    @Before
-    fun setup() {
-        whenever(mockResourceHandler.onGet(any(), any())).thenReturn(Single.just(mockResponse))
-        whenever(mockResourceHandler.onPost(any(), any())).thenReturn(Single.just(mockResponse))
-        whenever(mockResourceHandler.onPut(any(), any())).thenReturn(Single.just(mockResponse))
-        whenever(mockResourceHandler.onDelete(any(), any())).thenReturn(Single.just(mockResponse))
-    }
+  @Before
+  fun setup() {
+    whenever(mockResourceHandler.onGet(any(), any())).thenReturn(Single.just(mockResponse))
+    whenever(mockResourceHandler.onPost(any(), any())).thenReturn(Single.just(mockResponse))
+    whenever(mockResourceHandler.onPut(any(), any())).thenReturn(Single.just(mockResponse))
+    whenever(mockResourceHandler.onDelete(any(), any())).thenReturn(Single.just(mockResponse))
+  }
 
-    @Test
-    fun shouldDelegateToGetHandler() {
-        whenever(mockRawRequestMessage.method).thenReturn(Method.GET)
+  @Test
+  fun shouldDelegateToGetHandler() {
+    whenever(mockRawRequestMessage.method).thenReturn(Method.GET)
 
-        invoker.invoke(mockRawRequestMessage)
+    invoker.invoke(mockRawRequestMessage)
 
-        verify(mockResourceHandler).onGet(any(), any())
-    }
+    verify(mockResourceHandler).onGet(any(), any())
+  }
 
-    @Test
-    fun shouldDelegateToPostHandler() {
-        whenever(mockRawRequestMessage.method).thenReturn(Method.POST)
+  @Test
+  fun shouldDelegateToPostHandler() {
+    whenever(mockRawRequestMessage.method).thenReturn(Method.POST)
 
-        invoker.invoke(mockRawRequestMessage)
+    invoker.invoke(mockRawRequestMessage)
 
-        verify(mockResourceHandler).onPost(any(), any())
-    }
+    verify(mockResourceHandler).onPost(any(), any())
+  }
 
-    @Test
-    fun shouldDelegateToPutHandler() {
-        whenever(mockRawRequestMessage.method).thenReturn(Method.PUT)
+  @Test
+  fun shouldDelegateToPutHandler() {
+    whenever(mockRawRequestMessage.method).thenReturn(Method.PUT)
 
-        invoker.invoke(mockRawRequestMessage)
+    invoker.invoke(mockRawRequestMessage)
 
-        verify(mockResourceHandler).onPut(any(), any())
-    }
+    verify(mockResourceHandler).onPut(any(), any())
+  }
 
-    @Test
-    fun shouldDelegateToDeleteHandler() {
-        whenever(mockRawRequestMessage.method).thenReturn(Method.DELETE)
+  @Test
+  fun shouldDelegateToDeleteHandler() {
+    whenever(mockRawRequestMessage.method).thenReturn(Method.DELETE)
 
-        invoker.invoke(mockRawRequestMessage)
+    invoker.invoke(mockRawRequestMessage)
 
-        verify(mockResourceHandler).onDelete(any(), any())
-    }
+    verify(mockResourceHandler).onDelete(any(), any())
+  }
 }

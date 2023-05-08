@@ -82,12 +82,22 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
         peerRole: PeerRole,
         stackConfig: StackConfig,
         connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
+        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>,
+        setStackStartMtu: Boolean,
     ): PeerBuilder<Blaster, BluetoothAddressNodeKey> = StackPeerBuilder(
         Blaster::class.java,
         peerRole,
         stackConfig
-    ) { nodeKey -> StackPeer(nodeKey, peerRole, stackConfig, Blaster(stackConfig.isLwipBased(), packetSize = packetSize), connectionStatus, dtlsStatus) }
+    ) { nodeKey ->
+        StackPeer(
+            nodeKey,
+            peerRole,
+            stackConfig,
+            Blaster(stackConfig.isLwipBased(), packetSize = packetSize),
+            connectionStatus,
+            dtlsStatus,
+            { setStackStartMtu })
+    }
 
     override fun onConnected(stackService: Blaster, stackConfig: StackConfig) {
         throughput.visibility = View.VISIBLE

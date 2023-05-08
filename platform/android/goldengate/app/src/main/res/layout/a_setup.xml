@@ -259,6 +259,21 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/stack_extra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_below="@id/container_edit_ip">
+
+                <Switch
+                    android:id="@+id/set_stack_start_mtu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Set Stack Start MTU" />
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </ScrollView>

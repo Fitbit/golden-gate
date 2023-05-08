@@ -1,10 +1,10 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
-#include "xp/module/gg_module.h"
-#include "xp/common/gg_common.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "third_party/goldengate/xp/module/gg_module.h"
+#include "third_party/goldengate/xp/common/gg_common.h"
 
 extern "C"
 JNIEXPORT jint

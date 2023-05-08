@@ -5,8 +5,8 @@
 #include <jni.h>
 #include <stdio.h>
 #include <string.h>
-#include "xp/common/gg_logging.h"
-#include "xp/common/gg_memory.h"
+#include "third_party/goldengate/xp/common/gg_logging.h"
+#include "third_party/goldengate/xp/common/gg_memory.h"
 
 
 extern "C" {

@@ -5,6 +5,7 @@ package com.fitbit.bluetooth.fbgatt.rx.server
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothGattCharacteristic
+import androidx.annotation.OpenForTesting
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
@@ -28,7 +29,8 @@ import timber.log.Timber
 /**
  * Notify GATT Characteristic change
  */
-class GattCharacteristicNotifier constructor(
+@OpenForTesting
+open class GattCharacteristicNotifier constructor(
         private val fitbitDevice: FitbitBluetoothDevice,
         private val bitgatt: FitbitGatt = FitbitGatt.getInstance(),
         private val getGattServerServices: (serverConnection: GattServerConnection) -> GetGattServerServices = { serverConnection ->
@@ -52,7 +54,8 @@ class GattCharacteristicNotifier constructor(
      * @throws [GattServiceNotFoundException] if GATT service was not found
      * @throws [GattCharacteristicException]  if GATT Characteristic is not found
      */
-    fun notify(
+    @OpenForTesting
+    open fun notify(
             serviceId: UUID,
             characteristicId: UUID,
             data: ByteArray

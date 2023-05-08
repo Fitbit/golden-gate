@@ -14,24 +14,30 @@ import com.fitbit.goldengate.node.NodeMapper
  * Utility object for instantiating a [StackPeerBuilder]<[CoapEndpoint], [BluetoothAddressNodeKey]>
  */
 class CoapNodeProvider(
-    private val nodeMapper: NodeMapper = NodeMapper.instance,
-    private val stackPeerBuilder: StackPeerBuilder<CoapEndpoint> =
-                StackPeerBuilder(CoapEndpoint::class.java, PeerRole.Peripheral, CoapEndpointBuilder, DtlsSocketNetifGattlink()),
-    private val bluetoothAddressNodeKeyProvider: (String) -> BluetoothAddressNodeKey = { BluetoothAddressNodeKey(it) }
+  shouldSetStartMtuChecker: () -> Boolean = { true },
+  private val nodeMapper: NodeMapper = NodeMapper.instance,
+  private val stackPeerBuilder: StackPeerBuilder<CoapEndpoint> =
+    StackPeerBuilder(
+      CoapEndpoint::class.java,
+      PeerRole.Peripheral,
+      CoapEndpointBuilder,
+      DtlsSocketNetifGattlink(),
+      shouldSetStartMtuChecker
+    ),
+  private val bluetoothAddressNodeKeyProvider: (String) -> BluetoothAddressNodeKey = {
+    BluetoothAddressNodeKey(it)
+  }
 ) {
 
-    /**
-     * @return a [StackPeer]<[CoapEndpoint]>
-     */
-    fun getNode(bluetoothAddress: String) = nodeMapper.get(
-            bluetoothAddressNodeKeyProvider(bluetoothAddress),
-            stackPeerBuilder
-    )
+  /** @return a [StackPeer]<[CoapEndpoint]> */
+  fun getNode(bluetoothAddress: String) =
+    nodeMapper.get(bluetoothAddressNodeKeyProvider(bluetoothAddress), stackPeerBuilder)
 
-    /**
-     * Removes a node from the mapper, this will close the StackNode
-     *
-     * @param bluetoothAddress the MAC address of the node we want to remove
-     */
-    fun removeNode(bluetoothAddress: String) = nodeMapper.removeNode( bluetoothAddressNodeKeyProvider(bluetoothAddress))
+  /**
+   * Removes a node from the mapper, this will close the StackNode
+   *
+   * @param bluetoothAddress the MAC address of the node we want to remove
+   */
+  fun removeNode(bluetoothAddress: String) =
+    nodeMapper.removeNode(bluetoothAddressNodeKeyProvider(bluetoothAddress))
 }

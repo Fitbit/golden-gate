@@ -4,9 +4,9 @@
 #include <cassert>
 #include <pthread.h>
 #include <string.h>
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
-#include "xp/common/gg_memory.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "third_party/goldengate/xp/common/gg_memory.h"
 
 extern "C" {
 

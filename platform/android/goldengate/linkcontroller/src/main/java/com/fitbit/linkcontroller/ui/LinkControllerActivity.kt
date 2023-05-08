@@ -14,7 +14,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.fitbit.linkcontroller.LinkController
 import com.fitbit.linkcontroller.LinkControllerProvider

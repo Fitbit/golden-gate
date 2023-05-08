@@ -1,8 +1,8 @@
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/sinksourceadapter/jni_gg_sinksourceadapter.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/io/jni_gg_io.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
-#include "xp/common/gg_io.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/sinksourceadapter/jni_gg_sinksourceadapter.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/io/jni_gg_io.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "third_party/goldengate/xp/common/gg_io.h"
 
 extern "C" {
 

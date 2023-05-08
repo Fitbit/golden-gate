@@ -2,9 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <gtest/gtest.h>
-#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
-#include "platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
-#include "xp/utils/gg_blaster_data_source.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "third_party/goldengate/platform/android/goldengate/GoldenGateBindings/src/test/cpp/jni_gg_test_harness.h"
+#include "third_party/goldengate/xp/utils/gg_blaster_data_source.h"
 
 TEST(Blaster, Setup) {
     GG_BlasterDataSource* blaster;

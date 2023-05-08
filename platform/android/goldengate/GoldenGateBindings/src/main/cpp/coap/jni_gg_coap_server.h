@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include "xp/coap/gg_coap_blockwise.h"
-#include "xp/coap/gg_coap.h"
+#include "third_party/goldengate/xp/coap/gg_coap_blockwise.h"
+#include "third_party/goldengate/xp/coap/gg_coap.h"
 
 #ifndef GOLDENGATELIB_JNI_GG_COAP_SERVER_H
 #define GOLDENGATELIB_JNI_GG_COAP_SERVER_H

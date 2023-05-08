@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <jni.h>
-#include "xp/common/gg_types.h"
-#include "xp/remote/gg_remote.h"
+#include "third_party/goldengate/xp/common/gg_types.h"
+#include "third_party/goldengate/xp/remote/gg_remote.h"
 
 #ifndef GOLDENGATE_JNI_GG_REMOTE_H
 #define GOLDENGATE_JNI_GG_REMOTE_H

@@ -14,20 +14,27 @@ import com.fitbit.goldengate.node.stack.StackPeerBuilder
 
 /**
  * Utility object for encapsulating dependencies. When [invoked][invoke] returns a
- * [StackServiceMapper]<[CoapEndpoint], [BluetoothAddressNodeKey]> using a [StackPeerBuilder]<[CoapEndpoint]>
+ * [StackServiceMapper]<[CoapEndpoint], [BluetoothAddressNodeKey]> using a
+ * [StackPeerBuilder]<[CoapEndpoint]>
  */
 object CoapStackServiceProvider {
 
-    /**
-     * @return a [StackServiceMapper]<[CoapEndpoint], [String]> using a [StackPeerBuilder]<[CoapEndpoint]>
-     */
-    operator fun invoke(
-        peerRole: PeerRole = PeerRole.Peripheral,
-        stackConfig: StackConfig = DtlsSocketNetifGattlink(),
-        stackPeerBuilder: StackPeerBuilder<CoapEndpoint> =
-            StackPeerBuilder(CoapEndpoint::class.java, peerRole, CoapEndpointBuilder, stackConfig)
-    ) : StackServiceMapper<CoapEndpoint, BluetoothAddressNodeKey> = StackServiceMapper(
-            { (it as StackPeer).stackService as CoapEndpoint },
-            stackPeerBuilder
-    )
+  /**
+   * @return a [StackServiceMapper]<[CoapEndpoint], [String]> using a
+   *   [StackPeerBuilder]<[CoapEndpoint]>
+   */
+  operator fun invoke(
+    shouldSetStartMtuChecker: () -> Boolean = { true },
+    peerRole: PeerRole = PeerRole.Peripheral,
+    stackConfig: StackConfig = DtlsSocketNetifGattlink(),
+    stackPeerBuilder: StackPeerBuilder<CoapEndpoint> =
+      StackPeerBuilder(
+        CoapEndpoint::class.java,
+        peerRole,
+        CoapEndpointBuilder,
+        stackConfig,
+        shouldSetStartMtuChecker
+      )
+  ): StackServiceMapper<CoapEndpoint, BluetoothAddressNodeKey> =
+    StackServiceMapper({ (it as StackPeer).stackService as CoapEndpoint }, stackPeerBuilder)
 }

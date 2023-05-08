@@ -20,7 +20,7 @@ import android.os.PowerManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -61,6 +61,7 @@ import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 
+const val EXTRA_SET_START_STACK_MTU = "extra_set_start_stack_mtu"
 const val EXTRA_STACK_CONFIG = "extra_stack_config"
 const val EXTRA_LOCAL_PORT = "extra_local_port"
 const val EXTRA_REMOTE_IP = "extra_remote_ip"
@@ -95,6 +96,8 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     private var backPressedListener: (() -> Unit)? = null
     private lateinit var nodeKey: BluetoothAddressNodeKey
     private var isBleCentralRole: Boolean = true
+    private var setStackStartMtu: Boolean = true
+
     /**
      * Get the android content view
      */
@@ -107,8 +110,9 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         peerRole: PeerRole,
         stackConfig: StackConfig,
         connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
-    ): PeerBuilder<T, BluetoothAddressNodeKey>
+        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>,
+        setStackStartMtu: Boolean,
+        ): PeerBuilder<T, BluetoothAddressNodeKey>
 
     /**
      * Method called when a node reports a successful connection
@@ -130,6 +134,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         val stackConfig = intent.getSerializableExtra(EXTRA_STACK_CONFIG) as StackConfig
 
         isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
+        setStackStartMtu = intent.getBooleanExtra(EXTRA_SET_START_STACK_MTU, true)
 
         if (isBleCentralRole) {
             val bluetoothDevice  = intent.getParcelableExtra<BluetoothDevice>(EXTRA_DEVICE)
@@ -143,7 +148,12 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
             nodeKey = BluetoothAddressNodeKey(bluetoothDevice.address)
             val stackNode = NodeMapper.instance.get(
                 nodeKey,
-                getPeerBuilder(PeerRole.Peripheral, stackConfig, listenToGattlinkStatus, listenToDtlsEvents(stackConfig)),
+                getPeerBuilder(
+                    PeerRole.Peripheral,
+                    stackConfig,
+                    listenToGattlinkStatus,
+                    listenToDtlsEvents(stackConfig),
+                    setStackStartMtu),
                 true
             ) as Peer<T>
 
@@ -269,7 +279,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
 
         companionDeviceManager?.associate(linkingRequest,
             object : CompanionDeviceManager.Callback() {
-                override fun onDeviceFound(chooserLauncher: IntentSender?) {
+                override fun onDeviceFound(chooserLauncher: IntentSender) {
                     Timber.v("We've found the device for the user")
                     try {
                         if (!isFinishing) {
@@ -451,7 +461,8 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                         PeerRole.Central,
                         stackConfig,
                         listenToGattlinkStatus,
-                        listenToDtlsEvents(stackConfig)).build(nodeKey)
+                        listenToDtlsEvents(stackConfig),
+                        setStackStartMtu).build(nodeKey)
                     stackHub?.connection()
                 }
                 .subscribeOn(Schedulers.io())

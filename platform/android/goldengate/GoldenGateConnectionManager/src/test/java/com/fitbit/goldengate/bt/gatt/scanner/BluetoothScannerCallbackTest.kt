@@ -4,36 +4,36 @@
 package com.fitbit.goldengate.bt.gatt.scanner
 
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.nhaarman.mockitokotlin2.mock
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.kotlin.mock
 
 @RunWith(JUnit4::class)
 class BluetoothScannerCallbackTest {
 
-    @Test
-    fun testEmitter() {
+  @Test
+  fun testEmitter() {
 
-        // Given
-        val testObserver = TestObserver<GattConnection>()
-        val connection1 = mock<GattConnection>()
-        val connection2 = mock<GattConnection>()
+    // Given
+    val testObserver = TestObserver<GattConnection>()
+    val connection1 = mock<GattConnection>()
+    val connection2 = mock<GattConnection>()
 
-        // When
-        Observable.create<GattConnection> { emitter ->
-            val callback = BluetoothScannerCallbackProvider()(emitter)
-            callback.onBluetoothPeripheralDiscovered(connection1)
-            callback.onBluetoothPeripheralDiscovered(connection2)
-        }.take(2).subscribe(testObserver)
+    // When
+    Observable.create<GattConnection> { emitter ->
+        val callback = BluetoothScannerCallbackProvider()(emitter)
+        callback.onBluetoothPeripheralDiscovered(connection1)
+        callback.onBluetoothPeripheralDiscovered(connection2)
+      }
+      .take(2)
+      .subscribe(testObserver)
 
-
-        // Then
-        testObserver.assertValueAt(0, connection1)
-        testObserver.assertValueAt(1, connection2)
-        testObserver.assertComplete()
-    }
-
+    // Then
+    testObserver.assertValueAt(0, connection1)
+    testObserver.assertValueAt(1, connection2)
+    testObserver.assertComplete()
+  }
 }

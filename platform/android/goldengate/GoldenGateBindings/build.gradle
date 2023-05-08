@@ -118,7 +118,7 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
     ktlint "com.github.shyiko:ktlint:0.14.0"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
 }
 

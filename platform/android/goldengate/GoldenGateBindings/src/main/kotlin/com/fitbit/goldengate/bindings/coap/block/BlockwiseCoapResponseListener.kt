@@ -121,6 +121,7 @@ internal class BlockwiseCoapResponseListener(
 
     override fun isComplete() = completed
 
+
     override fun setNativeListenerReference(nativeReference: Long) {
         nativeResponseListenerReference = nativeReference
     }
@@ -136,6 +137,8 @@ internal class BlockwiseCoapResponseListener(
             )
         }
     }
+
+
 
     private fun createIncomingResponse(message: RawResponseMessage): IncomingResponse {
         return object : IncomingResponse {

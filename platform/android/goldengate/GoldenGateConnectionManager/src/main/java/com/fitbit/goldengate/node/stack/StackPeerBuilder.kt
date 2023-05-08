@@ -16,7 +16,7 @@ import io.reactivex.Single
  * @param stackConfig the [StackConfig] of the [StackPeer]'s [Stack]
  * @param buildStackPeer function for building a [StackPeer]
  */
-class StackPeerBuilder<T: StackService>(
+class StackPeerBuilder<T: StackService> constructor(
     private val clazz: Class<in T>,
     private val peerRole: PeerRole,
     private val stackConfig: StackConfig,
@@ -30,9 +30,10 @@ class StackPeerBuilder<T: StackService>(
         clazz: Class<in T>,
         peerRole: PeerRole,
         stackServiceProvider: () -> T,
-        stackConfig: StackConfig
+        stackConfig: StackConfig,
+        shouldSetStartMtuChecker: () -> Boolean = { true },
     ): this(clazz, peerRole, stackConfig, { nodeKey ->
-        StackPeer(nodeKey, peerRole, stackConfig, stackServiceProvider())
+        StackPeer(nodeKey, peerRole, stackConfig, stackServiceProvider(), shouldSetStartMtuChecker)
     })
 
     /**

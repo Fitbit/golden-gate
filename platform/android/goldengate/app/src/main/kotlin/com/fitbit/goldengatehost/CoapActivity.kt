@@ -60,7 +60,8 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
         peerRole: PeerRole,
         stackConfig: StackConfig,
         connectionStatus: (GattConnection) -> Observable<PeripheralConnectionStatus>,
-        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>
+        dtlsStatus: (Stack) -> Observable<DtlsProtocolStatus>,
+        setStackStartMtu: Boolean,
     ): PeerBuilder<CoapEndpoint, BluetoothAddressNodeKey> = StackPeerBuilder(
         CoapEndpoint::class.java,
         peerRole,
@@ -72,7 +73,8 @@ class CoapActivity : AbstractHostActivity<CoapEndpoint>() {
             stackConfig,
             CoapEndpointBuilder(),
             connectionStatus,
-            dtlsStatus
+            dtlsStatus,
+            { setStackStartMtu }
         )
     }
 

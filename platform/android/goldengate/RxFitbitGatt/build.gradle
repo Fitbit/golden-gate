@@ -32,7 +32,7 @@ dependencies {
 
     testImplementation "junit:junit:$JUNIT_VERSION"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
     testImplementation "org.robolectric:robolectric:$ROBOLECTRIC_VERSION"
 }

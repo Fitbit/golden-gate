@@ -18,6 +18,7 @@ import kotlin.test.assertTrue
 
 class StackPeerBuilderTest {
 
+    private val shouldSetStartMtu = { true }
     private val stackServiceProvider = mock<() -> ThisStackService> {
         on { invoke() } doReturn ThisStackService()
     }
@@ -35,7 +36,8 @@ class StackPeerBuilderTest {
         ThisStackService::class.java,
         PeerRole.Peripheral,
         GattlinkStackConfig,
-        buildStackNode
+        buildStackNode,
+        shouldSetStartMtu
     )
 
     @Test
@@ -44,7 +46,8 @@ class StackPeerBuilderTest {
             ThisStackService::class.java,
             PeerRole.Peripheral,
             stackServiceProvider,
-            GattlinkStackConfig
+            GattlinkStackConfig,
+            shouldSetStartMtu
         )
     }
 

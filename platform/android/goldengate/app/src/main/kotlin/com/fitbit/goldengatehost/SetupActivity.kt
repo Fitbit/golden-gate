@@ -8,7 +8,8 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.SwitchCompat
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -21,6 +22,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.RelativeLayout
 import android.widget.Spinner
+import android.widget.Switch
 import android.widget.Toast
 import com.fitbit.goldengate.GoldenGateConnectionManagerModule
 import com.fitbit.goldengate.bindings.coap.COAP_DEFAULT_PORT
@@ -67,6 +69,7 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var rbGlUdp: RadioButton
     private lateinit var rbGlUdpDtls: RadioButton
     private lateinit var startButton: Button
+    private lateinit var setStackStartMtuSwitch: Switch
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,6 +105,7 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         rbGlUdp = ActivityCompat.requireViewById(this, R.id.rb_gl_udp)
         rbGlUdpDtls = ActivityCompat.requireViewById(this, R.id.rb_gl_udp_dtls)
         startButton = ActivityCompat.requireViewById(this, R.id.start_button)
+        setStackStartMtuSwitch = ActivityCompat.requireViewById(this, R.id.set_stack_start_mtu)
     }
 
     private fun setPacketSizeSpinner() {
@@ -214,6 +218,7 @@ class SetupActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         intent.putExtra(EXTRA_STACK_CONFIG, stackConfig)
             .putExtra(EXTRA_IS_BLE_CENTRAL_ROLE, rbCentral.isChecked)
+            .putExtra(EXTRA_SET_START_STACK_MTU, setStackStartMtuSwitch.isChecked)
         startActivity(intent)
     }
 
