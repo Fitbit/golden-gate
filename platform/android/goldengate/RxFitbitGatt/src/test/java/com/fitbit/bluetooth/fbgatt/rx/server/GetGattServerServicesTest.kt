@@ -11,10 +11,10 @@ import com.fitbit.bluetooth.fbgatt.rx.mockGattServerConnection
 import com.fitbit.bluetooth.fbgatt.rx.mockGattTransactionCompletion
 import com.fitbit.bluetooth.fbgatt.rx.mockTransactionResult
 import com.fitbit.bluetooth.fbgatt.tx.GetGattServerServicesTransaction
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import org.junit.Test
 
 class GetGattServerServicesTest {

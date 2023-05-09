@@ -82,5 +82,5 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
     implementation "com.google.android.material:material:$ANDROID_MATERIAL_VERSION"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
 }

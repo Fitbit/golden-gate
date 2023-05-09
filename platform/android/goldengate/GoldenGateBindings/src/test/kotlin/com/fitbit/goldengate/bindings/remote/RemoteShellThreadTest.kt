@@ -4,8 +4,8 @@
 package com.fitbit.goldengate.bindings.remote
 
 import com.fitbit.goldengate.bindings.BaseTest
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import okhttp3.WebSocket
 import okio.ByteString
 import okio.ByteString.Companion.toByteString

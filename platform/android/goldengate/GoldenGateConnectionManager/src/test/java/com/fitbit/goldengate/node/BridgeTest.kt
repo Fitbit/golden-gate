@@ -6,11 +6,11 @@ package com.fitbit.goldengate.node
 import com.fitbit.goldengate.bindings.io.RxSource
 import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bt.mockGattConnection
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
 import io.reactivex.Completable
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers

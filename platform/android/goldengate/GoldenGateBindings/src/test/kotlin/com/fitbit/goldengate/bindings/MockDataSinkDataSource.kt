@@ -3,8 +3,8 @@
 
 package com.fitbit.goldengate.bindings
 
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 
 fun mockDataSinkDataSource(
     dataSinkPtr: Long = 0,

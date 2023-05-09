@@ -21,7 +21,7 @@ import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
-import com.nhaarman.mockitokotlin2.*
+import org.mockito.kotlin.*
 import io.reactivex.Observer
 import io.reactivex.schedulers.Schedulers
 import org.junit.After

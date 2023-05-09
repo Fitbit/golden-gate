@@ -4,7 +4,7 @@
 package com.fitbit.goldengate.bindings.io
 
 import com.fitbit.goldengate.bindings.BaseTest
-import com.nhaarman.mockitokotlin2.spy
+import org.mockito.kotlin.spy
 import org.junit.After
 import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertNotNull

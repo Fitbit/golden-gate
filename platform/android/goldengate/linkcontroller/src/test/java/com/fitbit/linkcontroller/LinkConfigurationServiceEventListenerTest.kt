@@ -21,7 +21,7 @@ import com.fitbit.linkcontroller.services.configuration.PreferredConnectionConfi
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
 import com.fitbit.linkcontroller.services.configuration.gattServiceSubscribedValue
 import com.fitbit.linkcontroller.services.configuration.gattServiceUnSubscribedValue
-import com.nhaarman.mockitokotlin2.*
+import org.mockito.kotlin.*
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before

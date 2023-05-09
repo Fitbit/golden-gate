@@ -10,11 +10,11 @@ import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.node.NodeMapper
 import com.fitbit.goldengate.node.stack.StackPeer
 import com.fitbit.goldengate.node.stack.StackPeerBuilder
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer

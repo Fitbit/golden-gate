@@ -9,11 +9,11 @@ import com.fitbit.bluetooth.fbgatt.TransactionResult
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.bluetooth.fbgatt.rx.server.GattServerResponseSender
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.anyOrNull
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.anyOrNull
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import io.reactivex.Completable
 import org.junit.Before
 import org.junit.Test

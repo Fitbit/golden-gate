@@ -4,7 +4,7 @@
 package com.fitbit.goldengate.bt.gatt.scanner
 
 import com.fitbit.bluetooth.fbgatt.GattConnection
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.mock
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import org.junit.Test

@@ -6,10 +6,10 @@ package com.fitbit.goldengate.node
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
 import com.fitbit.goldengate.bindings.stack.Stack
 import com.fitbit.goldengate.bt.mockBluetoothAddress
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import io.reactivex.Single
 import io.reactivex.schedulers.TestScheduler
 import org.junit.Test
