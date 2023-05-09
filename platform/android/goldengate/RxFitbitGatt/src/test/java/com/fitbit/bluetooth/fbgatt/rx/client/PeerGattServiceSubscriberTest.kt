@@ -7,11 +7,11 @@ import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicException
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import io.reactivex.Maybe
 import io.reactivex.Single
 import org.junit.Test

@@ -24,7 +24,7 @@ import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
 import com.fitbit.linkcontroller.services.status.CurrentConnectionConfiguration
 import com.fitbit.linkcontroller.services.status.CurrentConnectionStatus
 import com.fitbit.linkcontroller.services.status.LinkStatusService
-import com.nhaarman.mockitokotlin2.*
+import org.mockito.kotlin.*
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Observable

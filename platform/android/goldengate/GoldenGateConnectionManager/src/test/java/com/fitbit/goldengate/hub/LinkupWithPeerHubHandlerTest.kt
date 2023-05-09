@@ -15,7 +15,7 @@ import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectio
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCharacteristic
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
-import com.nhaarman.mockitokotlin2.*
+import org.mockito.kotlin.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

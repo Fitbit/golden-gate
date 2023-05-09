@@ -8,9 +8,9 @@ import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult
 import com.fitbit.bluetooth.fbgatt.rx.client.ClientTransactionProvider
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import io.reactivex.observers.TestObserver
 import org.junit.Test
 

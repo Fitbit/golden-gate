@@ -9,8 +9,8 @@ import com.fitbit.goldengate.bindings.stack.DtlsSocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.GattlinkStackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerRole
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -18,6 +18,7 @@ import kotlin.test.assertTrue
 
 class StackPeerBuilderTest {
 
+    private val shouldSetStartMtu = { true }
     private val stackServiceProvider = mock<() -> ThisStackService> {
         on { invoke() } doReturn ThisStackService()
     }
@@ -35,7 +36,8 @@ class StackPeerBuilderTest {
         ThisStackService::class.java,
         PeerRole.Peripheral,
         GattlinkStackConfig,
-        buildStackNode
+        buildStackNode,
+        shouldSetStartMtu
     )
 
     @Test
@@ -44,7 +46,8 @@ class StackPeerBuilderTest {
             ThisStackService::class.java,
             PeerRole.Peripheral,
             stackServiceProvider,
-            GattlinkStackConfig
+            GattlinkStackConfig,
+            shouldSetStartMtu
         )
     }
 

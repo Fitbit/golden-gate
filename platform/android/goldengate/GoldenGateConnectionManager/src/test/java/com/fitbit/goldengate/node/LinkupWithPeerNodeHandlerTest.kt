@@ -16,11 +16,11 @@ import com.fitbit.goldengate.bt.gatt.client.services.GattDatabaseValidatorExcept
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.TransmitCharacteristic
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.plugins.RxJavaPlugins

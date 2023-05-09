@@ -3,10 +3,10 @@ package com.fitbit.goldengate.bindings.sinksourceadapter
 import com.fitbit.goldengate.bindings.BaseTest
 import com.fitbit.goldengate.bindings.io.RxSource
 import com.fitbit.goldengate.bindings.io.TxSink
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
 import io.reactivex.Completable
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
@@ -27,7 +27,7 @@ class SinkSourceAdapterTest: BaseTest()  {
         on { dataObservable } doReturn transmitSubject
     }
     private val mockDataSender: SinkSourceAdapterDataSender = mock {
-        on { send(com.nhaarman.mockitokotlin2.any()) } doReturn Completable.complete()
+        on { send(org.mockito.kotlin.any()) } doReturn Completable.complete()
     }
     private val mockDataSenderProvider: SinkSourceAdapterSendProvider = mock {
         on { provide() } doReturn mockDataSender

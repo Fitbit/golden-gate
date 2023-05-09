@@ -6,15 +6,16 @@ package com.fitbit.goldengate.node.stack
 import com.fitbit.goldengate.bindings.coap.CoapEndpoint
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.node.NodeMapper
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class CoapPeerProviderTest {
 
     private val bluetoothAddress = "bluetoothAddress"
+    private val shouldSetStartMtu = { true }
     private val bluetoothAddressNodeKey = mock<BluetoothAddressNodeKey>()
 
     private val bluetoothAddressNodeKeyProvider = mock<(String) -> BluetoothAddressNodeKey> {
@@ -34,6 +35,7 @@ class CoapPeerProviderTest {
     @Test
     fun getNode() {
         val node = CoapNodeProvider(
+                shouldSetStartMtu,
                 nodeMapper,
                 stackNodeBuilder,
                 bluetoothAddressNodeKeyProvider
@@ -47,6 +49,7 @@ class CoapPeerProviderTest {
     @Test
     fun removeNode() {
         val node = CoapNodeProvider(
+            shouldSetStartMtu
             nodeMapper,
             stackNodeBuilder,
             bluetoothAddressNodeKeyProvider

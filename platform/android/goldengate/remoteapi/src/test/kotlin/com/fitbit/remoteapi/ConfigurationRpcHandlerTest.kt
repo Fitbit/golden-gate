@@ -4,7 +4,7 @@
 package com.fitbit.remoteapi
 
 import com.fitbit.remoteapi.handlers.ConfigurationRpc
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.mock
 import org.junit.Test
 import java.util.Collections
 

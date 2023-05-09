@@ -10,8 +10,8 @@ import com.fitbit.goldengate.bindings.io.Blaster
 import com.fitbit.goldengate.bindings.io.RxSource
 import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bindings.node.NodeKey
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import org.junit.After
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
