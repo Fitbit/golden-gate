@@ -7,7 +7,7 @@ dependencies:
 - python=3.9.15
 - invoke=1.3
 - semver=2.8.1
-- cmake=3.19
+- cmake=3.23
 - git=2.34.1
 # Note: Replace line below with - xpack-gcc-arm-none-eabi=11.2.1.1.2 for Apple Silicon setup. Proper solution pending.
 - gcc-arm-none-eabi=8.2019.q3.update
