@@ -1,4 +1,4 @@
 # This requirements file is for python3
 #mkdocs == 1.1 (already brought in by conda)
 mkdocs-material == 5.0
-pymdown-extensions == 7.0
+pymdown-extensions == 10.0
