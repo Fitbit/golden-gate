@@ -691,7 +691,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     } else if ([characteristic.UUID isEqual:
                    [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_CONFIGURATION_CHARACTERISTIC_UUID]]) {
         GG_LOG_FINE("got value for the Link Status Connection Configuration Charateristic");
-        if (characteristic.value == nil | characteristic.value.length < 9) {
+        if (characteristic.value == nil || characteristic.value.length < 9) {
             GG_LOG_WARNING("characteristic value too short");
             return;
         }
@@ -733,7 +733,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     } else if ([characteristic.UUID isEqual:
                    [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_STATUS_CHARACTERISTIC_UUID]]) {
         GG_LOG_FINE("got value for the Link Status Connection Status characteristic");
-        if (characteristic.value == nil | characteristic.value.length < 7) {
+        if (characteristic.value == nil || characteristic.value.length < 7) {
             GG_LOG_WARNING("characteristic value too short");
             return;
         }

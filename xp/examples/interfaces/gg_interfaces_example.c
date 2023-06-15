@@ -89,7 +89,7 @@ GG_Accumulator_GetValue(const GG_Accumulator* self)
 // usage example for Example 1
 //
 static void
-Example1()
+Example1(void)
 {
     printf("* Example 1\n");
 
@@ -321,7 +321,7 @@ GG_IMPLEMENT_INTERFACE(SimpleVisitor, GG_ShapeVisitor) {
 };
 
 static void
-Example2()
+Example2(void)
 {
     printf("* Example 2\n");
 
@@ -396,7 +396,7 @@ GG_IMPLEMENT_INTERFACE(ToStringVisitor, GG_ShapeVisitor) {
 };
 
 static void
-Example3()
+Example3(void)
 {
     printf("* Example 3\n");
 
