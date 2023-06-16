@@ -44,6 +44,7 @@ struct GG_GattlinkGenericClient {
     GG_FrameAssembler*      frame_assembler;
     GG_RingBuffer           output_buffer;
     size_t                  max_transport_fragment_size;
+    uint8_t                 max_tx_window_size;
     GG_DataProbe*           probe;
     GG_GattlinkProbeConfig  probe_config;
     bool                    buffer_over_threshold;
@@ -248,7 +249,7 @@ static size_t
 GG_GattlinkGenericClient_GetTransportMaxPacketSize(GG_GattlinkClient* _self)
 {
     GG_GattlinkGenericClient* self = GG_SELF(GG_GattlinkGenericClient, GG_GattlinkClient);
-    return GG_MIN(self->max_transport_fragment_size, GG_GATTLINK_MAX_PACKET_SIZE);
+    return self->max_transport_fragment_size;
 }
 
 //----------------------------------------------------------------------
@@ -639,7 +640,8 @@ GG_GattlinkGenericClient_Create(GG_TimerScheduler*            timer_scheduler,
     // setup the state
     GG_EventEmitterBase_Init(&self->event_emitter);
     self->session_open                = false;
-    self->max_transport_fragment_size = max_transport_fragment_size;
+    self->max_transport_fragment_size = GG_MIN(max_transport_fragment_size, GG_GATTLINK_MAX_PACKET_SIZE);
+    self->max_tx_window_size          = config.max_tx_window_size;
     self->frame_serializer            = frame_serializer;
     self->frame_assembler             = frame_assembler;
     self->protocol                    = NULL;
@@ -776,7 +778,7 @@ GG_Result
 GG_GattlinkGenericClient_SetMaxTransportFragmentSize(GG_GattlinkGenericClient* self,
                                                      size_t                    max_transport_fragment_size)
 {
-    self->max_transport_fragment_size = max_transport_fragment_size;
+    self->max_transport_fragment_size = GG_MIN(max_transport_fragment_size, GG_GATTLINK_MAX_PACKET_SIZE);
 
     return GG_SUCCESS;
 }

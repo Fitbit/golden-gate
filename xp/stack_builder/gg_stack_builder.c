@@ -240,7 +240,13 @@ static void
 GG_StackGattlinkElement_OnLinkMtuChange(GG_StackGattlinkElement*          self,
                                         const GG_StackLinkMtuChangeEvent* event)
 {
-    GG_GattlinkGenericClient_SetMaxTransportFragmentSize(self->client, (size_t)event->link_mtu);
+    size_t max_transport_fragment_size = (size_t)event->link_mtu;
+    if (self->max_transport_fragment_size_limit &&
+        max_transport_fragment_size > self->max_transport_fragment_size_limit) {
+        max_transport_fragment_size = self->max_transport_fragment_size_limit;
+        GG_LOG_FINE("clamping max transport fragment size to %u", max_transport_fragment_size);
+    }
+    GG_GattlinkGenericClient_SetMaxTransportFragmentSize(self->client, max_transport_fragment_size);
 }
 
 //----------------------------------------------------------------------
@@ -311,6 +317,12 @@ GG_StackGattlinkElement_Create(const GG_StackElementGattlinkParameters* paramete
         gattlink_buffer_size = parameters->buffer_size;
     } else {
         gattlink_buffer_size = 2 * stack->ip_configuration.ip_mtu; // default to 2 max IP packets
+        if (!parameters || !parameters->tx_window) {
+            // using default tx window size, pick an mtu limit that ensures we will not underflow
+            // the window given this buffer size
+            self->max_fragment_size_limit = gattlink_buffer_size /
+                                            (2 + GG_GENERIC_GATTLINK_CLIENT_DEFAULT_MAX_TX_WINDOW_SIZE);
+        }
     }
     GG_LOG_FINE("creating gattlink client - buffer_size=%d, tx_window=%d, rx_window=%d, initial_max_fragment_size=%d",
                 (int)gattlink_buffer_size,

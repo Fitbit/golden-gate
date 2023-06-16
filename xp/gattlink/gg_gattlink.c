@@ -652,8 +652,9 @@ GG_GattlinkProtocol_PrepareNextPacket(GG_GattlinkProtocol* self,
                                       size_t*              buf_len,
                                       size_t*              payload_size)
 {
-    size_t max_packet_size = GG_GattlinkClient_GetTransportMaxPacketSize(self->client);
-    GG_ASSERT(max_packet_size  >= sizeof(GG_GattlinkResetCompletePacket));
+    size_t max_packet_size = GG_MIN(GG_GattlinkClient_GetTransportMaxPacketSize(self->client),
+                                    GG_GATTLINK_MAX_PACKET_SIZE);
+    GG_ASSERT(max_packet_size >= sizeof(GG_GattlinkResetCompletePacket));
 
     // we want to ACK data before the other side is blocked waiting for an ACK
     bool ack_now = self->out.ack_now;
