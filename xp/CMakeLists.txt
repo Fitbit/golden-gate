@@ -63,7 +63,7 @@ elseif(CMAKE_C_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Weverything -Wint-conversion -Wno-padded -Wno-sign-conversion -Wno-extended-offsetof
     -Wno-documentation-unknown-command -Wno-documentation-deprecated-sync -Wno-missing-field-initializers
     -Wno-missing-noreturn -Wno-c99-extensions -Wno-vla -Wno-date-time -Wno-unknown-warning-option -Wno-disabled-macro-expansion -fno-common
-    -Wno-missing-braces)
+    -Wno-missing-braces -Wno-declaration-after-statement)
     if(CMAKE_OSX_SYSROOT)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lobjc")
     endif()
