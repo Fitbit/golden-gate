@@ -768,6 +768,7 @@ GG_GattlinkProtocol_OnAckTimerFired(GG_GattlinkProtocol* self, uint32_t elapsed)
     GG_COMPILER_UNUSED(elapsed);
 
     // We haven't sent any ack in our specified period
+    GG_LOG_FINEST("ACK timer fired");
     self->out.ack_now = true;
     GG_GattlinkProtocol_SendNextPackets(self);
 }

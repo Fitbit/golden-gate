@@ -244,7 +244,7 @@ GG_StackGattlinkElement_OnLinkMtuChange(GG_StackGattlinkElement*          self,
     if (self->max_transport_fragment_size_limit &&
         max_transport_fragment_size > self->max_transport_fragment_size_limit) {
         max_transport_fragment_size = self->max_transport_fragment_size_limit;
-        GG_LOG_FINE("clamping max transport fragment size to %u", max_transport_fragment_size);
+        GG_LOG_FINE("clamping max transport fragment size to %d", (int)max_transport_fragment_size);
     }
     GG_GattlinkGenericClient_SetMaxTransportFragmentSize(self->client, max_transport_fragment_size);
 }
@@ -318,10 +318,14 @@ GG_StackGattlinkElement_Create(const GG_StackElementGattlinkParameters* paramete
     } else {
         gattlink_buffer_size = 2 * stack->ip_configuration.ip_mtu; // default to 2 max IP packets
         if (!parameters || !parameters->tx_window) {
-            // using default tx window size, pick an mtu limit that ensures we will not underflow
-            // the window given this buffer size
-            self->max_fragment_size_limit = gattlink_buffer_size /
-                                            (2 + GG_GENERIC_GATTLINK_CLIENT_DEFAULT_MAX_TX_WINDOW_SIZE);
+            // We are using the default tx window size.
+            // Pick an mtu limit that ensures we will not underflow the window given this buffer size.
+            // The heuristic is: pick a limit such that one IP packet will fit in 1 more than 1/2
+            // tx_window buffers. This is because the peer will always ACK a packet that's past 1/2
+            // the window size, without waiting, even if it has nothing to send. Up to 1/2 of the window,
+            // it will wait up to some configured timeout (200ms by default) before sending an ACK.
+            self->max_transport_fragment_size_limit = stack->ip_configuration.ip_mtu /
+                                                      ( 1 + GG_GENERIC_GATTLINK_CLIENT_DEFAULT_MAX_TX_WINDOW_SIZE / 2);
         }
     }
     GG_LOG_FINE("creating gattlink client - buffer_size=%d, tx_window=%d, rx_window=%d, initial_max_fragment_size=%d",
