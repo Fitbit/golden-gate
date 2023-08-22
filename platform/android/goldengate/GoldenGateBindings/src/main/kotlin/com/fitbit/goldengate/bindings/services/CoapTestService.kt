@@ -32,9 +32,9 @@ class CoapTestService(private val remoteShellThread: RemoteShellThread,
             CoapTestService(remoteShellThread, endPoint)
     }
 
-    private external fun create(endPointPtr:Long = endPoint.thisPointer):Long
+    private external fun create(endPointPtr:Long = endPoint.thisPointerWrapper):Long
 
     private external fun register(selfPtr:Long = thisPointer, remoteShellPtr:Long = remoteShellThread.thisPointer)
 
-    private external fun destroy(selfPtr:Long = thisPointer):Long
+    private external fun destroy(selfPtr:Long = thisPointer)
 }

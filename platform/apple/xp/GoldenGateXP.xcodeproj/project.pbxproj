@@ -2706,7 +2706,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash -ex\necho $SCRIPT_OUTPUT_FILE0\n\n$PROJECT_DIR/build/scripts/gg_process_version_info_header.py \"$PROJECT_FILE_PATH/../generated\"\n";
+			shellScript = "#!/bin/bash -ex\necho $SCRIPT_OUTPUT_FILE0\n\npython3 $PROJECT_DIR/build/scripts/gg_process_version_info_header.py \"$PROJECT_FILE_PATH/../generated\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

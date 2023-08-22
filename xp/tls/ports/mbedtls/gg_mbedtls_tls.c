@@ -115,6 +115,9 @@ struct GG_DtlsProtocol {
 /*----------------------------------------------------------------------
 |   forward declarations
 +---------------------------------------------------------------------*/
+#ifndef MBEDTLS_DEPRECATED_REMOVED
+#define mbedtls_ssl_get_output_max_frag_len mbedtls_ssl_get_max_frag_len
+#endif
 static void GG_DtlsProtocol_AdvanceHandshake(GG_DtlsProtocol* self);
 static void GG_DtlsProtocol_TransportSide_TryToFlush(GG_DtlsProtocol* self);
 
@@ -479,6 +482,11 @@ GG_DtlsProtocol_UserSide_SetDataSink(GG_DataSource* _self, GG_DataSink* sink)
     // register as a listener
     if (sink) {
         GG_DataSink_SetListener(sink, GG_CAST(&self->user_side, GG_DataSinkListener));
+
+        // if we have a session, process any pending data on the user side
+        if (self->state == GG_TLS_STATE_SESSION) {
+            GG_DtlsProtocol_UserSide_PumpData(self);
+        }
     }
 
     return GG_SUCCESS;

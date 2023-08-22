@@ -138,7 +138,7 @@ struct GG_InspectableInterface {
      *
      * @param self The object on which this method is invoked.
      * @param inspector The inspector that should be called back during the inspection.
-     * @param options. Options for the inspection. May be NULL when no specific option is needed.
+     * @param options Options for the inspection. May be NULL when no specific option is needed.
      *
      * @return GG_SUCCESS if the call succeeded, or a negative error code.
      */

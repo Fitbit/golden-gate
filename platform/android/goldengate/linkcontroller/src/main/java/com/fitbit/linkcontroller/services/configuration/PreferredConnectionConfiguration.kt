@@ -133,9 +133,9 @@ data class PreferredConnectionConfiguration(
                 fastModeSupervisionTimeout
             )
             this.fastModeMaxConnectionInterval =
-                    (fastModeMaxConnectionInterval / CONNECTION_INTERVAL).toShort()
+                    (fastModeMaxConnectionInterval / CONNECTION_INTERVAL).toInt().toShort()
             this.fastModeMinConnectionInterval =
-                    (fastModeMinConnectionInterval / CONNECTION_INTERVAL).toShort()
+                    (fastModeMinConnectionInterval / CONNECTION_INTERVAL).toInt().toShort()
             this.fastModeSlaveLatency = fastModeSlaveLatency.toByte()
             this.fastModeSupervisionTimeout = (fastModeSupervisionTimeout /
                     SUPERVISION_TIMEOUT_INTERVAL).toByte()
@@ -157,9 +157,9 @@ data class PreferredConnectionConfiguration(
                 slowModeSupervisionTimeout
             )
             this.slowModeMaxConnectionInterval =
-                    (slowModeMaxConnectionInterval / CONNECTION_INTERVAL).toShort()
+                (slowModeMaxConnectionInterval / CONNECTION_INTERVAL).toInt().toShort()
             this.slowModeMinConnectionInterval =
-                    (slowModeMinConnectionInterval / CONNECTION_INTERVAL).toShort()
+                (slowModeMinConnectionInterval / CONNECTION_INTERVAL).toInt().toShort()
             this.slowModeSlaveLatency = slowModeSlaveLatency.toByte()
             this.slowModeSupervisionTimeout = (slowModeSupervisionTimeout /
                     SUPERVISION_TIMEOUT_INTERVAL).toByte()

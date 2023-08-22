@@ -3,7 +3,7 @@
 
 package com.fitbit.goldengate.bindings.coap.data
 
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.mock
 import io.reactivex.Observer
 import org.junit.Assert
 import org.junit.Assert.assertEquals

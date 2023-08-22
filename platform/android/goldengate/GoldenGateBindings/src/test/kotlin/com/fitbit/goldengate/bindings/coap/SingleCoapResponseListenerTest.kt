@@ -9,15 +9,16 @@ import com.fitbit.goldengate.bindings.coap.data.Options
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.data.RawResponseMessage
 import com.fitbit.goldengate.bindings.coap.data.ResponseCode
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.verifyNoMoreInteractions
 import io.reactivex.Observer
 import io.reactivex.SingleEmitter
 import org.junit.Test
+import java.lang.ref.WeakReference
 
 class SingleCoapResponseListenerTest {
 
@@ -29,7 +30,8 @@ class SingleCoapResponseListenerTest {
 
     private val listener = SingleCoapResponseListener(
         mockRequest,
-        mockSingleEmitter
+        mockSingleEmitter,
+        WeakReference(null)
     )
 
     @Test

@@ -3,8 +3,10 @@
 
 package com.fitbit.bluetooth.fbgatt.rx
 
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
+import com.fitbit.bluetooth.fbgatt.GattServerTransaction
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult
 import io.reactivex.Single
@@ -15,7 +17,7 @@ import timber.log.Timber
  *
  * @param gattConnection for peripheral this transaction is executed for
  */
-fun GattTransaction.runTxReactive(gattConnection: GattConnection): Single<TransactionResult> {
+fun GattClientTransaction.runTxReactive(gattConnection: GattConnection): Single<TransactionResult> {
     return Single.create<TransactionResult> { emitter ->
         Timber.d("Running GattTransaction ${this.name}")
         gattConnection.runTx(this) { result ->
@@ -24,7 +26,8 @@ fun GattTransaction.runTxReactive(gattConnection: GattConnection): Single<Transa
                 emitter.onSuccess(result)
             } else {
                 Timber.w("Running GattTransaction ${this.name} failed, result: $result")
-                emitter.onError(GattTransactionException(result))
+                val message = "TransactionName: ${result.transactionName} ResultStatus: ${result.resultStatus.name} ResponseStatus: ${result.responseCodeString}"
+                emitter.onError(GattTransactionException(result, message))
             }
         }
     }
@@ -35,7 +38,7 @@ fun GattTransaction.runTxReactive(gattConnection: GattConnection): Single<Transa
  *
  * @param gattServerConnection for the service that transaction is executed for
  */
-fun GattTransaction.runTxReactive(gattServerConnection: GattServerConnection): Single<TransactionResult> {
+fun GattServerTransaction.runTxReactive(gattServerConnection: GattServerConnection): Single<TransactionResult> {
     return Single.create<TransactionResult> { emitter ->
         Timber.d("Running GattTransaction ${this.name}")
         gattServerConnection.runTx(this) { result ->
@@ -44,7 +47,8 @@ fun GattTransaction.runTxReactive(gattServerConnection: GattServerConnection): S
                 emitter.onSuccess(result)
             } else {
                 Timber.w("Running GattTransaction ${this.name} failed, result: $result")
-                emitter.onError(GattTransactionException(result))
+                val message = "TransactionName: ${result.transactionName} ResultStatus: ${result.resultStatus.name} ResponseStatus: ${result.responseCodeString}"
+                emitter.onError(GattTransactionException(result, message))
             }
         }
     }

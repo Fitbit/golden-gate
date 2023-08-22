@@ -66,6 +66,16 @@ enum class OptionNumber(val value: Short) {
     LOCATION_QUERY(20),
 
     /**
+     * This option indicates the blockwise transfer. The Block2 Option pertains to the response payload.
+     */
+    BLOCK2(23),
+
+    /**
+     * This option indicates the blockwise transfer. the Block1 Option pertains to the request payload.
+     */
+    BLOCK1(27),
+
+    /**
      * vendor-specific option number
      */
     START_OFFSET(2048);

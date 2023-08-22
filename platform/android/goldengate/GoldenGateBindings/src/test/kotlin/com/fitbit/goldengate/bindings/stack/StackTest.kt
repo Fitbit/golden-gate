@@ -10,8 +10,8 @@ import com.fitbit.goldengate.bindings.io.Blaster
 import com.fitbit.goldengate.bindings.io.RxSource
 import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bindings.node.NodeKey
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import org.junit.After
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotNull
@@ -124,7 +124,7 @@ class StackTest : BaseTest() {
 
     @Test
     fun canAttachBlaster() {
-        Stack(mockNodeKey, txSink.thisPointer, rxSource.thisPointer, SocketNetifGattlink()).use { stack ->
+        Stack(mockNodeKey, txSink.thisPointer, rxSource.thisPointer, SocketNetifGattlink()).use {
             val blaster = Blaster(true)
             blaster.close()
         }

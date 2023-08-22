@@ -3,7 +3,7 @@
 
 package com.fitbit.goldengate.bindings.dtls
 
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.mock
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Test

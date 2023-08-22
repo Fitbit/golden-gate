@@ -24,15 +24,9 @@ import com.fitbit.goldengate.node.LinkupWithPeerNodeHandler
 import com.fitbit.goldengate.node.MtuChangeRequester
 import com.fitbit.goldengate.node.PeerConnectionStatus
 import com.fitbit.goldengate.peripheral.NodeDisconnectedException
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doAnswer
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.inOrder
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import com.fitbit.linkcontroller.LinkController
+import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
+import org.mockito.kotlin.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -53,6 +47,7 @@ class StackPeerTest {
 
     private val bluetoothAddress = "bluetoothAddress"
     private val pskIdentity = "TEST"
+    private val shouldSetStartMtu = { true }
     private val stackConfig = mock<DtlsSocketNetifGattlink>()
     private val stackService = mock<StackService>()
     private val bridge = mock<Bridge>()
@@ -113,7 +108,6 @@ class StackPeerTest {
         }
     }
 
-    private val mtuRequestSubject = PublishSubject.create<Int>()
     private val mtuUpdateListenerProvider = mock<(GattConnection) -> Observable<Int>> {
         on { invoke(gattConnection) } doReturn Observable.never()
     }
@@ -122,7 +116,14 @@ class StackPeerTest {
     }
 
     private val testScheduler = TestScheduler()
-    private val fitbitGatt = mock<FitbitGatt>()
+
+    private val fitbitGatt = mock<FitbitGatt> {
+        on { getConnectionForBluetoothAddress(any()) } doReturn gattConnection
+    }
+
+    private val mockLinkController = mock<LinkController> {
+        on { setGeneralPurposeCommand(any()) } doReturn Completable.complete()
+    }
 
     @Before
     fun setup() {
@@ -140,7 +141,8 @@ class StackPeerTest {
             key,
             PeerRole.Peripheral,
             stackConfig,
-            stackService,
+            stackService,            
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -152,10 +154,13 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
+        verify(mockLinkController).registerLinkConfigurationPeerRequestListener(any())
+        verify(mockLinkController, times(0)).unregisterLinkConfigurationPeerRequestListener(any())
         connection.assertValue(PeerConnectionStatus.CONNECTED)
         connection.assertNotComplete()
         verifyConnectionSequenceWithPeerNode()
@@ -168,6 +173,7 @@ class StackPeerTest {
             PeerRole.Central,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -179,7 +185,8 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
@@ -195,6 +202,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -206,7 +214,8 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Works twice in the same way after disconnecting
@@ -220,9 +229,12 @@ class StackPeerTest {
             connection.assertValue(PeerConnectionStatus.CONNECTED)
             connection.assertComplete()
 
+            verify(mockLinkController, times(n)).registerLinkConfigurationPeerRequestListener(any())
+            verify(mockLinkController, times(n)).unregisterLinkConfigurationPeerRequestListener(any())
             verify(stackService, times(n)).detach()
             verify(bridge, times(n)).close()
             verify(stack, times(n)).close()
+            verify(mockLinkController, times(n)).handleDisconnection()
 
             connection.assertComplete()
         }
@@ -235,6 +247,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -246,7 +259,8 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Works twice in the same way after disconnecting
@@ -263,6 +277,7 @@ class StackPeerTest {
             verify(stackService, times(n)).detach()
             verify(bridge, times(n)).close()
             verify(stack, times(n)).close()
+            verify(mockLinkController, times(n)).handleDisconnection()
 
             connection.assertComplete()
         }
@@ -275,6 +290,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -286,8 +302,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
         val connection = stackNode.connection().test().assertNotComplete()
 
@@ -302,6 +319,7 @@ class StackPeerTest {
         verify(bridge).close()
         verify(stack).close()
         verify(mockPeripheralDisconnector).disconnect(key.value)
+        verify(mockLinkController).handleDisconnection()
 
         //Should close
         verify(stackService).close()
@@ -314,6 +332,7 @@ class StackPeerTest {
             PeerRole.Central,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -325,8 +344,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
         val connection = stackHub.connection().test().assertNotComplete()
 
@@ -341,6 +361,7 @@ class StackPeerTest {
         verify(bridge).close()
         verify(stack).close()
         verify(mockPeripheralDisconnector).disconnect(key.value)
+        verify(mockLinkController).handleDisconnection()
 
         //Should close
         verify(stackService).close()
@@ -415,6 +436,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -443,6 +465,7 @@ class StackPeerTest {
         verify(stackService, never()).detach()
         verify(bridge, never()).close()
         verify(stack, never()).close()
+        verify(mockLinkController, never()).handleDisconnection()
 
         //Should close
         verify(stackService).close()
@@ -463,6 +486,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -474,8 +498,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
         val connection = stackNode.connection().test().assertNotComplete()
 
@@ -497,6 +522,7 @@ class StackPeerTest {
         verify(bridge).close()
         verify(stack).close()
         verify(mockPeripheralDisconnector).disconnect(key.value)
+        verify(mockLinkController).handleDisconnection()
 
         //Should close
         verify(stackService).close()
@@ -513,6 +539,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -524,8 +551,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
 
         //Should happen the same after disconnected
@@ -545,6 +573,7 @@ class StackPeerTest {
             verify(stackService, never()).detach()
             verify(bridge, never()).close()
             verify(stack, never()).close()
+            verify(mockLinkController, never()).handleDisconnection()
             verify(mockPeripheralDisconnector, times(n)).disconnect(key.value)
         }
     }
@@ -564,6 +593,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -575,8 +605,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
 
         //Should happen the same after disconnected
@@ -600,6 +631,7 @@ class StackPeerTest {
             verify(bridge, times(n)).close()
             verify(stack, times(n)).close()
             verify(mockPeripheralDisconnector, times(n)).disconnect(key.value)
+            verify(mockLinkController, times(n)).handleDisconnection()
         }
     }
 
@@ -610,6 +642,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -621,8 +654,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
         val connection = stackNode.connection().test().apply { dispose() }
 
@@ -633,6 +667,7 @@ class StackPeerTest {
         verify(bridge, never()).close()
         verify(stack, never()).close()
         verify(mockPeripheralDisconnector, never()).disconnect(key.value)
+        verify(mockLinkController, never()).handleDisconnection()
     }
 
     @Test
@@ -642,6 +677,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -653,8 +689,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
             peripheralDisconnector = mockPeripheralDisconnector,
-            fitbitGatt = fitbitGatt
+            linkControllerProvider = { mockLinkController },
         )
 
         //Works twice in the same way after disconnecting
@@ -685,6 +722,7 @@ class StackPeerTest {
             verify(bridge, times(n)).close()
             verify(stack, times(n)).close()
             verify(mockPeripheralDisconnector, times(n)).disconnect(key.value)
+            verify(mockLinkController, times(n)).handleDisconnection()
 
             //Assert both completed
             connection1.assertComplete()
@@ -697,8 +735,8 @@ class StackPeerTest {
     fun connectionThrowsNodeDisconnectedExceptionOnUnexpectedDisconnection() {
         val connectionStatusProvider = mock<(GattConnection) -> Observable<PeripheralConnectionStatus>> {
             val iterator = listOf<Observable<PeripheralConnectionStatus>>(
-                    BehaviorSubject.createDefault<PeripheralConnectionStatus>(PeripheralConnectionStatus.DISCONNECTED),
-                    BehaviorSubject.createDefault<PeripheralConnectionStatus>(PeripheralConnectionStatus.CONNECTED)
+                    BehaviorSubject.createDefault(PeripheralConnectionStatus.DISCONNECTED),
+                    BehaviorSubject.createDefault(PeripheralConnectionStatus.CONNECTED)
             ).iterator()
             on { invoke(gattConnection) } doAnswer { iterator.next() }
         }
@@ -708,6 +746,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -719,7 +758,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Connecting
@@ -745,6 +786,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -756,7 +798,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
@@ -772,6 +816,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -783,7 +828,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
@@ -803,6 +850,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -814,7 +862,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Connecting
@@ -838,6 +888,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -849,7 +900,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
@@ -871,6 +924,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -882,7 +936,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Connecting
@@ -910,6 +966,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -921,7 +978,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         )
 
         //Connecting
@@ -944,6 +1003,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -955,7 +1015,9 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         ).connection().test()
 
         //Connected
@@ -1002,6 +1064,7 @@ class StackPeerTest {
             PeerRole.Peripheral,
             stackConfig,
             stackService,
+            shouldSetStartMtu,
             linkupHandler,
             peripheralConnectionHandler,
             connectionStatusProvider,
@@ -1013,11 +1076,59 @@ class StackPeerTest {
             buildStack,
             buildBridge,
             mtuUpdateListenerProvider,
-            fitbitGatt = fitbitGatt
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController },
         ).connection().test().assertValue(PeerConnectionStatus.CONNECTED)
 
         verify(mtuChangeRequester).updateStackMtu(200)
         verify(mtuChangeRequester).updateStackMtu(300)
         verify(mtuChangeRequester).updateStackMtu(400)
+    }
+
+    @Test
+    fun `disconnect with a remote Node with notification`() {
+        val stackNode = StackPeer(
+            key,
+            PeerRole.Peripheral,
+            stackConfig,
+            stackService,
+            shouldSetStartMtu,
+            linkupHandler,
+            peripheralConnectionHandler,
+            connectionStatusProvider,
+            dtlsEventProvider,
+            peripheralProvider,
+            mtuChangeRequesterProvider,
+            mtu,
+            timeout,
+            buildStack,
+            buildBridge,
+            mtuUpdateListenerProvider,
+            fitbitGatt = fitbitGatt,
+            peripheralDisconnector = mockPeripheralDisconnector,
+            linkControllerProvider = { mockLinkController }
+        )
+
+        //Works twice in the same way after disconnecting
+        (1..2).forEach { n ->
+            //Connecting
+            val connection = stackNode.connection().test().assertNotComplete()
+
+            //Disconnecting
+            stackNode.disconnect(true)
+
+            connection.assertValue(PeerConnectionStatus.CONNECTED)
+            connection.assertComplete()
+
+            verify(mockLinkController, times(n)).registerLinkConfigurationPeerRequestListener(any())
+            verify(mockLinkController, times(n)).setGeneralPurposeCommand(GeneralPurposeCommandCode.DISCONNECT)
+            verify(stackService, times(n)).detach()
+            verify(bridge, times(n)).close()
+            verify(stack, times(n)).close()
+            verify(mockLinkController, times(n)).handleDisconnection()
+
+            connection.assertComplete()
+        }
     }
 }

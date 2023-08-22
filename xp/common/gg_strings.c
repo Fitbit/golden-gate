@@ -69,6 +69,9 @@ GG_StringBuffer_Create(size_t length)
 {
     /* allocate a buffer of the requested size */
     GG_StringBuffer* buffer = GG_StringBuffer_Allocate(length, length);
+    if (buffer == NULL){
+        return NULL;
+    }
     return GG_STRING_BUFFER_CHARS(buffer);
 }
 
@@ -192,7 +195,12 @@ GG_String_PrepareToWrite(GG_String* self, size_t length)
             if (grow > length) needed = grow;
             GG_FreeMemory((void*)GG_String_GetBuffer(self));
         }
-        self->chars = GG_STRING_BUFFER_CHARS(GG_StringBuffer_Allocate(needed, length));
+        GG_StringBuffer* temp = GG_StringBuffer_Allocate(needed, length);
+        if (temp != NULL) {
+            self->chars = GG_STRING_BUFFER_CHARS(temp);
+        } else {
+            self->chars = NULL;
+        }
     } else {
         GG_String_GetBuffer(self)->length = length;
     }
@@ -212,10 +220,12 @@ GG_String_Reserve(GG_String* self, size_t allocate)
         }
 
         size_t length = GG_String_GetLength(self);
-        char* copy = GG_STRING_BUFFER_CHARS(GG_StringBuffer_Allocate(needed, length));
-        if (copy == NULL) {
+        GG_StringBuffer* temp = GG_StringBuffer_Allocate(needed, length);
+        if (temp == NULL) {
             return GG_ERROR_OUT_OF_MEMORY;
         }
+        char* copy = GG_STRING_BUFFER_CHARS(temp);
+
         if (self->chars != NULL) {
             memcpy(copy, self->chars, length + 1);
             GG_FreeMemory(GG_String_GetBuffer(self));

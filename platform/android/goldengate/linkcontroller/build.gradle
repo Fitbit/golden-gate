@@ -4,7 +4,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'org.jetbrains.dokka-android'
     id 'com.jfrog.artifactory'
     id 'maven-publish'
@@ -33,10 +32,10 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
     implementation "com.google.android.material:material:$ANDROID_MATERIAL_VERSION"
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation "junit:junit:$JUNIT_VERSION"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
 }
 dokka {
     outputFormat = 'html'

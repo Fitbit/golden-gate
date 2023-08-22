@@ -3,7 +3,9 @@
 
 package com.fitbit.goldengate.bindings.coap.handler
 
+import com.fitbit.goldengate.bindings.coap.data.Block1Option
 import com.fitbit.goldengate.bindings.coap.data.IncomingRequest
+import com.fitbit.goldengate.bindings.coap.data.OptionNumber
 import com.fitbit.goldengate.bindings.coap.data.OutgoingResponse
 import com.fitbit.goldengate.bindings.coap.data.OutgoingResponseBuilder
 import io.reactivex.Single
@@ -15,19 +17,19 @@ import timber.log.Timber
 class EchoResourceHandler : BaseResourceHandler() {
 
     override fun onPut(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            echo(request, responseBuilder)
+        echo(request, responseBuilder)
 
     override fun onPost(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder) =
-            echo(request, responseBuilder)
+        echo(request, responseBuilder)
 
     private fun echo(request: IncomingRequest, responseBuilder: OutgoingResponseBuilder): Single<OutgoingResponse> {
         return request.body.asData()
-                .map { data ->
-                    Timber.i("Request body size: ${data.size}")
-                    responseBuilder
-                            .addAll(request.options)
-                            .body(data)
-                            .build()
-                }
+            .map { data ->
+                Timber.i("Request body size: ${data.size}")
+                responseBuilder
+                    .addAll(request.options)
+                    .body(data)
+                    .build()
+            }
     }
 }

@@ -1,11 +1,12 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <jni_gg_loop.h>
-#include <xp/common/gg_common.h>
-#include <xp/services/coap_client/gg_coap_client_service.h>
-#include <logging/jni_gg_logging.h>
-
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
+#include "xp/common/gg_common.h"
+#include "xp/services/coap_client/gg_coap_client_service.h"
 /**
  * Jni Bindings for CoapGeneratorService
  */
@@ -21,14 +22,20 @@ extern "C" {
     Java_com_fitbit_goldengate_bindings_services_CoapGeneratorService_create(
             JNIEnv *env,
             jobject thiz,
-            jlong coapEndpointPtr
+            jlong _endpoint_wrapper
     ) {
-        GG_CoapEndpoint* coapEndpoint = (GG_CoapEndpoint*) (intptr_t) coapEndpointPtr;
-        GG_ASSERT(coapEndpoint);
+
+        NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+        if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+            return 0;
+        }
 
         GG_CoapClientService *service = NULL;
 
-        GG_Result result = GG_CoapClientService_Create(Loop_GetLoop(), coapEndpoint, &service);
+        GG_Result result = GG_CoapClientService_Create(
+                Loop_GetLoop(),
+                (GG_CoapEndpoint*) endpoint_wrapper->pointer,
+                &service);
 
         if (GG_FAILED(result)) {
             GG_Log_JNI("CoapGeneratorService", "GG_CoapClientService_Create failed with error code %d", result);

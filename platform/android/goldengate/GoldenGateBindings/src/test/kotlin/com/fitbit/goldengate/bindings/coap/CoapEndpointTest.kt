@@ -4,6 +4,7 @@
 package com.fitbit.goldengate.bindings.coap
 
 import com.fitbit.goldengate.bindings.BaseTest
+import com.fitbit.goldengate.bindings.coap.data.Block1Option
 import com.fitbit.goldengate.bindings.coap.data.ContentFormatOption
 import com.fitbit.goldengate.bindings.coap.data.EtagOption
 import com.fitbit.goldengate.bindings.coap.data.FormatOptionValue
@@ -20,13 +21,14 @@ import com.fitbit.goldengate.bindings.io.TxSink
 import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bindings.stack.SocketNetifGattlink
 import com.fitbit.goldengate.bindings.stack.Stack
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.*
 import io.reactivex.Observer
 import io.reactivex.schedulers.Schedulers
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Test
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 class CoapEndpointTest : BaseTest() {
@@ -46,7 +48,7 @@ class CoapEndpointTest : BaseTest() {
     @Test
     fun canCreate() {
         endpoint1 = CoapEndpoint()
-        assertTrue(endpoint1!!.thisPointer > 0)
+        assertTrue(endpoint1!!.thisPointerWrapper > 0)
     }
 
     @Test
@@ -86,6 +88,35 @@ class CoapEndpointTest : BaseTest() {
          * objects/data from jni code
          */
         endpoint1!!.responseFor(request).test()
+    }
+
+    @Test
+    fun shouldRespondOnGivenScheduler() {
+        val latch = CountDownLatch(1)
+        val scheduler = Schedulers.from(Executors.newSingleThreadExecutor {
+            Thread {
+                latch.countDown()
+                it.run()
+            }
+        })
+
+        endpoint1 = CoapEndpoint(scheduler)
+        endpoint2 = CoapEndpoint()
+        endpoint1!!.attach(endpoint2!!)
+
+        // building max/full request object fully test jni bindings
+        val request = OutgoingRequestBuilder("echo", Method.POST)
+            .forceNonBlockwise(true)
+            .option(ContentFormatOption(FormatOptionValue.TEXT_PLAIN))
+            .option(MaxAgeOption(1))
+            .option(UriQueryOption("query_1=value_1"))
+            .option(EtagOption("etag".toByteArray()))
+            .option(IfNoneMatchOption)
+            .body("hello".toByteArray())
+            .build()
+
+        endpoint1!!.responseFor(request).subscribe()
+        assertTrue(latch.await(50, TimeUnit.MILLISECONDS))
     }
 
     private fun shouldSuccessfullySendRequestWithProgressObserver() {
@@ -198,12 +229,13 @@ class CoapEndpointTest : BaseTest() {
         assertEquals(bodyString, String(response.body.asData().blockingGet()))
 
         // size == options + one for each subpath
-        assertEquals(5, response.options.size)
+        assertEquals(6, response.options.size)
         assertTrue(response.options.contains(UriPathOption("echo")))
         assertTrue(response.options.contains(IfNoneMatchOption))
         assertTrue(response.options.contains(MaxAgeOption(1)))
         assertTrue(response.options.contains(EtagOption("etag_1".toByteArray())))
         assertTrue(response.options.contains(UriQueryOption("query_1=value_1")))
+        assertTrue(response.options.contains(Block1Option(0x6)))
         verify(observer).onNext(0)
         verify(observer).onComplete()
     }
@@ -237,12 +269,13 @@ class CoapEndpointTest : BaseTest() {
         assertEquals(bodyString, String(response.body.asData().blockingGet()))
 
         // size == options + one for each subpath
-        assertEquals(5, response.options.size)
+        assertEquals(6, response.options.size)
         assertTrue(response.options.contains(UriPathOption("echo")))
         assertTrue(response.options.contains(IfNoneMatchOption))
         assertTrue(response.options.contains(MaxAgeOption(1)))
         assertTrue(response.options.contains(EtagOption("etag_1".toByteArray())))
         assertTrue(response.options.contains(UriQueryOption("query_1=value_1")))
+        assertTrue(response.options.contains(Block1Option(0x6)))
         verify(observer).onNext(0)
         verify(observer).onComplete()
     }
@@ -376,12 +409,13 @@ class CoapEndpointTest : BaseTest() {
         assertEquals(bodyString, String(response.body.asData().blockingGet()))
 
         // size == options + one for each subpath
-        assertEquals(5, response.options.size)
+        assertEquals(6, response.options.size)
         assertTrue(response.options.contains(UriPathOption("echo")))
         assertTrue(response.options.contains(IfNoneMatchOption))
         assertTrue(response.options.contains(MaxAgeOption(1)))
         assertTrue(response.options.contains(EtagOption("etag_1".toByteArray())))
         assertTrue(response.options.contains(UriQueryOption("query_1=value_1")))
+        assertTrue(response.options.contains(Block1Option(0x6)))
         verify(observer).onNext(0)
         verify(observer).onComplete()
     }

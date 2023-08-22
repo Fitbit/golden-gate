@@ -4,26 +4,23 @@
 //
 // Created by abranscomb on 3/30/18.
 //
-
-#include "jni_gg_stackbuider.h"
-#include <xp/stack_builder/gg_stack_builder.h>
-#include <cstring>
-#include <xp/common/gg_utils.h>
 #include <cstdio>
-#include "jni.h"
-#include <xp/common/gg_memory.h>
-#include <sockets/jni_gg_socket_address.h>
-
-#include "../logging/jni_gg_logging.h"
-#include "../jni_gg_loop.h"
-#include "../coap/jni_gg_coap_common.h"
-
-#include <xp/common/gg_io.h>
-#include <xp/common/gg_results.h>
-#include <xp/tls/gg_tls.h>
-#include <xp/common/gg_events.h>
-#include <util/jni_gg_utils.h>
-#include <xp/stack_builder/gg_stack_builder_base.h>
+#include <cstring>
+#include <jni.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/stackbuilder/jni_gg_stackbuider.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/sockets/jni_gg_socket_address.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/stack_builder/gg_stack_builder.h"
+#include "xp/common/gg_utils.h"
+#include "xp/common/gg_memory.h"
+#include "xp/common/gg_io.h"
+#include "xp/common/gg_results.h"
+#include "xp/common/gg_events.h"
+#include "xp/stack_builder/gg_stack_builder_base.h"
+#include "xp/tls/gg_tls.h"
 
 extern "C" {
 

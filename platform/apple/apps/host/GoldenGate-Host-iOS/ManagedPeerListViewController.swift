@@ -32,7 +32,7 @@ class ManagedPeerListViewController: UITableViewController {
 
         peerManager = Component.instance.peerManager
 
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
 
         navigationItem.rightBarButtonItems = [

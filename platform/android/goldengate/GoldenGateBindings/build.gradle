@@ -19,17 +19,17 @@ android {
         ndk {
             abiFilters 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
         }
-        ndkVersion "21.0.6113669"
         externalNativeBuild {
             cmake {
-                def ndkDir = android.ndkDirectory
-                arguments "-DGG_ENABLE_UNIT_TESTS=FALSE", "-DANDROID_NDK=${ndkDir}"
+                ndkVersion project.NDK_VERSION
+                arguments "-DGG_ENABLE_UNIT_TESTS=FALSE"
             }
         }
     }
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
+            version project.CMAKE_VERSION
         }
     }
     sourceSets {
@@ -42,6 +42,17 @@ android {
             test.jniLibs.srcDirs = ['../../../../xp/build/cmake/native/']
         }
     }
+
+    packagingOptions {
+        pickFirst 'lib/x86_64/libgg.so'
+        pickFirst 'lib/x86/libgg.so'
+        pickFirst 'lib/armeabi-v7a/libgg.so'
+        pickFirst 'lib/arm64-v8a/libgg.so'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/unix/'
@@ -49,7 +60,7 @@ def unixBuildDir = projectDir.absolutePath + '/.externalNativeBuild/cmake/debug/
 task buildNativeXpLibrary(type: Exec) {
     workingDir projectDir.absolutePath + '../../../../..' //Root dir of golden-gate project
     commandLine 'invoke'
-    args 'native.build'
+    args 'native.build', '-t', 'gg'
 }
 
 task makeUnixBuildDir() {
@@ -103,11 +114,11 @@ dependencies {
     implementation "androidx.annotation:annotation:$ANDROIDX_APPCOMPAT_VERSION"
     implementation "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
     implementation "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
-    implementation "com.squareup.okhttp3:okhttp:3.10.0"
+    implementation "com.squareup.okhttp3:okhttp:$OK_HTTP"
     implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
     ktlint "com.github.shyiko:ktlint:0.14.0"
     testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$MOCKITO_KOTLIN_VERSION"
     testImplementation "org.jetbrains.kotlin:kotlin-test:$KOTLIN_VERSION"
 }
 

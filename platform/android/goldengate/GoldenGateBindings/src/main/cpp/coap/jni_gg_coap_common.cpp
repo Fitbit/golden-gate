@@ -1,16 +1,16 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
-
-#include "jni_gg_coap_common.h"
-#include <jni.h>
-#include <jni_gg_loop.h>
 #include <string.h>
 #include <stdlib.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/coap/gg_coap.h>
-#include <xp/common/gg_memory.h>
-#include <xp/common/gg_strings.h>
+#include <jni.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/coap/gg_coap.h"
+#include "xp/common/gg_memory.h"
+#include "xp/common/gg_strings.h"
 
 extern "C" {
 
@@ -310,7 +310,7 @@ static GG_CoapMessageOption CoapEndpoint_GG_CoapMessageOption_Opaque_From_Values
      * Creating a copy of opaque value, options param should release this when its is no
      * longer needed (see: CoapEndpoint_ReleaseOptionParam)
      */
-    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(sizeof(jbyte));
+    jbyte *option_value_byte = (jbyte *) GG_AllocateMemory(option_value_size * sizeof(jbyte));
     GG_ASSERT(option_value_byte);
     env->GetByteArrayRegion(
             option_value,
@@ -880,6 +880,8 @@ jobject CoapEndpoint_Option_Object_From_GG_CoapMessage(const GG_CoapMessage *res
                         option_iterator.option.number);
                 break;
             }
+            default:
+                break;
         }
         GG_CoapMessage_StepOptionIterator(response, &option_iterator);
     }
@@ -893,6 +895,29 @@ jobject CoapEndpoint_Option_Object_From_GG_CoapMessage(const GG_CoapMessage *res
     env->DeleteLocalRef(options_builder_object);
 
     return options_object;
+}
+
+jboolean CoapEndpoint_AutogenerateBlockwiseConfig_From_Response_Object(jobject response) {
+    GG_ASSERT(response);
+
+    JNIEnv *env = Loop_GetJNIEnv();
+
+    jclass response_class = env->FindClass(COAP_OUTGOING_RESPONSE_CLASS_NAME);
+    GG_ASSERT(response_class);
+
+    jmethodID get_autogenerate_blockwise_config = env->GetMethodID(
+            response_class,
+            COAP_RESPONSE_GET_AUTOGENERATE_BLOCKWISE_CONFIG_NAME,
+            COAP_RESPONSE_GET_FORCE_NONBLOCKWISE_SIG);
+    GG_ASSERT(get_autogenerate_blockwise_config);
+
+    jboolean force_nonblockwise = env->CallBooleanMethod(
+            response,
+            get_autogenerate_blockwise_config);
+
+    env->DeleteLocalRef(response_class);
+
+    return force_nonblockwise;
 }
 
 jstring Jstring_From_NonNull_Terminated_String(

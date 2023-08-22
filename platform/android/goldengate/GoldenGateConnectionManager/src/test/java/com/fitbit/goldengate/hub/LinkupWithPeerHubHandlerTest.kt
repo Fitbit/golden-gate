@@ -6,19 +6,16 @@ import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.GattCharacteristicSubscriptionStatus
 import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.client.BitGattPeer
+import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceDiscoverer
 import com.fitbit.bluetooth.fbgatt.rx.client.GattServiceRefresher
 import com.fitbit.bluetooth.fbgatt.rx.client.PeerGattServiceSubscriber
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.listeners.TransmitCharacteristicSubscriptionListener
+import com.fitbit.goldengate.node.GATT_SERVICE_REFRESH_DELAY_IN_SEC
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionConfigurationCharacteristic
 import com.fitbit.linkcontroller.services.configuration.ClientPreferredConnectionModeCharacteristic
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCharacteristic
 import com.fitbit.linkcontroller.services.configuration.LinkConfigurationService
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.*
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -47,13 +44,15 @@ class LinkupWithPeerHubHandlerTest {
     private val linkUpTimeoutSeconds = 60L
     private val testScheduler = TestScheduler()
     private val mockGattServiceRefresher = mock<GattServiceRefresher>()
+    private val mockGattServiceDiscoverer = mock<GattServiceDiscoverer>()
 
     private val handler = LinkupWithPeerHubHandler(
         mockPeerGattServiceSubscriber,
         mockTransmitCharacteristicSubscriptionListener,
         linkUpTimeoutSeconds,
         timeoutScheduler = testScheduler,
-        gattServiceRefresher = mockGattServiceRefresher
+        gattServiceRefresher = mockGattServiceRefresher,
+        gattServiceDiscoverer = mockGattServiceDiscoverer
     )
 
     @Before
@@ -78,7 +77,10 @@ class LinkupWithPeerHubHandlerTest {
 
         val testObserver = handler.link(mockCentral).test()
 
-        verify(mockCentral).discoverServices()
+        // 2 sec for delay between refresh+discover call
+        testScheduler.advanceTimeBy(GATT_SERVICE_REFRESH_DELAY_IN_SEC, TimeUnit.SECONDS)
+
+        verify(mockGattServiceDiscoverer).discover(mockGattConnection)
         verify(mockPeerGattServiceSubscriber)
             .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
         verify(mockPeerGattServiceSubscriber)
@@ -98,7 +100,10 @@ class LinkupWithPeerHubHandlerTest {
 
         val testObserver = handler.link(mockCentral).test()
 
-        verify(mockCentral).discoverServices()
+        // 2 sec for delay between refresh+discover call
+        testScheduler.advanceTimeBy(GATT_SERVICE_REFRESH_DELAY_IN_SEC, TimeUnit.SECONDS)
+
+        verify(mockGattServiceDiscoverer).discover(mockGattConnection)
         verify(mockPeerGattServiceSubscriber, times(0))
             .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
 
@@ -115,7 +120,10 @@ class LinkupWithPeerHubHandlerTest {
 
         val testObserver = handler.link(mockCentral).test()
 
-        verify(mockCentral).discoverServices()
+        // 2 sec for delay between refresh+discover call
+        testScheduler.advanceTimeBy(GATT_SERVICE_REFRESH_DELAY_IN_SEC, TimeUnit.SECONDS)
+
+        verify(mockGattServiceDiscoverer).discover(mockGattConnection)
         verify(mockPeerGattServiceSubscriber)
             .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
 
@@ -137,7 +145,7 @@ class LinkupWithPeerHubHandlerTest {
 
         testScheduler.advanceTimeBy(LINK_UP_TIMEOUT_SECONDS, TimeUnit.SECONDS)
 
-        verify(mockCentral).discoverServices()
+        verify(mockGattServiceDiscoverer).discover(mockGattConnection)
         verify(mockPeerGattServiceSubscriber)
             .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
         verify(mockPeerGattServiceSubscriber)
@@ -161,7 +169,10 @@ class LinkupWithPeerHubHandlerTest {
 
         val testObserver = handler.link(mockCentral).test()
 
-        verify(mockCentral).discoverServices()
+        // 2 sec for delay between refresh+discover call
+        testScheduler.advanceTimeBy(GATT_SERVICE_REFRESH_DELAY_IN_SEC, TimeUnit.SECONDS)
+
+        verify(mockGattServiceDiscoverer).discover(mockGattConnection)
         verify(mockPeerGattServiceSubscriber)
             .subscribe(mockCentral, LinkConfigurationService.uuid, ClientPreferredConnectionConfigurationCharacteristic.uuid)
         verify(mockPeerGattServiceSubscriber)
@@ -175,10 +186,10 @@ class LinkupWithPeerHubHandlerTest {
     }
 
     private fun mockDiscoverServicesSuccess(services: List<BluetoothGattService> = emptyList()) =
-        whenever(mockCentral.discoverServices()).thenReturn(Single.just(services))
+        whenever(mockGattServiceDiscoverer.discover(mockGattConnection)).thenReturn(Single.just(services))
 
     private fun mockDiscoverServicesFailure() =
-        whenever(mockCentral.discoverServices()).thenReturn(Single.error(RuntimeException("Failed")))
+        whenever(mockGattServiceDiscoverer.discover(mockGattConnection)).thenReturn(Single.error(RuntimeException("Failed")))
 
     private fun mockLinkConfigurationServiceNotFound() =
         whenever(mockPeerGattServiceSubscriber.subscribe(

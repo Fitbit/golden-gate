@@ -12,19 +12,22 @@ import com.fitbit.goldengate.bindings.coap.data.Options
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
 import com.fitbit.goldengate.bindings.coap.data.RawResponseMessage
 import com.fitbit.goldengate.bindings.coap.data.ResponseCode
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.argumentCaptor
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.argumentCaptor
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.verifyNoMoreInteractions
+import org.mockito.kotlin.whenever
 import io.reactivex.Observer
 import io.reactivex.SingleEmitter
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.lang.ref.WeakReference
 import java.util.Arrays
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class BlockwiseCoapResponseListenerTest {
@@ -35,11 +38,14 @@ class BlockwiseCoapResponseListenerTest {
     }
     private val mockSingleEmitter = mock<SingleEmitter<IncomingResponse>>()
     private val mockDecoder = mock<ExtendedErrorDecoder>()
+    private val isResponseObjectCleanUpNeeded = AtomicBoolean()
 
     private val listener = BlockwiseCoapResponseListener(
-            mockRequest,
-            mockSingleEmitter,
-            mockDecoder
+        mockRequest,
+        mockSingleEmitter,
+        isResponseObjectCleanUpNeeded,
+        WeakReference(null),
+        mockDecoder,
     )
 
     private val testCode = ResponseCode.created
@@ -67,6 +73,8 @@ class BlockwiseCoapResponseListenerTest {
 
         listener.onNext(testMessage)
 
+        assert(listener.isComplete())
+
         val response = verifySuccessSignalOnResponseEmitter()
         assertEquals(testCode, response.responseCode)
 
@@ -82,6 +90,8 @@ class BlockwiseCoapResponseListenerTest {
         listener.onNext(testMessage)
         listener.onComplete()
 
+        assert(listener.isComplete())
+
         val response = verifySuccessSignalOnResponseEmitter()
         assertEquals(testCode, response.responseCode)
 
@@ -96,6 +106,7 @@ class BlockwiseCoapResponseListenerTest {
 
         listener.onComplete()
 
+        assertFalse(listener.isComplete())
         verifyNoMoreInteractions(mockSingleEmitter)
     }
 
@@ -133,11 +144,13 @@ class BlockwiseCoapResponseListenerTest {
     }
 
     @Test
-    fun shouldSendErrorIfFailureReceivingFirstBlocks() {
+    fun shouldSendErrorIfFailureReceivingFirstBlock() {
         val expectedEmptyPartialData = ByteArray(0)
 
         // first callback is error without any data received
         listener.onError(1, "error message")
+
+        assertFalse(listener.isComplete())
 
         val response = verifyFailureSignalOnResponseEmitter()
 
@@ -163,6 +176,30 @@ class BlockwiseCoapResponseListenerTest {
             it is CoapEndpointResponseException && it.responseCode == ResponseCode.internalServerError && it.extendedError == mockExtendedError
         }
         verify(mockProgressObserver).onError(any())
+    }
+
+    @Test
+    fun shouldCallCancellableWhenBodyStreamIsCancelledAfterReceivingFirstBlock() {
+        listener.onNext(testMessage)
+
+        val response = verifySuccessSignalOnResponseEmitter()
+
+        // cancel the body stream; set cancelled = true
+        response.body.asData().test(true)
+    }
+
+    @Test
+    fun shouldCallCancellableWhenBodyStreamIsCancelledAfterReceivingTwoBlocks() {
+        val testData2 = " World".toByteArray()
+        val testMessage2 = RawResponseMessage(testCode, testOptions, testData2)
+
+        listener.onNext(testMessage)
+        listener.onNext(testMessage2)
+
+        val response = verifySuccessSignalOnResponseEmitter()
+
+        // cancel the body stream; set cancelled = true
+        response.body.asData().test(true)
     }
 
     private fun verifySuccessSignalOnResponseEmitter(): IncomingResponse {

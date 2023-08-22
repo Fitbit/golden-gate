@@ -7,7 +7,6 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.os.Build
 import android.util.Log
-import com.fitbit.goldengate.GoldenGateConnectionManagerModule
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
 import timber.log.Timber

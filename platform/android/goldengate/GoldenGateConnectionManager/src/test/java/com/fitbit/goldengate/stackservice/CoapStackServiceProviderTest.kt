@@ -8,8 +8,8 @@ import com.fitbit.goldengate.bindings.node.BluetoothAddressNodeKey
 import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.node.stack.StackPeer
 import com.fitbit.goldengate.node.stack.StackPeerBuilder
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
 import org.junit.Test
 
 class CoapStackServiceProviderTest {

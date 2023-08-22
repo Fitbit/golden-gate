@@ -1018,41 +1018,63 @@ GG_CoapBlockwiseServerHelper_OnRequest(GG_CoapBlockwiseServerHelper* self,
 
     // check that the block is either a resent block, or the next expected one
     bool resent = false;
-    size_t block_end_offset = self->block_info.offset + GG_CoapMessage_GetPayloadSize(request);
-    if (self->block_info.offset == self->next_offset) {
-        // this is the next expected block
-        if (self->done) {
-            // we're done, check that the option is consistent with this state
-            if (self->block_info.more) {
-                // shouldn't happen
-                return GG_COAP_MESSAGE_CODE_BAD_OPTION;
+    if (self->block_type == GG_COAP_MESSAGE_OPTION_BLOCK1) {
+        // we're receiving data
+        size_t block_end_offset = self->block_info.offset + GG_CoapMessage_GetPayloadSize(request);
+        if (self->block_info.offset == self->next_offset) {
+            // this is the next expected block
+            if (self->done) {
+                // we're done, check that the option is consistent with this state
+                if (self->block_info.more) {
+                    // shouldn't happen
+                    return GG_COAP_MESSAGE_CODE_BAD_OPTION;
+                }
+                resent = true;
             }
-            resent = true;
+        } else {
+            // this is not the next expected block, check if it is a resent block or a gap
+            if (self->block_info.offset) {
+                if (block_end_offset != self->next_offset) {
+                    // gap!
+                    GG_LOG_WARNING("unexpected block offset received (got %u, expected %u)",
+                                   (int)self->block_info.offset,
+                                   (int)self->next_offset);
+                    return GG_COAP_MESSAGE_CODE_REQUEST_ENTITY_INCOMPLETE;
+                }
+                resent = true;
+            } else {
+                // new transfer
+                self->done = false;
+            }
+        }
+
+        // update our expectations
+        if (!resent) {
+            if (self->block_info.more) {
+                self->next_offset = block_end_offset;
+            } else {
+                self->done = true;
+            }
         }
     } else {
-        // this is not the next expected block, check if it is a resent block or a gap
-        if (self->block_info.offset) {
-            if (block_end_offset != self->next_offset) {
-                // gap!
-                GG_LOG_WARNING("unexpected block offset (got %u, expected %u)",
-                               (int)self->block_info.offset,
-                               (int)self->next_offset);
-                return GG_COAP_MESSAGE_CODE_REQUEST_ENTITY_INCOMPLETE;
+        // we're returning data
+        size_t block_end_offset = self->block_info.offset + self->block_info.size;
+        if (self->block_info.offset != self->next_offset) {
+            // this is not the next expected block, check if it is a resent block request or a gap
+            if (self->block_info.offset) {
+                if (block_end_offset != self->next_offset) {
+                    // gap!
+                    GG_LOG_WARNING("unexpected block offset requested (got %u, expected %u)",
+                                   (int)self->block_info.offset,
+                                   (int)self->next_offset);
+                    return GG_COAP_MESSAGE_CODE_PRECONDITION_FAILED;
+                }
+                resent = true;
             }
-            resent = true;
-        } else {
-            // new transfer
-            self->done = false;
         }
-    }
 
-    // update our expectations
-    if (!resent) {
-        if (self->block_info.more) {
-            self->next_offset = block_end_offset;
-        } else {
-            self->done = true;
-        }
+        // update our expectations
+        self->next_offset = block_end_offset;
     }
 
     // let the caller know if this was a resent request or not

@@ -246,7 +246,7 @@ GG_DECLARE_INTERFACE(GG_CoapRequestHandler) {
      * @param responder The responder object that may be used to respond asynchronously.
      * This parameter is NULL if the handler wasn't registered with the
      * GG_COAP_REQUEST_HANDLER_FLAG_ENABLE_ASYNC flag set.
-     * @param tansport_metadata Metadata associated with the transport from which the request
+     * @param transport_metadata Metadata associated with the transport from which the request
      * was received (typically of type GG_BUFFER_METADATA_TYPE_SOURCE_SOCKET_ADDRESS if the transport
      * is a UDP socket). May be NULL if no metadata exists for the request.
      * @param response Pointer to the variable where the handler should return its response.

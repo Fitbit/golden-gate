@@ -114,7 +114,7 @@ GG_DECLARE_INTERFACE(GG_TlsKeyResolver) {
      */
     GG_Result (*ResolveKey)(GG_TlsKeyResolver* self,
                             const uint8_t*     key_identity,
-                            size_t             key_identify_size,
+                            size_t             key_identity_size,
                             uint8_t*           key,
                             size_t*            key_size);
 };

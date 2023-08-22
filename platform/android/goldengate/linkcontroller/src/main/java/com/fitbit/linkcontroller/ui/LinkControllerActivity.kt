@@ -5,10 +5,17 @@ package com.fitbit.linkcontroller.ui
 
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.View
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.fitbit.linkcontroller.LinkController
 import com.fitbit.linkcontroller.LinkControllerProvider
 import com.fitbit.linkcontroller.R
@@ -19,32 +26,6 @@ import com.fitbit.linkcontroller.services.status.CurrentConnectionStatus
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.apply_settings
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_bonded
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_dle
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_dle_reboot
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_encrypted
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_interval
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_latency
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_max_interval
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_min_interval
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_mtu
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_slave_latency
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_speed_mode
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_supervision_timeout
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.connection_timeout
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.dle_pdu_size
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.dle_time
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.max_rx_payload
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.max_rx_time
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.max_tx_payload
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.max_tx_time
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.mtu
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.rb_fast_mode
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.request_disconnect
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.set_fast_mode
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.set_slow_mode
-import kotlinx.android.synthetic.main.a_linkcontroller_setup.speedModeConfiguration
 import timber.log.Timber
 
 
@@ -56,31 +37,49 @@ class LinkControllerActivity : AppCompatActivity() {
     private val preferredConnectionConfigurationBuilder: PreferredConnectionConfiguration.Builder =
         PreferredConnectionConfiguration.Builder()
 
+    private lateinit var applySettings: Button
+    private lateinit var connectionBonded: TextView
+    private lateinit var connectionDle: TextView
+    private lateinit var connectionDleReboot: TextView
+    private lateinit var connectionEncrypted: TextView
+    private lateinit var connectionInterval: TextView
+    private lateinit var connectionLatency: TextView
+    private lateinit var connectionMaxInterval: EditText
+    private lateinit var connectionMinInterval: EditText
+    private lateinit var connectionMtu: TextView
+    private lateinit var connectionSlaveLatency: EditText
+    private lateinit var connectionSpeedMode: TextView
+    private lateinit var connectionSupervisionTimeout: EditText
+    private lateinit var connectionTimeout: TextView
+    private lateinit var dlePduSize: EditText
+    private lateinit var dleTime: EditText
+    private lateinit var maxRxPayload: TextView
+    private lateinit var maxRxTime: TextView
+    private lateinit var maxTxPayload: TextView
+    private lateinit var maxTxTime: TextView
+    private lateinit var mtu: EditText
+    private lateinit var rbFastMode: RadioButton
+    private lateinit var requestDisconnect: CheckBox
+    private lateinit var setFastMode: Button
+    private lateinit var setSlowMode: Button
+    private lateinit var speedModeConfiguration: RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.a_linkcontroller_setup)
+        bindViews()
+
         val bluetoothDevice =
-            intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
-        val controller = LinkControllerProvider.INSTANCE.getLinkController(bluetoothDevice)
-        if (controller == null) {
-            Toast.makeText(
-                this,
-                "Device ${bluetoothDevice.address} not known to bitgatt",
-                Toast.LENGTH_LONG
-            ).show()
-            finish()
-            return
-        }
-        linkController = controller
+            intent.getParcelableExtra<BluetoothDevice>(EXTRA_DEVICE) as BluetoothDevice
+        linkController = LinkControllerProvider.INSTANCE.getLinkController(bluetoothDevice)
         updateConnectionConfig(CurrentConnectionConfiguration.getDefaultConfiguration())
         updateConnectionStatus(CurrentConnectionStatus())
 
         setupListeners()
         speedModeConfiguration.setOnCheckedChangeListener { _, _ ->
             val preferredConnectionMode =
-                if (rb_fast_mode.isChecked)
+                if (rbFastMode.isChecked)
                     PreferredConnectionMode.FAST
                 else
                     PreferredConnectionMode.SLOW
@@ -129,15 +128,44 @@ class LinkControllerActivity : AppCompatActivity() {
 
     }
 
+    private fun bindViews() {
+        applySettings = ActivityCompat.requireViewById(this, R.id.apply_settings)
+        connectionBonded = ActivityCompat.requireViewById(this, R.id.connection_bonded)
+        connectionDle = ActivityCompat.requireViewById(this, R.id.connection_dle)
+        connectionDleReboot = ActivityCompat.requireViewById(this, R.id.connection_dle_reboot)
+        connectionEncrypted = ActivityCompat.requireViewById(this, R.id.connection_encrypted)
+        connectionInterval = ActivityCompat.requireViewById(this, R.id.connection_interval)
+        connectionLatency = ActivityCompat.requireViewById(this, R.id.connection_latency)
+        connectionMaxInterval = ActivityCompat.requireViewById(this, R.id.connection_max_interval)
+        connectionMinInterval = ActivityCompat.requireViewById(this, R.id.connection_min_interval)
+        connectionMtu = ActivityCompat.requireViewById(this, R.id.connection_mtu)
+        connectionSlaveLatency = ActivityCompat.requireViewById(this, R.id.connection_slave_latency)
+        connectionSpeedMode = ActivityCompat.requireViewById(this, R.id.connection_speed_mode)
+        connectionSupervisionTimeout = ActivityCompat.requireViewById(this, R.id.connection_supervision_timeout)
+        connectionTimeout = ActivityCompat.requireViewById(this, R.id.connection_timeout)
+        dlePduSize = ActivityCompat.requireViewById(this, R.id.dle_pdu_size)
+        dleTime = ActivityCompat.requireViewById(this, R.id.dle_time)
+        maxRxPayload = ActivityCompat.requireViewById(this, R.id.max_rx_payload)
+        maxRxTime = ActivityCompat.requireViewById(this, R.id.max_rx_time)
+        maxTxPayload = ActivityCompat.requireViewById(this, R.id.max_tx_payload)
+        maxTxTime = ActivityCompat.requireViewById(this, R.id.max_tx_time)
+        mtu = ActivityCompat.requireViewById(this, R.id.mtu)
+        rbFastMode = ActivityCompat.requireViewById(this, R.id.rb_fast_mode)
+        requestDisconnect = ActivityCompat.requireViewById(this, R.id.request_disconnect)
+        setFastMode = ActivityCompat.requireViewById(this, R.id.set_fast_mode)
+        setSlowMode = ActivityCompat.requireViewById(this, R.id.set_slow_mode)
+        speedModeConfiguration = ActivityCompat.requireViewById(this, R.id.speedModeConfiguration)
+    }
+
     private fun setupListeners() {
-        set_fast_mode.setOnClickListener {
+        setFastMode.setOnClickListener {
             Timber.v("Set fast Config ")
             try {
                 preferredConnectionConfigurationBuilder.setFastModeConfig(
-                    connection_min_interval.text.toString().toFloat(),
-                    connection_max_interval.text.toString().toFloat(),
-                    connection_slave_latency.text.toString().toInt(),
-                    connection_supervision_timeout.text.toString().toInt()
+                    connectionMinInterval.text.toString().toFloat(),
+                    connectionMaxInterval.text.toString().toFloat(),
+                    connectionSlaveLatency.text.toString().toInt(),
+                    connectionSupervisionTimeout.text.toString().toInt()
                 )
             } catch (e: IllegalArgumentException) {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
@@ -145,34 +173,34 @@ class LinkControllerActivity : AppCompatActivity() {
 
 
         }
-        set_slow_mode.setOnClickListener {
+        setSlowMode.setOnClickListener {
             Timber.v("Set slow Config ")
             try {
                 preferredConnectionConfigurationBuilder.setSlowModeConfig(
-                    connection_min_interval.text.toString().toFloat(),
-                    connection_max_interval.text.toString().toFloat(),
-                    connection_slave_latency.text.toString().toInt(),
-                    connection_supervision_timeout.text.toString().toInt()
+                    connectionMinInterval.text.toString().toFloat(),
+                    connectionMaxInterval.text.toString().toFloat(),
+                    connectionSlaveLatency.text.toString().toInt(),
+                    connectionSupervisionTimeout.text.toString().toInt()
                 )
             } catch (e: IllegalArgumentException) {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             }
 
         }
-        dle_pdu_size.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+        dlePduSize.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
 
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 //Perform Code
-                Timber.v("Set dlesize ${dle_pdu_size.text}")
+                Timber.v("Set dlesize ${dlePduSize.text}")
                 setDleConfig()
                 return@OnKeyListener true
             }
             false
         })
-        dle_time.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+        dleTime.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
                 //Perform Code
-                Timber.v("Set dletime ${dle_time.text}")
+                Timber.v("Set dletime ${dleTime.text}")
                 setDleConfig()
                 return@OnKeyListener true
             }
@@ -192,12 +220,12 @@ class LinkControllerActivity : AppCompatActivity() {
             false
         })
 
-        request_disconnect.setOnCheckedChangeListener { _, isChecked ->
+        requestDisconnect.setOnCheckedChangeListener { _, isChecked ->
             Timber.v("requestDisconnect $isChecked")
             preferredConnectionConfigurationBuilder.requestDisconnect(isChecked)
 
         }
-        apply_settings.setOnClickListener {
+        applySettings.setOnClickListener {
             disposeBag.add(
                 linkController.setPreferredConnectionConfiguration(preferredConnectionConfigurationBuilder.build())
                 .subscribeOn(Schedulers.io())
@@ -210,11 +238,11 @@ class LinkControllerActivity : AppCompatActivity() {
     }
 
     private fun setDleConfig() {
-        if (dle_pdu_size.text.isNotBlank() && dle_time.text.isNotBlank()) {
+        if (dlePduSize.text.isNotBlank() && dleTime.text.isNotBlank()) {
             try {
                 preferredConnectionConfigurationBuilder.setDLEConfig(
-                    dle_pdu_size.text.toString().toInt(),
-                    dle_time.text.toString().toInt()
+                    dlePduSize.text.toString().toInt(),
+                    dleTime.text.toString().toInt()
                 )
             } catch (e: IllegalArgumentException) {
                 Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
@@ -225,36 +253,36 @@ class LinkControllerActivity : AppCompatActivity() {
     private fun updateConnectionStatus(currentConnectionStatus: CurrentConnectionStatus) {
 
         Timber.v("Update connection Status $currentConnectionStatus")
-        connection_bonded.text = getString((R.string.bonded)).format(currentConnectionStatus.bonded)
-        connection_encrypted.text =
+        connectionBonded.text = getString((R.string.bonded)).format(currentConnectionStatus.bonded)
+        connectionEncrypted.text =
                 getString((R.string.encrypted)).format(currentConnectionStatus.encrypted)
-        connection_dle.text = getString((R.string.dle)).format(currentConnectionStatus.dleEnabled)
-        connection_dle_reboot.text =
+        connectionDle.text = getString((R.string.dle)).format(currentConnectionStatus.dleEnabled)
+        connectionDleReboot.text =
                 getString((R.string.dle_reboot)).format(currentConnectionStatus.dleReboot)
 
-        max_tx_payload.text =
+        maxTxPayload.text =
                 getString((R.string.max_tx_payload)).format(currentConnectionStatus.maxTxPayload)
-        max_tx_time.text =
+        maxTxTime.text =
                 getString((R.string.max_tx_time)).format(currentConnectionStatus.maxTxTime)
 
-        max_rx_payload.text =
+        maxRxPayload.text =
                 getString((R.string.max_rx_payload)).format(currentConnectionStatus.maxRxPayload)
-        max_rx_time.text =
+        maxRxTime.text =
                 getString((R.string.max_rx_time)).format(currentConnectionStatus.maxRxTime)
 
     }
 
     private fun updateConnectionConfig(currentConnectionConfiguration: CurrentConnectionConfiguration) {
         Timber.v("Update connection Config $currentConnectionConfiguration")
-        connection_interval.text =
+        connectionInterval.text =
                 getString((R.string.connection_interval)).format(currentConnectionConfiguration.interval)
-        connection_latency.text =
+        connectionLatency.text =
                 getString((R.string.connection_latency)).format(currentConnectionConfiguration.slaveLatency)
-        connection_timeout.text =
+        connectionTimeout.text =
                 getString((R.string.connection_timeout)).format(currentConnectionConfiguration.supervisionTimeout)
-        connection_mtu.text =
+        connectionMtu.text =
                 getString((R.string.connection_mtu)).format(currentConnectionConfiguration.mtu)
-        connection_speed_mode.text =
+        connectionSpeedMode.text =
                 getString((R.string.connection_speed_mode)).format(currentConnectionConfiguration.connectionMode.toString())
 
     }

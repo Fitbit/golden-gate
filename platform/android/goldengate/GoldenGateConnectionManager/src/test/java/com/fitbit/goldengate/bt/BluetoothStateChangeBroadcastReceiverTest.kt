@@ -6,7 +6,7 @@ package com.fitbit.goldengate.bt
 import android.bluetooth.BluetoothAdapter
 import android.content.Context
 import android.content.Intent
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.mock
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith

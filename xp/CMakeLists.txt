@@ -6,11 +6,11 @@
 #############################################################################
 
 # We require some CMake 3.19 when building with XCode 12
-# but the Android SDK ships with 3.6 so we can't force it globally (yet).
+# but the Android SDK ships with 3.10.2 so we can't force it globally (yet).
 if (CMAKE_GENERATOR MATCHES "Xcode")
     cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 else ()
-    cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
+    cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 endif ()
 
 # The project variant suffix is only in use on platforms
@@ -26,7 +26,11 @@ include(CMakeDependentOption)
 get_filename_component(GG_ROOT .. ABSOLUTE BASEDIR ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Global options
-set(CMAKE_C_STANDARD 99)
+if(GG_CONFIG_C_STANDARD)
+    set(CMAKE_C_STANDARD ${GG_CONFIG_C_STANDARD})
+else()
+    set(CMAKE_C_STANDARD 99)
+endif()
 add_definitions(-D_THREAD_SAFE)
 
 # XCode-specific options
@@ -59,7 +63,7 @@ elseif(CMAKE_C_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Weverything -Wint-conversion -Wno-padded -Wno-sign-conversion -Wno-extended-offsetof
     -Wno-documentation-unknown-command -Wno-documentation-deprecated-sync -Wno-missing-field-initializers
     -Wno-missing-noreturn -Wno-c99-extensions -Wno-vla -Wno-date-time -Wno-unknown-warning-option -Wno-disabled-macro-expansion -fno-common
-    -Wno-missing-braces)
+    -Wno-missing-braces -Wno-declaration-after-statement)
     if(CMAKE_OSX_SYSROOT)
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lobjc")
     endif()

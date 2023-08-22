@@ -6,7 +6,7 @@ package com.fitbit.goldengate.node
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.bt.mockBluetoothGattService
 import com.fitbit.goldengate.bt.mockGattConnection
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.whenever
 import org.junit.Assert.*
 import org.junit.Test
 

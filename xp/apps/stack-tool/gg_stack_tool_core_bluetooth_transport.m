@@ -36,6 +36,7 @@
 #define GG_LINK_STATUS_SECURE_CHARACTERISTIC_UUID                          @"ABBAFD03-E56A-484C-B832-8B17CF6CBFE8"
 
 // Gattlink Service
+#define GG_GATTLINK_SERVICE_UUID_SHORT                                     @"FD62"
 #define GG_GATTLINK_SERVICE_UUID                                           @"ABBAFF00-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_RX_CHARACTERISTIC_UUID                                 @"ABBAFF01-E56A-484C-B832-8B17CF6CBFE8"
 #define GG_GATTLINK_TX_CHARACTERISTIC_UUID                                 @"ABBAFF02-E56A-484C-B832-8B17CF6CBFE8"
@@ -149,6 +150,7 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 @property (nonatomic)         BOOL                     rxReady;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
+@property (nonatomic)         BOOL                     connected;
 
 @property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
@@ -262,6 +264,7 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
     if (!self.centralManager.isScanning) {
         // Scan for devices
         [self.centralManager scanForPeripheralsWithServices: @[
+                [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID_SHORT],
                 [CBUUID UUIDWithString: GG_GATTLINK_SERVICE_UUID],
                 [CBUUID UUIDWithString: GG_LINK_STATUS_SERVICE_UUID]
             ]
@@ -389,6 +392,14 @@ static void GG_StackToolBluetoothTransport_OnLinkStatusConfigurationUpdated(GG_S
 
     GG_LOG_INFO("connected!");
 
+    // ignore this if we're already connected (it happens sometimes that Core Bluetooth will
+    // call this delegate method more than once)
+    if (self.connected) {
+        GG_LOG_FINE("already connected, ignoring");
+        return;
+    }
+    self.connected = TRUE;
+
     // stop scanning
     [self.centralManager stopScan];
 
@@ -412,6 +423,7 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     GG_COMPILER_UNUSED(error);
 
     GG_LOG_INFO("disconnected!");
+    self.connected = FALSE;
 
     // cleanup
     self.linkConfigurationConnectionModeSubscriber = nil;
@@ -421,7 +433,7 @@ didDisconnectPeripheral: (CBPeripheral *)peripheral
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
     self.gattlinkRxOk = false;
-    self.peripheral= nil;
+    self.peripheral = nil;
 
     [self startScanning];
 }
@@ -679,7 +691,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     } else if ([characteristic.UUID isEqual:
                    [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_CONFIGURATION_CHARACTERISTIC_UUID]]) {
         GG_LOG_FINE("got value for the Link Status Connection Configuration Charateristic");
-        if (characteristic.value == nil | characteristic.value.length < 9) {
+        if (characteristic.value == nil || characteristic.value.length < 9) {
             GG_LOG_WARNING("characteristic value too short");
             return;
         }
@@ -721,7 +733,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     } else if ([characteristic.UUID isEqual:
                    [CBUUID UUIDWithString: GG_LINK_STATUS_CONNECTION_STATUS_CHARACTERISTIC_UUID]]) {
         GG_LOG_FINE("got value for the Link Status Connection Status characteristic");
-        if (characteristic.value == nil | characteristic.value.length < 7) {
+        if (characteristic.value == nil || characteristic.value.length < 7) {
             GG_LOG_WARNING("characteristic value too short");
             return;
         }
@@ -887,7 +899,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
     self.gattConfirmationServiceEphemeralCharacteristicUuid = nil;
     self.gattlinkTxOk = false;
     self.gattlinkRxOk = false;
-    self.peripheral= nil;
+    self.peripheral = nil;
 }
 
 // Release peripheral resources that were obtained
@@ -930,6 +942,7 @@ didUpdateValueForCharacteristic: (CBCharacteristic *)characteristic
 @property (nonatomic)         BOOL                     txReady;
 @property (nonatomic)         BOOL                     centralOn;
 @property (nonatomic)         BOOL                     peripheralOn;
+@property (nonatomic)         BOOL                     connected;
 
 @property (nonatomic)         GG_StackToolBluetoothTransport* host; // reference to the owning object for callbacks
 
@@ -1279,6 +1292,14 @@ didUnsubscribeFromCharacteristic: (CBCharacteristic *)characteristic {
     GG_COMPILER_UNUSED(peripheral);
 
     GG_LOG_INFO("connected!");
+
+    // ignore this if we're already connected (it happens sometimes that Core Bluetooth will
+    // call this delegate method more than once)
+    if (self.connected) {
+        GG_LOG_FINE("already connected, ignoring");
+        return;
+    }
+    self.connected = TRUE;
 
     // register as a delegate for the peripheral
     peripheral.delegate = self;

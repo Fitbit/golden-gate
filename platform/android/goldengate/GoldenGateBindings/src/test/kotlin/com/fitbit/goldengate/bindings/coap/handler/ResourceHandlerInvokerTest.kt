@@ -6,10 +6,10 @@ package com.fitbit.goldengate.bindings.coap.handler
 import com.fitbit.goldengate.bindings.coap.data.Method
 import com.fitbit.goldengate.bindings.coap.data.OutgoingResponse
 import com.fitbit.goldengate.bindings.coap.data.RawRequestMessage
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
@@ -20,7 +20,7 @@ internal class ResourceHandlerInvokerTest {
     private val mockRawRequestMessage = mock<RawRequestMessage>()
     private val mockResponse = mock<OutgoingResponse>()
 
-    private val invoker = ResourceHandlerInvoker(mockResourceHandler)
+    private val invoker = ResourceHandlerInvoker(mockResourceHandler) { System.currentTimeMillis() }
 
     @Before
     fun setup() {

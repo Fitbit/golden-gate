@@ -8,13 +8,13 @@ import com.fitbit.goldengate.bindings.coap.data.EmptyOutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.Method
 import com.fitbit.goldengate.bindings.coap.data.OutgoingBody
 import com.fitbit.goldengate.bindings.coap.data.OutgoingRequest
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Test
 
-class BlockDataSourceCreatorTest {
+class CoapRequestBlockDataSourceCreatorTest {
 
     @Test(expected = IllegalArgumentException::class)
     fun shouldThrowExceptionForGetRequestWithNonEmptyBody() {
@@ -64,7 +64,7 @@ class BlockDataSourceCreatorTest {
         whenever(mockRequest.body).thenReturn(body)
         whenever(mockRequest.progressObserver).thenReturn(mock())
 
-        return BlockDataSourceCreator().create(mockRequest)
+        return CoapRequestBlockDataSourceCreator().create(mockRequest)
     }
 
 }

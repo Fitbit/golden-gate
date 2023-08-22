@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothGatt
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus.FAILURE
@@ -21,10 +22,10 @@ import com.fitbit.bluetooth.fbgatt.rx.mockGattDescriptor
 import com.fitbit.bluetooth.fbgatt.rx.mockGattService
 import com.fitbit.bluetooth.fbgatt.rx.mockGattTransactionCompletion
 import com.fitbit.bluetooth.fbgatt.rx.mockTransactionResult
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -34,7 +35,7 @@ import kotlin.test.assertEquals
 @RunWith(JUnit4::class)
 class BitGattPeerTest {
 
-    private val mockTransaction = mock<GattTransaction>()
+    private val mockTransaction = mock<GattClientTransaction>()
     private val mockTransactionProvider = mock<ClientTransactionProvider> {
         on { getConnectTransactionFor(any()) } doReturn mockTransaction
         on { getDisconnectTransactionFor(any()) } doReturn mockTransaction

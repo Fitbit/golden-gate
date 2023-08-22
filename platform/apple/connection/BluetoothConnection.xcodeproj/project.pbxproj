@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12E26A3D29661CA000BA7462 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A3C29661CA000BA7462 /* Nimble.xcframework */; };
+		12E26A3F29661CA800BA7462 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A3E29661CA800BA7462 /* Quick.xcframework */; };
+		12E26A4129661CC200BA7462 /* RxTest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E26A4029661CC200BA7462 /* RxTest.xcframework */; };
 		42FAE7E026123A5A005E6500 /* BluetoothConnectionObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 42FAE7DE26123A5A005E6500 /* BluetoothConnectionObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		42FAE7E526123AAD005E6500 /* BluetoothConnectionObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FAE7DC26123A5A005E6500 /* BluetoothConnectionObjC.framework */; };
 		42FAE8CD26123EAB005E6500 /* CBUUID+ArbitraryData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7508B095255DED9D00F62550 /* CBUUID+ArbitraryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,14 +83,7 @@
 		FD1D227E248F823C00F85400 /* ConnectionControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D227D248F823C00F85400 /* ConnectionControllerSpec.swift */; };
 		FD1D2286248F828900F85400 /* MockConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D2282248F828900F85400 /* MockConnection.swift */; };
 		FD1D2287248F828900F85400 /* MockConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1D2283248F828900F85400 /* MockConnector.swift */; };
-		FD3D3E4F248FC17B00DCA286 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E4E248FC17B00DCA286 /* RxSwift.framework */; };
-		FD3D3E53248FC18F00DCA286 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E52248FC18F00DCA286 /* RxCocoa.framework */; };
-		FD3D3E56248FC19600DCA286 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E52248FC18F00DCA286 /* RxCocoa.framework */; };
 		FD3D3E58248FC19B00DCA286 /* Rxbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E57248FC19B00DCA286 /* Rxbit.framework */; };
-		FD3D3E5C248FC1A900DCA286 /* RxBluetoothKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E5B248FC1A900DCA286 /* RxBluetoothKit.framework */; };
-		FD3D3E60248FC41C00DCA286 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E5F248FC41C00DCA286 /* Quick.framework */; };
-		FD3D3E62248FC42300DCA286 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E61248FC42300DCA286 /* Nimble.framework */; };
-		FD3D3E64248FC4A000DCA286 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D3E63248FC4A000DCA286 /* RxTest.framework */; };
 		FD409BAA26298819006B45A4 /* BluetoothAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD409BA826298819006B45A4 /* BluetoothAdvertiser.swift */; };
 		FD818AA4249A5F81009FB558 /* PeripheralManagerSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD818A9B249A5F81009FB558 /* PeripheralManagerSink.swift */; };
 		FD818AA5249A5F81009FB558 /* PeripheralManagerSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD818A9C249A5F81009FB558 /* PeripheralManagerSource.swift */; };
@@ -132,6 +128,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12E26A3C29661CA000BA7462 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = ../../../Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
+		12E26A3E29661CA800BA7462 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = ../../../Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		12E26A4029661CC200BA7462 /* RxTest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxTest.xcframework; path = ../../../Carthage/Build/RxTest.xcframework; sourceTree = "<group>"; };
 		42FAE7DC26123A5A005E6500 /* BluetoothConnectionObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BluetoothConnectionObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FAE7DE26123A5A005E6500 /* BluetoothConnectionObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluetoothConnectionObjC.h; sourceTree = "<group>"; };
 		42FAE7DF26123A5A005E6500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,13 +202,7 @@
 		FD1D227D248F823C00F85400 /* ConnectionControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionControllerSpec.swift; sourceTree = "<group>"; };
 		FD1D2282248F828900F85400 /* MockConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConnection.swift; sourceTree = "<group>"; };
 		FD1D2283248F828900F85400 /* MockConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockConnector.swift; sourceTree = "<group>"; };
-		FD3D3E4E248FC17B00DCA286 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3D3E52248FC18F00DCA286 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD3D3E57248FC19B00DCA286 /* Rxbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rxbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3D3E5B248FC1A900DCA286 /* RxBluetoothKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxBluetoothKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3D3E5F248FC41C00DCA286 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3D3E61248FC42300DCA286 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD3D3E63248FC4A000DCA286 /* RxTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD409BA826298819006B45A4 /* BluetoothAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothAdvertiser.swift; sourceTree = "<group>"; };
 		FD818A9B249A5F81009FB558 /* PeripheralManagerSink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManagerSink.swift; sourceTree = "<group>"; };
 		FD818A9C249A5F81009FB558 /* PeripheralManagerSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeripheralManagerSource.swift; sourceTree = "<group>"; };
@@ -261,11 +254,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E26A3F29661CA800BA7462 /* Quick.xcframework in Frameworks */,
+				12E26A3D29661CA000BA7462 /* Nimble.xcframework in Frameworks */,
 				FD1D2233248F797500F85400 /* BluetoothConnection.framework in Frameworks */,
-				FD3D3E62248FC42300DCA286 /* Nimble.framework in Frameworks */,
-				FD3D3E60248FC41C00DCA286 /* Quick.framework in Frameworks */,
-				FD3D3E56248FC19600DCA286 /* RxCocoa.framework in Frameworks */,
-				FD3D3E64248FC4A000DCA286 /* RxTest.framework in Frameworks */,
+				12E26A4129661CC200BA7462 /* RxTest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,9 +267,6 @@
 			files = (
 				42FAE7E526123AAD005E6500 /* BluetoothConnectionObjC.framework in Frameworks */,
 				FD3D3E58248FC19B00DCA286 /* Rxbit.framework in Frameworks */,
-				FD3D3E5C248FC1A900DCA286 /* RxBluetoothKit.framework in Frameworks */,
-				FD3D3E53248FC18F00DCA286 /* RxCocoa.framework in Frameworks */,
-				FD3D3E4F248FC17B00DCA286 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,13 +568,10 @@
 		FDC76795248F718D00855742 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FD3D3E61248FC42300DCA286 /* Nimble.framework */,
-				FD3D3E5F248FC41C00DCA286 /* Quick.framework */,
+				12E26A3C29661CA000BA7462 /* Nimble.xcframework */,
+				12E26A3E29661CA800BA7462 /* Quick.xcframework */,
+				12E26A4029661CC200BA7462 /* RxTest.xcframework */,
 				FD3D3E57248FC19B00DCA286 /* Rxbit.framework */,
-				FD3D3E5B248FC1A900DCA286 /* RxBluetoothKit.framework */,
-				FD3D3E52248FC18F00DCA286 /* RxCocoa.framework */,
-				FD3D3E4E248FC17B00DCA286 /* RxSwift.framework */,
-				FD3D3E63248FC4A000DCA286 /* RxTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -635,7 +621,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD1D2236248F797500F85400 /* Build configuration list for PBXNativeTarget "BluetoothConnectionTests" */;
 			buildPhases = (
-				756E47D4275FA3AE00DB68E0 /* Carthage Sync */,
 				FD1D222A248F797500F85400 /* Sources */,
 				FD1D222B248F797500F85400 /* Frameworks */,
 				FD1D222C248F797500F85400 /* Resources */,
@@ -733,27 +718,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		756E47D4275FA3AE00DB68E0 /* Carthage Sync */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Carthage Sync";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd $SOURCE_ROOT/../../..\nplatform/apple/scripts/carthage-copy-and-verify\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42FAE7D826123A5A005E6500 /* Sources */ = {
@@ -1018,8 +982,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = ../../../Carthage/Build/iOS;
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1082,8 +1044,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = ../../../Carthage/Build/iOS;
-				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = ../../../Carthage/Build/Mac;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

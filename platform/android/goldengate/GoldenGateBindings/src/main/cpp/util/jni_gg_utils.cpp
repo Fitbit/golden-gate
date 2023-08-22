@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include <cstring>
-#include <xp/loop/gg_loop.h>
-#include <jni_gg_loop.h>
-#include <logging/jni_gg_logging.h>
-#include "jni_gg_utils.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+
 
 #define BLASTER_PACKET_SIZE          512
 

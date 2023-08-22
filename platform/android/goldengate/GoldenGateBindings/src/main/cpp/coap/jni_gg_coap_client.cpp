@@ -1,15 +1,16 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include "jni_gg_coap_common.h"
-#include "jni_gg_coap_client_common.h"
-#include <jni_gg_loop.h>
 #include <string.h>
-#include <logging/jni_gg_logging.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/coap/gg_coap.h>
-#include <xp/common/gg_memory.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_client_common.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/coap/gg_coap.h"
+#include "xp/common/gg_memory.h"
 
 extern "C" {
 
@@ -111,7 +112,7 @@ static GG_Result CoapEndpoint_ResponseFor(void *_args) {
  *
  * @param self object on which this method is invoked.
  */
-static void CoapEndpoint_OnResponseCompleteCleanup(
+static void CoapEndpoint_FreeResponseObject(
         JNIEnv *env,
         SingleCoapResponseListener *self
 ) {
@@ -165,8 +166,6 @@ static void CoapEndpoint_OnError(
             self->listener,
             error,
             message);
-
-    CoapEndpoint_OnResponseCompleteCleanup(env, self);
 }
 
 /**
@@ -183,9 +182,6 @@ static void CoapEndpoint_OnResponse(GG_CoapResponseListener *_self, GG_CoapMessa
 
     // invoke callback listener with single response message
     CoapEndpoint_OnNext_Caller(self->listener, response);
-
-    JNIEnv *env = Loop_GetJNIEnv();
-    CoapEndpoint_OnResponseCompleteCleanup(env, self);
 }
 
 // Single response Implementation for GG_CoapResponseListener interface
@@ -206,14 +202,18 @@ JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseFor(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint,
+        jlong _endpoint_wrapper,
         jobject _request,
         jobject _listener
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
+    GG_ASSERT(_endpoint_wrapper);
     GG_ASSERT(_request);
     GG_ASSERT(_listener);
+
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    GG_ASSERT(endpoint_wrapper);
+    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint*)endpoint_wrapper->pointer;
+    GG_ASSERT(endpoint);
 
     SingleCoapResponseListener *request_for_args = (SingleCoapResponseListener *) GG_AllocateZeroMemory(
             sizeof(SingleCoapResponseListener));
@@ -241,10 +241,12 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseFor(
                 _listener,
                 result,
                 "Failed to invoke responseFor handler");
-        CoapEndpoint_OnResponseCompleteCleanup(env, request_for_args);
+        CoapEndpoint_FreeResponseObject(env, request_for_args);
 
         return CoapEndpoint_ResponseForResult_Object_From_Values(env, result, 0);
     }
+
+    CoapEndpoint_SetNativeListenerReference(env, _listener, request_for_args);
 
     return CoapEndpoint_ResponseForResult_Object_From_Values(
             env,
@@ -253,16 +255,16 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_responseFor(
 }
 
 /**
- * Cancel any pending Coap request
+ * Cancel any pending Coap request and clean up [SingleCoapResponseListener] object
  *
  * @param _response_listener object holding reference to [CoapResponseListener] creating from responseFor call
  */
 JNIEXPORT jint
 JNICALL
-Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseFor(
-        JNIEnv *env,
-        jobject thiz,
-        jlong _response_listener
+Java_com_fitbit_goldengate_bindings_coap_SingleCoapResponseListener_cancelResponse(
+    JNIEnv *env,
+    jobject thiz,
+    jlong _response_listener
 ) {
     SingleCoapResponseListener *response_listener = (SingleCoapResponseListener *) (intptr_t) _response_listener;
     GG_ASSERT(response_listener);
@@ -270,7 +272,7 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_cancelResponseFor(
     GG_Result result;
     Loop_InvokeSync(CoapEndpoint_CancelResponseFor, response_listener, &result);
     if (GG_SUCCEEDED(result)) {
-        CoapEndpoint_OnResponseCompleteCleanup(env, response_listener);
+        CoapEndpoint_FreeResponseObject(env, response_listener);
     }
     return result;
 }

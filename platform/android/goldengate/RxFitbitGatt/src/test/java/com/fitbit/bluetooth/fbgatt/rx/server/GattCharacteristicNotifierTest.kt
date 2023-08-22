@@ -14,11 +14,11 @@ import com.fitbit.bluetooth.fbgatt.rx.GattTransactionException
 import com.fitbit.bluetooth.fbgatt.rx.mockBluetoothGattServer
 import com.fitbit.bluetooth.fbgatt.rx.mockFitbitGatt
 import com.fitbit.bluetooth.fbgatt.rx.mockGattTransactionCompletion
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import org.junit.Test
@@ -32,16 +32,20 @@ class GattCharacteristicNotifierTest {
 
     private val mockFitbitBluetoothDevice = mock<FitbitBluetoothDevice>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
-    private val mockBluetoothGattService = mock<BluetoothGattService>()
+    private val mockBluetoothGattService = mock<BluetoothGattService> {
+        on { uuid } doReturn mockServiceId
+    }
     private val mockGattTransaction = mock<GattServerTransaction>()
     private val mockNotifyTransactionProvider = mock<NotifyGattServerCharacteristicTransactionProvider> {
         on { provide(any(), any(), any()) } doReturn Single.just(mockGattTransaction)
     }
     private val mockNotifyLock: Semaphore = mock()
+    private val mockGetGattServerServices: GetGattServerServices = mock()
 
     private val notifier = GattCharacteristicNotifier(
             fitbitDevice = mockFitbitBluetoothDevice,
             bitgatt = mockFitbitGatt,
+            getGattServerServices = { mockGetGattServerServices },
             notifyTransactionProvider = mockNotifyTransactionProvider,
             scheduler = Schedulers.trampoline(),
             notifierLock = mockNotifyLock
@@ -129,10 +133,10 @@ class GattCharacteristicNotifierTest {
     }
 
     private fun mockGattServiceFound() =
-        whenever(mockBluetoothGattServer.getService(mockServiceId)).thenReturn(mockBluetoothGattService)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(listOf(mockBluetoothGattService)))
 
     private fun mockGattServiceNotFound() =
-        whenever(mockBluetoothGattServer.getService(mockServiceId)).thenReturn(null)
+        whenever(mockGetGattServerServices.get()).thenReturn(Single.just(emptyList()))
 
     private fun mockGattCharacteristicFound() =
         whenever(mockBluetoothGattService.getCharacteristic(mockCharacteristicId)).thenReturn(mockBluetoothGattCharacteristic)

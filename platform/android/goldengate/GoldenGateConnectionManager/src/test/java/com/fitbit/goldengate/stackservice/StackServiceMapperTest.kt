@@ -9,9 +9,9 @@ import com.fitbit.goldengate.node.Peer
 import com.fitbit.goldengate.node.PeerBuilder
 import com.fitbit.goldengate.node.NodeMapper
 import com.fitbit.goldengate.node.stack.StackPeer
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
 import org.junit.Test
 import kotlin.test.assertEquals
 

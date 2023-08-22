@@ -7,7 +7,7 @@ import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.bluetooth.BluetoothGattService
 import com.fitbit.bluetooth.fbgatt.rx.CLIENT_CONFIG_UUID
-import java.util.*
+import java.util.UUID
 
 /**
  * Represents a Bluetooth GATT Link Configuration Service hosted on mobile that allows setting up
@@ -16,7 +16,7 @@ import java.util.*
  */
 class LinkConfigurationService : BluetoothGattService(
     uuid,
-    BluetoothGattService.SERVICE_TYPE_PRIMARY
+    SERVICE_TYPE_PRIMARY
 ) {
 
     companion object {
@@ -36,8 +36,8 @@ class LinkConfigurationService : BluetoothGattService(
  */
 class ClientPreferredConnectionConfigurationCharacteristic : BluetoothGattCharacteristic(
     uuid,
-    BluetoothGattCharacteristic.PROPERTY_READ or BluetoothGattCharacteristic.PROPERTY_NOTIFY,
-    BluetoothGattCharacteristic.PERMISSION_READ
+    PROPERTY_READ or PROPERTY_NOTIFY,
+    PERMISSION_READ
 ) {
     init {
         val descriptor = BluetoothGattDescriptor(
@@ -57,8 +57,8 @@ class ClientPreferredConnectionConfigurationCharacteristic : BluetoothGattCharac
  */
 class ClientPreferredConnectionModeCharacteristic : BluetoothGattCharacteristic(
     uuid,
-    BluetoothGattCharacteristic.PROPERTY_READ or BluetoothGattCharacteristic.PROPERTY_NOTIFY,
-    BluetoothGattCharacteristic.PERMISSION_READ
+    PROPERTY_READ or PROPERTY_NOTIFY,
+    PERMISSION_READ
 ) {
     init {
         val descriptor = BluetoothGattDescriptor(
@@ -78,8 +78,8 @@ class ClientPreferredConnectionModeCharacteristic : BluetoothGattCharacteristic(
  */
 class GeneralPurposeCommandCharacteristic : BluetoothGattCharacteristic(
     uuid,
-    BluetoothGattCharacteristic.PROPERTY_NOTIFY,
-    BluetoothGattCharacteristic.PERMISSION_READ
+    PROPERTY_NOTIFY,
+    PERMISSION_READ
 ) {
     init {
         val descriptor = BluetoothGattDescriptor(

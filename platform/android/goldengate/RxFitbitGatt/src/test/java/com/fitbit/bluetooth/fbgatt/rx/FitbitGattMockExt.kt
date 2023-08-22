@@ -12,6 +12,7 @@ import android.bluetooth.BluetoothGattService
 import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.FitbitGatt
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.GattServerConnection
 import com.fitbit.bluetooth.fbgatt.GattServerTransaction
@@ -19,11 +20,11 @@ import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.GattTransactionCallback
 import com.fitbit.bluetooth.fbgatt.TransactionResult
 import com.fitbit.bluetooth.fbgatt.TransactionResult.TransactionResultStatus
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.eq
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.eq
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 
 val mockGattDescriptor = mock<BluetoothGattDescriptor>()
 val mockGattCharacteristic = mock<BluetoothGattCharacteristic> {
@@ -65,12 +66,12 @@ fun GattServerTransaction.mockGattTransactionCompletion() {
     }
 }
 
-fun GattTransaction.mockGattTransactionCompletion(result: TransactionResultStatus) {
+fun GattClientTransaction.mockGattTransactionCompletion(result: TransactionResultStatus) {
     whenever(mockTransactionResult.resultStatus).thenReturn(result)
     mockGattTransactionCompletion()
 }
 
-fun GattTransaction.mockGattTransactionCompletion() {
+fun GattClientTransaction.mockGattTransactionCompletion() {
     whenever(mockGattConnection.runTx(eq(this), any())).thenAnswer { invocation ->
         val callback = invocation.arguments[1] as GattTransactionCallback
         callback.onTransactionComplete(mockTransactionResult)

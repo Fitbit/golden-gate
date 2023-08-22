@@ -7,10 +7,10 @@ import android.content.Context
 import com.fitbit.bluetooth.fbgatt.FitbitBluetoothDevice
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.scanner.PeripheralScanner
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.eq
-import com.nhaarman.mockitokotlin2.mock
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.eq
+import org.mockito.kotlin.mock
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.schedulers.TestScheduler

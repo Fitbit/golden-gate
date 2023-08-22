@@ -4,13 +4,9 @@
 package com.fitbit.goldengate.bindings.dtls
 
 class DtlsProtocolStatus(state: Int, val lastError: Int, val pskIdentity: String) {
-    val state: TlsProtocolState
+    val state: TlsProtocolState = TlsProtocolState.getValue(state)
 
-    init {
-        this.state = TlsProtocolState.getValue(state)
-    }
-
-    enum class TlsProtocolState(private val value: Int) {
+    enum class TlsProtocolState(val value: Int) {
         TLS_STATE_INIT(0),      ///< Initial state after creation
         TLS_STATE_HANDSHAKE(1), ///< During the handshake phase
         TLS_STATE_SESSION(2),   ///< After the handshake has completed

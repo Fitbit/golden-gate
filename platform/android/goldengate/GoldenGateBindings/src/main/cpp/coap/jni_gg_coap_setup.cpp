@@ -1,16 +1,21 @@
 // Copyright 2017-2020 Fitbit, Inc
 // SPDX-License-Identifier: Apache-2.0
 
-#include <jni_gg_loop.h>
 #include <string.h>
-#include <logging/jni_gg_logging.h>
-#include <util/jni_gg_utils.h>
-#include <xp/loop/gg_loop.h>
-#include <xp/coap/gg_coap.h>
-#include <xp/common/gg_memory.h>
-#include <xp/coap/gg_coap_filters.h>
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/jni_gg_loop.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/logging/jni_gg_logging.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_utils.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/util/jni_gg_native_reference.h"
+#include "platform/android/goldengate/GoldenGateBindings/src/main/cpp/coap/jni_gg_coap_common.h"
+#include "xp/loop/gg_loop.h"
+#include "xp/coap/gg_coap.h"
+#include "xp/common/gg_memory.h"
+#include "xp/coap/gg_coap_filters.h"
 
 extern "C" {
+
+// CoapEndpoint class names
+#define COAP_ENDPOINT_CLASS_NAME "com/fitbit/goldengate/bindings/coap/CoapEndpoint"
 
 typedef struct {
     GG_CoapEndpoint *endpoint;
@@ -81,8 +86,18 @@ static int CoapEndpoint_AttachFilter(void *_args) {
 }
 
 static void CoapEndpoint_Destroy(void *_args) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) _args;
-    GG_CoapEndpoint_Destroy(endpoint);
+    NativeReferenceWrapper *endpointWrapper = (NativeReferenceWrapper *) _args;
+    //we're running on the GG Loop thread
+    JNIEnv* env = Loop_GetJNIEnv();
+
+    callJavaObjectOnFreeMethod(
+            env,
+            COAP_ENDPOINT_CLASS_NAME,
+            endpointWrapper->java_object);
+
+    GG_CoapEndpoint_Destroy((GG_CoapEndpoint*)endpointWrapper->pointer);
+
+    freeNativeReferenceWrapper(env, endpointWrapper);
 }
 
 JNIEXPORT jlong JNICALL
@@ -100,24 +115,26 @@ Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_create(
         return create_result;
     }
 
-    return (jlong) (intptr_t) create_args.endpoint;
+    return (jlong) (intptr_t) createNativeReferenceWrapper(env, create_args.endpoint, thiz);
 }
 
 JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_attach(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint,
+        jlong _endpoint_wrapper,
         jlong _sourcePtr,
         jlong _sinkPtr
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+        return;
+    }
     GG_ASSERT(_sourcePtr);
     GG_ASSERT(_sinkPtr);
 
     CoapEndpoint_AttachArgs attach_args = {
-            .endpoint = endpoint,
+            .endpoint = (GG_CoapEndpoint*)endpoint_wrapper->pointer,
             .source = (GG_DataSource *) _sourcePtr,
             .sink = (GG_DataSink *) _sinkPtr
     };
@@ -134,14 +151,16 @@ JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_detach(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint,
+        jlong _endpoint_wrapper,
         jlong _sourcePtr
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+        return;
+    }
 
     CoapEndpoint_DetachArgs detach_args = {
-            .endpoint = endpoint,
+            .endpoint = (GG_CoapEndpoint*)endpoint_wrapper->pointer,
             .source = (GG_DataSource *) _sourcePtr
     };
 
@@ -157,17 +176,20 @@ JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_attachFilter(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint,
-        jlong _filter
+        jlong _endpoint_wrapper,
+        jlong _filter_wrapper
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
-    GG_CoapGroupRequestFilter *filter = (GG_CoapGroupRequestFilter *) (intptr_t) _filter;
-    GG_ASSERT(filter);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    NativeReferenceWrapper *filter_wrapper = (NativeReferenceWrapper *) (intptr_t) _filter_wrapper;
+    if ((!endpoint_wrapper || !endpoint_wrapper->pointer) ||
+        (!filter_wrapper || !filter_wrapper->pointer))
+    {
+        return;
+    }
 
     CoapEndpoint_AttachFilterArgs attachFilter_args = {
-            .endpoint = endpoint,
-            .filter = filter
+            .endpoint = (GG_CoapEndpoint*)endpoint_wrapper->pointer,
+            .filter = (GG_CoapGroupRequestFilter *)filter_wrapper->pointer
     };
 
     int create_result = 0;
@@ -182,34 +204,42 @@ JNIEXPORT jlong JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_asDataSource(
         JNIEnv *env,
         jobject thiz,
-        jlong endpoint
+        jlong _endpoint_wrapper
 ) {
-    GG_ASSERT(endpoint);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+        return 0;
+    }
 
-    return (jlong) (intptr_t) GG_CoapEndpoint_AsDataSource((GG_CoapEndpoint*)endpoint);
+    return (jlong) (intptr_t) GG_CoapEndpoint_AsDataSource((GG_CoapEndpoint*)endpoint_wrapper->pointer);
 }
 
 JNIEXPORT jlong JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_asDataSink(
         JNIEnv *env,
         jobject thiz,
-        jlong endpoint
+        jlong _endpoint_wrapper
 ) {
-    GG_ASSERT(endpoint);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+        return 0;
+    }
 
-    return (jlong) (intptr_t) GG_CoapEndpoint_AsDataSink((GG_CoapEndpoint*)endpoint);
+    return (jlong) (intptr_t) GG_CoapEndpoint_AsDataSink((GG_CoapEndpoint*)endpoint_wrapper->pointer);
 }
 
 JNIEXPORT void JNICALL
 Java_com_fitbit_goldengate_bindings_coap_CoapEndpoint_destroy(
         JNIEnv *env,
         jobject thiz,
-        jlong _endpoint
+        jlong _endpoint_wrapper
 ) {
-    GG_CoapEndpoint *endpoint = (GG_CoapEndpoint *) (intptr_t) _endpoint;
-    GG_ASSERT(endpoint);
+    NativeReferenceWrapper *endpoint_wrapper = (NativeReferenceWrapper *) (intptr_t) _endpoint_wrapper;
+    if (!endpoint_wrapper || !endpoint_wrapper->pointer) {
+        return;
+    }
 
-    Loop_InvokeAsync(CoapEndpoint_Destroy, endpoint);
+    Loop_InvokeAsync(CoapEndpoint_Destroy, endpoint_wrapper);
 }
 
 }

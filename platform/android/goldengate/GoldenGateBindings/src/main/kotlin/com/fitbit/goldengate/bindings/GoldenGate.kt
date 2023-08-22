@@ -63,6 +63,16 @@ class GoldenGate {
             return getVersionJNI()
         }
 
+        /**
+         * Ping Golden Gate library. This will make a gg loop invoke sync call, which will wake up the gg loop’s select
+         * and then return an incremental counter value
+         *
+         * @return a counter value
+         */
+        fun ping(): Int {
+            return pingJNI()
+        }
+
         /* this method is neccesary to inject the our console logging callback into the Golden Gate code */
         @JvmStatic
         private external fun registerLoggerJNI()
@@ -72,6 +82,9 @@ class GoldenGate {
 
         @JvmStatic
         private external fun getVersionJNI(clazz: Class<Version> = Version::class.java) : Version
+
+        @JvmStatic
+        private external fun pingJNI(): Int
 
         /**
          * Verify that the Golden Gate C library has been loaded.

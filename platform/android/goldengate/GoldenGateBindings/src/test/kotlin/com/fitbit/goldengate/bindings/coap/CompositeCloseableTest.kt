@@ -5,7 +5,7 @@ package com.fitbit.goldengate.bindings.coap
 
 import com.fitbit.goldengate.bindings.BaseTest
 import com.fitbit.goldengate.bindings.util.CompositeCloseable
-import com.nhaarman.mockitokotlin2.inOrder
+import org.mockito.kotlin.inOrder
 import org.junit.Test
 import org.mockito.Mockito
 import java.io.Closeable

@@ -5,6 +5,7 @@ package com.fitbit.bluetooth.fbgatt.rx.client
 
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattService
+import com.fitbit.bluetooth.fbgatt.GattClientTransaction
 import com.fitbit.bluetooth.fbgatt.GattState
 import com.fitbit.bluetooth.fbgatt.GattTransaction
 import com.fitbit.bluetooth.fbgatt.TransactionResult
@@ -13,10 +14,10 @@ import com.fitbit.bluetooth.fbgatt.rx.GattServiceNotFoundException
 import com.fitbit.bluetooth.fbgatt.rx.GattTransactionException
 import com.fitbit.bluetooth.fbgatt.rx.mockGattConnection
 import com.fitbit.bluetooth.fbgatt.rx.mockGattTransactionCompletion
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
@@ -31,7 +32,7 @@ class GattCharacteristicReaderTest {
 
     private val mockBluetoothGattService = mock<BluetoothGattService>()
     private val mockBluetoothGattCharacteristic = mock<BluetoothGattCharacteristic>()
-    private val mockGattTransaction: GattTransaction = mock()
+    private val mockGattTransaction: GattClientTransaction = mock()
     private val mockTransactionProvider: ReadGattCharacteristicTransactionProvider = mock {
         on { provide(any(), any()) } doReturn Single.just(mockGattTransaction)
     }

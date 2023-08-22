@@ -3,8 +3,8 @@
 
 package com.fitbit.goldengate.bindings.coap.block
 
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
 import io.reactivex.Observer
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -135,8 +135,5 @@ class BytesArrayBlockDataSourceTest {
         dataSource.getData(2, 3)
         verify(observer).onNext(0)
         verify(observer).onNext(2)
-
-
     }
-
 }

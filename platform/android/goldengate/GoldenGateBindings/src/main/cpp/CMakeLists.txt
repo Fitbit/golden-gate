@@ -22,6 +22,7 @@ target_sources( # Sets the name of the library.
              ${CMAKE_CURRENT_LIST_DIR}/util/jni_gg_utils.cpp
              ${CMAKE_CURRENT_LIST_DIR}/util/jni_gg_memory_data_sink.cpp
              ${CMAKE_CURRENT_LIST_DIR}/util/jni_gg_memory_data_source.cpp
+             ${CMAKE_CURRENT_LIST_DIR}/util/jni_gg_native_reference.cpp
              ${CMAKE_CURRENT_LIST_DIR}/remote/jni_gg_remote.cpp
              ${CMAKE_CURRENT_LIST_DIR}/stackbuilder/jni_gg_stackbuilder.cpp
              ${CMAKE_CURRENT_LIST_DIR}/services/jni_gg_blast_service.cpp
@@ -34,7 +35,9 @@ target_sources( # Sets the name of the library.
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_client_block.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_client_common.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_server.cpp
+             ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_server_block.cpp
              ${CMAKE_CURRENT_LIST_DIR}/coap/jni_gg_coap_extended_error.cpp
+             ${CMAKE_CURRENT_LIST_DIR}/sinksourceadapter/jni_gg_sinksourceadapter.cpp
              ${CMAKE_CURRENT_LIST_DIR}/sockets/jni_gg_socket_address.cpp
              ${CMAKE_CURRENT_LIST_DIR}/sockets/bsd/jni_gg_bsd_sockets.cpp
              )

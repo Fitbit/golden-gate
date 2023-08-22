@@ -144,8 +144,9 @@ typedef struct {
 #define GG_EVENT_TYPE_GATTLINK_SESSION_RESET GG_4CC('g', 'l', 's', '-')
 
 /**
- * Event type emitted by a Gattlink client when a session is stalled
+ * Event type emitted by a Gattlink client when a session is stalled or un-stalled.
  * usually an indication the underlying transport isn't sending or receiving packets.
+ * Un-stall event is indicated by stalled_time == 0.
  *
  * The event struct is a GG_GattlinkStalledEvent.
  * The event source is the GG_GattlinkGenericClient object that emits the event.

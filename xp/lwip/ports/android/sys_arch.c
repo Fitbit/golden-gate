@@ -22,6 +22,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <time.h>
 #include <unistd.h>
 
 #include "lwip/sys.h"

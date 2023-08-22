@@ -4,6 +4,7 @@
 package com.fitbit.goldengate.bindings.coap.data
 
 import java.io.InputStream
+import java.net.URI
 
 /**
  * Represents body of outgoing coap message.
@@ -32,3 +33,10 @@ class BytesArrayOutgoingBody internal constructor(val data: Data) : OutgoingBody
  * @property data an [InputStream] that will provide the data to send with the request that has this body
  */
 class InputStreamOutgoingBody internal constructor(val data: InputStream) : OutgoingBody()
+
+/**
+ * [OutgoingBody] with body source from a file [URI]
+ *
+ * @property data an [URI] that will provide the data via file path to send with the request that has this body
+ */
+class FileUriOutgoingBody internal constructor(val data: URI) : OutgoingBody()

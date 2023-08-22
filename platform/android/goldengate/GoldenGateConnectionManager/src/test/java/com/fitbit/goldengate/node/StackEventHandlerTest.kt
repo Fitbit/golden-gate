@@ -8,12 +8,12 @@ import com.fitbit.goldengate.bindings.stack.StackEvent
 import com.fitbit.linkcontroller.LinkController
 import com.fitbit.linkcontroller.services.configuration.GeneralPurposeCommandCode
 import com.fitbit.linkcontroller.services.configuration.PreferredConnectionMode
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.inOrder
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
+import org.mockito.kotlin.any
+import org.mockito.kotlin.doReturn
+import org.mockito.kotlin.inOrder
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
 import io.reactivex.Completable
 import io.reactivex.subjects.PublishSubject
 import org.junit.Test
@@ -34,7 +34,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController> {
             on { setPreferredConnectionMode(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()
@@ -73,7 +73,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController> {
             on { setPreferredConnectionMode(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, false, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, false) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()
@@ -90,7 +90,7 @@ class StackEventHandlerTest {
         val linkController = mock<LinkController>() {
             on { setGeneralPurposeCommand(any()) } doReturn Completable.complete()
         }
-        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true, { linkController })
+        val stackEventDispatcher = StackEventHandler(eventStream, gattConnection, true) { linkController }
 
         // When
         stackEventDispatcher.dispatchEvents().test()

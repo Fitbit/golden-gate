@@ -4,6 +4,8 @@
 package com.fitbit.goldengate.bindings.coap.data
 
 import com.fitbit.goldengate.bindings.coap.data.OptionNumber.ACCEPT
+import com.fitbit.goldengate.bindings.coap.data.OptionNumber.BLOCK1
+import com.fitbit.goldengate.bindings.coap.data.OptionNumber.BLOCK2
 import com.fitbit.goldengate.bindings.coap.data.OptionNumber.CONTENT_FORMAT
 import com.fitbit.goldengate.bindings.coap.data.OptionNumber.ETAG
 import com.fitbit.goldengate.bindings.coap.data.OptionNumber.IF_MATCH
@@ -63,6 +65,8 @@ internal class OptionsBuilder {
                 ACCEPT -> AcceptOption(FormatOptionValue.fromValue(optionValue as Int))
                 LOCATION_QUERY -> LocationQueryOption(optionValue as String)
                 START_OFFSET -> StartOffset(optionValue as Int)
+                BLOCK1 -> Block1Option(optionValue as Int)
+                BLOCK2 -> Block2Option(optionValue as Int)
             }
             options.add(option)
         } catch (ex: NoSuchElementException) {

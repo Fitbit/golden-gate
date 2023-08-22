@@ -7,6 +7,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.fitbit.bluetooth.fbgatt.GattConnection
 import com.fitbit.bluetooth.fbgatt.rx.PeripheralConnectionStatus
 import com.fitbit.goldengate.bindings.dtls.DtlsProtocolStatus
@@ -27,22 +29,30 @@ import com.fitbit.goldengate.node.stack.StackPeerBuilder
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_blast.bytes_received
-import kotlinx.android.synthetic.main.a_blast.packets_received
-import kotlinx.android.synthetic.main.a_blast.throughput
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 class BlastActivity : AbstractHostActivity<Blaster>() {
 
     private var started = false
-    private var packetSize = BLASTER_DEFAULT_PACKET_SIZE;
+    private var packetSize = BLASTER_DEFAULT_PACKET_SIZE
+
+    private lateinit var bytesReceived: TextView
+    private lateinit var packetsReceived: TextView
+    private lateinit var throughput: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // update blast packet size
         packetSize = intent.getIntExtra(EXTRA_BLAST_PACKET_SIZE, BLASTER_DEFAULT_PACKET_SIZE)
 
         super.onCreate(savedInstanceState)
+        bindViews()
+    }
+
+    private fun bindViews() {
+        bytesReceived = ActivityCompat.requireViewById(this, R.id.bytes_received)
+        packetsReceived = ActivityCompat.requireViewById(this, R.id.packets_received)
+        throughput = ActivityCompat.requireViewById(this, R.id.throughput)
     }
 
     private fun toggleBlast(blaster: Blaster, stackConfig: StackConfig) {
@@ -81,8 +91,8 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
 
     override fun onConnected(stackService: Blaster, stackConfig: StackConfig) {
         throughput.visibility = View.VISIBLE
-        bytes_received.visibility = View.VISIBLE
-        packets_received.visibility = View.VISIBLE
+        bytesReceived.visibility = View.VISIBLE
+        packetsReceived.visibility = View.VISIBLE
         renderButtonText(stackConfig)
         send.setOnClickListener { toggleBlast(stackService, stackConfig) }
         stackService.getStats()
@@ -92,8 +102,8 @@ class BlastActivity : AbstractHostActivity<Blaster>() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 throughput.text = String.format("Throughput: %d B/s", it.throughput)
-                packets_received.text = String.format("Packets Rec: %d", it.packetsReceived)
-                bytes_received.text = String.format("Bytes Rec: %d", it.bytesReceived)
+                packetsReceived.text = String.format("Packets Rec: %d", it.packetsReceived)
+                bytesReceived.text = String.format("Bytes Rec: %d", it.bytesReceived)
             }, {
                 Timber.e(it, "Error getting stats")
             }))

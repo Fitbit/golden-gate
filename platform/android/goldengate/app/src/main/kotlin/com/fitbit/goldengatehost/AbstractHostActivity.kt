@@ -17,7 +17,6 @@ import android.os.Build
 import android.os.Build.VERSION_CODES.O
 import android.os.Bundle
 import android.os.PowerManager
-import com.google.android.material.snackbar.Snackbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AlertDialog
@@ -25,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
@@ -47,17 +47,16 @@ import com.fitbit.goldengate.bindings.stack.StackConfig
 import com.fitbit.goldengate.bindings.stack.StackService
 import com.fitbit.goldengate.bt.PeerRole
 import com.fitbit.goldengate.bt.gatt.server.services.gattlink.FitbitGattlinkService
-import com.fitbit.goldengate.bt.gatt.server.services.gattlink.GattlinkService
 import com.fitbit.goldengate.node.Peer
 import com.fitbit.goldengate.node.PeerBuilder
 import com.fitbit.goldengate.node.NodeMapper
 import com.fitbit.goldengatehost.scan.EXTRA_DEVICE
 import com.fitbit.linkcontroller.ui.LinkControllerActivity
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.a_single_message.central_controls
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
@@ -81,14 +80,15 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     private lateinit var disconnect: Button
     private lateinit var layout: ViewGroup
     private lateinit var container: ViewGroup
-    private lateinit var gattlink_status: TextView
-    private lateinit var handshake_status: TextView
+    private lateinit var gattlinkStatus: TextView
+    private lateinit var handshakeStatus: TextView
     private lateinit var ggVersion: TextView
     private lateinit var linkControllerSetup: Button
     private lateinit var slowLogsToggle: Switch
     private lateinit var deviceLinking: Switch
     private lateinit var wakeLock: Switch
     private lateinit var advertiser: Advertiser
+    private lateinit var centralControls: LinearLayout
 
     private var companionDeviceManager: CompanionDeviceManager? = null
     private var bluetoothWakeLock: PowerManager.WakeLock? = null
@@ -118,23 +118,11 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getContentViewRes())
+        bindViews()
         val buildNumber = packageManager.getPackageInfo(packageName, 0).versionCode
         if (buildNumber != 10000) { //If we're not being built off a jenkins job, the version code will be 10000.
             title = "$title v$buildNumber"
         }
-
-        send = findViewById(R.id.send)
-        buildmodel = findViewById(R.id.buildmodel)
-        disconnect = findViewById(R.id.disconnect)
-        layout = findViewById(R.id.layout)
-        container = findViewById(R.id.container)
-        gattlink_status = findViewById(R.id.gattlink_status)
-        handshake_status = findViewById(R.id.handshake_status)
-        ggVersion = findViewById(R.id.gg_version)
-        linkControllerSetup = findViewById(R.id.link_controller_setup)
-        slowLogsToggle = findViewById(R.id.slow_logs_toggle)
-        deviceLinking = findViewById(R.id.deviceLinking)
-        wakeLock = findViewById(R.id.wakelock)
 
         ggVersion.setOnClickListener { showVersion() }
         buildmodel.text = Build.MODEL
@@ -144,10 +132,10 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         isBleCentralRole = intent.getBooleanExtra(EXTRA_IS_BLE_CENTRAL_ROLE, true)
 
         if (isBleCentralRole) {
-            val bluetoothDevice = intent.getParcelableExtra(EXTRA_DEVICE) as BluetoothDevice
+            val bluetoothDevice  = intent.getParcelableExtra<BluetoothDevice>(EXTRA_DEVICE)
             val gattConnection = FitbitGatt.getInstance().getConnection(bluetoothDevice)
-            if (gattConnection == null) {
-                Toast.makeText(this, "Device ${bluetoothDevice.address} not known to bitgatt", Toast.LENGTH_LONG).show()
+            if (gattConnection == null || bluetoothDevice == null) {
+                Toast.makeText(this, "Device ${bluetoothDevice?.address} not known to bitgatt", Toast.LENGTH_LONG).show()
                 finish()
                 return
             }
@@ -160,10 +148,10 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
             ) as Peer<T>
 
             if (stackConfig is DtlsSocketNetifGattlink) {
-                findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
+                handshakeStatus.visibility = View.VISIBLE
             }
-            gattlink_status.text = getString(R.string.gattlink_status, PeripheralConnectionStatus.DISCONNECTED)
-            handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
+            gattlinkStatus.text = getString(R.string.gattlink_status, PeripheralConnectionStatus.DISCONNECTED)
+            handshakeStatus.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
 
             connectToPeripheral(stackNode, currentDevice, stackConfig)
             linkControllerSetup.setOnClickListener { startLinkControllerActivity(bluetoothDevice) }
@@ -189,11 +177,11 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
         } else {
             layout.visibility = View.VISIBLE
             if (stackConfig is DtlsSocketNetifGattlink) {
-                findViewById<View>(R.id.handshake_status).visibility = View.VISIBLE
+                handshakeStatus.visibility = View.VISIBLE
             }
-            central_controls.visibility = View.GONE
-            gattlink_status.visibility = View.GONE
-            handshake_status.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
+            centralControls.visibility = View.GONE
+            gattlinkStatus.visibility = View.GONE
+            handshakeStatus.text = getString(R.string.handshake_status, DtlsProtocolStatus.TlsProtocolState.TLS_STATE_INIT.name)
 
             connectToCentral(stackConfig)
 
@@ -207,6 +195,22 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                 releasePartialWakeLock()
             }
         }
+    }
+
+    private fun bindViews() {
+        send = ActivityCompat.requireViewById(this, R.id.send)
+        buildmodel = ActivityCompat.requireViewById(this, R.id.buildmodel)
+        disconnect = ActivityCompat.requireViewById(this, R.id.disconnect)
+        layout = ActivityCompat.requireViewById(this, R.id.layout)
+        container = ActivityCompat.requireViewById(this, R.id.container)
+        gattlinkStatus = ActivityCompat.requireViewById(this, R.id.gattlink_status)
+        handshakeStatus = ActivityCompat.requireViewById(this, R.id.handshake_status)
+        ggVersion = ActivityCompat.requireViewById(this, R.id.gg_version)
+        linkControllerSetup = ActivityCompat.requireViewById(this, R.id.link_controller_setup)
+        slowLogsToggle = ActivityCompat.requireViewById(this, R.id.slow_logs_toggle)
+        deviceLinking = ActivityCompat.requireViewById(this, R.id.deviceLinking)
+        wakeLock = ActivityCompat.requireViewById(this, R.id.wakelock)
+        centralControls = ActivityCompat.requireViewById(this, R.id.central_controls)
     }
 
     private fun startAdvertisement() {
@@ -382,10 +386,10 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnNext {
                             if (it.state != DtlsProtocolStatus.TlsProtocolState.TLS_STATE_ERROR) {
-                                handshake_status.text = getString(R.string.handshake_status, it.state.name)
+                                handshakeStatus.text = getString(R.string.handshake_status, it.state.name)
                             } else {
-                                handshake_status.text = getString(R.string.handshake_status,
-                                    "%s (error code = %d)".format(it.state.name, it.lastError))
+                                handshakeStatus.text = getString(R.string.handshake_status,
+                                                                 "%s (error code = %d)".format(it.state.name, it.lastError))
                             }
                         }
                 }
@@ -396,7 +400,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
     private val listenToGattlinkStatus: (GattConnection) -> Observable<PeripheralConnectionStatus> = { connection ->
         PeripheralConnectionChangeListener().register(connection).observeOn(AndroidSchedulers.mainThread())
             .doOnNext {
-                gattlink_status.text = getString(R.string.gattlink_status, it)
+                gattlinkStatus.text = getString(R.string.gattlink_status, it)
             }
     }
 
@@ -459,7 +463,7 @@ abstract class AbstractHostActivity<T: StackService> : AppCompatActivity() {
                     onConnectionLost()
                 }
                 .subscribe({
-                    central_controls.visibility = View.VISIBLE
+                    centralControls.visibility = View.VISIBLE
                     send.visibility = View.VISIBLE
                     buildmodel.text = String.format("Connected to %s", currentDevice.fitbitDevice.btDevice.address)
 
