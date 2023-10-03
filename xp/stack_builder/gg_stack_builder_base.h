@@ -80,6 +80,7 @@ typedef struct {
     GG_Ipv4FrameSerializer*   frame_serializer;
     GG_Ipv4FrameAssembler*    frame_assembler;
     GG_GattlinkGenericClient* client;
+    size_t                    max_transport_fragment_size_limit;
 } GG_StackGattlinkElement;
 
 /**
