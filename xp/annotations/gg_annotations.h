@@ -85,7 +85,6 @@ typedef struct {
     GG_LOG_O_SEVERE(comms_error, {.has_error_details = true,              \
                                   .error_details = GG_ANNOT_ERR(err),     \
                                   .has_unexpected_psn = true,             \
-                                  .has_unexpected_psn = true,             \
                                   .unexpected_psn = {                     \
                                     .has_expected_psn = true,             \
                                     .expected_psn = exp_psn,              \
