@@ -81,15 +81,16 @@ typedef struct {
                                   .error_details = GG_ANNOT_ERR(err),   \
                                   .has_error_code = false})
 
-#define GG_LOG_COMMS_ERROR_PSN(err, exp_psn, rec_psn) \
-    GG_LOG_O_SEVERE(comms_error, {.has_error_details = true,              \
-                                  .error_details = GG_ANNOT_ERR(err),     \
-                                  .has_unexpected_psn = true,             \
-                                  .unexpected_psn = {                     \
-                                    .has_expected_psn = true,             \
-                                    .expected_psn = exp_psn,              \
-                                    .has_received_psn = true,             \
-                                    .received_psn = rec_psn},             \
+#define GG_LOG_COMMS_ERROR_PSN(err, exp_psn, rec_psn)                                 \
+    GG_LOG_O_SEVERE(comms_error, {.has_error_details = true,                          \
+                                  .error_details = GG_ANNOT_ERR(err),                 \
+                                  .which_error_info =                                 \
+                                    site_log_GoldenGate_CommsError_unexpected_psn_tag,\
+                                  .error_info.unexpected_psn = {                      \
+                                    .has_expected_psn = true,                         \
+                                    .expected_psn = exp_psn,                          \
+                                    .has_received_psn = true,                         \
+                                    .received_psn = rec_psn},                         \
                                   .has_error_code = false})
 
 #define GG_LOG_COMMS_ERROR_CODE(err, code)                              \
