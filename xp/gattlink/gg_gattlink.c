@@ -921,7 +921,7 @@ GG_GattlinkProtocol_HandleDataPacket(GG_GattlinkProtocol* self,
         GG_LOG_WARNING("Received previously received PSN (%d) != Expected (%d), Re-acking with last received PSN (%d)",
                        (int)psn, (int)self->in.next_expected_data_psn, self->out.psn_to_ack_with);
         GG_LOG_COMMS_ERROR_PSN(GG_LIB_GATTLINK_UNEXPECTED_PSN,
-                               (int)self->out.psn_to_ack_with, (int)psn);
+                               (int)self->out.next_expected_ack_sn, (int)psn);
     }
 
     // Increment the number of unacked packets
