@@ -17,6 +17,7 @@
 /*----------------------------------------------------------------------
 |   includes
 +---------------------------------------------------------------------*/
+#include "xp/annotations/gg_annotations.h"
 #include "xp/common/gg_logging.h"
 #include "xp/common/gg_threads.h"
 #include "xp/coap/gg_coap.h"
@@ -239,6 +240,8 @@ GG_CoapEventEmitter_OnError(GG_CoapResponseListener* _self, GG_Result error, con
         // after a timeout, we can retry immediately
         GG_CoapEventEmitter_Update(self);
     } else {
+        GG_LOG_COMMS_ERROR_CODE(GG_LIB_UTILS_COAP_EVENT_EMITTER_REQ_ERROR, error);
+
         // after another error, wait before retrying
         GG_Timer_Schedule(self->timer, GG_CAST(self, GG_TimerListener), self->retry_delay);
     }
