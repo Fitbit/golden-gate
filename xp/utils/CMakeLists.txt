@@ -28,7 +28,7 @@ set(HEADERS gg_async_pipe.h
 add_library(gg-utils ${SOURCES} ${HEADERS})
 gg_add_to_all_libs(gg-utils)
 
-target_link_libraries(gg-utils PRIVATE gg-common)
+target_link_libraries(gg-utils PRIVATE gg-annotations gg-common)
 
 set_target_properties(gg-utils PROPERTIES PUBLIC_HEADER "${HEADERS}")
 install(TARGETS gg-utils EXPORT golden-gate
